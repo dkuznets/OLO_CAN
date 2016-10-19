@@ -1575,7 +1575,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(962, 654);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Тестирование ОЛО";
+            this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btn_REQTIME

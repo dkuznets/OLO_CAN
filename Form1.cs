@@ -529,7 +529,7 @@ namespace OLO_CAN
             gb_Image14.Enabled = true;
             gb_Image24.Enabled = true;
             gb_Temperature.Enabled = true;
-            timer_temperature.Enabled = true;
+            //timer_temperature.Enabled = true;
             bt_About4.Enabled = true;
             bt_Exit4.Enabled = true;
             lb_test_plis.Text = "";
@@ -1745,15 +1745,6 @@ namespace OLO_CAN
 //            Byte[] image_data = new Byte[IMAGE_CX * IMAGE_CY];
             Byte[] image_data = new Byte[0];
 
-            //if (_state == State.StoppingVideoState)
-            //{
-            //    chb_PRunVideo.Checked = false;
-            //    chb_PShot.Checked = false;
-            //    //                            _state = State.NotOpenState;
-            //    _state = State.OpenedState;
-            //    //                            uniCAN.Close();
-            //    return;
-            //}
             if (_state != State.VideoState)
                 return;
 
@@ -1775,6 +1766,7 @@ namespace OLO_CAN
                         Trace.WriteLine("Err recv image data");
                         return;
                     }
+                    #region Режим калибровки (поиска плохих точек)
                     if (chb_Calibr.Checked)
                     {
                         if (calibration_started == false)
@@ -1811,9 +1803,10 @@ namespace OLO_CAN
                         calibration_started = false;
                     }
                     lb_num_bad_points.Text = "Плохих точек:" + list_badpix_FIFO.Count().ToString();
+                    #endregion
                 }
-//                if (_state != State.VideoState)
-//                    return;
+                    //if (_state != State.VideoState)
+                    //    return;
 
                 // read CMOS FIFO buffer size
                 Trace.WriteLine("Чтение кол-ва выстрелов");
