@@ -2024,7 +2024,7 @@ namespace OLO_CAN
 
         }
         #endregion
-       #region Окно зума и обработка кликов мыши
+        #region Окно зума и обработка кликов мыши
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -2039,7 +2039,6 @@ namespace OLO_CAN
                 }
             }
         }
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -2076,7 +2075,6 @@ namespace OLO_CAN
                 }
             }
         }
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -2094,7 +2092,6 @@ namespace OLO_CAN
                 }
             }
         }
-
         void DrawSelectionFrame()
         {
             if (pictureBox1.Image != null)
@@ -2107,7 +2104,6 @@ namespace OLO_CAN
                 }
             }
         }
-
         void HideSelection()
         {
             m_bAreaSelected = false;
@@ -4192,6 +4188,15 @@ namespace OLO_CAN
             timer_temperature.Enabled = true;
             gb_Tests.Enabled = true;
             lb_test_D21_1.Text += (((frame.data[0] & 0x01) >> 0) == 1 ? "Test 4 - OK\r\n" : "Test 4 - ERR" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X6") + " 0x" + frame.data[1].ToString("X2") + " 0x" + frame.data[2].ToString("X2") + "\r\n");
+            // Test 5 random pattern
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            timer_temperature.Enabled = true;
+            gb_Tests.Enabled = true;
+            lb_test_D21_1.Text += (((frame.data[0] & 0x01) >> 0) == 1 ? "Test 5 - OK\r\n" : "Test 5 - ERR" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X6") + " 0x" + frame.data[1].ToString("X2") + " 0x" + frame.data[2].ToString("X2") + "\r\n");
         }
         #endregion
         #region Test 2 RAM D21
@@ -4262,7 +4267,7 @@ namespace OLO_CAN
             }
             timer_temperature.Enabled = true;
             gb_Tests.Enabled = true;
-            lb_test_D13_2.Text = (frame.data[0] > 0 ? "OK" : "ОШИБКА" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X8"));
+            lb_test_D13_2.Text = (frame.data[0] > 0 ? "OK" : "ОШИБКА" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X8") + " 0x" + frame.data[1].ToString("X2") + " 0x" + frame.data[2].ToString("X2"));
 
         }
         #endregion
@@ -4309,7 +4314,7 @@ namespace OLO_CAN
             }
             timer_temperature.Enabled = true;
             gb_Tests.Enabled = true;
-            lb_test_D19_2.Text = (frame.data[0] > 0 ? "OK" : "ОШИБКА" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X8"));
+            lb_test_D19_2.Text = (frame.data[0] > 0 ? "OK" : "ОШИБКА" + " 0x" + BitConverter.ToUInt32(frame.data, 3).ToString("X8") + " 0x" + frame.data[1].ToString("X2") + " 0x" + frame.data[2].ToString("X2"));
         }
         #endregion
         #region Тест FLASH

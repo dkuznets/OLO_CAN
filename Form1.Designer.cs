@@ -493,6 +493,7 @@
             this.rb_RightW.TabIndex = 26;
             this.rb_RightW.Text = "Правый";
             this.rb_RightW.UseVisualStyleBackColor = true;
+            this.rb_RightW.CheckedChanged += new System.EventHandler(this.rb_RightW_CheckedChanged);
             // 
             // rb_LeftW
             // 
@@ -505,6 +506,7 @@
             this.rb_LeftW.TabStop = true;
             this.rb_LeftW.Text = "Левый";
             this.rb_LeftW.UseVisualStyleBackColor = true;
+            this.rb_LeftW.CheckedChanged += new System.EventHandler(this.rb_LeftW_CheckedChanged);
             // 
             // bt_SaveConf
             // 
@@ -1144,6 +1146,9 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // gbox_CAN
             // 
@@ -2593,7 +2598,7 @@
             // 
             this.lb_test_D19_2.AutoSize = true;
             this.lb_test_D19_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_D19_2.Location = new System.Drawing.Point(185, 232);
+            this.lb_test_D19_2.Location = new System.Drawing.Point(185, 251);
             this.lb_test_D19_2.Name = "lb_test_D19_2";
             this.lb_test_D19_2.Size = new System.Drawing.Size(0, 13);
             this.lb_test_D19_2.TabIndex = 28;
@@ -2601,7 +2606,7 @@
             // 
             // bt_test_D19_2
             // 
-            this.bt_test_D19_2.Location = new System.Drawing.Point(6, 227);
+            this.bt_test_D19_2.Location = new System.Drawing.Point(6, 246);
             this.bt_test_D19_2.Name = "bt_test_D19_2";
             this.bt_test_D19_2.Size = new System.Drawing.Size(150, 23);
             this.bt_test_D19_2.TabIndex = 27;
@@ -2613,7 +2618,7 @@
             // 
             this.lb_test_D13_2.AutoSize = true;
             this.lb_test_D13_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_D13_2.Location = new System.Drawing.Point(185, 203);
+            this.lb_test_D13_2.Location = new System.Drawing.Point(185, 222);
             this.lb_test_D13_2.Name = "lb_test_D13_2";
             this.lb_test_D13_2.Size = new System.Drawing.Size(0, 13);
             this.lb_test_D13_2.TabIndex = 26;
@@ -2621,7 +2626,7 @@
             // 
             // bt_test_D13_2
             // 
-            this.bt_test_D13_2.Location = new System.Drawing.Point(6, 198);
+            this.bt_test_D13_2.Location = new System.Drawing.Point(6, 217);
             this.bt_test_D13_2.Name = "bt_test_D13_2";
             this.bt_test_D13_2.Size = new System.Drawing.Size(150, 23);
             this.bt_test_D13_2.TabIndex = 25;
@@ -2633,7 +2638,7 @@
             // 
             this.lb_test_FLASH_2.AutoSize = true;
             this.lb_test_FLASH_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_FLASH_2.Location = new System.Drawing.Point(281, 261);
+            this.lb_test_FLASH_2.Location = new System.Drawing.Point(281, 280);
             this.lb_test_FLASH_2.Name = "lb_test_FLASH_2";
             this.lb_test_FLASH_2.Size = new System.Drawing.Size(0, 13);
             this.lb_test_FLASH_2.TabIndex = 24;
@@ -2674,7 +2679,7 @@
             // chb_cycle_test_D19
             // 
             this.chb_cycle_test_D19.AutoSize = true;
-            this.chb_cycle_test_D19.Location = new System.Drawing.Point(165, 174);
+            this.chb_cycle_test_D19.Location = new System.Drawing.Point(165, 193);
             this.chb_cycle_test_D19.Name = "chb_cycle_test_D19";
             this.chb_cycle_test_D19.Size = new System.Drawing.Size(15, 14);
             this.chb_cycle_test_D19.TabIndex = 16;
@@ -2683,7 +2688,7 @@
             // chb_cycle_test_D13
             // 
             this.chb_cycle_test_D13.AutoSize = true;
-            this.chb_cycle_test_D13.Location = new System.Drawing.Point(165, 145);
+            this.chb_cycle_test_D13.Location = new System.Drawing.Point(165, 164);
             this.chb_cycle_test_D13.Name = "chb_cycle_test_D13";
             this.chb_cycle_test_D13.Size = new System.Drawing.Size(15, 14);
             this.chb_cycle_test_D13.TabIndex = 15;
@@ -2702,7 +2707,7 @@
             // 
             this.lb_test_FLASH.AutoSize = true;
             this.lb_test_FLASH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_FLASH.Location = new System.Drawing.Point(187, 261);
+            this.lb_test_FLASH.Location = new System.Drawing.Point(187, 280);
             this.lb_test_FLASH.Name = "lb_test_FLASH";
             this.lb_test_FLASH.Size = new System.Drawing.Size(0, 13);
             this.lb_test_FLASH.TabIndex = 13;
@@ -2710,7 +2715,7 @@
             // 
             // bt_test_FLASH
             // 
-            this.bt_test_FLASH.Location = new System.Drawing.Point(6, 256);
+            this.bt_test_FLASH.Location = new System.Drawing.Point(6, 275);
             this.bt_test_FLASH.Name = "bt_test_FLASH";
             this.bt_test_FLASH.Size = new System.Drawing.Size(150, 23);
             this.bt_test_FLASH.TabIndex = 12;
@@ -2722,7 +2727,7 @@
             // 
             this.lb_test_D21_2.AutoSize = true;
             this.lb_test_D21_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_D21_2.Location = new System.Drawing.Point(186, 116);
+            this.lb_test_D21_2.Location = new System.Drawing.Point(186, 135);
             this.lb_test_D21_2.Name = "lb_test_D21_2";
             this.lb_test_D21_2.Size = new System.Drawing.Size(0, 13);
             this.lb_test_D21_2.TabIndex = 9;
@@ -2730,7 +2735,7 @@
             // 
             // bt_test_D21_2
             // 
-            this.bt_test_D21_2.Location = new System.Drawing.Point(6, 111);
+            this.bt_test_D21_2.Location = new System.Drawing.Point(6, 130);
             this.bt_test_D21_2.Name = "bt_test_D21_2";
             this.bt_test_D21_2.Size = new System.Drawing.Size(150, 23);
             this.bt_test_D21_2.TabIndex = 8;
@@ -2742,7 +2747,7 @@
             // 
             this.lb_test_D19.AutoSize = true;
             this.lb_test_D19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_D19.Location = new System.Drawing.Point(186, 174);
+            this.lb_test_D19.Location = new System.Drawing.Point(186, 193);
             this.lb_test_D19.Name = "lb_test_D19";
             this.lb_test_D19.Size = new System.Drawing.Size(0, 13);
             this.lb_test_D19.TabIndex = 7;
@@ -2750,7 +2755,7 @@
             // 
             // bt_test_D19
             // 
-            this.bt_test_D19.Location = new System.Drawing.Point(6, 169);
+            this.bt_test_D19.Location = new System.Drawing.Point(6, 188);
             this.bt_test_D19.Name = "bt_test_D19";
             this.bt_test_D19.Size = new System.Drawing.Size(150, 23);
             this.bt_test_D19.TabIndex = 6;
@@ -2762,7 +2767,7 @@
             // 
             this.lb_test_D13.AutoSize = true;
             this.lb_test_D13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_test_D13.Location = new System.Drawing.Point(186, 145);
+            this.lb_test_D13.Location = new System.Drawing.Point(186, 164);
             this.lb_test_D13.Name = "lb_test_D13";
             this.lb_test_D13.Size = new System.Drawing.Size(0, 13);
             this.lb_test_D13.TabIndex = 5;
@@ -2770,7 +2775,7 @@
             // 
             // bt_test_D13
             // 
-            this.bt_test_D13.Location = new System.Drawing.Point(6, 140);
+            this.bt_test_D13.Location = new System.Drawing.Point(6, 159);
             this.bt_test_D13.Name = "bt_test_D13";
             this.bt_test_D13.Size = new System.Drawing.Size(150, 23);
             this.bt_test_D13.TabIndex = 4;
