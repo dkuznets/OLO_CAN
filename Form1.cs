@@ -13,6 +13,7 @@ using System.Threading;
 using System.Drawing.Drawing2D;
 using System.Reflection;
 using System.Diagnostics;
+using TM = System.Timers;
 
 namespace OLO_CAN
 {
@@ -82,7 +83,7 @@ namespace OLO_CAN
         static Byte[] Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
 
         MCANConverter marCAN = null;
-        M2CANConverter mar2CAN = null;
+//        M2CANConverter mar2CAN = null;
         ACANConverter advCAN = null;
         ECANConverter elcCAN = null;
 
@@ -158,8 +159,16 @@ namespace OLO_CAN
 
         bool mousetest = false;
 
+        TM.Timer rstTimer3 = new TM.Timer();
+
+        UInt16 count_l = 0, count_r = 0;
+
         #endregion
 
+        #region Tab3
+        SaveFileDialog savelog = new SaveFileDialog();
+        StreamWriter logwr;
+        #endregion
         #region Преобразование номера версии
         public _u32 VERSUB(_u32 ver)
         {
@@ -225,18 +234,18 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
-            try
-            {
-                mar2CAN = new M2CANConverter();
-                if (mar2CAN.Is_Present)
-                {
-                    comboBox1.Items.Add("USB Marathon2");
-                    mar2CAN.Close();
-                }
-            }
-            catch (Exception)
-            {
-            }
+            //try
+            //{
+            //    mar2CAN = new M2CANConverter();
+            //    if (mar2CAN.Is_Present)
+            //    {
+            //        comboBox1.Items.Add("USB Marathon2");
+            //        mar2CAN.Close();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
             try
             {
                 advCAN = new ACANConverter();
@@ -261,11 +270,20 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
+
+
             if (comboBox1.Items.Count == 0)
             {
                 comboBox1.Items.Add("No CAN");
                 comboBox1.SelectedIndex = 0;
                 lb_error_CAN.Text = "CAN-контроллеры не найдены!";
+                for (int k = 1; k < 5; k++)
+                {
+                    cb_CAN[k].Items.Clear();
+                    foreach (var item in comboBox1.Items)
+                        cb_CAN[k].Items.Add(item);
+                    cb_CAN[k].SelectedIndex = 0;
+                }
                 state_Error();
                 return;
             }
@@ -329,6 +347,7 @@ namespace OLO_CAN
             lb_version.Visible = false;
             state_Error();
             uniCAN.Close();
+            uniCAN = null;
             lb_error_CAN4.Text = e.Text;
         }
         private void Progress_Handler(object sender, MyEventArgs e)
@@ -416,6 +435,8 @@ namespace OLO_CAN
             panel3.Enabled = false;
             gb_olo_L.Enabled = false;
             gb_olo_R.Enabled = false;
+            chb4_enshl.CheckState = CheckState.Unchecked;
+            chb4_enshr.CheckState = CheckState.Unchecked;
 
             // Tab4
             bt_CloseCAN4.Enabled = false;
@@ -438,7 +459,7 @@ namespace OLO_CAN
             lb_CMOS14.Text = "";
             bt_About4.Enabled = true;
             bt_Exit4.Enabled = true;
-
+            сброс_результатов();
         }
         private void state_Ready()
         {
@@ -584,7 +605,13 @@ namespace OLO_CAN
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cb_CAN[tabControl1.SelectedIndex].SelectedIndex = cb_CAN[currTab].SelectedIndex;
+            try
+            {
+                cb_CAN[tabControl1.SelectedIndex].SelectedIndex = cb_CAN[currTab].SelectedIndex;
+            }
+            catch (Exception)
+            {
+            }
             switch (tabControl1.SelectedIndex)
             {
                 case 0:
@@ -707,11 +734,11 @@ namespace OLO_CAN
                 marCAN = new MCANConverter();
                 uniCAN = marCAN as MCANConverter;
             }
-            else if (comboBox1.SelectedItem.ToString() == "USB Marathon2")
-            {
-                mar2CAN = new M2CANConverter();
-                uniCAN = mar2CAN as M2CANConverter;
-            }
+            //else if (comboBox1.SelectedItem.ToString() == "USB Marathon2")
+            //{
+            //    mar2CAN = new M2CANConverter();
+            //    uniCAN = mar2CAN as M2CANConverter;
+            //}
             else if (comboBox1.SelectedItem.ToString() == "PCI Advantech")
             {
                 advCAN = new ACANConverter();
@@ -2784,6 +2811,7 @@ namespace OLO_CAN
             timer_testOLO_L.Enabled = false;
             timer_testOLO_R.Enabled = false;
             //Timer_UpdateTime.Enabled = false;
+            chb3_savelog.CheckState = CheckState.Unchecked;
         }
         private void bt_OpenCAN2_Click(object sender, EventArgs e)
         {
@@ -2821,6 +2849,11 @@ namespace OLO_CAN
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
             Timer_GetData.Enabled = true;
+
+            rstTimer3.AutoReset = false;
+            rstTimer3.Interval = 5000;
+            chb3_savelog.CheckState = CheckState.Unchecked;
+            //            rstTimer3.
         }
         private void timer_testOLO_L_Tick(object sender, EventArgs e)
         {
@@ -2850,6 +2883,7 @@ namespace OLO_CAN
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
+            int az = 0, um = 0;
             while (uniCAN.VectorSize() > 0)
             {
                 uniCAN.Recv(ref msg, 100);
@@ -2894,16 +2928,37 @@ namespace OLO_CAN
                 switch (messages[i].messageID)
                 {
                     case msg_t.mID_DATA:
-                        int az = BitConverter.ToInt16(messages[i].messageData, 4);
-                        int um = BitConverter.ToInt16(messages[i].messageData, 6);
-                        mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
-                              "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                        Shots sh = new Shots();
-                        sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
-                        sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
-                        sh.ugol = BitConverter.ToInt16(messages[i].messageData, 6);
-                        list_shots.Add(sh);
+                        az = BitConverter.ToInt16(messages[i].messageData, 4);
+                        um = BitConverter.ToInt16(messages[i].messageData, 6);
+                        //az = BitConverter.ToUInt16(messages[i].messageData, 4);
+                        //um = BitConverter.ToUInt16(messages[i].messageData, 6);
+                        if (az >= 0)
+                            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+                        else
+                            mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
+                        if(um >= 0)
+                              mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                        else
+                              mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
+
+                        if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
+                        {
+                            Shots sh = new Shots();
+                            sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
+                            sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
+                            sh.ugol = BitConverter.ToInt16(messages[i].messageData, 6);
+                            list_shots.Add(sh);
+                        }
+                        //if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
+                        //{
+                        //    Shots sh = new Shots();
+                        //    sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
+                        //    sh.azimut = BitConverter.ToUInt16(messages[i].messageData, 4);
+                        //    sh.ugol = BitConverter.ToUInt16(messages[i].messageData, 6);
+                        //    list_shots.Add(sh);
+                        //}
                         //label3.Text = list_shots.Count.ToString();
+                        
                         if (timer_Reset_Shots.Enabled == false)
                         {
                             timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
@@ -2999,18 +3054,33 @@ namespace OLO_CAN
                 for (int j = 0; j < messages[i].messageLen; j++)
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
 
-                if (scroll)
+                if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
+//              if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
                 {
-                    dgview2.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString(""), messages[i].messageID.ToString("X2"));
-                    dgview2.FirstDisplayedScrollingRowIndex = dgview2.Rows.Count - 1;
-                }
+                    if (scroll)
+                    {
+                        if (dgview2.RowCount >= 100)
+                            dgview2.Rows.Clear();
+                        dgview2.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
+                        dgview2.FirstDisplayedScrollingRowIndex = dgview2.Rows.Count - 1;
+                    }
 
-                //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
-                //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
-                if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                    dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
+                    if (chb3_savelog.Checked)
+                    {
+                        logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
+                        logwr.Write(strelka_s + ";");
+                        logwr.Write(rawdata + ";");
+                        logwr.Write(mss + ";");
+                        logwr.WriteLine(messages[i].messageID.ToString("X2") + ";");
+                    }
+
+                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
+                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
+                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
+                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
+                    if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
+                        dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
+                }
             }
             if (scroll)
                 messages.Clear();
@@ -3138,19 +3208,22 @@ namespace OLO_CAN
                 {
                     int x = 0, y = 0;
                     int z = 0;
-                    if ((it.ugol / 60) <= 90)
-                        z = (int)(it.ugol / 60 * Math.Sin(it.ugol / 60 * Math.PI / 180));
+                    // костылик, мля... лениво думать...
+                    int ugol = it.ugol + 5400, azimut = it.azimut + 5400;
+
+                    if ((ugol / 60) <= 90)
+                        z = (int)(ugol / 60 * Math.Sin(ugol / 60 * Math.PI / 180));
                     else
-                        z = (int)((180 - it.ugol / 60) * Math.Sin((180 - it.ugol / 60) * Math.PI / 180));
+                        z = (int)((180 - ugol / 60) * Math.Sin((180 - ugol / 60) * Math.PI / 180));
                     if (it.bort == 1)
                     {
-                        x = (int)(z * Math.Cos((Double)((it.azimut - 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)((it.azimut - 90 * 60) / 60 * Math.PI / 180)));
+                        x = (int)(z * Math.Cos((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
                     }
                     else
                     {
-                        x = (int)(z * Math.Cos((Double)(-(it.azimut + 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)(-(it.azimut + 90 * 60) / 60 * Math.PI / 180)));
+                        x = (int)(z * Math.Cos((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
                     }
                     gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
                 }
@@ -3261,6 +3334,22 @@ namespace OLO_CAN
                 return;
             messages.Add(mm);
         }
+        private void chb3_savelog_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb3_savelog.Checked)
+            {
+                savelog.DefaultExt = "csv";
+                savelog.Filter = "Файлы логов (*.csv)|*.csv";
+                savelog.FileName = "log_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".csv";
+                if (savelog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    logwr = new StreamWriter(savelog.FileName, false, Encoding.Default);
+            }
+            else
+            {
+                chb3_savelog.Checked = false;
+                logwr.Close();
+            }
+        }
         #endregion
         #region OLO_Emu
         #region CAN
@@ -3340,8 +3429,8 @@ namespace OLO_CAN
             int az, um;
             if (!chb3_shoot_ena.Checked)
             {
-                az = r.Next(180 * 60);
-                um = r.Next(180 * 60);
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
             }
             else
             {
@@ -3374,8 +3463,8 @@ namespace OLO_CAN
             int az, um;
             if (!chb3_shoot_ena.Checked)
             {
-                az = r.Next(180 * 60);
-                um = r.Next(180 * 60);
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
             }
             else
             {
@@ -3789,8 +3878,16 @@ namespace OLO_CAN
                     case msg_t.mID_DATA:
                         int az = BitConverter.ToInt16(messages[i].messageData, 4);
                         int um = BitConverter.ToInt16(messages[i].messageData, 6);
-                        mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
-                              "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                        //mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
+                        //      "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                        if (az >= 0)
+                            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+                        else
+                            mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
+                        if(um >= 0)
+                              mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                        else
+                              mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
                         Shots sh = new Shots();
                         sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
                         sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
@@ -3825,60 +3922,68 @@ namespace OLO_CAN
 
                 if (scroll)
                 {
-                    dgview3.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString(""), messages[i].messageID.ToString("X2"));
+                    if (dgview3.RowCount >= 100)
+                        dgview3.Rows.Clear();
+                    dgview3.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
                     dgview3.FirstDisplayedScrollingRowIndex = dgview3.Rows.Count - 1;
+                    if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
+                        dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                 }
 
                 //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
                 //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
                 //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
                 //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
-                if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                    dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
             }
             if (scroll)
                 messages.Clear();
         }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            Graphics gr = e.Graphics;
-            Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
-            gr.FillEllipse(new SolidBrush(Color.White), 0, 0, 199, 199);
-            gr.DrawEllipse(p, 0, 0, 199, 199);
-
-            for (int i = 0; i < 12; i++)
+            if (!chb4_nopaint.Checked)
             {
-                Point p1 = new Point(99, 99);// первая точка
-                int x = (int)(99 * Math.Cos((Double)(i * 30 * Math.PI / 180)));
-                int y = (int)(99 * Math.Sin((Double)(i * 30 * Math.PI / 180)));
-                Point p2 = new Point(x + 99, y + 99);// вторая точка
-                gr.DrawLine(p, p1, p2);// рисуем линию
-            }
+                Graphics gr = e.Graphics;
+                Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
+                gr.FillEllipse(new SolidBrush(Color.White), 0, 0, 199, 199);
+                gr.DrawEllipse(p, 0, 0, 199, 199);
 
-            if (list_shots.Count > 0)
-            {
-                foreach (var it in list_shots)
+                for (int i = 0; i < 12; i++)
                 {
-                    int x = 0, y = 0;
-                    int z = 0;
-                    if ((it.ugol / 60) <= 90)
-                        z = (int)(it.ugol / 60 * Math.Sin(it.ugol / 60 * Math.PI / 180));
-                    else
-                        z = (int)((180 - it.ugol / 60) * Math.Sin((180 - it.ugol / 60) * Math.PI / 180));
-                    if (it.bort == 1)
-                    {
-                        x = (int)(z * Math.Cos((Double)((it.azimut - 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)((it.azimut - 90 * 60) / 60 * Math.PI / 180)));
-                    }
-                    else
-                    {
-                        x = (int)(z * Math.Cos((Double)(-(it.azimut + 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)(-(it.azimut + 90 * 60) / 60 * Math.PI / 180)));
-                    }
-                    gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                    Point p1 = new Point(99, 99);// первая точка
+                    int x = (int)(99 * Math.Cos((Double)(i * 30 * Math.PI / 180)));
+                    int y = (int)(99 * Math.Sin((Double)(i * 30 * Math.PI / 180)));
+                    Point p2 = new Point(x + 99, y + 99);// вторая точка
+                    gr.DrawLine(p, p1, p2);// рисуем линию
                 }
+
+                if (list_shots.Count > 0)
+                {
+                    foreach (var it in list_shots)
+                    {
+                        int x = 0, y = 0;
+                        int z = 0;
+                        // костылик, мля... лениво думать...
+                        int ugol = it.ugol + 5400, azimut = it.azimut + 5400;
+
+                        if ((ugol / 60) <= 90)
+                            z = (int)(ugol / 60 * Math.Sin(ugol / 60 * Math.PI / 180));
+                        else
+                            z = (int)((180 - ugol / 60) * Math.Sin((180 - ugol / 60) * Math.PI / 180));
+                        if (it.bort == 1)
+                        {
+                            x = (int)(z * Math.Cos((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
+                            y = (int)(z * Math.Sin((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
+                        }
+                        else
+                        {
+                            x = (int)(z * Math.Cos((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
+                            y = (int)(z * Math.Sin((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
+                        }
+                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                    }
+                }
+                gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
             }
-            gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
         }
         private void timer_Reset_Shots3_Tick(object sender, EventArgs e)
         {
@@ -4003,13 +4108,24 @@ namespace OLO_CAN
             if (chb3_shoot_ena.Checked)
             {
                 lb3_shoot_az_val.Enabled = true;
+                lb3_freq_val.Enabled = true;
+                lb3_freq_txt.Enabled = true;
                 lb3_shoot_um_val.Enabled = true;
                 lb3_shoot_az_txt.Enabled = true;
                 lb3_shoot_um_txt.Enabled = true;
-                lb3_shoot_az_val.Text = (trackBar3_az.Value / 60).ToString("0'°'") + (trackBar3_az.Value % 60).ToString() + "' ";
-                lb3_shoot_um_val.Text = (trackBar3_um.Value / 60).ToString("0'°'") + (trackBar3_um.Value % 60).ToString() + "' ";
+                if(trackBar3_az.Value >= 0)
+                    lb3_shoot_az_val.Text = (trackBar3_az.Value / 60).ToString("0'°'") + (trackBar3_az.Value % 60).ToString() + "' ";
+                else
+                    lb3_shoot_az_val.Text = "-" + (Math.Abs(trackBar3_az.Value) / 60).ToString("0'°'") + (Math.Abs(trackBar3_az.Value) % 60).ToString() + "' ";
+                if(trackBar3_um.Value >= 0)
+                    lb3_shoot_um_val.Text = (trackBar3_um.Value / 60).ToString("0'°'") + (trackBar3_um.Value % 60).ToString() + "' ";
+                else
+                    lb3_shoot_um_val.Text = "-" + (Math.Abs(trackBar3_um.Value) / 60).ToString("0'°'") + (Math.Abs(trackBar3_um.Value) % 60).ToString() + "' ";
+
                 trackBar3_az.Enabled = true;
                 trackBar3_um.Enabled = true;
+                trackBar1.Enabled = true;
+                lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
             }
             else
             {
@@ -4017,8 +4133,11 @@ namespace OLO_CAN
                 lb3_shoot_um_val.Enabled = false;
                 lb3_shoot_az_txt.Enabled = false;
                 lb3_shoot_um_txt.Enabled = false;
+                lb3_freq_val.Enabled = false;
+                lb3_freq_txt.Enabled = false;
                 trackBar3_az.Enabled = false;
                 trackBar3_um.Enabled = false;
+                trackBar1.Enabled = false;
             }
         }
         #endregion
@@ -4096,6 +4215,7 @@ namespace OLO_CAN
         {
             timer_temperature.Enabled = false;
 
+            uniCAN.Recv_Disable();
             if (uniCAN != null && uniCAN.Is_Open)
             {
                 uniCAN.Recv_Disable();
@@ -4103,7 +4223,6 @@ namespace OLO_CAN
             }
             state_Error();
             lb_error_CAN4.Visible = false;
-            uniCAN.Recv_Disable();
             uniCAN = null;
         }
         #region Тест загрузки ПЛИС
@@ -4578,102 +4697,280 @@ namespace OLO_CAN
         #region Получаем температуру по таймеру и переключаем циклические тесты
         private void timer_temperature_Tick(object sender, EventArgs e)
         {
-            if (uniCAN.Is_Open)
+            if (chb5_timer_enable.Checked)
             {
-                // Запрос температуры
-                frame.id = Const.CAN_ID_GET_TEMPERATURES;
-                Array.Clear(frame.data, 0, 8);
-                if (!uniCAN.Send(ref frame))
-                    return;
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
-                    return;
-                else
+                if (uniCAN != null && uniCAN.Is_Open)
                 {
-                    if (frame.id == 0xA7)
-                        lb_version.Text = "Тестовая прошивка v." + frame.data[3].ToString();
-                    lb_version.Visible = true;
-                    lb_T1_val4.Text = ((_s8)frame.data[0]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
-                    lb_T2_val4.Text = ((_s8)frame.data[1]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
-                    lb_T3_val4.Text = ((_s8)frame.data[2]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
-                }
+                    // Запрос температуры
+                    frame.id = Const.CAN_ID_GET_TEMPERATURES;
+                    Array.Clear(frame.data, 0, 8);
+                    if (!uniCAN.Send(ref frame))
+                        return;
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
+                        return;
+                    else
+                    {
+                        if (frame.id == 0xA7)
+                            lb_version.Text = "Тестовая прошивка v." + frame.data[3].ToString();
+                        lb_version.Visible = true;
+                        lb_T1_val4.Text = ((_s8)frame.data[0]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
+                        lb_T2_val4.Text = ((_s8)frame.data[1]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
+                        lb_T3_val4.Text = ((_s8)frame.data[2]).ToString("'+'##.0'°';'-'##.0'°';'0°'");
+                    }
 
-                // Старт - стоп генератора синуса
-                if (chb_Sin.Checked && generator_running == false)
-                {
-                    frame.id = Const.CAN_ID_RUN_GENERATOR;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    generator_running = true;
-                }
-                if (!chb_Sin.Checked && generator_running == true)
-                {
-                    frame.id = Const.CAN_ID_STOP_GENERATOR;
-                    Array.Clear(frame.data, 0, 8);
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    generator_running = false;
-                }
+                    // Старт - стоп генератора синуса
+                    if (chb_Sin.Checked && generator_running == false)
+                    {
+                        frame.id = Const.CAN_ID_RUN_GENERATOR;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        generator_running = true;
+                    }
+                    if (!chb_Sin.Checked && generator_running == true)
+                    {
+                        frame.id = Const.CAN_ID_STOP_GENERATOR;
+                        Array.Clear(frame.data, 0, 8);
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        generator_running = false;
+                    }
 
-                // Старт - стоп теста D21
-                if (chb_cycle_test_D21.Checked && cycle_test_D21_running == false)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D21_RUN;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D21_running = true;
-                }
-                if (!chb_cycle_test_D21.Checked && cycle_test_D21_running == true)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D21_STOP;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D21_running = false;
-                }
+                    // Старт - стоп теста D21
+                    if (chb_cycle_test_D21.Checked && cycle_test_D21_running == false)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D21_RUN;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D21_running = true;
+                    }
+                    if (!chb_cycle_test_D21.Checked && cycle_test_D21_running == true)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D21_STOP;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D21_running = false;
+                    }
 
-                // Старт - стоп теста D13
-                if (chb_cycle_test_D13.Checked && cycle_test_D13_running == false)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D13_RUN;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D13_running = true;
-                }
-                if (!chb_cycle_test_D13.Checked && cycle_test_D13_running == true)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D13_STOP;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D13_running = false;
-                }
+                    // Старт - стоп теста D13
+                    if (chb_cycle_test_D13.Checked && cycle_test_D13_running == false)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D13_RUN;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D13_running = true;
+                    }
+                    if (!chb_cycle_test_D13.Checked && cycle_test_D13_running == true)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D13_STOP;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D13_running = false;
+                    }
 
-                // Старт - стоп теста D19
-                if (chb_cycle_test_D19.Checked && cycle_test_D19_running == false)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D19_RUN;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D19_running = true;
-                }
-                if (!chb_cycle_test_D19.Checked && cycle_test_D19_running == true)
-                {
-                    frame.id = Const.CAN_ID_TEST_RAM_D19_STOP;
-                    Array.Clear(frame.data, 0, 8);
-                    if (!uniCAN.Send(ref frame))
-                        return;
-                    cycle_test_D19_running = false;
+                    // Старт - стоп теста D19
+                    if (chb_cycle_test_D19.Checked && cycle_test_D19_running == false)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D19_RUN;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D19_running = true;
+                    }
+                    if (!chb_cycle_test_D19.Checked && cycle_test_D19_running == true)
+                    {
+                        frame.id = Const.CAN_ID_TEST_RAM_D19_STOP;
+                        Array.Clear(frame.data, 0, 8);
+                        if (!uniCAN.Send(ref frame))
+                            return;
+                        cycle_test_D19_running = false;
+                    }
                 }
             }
         }
 
         #endregion
-
+        #region Тесты шины данных и адреса
+        private void chb5_d21_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb5_d21.Checked)
+            {
+                chb5_d13.Enabled = false;
+                chb5_d19.Enabled = false;
+                gb5_ba.Enabled = false;
+                gb5_bd.Enabled = false;
+                timer_temperature.Enabled = false;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D21_E;
+                Byte ba = 0, bd = 0;
+                if (rb5_d_0.Checked)
+                    bd = 0;
+                if (rb5_d_1.Checked)
+                    bd = 1;
+                if (rb5_d_01.Checked)
+                    bd = 2;
+                if (rb5_a_0.Checked)
+                    ba = 0;
+                if (rb5_a_1.Checked)
+                    ba = 1;
+                if (rb5_a_01.Checked)
+                    ba = 2;
+                frame.data[0] = bd;
+                frame.data[1] = ba;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+            else
+            {
+                chb5_d13.Enabled = true;
+                chb5_d19.Enabled = true;
+                gb5_ba.Enabled = true;
+                gb5_bd.Enabled = true;
+                timer_temperature.Enabled = true;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D21_D;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+        }
+        private void chb5_d13_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb5_d13.Checked)
+            {
+                chb5_d21.Enabled = false;
+                chb5_d19.Enabled = false;
+                gb5_ba.Enabled = false;
+                gb5_bd.Enabled = false;
+                timer_temperature.Enabled = false;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D13_E;
+                Byte ba = 0, bd = 0;
+                if (rb5_d_0.Checked)
+                    bd = 0;
+                if (rb5_d_1.Checked)
+                    bd = 1;
+                if (rb5_d_01.Checked)
+                    bd = 2;
+                if (rb5_a_0.Checked)
+                    ba = 0;
+                if (rb5_a_1.Checked)
+                    ba = 1;
+                if (rb5_a_01.Checked)
+                    ba = 2;
+                frame.data[0] = bd;
+                frame.data[1] = ba;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+            else
+            {
+                chb5_d21.Enabled = true;
+                chb5_d19.Enabled = true;
+                gb5_ba.Enabled = true;
+                gb5_bd.Enabled = true;
+                timer_temperature.Enabled = true;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D13_D;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+        }
+        private void chb5_d19_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb5_d19.Checked)
+            {
+                chb5_d21.Enabled = false;
+                chb5_d13.Enabled = false;
+                gb5_ba.Enabled = false;
+                gb5_bd.Enabled = false;
+                timer_temperature.Enabled = false;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D19_E;
+                Byte ba = 0, bd = 0;
+                if (rb5_d_0.Checked)
+                    bd = 0;
+                if (rb5_d_1.Checked)
+                    bd = 1;
+                if (rb5_d_01.Checked)
+                    bd = 2;
+                if (rb5_a_0.Checked)
+                    ba = 0;
+                if (rb5_a_1.Checked)
+                    ba = 1;
+                if (rb5_a_01.Checked)
+                    ba = 2;
+                frame.data[0] = bd;
+                frame.data[1] = ba;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+            else
+            {
+                chb5_d21.Enabled = true;
+                chb5_d13.Enabled = true;
+                gb5_ba.Enabled = true;
+                gb5_bd.Enabled = true;
+                timer_temperature.Enabled = true;
+                Array.Clear(frame.data, 0, 8);
+                frame.id = Const.CAN_ID_TEST_RAM_D19_D;
+                if (!uniCAN.Send(ref frame))
+                {
+                    timer_temperature.Enabled = true;
+                    return;
+                }
+            }
+        }
+        #endregion
+        private void bt5_reset_Click(object sender, EventArgs e)
+        {
+            frame.id = 5;
+            frame.len = 1;
+            if (!uniCAN.Send(ref frame))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+        }
+        private void сброс_результатов()
+        {
+            lb_test_FLASH.Text = "";
+            lb_test_D19_2.Text = "";
+            lb_test_D13_2.Text = "";
+            lb_test_D19.Text = "";
+            lb_test_D13.Text = "";
+            lb_test_D21_2.Text = "";
+            lb_test_D21_1.Text = "";
+            lb_test_plis.Text = "";
+            chb_cycle_test_D21.Checked = false;
+            chb_cycle_test_D13.Checked = false;
+            chb_cycle_test_D19.Checked = false;
+            chb5_d21.Checked = false;
+            chb5_d13.Checked = false;
+            chb5_d19.Checked = false;
+            chb_Peltier1.Checked = false;
+            chb_Peltier2.Checked = false;
+            chb_Sin.Checked = false;
+        }
         #endregion
 
         private unsafe void button3_Click(object sender, EventArgs e)
@@ -4709,5 +5006,131 @@ namespace OLO_CAN
         {
         }
 
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
+//            tm4_test.Interval = 1000 / trackBar1.Value;
+        }
+        private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_enshl.Checked)
+            {
+//                tm4_counter.Interval = 1000 / trackBar1.Value;
+//                if (trackBar1.Value < 30) 
+//                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
+//                else
+//                    tm4_autoshl.Interval = 1000 / 30;
+                tm4_autoshl.Enabled = true;
+            }
+            else
+            {
+                tm4_autoshl.Enabled = false;
+            }
+        }
+        private void chb4_enshr_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_enshr.Checked)
+            {
+//                tm4_counter.Interval = 1000 / trackBar1.Value;
+//                if (trackBar1.Value < 30)
+//                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
+//                else
+//                    tm4_autoshr.Interval = 1000 / 30;
+                tm4_autoshr.Enabled = true;
+            }
+            else
+            {
+                tm4_autoshr.Enabled = false;
+            }
+        }
+        private void tm4_autoshl_Tick(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = Const.OLO_Left;
+            mm.messageID = msg_t.mID_DATA;
+
+            Random r = new Random();
+            mm.messageLen = 8;
+            int az, um;
+            if (!chb3_shoot_ena.Checked)
+            {
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
+            }
+            else
+            {
+                az = trackBar3_az.Value;
+                um = trackBar3_um.Value;
+            }
+
+            count_l += (UInt16)trackBar1.Value;
+            
+            mm.messageData[0] = (Byte)count_l;
+            mm.messageData[1] = (Byte)(count_l >> 8);
+            mm.messageData[2] = (Byte)(trackBar1.Value  * 10);
+            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
+            mm.messageData[4] = (Byte)az;
+            mm.messageData[5] = (Byte)(az >> 8);
+            mm.messageData[6] = (Byte)um;
+            mm.messageData[7] = (Byte)(um >> 8);
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
+                return;
+            messages.Add(mm);
+        }
+
+        private void tm4_autoshr_Tick(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = Const.OLO_Right;
+            mm.messageID = msg_t.mID_DATA;
+
+            Random r = new Random();
+            mm.messageLen = 8;
+            int az, um;
+            if (!chb3_shoot_ena.Checked)
+            {
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
+            }
+            else
+            {
+                az = trackBar3_az.Value;
+                um = trackBar3_um.Value;
+            }
+
+            count_r += (UInt16)trackBar1.Value;
+
+            mm.messageData[0] = (Byte)count_r;
+            mm.messageData[1] = (Byte)(count_r >> 8);
+            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
+            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
+            mm.messageData[4] = (Byte)az;
+            mm.messageData[5] = (Byte)(az >> 8);
+            mm.messageData[6] = (Byte)um;
+            mm.messageData[7] = (Byte)(um >> 8);
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
+                return;
+            messages.Add(mm);
+        }
+
+        private void tm4_counter_Tick(object sender, EventArgs e)
+        {
+        }
+
+        private void tm4_test_Tick(object sender, EventArgs e)
+        {
+        }
+
+        private void timer1s_Tick(object sender, EventArgs e)
+        {
+        }
     }
 }

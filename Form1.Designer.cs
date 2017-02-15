@@ -140,6 +140,10 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chb3_savelog = new System.Windows.Forms.CheckBox();
+            this.chb3_7fff = new System.Windows.Forms.CheckBox();
+            this.chb3_um = new System.Windows.Forms.CheckBox();
+            this.chb3_az = new System.Windows.Forms.CheckBox();
             this.btn_REQTIME = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -171,6 +175,11 @@
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.gb3_shoot = new System.Windows.Forms.GroupBox();
+            this.chb4_enshr = new System.Windows.Forms.CheckBox();
+            this.chb4_enshl = new System.Windows.Forms.CheckBox();
+            this.lb3_freq_val = new System.Windows.Forms.Label();
+            this.lb3_freq_txt = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.chb3_shoot_ena = new System.Windows.Forms.CheckBox();
             this.lb3_shoot_um_val = new System.Windows.Forms.Label();
             this.lb3_shoot_az_val = new System.Windows.Forms.Label();
@@ -196,12 +205,6 @@
             this.shoot_l = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgview3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbox_CAN3 = new System.Windows.Forms.GroupBox();
             this.lb_noerr3 = new System.Windows.Forms.Label();
             this.cb_CAN3 = new System.Windows.Forms.ComboBox();
@@ -212,6 +215,7 @@
             this.bt_About3 = new System.Windows.Forms.Button();
             this.bt_Exit3 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
@@ -230,6 +234,18 @@
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
             this.gb_Tests = new System.Windows.Forms.GroupBox();
+            this.bt5_reset = new System.Windows.Forms.Button();
+            this.chb5_d19 = new System.Windows.Forms.CheckBox();
+            this.chb5_d13 = new System.Windows.Forms.CheckBox();
+            this.gb5_ba = new System.Windows.Forms.GroupBox();
+            this.rb5_a_01 = new System.Windows.Forms.RadioButton();
+            this.rb5_a_1 = new System.Windows.Forms.RadioButton();
+            this.rb5_a_0 = new System.Windows.Forms.RadioButton();
+            this.chb5_d21 = new System.Windows.Forms.CheckBox();
+            this.gb5_bd = new System.Windows.Forms.GroupBox();
+            this.rb5_d_01 = new System.Windows.Forms.RadioButton();
+            this.rb5_d_1 = new System.Windows.Forms.RadioButton();
+            this.rb5_d_0 = new System.Windows.Forms.RadioButton();
             this.lb_test_D19_2 = new System.Windows.Forms.Label();
             this.bt_test_D19_2 = new System.Windows.Forms.Button();
             this.lb_test_D13_2 = new System.Windows.Forms.Label();
@@ -274,6 +290,19 @@
             this.Timer_GetData3 = new System.Windows.Forms.Timer(this.components);
             this.timer_temperature = new System.Windows.Forms.Timer(this.components);
             this.timer_Error_Boot = new System.Windows.Forms.Timer(this.components);
+            this.tm4_autoshl = new System.Windows.Forms.Timer(this.components);
+            this.tm4_autoshr = new System.Windows.Forms.Timer(this.components);
+            this.tm4_counter = new System.Windows.Forms.Timer(this.components);
+            this.chb4_nopaint = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tm4_test = new System.Windows.Forms.Timer(this.components);
+            this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -300,6 +329,7 @@
             this.gbox_CAN2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.gb3_shoot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_um)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_az)).BeginInit();
             this.gb_olo_R.SuspendLayout();
@@ -313,6 +343,8 @@
             this.gb_Image14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.gb_Tests.SuspendLayout();
+            this.gb5_ba.SuspendLayout();
+            this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1559,6 +1591,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chb3_savelog);
+            this.tabPage3.Controls.Add(this.chb3_7fff);
+            this.tabPage3.Controls.Add(this.chb3_um);
+            this.tabPage3.Controls.Add(this.chb3_az);
             this.tabPage3.Controls.Add(this.btn_REQTIME);
             this.tabPage3.Controls.Add(this.btn_Reset);
             this.tabPage3.Controls.Add(this.label16);
@@ -1583,6 +1619,49 @@
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // chb3_savelog
+            // 
+            this.chb3_savelog.AutoSize = true;
+            this.chb3_savelog.Location = new System.Drawing.Point(620, 317);
+            this.chb3_savelog.Name = "chb3_savelog";
+            this.chb3_savelog.Size = new System.Drawing.Size(66, 17);
+            this.chb3_savelog.TabIndex = 60;
+            this.chb3_savelog.Text = "save log";
+            this.chb3_savelog.UseVisualStyleBackColor = true;
+            this.chb3_savelog.CheckedChanged += new System.EventHandler(this.chb3_savelog_CheckedChanged);
+            // 
+            // chb3_7fff
+            // 
+            this.chb3_7fff.AutoSize = true;
+            this.chb3_7fff.Location = new System.Drawing.Point(620, 293);
+            this.chb3_7fff.Name = "chb3_7fff";
+            this.chb3_7fff.Size = new System.Drawing.Size(103, 17);
+            this.chb3_7fff.TabIndex = 59;
+            this.chb3_7fff.Text = "Проверка 7FFF";
+            this.chb3_7fff.UseVisualStyleBackColor = true;
+            // 
+            // chb3_um
+            // 
+            this.chb3_um.AutoSize = true;
+            this.chb3_um.Enabled = false;
+            this.chb3_um.Location = new System.Drawing.Point(620, 269);
+            this.chb3_um.Name = "chb3_um";
+            this.chb3_um.Size = new System.Drawing.Size(147, 17);
+            this.chb3_um.TabIndex = 58;
+            this.chb3_um.Text = "проверка по углу места";
+            this.chb3_um.UseVisualStyleBackColor = true;
+            // 
+            // chb3_az
+            // 
+            this.chb3_az.AutoSize = true;
+            this.chb3_az.Enabled = false;
+            this.chb3_az.Location = new System.Drawing.Point(620, 245);
+            this.chb3_az.Name = "chb3_az";
+            this.chb3_az.Size = new System.Drawing.Size(133, 17);
+            this.chb3_az.TabIndex = 57;
+            this.chb3_az.Text = "проверка по азимуту";
+            this.chb3_az.UseVisualStyleBackColor = true;
+            // 
             // btn_REQTIME
             // 
             this.btn_REQTIME.Location = new System.Drawing.Point(8, 187);
@@ -1605,7 +1684,7 @@
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(385, 221);
+            this.label16.Location = new System.Drawing.Point(410, 221);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(149, 18);
             this.label16.TabIndex = 53;
@@ -1613,7 +1692,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(540, 219);
+            this.numericUpDown1.Location = new System.Drawing.Point(565, 219);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -1624,7 +1703,7 @@
             this.numericUpDown1.TabIndex = 52;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -1657,7 +1736,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(388, 9);
+            this.panel1.Location = new System.Drawing.Point(413, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 200);
             this.panel1.TabIndex = 49;
@@ -1684,7 +1763,7 @@
             this.dgview2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgview2.ShowCellErrors = false;
             this.dgview2.ShowEditingIcon = false;
-            this.dgview2.Size = new System.Drawing.Size(580, 399);
+            this.dgview2.Size = new System.Drawing.Size(605, 399);
             this.dgview2.TabIndex = 48;
             this.dgview2.Click += new System.EventHandler(this.dgview2_Click);
             // 
@@ -1720,7 +1799,7 @@
             // 
             this.Column4.HeaderText = "Column4";
             this.Column4.Name = "Column4";
-            this.Column4.Width = 120;
+            this.Column4.Width = 130;
             // 
             // Column6
             // 
@@ -1892,6 +1971,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.checkBox2);
+            this.tabPage4.Controls.Add(this.chb4_nopaint);
             this.tabPage4.Controls.Add(this.gb3_shoot);
             this.tabPage4.Controls.Add(this.chb_dgview3);
             this.tabPage4.Controls.Add(this.button2);
@@ -1911,6 +1992,11 @@
             // 
             // gb3_shoot
             // 
+            this.gb3_shoot.Controls.Add(this.chb4_enshr);
+            this.gb3_shoot.Controls.Add(this.chb4_enshl);
+            this.gb3_shoot.Controls.Add(this.lb3_freq_val);
+            this.gb3_shoot.Controls.Add(this.lb3_freq_txt);
+            this.gb3_shoot.Controls.Add(this.trackBar1);
             this.gb3_shoot.Controls.Add(this.chb3_shoot_ena);
             this.gb3_shoot.Controls.Add(this.lb3_shoot_um_val);
             this.gb3_shoot.Controls.Add(this.lb3_shoot_az_val);
@@ -1919,12 +2005,68 @@
             this.gb3_shoot.Controls.Add(this.trackBar3_az);
             this.gb3_shoot.Controls.Add(this.lb3_shoot_az_txt);
             this.gb3_shoot.Enabled = false;
-            this.gb3_shoot.Location = new System.Drawing.Point(595, 9);
+            this.gb3_shoot.Location = new System.Drawing.Point(619, 9);
             this.gb3_shoot.Name = "gb3_shoot";
-            this.gb3_shoot.Size = new System.Drawing.Size(144, 370);
+            this.gb3_shoot.Size = new System.Drawing.Size(203, 409);
             this.gb3_shoot.TabIndex = 56;
             this.gb3_shoot.TabStop = false;
             this.gb3_shoot.Text = "Выстрелы";
+            // 
+            // chb4_enshr
+            // 
+            this.chb4_enshr.AutoSize = true;
+            this.chb4_enshr.Location = new System.Drawing.Point(94, 371);
+            this.chb4_enshr.Name = "chb4_enshr";
+            this.chb4_enshr.Size = new System.Drawing.Size(88, 17);
+            this.chb4_enshr.TabIndex = 66;
+            this.chb4_enshr.Text = "Авто ОЛО-П";
+            this.chb4_enshr.UseVisualStyleBackColor = true;
+            this.chb4_enshr.CheckedChanged += new System.EventHandler(this.chb4_enshr_CheckedChanged);
+            // 
+            // chb4_enshl
+            // 
+            this.chb4_enshl.AutoSize = true;
+            this.chb4_enshl.Location = new System.Drawing.Point(7, 371);
+            this.chb4_enshl.Name = "chb4_enshl";
+            this.chb4_enshl.Size = new System.Drawing.Size(88, 17);
+            this.chb4_enshl.TabIndex = 65;
+            this.chb4_enshl.Text = "Авто ОЛО-Л";
+            this.chb4_enshl.UseVisualStyleBackColor = true;
+            this.chb4_enshl.CheckedChanged += new System.EventHandler(this.chb4_enshl_CheckedChanged);
+            // 
+            // lb3_freq_val
+            // 
+            this.lb3_freq_val.AutoSize = true;
+            this.lb3_freq_val.Enabled = false;
+            this.lb3_freq_val.Location = new System.Drawing.Point(144, 43);
+            this.lb3_freq_val.Name = "lb3_freq_val";
+            this.lb3_freq_val.Size = new System.Drawing.Size(0, 13);
+            this.lb3_freq_val.TabIndex = 64;
+            // 
+            // lb3_freq_txt
+            // 
+            this.lb3_freq_txt.AutoSize = true;
+            this.lb3_freq_txt.Enabled = false;
+            this.lb3_freq_txt.Location = new System.Drawing.Point(143, 21);
+            this.lb3_freq_txt.Name = "lb3_freq_txt";
+            this.lb3_freq_txt.Size = new System.Drawing.Size(49, 13);
+            this.lb3_freq_txt.TabIndex = 63;
+            this.lb3_freq_txt.Text = "Частота";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Enabled = false;
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(141, 59);
+            this.trackBar1.Maximum = 20;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar1.Size = new System.Drawing.Size(45, 305);
+            this.trackBar1.TabIndex = 62;
+            this.trackBar1.TickFrequency = 5;
+            this.trackBar1.Value = 1;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // chb3_shoot_ena
             // 
@@ -1959,14 +2101,15 @@
             this.trackBar3_um.Enabled = false;
             this.trackBar3_um.LargeChange = 1080;
             this.trackBar3_um.Location = new System.Drawing.Point(74, 59);
-            this.trackBar3_um.Maximum = 10800;
+            this.trackBar3_um.Maximum = 5400;
+            this.trackBar3_um.Minimum = -5400;
             this.trackBar3_um.Name = "trackBar3_um";
             this.trackBar3_um.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_um.Size = new System.Drawing.Size(45, 305);
             this.trackBar3_um.SmallChange = 108;
             this.trackBar3_um.TabIndex = 58;
             this.trackBar3_um.TickFrequency = 108;
-            this.trackBar3_um.Value = 7000;
+            this.trackBar3_um.Value = -2000;
             this.trackBar3_um.Scroll += new System.EventHandler(this.trackBar3_um_Scroll);
             // 
             // lb3_shoot_um_txt
@@ -1984,14 +2127,15 @@
             this.trackBar3_az.Enabled = false;
             this.trackBar3_az.LargeChange = 1080;
             this.trackBar3_az.Location = new System.Drawing.Point(7, 59);
-            this.trackBar3_az.Maximum = 10800;
+            this.trackBar3_az.Maximum = 5400;
+            this.trackBar3_az.Minimum = -5400;
             this.trackBar3_az.Name = "trackBar3_az";
             this.trackBar3_az.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_az.Size = new System.Drawing.Size(45, 305);
             this.trackBar3_az.SmallChange = 108;
             this.trackBar3_az.TabIndex = 54;
             this.trackBar3_az.TickFrequency = 108;
-            this.trackBar3_az.Value = 4000;
+            this.trackBar3_az.Value = 2000;
             this.trackBar3_az.Scroll += new System.EventHandler(this.trackBar3_az_Scroll);
             // 
             // lb3_shoot_az_txt
@@ -2010,7 +2154,7 @@
             this.chb_dgview3.BackColor = System.Drawing.Color.SpringGreen;
             this.chb_dgview3.Checked = true;
             this.chb_dgview3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chb_dgview3.Location = new System.Drawing.Point(303, 282);
+            this.chb_dgview3.Location = new System.Drawing.Point(328, 282);
             this.chb_dgview3.Name = "chb_dgview3";
             this.chb_dgview3.Size = new System.Drawing.Size(285, 23);
             this.chb_dgview3.TabIndex = 50;
@@ -2038,7 +2182,7 @@
             this.gb_olo_R.Controls.Add(this.label27);
             this.gb_olo_R.Controls.Add(this.chb_R_Err_int);
             this.gb_olo_R.Enabled = false;
-            this.gb_olo_R.Location = new System.Drawing.Point(192, 93);
+            this.gb_olo_R.Location = new System.Drawing.Point(195, 93);
             this.gb_olo_R.Name = "gb_olo_R";
             this.gb_olo_R.Size = new System.Drawing.Size(180, 183);
             this.gb_olo_R.TabIndex = 52;
@@ -2194,7 +2338,7 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(388, 9);
+            this.panel3.Location = new System.Drawing.Point(413, 9);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 200);
             this.panel3.TabIndex = 49;
@@ -2221,49 +2365,9 @@
             this.dgview3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgview3.ShowCellErrors = false;
             this.dgview3.ShowEditingIcon = false;
-            this.dgview3.Size = new System.Drawing.Size(580, 333);
+            this.dgview3.Size = new System.Drawing.Size(605, 333);
             this.dgview3.TabIndex = 48;
             this.dgview3.Click += new System.EventHandler(this.dgview3_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.MinimumWidth = 22;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.Width = 22;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Column2";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Column5";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 190;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Column6";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // gbox_CAN3
             // 
@@ -2366,6 +2470,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.chb5_timer_enable);
             this.tabPage5.Controls.Add(this.gb_Image24);
             this.tabPage5.Controls.Add(this.gb_Temperature);
             this.tabPage5.Controls.Add(this.gb_Image14);
@@ -2380,6 +2485,20 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Тестирование платы БОС";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // chb5_timer_enable
+            // 
+            this.chb5_timer_enable.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb5_timer_enable.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb5_timer_enable.Checked = true;
+            this.chb5_timer_enable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb5_timer_enable.Location = new System.Drawing.Point(726, 126);
+            this.chb5_timer_enable.Name = "chb5_timer_enable";
+            this.chb5_timer_enable.Size = new System.Drawing.Size(228, 23);
+            this.chb5_timer_enable.TabIndex = 46;
+            this.chb5_timer_enable.Text = "Таймер";
+            this.chb5_timer_enable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb5_timer_enable.UseVisualStyleBackColor = true;
             // 
             // gb_Image24
             // 
@@ -2563,6 +2682,12 @@
             // 
             // gb_Tests
             // 
+            this.gb_Tests.Controls.Add(this.bt5_reset);
+            this.gb_Tests.Controls.Add(this.chb5_d19);
+            this.gb_Tests.Controls.Add(this.chb5_d13);
+            this.gb_Tests.Controls.Add(this.gb5_ba);
+            this.gb_Tests.Controls.Add(this.chb5_d21);
+            this.gb_Tests.Controls.Add(this.gb5_bd);
             this.gb_Tests.Controls.Add(this.lb_test_D19_2);
             this.gb_Tests.Controls.Add(this.bt_test_D19_2);
             this.gb_Tests.Controls.Add(this.lb_test_D13_2);
@@ -2593,6 +2718,140 @@
             this.gb_Tests.TabIndex = 42;
             this.gb_Tests.TabStop = false;
             this.gb_Tests.Text = "Тесты";
+            // 
+            // bt5_reset
+            // 
+            this.bt5_reset.Location = new System.Drawing.Point(145, 305);
+            this.bt5_reset.Name = "bt5_reset";
+            this.bt5_reset.Size = new System.Drawing.Size(54, 23);
+            this.bt5_reset.TabIndex = 33;
+            this.bt5_reset.Text = "Сброс";
+            this.bt5_reset.UseVisualStyleBackColor = true;
+            this.bt5_reset.Click += new System.EventHandler(this.bt5_reset_Click);
+            // 
+            // chb5_d19
+            // 
+            this.chb5_d19.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb5_d19.Location = new System.Drawing.Point(99, 305);
+            this.chb5_d19.Name = "chb5_d19";
+            this.chb5_d19.Size = new System.Drawing.Size(40, 23);
+            this.chb5_d19.TabIndex = 32;
+            this.chb5_d19.Text = "D19";
+            this.chb5_d19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb5_d19.UseVisualStyleBackColor = true;
+            this.chb5_d19.CheckedChanged += new System.EventHandler(this.chb5_d19_CheckedChanged);
+            // 
+            // chb5_d13
+            // 
+            this.chb5_d13.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb5_d13.Location = new System.Drawing.Point(53, 305);
+            this.chb5_d13.Name = "chb5_d13";
+            this.chb5_d13.Size = new System.Drawing.Size(40, 23);
+            this.chb5_d13.TabIndex = 31;
+            this.chb5_d13.Text = "D13";
+            this.chb5_d13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb5_d13.UseVisualStyleBackColor = true;
+            this.chb5_d13.CheckedChanged += new System.EventHandler(this.chb5_d13_CheckedChanged);
+            // 
+            // gb5_ba
+            // 
+            this.gb5_ba.Controls.Add(this.rb5_a_01);
+            this.gb5_ba.Controls.Add(this.rb5_a_1);
+            this.gb5_ba.Controls.Add(this.rb5_a_0);
+            this.gb5_ba.Location = new System.Drawing.Point(106, 334);
+            this.gb5_ba.Name = "gb5_ba";
+            this.gb5_ba.Size = new System.Drawing.Size(93, 90);
+            this.gb5_ba.TabIndex = 30;
+            this.gb5_ba.TabStop = false;
+            this.gb5_ba.Text = "шина адреса";
+            // 
+            // rb5_a_01
+            // 
+            this.rb5_a_01.AutoSize = true;
+            this.rb5_a_01.Location = new System.Drawing.Point(7, 65);
+            this.rb5_a_01.Name = "rb5_a_01";
+            this.rb5_a_01.Size = new System.Drawing.Size(68, 17);
+            this.rb5_a_01.TabIndex = 2;
+            this.rb5_a_01.Text = "одна \"1\"";
+            this.rb5_a_01.UseVisualStyleBackColor = true;
+            // 
+            // rb5_a_1
+            // 
+            this.rb5_a_1.AutoSize = true;
+            this.rb5_a_1.Location = new System.Drawing.Point(7, 42);
+            this.rb5_a_1.Name = "rb5_a_1";
+            this.rb5_a_1.Size = new System.Drawing.Size(62, 17);
+            this.rb5_a_1.TabIndex = 1;
+            this.rb5_a_1.Text = "все \"1\"";
+            this.rb5_a_1.UseVisualStyleBackColor = true;
+            // 
+            // rb5_a_0
+            // 
+            this.rb5_a_0.AutoSize = true;
+            this.rb5_a_0.Checked = true;
+            this.rb5_a_0.Location = new System.Drawing.Point(7, 20);
+            this.rb5_a_0.Name = "rb5_a_0";
+            this.rb5_a_0.Size = new System.Drawing.Size(62, 17);
+            this.rb5_a_0.TabIndex = 0;
+            this.rb5_a_0.TabStop = true;
+            this.rb5_a_0.Text = "все \"0\"";
+            this.rb5_a_0.UseVisualStyleBackColor = true;
+            // 
+            // chb5_d21
+            // 
+            this.chb5_d21.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb5_d21.Location = new System.Drawing.Point(7, 305);
+            this.chb5_d21.Name = "chb5_d21";
+            this.chb5_d21.Size = new System.Drawing.Size(40, 23);
+            this.chb5_d21.TabIndex = 30;
+            this.chb5_d21.Text = "D21";
+            this.chb5_d21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb5_d21.UseVisualStyleBackColor = true;
+            this.chb5_d21.CheckedChanged += new System.EventHandler(this.chb5_d21_CheckedChanged);
+            // 
+            // gb5_bd
+            // 
+            this.gb5_bd.Controls.Add(this.rb5_d_01);
+            this.gb5_bd.Controls.Add(this.rb5_d_1);
+            this.gb5_bd.Controls.Add(this.rb5_d_0);
+            this.gb5_bd.Location = new System.Drawing.Point(7, 334);
+            this.gb5_bd.Name = "gb5_bd";
+            this.gb5_bd.Size = new System.Drawing.Size(93, 90);
+            this.gb5_bd.TabIndex = 29;
+            this.gb5_bd.TabStop = false;
+            this.gb5_bd.Text = "шина данных";
+            // 
+            // rb5_d_01
+            // 
+            this.rb5_d_01.AutoSize = true;
+            this.rb5_d_01.Location = new System.Drawing.Point(7, 65);
+            this.rb5_d_01.Name = "rb5_d_01";
+            this.rb5_d_01.Size = new System.Drawing.Size(68, 17);
+            this.rb5_d_01.TabIndex = 2;
+            this.rb5_d_01.Text = "одна \"1\"";
+            this.rb5_d_01.UseVisualStyleBackColor = true;
+            // 
+            // rb5_d_1
+            // 
+            this.rb5_d_1.AutoSize = true;
+            this.rb5_d_1.Location = new System.Drawing.Point(7, 42);
+            this.rb5_d_1.Name = "rb5_d_1";
+            this.rb5_d_1.Size = new System.Drawing.Size(62, 17);
+            this.rb5_d_1.TabIndex = 1;
+            this.rb5_d_1.Text = "все \"1\"";
+            this.rb5_d_1.UseVisualStyleBackColor = true;
+            // 
+            // rb5_d_0
+            // 
+            this.rb5_d_0.AutoSize = true;
+            this.rb5_d_0.Checked = true;
+            this.rb5_d_0.Location = new System.Drawing.Point(7, 20);
+            this.rb5_d_0.Name = "rb5_d_0";
+            this.rb5_d_0.Size = new System.Drawing.Size(62, 17);
+            this.rb5_d_0.TabIndex = 0;
+            this.rb5_d_0.TabStop = true;
+            this.rb5_d_0.Text = "все \"0\"";
+            this.rb5_d_0.UseVisualStyleBackColor = true;
             // 
             // lb_test_D19_2
             // 
@@ -2957,7 +3216,7 @@
             // 
             // timer_Reset_Shots
             // 
-            this.timer_Reset_Shots.Interval = 5000;
+            this.timer_Reset_Shots.Interval = 10000;
             this.timer_Reset_Shots.Tick += new System.EventHandler(this.timer_Reset_Shots_Tick);
             // 
             // timer_Reset_Shots3
@@ -2986,6 +3245,89 @@
             // 
             this.timer_Error_Boot.Interval = 75000;
             this.timer_Error_Boot.Tick += new System.EventHandler(this.timer_Error_Boot_Tick);
+            // 
+            // tm4_autoshl
+            // 
+            this.tm4_autoshl.Tick += new System.EventHandler(this.tm4_autoshl_Tick);
+            // 
+            // tm4_autoshr
+            // 
+            this.tm4_autoshr.Tick += new System.EventHandler(this.tm4_autoshr_Tick);
+            // 
+            // tm4_counter
+            // 
+            this.tm4_counter.Tick += new System.EventHandler(this.tm4_counter_Tick);
+            // 
+            // chb4_nopaint
+            // 
+            this.chb4_nopaint.AutoSize = true;
+            this.chb4_nopaint.Location = new System.Drawing.Point(413, 225);
+            this.chb4_nopaint.Name = "chb4_nopaint";
+            this.chb4_nopaint.Size = new System.Drawing.Size(122, 17);
+            this.chb4_nopaint.TabIndex = 57;
+            this.chb4_nopaint.Text = "Не прорисовывать";
+            this.chb4_nopaint.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(413, 248);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(127, 17);
+            this.checkBox2.TabIndex = 58;
+            this.checkBox2.Text = "Не выводить в грид";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.MinimumWidth = 22;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 22;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Column2";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Column5";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 190;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Column6";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // tm4_test
+            // 
+            this.tm4_test.Interval = 50;
+            this.tm4_test.Tick += new System.EventHandler(this.tm4_test_Tick);
+            // 
+            // timer1s
+            // 
+            this.timer1s.Interval = 1000;
+            this.timer1s.Tick += new System.EventHandler(this.timer1s_Tick);
             // 
             // Form1
             // 
@@ -3038,8 +3380,10 @@
             this.gbox_CAN2.ResumeLayout(false);
             this.gbox_CAN2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.gb3_shoot.ResumeLayout(false);
             this.gb3_shoot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_um)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_az)).EndInit();
             this.gb_olo_R.ResumeLayout(false);
@@ -3060,6 +3404,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.gb_Tests.ResumeLayout(false);
             this.gb_Tests.PerformLayout();
+            this.gb5_ba.ResumeLayout(false);
+            this.gb5_ba.PerformLayout();
+            this.gb5_bd.ResumeLayout(false);
+            this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
             this.ResumeLayout(false);
@@ -3178,12 +3526,6 @@
         private System.Windows.Forms.CheckBox chb_dgview2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgview2;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button bt_Request2;
         private System.Windows.Forms.Label label17;
@@ -3212,12 +3554,6 @@
         private System.Windows.Forms.CheckBox chb_dgview3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgview3;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.GroupBox gbox_CAN3;
         private System.Windows.Forms.Label lb_noerr3;
         private System.Windows.Forms.ComboBox cb_CAN3;
@@ -3312,6 +3648,47 @@
         private System.Windows.Forms.RadioButton rb1_addr_right;
         private System.Windows.Forms.RadioButton rb1_addr_left;
         private System.Windows.Forms.RadioButton rb1_addr_uni;
+        private System.Windows.Forms.GroupBox gb5_ba;
+        private System.Windows.Forms.RadioButton rb5_a_01;
+        private System.Windows.Forms.RadioButton rb5_a_1;
+        private System.Windows.Forms.RadioButton rb5_a_0;
+        private System.Windows.Forms.CheckBox chb5_d21;
+        private System.Windows.Forms.GroupBox gb5_bd;
+        private System.Windows.Forms.RadioButton rb5_d_01;
+        private System.Windows.Forms.RadioButton rb5_d_1;
+        private System.Windows.Forms.RadioButton rb5_d_0;
+        private System.Windows.Forms.CheckBox chb5_d19;
+        private System.Windows.Forms.CheckBox chb5_d13;
+        private System.Windows.Forms.Button bt5_reset;
+        private System.Windows.Forms.CheckBox chb5_timer_enable;
+        private System.Windows.Forms.DataGridViewImageColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.CheckBox chb3_um;
+        private System.Windows.Forms.CheckBox chb3_az;
+        private System.Windows.Forms.CheckBox chb3_7fff;
+        private System.Windows.Forms.CheckBox chb3_savelog;
+        private System.Windows.Forms.Label lb3_freq_txt;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label lb3_freq_val;
+        private System.Windows.Forms.CheckBox chb4_enshr;
+        private System.Windows.Forms.CheckBox chb4_enshl;
+        private System.Windows.Forms.Timer tm4_autoshl;
+        private System.Windows.Forms.Timer tm4_autoshr;
+        private System.Windows.Forms.Timer tm4_counter;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chb4_nopaint;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Timer tm4_test;
+        private System.Windows.Forms.Timer timer1s;
 	}
 }
 
