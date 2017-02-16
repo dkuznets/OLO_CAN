@@ -3327,7 +3327,6 @@
             // timer1s
             // 
             this.timer1s.Interval = 1000;
-            this.timer1s.Tick += new System.EventHandler(this.timer1s_Tick);
             // 
             // Form1
             // 
