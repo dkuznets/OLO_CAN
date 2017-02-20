@@ -5021,6 +5021,8 @@ namespace OLO_CAN
         }
         private unsafe void button4_Click(object sender, EventArgs e)
         {
+            image_CMOS = (Bitmap)malevich.Clone();
+            pictureBox1.Image = image_CMOS;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
