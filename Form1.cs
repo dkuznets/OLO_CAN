@@ -907,6 +907,8 @@ namespace OLO_CAN
                 list_badpix_FIFO.Clear();
                 chb_Calibr.CheckState = CheckState.Unchecked;
                 chb_Calibr.Checked = false;
+                image_CMOS = (Bitmap)malevich.Clone();
+                pictureBox1.Image = image_CMOS;
             }
         }
         private void rb_CMOS2_CheckedChanged(object sender, EventArgs e)
@@ -927,6 +929,8 @@ namespace OLO_CAN
                 list_badpix_FIFO.Clear();
                 chb_Calibr.CheckState = CheckState.Unchecked;
                 chb_Calibr.Checked = false;
+                image_CMOS = (Bitmap)malevich.Clone();
+                pictureBox1.Image = image_CMOS;
             }
         }
         #endregion
@@ -946,6 +950,8 @@ namespace OLO_CAN
                 bt_DnLoadPass.Enabled = false;
                 bt_UpLoadConf.Enabled = false;
                 bt_DnLoadConf.Enabled = false;
+                image_CMOS = (Bitmap)malevich.Clone();
+                pictureBox1.Image = image_CMOS;
             }
             else
             {
