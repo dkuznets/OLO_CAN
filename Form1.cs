@@ -134,7 +134,7 @@ namespace OLO_CAN
         public Boolean scroll = true;
 
         public Bitmap image_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        public Bitmap malevich = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+//        public Bitmap malevich = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
         msg_t m = new msg_t();
 
@@ -202,9 +202,9 @@ namespace OLO_CAN
             String guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
             Mutex mtx = new Mutex(true, guid, out existed);
 
-            for (int i = 0; i < Const.IMAGE_CX * 2; i++)
-                for (int j = 0; j < Const.IMAGE_CY * 2; j++)
-                    malevich.SetPixel(i, j, Color.Black);
+            //for (int i = 0; i < Const.IMAGE_CX * 2; i++)
+            //    for (int j = 0; j < Const.IMAGE_CY * 2; j++)
+            //        malevich.SetPixel(i, j, Color.Black);
 
             if (!existed)
             {
@@ -888,6 +888,16 @@ namespace OLO_CAN
       
         #endregion
 
+        void malevich()
+        {
+            for (int i = 0; i < Const.IMAGE_CX; i++)
+                for (int j = 0; j < Const.IMAGE_CY; j++)
+                    image_CMOS.SetPixel(i, j, Color.Black);
+            //for (int i = 0; i < Const.IMAGE_CX * 2; i++)
+            //    for (int j = 0; j < Const.IMAGE_CY * 2; j++)
+            //        image_CMOS.SetPixel(i, j, Color.Black);
+
+        }
         #region Переключение матриц
         private void rb_CMOS1_CheckedChanged(object sender, EventArgs e)
         {
@@ -907,8 +917,9 @@ namespace OLO_CAN
                 list_badpix_FIFO.Clear();
                 chb_Calibr.CheckState = CheckState.Unchecked;
                 chb_Calibr.Checked = false;
-                image_CMOS = (Bitmap)malevich.Clone();
-                pictureBox1.Image = image_CMOS;
+//                image_CMOS = (Bitmap)malevich.Clone();
+//                pictureBox1.Image = image_CMOS;
+                malevich();
             }
         }
         private void rb_CMOS2_CheckedChanged(object sender, EventArgs e)
@@ -929,8 +940,9 @@ namespace OLO_CAN
                 list_badpix_FIFO.Clear();
                 chb_Calibr.CheckState = CheckState.Unchecked;
                 chb_Calibr.Checked = false;
-                image_CMOS = (Bitmap)malevich.Clone();
-                pictureBox1.Image = image_CMOS;
+//                image_CMOS = (Bitmap)malevich.Clone();
+//                pictureBox1.Image = image_CMOS;
+                malevich();
             }
         }
         #endregion
@@ -950,8 +962,9 @@ namespace OLO_CAN
                 bt_DnLoadPass.Enabled = false;
                 bt_UpLoadConf.Enabled = false;
                 bt_DnLoadConf.Enabled = false;
-                image_CMOS = (Bitmap)malevich.Clone();
-                pictureBox1.Image = image_CMOS;
+//                image_CMOS = (Bitmap)malevich.Clone();
+//                pictureBox1.Image = image_CMOS;
+                malevich();
             }
             else
             {
@@ -5027,8 +5040,8 @@ namespace OLO_CAN
         }
         private unsafe void button4_Click(object sender, EventArgs e)
         {
-            image_CMOS = (Bitmap)malevich.Clone();
-            pictureBox1.Image = image_CMOS;
+            //image_CMOS = (Bitmap)malevich.Clone();
+            //pictureBox1.Image = image_CMOS;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
