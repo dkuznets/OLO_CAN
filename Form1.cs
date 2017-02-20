@@ -134,7 +134,7 @@ namespace OLO_CAN
         public Boolean scroll = true;
 
         public Bitmap image_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        public Bitmap malevich = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+        public Bitmap malevich = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
         msg_t m = new msg_t();
 
@@ -202,8 +202,8 @@ namespace OLO_CAN
             String guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
             Mutex mtx = new Mutex(true, guid, out existed);
 
-            for (int i = 0; i < Const.IMAGE_CX; i++)
-                for (int j = 0; j < Const.IMAGE_CY; j++)
+            for (int i = 0; i < Const.IMAGE_CX * 2; i++)
+                for (int j = 0; j < Const.IMAGE_CY * 2; j++)
                     malevich.SetPixel(i, j, Color.Black);
 
             if (!existed)
@@ -5153,15 +5153,9 @@ namespace OLO_CAN
 
         }
 
-        private void rb_CMOS1_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void chb_PRunVideo_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (chb_PRunVideo.Checked)
-                image_CMOS = (Bitmap)malevich.Clone();
+
         }
     }
 }
