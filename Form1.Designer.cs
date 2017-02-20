@@ -777,6 +777,7 @@
             this.chb_PRunVideo.TabIndex = 0;
             this.chb_PRunVideo.Text = "Передача кадров";
             this.chb_PRunVideo.UseVisualStyleBackColor = true;
+            this.chb_PRunVideo.CheckedChanged += new System.EventHandler(this.chb_PRunVideo_CheckedChanged_1);
             this.chb_PRunVideo.Click += new System.EventHandler(this.chb_PRunVideo_CheckedChanged);
             // 
             // rb_CMOS2
@@ -803,6 +804,7 @@
             this.rb_CMOS1.Text = "CMOS1";
             this.rb_CMOS1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rb_CMOS1.UseVisualStyleBackColor = true;
+            this.rb_CMOS1.CheckedChanged += new System.EventHandler(this.rb_CMOS1_CheckedChanged_1);
             this.rb_CMOS1.Click += new System.EventHandler(this.rb_CMOS1_CheckedChanged);
             // 
             // gbox_Passports
