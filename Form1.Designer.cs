@@ -174,6 +174,8 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chb4_nopaint = new System.Windows.Forms.CheckBox();
             this.gb3_shoot = new System.Windows.Forms.GroupBox();
             this.chb4_enshr = new System.Windows.Forms.CheckBox();
             this.chb4_enshl = new System.Windows.Forms.CheckBox();
@@ -205,6 +207,12 @@
             this.shoot_l = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgview3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbox_CAN3 = new System.Windows.Forms.GroupBox();
             this.lb_noerr3 = new System.Windows.Forms.Label();
             this.cb_CAN3 = new System.Windows.Forms.ComboBox();
@@ -293,14 +301,6 @@
             this.tm4_autoshl = new System.Windows.Forms.Timer(this.components);
             this.tm4_autoshr = new System.Windows.Forms.Timer(this.components);
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
-            this.chb4_nopaint = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
@@ -1307,6 +1307,7 @@
             this.rb1_addr_left.TabIndex = 1;
             this.rb1_addr_left.Text = "Прошивка ОЛО-Левый";
             this.rb1_addr_left.UseVisualStyleBackColor = true;
+            this.rb1_addr_left.CheckedChanged += new System.EventHandler(this.rb1_addr_left_CheckedChanged);
             // 
             // rb1_addr_uni
             // 
@@ -1990,6 +1991,27 @@
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(413, 248);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(127, 17);
+            this.checkBox2.TabIndex = 58;
+            this.checkBox2.Text = "Не выводить в грид";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // chb4_nopaint
+            // 
+            this.chb4_nopaint.AutoSize = true;
+            this.chb4_nopaint.Location = new System.Drawing.Point(413, 225);
+            this.chb4_nopaint.Name = "chb4_nopaint";
+            this.chb4_nopaint.Size = new System.Drawing.Size(122, 17);
+            this.chb4_nopaint.TabIndex = 57;
+            this.chb4_nopaint.Text = "Не прорисовывать";
+            this.chb4_nopaint.UseVisualStyleBackColor = true;
+            // 
             // gb3_shoot
             // 
             this.gb3_shoot.Controls.Add(this.chb4_enshr);
@@ -2368,6 +2390,46 @@
             this.dgview3.Size = new System.Drawing.Size(605, 333);
             this.dgview3.TabIndex = 48;
             this.dgview3.Click += new System.EventHandler(this.dgview3_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.MinimumWidth = 22;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 22;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Column2";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Column5";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 190;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Column6";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // gbox_CAN3
             // 
@@ -3257,67 +3319,6 @@
             // tm4_counter
             // 
             this.tm4_counter.Tick += new System.EventHandler(this.tm4_counter_Tick);
-            // 
-            // chb4_nopaint
-            // 
-            this.chb4_nopaint.AutoSize = true;
-            this.chb4_nopaint.Location = new System.Drawing.Point(413, 225);
-            this.chb4_nopaint.Name = "chb4_nopaint";
-            this.chb4_nopaint.Size = new System.Drawing.Size(122, 17);
-            this.chb4_nopaint.TabIndex = 57;
-            this.chb4_nopaint.Text = "Не прорисовывать";
-            this.chb4_nopaint.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(413, 248);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(127, 17);
-            this.checkBox2.TabIndex = 58;
-            this.checkBox2.Text = "Не выводить в грид";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.MinimumWidth = 22;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.Width = 22;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Column2";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Column5";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 190;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Column6";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // tm4_test
             // 

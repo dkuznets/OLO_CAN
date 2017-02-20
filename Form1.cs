@@ -2236,6 +2236,12 @@ namespace OLO_CAN
         #region Загрузка прошивки в МК
         private void bt_loadMC1_Click(object sender, EventArgs e)
         {
+            if (uniCAN != null)
+                if (uniCAN.Is_Open)
+                {
+                    uniCAN.Recv_Disable();
+                    uniCAN.Close();
+                }
             if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
                 return;
             if (cb_CAN1.SelectedItem.ToString() == "USB Marathon")
@@ -2428,6 +2434,12 @@ namespace OLO_CAN
         #region Кнопка Запустить
         private void bt_runMC_Click(object sender, EventArgs e)
         {
+            if (uniCAN != null)
+                if (uniCAN.Is_Open)
+                {
+                    uniCAN.Recv_Disable();
+                    uniCAN.Close();
+                }
             try
             {
                 if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
@@ -5127,6 +5139,11 @@ namespace OLO_CAN
 
         private void tm4_test_Tick(object sender, EventArgs e)
         {
+        }
+
+        private void rb1_addr_left_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
