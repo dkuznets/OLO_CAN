@@ -896,6 +896,22 @@ namespace OLO_CAN
             //for (int i = 0; i < Const.IMAGE_CX * 2; i++)
             //    for (int j = 0; j < Const.IMAGE_CY * 2; j++)
             //        image_CMOS.SetPixel(i, j, Color.Black);
+            Bitmap ni = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2);
+            using (Graphics gr = Graphics.FromImage(ni))
+            {
+                gr.CompositingMode = CompositingMode.SourceCopy;
+                gr.CompositingQuality = CompositingQuality.HighSpeed;
+                gr.SmoothingMode = SmoothingMode.HighSpeed;//.HighQuality;
+                gr.InterpolationMode = InterpolationMode.NearestNeighbor;// .HighQualityBicubic;
+                gr.PixelOffsetMode = PixelOffsetMode.None;// .HighQuality;
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    gr.DrawImage(image_CMOS, new Rectangle(0, 0, Const.IMAGE_CX * 2, Const.IMAGE_CY * 2), 0, 0, image_CMOS.Width, image_CMOS.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            pictureBox1.Image = ni;
 
         }
         #region Переключение матриц
