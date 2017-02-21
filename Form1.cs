@@ -5215,6 +5215,8 @@ namespace OLO_CAN
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
 
+            List<canmsg_t> dd = new List<canmsg_t>();
+
             if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
             {
                 Trace.WriteLine("Чтение картинки");
@@ -5232,12 +5234,18 @@ namespace OLO_CAN
                 //    return;
                 //}
                 int j = 0;
-                for (int i = 0; i < msg_count; i++)
+//                for (int i = 0; i < msg_count; i++)
+                for (int i = 0; i < 100000; i++)
                 {
-                    uniCAN.Recv(ref dat, 1000);
-                    for (int k = 0; k < dat.len; k++)
-                        image_data1[j++] = dat.data[k];
+                    if(!uniCAN.Recv(ref dat, 1000))
+                    {
+                        goto _ddd;
+                    }
+                    dd.Add(dat);
+//                    for (int k = 0; k < dat.len; k++)
+//                        image_data1[j++] = dat.data[k];
                 }
+                goto _ddd;
                 Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
                 // read CMOS FIFO buffer size
                 Trace.WriteLine("Чтение кол-ва выстрелов");
@@ -5273,6 +5281,18 @@ namespace OLO_CAN
                             shot_array[j++] = dat.data[k];
                     }
                     Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
+                }
+            }
+            _ddd:
+            using (StreamWriter sw = new StreamWriter("test.csv"))
+            {
+                for (int l = 0; l < dd.Count; l++)
+                {
+                    for (int m = 0; m < dd[l].len; m++)
+                    {
+                        sw.Write(dd[l].data[m] + ";");
+                    }
+                    sw.WriteLine();
                 }
             }
         }
