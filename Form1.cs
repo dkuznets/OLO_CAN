@@ -5203,8 +5203,8 @@ namespace OLO_CAN
             // Установка симуляции выстрелов
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
-            cmd.prm.words.lo_word.bytes.lo_byte = (chb_PShot.Checked ? (Byte)0x01 : (Byte)0x00);
-            cmd.prm.words.lo_word.bytes.hi_byte = (chb_PFIFO.Checked ? (Byte)0x01 : (Byte)0x00);
+            cmd.prm.words.lo_word.bytes.lo_byte = 1;
+            cmd.prm.words.lo_word.bytes.hi_byte = 0;
 
             if (!SendCommand(cmd, ref res))
                 return;
