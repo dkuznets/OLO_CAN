@@ -5198,8 +5198,88 @@ namespace OLO_CAN
         }
         private unsafe void button4_Click(object sender, EventArgs e)
         {
-            //image_CMOS = (Bitmap)malevich.Clone();
-            //pictureBox1.Image = image_CMOS;
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            // Установка симуляции выстрелов
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
+            cmd.prm.words.lo_word.bytes.lo_byte = (chb_PShot.Checked ? (Byte)0x01 : (Byte)0x00);
+            cmd.prm.words.lo_word.bytes.hi_byte = (chb_PFIFO.Checked ? (Byte)0x01 : (Byte)0x00);
+
+            if (!SendCommand(cmd, ref res))
+                return;
+            Trace.WriteLine("Установка симуляции выстрелов");
+            UInt32 shot_pixels = 0;
+
+            // Чтение картинки
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
+
+            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
+            {
+                Trace.WriteLine("Чтение картинки");
+                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                image_data1 = new Byte[81920];
+
+                canmsg_t dat = new canmsg_t();
+                dat.data = new Byte[8];
+                //pb_CMOS.Maximum = msg_count;
+
+                //if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
+                //{
+                //    Trace.WriteLine("Err recv image data");
+                //    return;
+                //}
+                if (uniCAN != null) 
+                {
+                    Trace.WriteLine("Err recv image data");
+                    return;
+                }
+                int j = 0;
+                for (int i = 0; i < msg_count; i++)
+                {
+                    uniCAN.Recv(ref dat, 100);
+                    for (int k = 0; k < dat.len; k++)
+                        image_data1[j++] = dat.data[k];
+                }
+                Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
+                // read CMOS FIFO buffer size
+                Trace.WriteLine("Чтение кол-ва выстрелов");
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+                {
+                    Trace.WriteLine("Error read CMOS FIFO buffer size");
+                    return;
+                }
+                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
+                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
+
+                // read CMOS FIFO buffer data if exists
+                // получаем массив координат выстрелов
+                if (shot_pixels > 0)
+                {
+                    image_size = shot_pixels * 4;
+                    msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                    UInt32 image_data_count = 0;
+                    Trace.WriteLine("Чтение выстрелов");
+                    j = 0;
+                    for (UInt32 i = 0; i < msg_count; i++)
+                    {
+                        dat = new canmsg_t();
+                        dat.data = new Byte[8];
+                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
+                        {
+                            Trace.WriteLine("Error read CMOS FIFO buffer data");
+                            return;
+                        }
+                        for (int k = 0; k < dat.len; k++)
+                            shot_array[j++] = dat.data[k];
+                    }
+                    Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
+                }
+            }
         }
 
         private void rb1_addr_left_CheckedChanged(object sender, EventArgs e)
