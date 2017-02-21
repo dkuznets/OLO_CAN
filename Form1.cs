@@ -163,6 +163,7 @@ namespace OLO_CAN
         TM.Timer rstTimer3 = new TM.Timer();
 
         UInt16 count_l = 0, count_r = 0;
+        Byte[] image_data = new Byte[81920];
 
         #endregion
 
@@ -910,9 +911,11 @@ namespace OLO_CAN
                     gr.DrawImage(image_CMOS, new Rectangle(0, 0, Const.IMAGE_CX * 2, Const.IMAGE_CY * 2), 0, 0, image_CMOS.Width, image_CMOS.Height, GraphicsUnit.Pixel, wrapMode);
                 }
             }
-
             pictureBox1.Image = ni;
-
+            for (int i = 0; i < image_data.Length; i++)
+            {
+                image_data[i] = 0;
+            }
         }
         #region Переключение матриц
         private void rb_CMOS1_CheckedChanged(object sender, EventArgs e)
@@ -1810,7 +1813,6 @@ namespace OLO_CAN
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
 //            Byte[] image_data = new Byte[IMAGE_CX * IMAGE_CY];
-            Byte[] image_data = new Byte[0];
 
             if (_state != State.VideoState)
                 return;
