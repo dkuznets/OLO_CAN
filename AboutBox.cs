@@ -13,6 +13,8 @@ namespace OLO_CAN
         #region Комментарий
 
         public String comment =
+                        "v.1.1.0.106" + "\r\n" +
+                        " - Попытка переделать CANSET." + "\r\n" +
                         "v.1.0.15.103" + "\r\n" +
                         " - Пофиксен косяк с CAN." + "\r\n" +
                         "v.1.0.15.102" + "\r\n" +
