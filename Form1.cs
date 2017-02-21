@@ -82,10 +82,10 @@ namespace OLO_CAN
 
         public Bitmap image_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         public Bitmap image_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        Byte[] image_data1 = new Byte[81920];
-        Byte[] image_data2 = new Byte[81920];
+        Byte[] image_data1 = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
+        Byte[] image_data2 = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
 
-        Byte[] image_data = new Byte[81920];
+        Byte[] image_data = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
 
         //        public Bitmap image_CMOS = new Bitmap(IMAGE_CX, IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         static Byte[] Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
