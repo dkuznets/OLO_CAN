@@ -5237,7 +5237,9 @@ namespace OLO_CAN
 //                for (int i = 0; i < msg_count; i++)
                 for (int i = 0; i < 100000; i++)
                 {
-                    if(!uniCAN.Recv(ref dat, 1000))
+                    dat = new canmsg_t();
+                    dat.data = new Byte[8];
+                    if (!uniCAN.Recv(ref dat, 1000))
                     {
                         goto _ddd;
                     }
