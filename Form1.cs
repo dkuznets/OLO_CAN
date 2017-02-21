@@ -5220,7 +5220,7 @@ namespace OLO_CAN
                 Trace.WriteLine("Чтение картинки");
                 UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                 int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                image_data1 = new Byte[81920];
+                image_data1 = new Byte[81345];
 
                 canmsg_t dat = new canmsg_t();
                 dat.data = new Byte[8];
