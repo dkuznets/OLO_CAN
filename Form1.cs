@@ -5231,11 +5231,6 @@ namespace OLO_CAN
                 //    Trace.WriteLine("Err recv image data");
                 //    return;
                 //}
-                if (uniCAN != null) 
-                {
-                    Trace.WriteLine("Err recv image data");
-                    return;
-                }
                 int j = 0;
                 for (int i = 0; i < msg_count; i++)
                 {
