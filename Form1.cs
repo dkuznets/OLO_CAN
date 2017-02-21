@@ -5235,21 +5235,22 @@ namespace OLO_CAN
                 //}
                 int j = 0;
 //                for (int i = 0; i < msg_count; i++)
-                for (int i = 0; i < 100000; i++)
-                {
-                    dat = new canmsg_t();
-                    dat.data = new Byte[8];
-                    if (!uniCAN.Recv(ref dat, 1000))
-                    {
-                        Trace.WriteLine("err recv image data " + dd.Count + " pack");
-                        goto _ddd;
-                    }
-                    dd.Add(dat);
+                uniCAN.RecvPack(ref image_data1, ref msg_count, 100);
+                //for (int i = 0; i < 100000; i++)
+                //{
+                //    dat = new canmsg_t();
+                //    dat.data = new Byte[8];
+                //    if (!uniCAN.Recv(ref dat, 1000))
+                //    {
+                //        Trace.WriteLine("err recv image data " + dd.Count + " pack");
+                //        goto _ddd;
+                //    }
+                //    dd.Add(dat);
 //                    for (int k = 0; k < dat.len; k++)
 //                        image_data1[j++] = dat.data[k];
-                }
+//                }
                 Trace.WriteLine("recv image data " + dd.Count + " pack");
-                goto _ddd;
+//                goto _ddd;
                 Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
                 // read CMOS FIFO buffer size
                 Trace.WriteLine("Чтение кол-ва выстрелов");
