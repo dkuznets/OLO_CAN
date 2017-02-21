@@ -1787,8 +1787,8 @@ namespace OLO_CAN
                 SendCommand(EnqueueCommandList[0], ref res);
                 EnqueueCommandList.RemoveAt(0);
             }
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
             // Установка симуляции выстрелов
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
@@ -1798,8 +1798,8 @@ namespace OLO_CAN
             if(!SendCommand(cmd, ref res))
                 return;
             Trace.WriteLine("Установка симуляции выстрелов");
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
 
             // Читаем температуру CMOS1
             cmd.magic = Const.MAGIC_BYTE;
@@ -1808,8 +1808,8 @@ namespace OLO_CAN
             if (!SendCommand(cmd, ref res))
                 return;
             Trace.WriteLine("Читаем температуру CMOS1");
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
 
             Single fT1 = ((short)res.prm.words.lo_word.word) / (Single)10.0;
             lb_T1_val.Text = fT1.ToString("'+'0.0'°';'-'0.0'°';'0.0°'");
@@ -1821,8 +1821,8 @@ namespace OLO_CAN
             if (!SendCommand(cmd, ref res))
                 return;
             Trace.WriteLine("Читаем температуру CMOS2");
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
 
             Single fT2 = ((short)res.prm.words.lo_word.word) / (Single)10.0;
             lb_T2_val.Text = fT2.ToString("'+'0.0'°';'-'0.0'°';'0.0°'");
@@ -1834,8 +1834,8 @@ namespace OLO_CAN
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
 //            Byte[] image_data = new Byte[IMAGE_CX * IMAGE_CY];
 
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
 
             if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
             {
@@ -1955,8 +1955,8 @@ namespace OLO_CAN
                     }
 			    }
             }
-            if (_state != State.VideoState)
-                return;
+            //if (_state != State.VideoState)
+            //    return;
             #region построение картинки
             
             Trace.WriteLine("построение картинки");
@@ -4214,6 +4214,126 @@ namespace OLO_CAN
                 trackBar1.Enabled = false;
             }
         }
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
+            //            tm4_test.Interval = 1000 / trackBar1.Value;
+        }
+        private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_enshl.Checked)
+            {
+                //                tm4_counter.Interval = 1000 / trackBar1.Value;
+                //                if (trackBar1.Value < 30) 
+                //                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
+                //                else
+                //                    tm4_autoshl.Interval = 1000 / 30;
+                tm4_autoshl.Enabled = true;
+            }
+            else
+            {
+                tm4_autoshl.Enabled = false;
+            }
+        }
+        private void chb4_enshr_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_enshr.Checked)
+            {
+                //                tm4_counter.Interval = 1000 / trackBar1.Value;
+                //                if (trackBar1.Value < 30)
+                //                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
+                //                else
+                //                    tm4_autoshr.Interval = 1000 / 30;
+                tm4_autoshr.Enabled = true;
+            }
+            else
+            {
+                tm4_autoshr.Enabled = false;
+            }
+        }
+        private void tm4_autoshl_Tick(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = Const.OLO_Left;
+            mm.messageID = msg_t.mID_DATA;
+
+            Random r = new Random();
+            mm.messageLen = 8;
+            int az, um;
+            if (!chb3_shoot_ena.Checked)
+            {
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
+            }
+            else
+            {
+                az = trackBar3_az.Value;
+                um = trackBar3_um.Value;
+            }
+
+            count_l += (UInt16)trackBar1.Value;
+
+            mm.messageData[0] = (Byte)count_l;
+            mm.messageData[1] = (Byte)(count_l >> 8);
+            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
+            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
+            mm.messageData[4] = (Byte)az;
+            mm.messageData[5] = (Byte)(az >> 8);
+            mm.messageData[6] = (Byte)um;
+            mm.messageData[7] = (Byte)(um >> 8);
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
+                return;
+            messages.Add(mm);
+        }
+        private void tm4_autoshr_Tick(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = Const.OLO_Right;
+            mm.messageID = msg_t.mID_DATA;
+
+            Random r = new Random();
+            mm.messageLen = 8;
+            int az, um;
+            if (!chb3_shoot_ena.Checked)
+            {
+                az = r.Next(180 * 60) - 5400;
+                um = r.Next(180 * 60) - 5400;
+            }
+            else
+            {
+                az = trackBar3_az.Value;
+                um = trackBar3_um.Value;
+            }
+
+            count_r += (UInt16)trackBar1.Value;
+
+            mm.messageData[0] = (Byte)count_r;
+            mm.messageData[1] = (Byte)(count_r >> 8);
+            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
+            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
+            mm.messageData[4] = (Byte)az;
+            mm.messageData[5] = (Byte)(az >> 8);
+            mm.messageData[6] = (Byte)um;
+            mm.messageData[7] = (Byte)(um >> 8);
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
+                return;
+            messages.Add(mm);
+        }
+        private void tm4_counter_Tick(object sender, EventArgs e)
+        {
+        }
+
+        private void tm4_test_Tick(object sender, EventArgs e)
+        {
+        }
         #endregion
         #region OLO_CANTest
         private void bt_OpenCAN4_Click(object sender, EventArgs e)
@@ -5082,135 +5202,7 @@ namespace OLO_CAN
             //pictureBox1.Image = image_CMOS;
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
-//            tm4_test.Interval = 1000 / trackBar1.Value;
-        }
-        private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_enshl.Checked)
-            {
-//                tm4_counter.Interval = 1000 / trackBar1.Value;
-//                if (trackBar1.Value < 30) 
-//                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
-//                else
-//                    tm4_autoshl.Interval = 1000 / 30;
-                tm4_autoshl.Enabled = true;
-            }
-            else
-            {
-                tm4_autoshl.Enabled = false;
-            }
-        }
-        private void chb4_enshr_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_enshr.Checked)
-            {
-//                tm4_counter.Interval = 1000 / trackBar1.Value;
-//                if (trackBar1.Value < 30)
-//                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
-//                else
-//                    tm4_autoshr.Interval = 1000 / 30;
-                tm4_autoshr.Enabled = true;
-            }
-            else
-            {
-                tm4_autoshr.Enabled = false;
-            }
-        }
-        private void tm4_autoshl_Tick(object sender, EventArgs e)
-        {
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Left;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
-            }
-            else
-            {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
-            }
-
-            count_l += (UInt16)trackBar1.Value;
-            
-            mm.messageData[0] = (Byte)count_l;
-            mm.messageData[1] = (Byte)(count_l >> 8);
-            mm.messageData[2] = (Byte)(trackBar1.Value  * 10);
-            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
-        }
-
-        private void tm4_autoshr_Tick(object sender, EventArgs e)
-        {
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Right;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
-            }
-            else
-            {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
-            }
-
-            count_r += (UInt16)trackBar1.Value;
-
-            mm.messageData[0] = (Byte)count_r;
-            mm.messageData[1] = (Byte)(count_r >> 8);
-            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
-            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
-        }
-
-        private void tm4_counter_Tick(object sender, EventArgs e)
-        {
-        }
-
-        private void tm4_test_Tick(object sender, EventArgs e)
-        {
-        }
-
         private void rb1_addr_left_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chb_PRunVideo_CheckedChanged_1(object sender, EventArgs e)
         {
 
         }
