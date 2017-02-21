@@ -5234,7 +5234,7 @@ namespace OLO_CAN
                 int j = 0;
                 for (int i = 0; i < msg_count; i++)
                 {
-                    uniCAN.Recv(ref dat, 100);
+                    uniCAN.Recv(ref dat, 1000);
                     for (int k = 0; k < dat.len; k++)
                         image_data1[j++] = dat.data[k];
                 }
