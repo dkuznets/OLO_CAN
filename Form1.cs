@@ -79,11 +79,18 @@ namespace OLO_CAN
         public byte select_wing = 0;
 
         public Bitmap image_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-//        public Bitmap image_CMOS = new Bitmap(IMAGE_CX, IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+        public Bitmap image_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+        public Bitmap image_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+        Byte[] image_data1 = new Byte[81920];
+        Byte[] image_data2 = new Byte[81920];
+
+        Byte[] image_data = new Byte[81920];
+
+        //        public Bitmap image_CMOS = new Bitmap(IMAGE_CX, IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         static Byte[] Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
 
         MCANConverter marCAN = null;
-//        M2CANConverter mar2CAN = null;
         ACANConverter advCAN = null;
         ECANConverter elcCAN = null;
 
@@ -109,8 +116,14 @@ namespace OLO_CAN
         Boolean m_bAreaSelected;
         Point m_p1, m_p2;
         int X = 0, Y = 0;
-        Byte[] shot_array = new Byte[4096*8];
+        Byte[] shot_array = new Byte[100000 * 8];
         List<FIFO_ITEM> shot_array_list = new List<FIFO_ITEM>();
+
+        Byte[] shot_array1 = new Byte[100000 * 8];
+        List<FIFO_ITEM> shot_array_list1 = new List<FIFO_ITEM>();
+        Byte[] shot_array2 = new Byte[100000 * 8];
+        List<FIFO_ITEM> shot_array_list2 = new List<FIFO_ITEM>();
+
         ZoomedForm zoom = new ZoomedForm();
 
         List<COMMAND> EnqueueCommandList = new List<COMMAND>();
@@ -133,7 +146,6 @@ namespace OLO_CAN
 
         public Boolean scroll = true;
 
-        public Bitmap image_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 //        public Bitmap malevich = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
         msg_t m = new msg_t();
@@ -163,7 +175,6 @@ namespace OLO_CAN
         TM.Timer rstTimer3 = new TM.Timer();
 
         UInt16 count_l = 0, count_r = 0;
-        Byte[] image_data = new Byte[81920];
 
         #endregion
 
@@ -730,6 +741,7 @@ namespace OLO_CAN
             if (listb_Passport.Items.Count > 0)
                 listb_Passport.SelectedIndex = 0;
         }
+
 		#region Управление CAN
 		private void bt_OpenCAN_Click(object sender, EventArgs e)
 		{
@@ -893,7 +905,11 @@ namespace OLO_CAN
         {
             for (int i = 0; i < Const.IMAGE_CX; i++)
                 for (int j = 0; j < Const.IMAGE_CY; j++)
+                {
                     image_CMOS.SetPixel(i, j, Color.Black);
+                    image_CMOS1.SetPixel(i, j, Color.Black);
+                    image_CMOS2.SetPixel(i, j, Color.Black);
+                }
             //for (int i = 0; i < Const.IMAGE_CX * 2; i++)
             //    for (int j = 0; j < Const.IMAGE_CY * 2; j++)
             //        image_CMOS.SetPixel(i, j, Color.Black);
@@ -909,12 +925,16 @@ namespace OLO_CAN
                 {
                     wrapMode.SetWrapMode(WrapMode.TileFlipXY);
                     gr.DrawImage(image_CMOS, new Rectangle(0, 0, Const.IMAGE_CX * 2, Const.IMAGE_CY * 2), 0, 0, image_CMOS.Width, image_CMOS.Height, GraphicsUnit.Pixel, wrapMode);
+                    gr.DrawImage(image_CMOS1, new Rectangle(0, 0, Const.IMAGE_CX * 2, Const.IMAGE_CY * 2), 0, 0, image_CMOS.Width, image_CMOS.Height, GraphicsUnit.Pixel, wrapMode);
+                    gr.DrawImage(image_CMOS2, new Rectangle(0, 0, Const.IMAGE_CX * 2, Const.IMAGE_CY * 2), 0, 0, image_CMOS.Width, image_CMOS.Height, GraphicsUnit.Pixel, wrapMode);
                 }
             }
             pictureBox1.Image = ni;
             for (int i = 0; i < image_data.Length; i++)
             {
                 image_data[i] = 0;
+                image_data1[i] = 0;
+                image_data2[i] = 0;
             }
         }
         #region Переключение матриц
