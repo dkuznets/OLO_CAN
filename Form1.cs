@@ -5241,12 +5241,14 @@ namespace OLO_CAN
                     dat.data = new Byte[8];
                     if (!uniCAN.Recv(ref dat, 1000))
                     {
+                        Trace.WriteLine("err recv image data " + dd.Count + " pack");
                         goto _ddd;
                     }
                     dd.Add(dat);
 //                    for (int k = 0; k < dat.len; k++)
 //                        image_data1[j++] = dat.data[k];
                 }
+                Trace.WriteLine("recv image data " + dd.Count + " pack");
                 goto _ddd;
                 Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
                 // read CMOS FIFO buffer size
