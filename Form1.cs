@@ -933,8 +933,8 @@ namespace OLO_CAN
             for (int i = 0; i < image_data.Length; i++)
             {
                 image_data[i] = 0;
-                image_data1[i] = 0;
-                image_data2[i] = 0;
+//                image_data1[i] = 0;
+//                image_data2[i] = 0;
             }
         }
         #region Переключение матриц
