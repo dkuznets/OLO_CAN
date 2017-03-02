@@ -1988,9 +1988,9 @@ namespace OLO_CAN
                     image_CMOS.SetPixel(item.x, item.y, Color.Lime);
             }
 
-            // рисуем выстрелы фиолетовым
-            foreach (var item in shot_array_list)
-                image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
+            // рисуем выстрелы фиолетовым !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //foreach (var item in shot_array_list)
+            //    image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
 
             // Увеличиваем картинку под размер picturebox
             Bitmap newImage = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2);
