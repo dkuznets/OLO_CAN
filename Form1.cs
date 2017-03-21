@@ -5327,7 +5327,7 @@ namespace OLO_CAN
                     mm.deviceID = Const.OLO_All;
                     break;
 	        }
-            mm.messageID = msg_t.mID_REQTIME;
+            mm.messageID = msg_t.mID_REQVER;
             mm.messageLen = 1;
             mm.messageData[0] = 0;
             canmsg_t msg = new canmsg_t();
