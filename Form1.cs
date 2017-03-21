@@ -5357,7 +5357,7 @@ namespace OLO_CAN
                 Trace.WriteLine("Error read packet");
                 return;
             }
-            string ss = BitConverter.ToString(msg.data, 0, 2);
+            string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]) + " " + Convert.ToChar(msg.data[2]) + " ";
             ss += " " + BitConverter.ToString(msg.data, 2, 1);
             ss += " " + Convert.ToString(BitConverter.ToUInt16(msg.data, 3));
             MessageBox.Show(ss);
