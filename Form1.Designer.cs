@@ -303,6 +303,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
+            this.REQ_VER = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1593,6 +1594,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.REQ_VER);
             this.tabPage3.Controls.Add(this.chb3_savelog);
             this.tabPage3.Controls.Add(this.chb3_7fff);
             this.tabPage3.Controls.Add(this.chb3_um);
@@ -3330,6 +3332,16 @@
             // 
             this.timer1s.Interval = 1000;
             // 
+            // REQ_VER
+            // 
+            this.REQ_VER.Location = new System.Drawing.Point(620, 341);
+            this.REQ_VER.Name = "REQ_VER";
+            this.REQ_VER.Size = new System.Drawing.Size(75, 23);
+            this.REQ_VER.TabIndex = 61;
+            this.REQ_VER.Text = "button5";
+            this.REQ_VER.UseVisualStyleBackColor = true;
+            this.REQ_VER.Click += new System.EventHandler(this.REQ_VER_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3690,6 +3702,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Timer tm4_test;
         private System.Windows.Forms.Timer timer1s;
+        private System.Windows.Forms.Button REQ_VER;
 	}
 }
 

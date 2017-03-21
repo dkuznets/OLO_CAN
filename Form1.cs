@@ -5306,5 +5306,43 @@ namespace OLO_CAN
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void REQ_VER_Click(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            switch (comboBox3.SelectedIndex)
+        	{
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+	        }
+            mm.messageID = msg_t.mID_REQTIME;
+            mm.messageLen = 1;
+            mm.messageData[0] = 0;
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref msg, 100))
+                return;
+            if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+            {
+                Trace.WriteLine("Error read packet");
+                return;
+            }
+            string ss = BitConverter.ToString(msg.data, 0, 2);
+            ss += " " + BitConverter.ToString(msg.data, 2, 1);
+            ss += " " + Convert.ToString(BitConverter.ToUInt16(msg.data, 3));
+        }
     }
 }
