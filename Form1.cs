@@ -5343,6 +5343,7 @@ namespace OLO_CAN
             string ss = BitConverter.ToString(msg.data, 0, 2);
             ss += " " + BitConverter.ToString(msg.data, 2, 1);
             ss += " " + Convert.ToString(BitConverter.ToUInt16(msg.data, 3));
+            MessageBox.Show(ss);
         }
     }
 }
