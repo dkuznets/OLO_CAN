@@ -5358,7 +5358,7 @@ namespace OLO_CAN
                 return;
             }
             string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]) + " " + Convert.ToChar(msg.data[2]) + " ";
-            ss += " " + BitConverter.ToString(msg.data, 3, 1);
+            ss += " " + BitConverter.ToString(msg.data, 4, 1);
             ss += " " + Convert.ToString(BitConverter.ToUInt16(msg.data, 3));
             MessageBox.Show(ss);
         }
