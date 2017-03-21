@@ -304,6 +304,7 @@
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.REQ_VER = new System.Windows.Forms.Button();
+            this.chb1_need_reset = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1345,6 +1346,7 @@
             // 
             // gb_MC1
             // 
+            this.gb_MC1.Controls.Add(this.chb1_need_reset);
             this.gb_MC1.Controls.Add(this.rb_flight_right_wing_double_pass_lg);
             this.gb_MC1.Controls.Add(this.rb_flight_left_wing_double_pass_lg);
             this.gb_MC1.Controls.Add(this.rb_cmos12_select_lg);
@@ -1498,11 +1500,11 @@
             // 
             this.chb_eraseALL1.AutoSize = true;
             this.chb_eraseALL1.Enabled = false;
-            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 328);
+            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 326);
             this.chb_eraseALL1.Name = "chb_eraseALL1";
-            this.chb_eraseALL1.Size = new System.Drawing.Size(192, 17);
+            this.chb_eraseALL1.Size = new System.Drawing.Size(104, 17);
             this.chb_eraseALL1.TabIndex = 14;
-            this.chb_eraseALL1.Text = "Стереть FLASH перед загрузкой";
+            this.chb_eraseALL1.Text = "Стереть FLASH";
             this.chb_eraseALL1.UseVisualStyleBackColor = true;
             // 
             // bt_runMC1
@@ -3342,6 +3344,16 @@
             this.REQ_VER.UseVisualStyleBackColor = true;
             this.REQ_VER.Click += new System.EventHandler(this.REQ_VER_Click);
             // 
+            // chb1_need_reset
+            // 
+            this.chb1_need_reset.AutoSize = true;
+            this.chb1_need_reset.Location = new System.Drawing.Point(113, 326);
+            this.chb1_need_reset.Name = "chb1_need_reset";
+            this.chb1_need_reset.Size = new System.Drawing.Size(57, 17);
+            this.chb1_need_reset.TabIndex = 35;
+            this.chb1_need_reset.Text = "Сброс";
+            this.chb1_need_reset.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3703,6 +3715,7 @@
         private System.Windows.Forms.Timer tm4_test;
         private System.Windows.Forms.Timer timer1s;
         private System.Windows.Forms.Button REQ_VER;
+        private System.Windows.Forms.CheckBox chb1_need_reset;
 	}
 }
 

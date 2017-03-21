@@ -2350,6 +2350,22 @@ namespace OLO_CAN
                 crc8 += Buffer[i];
 
 
+            if(chb1_need_reset.Checked)
+            {
+                msg_t mm = new msg_t();
+
+                mm.deviceID = Const.OLO_All;
+                mm.messageID = msg_t.mID_RESET;
+                mm.messageLen = 1;
+                mm.messageData[0] = 0;
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                msg = mm.ToCAN(mm);
+                if (!uniCAN.Send(ref msg, 100))
+                    return;
+                Thread.Sleep(3000);
+            }
+
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
             frame = new canmsg_t();
             frame.data = new Byte[8];
