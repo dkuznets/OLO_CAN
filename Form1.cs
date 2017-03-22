@@ -3069,6 +3069,90 @@ namespace OLO_CAN
                         mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T2=" + ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T3=" + ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                        if (messages[i].deviceID == Const.OLO_Left)
+                        {
+                            switch (messages[i].messageData[0] & 3)
+                            {
+                                case 0:
+                                    lb_statusL_mode2.Text = "OPERATIONAL";
+                                    break;
+                                case 1:
+                                    lb_statusL_mode2.Text = "SELFTEST";
+                                    break;
+                                case 2:
+                                    lb_statusL_mode2.Text = "EMBEDCONTROL";
+                                    break;
+                                case 3:
+                                    lb_statusL_mode2.Text = "PROGRAMMING";
+                                    break;
+                                default:
+                                    lb_statusL_mode2.Text = "OPERATIONAL";
+                                    break;
+                            }
+                            switch ((messages[i].messageData[0] >> 2) & 3)
+                            {
+                                case 0:
+                                    lb_statusL_reason2.Text = "BY REQUEST";
+                                    break;
+                                case 1:
+                                    lb_statusL_reason2.Text = "BY TIMER";
+                                    break;
+                                case 2:
+                                    lb_statusL_reason2.Text = "BY STATE";
+                                    break;
+                                default:
+                                    lb_statusL_reason2.Text = "BY REQUEST";
+                                    break;
+                            }
+                            lb_statusL_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS BAD";
+                            lb_statusL_plis2.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS BAD";
+                            lb_statusL_file2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "FILE OK" : "FILE BAD";
+                            lb_statusL_t12.Text = ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                            lb_statusL_t22.Text = ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                            lb_statusL_t32.Text = ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                        }
+                        else
+                        {
+                            switch (messages[i].messageData[0] & 3)
+                            {
+                                case 0:
+                                    lb_statusR_mode2.Text = "OPERATIONAL";
+                                    break;
+                                case 1:
+                                    lb_statusR_mode2.Text = "SELFTEST";
+                                    break;
+                                case 2:
+                                    lb_statusR_mode2.Text = "EMBEDCONTROL";
+                                    break;
+                                case 3:
+                                    lb_statusR_mode2.Text = "PROGRAMMING";
+                                    break;
+                                default:
+                                    lb_statusR_mode2.Text = "OPERATIONAL";
+                                    break;
+                            }
+                            switch ((messages[i].messageData[0] >> 2) & 3)
+                            {
+                                case 0:
+                                    lb_statusR_reason2.Text = "BY REQUEST";
+                                    break;
+                                case 1:
+                                    lb_statusR_reason2.Text = "BY TIMER";
+                                    break;
+                                case 2:
+                                    lb_statusR_reason2.Text = "BY STATE";
+                                    break;
+                                default:
+                                    lb_statusR_reason2.Text = "BY REQUEST";
+                                    break;
+                            }
+                            lb_statusR_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS BAD";
+                            lb_statusR_plis2.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS BAD";
+                            lb_statusR_file2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "FILE OK" : "FILE BAD";
+                            lb_statusR_t12.Text = ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                            lb_statusR_t22.Text = ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                            lb_statusR_t32.Text = ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                        }
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         else
