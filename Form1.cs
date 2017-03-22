@@ -5358,10 +5358,10 @@ namespace OLO_CAN
                 return;
             }
             string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]) + " " + Convert.ToChar(msg.data[2]) + " ";
-            ss += " " + BitConverter.ToUInt16(msg.data, 3).ToString();
-            ss += " " + msg.data[5].ToString();
-            ss += " " + msg.data[6].ToString();
-            ss += " " + msg.data[7].ToString();
+            ss += " " + (msg.data[6] < 10 ? "0" + msg.data[6].ToString() : msg.data[6].ToString());
+            ss += "." + (msg.data[5] < 10 ? "0" + msg.data[5].ToString() : msg.data[5].ToString());
+            ss += "." + BitConverter.ToUInt16(msg.data, 3).ToString();
+            ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
             MessageBox.Show(ss);
         }
     }
