@@ -118,6 +118,7 @@
             this.bt_About1 = new System.Windows.Forms.Button();
             this.bt_Exit1 = new System.Windows.Forms.Button();
             this.gb_MC1 = new System.Windows.Forms.GroupBox();
+            this.chb1_need_reset = new System.Windows.Forms.CheckBox();
             this.rb_flight_right_wing_double_pass_lg = new System.Windows.Forms.RadioButton();
             this.rb_flight_left_wing_double_pass_lg = new System.Windows.Forms.RadioButton();
             this.rb_cmos12_select_lg = new System.Windows.Forms.RadioButton();
@@ -140,6 +141,7 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.REQ_VER = new System.Windows.Forms.Button();
             this.chb3_savelog = new System.Windows.Forms.CheckBox();
             this.chb3_7fff = new System.Windows.Forms.CheckBox();
             this.chb3_um = new System.Windows.Forms.CheckBox();
@@ -303,8 +305,8 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.REQ_VER = new System.Windows.Forms.Button();
-            this.chb1_need_reset = new System.Windows.Forms.CheckBox();
+            this.bt_mod2 = new System.Windows.Forms.Button();
+            this.cb_module2 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1371,6 +1373,16 @@
             this.gb_MC1.TabStop = false;
             this.gb_MC1.Text = "Микропрограмма";
             // 
+            // chb1_need_reset
+            // 
+            this.chb1_need_reset.AutoSize = true;
+            this.chb1_need_reset.Location = new System.Drawing.Point(113, 326);
+            this.chb1_need_reset.Name = "chb1_need_reset";
+            this.chb1_need_reset.Size = new System.Drawing.Size(57, 17);
+            this.chb1_need_reset.TabIndex = 35;
+            this.chb1_need_reset.Text = "Сброс";
+            this.chb1_need_reset.UseVisualStyleBackColor = true;
+            // 
             // rb_flight_right_wing_double_pass_lg
             // 
             this.rb_flight_right_wing_double_pass_lg.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1596,6 +1608,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cb_module2);
+            this.tabPage3.Controls.Add(this.bt_mod2);
             this.tabPage3.Controls.Add(this.REQ_VER);
             this.tabPage3.Controls.Add(this.chb3_savelog);
             this.tabPage3.Controls.Add(this.chb3_7fff);
@@ -1624,6 +1638,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // REQ_VER
+            // 
+            this.REQ_VER.Location = new System.Drawing.Point(620, 341);
+            this.REQ_VER.Name = "REQ_VER";
+            this.REQ_VER.Size = new System.Drawing.Size(147, 23);
+            this.REQ_VER.TabIndex = 61;
+            this.REQ_VER.Text = "Версия прошивки";
+            this.REQ_VER.UseVisualStyleBackColor = true;
+            this.REQ_VER.Click += new System.EventHandler(this.REQ_VER_Click);
             // 
             // chb3_savelog
             // 
@@ -3334,25 +3358,28 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // REQ_VER
+            // bt_mod2
             // 
-            this.REQ_VER.Location = new System.Drawing.Point(620, 341);
-            this.REQ_VER.Name = "REQ_VER";
-            this.REQ_VER.Size = new System.Drawing.Size(75, 23);
-            this.REQ_VER.TabIndex = 61;
-            this.REQ_VER.Text = "button5";
-            this.REQ_VER.UseVisualStyleBackColor = true;
-            this.REQ_VER.Click += new System.EventHandler(this.REQ_VER_Click);
+            this.bt_mod2.Location = new System.Drawing.Point(620, 128);
+            this.bt_mod2.Name = "bt_mod2";
+            this.bt_mod2.Size = new System.Drawing.Size(91, 23);
+            this.bt_mod2.TabIndex = 62;
+            this.bt_mod2.Text = "Режим модуля";
+            this.bt_mod2.UseVisualStyleBackColor = true;
+            this.bt_mod2.Click += new System.EventHandler(this.bt_mod2_Click);
             // 
-            // chb1_need_reset
+            // cb_module2
             // 
-            this.chb1_need_reset.AutoSize = true;
-            this.chb1_need_reset.Location = new System.Drawing.Point(113, 326);
-            this.chb1_need_reset.Name = "chb1_need_reset";
-            this.chb1_need_reset.Size = new System.Drawing.Size(57, 17);
-            this.chb1_need_reset.TabIndex = 35;
-            this.chb1_need_reset.Text = "Сброс";
-            this.chb1_need_reset.UseVisualStyleBackColor = true;
+            this.cb_module2.FormattingEnabled = true;
+            this.cb_module2.Items.AddRange(new object[] {
+            "Рабочий режим",
+            "Режим самотестирования",
+            "Встроенный контроль",
+            "Режим программирования"});
+            this.cb_module2.Location = new System.Drawing.Point(717, 130);
+            this.cb_module2.Name = "cb_module2";
+            this.cb_module2.Size = new System.Drawing.Size(181, 21);
+            this.cb_module2.TabIndex = 63;
             // 
             // Form1
             // 
@@ -3716,6 +3743,8 @@
         private System.Windows.Forms.Timer timer1s;
         private System.Windows.Forms.Button REQ_VER;
         private System.Windows.Forms.CheckBox chb1_need_reset;
+        private System.Windows.Forms.ComboBox cb_module2;
+        private System.Windows.Forms.Button bt_mod2;
 	}
 }
 

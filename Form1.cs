@@ -5365,5 +5365,57 @@ namespace OLO_CAN
             ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
             MessageBox.Show(ss);
         }
+
+        private void bt_mod2_Click(object sender, EventArgs e)
+        {
+            int to = 0;
+            msg_t mm = new msg_t();
+            mm.messageID = msg_t.mID_MODULE;
+            Byte[] tmp = new Byte[4];
+
+            switch (cb_module2.SelectedIndex)
+            {
+                case 0: // рабочий режим
+                    mm.messageData[0] = 0;
+                    mm.messageData[1] = 0;
+                    break;
+                case 1: // режим самотестирования
+                    mm.messageData[0] = 1;
+                    mm.messageData[1] = 0;
+                    break;
+                case 2: // встроенный контроль
+                    mm.messageData[0] = 0;
+                    mm.messageData[1] = 1;
+                    break;
+                case 3: // режим программирования
+                    mm.messageData[0] = 1;
+                    mm.messageData[1] = 1;
+                    break;
+            }
+            switch (comboBox3.SelectedIndex)
+            {
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+                default:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+            }
+//            tmp = BitConverter.GetBytes(to);
+//            Array.Copy(tmp, mm.messageData, 4);
+            mm.messageLen = 1;
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref msg, 100))
+                return;
+            messages.Add(mm);
+        }
     }
 }
