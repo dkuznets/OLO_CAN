@@ -5365,6 +5365,7 @@ namespace OLO_CAN
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
+            messages.Add(mm);
             if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
             {
                 Trace.WriteLine("Error read packet");
