@@ -3118,6 +3118,19 @@ namespace OLO_CAN
                         }
                         break;
 
+                    case msg_t.mID_GETVER:
+                        mss = Convert.ToChar(messages[i].messageData[0]) + "" + Convert.ToChar(messages[i].messageData[1]);
+                        mss += " " + (Convert.ToChar(messages[i].messageData[2]) == 'L' ? "Левый борт" : "Правый борт");
+                        mss += " " + (messages[i].messageData[6] < 10 ? "0" + messages[i].messageData[6].ToString() : messages[i].messageData[6].ToString());
+                        mss += "." + (messages[i].messageData[5] < 10 ? "0" + messages[i].messageData[5].ToString() : messages[i].messageData[5].ToString());
+                        mss += "." + BitConverter.ToUInt16(messages[i].messageData, 3).ToString();
+                        mss += " v." + (messages[i].messageData[7] < 10 ? "0" + messages[i].messageData[7].ToString() : messages[i].messageData[7].ToString());                        
+                        if (messages[i].deviceID != 0)
+                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
+                        else
+                            strelka = strelka_L;
+                        break;
+
                     case msg_t.mID_RESET:
                         if (messages[i].deviceID != 0)
                         {
@@ -5366,18 +5379,18 @@ namespace OLO_CAN
             if (!uniCAN.Send(ref msg, 100))
                 return;
             messages.Add(mm);
-            if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
-            {
-                Trace.WriteLine("Error read packet");
-                return;
-            }
-            string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]);
-            ss += " " + (Convert.ToChar(msg.data[2]) == 'L' ? "Левый борт": "Правый борт");
-            ss += " " + (msg.data[6] < 10 ? "0" + msg.data[6].ToString() : msg.data[6].ToString());
-            ss += "." + (msg.data[5] < 10 ? "0" + msg.data[5].ToString() : msg.data[5].ToString());
-            ss += "." + BitConverter.ToUInt16(msg.data, 3).ToString();
-            ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
-            MessageBox.Show(ss);
+            //if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+            //{
+            //    Trace.WriteLine("Error read packet");
+            //    return;
+            //}
+            //string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]);
+            //ss += " " + (Convert.ToChar(msg.data[2]) == 'L' ? "Левый борт": "Правый борт");
+            //ss += " " + (msg.data[6] < 10 ? "0" + msg.data[6].ToString() : msg.data[6].ToString());
+            //ss += "." + (msg.data[5] < 10 ? "0" + msg.data[5].ToString() : msg.data[5].ToString());
+            //ss += "." + BitConverter.ToUInt16(msg.data, 3).ToString();
+            //ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
+            //MessageBox.Show(ss);
         }
         private void bt_mod2_Click(object sender, EventArgs e)
         {
