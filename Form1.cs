@@ -5377,19 +5377,15 @@ namespace OLO_CAN
             {
                 case 0: // рабочий режим
                     mm.messageData[0] = 0;
-                    mm.messageData[1] = 0;
                     break;
                 case 1: // режим самотестирования
                     mm.messageData[0] = 1;
-                    mm.messageData[1] = 0;
                     break;
                 case 2: // встроенный контроль
-                    mm.messageData[0] = 0;
-                    mm.messageData[1] = 1;
+                    mm.messageData[0] = 2;
                     break;
                 case 3: // режим программирования
-                    mm.messageData[0] = 1;
-                    mm.messageData[1] = 1;
+                    mm.messageData[0] = 3;
                     break;
             }
             switch (comboBox3.SelectedIndex)
