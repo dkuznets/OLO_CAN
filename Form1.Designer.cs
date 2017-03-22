@@ -307,6 +307,20 @@
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.bt_mod2 = new System.Windows.Forms.Button();
             this.cb_module2 = new System.Windows.Forms.ComboBox();
+            this.gbox_statusL2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.gbox_statusR2 = new System.Windows.Forms.GroupBox();
+            this.lb_statusL_mode2 = new System.Windows.Forms.Label();
+            this.lb_statusL_reason2 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lb_statusL_status2 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.lb_statusL_t32 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lb_statusL_t22 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.lb_statusL_t12 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -350,6 +364,7 @@
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
+            this.gbox_statusL2.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1608,6 +1623,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.gbox_statusR2);
+            this.tabPage3.Controls.Add(this.gbox_statusL2);
             this.tabPage3.Controls.Add(this.cb_module2);
             this.tabPage3.Controls.Add(this.bt_mod2);
             this.tabPage3.Controls.Add(this.REQ_VER);
@@ -3360,7 +3377,7 @@
             // 
             // bt_mod2
             // 
-            this.bt_mod2.Location = new System.Drawing.Point(620, 128);
+            this.bt_mod2.Location = new System.Drawing.Point(620, 187);
             this.bt_mod2.Name = "bt_mod2";
             this.bt_mod2.Size = new System.Drawing.Size(91, 23);
             this.bt_mod2.TabIndex = 62;
@@ -3376,10 +3393,148 @@
             "Режим самотестирования",
             "Встроенный контроль",
             "Режим программирования"});
-            this.cb_module2.Location = new System.Drawing.Point(717, 130);
+            this.cb_module2.Location = new System.Drawing.Point(717, 189);
             this.cb_module2.Name = "cb_module2";
             this.cb_module2.Size = new System.Drawing.Size(181, 21);
             this.cb_module2.TabIndex = 63;
+            // 
+            // gbox_statusL2
+            // 
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_t32);
+            this.gbox_statusL2.Controls.Add(this.label34);
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_t22);
+            this.gbox_statusL2.Controls.Add(this.label36);
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_t12);
+            this.gbox_statusL2.Controls.Add(this.label38);
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_status2);
+            this.gbox_statusL2.Controls.Add(this.label32);
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_reason2);
+            this.gbox_statusL2.Controls.Add(this.label30);
+            this.gbox_statusL2.Controls.Add(this.lb_statusL_mode2);
+            this.gbox_statusL2.Controls.Add(this.label28);
+            this.gbox_statusL2.Location = new System.Drawing.Point(620, 9);
+            this.gbox_statusL2.Name = "gbox_statusL2";
+            this.gbox_statusL2.Size = new System.Drawing.Size(163, 174);
+            this.gbox_statusL2.TabIndex = 64;
+            this.gbox_statusL2.TabStop = false;
+            this.gbox_statusL2.Text = "Статус ОЛО-Л";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 16);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(42, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Режим";
+            // 
+            // gbox_statusR2
+            // 
+            this.gbox_statusR2.Location = new System.Drawing.Point(789, 9);
+            this.gbox_statusR2.Name = "gbox_statusR2";
+            this.gbox_statusR2.Size = new System.Drawing.Size(163, 113);
+            this.gbox_statusR2.TabIndex = 65;
+            this.gbox_statusR2.TabStop = false;
+            this.gbox_statusR2.Text = "Статус ОЛО-П";
+            // 
+            // lb_statusL_mode2
+            // 
+            this.lb_statusL_mode2.AutoSize = true;
+            this.lb_statusL_mode2.Location = new System.Drawing.Point(49, 16);
+            this.lb_statusL_mode2.Name = "lb_statusL_mode2";
+            this.lb_statusL_mode2.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_mode2.TabIndex = 1;
+            this.lb_statusL_mode2.Text = "Режим";
+            // 
+            // lb_statusL_reason2
+            // 
+            this.lb_statusL_reason2.AutoSize = true;
+            this.lb_statusL_reason2.Location = new System.Drawing.Point(49, 36);
+            this.lb_statusL_reason2.Name = "lb_statusL_reason2";
+            this.lb_statusL_reason2.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_reason2.TabIndex = 3;
+            this.lb_statusL_reason2.Text = "Режим";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(42, 13);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "Режим";
+            // 
+            // lb_statusL_status2
+            // 
+            this.lb_statusL_status2.AutoSize = true;
+            this.lb_statusL_status2.Location = new System.Drawing.Point(49, 56);
+            this.lb_statusL_status2.Name = "lb_statusL_status2";
+            this.lb_statusL_status2.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_status2.TabIndex = 5;
+            this.lb_statusL_status2.Text = "Режим";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(6, 56);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(42, 13);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "Режим";
+            // 
+            // lb_statusL_t32
+            // 
+            this.lb_statusL_t32.AutoSize = true;
+            this.lb_statusL_t32.Location = new System.Drawing.Point(49, 116);
+            this.lb_statusL_t32.Name = "lb_statusL_t32";
+            this.lb_statusL_t32.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_t32.TabIndex = 11;
+            this.lb_statusL_t32.Text = "Режим";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 116);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(42, 13);
+            this.label34.TabIndex = 10;
+            this.label34.Text = "Режим";
+            // 
+            // lb_statusL_t22
+            // 
+            this.lb_statusL_t22.AutoSize = true;
+            this.lb_statusL_t22.Location = new System.Drawing.Point(49, 96);
+            this.lb_statusL_t22.Name = "lb_statusL_t22";
+            this.lb_statusL_t22.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_t22.TabIndex = 9;
+            this.lb_statusL_t22.Text = "Режим";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 96);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(42, 13);
+            this.label36.TabIndex = 8;
+            this.label36.Text = "Режим";
+            // 
+            // lb_statusL_t12
+            // 
+            this.lb_statusL_t12.AutoSize = true;
+            this.lb_statusL_t12.Location = new System.Drawing.Point(49, 76);
+            this.lb_statusL_t12.Name = "lb_statusL_t12";
+            this.lb_statusL_t12.Size = new System.Drawing.Size(42, 13);
+            this.lb_statusL_t12.TabIndex = 7;
+            this.lb_statusL_t12.Text = "Режим";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(6, 76);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(42, 13);
+            this.label38.TabIndex = 6;
+            this.label38.Text = "Режим";
             // 
             // Form1
             // 
@@ -3462,6 +3617,8 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
+            this.gbox_statusL2.ResumeLayout(false);
+            this.gbox_statusL2.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -3745,6 +3902,20 @@
         private System.Windows.Forms.CheckBox chb1_need_reset;
         private System.Windows.Forms.ComboBox cb_module2;
         private System.Windows.Forms.Button bt_mod2;
+        private System.Windows.Forms.GroupBox gbox_statusL2;
+        private System.Windows.Forms.GroupBox gbox_statusR2;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lb_statusL_t32;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lb_statusL_t22;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label lb_statusL_t12;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label lb_statusL_status2;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lb_statusL_reason2;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lb_statusL_mode2;
 	}
 }
 

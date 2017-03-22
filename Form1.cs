@@ -3105,6 +3105,19 @@ namespace OLO_CAN
                         }
                         break;
 
+                    case msg_t.mID_REQVER:
+                        if (messages[i].deviceID != 0)
+                        {
+                            mss = "Запрос версии ПО" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
+                        }
+                        else
+                        {
+                            mss = "Запрос версии ПО всех ОЛО";
+                            strelka = strelka_R;
+                        }
+                        break;
+
                     case msg_t.mID_RESET:
                         if (messages[i].deviceID != 0)
                         {
@@ -5365,7 +5378,6 @@ namespace OLO_CAN
             ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
             MessageBox.Show(ss);
         }
-
         private void bt_mod2_Click(object sender, EventArgs e)
         {
             int to = 0;
