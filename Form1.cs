@@ -3192,7 +3192,7 @@ namespace OLO_CAN
                     case msg_t.mID_MODULE:
                         if (messages[i].deviceID != 0)
                         {
-                            mss = "Режим модуля" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                            mss = "Режим модуля"; // +((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                             switch (messages[i].messageData[0])
                             {
@@ -3215,7 +3215,7 @@ namespace OLO_CAN
                         }
                         else
                         {
-                            mss = "Режим модуля всех ОЛО";
+                            mss = "Режим модуля ";
                             strelka = strelka_R;
                         }
                         break;
