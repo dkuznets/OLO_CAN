@@ -3286,10 +3286,10 @@ namespace OLO_CAN
                                     mss += " EMBEDCONTROL";
                                     break;
                                 case 3:
-                                    mss += " OPERATIONAL";
+                                    mss += " PROGRAMMING";
                                     break;
                                 default:
-                                    mss += " PROGRAMMING";
+                                    mss += " OPERATIONAL";
                                     break;
                             }
                         }
