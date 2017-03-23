@@ -2504,6 +2504,7 @@ namespace OLO_CAN
                 gb_MC1.Enabled = true;
                 return;
             }
+            Trace.WriteLine("ACK no error");
             _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
             _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
             _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
@@ -2513,7 +2514,7 @@ namespace OLO_CAN
                 _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
 
                 ClearData();
-                frame.id = Const.CAN_MSG_ID_PC2MC;
+                frame.id = CAN_MSG_ID_MC2PC;
                 frame.len = (_u8)dlen;
                 for (_u8 ii = 0; ii < dlen; ii++)
                     frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
@@ -2551,7 +2552,7 @@ namespace OLO_CAN
             ClearData();
             if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                 return;
-            if (frame.id != Const.CAN_MSG_ID_MC2PC)
+            if (frame.id != CAN_MSG_ID_MC2PC)
             {
                 lb_error_CAN1.Text = "Неверный идентификатор пакета";
                 lb_error_CAN1.Visible = true;
