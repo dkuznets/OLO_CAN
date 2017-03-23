@@ -1679,9 +1679,9 @@
             // 
             // REQ_VER
             // 
-            this.REQ_VER.Location = new System.Drawing.Point(620, 341);
+            this.REQ_VER.Location = new System.Drawing.Point(849, 186);
             this.REQ_VER.Name = "REQ_VER";
-            this.REQ_VER.Size = new System.Drawing.Size(147, 23);
+            this.REQ_VER.Size = new System.Drawing.Size(105, 23);
             this.REQ_VER.TabIndex = 61;
             this.REQ_VER.Text = "Версия прошивки";
             this.REQ_VER.UseVisualStyleBackColor = true;
@@ -3416,7 +3416,7 @@
             "Режим программирования"});
             this.cb_module2.Location = new System.Drawing.Point(717, 189);
             this.cb_module2.Name = "cb_module2";
-            this.cb_module2.Size = new System.Drawing.Size(181, 21);
+            this.cb_module2.Size = new System.Drawing.Size(139, 21);
             this.cb_module2.TabIndex = 63;
             // 
             // gbox_statusL2
