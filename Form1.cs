@@ -2452,12 +2452,14 @@ namespace OLO_CAN
             if (rb1_addr_left.Checked)
             {
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                CAN_MSG_ID_MC2PC = Const.OLO_Left;
+                CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+//                CAN_MSG_ID_MC2PC = Const.OLO_Left;
             }
             else if (rb1_addr_right.Checked)
             {
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                CAN_MSG_ID_MC2PC = Const.OLO_Right;
+                CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+//                CAN_MSG_ID_MC2PC = Const.OLO_Right;
             }
             else
             {
