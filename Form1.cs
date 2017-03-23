@@ -2442,6 +2442,7 @@ namespace OLO_CAN
                 msg = mm.ToCAN(mm);
                 if (!uniCAN.Send(ref msg, 100))
                     return;
+                bt_loadMC1.Text = "Сброс ОЛО...";
                 Thread.Sleep(3000);
             }
 
@@ -2450,13 +2451,13 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             if (rb1_addr_left.Checked)
             {
-                frame.id = (0x03 << 5) | 0x12;
-                CAN_MSG_ID_MC2PC = 0x12;
+                frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                CAN_MSG_ID_MC2PC = Const.OLO_Left;
             }
             else if (rb1_addr_right.Checked)
             {
-                frame.id = (0x03 << 5) | 0x11;
-                CAN_MSG_ID_MC2PC = 0x11;
+                frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                CAN_MSG_ID_MC2PC = Const.OLO_Right;
             }
             else
             {

@@ -3415,7 +3415,7 @@
             "Режим самотестирования",
             "Встроенный контроль",
             "Режим программирования"});
-            this.cb_module2.Location = new System.Drawing.Point(717, 189);
+            this.cb_module2.Location = new System.Drawing.Point(717, 188);
             this.cb_module2.Name = "cb_module2";
             this.cb_module2.Size = new System.Drawing.Size(158, 21);
             this.cb_module2.TabIndex = 63;
