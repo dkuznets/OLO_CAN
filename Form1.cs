@@ -462,7 +462,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            label50.Text = "";
+            lb_statusR_reason2.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
@@ -582,7 +582,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            label50.Text = "";
+            lb_statusR_reason2.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
@@ -691,7 +691,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            label50.Text = "";
+            lb_statusR_reason2.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
