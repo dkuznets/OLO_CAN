@@ -1701,6 +1701,7 @@
             // chb3_7fff
             // 
             this.chb3_7fff.AutoSize = true;
+            this.chb3_7fff.Enabled = false;
             this.chb3_7fff.Location = new System.Drawing.Point(620, 293);
             this.chb3_7fff.Name = "chb3_7fff";
             this.chb3_7fff.Size = new System.Drawing.Size(103, 17);

@@ -443,6 +443,31 @@ namespace OLO_CAN
             chb_dgview2.Enabled = false;
             numericUpDown1.Enabled = false;
 
+            gbox_statusL2.Enabled = false;
+            gbox_statusR2.Enabled = false;
+            bt_mod2.Enabled = false;
+            REQ_VER.Enabled = false;
+            cb_module2.Enabled = false;
+            chb3_savelog.Enabled = false;
+
+            lb_statusL_file2.Text = "";
+            lb_statusL_mode2.Text = "";
+            lb_statusL_plis2.Text = "";
+            lb_statusL_reason2.Text = "";
+            lb_statusL_status2.Text = "";
+            lb_statusL_t12.Text = "";
+            lb_statusL_t22.Text = "";
+            lb_statusL_t32.Text = "";
+
+            lb_statusR_file2.Text = "";
+            lb_statusR_mode2.Text = "";
+            lb_statusR_plis2.Text = "";
+            lb_statusR_reason2.Text = "";
+            lb_statusR_status2.Text = "";
+            lb_statusR_t12.Text = "";
+            lb_statusR_t22.Text = "";
+            lb_statusR_t32.Text = "";
+
             // Tab3
             bt_CloseCAN3.Enabled = false;
             bt_OpenCAN3.Enabled = true;
@@ -538,6 +563,32 @@ namespace OLO_CAN
             chb_dgview2.Enabled = true;
             numericUpDown1.Enabled = true;
 
+            gbox_statusL2.Enabled = true;
+            gbox_statusR2.Enabled = true;
+            bt_mod2.Enabled = true;
+            REQ_VER.Enabled = true;
+            cb_module2.Enabled = true;
+            chb3_savelog.Enabled = true;
+
+            lb_statusL_file2.Text = "";
+            lb_statusL_mode2.Text = "";
+            lb_statusL_plis2.Text = "";
+            lb_statusL_reason2.Text = "";
+            lb_statusL_status2.Text = "";
+            lb_statusL_t12.Text = "";
+            lb_statusL_t22.Text = "";
+            lb_statusL_t32.Text = "";
+
+            lb_statusR_file2.Text = "";
+            lb_statusR_mode2.Text = "";
+            lb_statusR_plis2.Text = "";
+            lb_statusR_reason2.Text = "";
+            lb_statusR_status2.Text = "";
+            lb_statusR_t12.Text = "";
+            lb_statusR_t22.Text = "";
+            lb_statusR_t32.Text = "";
+
+
             // Tab3
             bt_CloseCAN3.Enabled = true;
             bt_OpenCAN3.Enabled = false;
@@ -619,6 +670,33 @@ namespace OLO_CAN
             panel3.Enabled = false;
             gb_olo_L.Enabled = false;
             gb_olo_R.Enabled = false;
+
+            // tab2
+            gbox_statusL2.Enabled = false;
+            gbox_statusR2.Enabled = false;
+            bt_mod2.Enabled = false;
+            REQ_VER.Enabled = false;
+            cb_module2.Enabled = false;
+            chb3_savelog.Enabled = false;
+
+            lb_statusL_file2.Text = "";
+            lb_statusL_mode2.Text = "";
+            lb_statusL_plis2.Text = "";
+            lb_statusL_reason2.Text = "";
+            lb_statusL_status2.Text = "";
+            lb_statusL_t12.Text = "";
+            lb_statusL_t22.Text = "";
+            lb_statusL_t32.Text = "";
+
+            lb_statusR_file2.Text = "";
+            lb_statusR_mode2.Text = "";
+            lb_statusR_plis2.Text = "";
+            lb_statusR_reason2.Text = "";
+            lb_statusR_status2.Text = "";
+            lb_statusR_t12.Text = "";
+            lb_statusR_t22.Text = "";
+            lb_statusR_t32.Text = "";
+
 
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
