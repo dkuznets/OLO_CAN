@@ -462,7 +462,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            lb_statusR_reason2.Text = "";
+            label50.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
@@ -582,7 +582,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            lb_statusR_reason2.Text = "";
+            label50.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
@@ -691,7 +691,7 @@ namespace OLO_CAN
             lb_statusR_file2.Text = "";
             lb_statusR_mode2.Text = "";
             lb_statusR_plis2.Text = "";
-            lb_statusR_reason2.Text = "";
+            label50.Text = "";
             lb_statusR_status2.Text = "";
             lb_statusR_t12.Text = "";
             lb_statusR_t22.Text = "";
@@ -3213,16 +3213,16 @@ namespace OLO_CAN
                             switch ((messages[i].messageData[0] >> 2) & 3)
                             {
                                 case 0:
-                                    lb_statusR_reason2.Text = "BY REQUEST";
+                                    label50.Text = "BY REQUEST";
                                     break;
                                 case 1:
-                                    lb_statusR_reason2.Text = "BY TIMER";
+                                    label50.Text = "BY TIMER";
                                     break;
                                 case 2:
-                                    lb_statusR_reason2.Text = "BY STATE";
+                                    label50.Text = "BY STATE";
                                     break;
                                 default:
-                                    lb_statusR_reason2.Text = "BY REQUEST";
+                                    label50.Text = "BY REQUEST";
                                     break;
                             }
                             lb_statusR_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS BAD";

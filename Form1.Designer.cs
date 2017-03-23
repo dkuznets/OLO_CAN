@@ -337,8 +337,8 @@
             this.label47 = new System.Windows.Forms.Label();
             this.lb_statusR_status2 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
             this.lb_statusR_reason2 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
             this.lb_statusR_mode2 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -3603,8 +3603,8 @@
             this.gbox_statusR2.Controls.Add(this.label47);
             this.gbox_statusR2.Controls.Add(this.lb_statusR_status2);
             this.gbox_statusR2.Controls.Add(this.label49);
-            this.gbox_statusR2.Controls.Add(this.label50);
             this.gbox_statusR2.Controls.Add(this.lb_statusR_reason2);
+            this.gbox_statusR2.Controls.Add(this.label50);
             this.gbox_statusR2.Controls.Add(this.lb_statusR_mode2);
             this.gbox_statusR2.Controls.Add(this.label53);
             this.gbox_statusR2.Location = new System.Drawing.Point(791, 9);
@@ -3722,23 +3722,23 @@
             this.label49.TabIndex = 4;
             this.label49.Text = "Статус";
             // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(59, 36);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(25, 13);
-            this.label50.TabIndex = 3;
-            this.label50.Text = "      ";
-            // 
             // lb_statusR_reason2
             // 
             this.lb_statusR_reason2.AutoSize = true;
-            this.lb_statusR_reason2.Location = new System.Drawing.Point(6, 36);
+            this.lb_statusR_reason2.Location = new System.Drawing.Point(59, 36);
             this.lb_statusR_reason2.Name = "lb_statusR_reason2";
-            this.lb_statusR_reason2.Size = new System.Drawing.Size(50, 13);
-            this.lb_statusR_reason2.TabIndex = 2;
-            this.lb_statusR_reason2.Text = "Причина";
+            this.lb_statusR_reason2.Size = new System.Drawing.Size(25, 13);
+            this.lb_statusR_reason2.TabIndex = 3;
+            this.lb_statusR_reason2.Text = "      ";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(6, 36);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(50, 13);
+            this.label50.TabIndex = 2;
+            this.label50.Text = "Причина";
             // 
             // lb_statusR_mode2
             // 
@@ -4156,8 +4156,8 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label lb_statusR_status2;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label lb_statusR_reason2;
+        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label lb_statusR_mode2;
         private System.Windows.Forms.Label label53;
 	}
