@@ -305,6 +305,7 @@ namespace OLO_CAN
                 return;
             }
             comboBox1.SelectedIndex = 0;
+            cb_module2.SelectedIndex = 0;
             for (int k = 1; k < 5; k++)
             {
                 cb_CAN[k].Items.Clear();
