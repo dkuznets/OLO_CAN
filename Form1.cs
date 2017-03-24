@@ -2551,27 +2551,29 @@ namespace OLO_CAN
                 if (!uniCAN.Send(ref frame, 200))
                     return;
                 Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                if ((--packets_in_block) == 0)
+                if (rb1_addr_uni.Checked)
                 {
-                    packets_in_block = Const.PACKETS_IN_BLOCK;
-
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
-                        return;
-                    Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
-                    uniCAN.HWReset();
-                    get_ack(ref ack, frame.data);
-                    if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                    if ((--packets_in_block) == 0)
                     {
-                        lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
-                        lb_error_CAN1.Visible = true;
-                        lb_noerr1.Visible = false;
-                        uniCAN.Close();
-                        gb_CAN1.Enabled = true;
-                        gb_MC1.Enabled = true;
-                        return;
+                        packets_in_block = Const.PACKETS_IN_BLOCK;
+
+                        if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
+                            return;
+                        Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
+                        uniCAN.HWReset();
+                        get_ack(ref ack, frame.data);
+                        if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                        {
+                            lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                            lb_error_CAN1.Visible = true;
+                            lb_noerr1.Visible = false;
+                            uniCAN.Close();
+                            gb_CAN1.Enabled = true;
+                            gb_MC1.Enabled = true;
+                            return;
+                        }
                     }
                 }
-
                 _u32 progress = (i + 1) * 100 / num_of_packets;
                 pb_loadMC1.Value = (_s32)progress;
                 bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
