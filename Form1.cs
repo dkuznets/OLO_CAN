@@ -2447,24 +2447,28 @@ namespace OLO_CAN
             }
 
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
+            Byte CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
             frame = new canmsg_t();
             frame.data = new Byte[8];
             if (rb1_addr_left.Checked)
             {
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
                 CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-//                CAN_MSG_ID_MC2PC = Const.OLO_Left;
+                CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                //                CAN_MSG_ID_MC2PC = Const.OLO_Left;
             }
             else if (rb1_addr_right.Checked)
             {
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
                 CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-//                CAN_MSG_ID_MC2PC = Const.OLO_Right;
+                CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                //                CAN_MSG_ID_MC2PC = Const.OLO_Right;
             }
             else
             {
                 frame.id = Const.CAN_MSG_ID_PC2MC;
                 CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
+                CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
             }
             frame.len = (Byte)Marshal.SizeOf(cmd);
 
@@ -2515,8 +2519,8 @@ namespace OLO_CAN
                 _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
 
                 ClearData();
-                /////
-                frame.id = Const.CAN_MSG_ID_PC2MC;
+                ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                frame.id = CAN_MSG_ID_PC2MC;
                 frame.len = (_u8)dlen;
                 for (_u8 ii = 0; ii < dlen; ii++)
                     frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
