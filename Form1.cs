@@ -2428,24 +2428,26 @@ namespace OLO_CAN
             for (int i = 0; i < size; i++)
                 crc8 += Buffer[i];
 
+            if (rb1_addr_uni.Checked)
+                if (chb1_need_reset.Checked)
+                {
+                    msg_t mm = new msg_t();
 
-            if(chb1_need_reset.Checked)
-            {
-                msg_t mm = new msg_t();
-
-                mm.deviceID = Const.OLO_All;
-                mm.messageID = msg_t.mID_RESET;
-                mm.messageLen = 1;
-                mm.messageData[0] = 0;
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                msg = mm.ToCAN(mm);
-                if (!uniCAN.Send(ref msg, 100))
-                    return;
-                bt_loadMC1.Text = "Сброс ОЛО...";
-                bt_loadMC1.Refresh();
-                Thread.Sleep(2000);
-            }
+                    mm.deviceID = Const.OLO_All;
+                    mm.messageID = msg_t.mID_RESET;
+                    mm.messageLen = 1;
+                    mm.messageData[0] = 0;
+                    canmsg_t msg = new canmsg_t();
+                    msg.data = new Byte[8];
+                    msg = mm.ToCAN(mm);
+                    if (!uniCAN.Send(ref msg, 100))
+                        return;
+                    bt_loadMC1.Text = "Сброс ОЛО...";
+                    bt_loadMC1.Refresh();
+                    Thread.Sleep(2000);
+                }
+                else
+                    chb1_need_reset.Checked = false;
 
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
             Byte CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
