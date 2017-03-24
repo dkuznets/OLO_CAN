@@ -2516,7 +2516,7 @@ namespace OLO_CAN
 
                 ClearData();
                 /////
-                frame.id = Const.CAN_MSG_ID_MC2PC;
+                frame.id = Const.CAN_MSG_ID_PC2MC;
                 frame.len = (_u8)dlen;
                 for (_u8 ii = 0; ii < dlen; ii++)
                     frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
