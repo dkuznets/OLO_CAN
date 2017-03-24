@@ -2605,6 +2605,7 @@ namespace OLO_CAN
             }
             pb_loadMC1.Visible = false;
             lb_Load_OK1.Text = "Микропрограмма успешно загружена";
+            chb1_need_reset.Checked = false;
             lb_Load_OK1.Visible = true;
             gb_CAN1.Enabled = true;
             gb_MC1.Enabled = true;
