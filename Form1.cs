@@ -2485,6 +2485,7 @@ namespace OLO_CAN
             Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
             if (frame.id != CAN_MSG_ID_MC2PC)
             {
+                Trace.WriteLine("Неверный идентификатор пакета");
                 lb_error_CAN.Text = "Неверный идентификатор пакета";
                 lb_error_CAN.Visible = true;
                 lb_noerr.Visible = false;
