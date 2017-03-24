@@ -2452,6 +2452,16 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             if (rb1_addr_left.Checked)
             {
+                msg_t mm = new msg_t();
+                mm.deviceID = Const.OLO_Left;
+                mm.messageID = msg_t.mID_MODULE;
+                mm.messageLen = 1;
+                mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                msg = mm.ToCAN(mm);
+                if (!uniCAN.Send(ref msg, 100))
+                    return;
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
                 CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
                 CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
@@ -2459,6 +2469,16 @@ namespace OLO_CAN
             }
             else if (rb1_addr_right.Checked)
             {
+                msg_t mm = new msg_t();
+                mm.deviceID = Const.OLO_Right;
+                mm.messageID = msg_t.mID_MODULE;
+                mm.messageLen = 1;
+                mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                msg = mm.ToCAN(mm);
+                if (!uniCAN.Send(ref msg, 100))
+                    return;
                 frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
                 CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
                 CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
