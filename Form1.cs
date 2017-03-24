@@ -2515,7 +2515,8 @@ namespace OLO_CAN
                 _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
 
                 ClearData();
-                frame.id = CAN_MSG_ID_MC2PC;
+                /////
+                frame.id = Const.CAN_MSG_ID_MC2PC;
                 frame.len = (_u8)dlen;
                 for (_u8 ii = 0; ii < dlen; ii++)
                     frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
