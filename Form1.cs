@@ -2443,7 +2443,8 @@ namespace OLO_CAN
                 if (!uniCAN.Send(ref msg, 100))
                     return;
                 bt_loadMC1.Text = "Сброс ОЛО...";
-                Thread.Sleep(3000);
+                bt_loadMC1.Refresh();
+                Thread.Sleep(2000);
             }
 
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
