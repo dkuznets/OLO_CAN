@@ -2657,7 +2657,7 @@ namespace OLO_CAN
                         frame.data[ii] = ii;
                     if (!uniCAN.Send(ref frame, 200))
                         return;
-                    Thread.Sleep(10);
+                    Thread.Sleep(50);
                     Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
                     print_msg(frame);
                 }
