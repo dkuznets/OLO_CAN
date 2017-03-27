@@ -2450,8 +2450,8 @@ namespace OLO_CAN
                 else
                     chb1_need_reset.Checked = false;
             }
-            Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
-            Byte CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
+            uint CAN_MSG_ID_MC2PC = Const.CAN_MSG_ID_MC2PC;
+            uint CAN_MSG_ID_PC2MC = Const.CAN_MSG_ID_PC2MC;
 
             if (rb1_addr_uni.Checked)
             {
@@ -2544,15 +2544,26 @@ namespace OLO_CAN
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
+                ClearData();
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                    return;
+                if (frame.id != Const.CAN_MSG_ID_MC2PC)
+                {
+                    lb_error_CAN1.Text = "Неверный идентификатор пакета";
+                    lb_error_CAN1.Visible = true;
+                    lb_noerr1.Visible = false;
+                    gb_CAN1.Enabled = true;
+                    gb_MC1.Enabled = true;
+                    return;
+                }
 #endregion
             }
             else
             {
 #region Загрузка новый алгоритм
-                CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
-                CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
                 frame = new canmsg_t();
                 frame.data = new Byte[8];
+                // отправляем команду режим модуля - режим программирования.
                 if (rb1_addr_left.Checked)
                 {
                     msg_t mm = new msg_t();
@@ -2568,9 +2579,8 @@ namespace OLO_CAN
                     frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
                     CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
                     CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                    //                CAN_MSG_ID_MC2PC = Const.OLO_Left;
                 }
-                else if (rb1_addr_right.Checked)
+                else
                 {
                     msg_t mm = new msg_t();
                     mm.deviceID = Const.OLO_Right;
@@ -2585,16 +2595,11 @@ namespace OLO_CAN
                     frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
                     CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
                     CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                    //                CAN_MSG_ID_MC2PC = Const.OLO_Right;
                 }
-                else
-                {
-                    frame.id = Const.CAN_MSG_ID_PC2MC;
-                    CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
-                    CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
-                }
-                frame.len = (Byte)Marshal.SizeOf(cmd);
 
+                // отправляем команду режим программирования - COMMAND_UPLOAD_FIRMWARE
+                frame.len = (Byte)Marshal.SizeOf(cmd);
+                frame.id = (msg_t.mID_PROG << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
                 cmd.size = (_u32)size;
                 cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
@@ -2603,55 +2608,24 @@ namespace OLO_CAN
                 set_cmd(cmd, ref frame.data);
 
                 if (!uniCAN.Send(ref frame, 2000))
-                    //            if (!uniCAN.Send(ref frame))
                     return;
                 Trace.WriteLine("Send commmand ID=0x" + frame.id.ToString("X2"));
                 ClearData();
-                if (rb1_addr_uni.Checked)
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                    return;
+                Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
+                CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+                CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+                if (frame.id != CAN_MSG_ID_MC2PC)
                 {
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
-                        return;
-                    Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
-                    if (frame.id != CAN_MSG_ID_MC2PC)
-                    {
-                        Trace.WriteLine("Неверный идентификатор пакета");
-                        lb_error_CAN.Text = "Неверный идентификатор пакета";
-                        lb_error_CAN.Visible = true;
-                        lb_noerr.Visible = false;
-                        uniCAN.Close();
-                        gb_CAN1.Enabled = true;
-                        gb_MC1.Enabled = true;
-                        return;
-                    }
-                    get_ack(ref ack, frame.data);
-                    if (ack.error_code != Const.CMD_ERR_NO_ERROR)
-                    {
-                        lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
-                        lb_error_CAN1.Visible = true;
-                        lb_noerr1.Visible = false;
-                        uniCAN.Close();
-                        gb_CAN1.Enabled = true;
-                        gb_MC1.Enabled = true;
-                        return;
-                    }
-                    Trace.WriteLine("ACK no error");
-                }
-                else
-                {
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
-                        return;
-                    Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
-                    if (frame.id != CAN_MSG_ID_MC2PC)
-                    {
-                        Trace.WriteLine("Неверный идентификатор пакета");
-                        lb_error_CAN.Text = "Неверный идентификатор пакета";
-                        lb_error_CAN.Visible = true;
-                        lb_noerr.Visible = false;
-                        uniCAN.Close();
-                        gb_CAN1.Enabled = true;
-                        gb_MC1.Enabled = true;
-                        return;
-                    }
+                    Trace.WriteLine("Неверный идентификатор пакета");
+                    lb_error_CAN.Text = "Неверный идентификатор пакета";
+                    lb_error_CAN.Visible = true;
+                    lb_noerr.Visible = false;
+                    uniCAN.Close();
+                    gb_CAN1.Enabled = true;
+                    gb_MC1.Enabled = true;
+                    return;
                 }
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
@@ -2663,7 +2637,7 @@ namespace OLO_CAN
 
                     ClearData();
                     ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    frame.id = msg_t.mID_INLOADER;
+                    frame.id = CAN_MSG_ID_PC2MC;
                     frame.len = (_u8)dlen;
                     for (_u8 ii = 0; ii < dlen; ii++)
                         frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
@@ -2671,49 +2645,26 @@ namespace OLO_CAN
                     if (!uniCAN.Send(ref frame, 200))
                         return;
                     Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                    if (rb1_addr_uni.Checked)
-                    {
-                        if ((--packets_in_block) == 0)
-                        {
-                            packets_in_block = Const.PACKETS_IN_BLOCK;
-
-                            if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
-                                return;
-                            Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
-                            uniCAN.HWReset();
-                            get_ack(ref ack, frame.data);
-                            if (ack.error_code != Const.CMD_ERR_NO_ERROR)
-                            {
-                                lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
-                                lb_error_CAN1.Visible = true;
-                                lb_noerr1.Visible = false;
-                                uniCAN.Close();
-                                gb_CAN1.Enabled = true;
-                                gb_MC1.Enabled = true;
-                                return;
-                            }
-                        }
-                    }
                     _u32 progress = (i + 1) * 100 / num_of_packets;
                     pb_loadMC1.Value = (_s32)progress;
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
+                ClearData();
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                    return;
+                if (frame.id != CAN_MSG_ID_MC2PC)
+                {
+                    lb_error_CAN1.Text = "Неверный идентификатор пакета";
+                    lb_error_CAN1.Visible = true;
+                    lb_noerr1.Visible = false;
+                    gb_CAN1.Enabled = true;
+                    gb_MC1.Enabled = true;
+                    return;
+                }
 #endregion
             }
 
-            ClearData();
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
-                return;
-            if (frame.id != CAN_MSG_ID_MC2PC)
-            {
-                lb_error_CAN1.Text = "Неверный идентификатор пакета";
-                lb_error_CAN1.Visible = true;
-                lb_noerr1.Visible = false;
-                gb_CAN1.Enabled = true;
-                gb_MC1.Enabled = true;
-                return;
-            }
             //String sss = "";
             //for (int i = 0; i < 8; i++)
             //	sss += i.ToString() + " - " + Convert.ToString(frame.data[i], 2) + " - " + Convert.ToString(frame.data[i], 16) + "\r\n";
