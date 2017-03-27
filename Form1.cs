@@ -2443,9 +2443,12 @@ namespace OLO_CAN
                     msg = mm.ToCAN(mm);
                     if (!uniCAN.Send(ref msg, 100))
                         return;
-                    bt_loadMC1.Text = "Сброс ОЛО...";
+                    bt_loadMC1.Text = "Сброс ОЛО... 2c";
                     bt_loadMC1.Refresh();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
+                    bt_loadMC1.Text = "Сброс ОЛО... 1c";
+                    bt_loadMC1.Refresh();
+                    Thread.Sleep(1000);
                 }
                 else
                     chb1_need_reset.Checked = false;
