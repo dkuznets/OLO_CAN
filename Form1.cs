@@ -2443,10 +2443,10 @@ namespace OLO_CAN
                     msg = mm.ToCAN(mm);
                     if (!uniCAN.Send(ref msg, 100))
                         return;
-                    bt_loadMC1.Text = "Сброс ОЛО... 2c";
+                    bt_loadMC1.Text = "Сброс ОЛО... 2 c";
                     bt_loadMC1.Refresh();
                     Thread.Sleep(1000);
-                    bt_loadMC1.Text = "Сброс ОЛО... 1c";
+                    bt_loadMC1.Text = "Сброс ОЛО... 1 c";
                     bt_loadMC1.Refresh();
                     Thread.Sleep(1000);
                 }
@@ -2648,16 +2648,19 @@ namespace OLO_CAN
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
 
                 //////////////////////////////////
-/*
-                frame.id = CAN_MSG_ID_PC2MC;
-                frame.len = 8;
-                for (_u8 ii = 0; ii < 8; ii++)
-                    frame.data[ii] = ii;
-                if (!uniCAN.Send(ref frame, 200))
-                    return;
-                Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                print_msg(frame);
- */
+//                /*
+                for (_u32 i = 0; i < 10; i++)
+                {
+                    frame.id = CAN_MSG_ID_PC2MC;
+                    frame.len = 8;
+                    for (_u8 ii = 0; ii < 8; ii++)
+                        frame.data[ii] = ii;
+                    if (!uniCAN.Send(ref frame, 200))
+                        return;
+                    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
+                    print_msg(frame);
+                }
+//                 */
                 //////////////////////////////////
                 for (_u32 i = 0; i < num_of_packets; i++)
                 {
