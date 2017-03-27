@@ -2643,7 +2643,7 @@ namespace OLO_CAN
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-
+/*
                 for (_u32 i = 0; i < num_of_packets; i++)
                 {
                     _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
@@ -2663,6 +2663,7 @@ namespace OLO_CAN
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
+ */
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
