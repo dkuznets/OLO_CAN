@@ -13,6 +13,8 @@ namespace OLO_CAN
         #region Комментарий
 
         public String comment =
+                        "v.1.1.3.135" + "\r\n" +
+                        " - ПЕределана загрузка по старому алгоритму. Работает. Больше ее не трогаю." + "\r\n" +
                         "v.1.1.2.121" + "\r\n" +
                         " - Массовые доработки теста ОЛО и переход на новый протокол." + "\r\n" +
                         "v.1.1.0.106" + "\r\n" +
@@ -175,17 +177,14 @@ namespace OLO_CAN
 		{
 
 		}
-
 		private void logoPictureBox_MouseEnter(object sender, EventArgs e)
 		{
 			timer1.Enabled = true;
 		}
-
 		private void logoPictureBox_MouseLeave(object sender, EventArgs e)
 		{
 			timer1.Enabled = false;
 		}
-
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			if (sw == 0)
