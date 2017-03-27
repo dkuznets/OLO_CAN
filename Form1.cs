@@ -2452,64 +2452,28 @@ namespace OLO_CAN
             }
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
             Byte CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
-            frame = new canmsg_t();
-            frame.data = new Byte[8];
-            if (rb1_addr_left.Checked)
+
+            if (rb1_addr_uni.Checked)
             {
-                msg_t mm = new msg_t();
-                mm.deviceID = Const.OLO_Left;
-                mm.messageID = msg_t.mID_MODULE;
-                mm.messageLen = 1;
-                mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                msg = mm.ToCAN(mm);
-                if (!uniCAN.Send(ref msg, 100))
-                    return;
-                frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                //                CAN_MSG_ID_MC2PC = Const.OLO_Left;
-            }
-            else if (rb1_addr_right.Checked)
-            {
-                msg_t mm = new msg_t();
-                mm.deviceID = Const.OLO_Right;
-                mm.messageID = msg_t.mID_MODULE;
-                mm.messageLen = 1;
-                mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                msg = mm.ToCAN(mm);
-                if (!uniCAN.Send(ref msg, 100))
-                    return;
-                frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                //                CAN_MSG_ID_MC2PC = Const.OLO_Right;
-            }
-            else
-            {
+#region Загрузка алгоритм Иоселева
+                frame = new canmsg_t();
+                frame.data = new Byte[8];
                 frame.id = Const.CAN_MSG_ID_PC2MC;
                 CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
                 CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
-            }
-            frame.len = (Byte)Marshal.SizeOf(cmd);
+                frame.len = (Byte)Marshal.SizeOf(cmd);
 
-            cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
-            cmd.size = (_u32)size;
-            cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
-            cmd.crc8 = (_u8)(0 - crc8);
+                cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
+                cmd.size = (_u32)size;
+                cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
+                cmd.crc8 = (_u8)(0 - crc8);
 
-            set_cmd(cmd, ref frame.data);
+                set_cmd(cmd, ref frame.data);
 
-            if (!uniCAN.Send(ref frame, 2000))
-//            if (!uniCAN.Send(ref frame))
-                return;
-            Trace.WriteLine("Send commmand ID=0x" + frame.id.ToString("X2"));
-            ClearData();
-            if (rb1_addr_uni.Checked)
-            {
+                if (!uniCAN.Send(ref frame, 2000))
+                    return;
+                Trace.WriteLine("Send commmand ID=0x" + frame.id.ToString("X2"));
+                ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
                 Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
@@ -2536,44 +2500,25 @@ namespace OLO_CAN
                     return;
                 }
                 Trace.WriteLine("ACK no error");
-            }
-            else
-            {
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
-                    return;
-                Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
-                if (frame.id != CAN_MSG_ID_MC2PC)
+
+                _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
+                _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
+                _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+
+                for (_u32 i = 0; i < num_of_packets; i++)
                 {
-                    Trace.WriteLine("Неверный идентификатор пакета");
-                    lb_error_CAN.Text = "Неверный идентификатор пакета";
-                    lb_error_CAN.Visible = true;
-                    lb_noerr.Visible = false;
-                    uniCAN.Close();
-                    gb_CAN1.Enabled = true;
-                    gb_MC1.Enabled = true;
-                    return;
-                }
-            }
-            _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
-            _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
-            _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+                    _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
 
-            for (_u32 i = 0; i < num_of_packets; i++)
-            {
-                _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
+                    ClearData();
+                    ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    frame.id = Const.CAN_MSG_ID_PC2MC;
+                    frame.len = (_u8)dlen;
+                    for (_u8 ii = 0; ii < dlen; ii++)
+                        frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
 
-                ClearData();
-                ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                frame.id = msg_t.mID_INLOADER;
-                frame.len = (_u8)dlen;
-                for (_u8 ii = 0; ii < dlen; ii++)
-                    frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
-
-                if (!uniCAN.Send(ref frame, 200))
-                    return;
-                Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                if (rb1_addr_uni.Checked)
-                {
+                    if (!uniCAN.Send(ref frame, 200))
+                        return;
+                    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
                     if ((--packets_in_block) == 0)
                     {
                         packets_in_block = Const.PACKETS_IN_BLOCK;
@@ -2594,11 +2539,167 @@ namespace OLO_CAN
                             return;
                         }
                     }
+                    _u32 progress = (i + 1) * 100 / num_of_packets;
+                    pb_loadMC1.Value = (_s32)progress;
+                    bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
+                    Application.DoEvents();
                 }
-                _u32 progress = (i + 1) * 100 / num_of_packets;
-                pb_loadMC1.Value = (_s32)progress;
-                bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
-                Application.DoEvents();
+#endregion
+            }
+            else
+            {
+#region Загрузка новый алгоритм
+                CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
+                CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
+                frame = new canmsg_t();
+                frame.data = new Byte[8];
+                if (rb1_addr_left.Checked)
+                {
+                    msg_t mm = new msg_t();
+                    mm.deviceID = Const.OLO_Left;
+                    mm.messageID = msg_t.mID_MODULE;
+                    mm.messageLen = 1;
+                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                    canmsg_t msg = new canmsg_t();
+                    msg.data = new Byte[8];
+                    msg = mm.ToCAN(mm);
+                    if (!uniCAN.Send(ref msg, 100))
+                        return;
+                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                    //                CAN_MSG_ID_MC2PC = Const.OLO_Left;
+                }
+                else if (rb1_addr_right.Checked)
+                {
+                    msg_t mm = new msg_t();
+                    mm.deviceID = Const.OLO_Right;
+                    mm.messageID = msg_t.mID_MODULE;
+                    mm.messageLen = 1;
+                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                    canmsg_t msg = new canmsg_t();
+                    msg.data = new Byte[8];
+                    msg = mm.ToCAN(mm);
+                    if (!uniCAN.Send(ref msg, 100))
+                        return;
+                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                    //                CAN_MSG_ID_MC2PC = Const.OLO_Right;
+                }
+                else
+                {
+                    frame.id = Const.CAN_MSG_ID_PC2MC;
+                    CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
+                    CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
+                }
+                frame.len = (Byte)Marshal.SizeOf(cmd);
+
+                cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
+                cmd.size = (_u32)size;
+                cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
+                cmd.crc8 = (_u8)(0 - crc8);
+
+                set_cmd(cmd, ref frame.data);
+
+                if (!uniCAN.Send(ref frame, 2000))
+                    //            if (!uniCAN.Send(ref frame))
+                    return;
+                Trace.WriteLine("Send commmand ID=0x" + frame.id.ToString("X2"));
+                ClearData();
+                if (rb1_addr_uni.Checked)
+                {
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                        return;
+                    Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
+                    if (frame.id != CAN_MSG_ID_MC2PC)
+                    {
+                        Trace.WriteLine("Неверный идентификатор пакета");
+                        lb_error_CAN.Text = "Неверный идентификатор пакета";
+                        lb_error_CAN.Visible = true;
+                        lb_noerr.Visible = false;
+                        uniCAN.Close();
+                        gb_CAN1.Enabled = true;
+                        gb_MC1.Enabled = true;
+                        return;
+                    }
+                    get_ack(ref ack, frame.data);
+                    if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                    {
+                        lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                        lb_error_CAN1.Visible = true;
+                        lb_noerr1.Visible = false;
+                        uniCAN.Close();
+                        gb_CAN1.Enabled = true;
+                        gb_MC1.Enabled = true;
+                        return;
+                    }
+                    Trace.WriteLine("ACK no error");
+                }
+                else
+                {
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                        return;
+                    Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
+                    if (frame.id != CAN_MSG_ID_MC2PC)
+                    {
+                        Trace.WriteLine("Неверный идентификатор пакета");
+                        lb_error_CAN.Text = "Неверный идентификатор пакета";
+                        lb_error_CAN.Visible = true;
+                        lb_noerr.Visible = false;
+                        uniCAN.Close();
+                        gb_CAN1.Enabled = true;
+                        gb_MC1.Enabled = true;
+                        return;
+                    }
+                }
+                _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
+                _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
+                _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+
+                for (_u32 i = 0; i < num_of_packets; i++)
+                {
+                    _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
+
+                    ClearData();
+                    ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    frame.id = msg_t.mID_INLOADER;
+                    frame.len = (_u8)dlen;
+                    for (_u8 ii = 0; ii < dlen; ii++)
+                        frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
+
+                    if (!uniCAN.Send(ref frame, 200))
+                        return;
+                    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
+                    if (rb1_addr_uni.Checked)
+                    {
+                        if ((--packets_in_block) == 0)
+                        {
+                            packets_in_block = Const.PACKETS_IN_BLOCK;
+
+                            if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
+                                return;
+                            Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
+                            uniCAN.HWReset();
+                            get_ack(ref ack, frame.data);
+                            if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                            {
+                                lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                                lb_error_CAN1.Visible = true;
+                                lb_noerr1.Visible = false;
+                                uniCAN.Close();
+                                gb_CAN1.Enabled = true;
+                                gb_MC1.Enabled = true;
+                                return;
+                            }
+                        }
+                    }
+                    _u32 progress = (i + 1) * 100 / num_of_packets;
+                    pb_loadMC1.Value = (_s32)progress;
+                    bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
+                    Application.DoEvents();
+                }
+#endregion
             }
 
             ClearData();
