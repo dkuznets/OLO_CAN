@@ -2638,6 +2638,7 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
+                print_msg(frame);
                 Trace.WriteLine("ACK no error");
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
