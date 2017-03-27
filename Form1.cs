@@ -2429,6 +2429,7 @@ namespace OLO_CAN
                 crc8 += Buffer[i];
 
             if (rb1_addr_uni.Checked)
+            {
                 if (chb1_need_reset.Checked)
                 {
                     msg_t mm = new msg_t();
@@ -2448,7 +2449,7 @@ namespace OLO_CAN
                 }
                 else
                     chb1_need_reset.Checked = false;
-
+            }
             Byte CAN_MSG_ID_MC2PC = (Byte)Const.CAN_MSG_ID_MC2PC;
             Byte CAN_MSG_ID_PC2MC = (Byte)Const.CAN_MSG_ID_PC2MC;
             frame = new canmsg_t();
@@ -2536,6 +2537,23 @@ namespace OLO_CAN
                 }
                 Trace.WriteLine("ACK no error");
             }
+            else
+            {
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                    return;
+                Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
+                if (frame.id != CAN_MSG_ID_MC2PC)
+                {
+                    Trace.WriteLine("Неверный идентификатор пакета");
+                    lb_error_CAN.Text = "Неверный идентификатор пакета";
+                    lb_error_CAN.Visible = true;
+                    lb_noerr.Visible = false;
+                    uniCAN.Close();
+                    gb_CAN1.Enabled = true;
+                    gb_MC1.Enabled = true;
+                    return;
+                }
+            }
             _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
             _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
             _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
@@ -2546,7 +2564,7 @@ namespace OLO_CAN
 
                 ClearData();
                 ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                frame.id = CAN_MSG_ID_PC2MC;
+                frame.id = msg_t.mID_INLOADER;
                 frame.len = (_u8)dlen;
                 for (_u8 ii = 0; ii < dlen; ii++)
                     frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
