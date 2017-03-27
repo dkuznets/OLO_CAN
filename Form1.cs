@@ -2627,6 +2627,18 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
+                get_ack(ref ack, frame.data);
+                if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                {
+                    lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                    lb_error_CAN1.Visible = true;
+                    lb_noerr1.Visible = false;
+                    uniCAN.Close();
+                    gb_CAN1.Enabled = true;
+                    gb_MC1.Enabled = true;
+                    return;
+                }
+                Trace.WriteLine("ACK no error");
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
