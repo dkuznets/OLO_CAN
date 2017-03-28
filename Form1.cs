@@ -2526,7 +2526,7 @@ namespace OLO_CAN
                     {
                         packets_in_block = Const.PACKETS_IN_BLOCK;
 
-                        if (uniCAN == null || !uniCAN.Recv(ref frame, 200))
+                        if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                             return;
                         Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
                         uniCAN.HWReset();
@@ -2648,7 +2648,7 @@ namespace OLO_CAN
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
 
                 //////////////////////////////////
-//                /*
+                /*
                 for (_u32 i = 0; i < 10; i++)
                 {
                     frame.id = CAN_MSG_ID_PC2MC;
@@ -2661,27 +2661,47 @@ namespace OLO_CAN
                     Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
                     print_msg(frame);
                 }
-//                 */
+                 */
                 //////////////////////////////////
-                //for (_u32 i = 0; i < num_of_packets; i++)
-                //{
-                //    _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
+                for (_u32 i = 0; i < num_of_packets; i++)
+                {
+                    _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
 
-                //    ClearData();
-                //    ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                //    frame.id = CAN_MSG_ID_PC2MC;
-                //    frame.len = (_u8)dlen;
-                //    for (_u8 ii = 0; ii < dlen; ii++)
-                //        frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
+                    ClearData();
+                    ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    frame.id = CAN_MSG_ID_PC2MC;
+                    frame.len = (_u8)dlen;
+                    for (_u8 ii = 0; ii < dlen; ii++)
+                        frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
 
-                //    if (!uniCAN.Send(ref frame, 200))
-                //        return;
-                //    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                //    _u32 progress = (i + 1) * 100 / num_of_packets;
-                //    pb_loadMC1.Value = (_s32)progress;
-                //    bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
-                //    Application.DoEvents();
-                //}
+                    if (!uniCAN.Send(ref frame, 200))
+                        return;
+                    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
+                    if ((--packets_in_block) == 0)
+                    {
+                        packets_in_block = Const.PACKETS_IN_BLOCK;
+
+                        if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                            return;
+                        Trace.WriteLine("Recv pack block ID=0x" + frame.id.ToString("X2"));
+                        uniCAN.HWReset();
+                        get_ack(ref ack, frame.data);
+                        if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+                        {
+                            lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                            lb_error_CAN1.Visible = true;
+                            lb_noerr1.Visible = false;
+                            uniCAN.Close();
+                            gb_CAN1.Enabled = true;
+                            gb_MC1.Enabled = true;
+                            return;
+                        }
+                    }
+                    _u32 progress = (i + 1) * 100 / num_of_packets;
+                    pb_loadMC1.Value = (_s32)progress;
+                    bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
+                    Application.DoEvents();
+                }
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
