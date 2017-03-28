@@ -6033,7 +6033,7 @@ namespace OLO_CAN
 
                     ClearData();
                     ///// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    frame.id = Const.CAN_MSG_ID_PC2MC;
+                    frame.id = CAN_MSG_ID_PC2MC;
                     frame.len = (_u8)dlen;
                     for (_u8 ii = 0; ii < dlen; ii++)
                         frame.data[ii] = Buffer[i * Const.CAN_MAX_PACKET_SIZE + ii];
@@ -6069,7 +6069,7 @@ namespace OLO_CAN
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
-                if (frame.id != Const.CAN_MSG_ID_MC2PC)
+                if (frame.id != CAN_MSG_ID_MC2PC)
                 {
                     lb_error_CAN1.Text = "Неверный идентификатор пакета";
                     lb_error_CAN1.Visible = true;
