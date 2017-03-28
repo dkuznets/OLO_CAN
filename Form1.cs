@@ -2704,6 +2704,7 @@ namespace OLO_CAN
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
+                Trace.WriteLine("Transmit complete " + num_of_packets.ToString() + " pack");
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
