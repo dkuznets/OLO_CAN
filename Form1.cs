@@ -2645,8 +2645,8 @@ namespace OLO_CAN
                 Trace.WriteLine("ACK no error");
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
-//                _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-                _u32 packets_in_block = 100;
+                _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+//                _u32 packets_in_block = 100;
 
                 //////////////////////////////////
                 /*
@@ -2680,8 +2680,8 @@ namespace OLO_CAN
                     Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
                     if ((--packets_in_block) == 0)
                     {
-//                        packets_in_block = Const.PACKETS_IN_BLOCK;
-                        packets_in_block = 100;
+                        packets_in_block = Const.PACKETS_IN_BLOCK;
+//                        packets_in_block = 100;
 
                         if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                             return;
