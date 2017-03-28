@@ -111,6 +111,7 @@
             this.bt_CloseCAN = new System.Windows.Forms.Button();
             this.bt_OpenCAN = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.gb1_Addr = new System.Windows.Forms.GroupBox();
             this.rb1_addr_right = new System.Windows.Forms.RadioButton();
             this.rb1_addr_left = new System.Windows.Forms.RadioButton();
@@ -341,7 +342,6 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1318,6 +1318,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Загрузка ПО";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(485, 19);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 38;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // gb1_Addr
             // 
@@ -3759,15 +3769,6 @@
             // timer1s
             // 
             this.timer1s.Interval = 1000;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(485, 19);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 38;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
