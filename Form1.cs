@@ -2760,91 +2760,82 @@ namespace OLO_CAN
             //        uniCAN.Recv_Disable();
             //        uniCAN.Close();
             //    }
-            try
+            if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
+                return;
+            if (cb_CAN1.SelectedItem.ToString() == "USB Marathon")
             {
-                if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
-                    return;
-                if (cb_CAN1.SelectedItem.ToString() == "USB Marathon")
-                {
-                    marCAN = new MCANConverter();
-                    uniCAN = marCAN as MCANConverter;
-                }
-                else if (cb_CAN1.SelectedItem.ToString() == "PCI Advantech")
-                {
-                    advCAN = new ACANConverter();
-                    uniCAN = advCAN as ACANConverter;
-                }
-                else
-                {
-                    elcCAN = new ECANConverter();
-                    uniCAN = elcCAN as ECANConverter;
-                }
-                uniCAN.ErrEvent += new MyDelegate(Err_Handler);
-                state_Ready();
-                lb_error_CAN1.Visible = false;
-                uniCAN.Port = 0;
-                uniCAN.Speed = 2;
-                if (!uniCAN.Open())
-                {
-                    lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
-                    lb_error_CAN1.Visible = true;
-                    lb_noerr1.Visible = false;
-                    return;
-                }
-                timer_Error_Boot.Enabled = true;
-                uniCAN.Recv_Enable();
-                lb_noerr1.Text = uniCAN.Info;
-                uniCAN.Recv_Enable();
-                frame.data = new Byte[8];
-                ClearData();
-
-                pb_loadMC1.Visible = true;
-
-                _u8 crc8 = 0;
-                for (int i = 0; i < size; i++)
-                    crc8 += Buffer[i];
-
-                ClearData();
-                frame.id = Const.CAN_MSG_ID_PC2MC;
-                frame.len = 8;
-
-                //                PACKET_CMD* cmd = (PACKET_CMD*)msg.data;
-                cmd.command = Const.COMMAND_EXECUTE_USER_CODE;
-                set_cmd(cmd, ref frame.data);
-
-                if (!uniCAN.Send(ref frame, 2000))
-                    return;
-
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
-                    return;
-
-                if (frame.id != Const.CAN_MSG_ID_MC2PC)
-                {
-                    lb_error_CAN1.Text = "Неверный идентификатор пакета";
-                    lb_error_CAN1.Visible = true;
-                    lb_noerr1.Visible = false;
-                    return;
-                }
-
-                get_ack(ref ack, frame.data);
-                if (ack.error_code != Const.CMD_ERR_NO_ERROR)
-                {
-                    lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
-                    lb_error_CAN1.Visible = true;
-                    lb_noerr1.Visible = false;
-                    return;
-                }
-
-                lb_Load_OK1.Text = "Микропрограмма успешно запущена";
-                lb_Load_OK1.Visible = true;
-                uniCAN.Recv_Disable();
-                uniCAN.Close();
+                marCAN = new MCANConverter();
+                uniCAN = marCAN as MCANConverter;
             }
-            finally
+            else if (cb_CAN1.SelectedItem.ToString() == "PCI Advantech")
             {
-                uniCAN.Recv_Disable();
-                uniCAN.Close();
+                advCAN = new ACANConverter();
+                uniCAN = advCAN as ACANConverter;
             }
+            else
+            {
+                elcCAN = new ECANConverter();
+                uniCAN = elcCAN as ECANConverter;
+            }
+            uniCAN.ErrEvent += new MyDelegate(Err_Handler);
+            state_Ready();
+            lb_error_CAN1.Visible = false;
+            uniCAN.Port = 0;
+            uniCAN.Speed = 2;
+            if (!uniCAN.Open())
+            {
+                lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                lb_error_CAN1.Visible = true;
+                lb_noerr1.Visible = false;
+                return;
+            }
+//            timer_Error_Boot.Enabled = true;
+            uniCAN.Recv_Enable();
+            lb_noerr1.Text = uniCAN.Info;
+            frame.data = new Byte[8];
+            ClearData();
+
+            pb_loadMC1.Visible = true;
+
+            _u8 crc8 = 0;
+            for (int i = 0; i < size; i++)
+                crc8 += Buffer[i];
+
+            ClearData();
+            frame.id = Const.CAN_MSG_ID_PC2MC;
+            frame.len = 8;
+
+            //                PACKET_CMD* cmd = (PACKET_CMD*)msg.data;
+            cmd.command = Const.COMMAND_EXECUTE_USER_CODE;
+            set_cmd(cmd, ref frame.data);
+
+            if (!uniCAN.Send(ref frame, 2000))
+                return;
+
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                return;
+
+            if (frame.id != Const.CAN_MSG_ID_MC2PC)
+            {
+                lb_error_CAN1.Text = "Неверный идентификатор пакета";
+                lb_error_CAN1.Visible = true;
+                lb_noerr1.Visible = false;
+                return;
+            }
+
+            get_ack(ref ack, frame.data);
+            if (ack.error_code != Const.CMD_ERR_NO_ERROR)
+            {
+                lb_error_CAN1.Text = GetAcknowledgeErrorString(ack);
+                lb_error_CAN1.Visible = true;
+                lb_noerr1.Visible = false;
+                return;
+            }
+
+            lb_Load_OK1.Text = "Микропрограмма успешно запущена";
+            lb_Load_OK1.Visible = true;
+            uniCAN.Recv_Disable();
+            uniCAN.Close();
         }
         #endregion
         #region Обработка радиобатонов
