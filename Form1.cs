@@ -5978,11 +5978,11 @@ namespace OLO_CAN
             else
             {
                 #region Загрузка новый алгоритм
-                frame = new canmsg_t();
-                frame.data = new Byte[8];
-                frame.id = Const.CAN_MSG_ID_PC2MC;
                 CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+                frame = new canmsg_t();
+                frame.data = new Byte[8];
+                frame.id = CAN_MSG_ID_PC2MC;
                 frame.len = (Byte)Marshal.SizeOf(cmd);
 
                 cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
