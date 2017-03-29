@@ -2412,7 +2412,7 @@ namespace OLO_CAN
                 lb_noerr1.Visible = false;
                 return;
             }
-//            timer_Error_Boot.Enabled = true;
+            //            timer_Error_Boot.Enabled = true;
             uniCAN.Recv_Enable();
             lb_noerr1.Text = uniCAN.Info;
             frame.data = new Byte[8];
@@ -2420,7 +2420,7 @@ namespace OLO_CAN
 
             pb_loadMC1.Visible = true;
             bt_loadMC1.Text = "Загрузка..." + " 0%";
-//            lb_progress1.Text = "0%";
+            //            lb_progress1.Text = "0%";
             gb_CAN1.Enabled = false;
             gb_MC1.Enabled = false;
 
@@ -2458,7 +2458,7 @@ namespace OLO_CAN
 
             if (rb1_addr_uni.Checked)
             {
-#region Загрузка алгоритм Иоселева
+                #region Загрузка алгоритм Иоселева
                 frame = new canmsg_t();
                 frame.data = new Byte[8];
                 frame.id = Const.CAN_MSG_ID_PC2MC;
@@ -2559,50 +2559,18 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
-#endregion
+                #endregion
             }
             else
             {
-#region Загрузка новый алгоритм
+                #region Загрузка новый алгоритм
+                CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+                CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 frame = new canmsg_t();
                 frame.data = new Byte[8];
-                // отправляем команду режим модуля - режим программирования.
-                if (rb1_addr_left.Checked)
-                {
-                    msg_t mm = new msg_t();
-                    mm.deviceID = Const.OLO_Left;
-                    mm.messageID = msg_t.mID_MODULE;
-                    mm.messageLen = 1;
-                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
-                    canmsg_t msg = new canmsg_t();
-                    msg.data = new Byte[8];
-                    msg = mm.ToCAN(mm);
-                    if (!uniCAN.Send(ref msg, 100))
-                        return;
-                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
-                }
-                else
-                {
-                    msg_t mm = new msg_t();
-                    mm.deviceID = Const.OLO_Right;
-                    mm.messageID = msg_t.mID_MODULE;
-                    mm.messageLen = 1;
-                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
-                    canmsg_t msg = new canmsg_t();
-                    msg.data = new Byte[8];
-                    msg = mm.ToCAN(mm);
-                    if (!uniCAN.Send(ref msg, 100))
-                        return;
-                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
-                }
-
-                // отправляем команду режим программирования - COMMAND_UPLOAD_FIRMWARE
+                frame.id = CAN_MSG_ID_PC2MC;
                 frame.len = (Byte)Marshal.SizeOf(cmd);
-                frame.id = (msg_t.mID_PROG << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+
                 cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
                 cmd.size = (_u32)size;
                 cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
@@ -2617,8 +2585,6 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
                 Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
-                CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
-                CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 if (frame.id != CAN_MSG_ID_MC2PC)
                 {
                     Trace.WriteLine("Неверный идентификатор пакета");
@@ -2641,29 +2607,12 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
-                print_msg(frame);
                 Trace.WriteLine("ACK no error");
+
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-//                _u32 packets_in_block = 100;
 
-                //////////////////////////////////
-                /*
-                for (_u32 i = 0; i < 10; i++)
-                {
-                    frame.id = CAN_MSG_ID_PC2MC;
-                    frame.len = 8;
-                    for (_u8 ii = 0; ii < 8; ii++)
-                        frame.data[ii] = ii;
-                    if (!uniCAN.Send(ref frame, 200))
-                        return;
-                    Thread.Sleep(10);
-                    Trace.WriteLine("Send pack ID=0x" + frame.id.ToString("X2"));
-                    print_msg(frame);
-                }
-                 */
-                //////////////////////////////////
                 for (_u32 i = 0; i < num_of_packets; i++)
                 {
                     _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
@@ -2681,7 +2630,6 @@ namespace OLO_CAN
                     if ((--packets_in_block) == 0)
                     {
                         packets_in_block = Const.PACKETS_IN_BLOCK;
-//                        packets_in_block = 100;
 
                         if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                             return;
@@ -2704,7 +2652,6 @@ namespace OLO_CAN
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
-                Trace.WriteLine("Transmit complete " + num_of_packets.ToString() + " pack");
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
@@ -2717,13 +2664,8 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
-#endregion
+                #endregion
             }
-
-            //String sss = "";
-            //for (int i = 0; i < 8; i++)
-            //	sss += i.ToString() + " - " + Convert.ToString(frame.data[i], 2) + " - " + Convert.ToString(frame.data[i], 16) + "\r\n";
-            //MessageBox.Show(sss);
 
             get_ack(ref ack, frame.data);
             if (ack.error_code != Const.CMD_ERR_NO_ERROR)
@@ -5692,17 +5634,14 @@ namespace OLO_CAN
                 }
             }
         }
-
         private void rb1_addr_left_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
 
         }
-
         private void REQ_VER_Click(object sender, EventArgs e)
         {
             msg_t mm = new msg_t();
@@ -5788,8 +5727,11 @@ namespace OLO_CAN
                 return;
             messages.Add(mm);
         }
-
         private void button5_Click_1(object sender, EventArgs e)
+        {
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
             //if (uniCAN != null)
             //    if (uniCAN.Is_Open)
@@ -5978,13 +5920,45 @@ namespace OLO_CAN
             else
             {
                 #region Загрузка новый алгоритм
-                CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
-                CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 frame = new canmsg_t();
                 frame.data = new Byte[8];
-                frame.id = CAN_MSG_ID_PC2MC;
-                frame.len = (Byte)Marshal.SizeOf(cmd);
+                // отправляем команду режим модуля - режим программирования.
+                if (rb1_addr_left.Checked)
+                {
+                    msg_t mm = new msg_t();
+                    mm.deviceID = Const.OLO_Left;
+                    mm.messageID = msg_t.mID_MODULE;
+                    mm.messageLen = 1;
+                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                    canmsg_t msg = new canmsg_t();
+                    msg.data = new Byte[8];
+                    msg = mm.ToCAN(mm);
+                    if (!uniCAN.Send(ref msg, 100))
+                        return;
+                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Left;
+                }
+                else
+                {
+                    msg_t mm = new msg_t();
+                    mm.deviceID = Const.OLO_Right;
+                    mm.messageID = msg_t.mID_MODULE;
+                    mm.messageLen = 1;
+                    mm.messageData[0] = Const.COMMAND_MODULE_PROGRAMMING;
+                    canmsg_t msg = new canmsg_t();
+                    msg.data = new Byte[8];
+                    msg = mm.ToCAN(mm);
+                    if (!uniCAN.Send(ref msg, 100))
+                        return;
+                    frame.id = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                    CAN_MSG_ID_MC2PC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                    CAN_MSG_ID_PC2MC = (msg_t.mID_PROG << 5) | Const.OLO_Right;
+                }
 
+                // отправляем команду режим программирования - COMMAND_UPLOAD_FIRMWARE
+                frame.len = (Byte)Marshal.SizeOf(cmd);
+                frame.id = (msg_t.mID_PROG << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 cmd.command = Const.COMMAND_UPLOAD_FIRMWARE;
                 cmd.size = (_u32)size;
                 cmd.flags = (chb_eraseALL1.Checked ? Const.FLAG_ERASE_USER_CODE : (_u16)0);
@@ -5999,6 +5973,8 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
                 Trace.WriteLine("Recv ID=0x" + frame.id.ToString("X2"));
+                CAN_MSG_ID_MC2PC = (msg_t.mID_OUTLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
+                CAN_MSG_ID_PC2MC = (msg_t.mID_INLOADER << 5) | (uint)(rb1_addr_left.Checked ? Const.OLO_Left : Const.OLO_Right);
                 if (frame.id != CAN_MSG_ID_MC2PC)
                 {
                     Trace.WriteLine("Неверный идентификатор пакета");
@@ -6021,12 +5997,11 @@ namespace OLO_CAN
                     gb_MC1.Enabled = true;
                     return;
                 }
+                print_msg(frame);
                 Trace.WriteLine("ACK no error");
-
                 _u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 _u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
                 _u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-
                 for (_u32 i = 0; i < num_of_packets; i++)
                 {
                     _u32 dlen = ((i == num_of_packets - 1) ? last_packet_size : Const.CAN_MAX_PACKET_SIZE);
@@ -6044,6 +6019,7 @@ namespace OLO_CAN
                     if ((--packets_in_block) == 0)
                     {
                         packets_in_block = Const.PACKETS_IN_BLOCK;
+                        //                        packets_in_block = 100;
 
                         if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                             return;
@@ -6066,6 +6042,7 @@ namespace OLO_CAN
                     bt_loadMC1.Text = "Загрузка..." + progress.ToString() + "%";
                     Application.DoEvents();
                 }
+                Trace.WriteLine("Transmit complete " + num_of_packets.ToString() + " pack");
                 ClearData();
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     return;
@@ -6080,11 +6057,6 @@ namespace OLO_CAN
                 }
                 #endregion
             }
-
-            //String sss = "";
-            //for (int i = 0; i < 8; i++)
-            //	sss += i.ToString() + " - " + Convert.ToString(frame.data[i], 2) + " - " + Convert.ToString(frame.data[i], 16) + "\r\n";
-            //MessageBox.Show(sss);
 
             get_ack(ref ack, frame.data);
             if (ack.error_code != Const.CMD_ERR_NO_ERROR)

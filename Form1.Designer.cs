@@ -342,6 +342,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1305,6 +1306,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.gb1_Addr);
             this.tabPage2.Controls.Add(this.bt_About1);
@@ -3770,6 +3772,16 @@
             // 
             this.timer1s.Interval = 1000;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(567, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 39;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4173,6 +4185,7 @@
         private System.Windows.Forms.Label lb_statusR_mode2;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
 	}
 }
 
