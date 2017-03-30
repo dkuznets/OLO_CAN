@@ -6166,6 +6166,8 @@ namespace OLO_CAN
                         lb_ecL2_ram1.Text = "";
                         lb_ecL2_ram2.Text = "";
                     }
+                    gbox_ecL2.Refresh();
+                    gbox_ecR2.Refresh();
                     break;
                 case 3: // режим программирования
                     mm.messageData[0] = 3;
