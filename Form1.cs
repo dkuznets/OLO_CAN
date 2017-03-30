@@ -6133,6 +6133,39 @@ namespace OLO_CAN
                     break;
                 case 2: // встроенный контроль
                     mm.messageData[0] = 2;
+                    if (comboBox3.SelectedIndex == 0)
+                    {
+                        lb_ecR2_file.Text = "";
+                        lb_ecR2_plis1.Text = "";
+                        lb_ecR2_plis2.Text = "";
+                        lb_ecR2_ram.Text = "";
+                        lb_ecR2_ram1.Text = "";
+                        lb_ecR2_ram2.Text = "";
+                    }
+                    if (comboBox3.SelectedIndex == 1)
+                    {
+                        lb_ecL2_file.Text = "";
+                        lb_ecL2_plis1.Text = "";
+                        lb_ecL2_plis2.Text = "";
+                        lb_ecL2_ram.Text = "";
+                        lb_ecL2_ram1.Text = "";
+                        lb_ecL2_ram2.Text = "";
+                    }
+                    if (comboBox3.SelectedIndex == 2)
+                    {
+                        lb_ecR2_file.Text = "";
+                        lb_ecR2_plis1.Text = "";
+                        lb_ecR2_plis2.Text = "";
+                        lb_ecR2_ram.Text = "";
+                        lb_ecR2_ram1.Text = "";
+                        lb_ecR2_ram2.Text = "";
+                        lb_ecL2_file.Text = "";
+                        lb_ecL2_plis1.Text = "";
+                        lb_ecL2_plis2.Text = "";
+                        lb_ecL2_ram.Text = "";
+                        lb_ecL2_ram1.Text = "";
+                        lb_ecL2_ram2.Text = "";
+                    }
                     break;
                 case 3: // режим программирования
                     mm.messageData[0] = 3;
