@@ -369,7 +369,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.gradProg1 = new GradProg.GradProg();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1322,7 +1321,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.gradProg1);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.gb1_Addr);
@@ -1346,6 +1344,7 @@
             this.button6.TabIndex = 39;
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
@@ -1356,6 +1355,7 @@
             this.button5.TabIndex = 38;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // gb1_Addr
@@ -1373,6 +1373,7 @@
             // rb1_addr_right
             // 
             this.rb1_addr_right.AutoSize = true;
+            this.rb1_addr_right.Enabled = false;
             this.rb1_addr_right.Location = new System.Drawing.Point(267, 19);
             this.rb1_addr_right.Name = "rb1_addr_right";
             this.rb1_addr_right.Size = new System.Drawing.Size(147, 17);
@@ -1383,6 +1384,7 @@
             // rb1_addr_left
             // 
             this.rb1_addr_left.AutoSize = true;
+            this.rb1_addr_left.Enabled = false;
             this.rb1_addr_left.Location = new System.Drawing.Point(120, 20);
             this.rb1_addr_left.Name = "rb1_addr_left";
             this.rb1_addr_left.Size = new System.Drawing.Size(141, 17);
@@ -4072,25 +4074,6 @@
             this.pictureBox14.TabIndex = 6;
             this.pictureBox14.TabStop = false;
             // 
-            // gradProg1
-            // 
-            this.gradProg1.BackColor = System.Drawing.Color.White;
-            this.gradProg1.GradientStyle = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.gradProg1.LabelBackColour = System.Drawing.Color.Transparent;
-            this.gradProg1.LabelForeColour = System.Drawing.Color.Transparent;
-            this.gradProg1.LabelPosition = new System.Drawing.Point(0, 0);
-            this.gradProg1.Location = new System.Drawing.Point(492, 48);
-            this.gradProg1.Maximum = 100;
-            this.gradProg1.Minimum = 0;
-            this.gradProg1.Name = "gradProg1";
-            this.gradProg1.Percentage = 67;
-            this.gradProg1.ProgressBarBackColour = System.Drawing.Color.DimGray;
-            this.gradProg1.ProgressBarForeColour = System.Drawing.Color.LightSeaGreen;
-            this.gradProg1.ShowLabel = true;
-            this.gradProg1.Size = new System.Drawing.Size(455, 22);
-            this.gradProg1.TabIndex = 26;
-            this.gradProg1.Value = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4525,7 +4508,6 @@
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label lb_ecL2_plis1;
         private System.Windows.Forms.Label label75;
-        private GradProg.GradProg gradProg1;
 	}
 }
 
