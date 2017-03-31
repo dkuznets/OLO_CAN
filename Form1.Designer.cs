@@ -102,7 +102,6 @@
             this.bt_CMOS1SetDAC1 = new System.Windows.Forms.Button();
             this.gbox_Image = new System.Windows.Forms.GroupBox();
             this.pb_CMOS = new System.Windows.Forms.ProgressBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN = new System.Windows.Forms.GroupBox();
             this.lb_noerr = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -111,6 +110,7 @@
             this.bt_CloseCAN = new System.Windows.Forms.Button();
             this.bt_OpenCAN = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.gb1_Addr = new System.Windows.Forms.GroupBox();
             this.rb1_addr_right = new System.Windows.Forms.RadioButton();
@@ -142,6 +142,32 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gbox_ecR2 = new System.Windows.Forms.GroupBox();
+            this.lb_ecR2_ram2 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.lb_ecR2_ram1 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.lb_ecR2_ram = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.lb_ecR2_file = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.lb_ecR2_plis2 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.lb_ecR2_plis1 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.gbox_ecL2 = new System.Windows.Forms.GroupBox();
+            this.lb_ecL2_ram2 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.lb_ecL2_ram1 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.lb_ecL2_ram = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.lb_ecL2_file = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.lb_ecL2_plis2 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.lb_ecL2_plis1 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
             this.gbox_statusR2 = new System.Windows.Forms.GroupBox();
             this.lb_statusR_t32 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -264,7 +290,6 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
             this.lb_CMOS24 = new System.Windows.Forms.Label();
             this.bt_get_CMOS2 = new System.Windows.Forms.Button();
@@ -276,7 +301,6 @@
             this.lb_T2_val4 = new System.Windows.Forms.Label();
             this.lb_T1_val4 = new System.Windows.Forms.Label();
             this.gb_Image14 = new System.Windows.Forms.GroupBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS1 = new System.Windows.Forms.ProgressBar();
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
@@ -342,33 +366,10 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.button6 = new System.Windows.Forms.Button();
-            this.gbox_ecR2 = new System.Windows.Forms.GroupBox();
-            this.lb_ecR2_ram2 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.lb_ecR2_ram1 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.lb_ecR2_ram = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.lb_ecR2_file = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.lb_ecR2_plis2 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.lb_ecR2_plis1 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.gbox_ecL2 = new System.Windows.Forms.GroupBox();
-            this.lb_ecL2_ram2 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.lb_ecL2_ram1 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.lb_ecL2_ram = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.lb_ecL2_file = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.lb_ecL2_plis2 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.lb_ecL2_plis1 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.gradProg1 = new GradProg.GradProg();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -383,13 +384,14 @@
             this.gbox_CMOS2.SuspendLayout();
             this.gbox_CMOS1.SuspendLayout();
             this.gbox_Image.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbox_CAN.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gb1_Addr.SuspendLayout();
             this.gb_MC1.SuspendLayout();
             this.gb_CAN1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.gbox_ecR2.SuspendLayout();
+            this.gbox_ecL2.SuspendLayout();
             this.gbox_statusR2.SuspendLayout();
             this.gbox_statusL2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -406,16 +408,15 @@
             this.gbox_CAN3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.gb_Image24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.gb_Temperature.SuspendLayout();
             this.gb_Image14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.gb_Tests.SuspendLayout();
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
-            this.gbox_ecR2.SuspendLayout();
-            this.gbox_ecL2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1240,19 +1241,6 @@
             this.pb_CMOS.Size = new System.Drawing.Size(638, 17);
             this.pb_CMOS.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
             // gbox_CAN
             // 
             this.gbox_CAN.Controls.Add(this.lb_noerr);
@@ -1334,6 +1322,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.gradProg1);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.gb1_Addr);
@@ -1348,6 +1337,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Загрузка ПО";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(567, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 39;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -1720,6 +1719,264 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // gbox_ecR2
+            // 
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram2);
+            this.gbox_ecR2.Controls.Add(this.label44);
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram1);
+            this.gbox_ecR2.Controls.Add(this.label48);
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram);
+            this.gbox_ecR2.Controls.Add(this.label52);
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_file);
+            this.gbox_ecR2.Controls.Add(this.label55);
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis2);
+            this.gbox_ecR2.Controls.Add(this.label57);
+            this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis1);
+            this.gbox_ecR2.Controls.Add(this.label59);
+            this.gbox_ecR2.Location = new System.Drawing.Point(791, 219);
+            this.gbox_ecR2.Name = "gbox_ecR2";
+            this.gbox_ecR2.Size = new System.Drawing.Size(163, 139);
+            this.gbox_ecR2.TabIndex = 67;
+            this.gbox_ecR2.TabStop = false;
+            this.gbox_ecR2.Text = "Контроль ОЛО-П";
+            // 
+            // lb_ecR2_ram2
+            // 
+            this.lb_ecR2_ram2.AutoSize = true;
+            this.lb_ecR2_ram2.Location = new System.Drawing.Point(59, 116);
+            this.lb_ecR2_ram2.Name = "lb_ecR2_ram2";
+            this.lb_ecR2_ram2.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_ram2.TabIndex = 11;
+            this.lb_ecR2_ram2.Text = "      ";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(6, 116);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(36, 13);
+            this.label44.TabIndex = 10;
+            this.label44.Text = "ОЗУ2";
+            // 
+            // lb_ecR2_ram1
+            // 
+            this.lb_ecR2_ram1.AutoSize = true;
+            this.lb_ecR2_ram1.Location = new System.Drawing.Point(59, 96);
+            this.lb_ecR2_ram1.Name = "lb_ecR2_ram1";
+            this.lb_ecR2_ram1.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_ram1.TabIndex = 9;
+            this.lb_ecR2_ram1.Text = "      ";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(6, 96);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(36, 13);
+            this.label48.TabIndex = 8;
+            this.label48.Text = "ОЗУ1";
+            // 
+            // lb_ecR2_ram
+            // 
+            this.lb_ecR2_ram.AutoSize = true;
+            this.lb_ecR2_ram.Location = new System.Drawing.Point(59, 76);
+            this.lb_ecR2_ram.Name = "lb_ecR2_ram";
+            this.lb_ecR2_ram.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_ram.TabIndex = 7;
+            this.lb_ecR2_ram.Text = "      ";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(6, 76);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(30, 13);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "ОЗУ";
+            // 
+            // lb_ecR2_file
+            // 
+            this.lb_ecR2_file.AutoSize = true;
+            this.lb_ecR2_file.Location = new System.Drawing.Point(59, 56);
+            this.lb_ecR2_file.Name = "lb_ecR2_file";
+            this.lb_ecR2_file.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_file.TabIndex = 5;
+            this.lb_ecR2_file.Text = "      ";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(6, 56);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(44, 13);
+            this.label55.TabIndex = 4;
+            this.label55.Text = "Файлы";
+            // 
+            // lb_ecR2_plis2
+            // 
+            this.lb_ecR2_plis2.AutoSize = true;
+            this.lb_ecR2_plis2.Location = new System.Drawing.Point(59, 36);
+            this.lb_ecR2_plis2.Name = "lb_ecR2_plis2";
+            this.lb_ecR2_plis2.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_plis2.TabIndex = 3;
+            this.lb_ecR2_plis2.Text = "      ";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(6, 36);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(44, 13);
+            this.label57.TabIndex = 2;
+            this.label57.Text = "ПЛИС2";
+            // 
+            // lb_ecR2_plis1
+            // 
+            this.lb_ecR2_plis1.AutoSize = true;
+            this.lb_ecR2_plis1.Location = new System.Drawing.Point(59, 16);
+            this.lb_ecR2_plis1.Name = "lb_ecR2_plis1";
+            this.lb_ecR2_plis1.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecR2_plis1.TabIndex = 1;
+            this.lb_ecR2_plis1.Text = "      ";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(6, 16);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(44, 13);
+            this.label59.TabIndex = 0;
+            this.label59.Text = "ПЛИС1";
+            // 
+            // gbox_ecL2
+            // 
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram2);
+            this.gbox_ecL2.Controls.Add(this.label65);
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram1);
+            this.gbox_ecL2.Controls.Add(this.label67);
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram);
+            this.gbox_ecL2.Controls.Add(this.label69);
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_file);
+            this.gbox_ecL2.Controls.Add(this.label71);
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis2);
+            this.gbox_ecL2.Controls.Add(this.label73);
+            this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis1);
+            this.gbox_ecL2.Controls.Add(this.label75);
+            this.gbox_ecL2.Location = new System.Drawing.Point(620, 219);
+            this.gbox_ecL2.Name = "gbox_ecL2";
+            this.gbox_ecL2.Size = new System.Drawing.Size(163, 139);
+            this.gbox_ecL2.TabIndex = 66;
+            this.gbox_ecL2.TabStop = false;
+            this.gbox_ecL2.Text = "Контроль ОЛО-Л";
+            // 
+            // lb_ecL2_ram2
+            // 
+            this.lb_ecL2_ram2.AutoSize = true;
+            this.lb_ecL2_ram2.Location = new System.Drawing.Point(59, 116);
+            this.lb_ecL2_ram2.Name = "lb_ecL2_ram2";
+            this.lb_ecL2_ram2.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_ram2.TabIndex = 11;
+            this.lb_ecL2_ram2.Text = "      ";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(6, 116);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(36, 13);
+            this.label65.TabIndex = 10;
+            this.label65.Text = "ОЗУ2";
+            // 
+            // lb_ecL2_ram1
+            // 
+            this.lb_ecL2_ram1.AutoSize = true;
+            this.lb_ecL2_ram1.Location = new System.Drawing.Point(59, 96);
+            this.lb_ecL2_ram1.Name = "lb_ecL2_ram1";
+            this.lb_ecL2_ram1.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_ram1.TabIndex = 9;
+            this.lb_ecL2_ram1.Text = "      ";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(6, 96);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(36, 13);
+            this.label67.TabIndex = 8;
+            this.label67.Text = "ОЗУ1";
+            // 
+            // lb_ecL2_ram
+            // 
+            this.lb_ecL2_ram.AutoSize = true;
+            this.lb_ecL2_ram.Location = new System.Drawing.Point(59, 76);
+            this.lb_ecL2_ram.Name = "lb_ecL2_ram";
+            this.lb_ecL2_ram.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_ram.TabIndex = 7;
+            this.lb_ecL2_ram.Text = "      ";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(6, 76);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(30, 13);
+            this.label69.TabIndex = 6;
+            this.label69.Text = "ОЗУ";
+            // 
+            // lb_ecL2_file
+            // 
+            this.lb_ecL2_file.AutoSize = true;
+            this.lb_ecL2_file.Location = new System.Drawing.Point(59, 56);
+            this.lb_ecL2_file.Name = "lb_ecL2_file";
+            this.lb_ecL2_file.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_file.TabIndex = 5;
+            this.lb_ecL2_file.Text = "      ";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(6, 56);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(44, 13);
+            this.label71.TabIndex = 4;
+            this.label71.Text = "Файлы";
+            // 
+            // lb_ecL2_plis2
+            // 
+            this.lb_ecL2_plis2.AutoSize = true;
+            this.lb_ecL2_plis2.Location = new System.Drawing.Point(59, 36);
+            this.lb_ecL2_plis2.Name = "lb_ecL2_plis2";
+            this.lb_ecL2_plis2.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_plis2.TabIndex = 3;
+            this.lb_ecL2_plis2.Text = "      ";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(6, 36);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(44, 13);
+            this.label73.TabIndex = 2;
+            this.label73.Text = "ПЛИС2";
+            // 
+            // lb_ecL2_plis1
+            // 
+            this.lb_ecL2_plis1.AutoSize = true;
+            this.lb_ecL2_plis1.Location = new System.Drawing.Point(59, 16);
+            this.lb_ecL2_plis1.Name = "lb_ecL2_plis1";
+            this.lb_ecL2_plis1.Size = new System.Drawing.Size(25, 13);
+            this.lb_ecL2_plis1.TabIndex = 1;
+            this.lb_ecL2_plis1.Text = "      ";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(6, 16);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(44, 13);
+            this.label75.TabIndex = 0;
+            this.label75.Text = "ПЛИС1";
             // 
             // gbox_statusR2
             // 
@@ -3049,15 +3306,6 @@
             this.gb_Image24.TabStop = false;
             this.gb_Image24.Text = "Кадр CMOS2";
             // 
-            // pictureBox24
-            // 
-            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox24.TabIndex = 6;
-            this.pictureBox24.TabStop = false;
-            // 
             // pb_CMOS2
             // 
             this.pb_CMOS2.Location = new System.Drawing.Point(69, 281);
@@ -3176,15 +3424,6 @@
             this.gb_Image14.TabIndex = 43;
             this.gb_Image14.TabStop = false;
             this.gb_Image14.Text = "Кадр CMOS1";
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
             // 
             // pb_CMOS1
             // 
@@ -3802,273 +4041,55 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // button6
+            // pictureBox1
             // 
-            this.button6.Location = new System.Drawing.Point(567, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 39;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // gbox_ecR2
+            // pictureBox24
             // 
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram2);
-            this.gbox_ecR2.Controls.Add(this.label44);
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram1);
-            this.gbox_ecR2.Controls.Add(this.label48);
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram);
-            this.gbox_ecR2.Controls.Add(this.label52);
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_file);
-            this.gbox_ecR2.Controls.Add(this.label55);
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis2);
-            this.gbox_ecR2.Controls.Add(this.label57);
-            this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis1);
-            this.gbox_ecR2.Controls.Add(this.label59);
-            this.gbox_ecR2.Location = new System.Drawing.Point(791, 219);
-            this.gbox_ecR2.Name = "gbox_ecR2";
-            this.gbox_ecR2.Size = new System.Drawing.Size(163, 139);
-            this.gbox_ecR2.TabIndex = 67;
-            this.gbox_ecR2.TabStop = false;
-            this.gbox_ecR2.Text = "Контроль ОЛО-П";
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox24.TabIndex = 6;
+            this.pictureBox24.TabStop = false;
             // 
-            // lb_ecR2_ram2
+            // pictureBox14
             // 
-            this.lb_ecR2_ram2.AutoSize = true;
-            this.lb_ecR2_ram2.Location = new System.Drawing.Point(59, 116);
-            this.lb_ecR2_ram2.Name = "lb_ecR2_ram2";
-            this.lb_ecR2_ram2.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_ram2.TabIndex = 11;
-            this.lb_ecR2_ram2.Text = "      ";
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
             // 
-            // label44
+            // gradProg1
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(6, 116);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(36, 13);
-            this.label44.TabIndex = 10;
-            this.label44.Text = "ОЗУ2";
-            // 
-            // lb_ecR2_ram1
-            // 
-            this.lb_ecR2_ram1.AutoSize = true;
-            this.lb_ecR2_ram1.Location = new System.Drawing.Point(59, 96);
-            this.lb_ecR2_ram1.Name = "lb_ecR2_ram1";
-            this.lb_ecR2_ram1.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_ram1.TabIndex = 9;
-            this.lb_ecR2_ram1.Text = "      ";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 96);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(36, 13);
-            this.label48.TabIndex = 8;
-            this.label48.Text = "ОЗУ1";
-            // 
-            // lb_ecR2_ram
-            // 
-            this.lb_ecR2_ram.AutoSize = true;
-            this.lb_ecR2_ram.Location = new System.Drawing.Point(59, 76);
-            this.lb_ecR2_ram.Name = "lb_ecR2_ram";
-            this.lb_ecR2_ram.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_ram.TabIndex = 7;
-            this.lb_ecR2_ram.Text = "      ";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 76);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(30, 13);
-            this.label52.TabIndex = 6;
-            this.label52.Text = "ОЗУ";
-            // 
-            // lb_ecR2_file
-            // 
-            this.lb_ecR2_file.AutoSize = true;
-            this.lb_ecR2_file.Location = new System.Drawing.Point(59, 56);
-            this.lb_ecR2_file.Name = "lb_ecR2_file";
-            this.lb_ecR2_file.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_file.TabIndex = 5;
-            this.lb_ecR2_file.Text = "      ";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 56);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(44, 13);
-            this.label55.TabIndex = 4;
-            this.label55.Text = "Файлы";
-            // 
-            // lb_ecR2_plis2
-            // 
-            this.lb_ecR2_plis2.AutoSize = true;
-            this.lb_ecR2_plis2.Location = new System.Drawing.Point(59, 36);
-            this.lb_ecR2_plis2.Name = "lb_ecR2_plis2";
-            this.lb_ecR2_plis2.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_plis2.TabIndex = 3;
-            this.lb_ecR2_plis2.Text = "      ";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 36);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(44, 13);
-            this.label57.TabIndex = 2;
-            this.label57.Text = "ПЛИС2";
-            // 
-            // lb_ecR2_plis1
-            // 
-            this.lb_ecR2_plis1.AutoSize = true;
-            this.lb_ecR2_plis1.Location = new System.Drawing.Point(59, 16);
-            this.lb_ecR2_plis1.Name = "lb_ecR2_plis1";
-            this.lb_ecR2_plis1.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecR2_plis1.TabIndex = 1;
-            this.lb_ecR2_plis1.Text = "      ";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(6, 16);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(44, 13);
-            this.label59.TabIndex = 0;
-            this.label59.Text = "ПЛИС1";
-            // 
-            // gbox_ecL2
-            // 
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram2);
-            this.gbox_ecL2.Controls.Add(this.label65);
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram1);
-            this.gbox_ecL2.Controls.Add(this.label67);
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram);
-            this.gbox_ecL2.Controls.Add(this.label69);
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_file);
-            this.gbox_ecL2.Controls.Add(this.label71);
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis2);
-            this.gbox_ecL2.Controls.Add(this.label73);
-            this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis1);
-            this.gbox_ecL2.Controls.Add(this.label75);
-            this.gbox_ecL2.Location = new System.Drawing.Point(620, 219);
-            this.gbox_ecL2.Name = "gbox_ecL2";
-            this.gbox_ecL2.Size = new System.Drawing.Size(163, 139);
-            this.gbox_ecL2.TabIndex = 66;
-            this.gbox_ecL2.TabStop = false;
-            this.gbox_ecL2.Text = "Контроль ОЛО-Л";
-            // 
-            // lb_ecL2_ram2
-            // 
-            this.lb_ecL2_ram2.AutoSize = true;
-            this.lb_ecL2_ram2.Location = new System.Drawing.Point(59, 116);
-            this.lb_ecL2_ram2.Name = "lb_ecL2_ram2";
-            this.lb_ecL2_ram2.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_ram2.TabIndex = 11;
-            this.lb_ecL2_ram2.Text = "      ";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(6, 116);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(36, 13);
-            this.label65.TabIndex = 10;
-            this.label65.Text = "ОЗУ2";
-            // 
-            // lb_ecL2_ram1
-            // 
-            this.lb_ecL2_ram1.AutoSize = true;
-            this.lb_ecL2_ram1.Location = new System.Drawing.Point(59, 96);
-            this.lb_ecL2_ram1.Name = "lb_ecL2_ram1";
-            this.lb_ecL2_ram1.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_ram1.TabIndex = 9;
-            this.lb_ecL2_ram1.Text = "      ";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(6, 96);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(36, 13);
-            this.label67.TabIndex = 8;
-            this.label67.Text = "ОЗУ1";
-            // 
-            // lb_ecL2_ram
-            // 
-            this.lb_ecL2_ram.AutoSize = true;
-            this.lb_ecL2_ram.Location = new System.Drawing.Point(59, 76);
-            this.lb_ecL2_ram.Name = "lb_ecL2_ram";
-            this.lb_ecL2_ram.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_ram.TabIndex = 7;
-            this.lb_ecL2_ram.Text = "      ";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(6, 76);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(30, 13);
-            this.label69.TabIndex = 6;
-            this.label69.Text = "ОЗУ";
-            // 
-            // lb_ecL2_file
-            // 
-            this.lb_ecL2_file.AutoSize = true;
-            this.lb_ecL2_file.Location = new System.Drawing.Point(59, 56);
-            this.lb_ecL2_file.Name = "lb_ecL2_file";
-            this.lb_ecL2_file.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_file.TabIndex = 5;
-            this.lb_ecL2_file.Text = "      ";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(6, 56);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(44, 13);
-            this.label71.TabIndex = 4;
-            this.label71.Text = "Файлы";
-            // 
-            // lb_ecL2_plis2
-            // 
-            this.lb_ecL2_plis2.AutoSize = true;
-            this.lb_ecL2_plis2.Location = new System.Drawing.Point(59, 36);
-            this.lb_ecL2_plis2.Name = "lb_ecL2_plis2";
-            this.lb_ecL2_plis2.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_plis2.TabIndex = 3;
-            this.lb_ecL2_plis2.Text = "      ";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(6, 36);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(44, 13);
-            this.label73.TabIndex = 2;
-            this.label73.Text = "ПЛИС2";
-            // 
-            // lb_ecL2_plis1
-            // 
-            this.lb_ecL2_plis1.AutoSize = true;
-            this.lb_ecL2_plis1.Location = new System.Drawing.Point(59, 16);
-            this.lb_ecL2_plis1.Name = "lb_ecL2_plis1";
-            this.lb_ecL2_plis1.Size = new System.Drawing.Size(25, 13);
-            this.lb_ecL2_plis1.TabIndex = 1;
-            this.lb_ecL2_plis1.Text = "      ";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(6, 16);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(44, 13);
-            this.label75.TabIndex = 0;
-            this.label75.Text = "ПЛИС1";
+            this.gradProg1.BackColor = System.Drawing.Color.White;
+            this.gradProg1.GradientStyle = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.gradProg1.LabelBackColour = System.Drawing.Color.Transparent;
+            this.gradProg1.LabelForeColour = System.Drawing.Color.Transparent;
+            this.gradProg1.LabelPosition = new System.Drawing.Point(0, 0);
+            this.gradProg1.Location = new System.Drawing.Point(492, 48);
+            this.gradProg1.Maximum = 100;
+            this.gradProg1.Minimum = 0;
+            this.gradProg1.Name = "gradProg1";
+            this.gradProg1.Percentage = 67;
+            this.gradProg1.ProgressBarBackColour = System.Drawing.Color.DimGray;
+            this.gradProg1.ProgressBarForeColour = System.Drawing.Color.LightSeaGreen;
+            this.gradProg1.ShowLabel = true;
+            this.gradProg1.Size = new System.Drawing.Size(455, 22);
+            this.gradProg1.TabIndex = 26;
+            this.gradProg1.Value = 0;
             // 
             // Form1
             // 
@@ -4105,7 +4126,6 @@
             this.gbox_CMOS1.PerformLayout();
             this.gbox_Image.ResumeLayout(false);
             this.gbox_Image.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbox_CAN.ResumeLayout(false);
             this.gbox_CAN.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -4116,6 +4136,10 @@
             this.gb_CAN1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.gbox_ecR2.ResumeLayout(false);
+            this.gbox_ecR2.PerformLayout();
+            this.gbox_ecL2.ResumeLayout(false);
+            this.gbox_ecL2.PerformLayout();
             this.gbox_statusR2.ResumeLayout(false);
             this.gbox_statusR2.PerformLayout();
             this.gbox_statusL2.ResumeLayout(false);
@@ -4141,12 +4165,10 @@
             this.tabPage5.ResumeLayout(false);
             this.gb_Image24.ResumeLayout(false);
             this.gb_Image24.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.gb_Temperature.ResumeLayout(false);
             this.gb_Temperature.PerformLayout();
             this.gb_Image14.ResumeLayout(false);
             this.gb_Image14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.gb_Tests.ResumeLayout(false);
             this.gb_Tests.PerformLayout();
             this.gb5_ba.ResumeLayout(false);
@@ -4155,10 +4177,9 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
-            this.gbox_ecR2.ResumeLayout(false);
-            this.gbox_ecR2.PerformLayout();
-            this.gbox_ecL2.ResumeLayout(false);
-            this.gbox_ecL2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -4504,6 +4525,7 @@
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label lb_ecL2_plis1;
         private System.Windows.Forms.Label label75;
+        private GradProg.GradProg gradProg1;
 	}
 }
 

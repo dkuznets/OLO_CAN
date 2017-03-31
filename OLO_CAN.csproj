@@ -99,6 +99,9 @@
       <HintPath>..\Release\CANLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GradProg">
+      <HintPath>..\..\..\C++\GradProg\GradProg\bin\Release\GradProg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
