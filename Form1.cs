@@ -378,11 +378,20 @@ namespace OLO_CAN
             //}
             //else
             if (pb_CMOS.Maximum > e.Val)
+            {
                 pb_CMOS.Value = e.Val;
+                pb_CMOS.Refresh();
+            }
             if (pb_CMOS1.Maximum > e.Val)
+            {
                 pb_CMOS1.Value = e.Val;
+                pb_CMOS1.Refresh();
+            }
             if (pb_CMOS2.Maximum > e.Val)
+            {
                 pb_CMOS2.Value = e.Val;
+                pb_CMOS2.Refresh();
+            }
             //MyProgressBar mpb_cmos = new MyProgressBar();
         }
         private void state_Error()
