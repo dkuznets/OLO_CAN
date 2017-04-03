@@ -3739,16 +3739,16 @@ namespace OLO_CAN
                             switch ((messages[i].messageData[0] >> 2) & 3)
                             {
                                 case 0:
-                                    label50.Text = "BY REQUEST";
+                                    lb_statusR_reason2.Text = "BY REQUEST";
                                     break;
                                 case 1:
-                                    label50.Text = "BY TIMER";
+                                    lb_statusR_reason2.Text = "BY TIMER";
                                     break;
                                 case 2:
-                                    label50.Text = "BY STATE";
+                                    lb_statusR_reason2.Text = "BY STATE";
                                     break;
                                 default:
-                                    label50.Text = "BY REQUEST";
+                                    lb_statusR_reason2.Text = "BY REQUEST";
                                     break;
                             }
                             lb_statusR_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS BAD";
