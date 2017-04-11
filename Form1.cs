@@ -3712,18 +3712,18 @@ namespace OLO_CAN
                                     break;
                             }
                             lb_statusL_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
-                            lb_statusL_plis2.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-                            lb_statusL_file2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "FILE OK" : "FILE FAIL";
+                            lb_statusL_plis2.Text = (messages[i].messageData[2] & 1) == 1 && ((messages[i].messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
+                            lb_statusL_file2.Text = ((messages[i].messageData[2] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
                             lb_statusL_t12.Text = ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                             lb_statusL_t22.Text = ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                             lb_statusL_t32.Text = ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
 
-                            lb_ecL2_file.Text = ((messages[i].messageData[6] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
-                            lb_ecL2_plis1.Text = (messages[i].messageData[6] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-                            lb_ecL2_plis2.Text = ((messages[i].messageData[6] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-                            lb_ecL2_ram.Text = ((messages[i].messageData[6] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-                            lb_ecL2_ram1.Text = ((messages[i].messageData[6] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-                            lb_ecL2_ram2.Text = ((messages[i].messageData[6] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecL2_file.Text = ((messages[i].messageData[2] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
+                            lb_ecL2_plis1.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
+                            lb_ecL2_plis2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
+                            lb_ecL2_ram.Text = ((messages[i].messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecL2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecL2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                         }
                         else
                         {
@@ -3761,18 +3761,18 @@ namespace OLO_CAN
                                     break;
                             }
                             lb_statusR_status2.Text = (((messages[i].messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS BAD";
-                            lb_statusR_plis2.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS BAD";
+                            lb_statusR_plis2.Text = (messages[i].messageData[2] & 1) == 1 && ((messages[i].messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
                             lb_statusR_file2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "FILE OK" : "FILE BAD";
                             lb_statusR_t12.Text = ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                             lb_statusR_t22.Text = ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                             lb_statusR_t32.Text = ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
 
-                            lb_ecR2_file.Text = ((messages[i].messageData[6] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
-                            lb_ecR2_plis1.Text = (messages[i].messageData[6] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-                            lb_ecR2_plis2.Text = ((messages[i].messageData[6] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-                            lb_ecR2_ram.Text = ((messages[i].messageData[6] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-                            lb_ecR2_ram1.Text = ((messages[i].messageData[6] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-                            lb_ecR2_ram2.Text = ((messages[i].messageData[6] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecR2_file.Text = ((messages[i].messageData[2] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
+                            lb_ecR2_plis1.Text = (messages[i].messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
+                            lb_ecR2_plis2.Text = ((messages[i].messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
+                            lb_ecR2_ram.Text = ((messages[i].messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecR2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+                            lb_ecR2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                         }
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
