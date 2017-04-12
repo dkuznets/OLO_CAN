@@ -14,6 +14,7 @@ using System.Drawing.Drawing2D;
 using System.Reflection;
 using System.Diagnostics;
 using TM = System.Timers;
+using System.Globalization;
 
 namespace OLO_CAN
 {
@@ -2511,9 +2512,9 @@ namespace OLO_CAN
                     if (!uniCAN.Send(ref msg, 100))
                         return;
                     double ii = 1.0;
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 5; i++)
                     {
-                        bt_loadMC1.Text = "Сброс ОЛО. " + (ii - i * 0.1).ToString() + " c";
+                        bt_loadMC1.Text = "Сброс ОЛО. " + (ii - i * 0.2).ToString("F1", CultureInfo.InvariantCulture) + " c";
                         bt_loadMC1.Refresh();
                         Thread.Sleep(100);
                     }
@@ -3125,7 +3126,7 @@ namespace OLO_CAN
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            uniCAN.Close();
+            MessageBox.Show("Сброс ОЛО. " + (1.0 - 1 * 0.2).ToString("F1", CultureInfo.InvariantCulture) + " c");
         }
         #endregion
         #region Кнопка Запустить
