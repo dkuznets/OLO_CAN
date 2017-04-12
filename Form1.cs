@@ -852,6 +852,8 @@ namespace OLO_CAN
             lb_error_CAN4.Visible = false;
             timer_Error_Boot.Enabled = false;
             tb_fnameMC1.Text = "";
+
+            pb_loadMC1.Value = 0;
         }
         
         #endregion
@@ -2481,6 +2483,7 @@ namespace OLO_CAN
             #endregion
 
             pb_loadMC1.Visible = true;
+            pb_loadMC1.Value = 0;
             bt_loadMC1.Text = "Загрузка..." + " 0%";
             //            lb_progress1.Text = "0%";
             gb_CAN1.Enabled = false;
@@ -2507,12 +2510,13 @@ namespace OLO_CAN
                     msg = mm.ToCAN(mm);
                     if (!uniCAN.Send(ref msg, 100))
                         return;
-                    bt_loadMC1.Text = "Сброс ОЛО... 2 c";
-                    bt_loadMC1.Refresh();
-                    Thread.Sleep(1000);
-                    bt_loadMC1.Text = "Сброс ОЛО... 1 c";
-                    bt_loadMC1.Refresh();
-                    Thread.Sleep(1000);
+                    double ii = 1.0;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        bt_loadMC1.Text = "Сброс ОЛО. " + (ii - i * 0.1).ToString() + " c";
+                        bt_loadMC1.Refresh();
+                        Thread.Sleep(100);
+                    }
                 }
                 else
                     chb1_need_reset.Checked = false;
@@ -2780,6 +2784,7 @@ namespace OLO_CAN
                 return;
             }
             pb_loadMC1.Visible = false;
+            pb_loadMC1.Value = 0;
             lb_Load_OK1.Text = "Микропрограмма успешно загружена";
             chb1_need_reset.Checked = false;
             lb_Load_OK1.Visible = true;
@@ -3168,6 +3173,7 @@ namespace OLO_CAN
             ClearData();
 
             pb_loadMC1.Visible = true;
+            pb_loadMC1.Value = 0;
 
             _u8 crc8 = 0;
             for (int i = 0; i < size; i++)
