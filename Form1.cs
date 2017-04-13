@@ -3924,12 +3924,14 @@ namespace OLO_CAN
                         #region mID_SN
                         if (messages[i].deviceID != 0)
                         {
+                            tb_SN.Clear();
                             mss = "Серийный номер" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П") + " ";
                             for (int j = 0; j < 8; j++)
                             {
+                                tb_SN.Text += messages[i].messageData[j].ToString();
                                 mss += messages[i].messageData[j].ToString();
                             }
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
+                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         }
                         break;
                         #endregion
