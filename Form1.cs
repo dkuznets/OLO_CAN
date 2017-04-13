@@ -4119,7 +4119,7 @@ namespace OLO_CAN
                     mm.deviceID = Const.OLO_All;
                     break;
             }
-            mm.messageID = msg_t.mID_OUT_SN;
+            mm.messageID = msg_t.mID_GET_SN;
             mm.messageLen = 1;
             mm.messageData[0] = 0;
             canmsg_t msg = new canmsg_t();
@@ -4159,7 +4159,7 @@ namespace OLO_CAN
                 byte_sn[i] = Convert.ToByte(char_sn[i]);
             }
 
-            mm.messageID = msg_t.mID_IN_SN;
+            mm.messageID = msg_t.mID_SET_SN;
             mm.messageLen = 8;
             mm.messageData = byte_sn;
             canmsg_t msg = new canmsg_t();
