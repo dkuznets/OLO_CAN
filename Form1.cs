@@ -4226,8 +4226,6 @@ namespace OLO_CAN
 
             Byte[] byte_sn = new Byte[tb_SN.TextLength];
             char_sn = tb_SN.Text.ToCharArray();
-//            foreach(char x in char_sn) 
-//            str_sn = tb_SN.Text.ToArray();
             for (int i = 0; i < char_sn.Length; i++)
             {
                 Byte a;
