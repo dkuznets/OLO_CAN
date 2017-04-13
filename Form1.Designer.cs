@@ -2406,7 +2406,7 @@
             this.btn_REQSN.TabIndex = 56;
             this.btn_REQSN.Text = "Запрос SN";
             this.btn_REQSN.UseVisualStyleBackColor = true;
-            this.btn_REQSN.Click += new System.EventHandler(this.btn_REQTIME_Click);
+            this.btn_REQSN.Click += new System.EventHandler(this.btn_REQSN_Click);
             // 
             // btn_Reset
             // 
