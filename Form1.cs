@@ -3799,6 +3799,9 @@ namespace OLO_CAN
                             lb_ecL2_ram.Text = ((messages[i].messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecL2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecL2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+
+                            lb_stL2_cmos1.Text = messages[i].messageData[6].ToString();
+                            lb_stL2_cmos2.Text = messages[i].messageData[7].ToString();
                         }
                         else
                         {
@@ -3848,6 +3851,10 @@ namespace OLO_CAN
                             lb_ecR2_ram.Text = ((messages[i].messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecR2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecR2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
+
+                            lb_stR2_cmos1.Text = messages[i].messageData[6].ToString();
+                            lb_stR2_cmos2.Text = messages[i].messageData[7].ToString();
+
                         }
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
