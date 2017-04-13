@@ -447,7 +447,7 @@ namespace OLO_CAN
             bt_Request2.Enabled = false;
             dgview2.Enabled = false;
             panel1.Enabled = false;
-            btn_REQTIME.Enabled = false;
+            btn_REQSN.Enabled = false;
             btn_Reset.Enabled = false;
             button1.Enabled = false;
             chb_dgview2.Enabled = false;
@@ -584,7 +584,7 @@ namespace OLO_CAN
             bt_Request2.Enabled = true;
             dgview2.Enabled = true;
             panel1.Enabled = true;
-            btn_REQTIME.Enabled = true;
+            btn_REQSN.Enabled = true;
             btn_Reset.Enabled = true;
             button1.Enabled = true;
             chb_dgview2.Enabled = true;
@@ -696,7 +696,7 @@ namespace OLO_CAN
             bt_Request2.Enabled = false;
             dgview2.Enabled = false;
             panel1.Enabled = false;
-            btn_REQTIME.Enabled = false;
+            btn_REQSN.Enabled = false;
             bt_SyncTime.Enabled = false;
             btn_Reset.Enabled = false;
             button1.Enabled = false;
@@ -4104,16 +4104,184 @@ namespace OLO_CAN
                 chb_dgview2.BackColor = Color.OrangeRed;
             }
         }
-        private void btn_REQTIME_Click(object sender, EventArgs e)
+        private void btn_REQTIME_Click(object sender, EventArgs e) // Запрос серийного номера
         {
             msg_t mm = new msg_t();
-            if (comboBox3.SelectedIndex == 0)
-                mm.deviceID = Const.OLO_Left;
-            else
-                mm.deviceID = Const.OLO_Right;
-            mm.messageID = msg_t.mID_REQTIME;
+            switch (comboBox3.SelectedIndex)
+            {
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+            }
+            mm.messageID = msg_t.mID_OUT_SN;
             mm.messageLen = 1;
             mm.messageData[0] = 0;
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref msg, 100))
+                return;
+            messages.Add(mm);
+        }
+        private void btn_SAVESN_Click(object sender, EventArgs e) // Сохранение серийного номера
+        {
+            msg_t mm = new msg_t();
+            switch (comboBox3.SelectedIndex)
+            {
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    MessageBox.Show("Ошибка! Выберите OLO_Left или OLO_Right");
+                    return;
+            }
+            if (tb_SN.TextLength != 8)
+            {
+                MessageBox.Show("Ошибка! Длина серийного номера должна быть 8 цифр.");
+                return;
+            }
+
+            char[] char_sn = new char[tb_SN.TextLength];
+            Byte[] byte_sn = new Byte[tb_SN.TextLength];
+            char_sn = tb_SN.Text.ToCharArray();
+//            foreach(char x in char_sn)
+            for (int i = 0; i < char_sn.Length; i++)
+            {
+                byte_sn[i] = Convert.ToByte(char_sn[i]);
+            }
+
+            mm.messageID = msg_t.mID_IN_SN;
+            mm.messageLen = 8;
+            mm.messageData = byte_sn;
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref msg, 100))
+                return;
+            messages.Add(mm);
+        }
+        private void REQ_VER_Click(object sender, EventArgs e)
+        {
+            msg_t mm = new msg_t();
+            switch (comboBox3.SelectedIndex)
+        	{
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+	        }
+            mm.messageID = msg_t.mID_REQVER;
+//            mm.messageID = msg_t.mID_STATREQ;
+            mm.messageLen = 1;
+            mm.messageData[0] = 0;
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref msg, 100))
+                return;
+            messages.Add(mm);
+            //if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+            //{
+            //    Trace.WriteLine("Error read packet");
+            //    return;
+            //}
+            //string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]);
+            //ss += " " + (Convert.ToChar(msg.data[2]) == 'L' ? "Левый борт": "Правый борт");
+            //ss += " " + (msg.data[6] < 10 ? "0" + msg.data[6].ToString() : msg.data[6].ToString());
+            //ss += "." + (msg.data[5] < 10 ? "0" + msg.data[5].ToString() : msg.data[5].ToString());
+            //ss += "." + BitConverter.ToUInt16(msg.data, 3).ToString();
+            //ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
+            //MessageBox.Show(ss);
+        }
+        private void bt_mod2_Click(object sender, EventArgs e)
+        {
+            int to = 0;
+            msg_t mm = new msg_t();
+            mm.messageID = msg_t.mID_MODULE;
+            Byte[] tmp = new Byte[4];
+
+            switch (cb_module2.SelectedIndex)
+            {
+                case 0: // рабочий режим
+                    mm.messageData[0] = 0;
+                    break;
+                case 1: // режим самотестирования
+                    mm.messageData[0] = 1;
+                    break;
+                case 2: // встроенный контроль
+                    mm.messageData[0] = 2;
+                    if (comboBox3.SelectedIndex == 0)
+                    {
+                        lb_ecR2_file.Text = "";
+                        lb_ecR2_plis1.Text = "";
+                        lb_ecR2_plis2.Text = "";
+                        lb_ecR2_ram.Text = "";
+                        lb_ecR2_ram1.Text = "";
+                        lb_ecR2_ram2.Text = "";
+                    }
+                    if (comboBox3.SelectedIndex == 1)
+                    {
+                        lb_ecL2_file.Text = "";
+                        lb_ecL2_plis1.Text = "";
+                        lb_ecL2_plis2.Text = "";
+                        lb_ecL2_ram.Text = "";
+                        lb_ecL2_ram1.Text = "";
+                        lb_ecL2_ram2.Text = "";
+                    }
+                    if (comboBox3.SelectedIndex == 2)
+                    {
+                        lb_ecR2_file.Text = "";
+                        lb_ecR2_plis1.Text = "";
+                        lb_ecR2_plis2.Text = "";
+                        lb_ecR2_ram.Text = "";
+                        lb_ecR2_ram1.Text = "";
+                        lb_ecR2_ram2.Text = "";
+                        lb_ecL2_file.Text = "";
+                        lb_ecL2_plis1.Text = "";
+                        lb_ecL2_plis2.Text = "";
+                        lb_ecL2_ram.Text = "";
+                        lb_ecL2_ram1.Text = "";
+                        lb_ecL2_ram2.Text = "";
+                    }
+                    gbox_ecL2.Refresh();
+                    gbox_ecR2.Refresh();
+                    break;
+                case 3: // режим программирования
+                    mm.messageData[0] = 3;
+                    break;
+            }
+            switch (comboBox3.SelectedIndex)
+            {
+                case 0:
+                    mm.deviceID = Const.OLO_Left;
+                    break;
+                case 1:
+                    mm.deviceID = Const.OLO_Right;
+                    break;
+                case 2:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+                default:
+                    mm.deviceID = Const.OLO_All;
+                    break;
+            }
+//            tmp = BitConverter.GetBytes(to);
+//            Array.Copy(tmp, mm.messageData, 4);
+            mm.messageLen = 1;
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg = mm.ToCAN(mm);
@@ -6094,125 +6262,6 @@ namespace OLO_CAN
         {
 
         }
-        private void REQ_VER_Click(object sender, EventArgs e)
-        {
-            msg_t mm = new msg_t();
-            switch (comboBox3.SelectedIndex)
-        	{
-                case 0:
-                    mm.deviceID = Const.OLO_Left;
-                    break;
-                case 1:
-                    mm.deviceID = Const.OLO_Right;
-                    break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
-                    break;
-	        }
-            mm.messageID = msg_t.mID_REQVER;
-//            mm.messageID = msg_t.mID_STATREQ;
-            mm.messageLen = 1;
-            mm.messageData[0] = 0;
-            canmsg_t msg = new canmsg_t();
-            msg.data = new Byte[8];
-            msg = mm.ToCAN(mm);
-            if (!uniCAN.Send(ref msg, 100))
-                return;
-            messages.Add(mm);
-            //if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
-            //{
-            //    Trace.WriteLine("Error read packet");
-            //    return;
-            //}
-            //string ss = Convert.ToChar(msg.data[0]) + "" + Convert.ToChar(msg.data[1]);
-            //ss += " " + (Convert.ToChar(msg.data[2]) == 'L' ? "Левый борт": "Правый борт");
-            //ss += " " + (msg.data[6] < 10 ? "0" + msg.data[6].ToString() : msg.data[6].ToString());
-            //ss += "." + (msg.data[5] < 10 ? "0" + msg.data[5].ToString() : msg.data[5].ToString());
-            //ss += "." + BitConverter.ToUInt16(msg.data, 3).ToString();
-            //ss += " v." + (msg.data[7] < 10 ? "0" + msg.data[7].ToString() : msg.data[7].ToString());
-            //MessageBox.Show(ss);
-        }
-        private void bt_mod2_Click(object sender, EventArgs e)
-        {
-            int to = 0;
-            msg_t mm = new msg_t();
-            mm.messageID = msg_t.mID_MODULE;
-            Byte[] tmp = new Byte[4];
 
-            switch (cb_module2.SelectedIndex)
-            {
-                case 0: // рабочий режим
-                    mm.messageData[0] = 0;
-                    break;
-                case 1: // режим самотестирования
-                    mm.messageData[0] = 1;
-                    break;
-                case 2: // встроенный контроль
-                    mm.messageData[0] = 2;
-                    if (comboBox3.SelectedIndex == 0)
-                    {
-                        lb_ecR2_file.Text = "";
-                        lb_ecR2_plis1.Text = "";
-                        lb_ecR2_plis2.Text = "";
-                        lb_ecR2_ram.Text = "";
-                        lb_ecR2_ram1.Text = "";
-                        lb_ecR2_ram2.Text = "";
-                    }
-                    if (comboBox3.SelectedIndex == 1)
-                    {
-                        lb_ecL2_file.Text = "";
-                        lb_ecL2_plis1.Text = "";
-                        lb_ecL2_plis2.Text = "";
-                        lb_ecL2_ram.Text = "";
-                        lb_ecL2_ram1.Text = "";
-                        lb_ecL2_ram2.Text = "";
-                    }
-                    if (comboBox3.SelectedIndex == 2)
-                    {
-                        lb_ecR2_file.Text = "";
-                        lb_ecR2_plis1.Text = "";
-                        lb_ecR2_plis2.Text = "";
-                        lb_ecR2_ram.Text = "";
-                        lb_ecR2_ram1.Text = "";
-                        lb_ecR2_ram2.Text = "";
-                        lb_ecL2_file.Text = "";
-                        lb_ecL2_plis1.Text = "";
-                        lb_ecL2_plis2.Text = "";
-                        lb_ecL2_ram.Text = "";
-                        lb_ecL2_ram1.Text = "";
-                        lb_ecL2_ram2.Text = "";
-                    }
-                    gbox_ecL2.Refresh();
-                    gbox_ecR2.Refresh();
-                    break;
-                case 3: // режим программирования
-                    mm.messageData[0] = 3;
-                    break;
-            }
-            switch (comboBox3.SelectedIndex)
-            {
-                case 0:
-                    mm.deviceID = Const.OLO_Left;
-                    break;
-                case 1:
-                    mm.deviceID = Const.OLO_Right;
-                    break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
-                    break;
-                default:
-                    mm.deviceID = Const.OLO_All;
-                    break;
-            }
-//            tmp = BitConverter.GetBytes(to);
-//            Array.Copy(tmp, mm.messageData, 4);
-            mm.messageLen = 1;
-            canmsg_t msg = new canmsg_t();
-            msg.data = new Byte[8];
-            msg = mm.ToCAN(mm);
-            if (!uniCAN.Send(ref msg, 100))
-                return;
-            messages.Add(mm);
-        }
     }
 }

@@ -209,7 +209,7 @@
             this.chb3_7fff = new System.Windows.Forms.CheckBox();
             this.chb3_um = new System.Windows.Forms.CheckBox();
             this.chb3_az = new System.Windows.Forms.CheckBox();
-            this.btn_REQTIME = new System.Windows.Forms.Button();
+            this.btn_REQSN = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -369,6 +369,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.tb_SN = new System.Windows.Forms.TextBox();
+            this.btn_SAVESN = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1686,6 +1688,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_SAVESN);
+            this.tabPage3.Controls.Add(this.tb_SN);
             this.tabPage3.Controls.Add(this.gbox_ecR2);
             this.tabPage3.Controls.Add(this.gbox_ecL2);
             this.tabPage3.Controls.Add(this.gbox_statusR2);
@@ -1697,7 +1701,7 @@
             this.tabPage3.Controls.Add(this.chb3_7fff);
             this.tabPage3.Controls.Add(this.chb3_um);
             this.tabPage3.Controls.Add(this.chb3_az);
-            this.tabPage3.Controls.Add(this.btn_REQTIME);
+            this.tabPage3.Controls.Add(this.btn_REQSN);
             this.tabPage3.Controls.Add(this.btn_Reset);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.numericUpDown1);
@@ -2394,15 +2398,15 @@
             this.chb3_az.Text = "проверка по азимуту";
             this.chb3_az.UseVisualStyleBackColor = true;
             // 
-            // btn_REQTIME
+            // btn_REQSN
             // 
-            this.btn_REQTIME.Location = new System.Drawing.Point(8, 187);
-            this.btn_REQTIME.Name = "btn_REQTIME";
-            this.btn_REQTIME.Size = new System.Drawing.Size(187, 23);
-            this.btn_REQTIME.TabIndex = 56;
-            this.btn_REQTIME.Text = "Запрос времени";
-            this.btn_REQTIME.UseVisualStyleBackColor = true;
-            this.btn_REQTIME.Click += new System.EventHandler(this.btn_REQTIME_Click);
+            this.btn_REQSN.Location = new System.Drawing.Point(8, 187);
+            this.btn_REQSN.Name = "btn_REQSN";
+            this.btn_REQSN.Size = new System.Drawing.Size(87, 23);
+            this.btn_REQSN.TabIndex = 56;
+            this.btn_REQSN.Text = "Запрос SN";
+            this.btn_REQSN.UseVisualStyleBackColor = true;
+            this.btn_REQSN.Click += new System.EventHandler(this.btn_REQTIME_Click);
             // 
             // btn_Reset
             // 
@@ -4073,6 +4077,23 @@
             this.pictureBox14.TabIndex = 6;
             this.pictureBox14.TabStop = false;
             // 
+            // tb_SN
+            // 
+            this.tb_SN.Location = new System.Drawing.Point(137, 160);
+            this.tb_SN.Name = "tb_SN";
+            this.tb_SN.Size = new System.Drawing.Size(58, 20);
+            this.tb_SN.TabIndex = 68;
+            // 
+            // btn_SAVESN
+            // 
+            this.btn_SAVESN.Location = new System.Drawing.Point(108, 187);
+            this.btn_SAVESN.Name = "btn_SAVESN";
+            this.btn_SAVESN.Size = new System.Drawing.Size(87, 23);
+            this.btn_SAVESN.TabIndex = 69;
+            this.btn_SAVESN.Text = "Запись SN";
+            this.btn_SAVESN.UseVisualStyleBackColor = true;
+            this.btn_SAVESN.Click += new System.EventHandler(this.btn_SAVESN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4270,7 +4291,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button bt_About4;
         private System.Windows.Forms.Button bt_Exit4;
-        private System.Windows.Forms.Button btn_REQTIME;
+        private System.Windows.Forms.Button btn_REQSN;
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
@@ -4507,6 +4528,8 @@
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label lb_ecL2_plis1;
         private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Button btn_SAVESN;
+        private System.Windows.Forms.TextBox tb_SN;
 	}
 }
 
