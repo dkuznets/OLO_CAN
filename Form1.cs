@@ -4222,12 +4222,23 @@ namespace OLO_CAN
             }
 
             char[] char_sn = new char[tb_SN.TextLength];
+            String[] str_sn = new String[tb_SN.TextLength];
+
             Byte[] byte_sn = new Byte[tb_SN.TextLength];
             char_sn = tb_SN.Text.ToCharArray();
-//            foreach(char x in char_sn)
+//            foreach(char x in char_sn) 
+//            str_sn = tb_SN.Text.ToArray();
             for (int i = 0; i < char_sn.Length; i++)
             {
-                byte_sn[i] = Convert.ToByte(char_sn[i]);
+                Byte a;
+                String b = "";
+                b += char_sn[i];
+                if (!Byte.TryParse(b, out a))
+                {
+                    MessageBox.Show("Ошибка! Длина серийного номера должна быть 8 цифр.");
+                    return;
+                }
+                byte_sn[i] = a;
             }
 
             mm.messageID = msg_t.mID_SET_SN;
