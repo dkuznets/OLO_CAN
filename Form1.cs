@@ -3800,8 +3800,14 @@ namespace OLO_CAN
                             lb_ecL2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecL2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
 
-                            lb_stL2_cmos1.Text = messages[i].messageData[6].ToString();
-                            lb_stL2_cmos2.Text = messages[i].messageData[7].ToString();
+                            if (messages[i].messageData[6] != 0)
+                                lb_stL2_cmos1.Text = messages[i].messageData[6].ToString();
+                            else
+                                lb_stL2_cmos1.Text = "";
+                            if (messages[i].messageData[7] != 0)
+                                lb_stL2_cmos2.Text = messages[i].messageData[7].ToString();
+                            else
+                                lb_stL2_cmos2.Text = "";
                         }
                         else
                         {
@@ -3852,9 +3858,14 @@ namespace OLO_CAN
                             lb_ecR2_ram1.Text = ((messages[i].messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
                             lb_ecR2_ram2.Text = ((messages[i].messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
 
-                            lb_stR2_cmos1.Text = messages[i].messageData[6].ToString();
-                            lb_stR2_cmos2.Text = messages[i].messageData[7].ToString();
-
+                            if (messages[i].messageData[6] != 0)
+                                lb_stR2_cmos1.Text = messages[i].messageData[6].ToString();
+                            else
+                                lb_stR2_cmos1.Text = "";
+                            if (messages[i].messageData[7] != 0)
+                                lb_stR2_cmos2.Text = messages[i].messageData[7].ToString();
+                            else
+                                lb_stR2_cmos2.Text = "";
                         }
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
