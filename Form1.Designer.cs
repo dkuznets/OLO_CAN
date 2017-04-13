@@ -102,6 +102,7 @@
             this.bt_CMOS1SetDAC1 = new System.Windows.Forms.Button();
             this.gbox_Image = new System.Windows.Forms.GroupBox();
             this.pb_CMOS = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN = new System.Windows.Forms.GroupBox();
             this.lb_noerr = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -142,6 +143,8 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_SAVESN = new System.Windows.Forms.Button();
+            this.tb_SN = new System.Windows.Forms.TextBox();
             this.gbox_ecR2 = new System.Windows.Forms.GroupBox();
             this.lb_ecR2_ram2 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -290,6 +293,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
             this.lb_CMOS24 = new System.Windows.Forms.Label();
             this.bt_get_CMOS2 = new System.Windows.Forms.Button();
@@ -301,6 +305,7 @@
             this.lb_T2_val4 = new System.Windows.Forms.Label();
             this.lb_T1_val4 = new System.Windows.Forms.Label();
             this.gb_Image14 = new System.Windows.Forms.GroupBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS1 = new System.Windows.Forms.ProgressBar();
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
@@ -366,11 +371,16 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.tb_SN = new System.Windows.Forms.TextBox();
-            this.btn_SAVESN = new System.Windows.Forms.Button();
+            this.gb_stL2 = new System.Windows.Forms.GroupBox();
+            this.lb_stL2_cmos2 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lb_stL2_cmos1 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.gb_stR2 = new System.Windows.Forms.GroupBox();
+            this.lb_stR2_cmos2 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.lb_stR2_cmos1 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -385,6 +395,7 @@
             this.gbox_CMOS2.SuspendLayout();
             this.gbox_CMOS1.SuspendLayout();
             this.gbox_Image.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbox_CAN.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gb1_Addr.SuspendLayout();
@@ -409,15 +420,16 @@
             this.gbox_CAN3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.gb_Image24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.gb_Temperature.SuspendLayout();
             this.gb_Image14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.gb_Tests.SuspendLayout();
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.gb_stL2.SuspendLayout();
+            this.gb_stR2.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1242,6 +1254,19 @@
             this.pb_CMOS.Size = new System.Drawing.Size(638, 17);
             this.pb_CMOS.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
             // gbox_CAN
             // 
             this.gbox_CAN.Controls.Add(this.lb_noerr);
@@ -1688,6 +1713,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.gb_stR2);
+            this.tabPage3.Controls.Add(this.gb_stL2);
             this.tabPage3.Controls.Add(this.btn_SAVESN);
             this.tabPage3.Controls.Add(this.tb_SN);
             this.tabPage3.Controls.Add(this.gbox_ecR2);
@@ -1725,8 +1752,26 @@
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btn_SAVESN
+            // 
+            this.btn_SAVESN.Location = new System.Drawing.Point(108, 187);
+            this.btn_SAVESN.Name = "btn_SAVESN";
+            this.btn_SAVESN.Size = new System.Drawing.Size(87, 23);
+            this.btn_SAVESN.TabIndex = 69;
+            this.btn_SAVESN.Text = "Запись SN";
+            this.btn_SAVESN.UseVisualStyleBackColor = true;
+            this.btn_SAVESN.Click += new System.EventHandler(this.btn_SAVESN_Click);
+            // 
+            // tb_SN
+            // 
+            this.tb_SN.Location = new System.Drawing.Point(137, 160);
+            this.tb_SN.Name = "tb_SN";
+            this.tb_SN.Size = new System.Drawing.Size(58, 20);
+            this.tb_SN.TabIndex = 68;
+            // 
             // gbox_ecR2
             // 
+            this.gbox_ecR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram2);
             this.gbox_ecR2.Controls.Add(this.label44);
             this.gbox_ecR2.Controls.Add(this.lb_ecR2_ram1);
@@ -1739,7 +1784,7 @@
             this.gbox_ecR2.Controls.Add(this.label57);
             this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis1);
             this.gbox_ecR2.Controls.Add(this.label59);
-            this.gbox_ecR2.Location = new System.Drawing.Point(791, 219);
+            this.gbox_ecR2.Location = new System.Drawing.Point(791, 187);
             this.gbox_ecR2.Name = "gbox_ecR2";
             this.gbox_ecR2.Size = new System.Drawing.Size(163, 139);
             this.gbox_ecR2.TabIndex = 67;
@@ -1749,7 +1794,7 @@
             // lb_ecR2_ram2
             // 
             this.lb_ecR2_ram2.AutoSize = true;
-            this.lb_ecR2_ram2.Location = new System.Drawing.Point(59, 116);
+            this.lb_ecR2_ram2.Location = new System.Drawing.Point(59, 118);
             this.lb_ecR2_ram2.Name = "lb_ecR2_ram2";
             this.lb_ecR2_ram2.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_ram2.TabIndex = 11;
@@ -1758,7 +1803,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(6, 116);
+            this.label44.Location = new System.Drawing.Point(6, 118);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(36, 13);
             this.label44.TabIndex = 10;
@@ -1767,7 +1812,7 @@
             // lb_ecR2_ram1
             // 
             this.lb_ecR2_ram1.AutoSize = true;
-            this.lb_ecR2_ram1.Location = new System.Drawing.Point(59, 96);
+            this.lb_ecR2_ram1.Location = new System.Drawing.Point(59, 98);
             this.lb_ecR2_ram1.Name = "lb_ecR2_ram1";
             this.lb_ecR2_ram1.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_ram1.TabIndex = 9;
@@ -1776,7 +1821,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 96);
+            this.label48.Location = new System.Drawing.Point(6, 98);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(36, 13);
             this.label48.TabIndex = 8;
@@ -1785,7 +1830,7 @@
             // lb_ecR2_ram
             // 
             this.lb_ecR2_ram.AutoSize = true;
-            this.lb_ecR2_ram.Location = new System.Drawing.Point(59, 76);
+            this.lb_ecR2_ram.Location = new System.Drawing.Point(59, 78);
             this.lb_ecR2_ram.Name = "lb_ecR2_ram";
             this.lb_ecR2_ram.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_ram.TabIndex = 7;
@@ -1794,7 +1839,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 76);
+            this.label52.Location = new System.Drawing.Point(6, 78);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(30, 13);
             this.label52.TabIndex = 6;
@@ -1803,7 +1848,7 @@
             // lb_ecR2_file
             // 
             this.lb_ecR2_file.AutoSize = true;
-            this.lb_ecR2_file.Location = new System.Drawing.Point(59, 56);
+            this.lb_ecR2_file.Location = new System.Drawing.Point(59, 58);
             this.lb_ecR2_file.Name = "lb_ecR2_file";
             this.lb_ecR2_file.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_file.TabIndex = 5;
@@ -1812,7 +1857,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 56);
+            this.label55.Location = new System.Drawing.Point(6, 58);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(44, 13);
             this.label55.TabIndex = 4;
@@ -1821,7 +1866,7 @@
             // lb_ecR2_plis2
             // 
             this.lb_ecR2_plis2.AutoSize = true;
-            this.lb_ecR2_plis2.Location = new System.Drawing.Point(59, 36);
+            this.lb_ecR2_plis2.Location = new System.Drawing.Point(59, 38);
             this.lb_ecR2_plis2.Name = "lb_ecR2_plis2";
             this.lb_ecR2_plis2.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_plis2.TabIndex = 3;
@@ -1830,7 +1875,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 36);
+            this.label57.Location = new System.Drawing.Point(6, 38);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(44, 13);
             this.label57.TabIndex = 2;
@@ -1839,7 +1884,7 @@
             // lb_ecR2_plis1
             // 
             this.lb_ecR2_plis1.AutoSize = true;
-            this.lb_ecR2_plis1.Location = new System.Drawing.Point(59, 16);
+            this.lb_ecR2_plis1.Location = new System.Drawing.Point(59, 18);
             this.lb_ecR2_plis1.Name = "lb_ecR2_plis1";
             this.lb_ecR2_plis1.Size = new System.Drawing.Size(25, 13);
             this.lb_ecR2_plis1.TabIndex = 1;
@@ -1848,7 +1893,7 @@
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(6, 16);
+            this.label59.Location = new System.Drawing.Point(6, 18);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(44, 13);
             this.label59.TabIndex = 0;
@@ -1856,6 +1901,7 @@
             // 
             // gbox_ecL2
             // 
+            this.gbox_ecL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram2);
             this.gbox_ecL2.Controls.Add(this.label65);
             this.gbox_ecL2.Controls.Add(this.lb_ecL2_ram1);
@@ -1868,7 +1914,7 @@
             this.gbox_ecL2.Controls.Add(this.label73);
             this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis1);
             this.gbox_ecL2.Controls.Add(this.label75);
-            this.gbox_ecL2.Location = new System.Drawing.Point(620, 219);
+            this.gbox_ecL2.Location = new System.Drawing.Point(620, 187);
             this.gbox_ecL2.Name = "gbox_ecL2";
             this.gbox_ecL2.Size = new System.Drawing.Size(163, 139);
             this.gbox_ecL2.TabIndex = 66;
@@ -1878,7 +1924,7 @@
             // lb_ecL2_ram2
             // 
             this.lb_ecL2_ram2.AutoSize = true;
-            this.lb_ecL2_ram2.Location = new System.Drawing.Point(59, 116);
+            this.lb_ecL2_ram2.Location = new System.Drawing.Point(59, 118);
             this.lb_ecL2_ram2.Name = "lb_ecL2_ram2";
             this.lb_ecL2_ram2.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_ram2.TabIndex = 11;
@@ -1887,7 +1933,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(6, 116);
+            this.label65.Location = new System.Drawing.Point(6, 118);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(36, 13);
             this.label65.TabIndex = 10;
@@ -1896,7 +1942,7 @@
             // lb_ecL2_ram1
             // 
             this.lb_ecL2_ram1.AutoSize = true;
-            this.lb_ecL2_ram1.Location = new System.Drawing.Point(59, 96);
+            this.lb_ecL2_ram1.Location = new System.Drawing.Point(59, 98);
             this.lb_ecL2_ram1.Name = "lb_ecL2_ram1";
             this.lb_ecL2_ram1.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_ram1.TabIndex = 9;
@@ -1905,7 +1951,7 @@
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(6, 96);
+            this.label67.Location = new System.Drawing.Point(6, 98);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(36, 13);
             this.label67.TabIndex = 8;
@@ -1914,7 +1960,7 @@
             // lb_ecL2_ram
             // 
             this.lb_ecL2_ram.AutoSize = true;
-            this.lb_ecL2_ram.Location = new System.Drawing.Point(59, 76);
+            this.lb_ecL2_ram.Location = new System.Drawing.Point(59, 78);
             this.lb_ecL2_ram.Name = "lb_ecL2_ram";
             this.lb_ecL2_ram.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_ram.TabIndex = 7;
@@ -1923,7 +1969,7 @@
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(6, 76);
+            this.label69.Location = new System.Drawing.Point(6, 78);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(30, 13);
             this.label69.TabIndex = 6;
@@ -1932,7 +1978,7 @@
             // lb_ecL2_file
             // 
             this.lb_ecL2_file.AutoSize = true;
-            this.lb_ecL2_file.Location = new System.Drawing.Point(59, 56);
+            this.lb_ecL2_file.Location = new System.Drawing.Point(59, 58);
             this.lb_ecL2_file.Name = "lb_ecL2_file";
             this.lb_ecL2_file.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_file.TabIndex = 5;
@@ -1941,7 +1987,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(6, 56);
+            this.label71.Location = new System.Drawing.Point(6, 58);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(44, 13);
             this.label71.TabIndex = 4;
@@ -1950,7 +1996,7 @@
             // lb_ecL2_plis2
             // 
             this.lb_ecL2_plis2.AutoSize = true;
-            this.lb_ecL2_plis2.Location = new System.Drawing.Point(59, 36);
+            this.lb_ecL2_plis2.Location = new System.Drawing.Point(59, 38);
             this.lb_ecL2_plis2.Name = "lb_ecL2_plis2";
             this.lb_ecL2_plis2.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_plis2.TabIndex = 3;
@@ -1959,7 +2005,7 @@
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(6, 36);
+            this.label73.Location = new System.Drawing.Point(6, 38);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(44, 13);
             this.label73.TabIndex = 2;
@@ -1968,7 +2014,7 @@
             // lb_ecL2_plis1
             // 
             this.lb_ecL2_plis1.AutoSize = true;
-            this.lb_ecL2_plis1.Location = new System.Drawing.Point(59, 16);
+            this.lb_ecL2_plis1.Location = new System.Drawing.Point(59, 18);
             this.lb_ecL2_plis1.Name = "lb_ecL2_plis1";
             this.lb_ecL2_plis1.Size = new System.Drawing.Size(25, 13);
             this.lb_ecL2_plis1.TabIndex = 1;
@@ -1977,7 +2023,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(6, 16);
+            this.label75.Location = new System.Drawing.Point(6, 18);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(44, 13);
             this.label75.TabIndex = 0;
@@ -1985,6 +2031,7 @@
             // 
             // gbox_statusR2
             // 
+            this.gbox_statusR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbox_statusR2.Controls.Add(this.lb_statusR_t32);
             this.gbox_statusR2.Controls.Add(this.label39);
             this.gbox_statusR2.Controls.Add(this.lb_statusR_t22);
@@ -2154,6 +2201,7 @@
             // 
             // gbox_statusL2
             // 
+            this.gbox_statusL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.gbox_statusL2.Controls.Add(this.lb_statusL_t32);
             this.gbox_statusL2.Controls.Add(this.label31);
             this.gbox_statusL2.Controls.Add(this.lb_statusL_t22);
@@ -2329,14 +2377,14 @@
             "Режим самотестирования",
             "Встроенный контроль",
             "Режим программирования"});
-            this.cb_module2.Location = new System.Drawing.Point(717, 188);
+            this.cb_module2.Location = new System.Drawing.Point(717, 426);
             this.cb_module2.Name = "cb_module2";
             this.cb_module2.Size = new System.Drawing.Size(158, 21);
             this.cb_module2.TabIndex = 63;
             // 
             // bt_mod2
             // 
-            this.bt_mod2.Location = new System.Drawing.Point(620, 187);
+            this.bt_mod2.Location = new System.Drawing.Point(620, 425);
             this.bt_mod2.Name = "bt_mod2";
             this.bt_mod2.Size = new System.Drawing.Size(91, 23);
             this.bt_mod2.TabIndex = 62;
@@ -2346,7 +2394,7 @@
             // 
             // REQ_VER
             // 
-            this.REQ_VER.Location = new System.Drawing.Point(883, 186);
+            this.REQ_VER.Location = new System.Drawing.Point(883, 424);
             this.REQ_VER.Name = "REQ_VER";
             this.REQ_VER.Size = new System.Drawing.Size(71, 23);
             this.REQ_VER.TabIndex = 61;
@@ -3311,6 +3359,15 @@
             this.gb_Image24.TabStop = false;
             this.gb_Image24.Text = "Кадр CMOS2";
             // 
+            // pictureBox24
+            // 
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox24.TabIndex = 6;
+            this.pictureBox24.TabStop = false;
+            // 
             // pb_CMOS2
             // 
             this.pb_CMOS2.Location = new System.Drawing.Point(69, 281);
@@ -3429,6 +3486,15 @@
             this.gb_Image14.TabIndex = 43;
             this.gb_Image14.TabStop = false;
             this.gb_Image14.Text = "Кадр CMOS1";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
             // 
             // pb_CMOS1
             // 
@@ -4046,53 +4112,105 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // pictureBox1
+            // gb_stL2
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.gb_stL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gb_stL2.Controls.Add(this.lb_stL2_cmos2);
+            this.gb_stL2.Controls.Add(this.label33);
+            this.gb_stL2.Controls.Add(this.lb_stL2_cmos1);
+            this.gb_stL2.Controls.Add(this.label40);
+            this.gb_stL2.Location = new System.Drawing.Point(620, 332);
+            this.gb_stL2.Name = "gb_stL2";
+            this.gb_stL2.Size = new System.Drawing.Size(163, 58);
+            this.gb_stL2.TabIndex = 70;
+            this.gb_stL2.TabStop = false;
+            this.gb_stL2.Text = "Среднее значение";
             // 
-            // pictureBox24
+            // lb_stL2_cmos2
             // 
-            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox24.TabIndex = 6;
-            this.pictureBox24.TabStop = false;
+            this.lb_stL2_cmos2.AutoSize = true;
+            this.lb_stL2_cmos2.Location = new System.Drawing.Point(59, 38);
+            this.lb_stL2_cmos2.Name = "lb_stL2_cmos2";
+            this.lb_stL2_cmos2.Size = new System.Drawing.Size(25, 13);
+            this.lb_stL2_cmos2.TabIndex = 7;
+            this.lb_stL2_cmos2.Text = "      ";
             // 
-            // pictureBox14
+            // label33
             // 
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(6, 38);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(44, 13);
+            this.label33.TabIndex = 6;
+            this.label33.Text = "CMOS2";
             // 
-            // tb_SN
+            // lb_stL2_cmos1
             // 
-            this.tb_SN.Location = new System.Drawing.Point(137, 160);
-            this.tb_SN.Name = "tb_SN";
-            this.tb_SN.Size = new System.Drawing.Size(58, 20);
-            this.tb_SN.TabIndex = 68;
+            this.lb_stL2_cmos1.AutoSize = true;
+            this.lb_stL2_cmos1.Location = new System.Drawing.Point(59, 18);
+            this.lb_stL2_cmos1.Name = "lb_stL2_cmos1";
+            this.lb_stL2_cmos1.Size = new System.Drawing.Size(25, 13);
+            this.lb_stL2_cmos1.TabIndex = 5;
+            this.lb_stL2_cmos1.Text = "      ";
             // 
-            // btn_SAVESN
+            // label40
             // 
-            this.btn_SAVESN.Location = new System.Drawing.Point(108, 187);
-            this.btn_SAVESN.Name = "btn_SAVESN";
-            this.btn_SAVESN.Size = new System.Drawing.Size(87, 23);
-            this.btn_SAVESN.TabIndex = 69;
-            this.btn_SAVESN.Text = "Запись SN";
-            this.btn_SAVESN.UseVisualStyleBackColor = true;
-            this.btn_SAVESN.Click += new System.EventHandler(this.btn_SAVESN_Click);
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(6, 18);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(44, 13);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "CMOS1";
+            // 
+            // gb_stR2
+            // 
+            this.gb_stR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gb_stR2.Controls.Add(this.lb_stR2_cmos2);
+            this.gb_stR2.Controls.Add(this.label46);
+            this.gb_stR2.Controls.Add(this.lb_stR2_cmos1);
+            this.gb_stR2.Controls.Add(this.label54);
+            this.gb_stR2.Location = new System.Drawing.Point(791, 332);
+            this.gb_stR2.Name = "gb_stR2";
+            this.gb_stR2.Size = new System.Drawing.Size(163, 58);
+            this.gb_stR2.TabIndex = 71;
+            this.gb_stR2.TabStop = false;
+            this.gb_stR2.Text = "Среднее значение";
+            // 
+            // lb_stR2_cmos2
+            // 
+            this.lb_stR2_cmos2.AutoSize = true;
+            this.lb_stR2_cmos2.Location = new System.Drawing.Point(59, 38);
+            this.lb_stR2_cmos2.Name = "lb_stR2_cmos2";
+            this.lb_stR2_cmos2.Size = new System.Drawing.Size(25, 13);
+            this.lb_stR2_cmos2.TabIndex = 7;
+            this.lb_stR2_cmos2.Text = "      ";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 38);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(44, 13);
+            this.label46.TabIndex = 6;
+            this.label46.Text = "CMOS2";
+            // 
+            // lb_stR2_cmos1
+            // 
+            this.lb_stR2_cmos1.AutoSize = true;
+            this.lb_stR2_cmos1.Location = new System.Drawing.Point(59, 18);
+            this.lb_stR2_cmos1.Name = "lb_stR2_cmos1";
+            this.lb_stR2_cmos1.Size = new System.Drawing.Size(25, 13);
+            this.lb_stR2_cmos1.TabIndex = 5;
+            this.lb_stR2_cmos1.Text = "      ";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(6, 18);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(44, 13);
+            this.label54.TabIndex = 4;
+            this.label54.Text = "CMOS1";
             // 
             // Form1
             // 
@@ -4129,6 +4247,7 @@
             this.gbox_CMOS1.PerformLayout();
             this.gbox_Image.ResumeLayout(false);
             this.gbox_Image.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbox_CAN.ResumeLayout(false);
             this.gbox_CAN.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -4168,10 +4287,12 @@
             this.tabPage5.ResumeLayout(false);
             this.gb_Image24.ResumeLayout(false);
             this.gb_Image24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.gb_Temperature.ResumeLayout(false);
             this.gb_Temperature.PerformLayout();
             this.gb_Image14.ResumeLayout(false);
             this.gb_Image14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.gb_Tests.ResumeLayout(false);
             this.gb_Tests.PerformLayout();
             this.gb5_ba.ResumeLayout(false);
@@ -4180,9 +4301,10 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.gb_stL2.ResumeLayout(false);
+            this.gb_stL2.PerformLayout();
+            this.gb_stR2.ResumeLayout(false);
+            this.gb_stR2.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -4530,6 +4652,16 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Button btn_SAVESN;
         private System.Windows.Forms.TextBox tb_SN;
+        private System.Windows.Forms.GroupBox gb_stR2;
+        private System.Windows.Forms.Label lb_stR2_cmos2;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label lb_stR2_cmos1;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.GroupBox gb_stL2;
+        private System.Windows.Forms.Label lb_stL2_cmos2;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lb_stL2_cmos1;
+        private System.Windows.Forms.Label label40;
 	}
 }
 

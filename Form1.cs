@@ -495,6 +495,15 @@ namespace OLO_CAN
             lb_ecR2_ram1.Text = "";
             lb_ecR2_ram2.Text = "";
 
+            gb_stL2.Enabled = false;
+            gb_stR2.Enabled = false;
+
+            lb_stL2_cmos1.Text = "";
+            lb_stL2_cmos2.Text = "";
+            lb_stR2_cmos1.Text = "";
+            lb_stR2_cmos2.Text = "";
+            tb_SN.Text = "";
+
             // Tab3
             bt_CloseCAN3.Enabled = false;
             bt_OpenCAN3.Enabled = true;
@@ -632,6 +641,15 @@ namespace OLO_CAN
             lb_ecR2_ram1.Text = "";
             lb_ecR2_ram2.Text = "";
 
+            gb_stL2.Enabled = true;
+            gb_stR2.Enabled = true;
+
+            lb_stL2_cmos1.Text = "";
+            lb_stL2_cmos2.Text = "";
+            lb_stR2_cmos1.Text = "";
+            lb_stR2_cmos2.Text = "";
+            tb_SN.Text = "";
+
             // Tab3
             bt_CloseCAN3.Enabled = true;
             bt_OpenCAN3.Enabled = false;
@@ -757,6 +775,14 @@ namespace OLO_CAN
             lb_ecR2_ram1.Text = "";
             lb_ecR2_ram2.Text = "";
 
+            gb_stL2.Enabled = false;
+            gb_stR2.Enabled = false;
+
+            lb_stL2_cmos1.Text = "";
+            lb_stL2_cmos2.Text = "";
+            lb_stR2_cmos1.Text = "";
+            lb_stR2_cmos2.Text = "";
+            tb_SN.Text = "";
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -853,8 +879,46 @@ namespace OLO_CAN
             lb_error_CAN4.Visible = false;
             timer_Error_Boot.Enabled = false;
             tb_fnameMC1.Text = "";
-
             pb_loadMC1.Value = 0;
+
+            lb_statusL_file2.Text = "";
+            lb_statusL_mode2.Text = "";
+            lb_statusL_plis2.Text = "";
+            lb_statusL_reason2.Text = "";
+            lb_statusL_status2.Text = "";
+            lb_statusL_t12.Text = "";
+            lb_statusL_t22.Text = "";
+            lb_statusL_t32.Text = "";
+
+            lb_statusR_file2.Text = "";
+            lb_statusR_mode2.Text = "";
+            lb_statusR_plis2.Text = "";
+            lb_statusR_reason2.Text = "";
+            lb_statusR_status2.Text = "";
+            lb_statusR_t12.Text = "";
+            lb_statusR_t22.Text = "";
+            lb_statusR_t32.Text = "";
+
+            lb_ecL2_file.Text = "";
+            lb_ecL2_plis1.Text = "";
+            lb_ecL2_plis2.Text = "";
+            lb_ecL2_ram.Text = "";
+            lb_ecL2_ram1.Text = "";
+            lb_ecL2_ram2.Text = "";
+
+            lb_ecR2_file.Text = "";
+            lb_ecR2_plis1.Text = "";
+            lb_ecR2_plis2.Text = "";
+            lb_ecR2_ram.Text = "";
+            lb_ecR2_ram1.Text = "";
+            lb_ecR2_ram2.Text = "";
+
+            lb_stL2_cmos1.Text = "";
+            lb_stL2_cmos2.Text = "";
+            lb_stR2_cmos1.Text = "";
+            lb_stR2_cmos2.Text = "";
+            tb_SN.Text = "";
+
         }
         
         #endregion
