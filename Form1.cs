@@ -4076,7 +4076,7 @@ namespace OLO_CAN
                         dgview2.FirstDisplayedScrollingRowIndex = dgview2.Rows.Count - 1;
                     }
 
-                    if (chb3_savelog.Checked)
+                    if (chb3_savelog.Checked && logwr != null)
                     {
                         logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
                         logwr.Write(strelka_s + ";");
