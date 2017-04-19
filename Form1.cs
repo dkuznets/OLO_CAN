@@ -204,15 +204,12 @@ namespace OLO_CAN
         public Form1()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+            UpdateStyles();
         }
+        [Description("Sets The Gradient Style"), Category("Appearance")]
         public void EnableDoubleBuffering()
         {
-            // Set the value of the double-buffering style bits to true.
-            this.SetStyle(ControlStyles.DoubleBuffer |
-               ControlStyles.UserPaint |
-               ControlStyles.AllPaintingInWmPaint,
-               true);
-            this.UpdateStyles();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
