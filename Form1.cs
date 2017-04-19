@@ -533,9 +533,6 @@ namespace OLO_CAN
             gb_Temperature.Enabled = false;
             timer_temperature.Enabled = false;
             lb_version.Visible = false;
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
             lb_test_plis.Text = "";
             lb_test_D13.Text = "";
             lb_test_D19.Text = "";
@@ -667,12 +664,6 @@ namespace OLO_CAN
             bt_About3.Enabled = true;
             bt_Exit3.Enabled = true;
 
-            //label1.Enabled = true;
-            //comboBox3.Enabled = true;
-            //comboBox2.Enabled = true;
-            //button5.Enabled = true;
-            //bt_SyncTime.Enabled = true;
-            //label2.Enabled = true;
             cb_CAN3.Enabled = true;
             dgview3.Enabled = true;
             panel3.Enabled = true;
@@ -697,9 +688,6 @@ namespace OLO_CAN
             lb_test_D21_2.Text = "";
             lb_test_FLASH.Text = "";
             lb_CMOS14.Text = "";
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
         }
         private void state_NotReady()
         {
