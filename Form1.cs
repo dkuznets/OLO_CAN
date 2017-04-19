@@ -205,8 +205,18 @@ namespace OLO_CAN
         {
             InitializeComponent();
         }
+        public void EnableDoubleBuffering()
+        {
+            // Set the value of the double-buffering style bits to true.
+            this.SetStyle(ControlStyles.DoubleBuffer |
+               ControlStyles.UserPaint |
+               ControlStyles.AllPaintingInWmPaint,
+               true);
+            this.UpdateStyles();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            EnableDoubleBuffering();
             this.Text = AboutBox.AssemblyTitle + String.Format(" Версия {0}", AboutBox.AssemblyVersion) + " " + AboutBox.AssemblyCopyright + " CANLib " 
             + String.Format(" Версия {0}", CANLib.AssemblyVersion);
 
