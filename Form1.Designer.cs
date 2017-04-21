@@ -143,6 +143,16 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gb_stR2 = new System.Windows.Forms.GroupBox();
+            this.lb_stR2_cmos2 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.lb_stR2_cmos1 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.gb_stL2 = new System.Windows.Forms.GroupBox();
+            this.lb_stL2_cmos2 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lb_stL2_cmos1 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.btn_SAVESN = new System.Windows.Forms.Button();
             this.tb_SN = new System.Windows.Forms.TextBox();
             this.gbox_ecR2 = new System.Windows.Forms.GroupBox();
@@ -371,16 +381,6 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.gb_stL2 = new System.Windows.Forms.GroupBox();
-            this.lb_stL2_cmos2 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.lb_stL2_cmos1 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.gb_stR2 = new System.Windows.Forms.GroupBox();
-            this.lb_stR2_cmos2 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.lb_stR2_cmos1 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -402,6 +402,8 @@
             this.gb_MC1.SuspendLayout();
             this.gb_CAN1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.gb_stR2.SuspendLayout();
+            this.gb_stL2.SuspendLayout();
             this.gbox_ecR2.SuspendLayout();
             this.gbox_ecL2.SuspendLayout();
             this.gbox_statusR2.SuspendLayout();
@@ -428,8 +430,6 @@
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
-            this.gb_stL2.SuspendLayout();
-            this.gb_stR2.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1752,6 +1752,106 @@
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // gb_stR2
+            // 
+            this.gb_stR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gb_stR2.Controls.Add(this.lb_stR2_cmos2);
+            this.gb_stR2.Controls.Add(this.label46);
+            this.gb_stR2.Controls.Add(this.lb_stR2_cmos1);
+            this.gb_stR2.Controls.Add(this.label54);
+            this.gb_stR2.Location = new System.Drawing.Point(791, 332);
+            this.gb_stR2.Name = "gb_stR2";
+            this.gb_stR2.Size = new System.Drawing.Size(163, 58);
+            this.gb_stR2.TabIndex = 71;
+            this.gb_stR2.TabStop = false;
+            this.gb_stR2.Text = "Среднее значение";
+            // 
+            // lb_stR2_cmos2
+            // 
+            this.lb_stR2_cmos2.AutoSize = true;
+            this.lb_stR2_cmos2.Location = new System.Drawing.Point(59, 38);
+            this.lb_stR2_cmos2.Name = "lb_stR2_cmos2";
+            this.lb_stR2_cmos2.Size = new System.Drawing.Size(25, 13);
+            this.lb_stR2_cmos2.TabIndex = 7;
+            this.lb_stR2_cmos2.Text = "      ";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 38);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(44, 13);
+            this.label46.TabIndex = 6;
+            this.label46.Text = "CMOS2";
+            // 
+            // lb_stR2_cmos1
+            // 
+            this.lb_stR2_cmos1.AutoSize = true;
+            this.lb_stR2_cmos1.Location = new System.Drawing.Point(59, 18);
+            this.lb_stR2_cmos1.Name = "lb_stR2_cmos1";
+            this.lb_stR2_cmos1.Size = new System.Drawing.Size(25, 13);
+            this.lb_stR2_cmos1.TabIndex = 5;
+            this.lb_stR2_cmos1.Text = "      ";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(6, 18);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(44, 13);
+            this.label54.TabIndex = 4;
+            this.label54.Text = "CMOS1";
+            // 
+            // gb_stL2
+            // 
+            this.gb_stL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gb_stL2.Controls.Add(this.lb_stL2_cmos2);
+            this.gb_stL2.Controls.Add(this.label33);
+            this.gb_stL2.Controls.Add(this.lb_stL2_cmos1);
+            this.gb_stL2.Controls.Add(this.label40);
+            this.gb_stL2.Location = new System.Drawing.Point(620, 332);
+            this.gb_stL2.Name = "gb_stL2";
+            this.gb_stL2.Size = new System.Drawing.Size(163, 58);
+            this.gb_stL2.TabIndex = 70;
+            this.gb_stL2.TabStop = false;
+            this.gb_stL2.Text = "Среднее значение";
+            // 
+            // lb_stL2_cmos2
+            // 
+            this.lb_stL2_cmos2.AutoSize = true;
+            this.lb_stL2_cmos2.Location = new System.Drawing.Point(59, 38);
+            this.lb_stL2_cmos2.Name = "lb_stL2_cmos2";
+            this.lb_stL2_cmos2.Size = new System.Drawing.Size(25, 13);
+            this.lb_stL2_cmos2.TabIndex = 7;
+            this.lb_stL2_cmos2.Text = "      ";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(6, 38);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(44, 13);
+            this.label33.TabIndex = 6;
+            this.label33.Text = "CMOS2";
+            // 
+            // lb_stL2_cmos1
+            // 
+            this.lb_stL2_cmos1.AutoSize = true;
+            this.lb_stL2_cmos1.Location = new System.Drawing.Point(59, 18);
+            this.lb_stL2_cmos1.Name = "lb_stL2_cmos1";
+            this.lb_stL2_cmos1.Size = new System.Drawing.Size(25, 13);
+            this.lb_stL2_cmos1.TabIndex = 5;
+            this.lb_stL2_cmos1.Text = "      ";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(6, 18);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(44, 13);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "CMOS1";
+            // 
             // btn_SAVESN
             // 
             this.btn_SAVESN.Location = new System.Drawing.Point(108, 187);
@@ -2405,11 +2505,11 @@
             // chb3_savelog
             // 
             this.chb3_savelog.AutoSize = true;
-            this.chb3_savelog.Location = new System.Drawing.Point(620, 531);
+            this.chb3_savelog.Location = new System.Drawing.Point(761, 482);
             this.chb3_savelog.Name = "chb3_savelog";
-            this.chb3_savelog.Size = new System.Drawing.Size(66, 17);
+            this.chb3_savelog.Size = new System.Drawing.Size(95, 17);
             this.chb3_savelog.TabIndex = 60;
-            this.chb3_savelog.Text = "save log";
+            this.chb3_savelog.Text = "Включить лог";
             this.chb3_savelog.UseVisualStyleBackColor = true;
             this.chb3_savelog.CheckedChanged += new System.EventHandler(this.chb3_savelog_CheckedChanged);
             // 
@@ -2417,7 +2517,7 @@
             // 
             this.chb3_7fff.AutoSize = true;
             this.chb3_7fff.Enabled = false;
-            this.chb3_7fff.Location = new System.Drawing.Point(620, 507);
+            this.chb3_7fff.Location = new System.Drawing.Point(620, 482);
             this.chb3_7fff.Name = "chb3_7fff";
             this.chb3_7fff.Size = new System.Drawing.Size(103, 17);
             this.chb3_7fff.TabIndex = 59;
@@ -2428,7 +2528,7 @@
             // 
             this.chb3_um.AutoSize = true;
             this.chb3_um.Enabled = false;
-            this.chb3_um.Location = new System.Drawing.Point(620, 483);
+            this.chb3_um.Location = new System.Drawing.Point(759, 459);
             this.chb3_um.Name = "chb3_um";
             this.chb3_um.Size = new System.Drawing.Size(147, 17);
             this.chb3_um.TabIndex = 58;
@@ -4112,106 +4212,6 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // gb_stL2
-            // 
-            this.gb_stL2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gb_stL2.Controls.Add(this.lb_stL2_cmos2);
-            this.gb_stL2.Controls.Add(this.label33);
-            this.gb_stL2.Controls.Add(this.lb_stL2_cmos1);
-            this.gb_stL2.Controls.Add(this.label40);
-            this.gb_stL2.Location = new System.Drawing.Point(620, 332);
-            this.gb_stL2.Name = "gb_stL2";
-            this.gb_stL2.Size = new System.Drawing.Size(163, 58);
-            this.gb_stL2.TabIndex = 70;
-            this.gb_stL2.TabStop = false;
-            this.gb_stL2.Text = "Среднее значение";
-            // 
-            // lb_stL2_cmos2
-            // 
-            this.lb_stL2_cmos2.AutoSize = true;
-            this.lb_stL2_cmos2.Location = new System.Drawing.Point(59, 38);
-            this.lb_stL2_cmos2.Name = "lb_stL2_cmos2";
-            this.lb_stL2_cmos2.Size = new System.Drawing.Size(25, 13);
-            this.lb_stL2_cmos2.TabIndex = 7;
-            this.lb_stL2_cmos2.Text = "      ";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 38);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(44, 13);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "CMOS2";
-            // 
-            // lb_stL2_cmos1
-            // 
-            this.lb_stL2_cmos1.AutoSize = true;
-            this.lb_stL2_cmos1.Location = new System.Drawing.Point(59, 18);
-            this.lb_stL2_cmos1.Name = "lb_stL2_cmos1";
-            this.lb_stL2_cmos1.Size = new System.Drawing.Size(25, 13);
-            this.lb_stL2_cmos1.TabIndex = 5;
-            this.lb_stL2_cmos1.Text = "      ";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(6, 18);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(44, 13);
-            this.label40.TabIndex = 4;
-            this.label40.Text = "CMOS1";
-            // 
-            // gb_stR2
-            // 
-            this.gb_stR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gb_stR2.Controls.Add(this.lb_stR2_cmos2);
-            this.gb_stR2.Controls.Add(this.label46);
-            this.gb_stR2.Controls.Add(this.lb_stR2_cmos1);
-            this.gb_stR2.Controls.Add(this.label54);
-            this.gb_stR2.Location = new System.Drawing.Point(791, 332);
-            this.gb_stR2.Name = "gb_stR2";
-            this.gb_stR2.Size = new System.Drawing.Size(163, 58);
-            this.gb_stR2.TabIndex = 71;
-            this.gb_stR2.TabStop = false;
-            this.gb_stR2.Text = "Среднее значение";
-            // 
-            // lb_stR2_cmos2
-            // 
-            this.lb_stR2_cmos2.AutoSize = true;
-            this.lb_stR2_cmos2.Location = new System.Drawing.Point(59, 38);
-            this.lb_stR2_cmos2.Name = "lb_stR2_cmos2";
-            this.lb_stR2_cmos2.Size = new System.Drawing.Size(25, 13);
-            this.lb_stR2_cmos2.TabIndex = 7;
-            this.lb_stR2_cmos2.Text = "      ";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 38);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(44, 13);
-            this.label46.TabIndex = 6;
-            this.label46.Text = "CMOS2";
-            // 
-            // lb_stR2_cmos1
-            // 
-            this.lb_stR2_cmos1.AutoSize = true;
-            this.lb_stR2_cmos1.Location = new System.Drawing.Point(59, 18);
-            this.lb_stR2_cmos1.Name = "lb_stR2_cmos1";
-            this.lb_stR2_cmos1.Size = new System.Drawing.Size(25, 13);
-            this.lb_stR2_cmos1.TabIndex = 5;
-            this.lb_stR2_cmos1.Text = "      ";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(6, 18);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(44, 13);
-            this.label54.TabIndex = 4;
-            this.label54.Text = "CMOS1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4258,6 +4258,10 @@
             this.gb_CAN1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.gb_stR2.ResumeLayout(false);
+            this.gb_stR2.PerformLayout();
+            this.gb_stL2.ResumeLayout(false);
+            this.gb_stL2.PerformLayout();
             this.gbox_ecR2.ResumeLayout(false);
             this.gbox_ecR2.PerformLayout();
             this.gbox_ecL2.ResumeLayout(false);
@@ -4301,10 +4305,6 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
-            this.gb_stL2.ResumeLayout(false);
-            this.gb_stL2.PerformLayout();
-            this.gb_stR2.ResumeLayout(false);
-            this.gb_stR2.PerformLayout();
             this.ResumeLayout(false);
 
 		}

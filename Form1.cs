@@ -4496,8 +4496,28 @@ namespace OLO_CAN
                 return;
             messages.Add(mm);
         }
-        private void bt_SyncTime_Click(object sender, EventArgs e)
+        private void bt_SyncTime_Click(object sender, EventArgs e) // Выстрел
         {
+            //int to = 0;
+            //msg_t mm = new msg_t();
+
+            //if (comboBox3.SelectedIndex == 0)
+            //    mm.deviceID = Const.OLO_Left;
+            //else if (comboBox3.SelectedIndex == 1)
+            //    mm.deviceID = Const.OLO_Right;
+            //else
+            //    mm.deviceID = Const.OLO_All;
+            //mm.messageID = msg_t.mID_SYNCTIME;
+            //mm.messageLen = 8;
+            //mm.messageData = TimestampToArray(ConvertToUnixTimestamp(DateTime.Now));
+            ////            MessageBox.Show(ConvertToUnixTimestamp(DateTime.Now).ToString());
+            //canmsg_t msg = new canmsg_t();
+            //msg.data = new Byte[8];
+            //msg = mm.ToCAN(mm);
+            //if (!uniCAN.Send(ref msg, 100))
+            //    return;
+            //messages.Add(mm);
+
             int to = 0;
             msg_t mm = new msg_t();
 
@@ -4507,10 +4527,9 @@ namespace OLO_CAN
                 mm.deviceID = Const.OLO_Right;
             else
                 mm.deviceID = Const.OLO_All;
-            mm.messageID = msg_t.mID_SYNCTIME;
-            mm.messageLen = 8;
-            mm.messageData = TimestampToArray(ConvertToUnixTimestamp(DateTime.Now));
-            //            MessageBox.Show(ConvertToUnixTimestamp(DateTime.Now).ToString());
+            mm.messageID = msg_t.mID_PROG;
+            mm.messageLen = 1;
+            Array.Clear(mm.messageData, 0, 8);
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg = mm.ToCAN(mm);
