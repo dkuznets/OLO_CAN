@@ -2045,16 +2045,32 @@ namespace OLO_CAN
 //                    UInt32 image_data_count = 0;
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
 
                     canmsg_t dat = new canmsg_t();
                     dat.data = new Byte[8];
                     pb_CMOS.Maximum = msg_count;
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
+                    for (UInt32 i = 0; i < msg_count; i++)
                     {
-                        Trace.WriteLine("Err recv image data");
-                        return;
+//                        canmsg_t dat = new canmsg_t();
+                        dat.data = new Byte[8];
+                        if (uniCAN == null || !uniCAN.Recv(ref dat, 1000))
+                        {
+                            Trace.WriteLine("Err recv image data");
+                            return;
+                        }
+
+                        UInt32 data_size = dat.len;
+                        for (UInt32 j = 0; j < data_size; j++)
+                            image_data[j + image_data_count] = dat.data[j];
+                        image_data_count += data_size;
                     }
+                    //if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
+                    //{
+                    //    Trace.WriteLine("Err recv image data");
+                    //    return;
+                    //}
                     #region Режим калибровки (поиска плохих точек)
                     if (chb_Calibr.Checked)
                     {
