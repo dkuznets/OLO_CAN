@@ -5594,8 +5594,10 @@ namespace OLO_CAN
             else
                 lb_test_plis.Text = "Init ERR, ";
 
-            lb_test_plis.Text += (upload1 > 0) ? "PLIS1 ERR, " : "PLIS1 OK, ";
-            lb_test_plis.Text += (upload2 > 0) ? "PLIS2 ERR" : "PLIS2 OK";
+//            lb_test_plis.Text += (upload1 > 0) ? "PLIS1 ERR, " : "PLIS1 OK, ";
+//            lb_test_plis.Text += (upload2 > 0) ? "PLIS2 ERR" : "PLIS2 OK";
+            lb_test_plis.Text += (upload1 > 0) ? "PLIS1 OK, " : "PLIS1 ERR, ";
+            lb_test_plis.Text += (upload2 > 0) ? "PLIS2 OK" : "PLIS2 ERR";
         }
 		#endregion
         #region Test RAM D21
