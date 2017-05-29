@@ -1097,6 +1097,7 @@
             this.cb_CMOS2Enable.TabIndex = 7;
             this.cb_CMOS2Enable.Text = "Включить термостат";
             this.cb_CMOS2Enable.UseVisualStyleBackColor = true;
+            this.cb_CMOS2Enable.CheckedChanged += new System.EventHandler(this.cb_CMOS2Enable_CheckedChanged_1);
             this.cb_CMOS2Enable.Click += new System.EventHandler(this.cb_CMOS2Enable_CheckedChanged);
             // 
             // tb_VINB2

@@ -5785,7 +5785,7 @@ namespace OLO_CAN
             timer_temperature.Enabled = false;
             gb_Tests.Enabled = false;
             lb_test_FLASH.Text = "";
-            label1.Text = "";
+            lb_test_FLASH_2.Text = "";
             gb_Tests.Refresh();
             Array.Clear(frame.data, 0, 8);
             frame.id = Const.CAN_ID_TEST_FLASH;
@@ -5805,7 +5805,7 @@ namespace OLO_CAN
             }
             Application.DoEvents();
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "Init OK" : "Init ОШИБКА");
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             // Flash format
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
@@ -5815,7 +5815,7 @@ namespace OLO_CAN
             }
             Application.DoEvents();
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "format OK" : "format ОШИБКА");
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             // Flash open
             if (uniCAN == null || !uniCAN.Recv(ref frame, 5000))
             {
@@ -5825,7 +5825,7 @@ namespace OLO_CAN
             }
             Application.DoEvents();
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "open 1 OK" : "open 1 ОШИБКА");
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             // Flash write
             if (uniCAN == null || !uniCAN.Recv(ref frame, 20000))
             {
@@ -5834,7 +5834,7 @@ namespace OLO_CAN
                 return;
             }
             Application.DoEvents();
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "write OK" : "write ОШИБКА" + frame.data[1] + " x " + (frame.data[2] + (frame.data[3] << 8)).ToString());
             // Flash open
             if (uniCAN == null || !uniCAN.Recv(ref frame, 5000))
@@ -5845,7 +5845,7 @@ namespace OLO_CAN
             }
             Application.DoEvents();
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "open 2 OK" : "open 2 ОШИБКА");
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             // Flash read
             if (uniCAN == null || !uniCAN.Recv(ref frame, 20000))
             {
@@ -5866,7 +5866,7 @@ namespace OLO_CAN
             }
             else
                 lb_test_FLASH.Text = "read OK";
-            label1.Text += frame.data[7].ToString() + "-";
+            lb_test_FLASH_2.Text += frame.data[7].ToString() + "-";
             // Flash OK
             if (uniCAN == null || !uniCAN.Recv(ref frame, 5000))
             {
@@ -5875,7 +5875,7 @@ namespace OLO_CAN
                 return;
             }
             Application.DoEvents();
-            label1.Text += frame.data[7].ToString();
+            lb_test_FLASH_2.Text += frame.data[7].ToString();
             lb_test_FLASH.Text = (frame.data[0] > 0 ? "FLASH OK" : "FLASH ОШИБКА" + sss);
             timer_temperature.Enabled = true;
             gb_Tests.Enabled = true;
@@ -6455,6 +6455,11 @@ namespace OLO_CAN
 
         }
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_CMOS2Enable_CheckedChanged_1(object sender, EventArgs e)
         {
 
         }
