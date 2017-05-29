@@ -381,6 +381,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
+            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -892,6 +893,7 @@
             // 
             // gbox_Passports
             // 
+            this.gbox_Passports.Controls.Add(this.label29);
             this.gbox_Passports.Controls.Add(this.chb_Calibr);
             this.gbox_Passports.Controls.Add(this.lb_num_bad_points);
             this.gbox_Passports.Controls.Add(this.label6);
@@ -4213,6 +4215,15 @@
             // 
             this.timer1s.Interval = 1000;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 183);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 15;
+            this.label29.Text = "label29";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4663,6 +4674,7 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label lb_stL2_cmos1;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label29;
 	}
 }
 

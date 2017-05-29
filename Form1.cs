@@ -2054,6 +2054,8 @@ namespace OLO_CAN
                     for (UInt32 i = 0; i < msg_count; i++)
                     {
 //                        canmsg_t dat = new canmsg_t();
+                        label29.Text = i.ToString();
+                        label29.Refresh();
                         dat.data = new Byte[8];
                         if (uniCAN == null || !uniCAN.Recv(ref dat, 1000))
                         {
