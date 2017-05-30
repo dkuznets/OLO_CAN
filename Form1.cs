@@ -5898,6 +5898,20 @@ namespace OLO_CAN
             gb_Tests.Refresh();
             Array.Clear(frame.data, 0, 8);
 
+            image_CMOS14 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
+            for (int i = 0; i < Buffer.Length; i++)
+                Buffer[i] = 0;
+            for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+            {
+                for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                {
+                    Color col = Color.FromArgb(Buffer[Const.IMAGE_CX * ii + jj], Buffer[Const.IMAGE_CX * ii + jj], Buffer[Const.IMAGE_CX * ii + jj]);
+                    image_CMOS14.SetPixel(jj, ii, col);
+                }
+            }
+            pictureBox14.Image = image_CMOS14;
+
             ulong packet_count = (Const.IMAGE_CX * Const.IMAGE_CY + 8 - 1) / 8;
             int pix = 10169;
             pb_CMOS1.Maximum = (int)packet_count - 1;
@@ -5956,6 +5970,20 @@ namespace OLO_CAN
             pb_CMOS2.Value = 0;
             gb_Tests.Refresh();
             Array.Clear(frame.data, 0, 8);
+
+            image_CMOS24 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
+            for (int i = 0; i < Buffer.Length; i++)
+                Buffer[i] = 0;
+            for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+            {
+                for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                {
+                    Color col = Color.FromArgb(Buffer[Const.IMAGE_CX * ii + jj], Buffer[Const.IMAGE_CX * ii + jj], Buffer[Const.IMAGE_CX * ii + jj]);
+                    image_CMOS24.SetPixel(jj, ii, col);
+                }
+            }
+            pictureBox24.Image = image_CMOS24;
 
             ulong packet_count = (Const.IMAGE_CX * Const.IMAGE_CY + 8 - 1) / 8;
             int pix = 10169;
