@@ -6454,19 +6454,5 @@ namespace OLO_CAN
                 }
             }
         }
-        private void rb1_addr_left_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_CMOS2Enable_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

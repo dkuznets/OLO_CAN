@@ -69,6 +69,7 @@
             this.rb_CMOS2 = new System.Windows.Forms.RadioButton();
             this.rb_CMOS1 = new System.Windows.Forms.RadioButton();
             this.gbox_Passports = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.chb_Calibr = new System.Windows.Forms.CheckBox();
             this.lb_num_bad_points = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -381,7 +382,6 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -487,6 +487,7 @@
             this.button4.TabIndex = 36;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
@@ -893,7 +894,6 @@
             // 
             // gbox_Passports
             // 
-            this.gbox_Passports.Controls.Add(this.label29);
             this.gbox_Passports.Controls.Add(this.chb_Calibr);
             this.gbox_Passports.Controls.Add(this.lb_num_bad_points);
             this.gbox_Passports.Controls.Add(this.label6);
@@ -915,6 +915,15 @@
             this.gbox_Passports.TabIndex = 27;
             this.gbox_Passports.TabStop = false;
             this.gbox_Passports.Text = "Паспорта матриц";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(604, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 15;
+            this.label29.Text = "label29";
             // 
             // chb_Calibr
             // 
@@ -1099,7 +1108,6 @@
             this.cb_CMOS2Enable.TabIndex = 7;
             this.cb_CMOS2Enable.Text = "Включить термостат";
             this.cb_CMOS2Enable.UseVisualStyleBackColor = true;
-            this.cb_CMOS2Enable.CheckedChanged += new System.EventHandler(this.cb_CMOS2Enable_CheckedChanged_1);
             this.cb_CMOS2Enable.Click += new System.EventHandler(this.cb_CMOS2Enable_CheckedChanged);
             // 
             // tb_VINB2
@@ -1241,6 +1249,7 @@
             // 
             // gbox_Image
             // 
+            this.gbox_Image.Controls.Add(this.label29);
             this.gbox_Image.Controls.Add(this.pb_CMOS);
             this.gbox_Image.Controls.Add(this.pictureBox1);
             this.gbox_Image.Location = new System.Drawing.Point(6, 9);
@@ -1420,7 +1429,6 @@
             this.rb1_addr_left.TabIndex = 1;
             this.rb1_addr_left.Text = "Прошивка ОЛО-Левый";
             this.rb1_addr_left.UseVisualStyleBackColor = true;
-            this.rb1_addr_left.CheckedChanged += new System.EventHandler(this.rb1_addr_left_CheckedChanged);
             // 
             // rb1_addr_uni
             // 
@@ -4214,15 +4222,6 @@
             // timer1s
             // 
             this.timer1s.Interval = 1000;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 183);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
-            this.label29.TabIndex = 15;
-            this.label29.Text = "label29";
             // 
             // Form1
             // 
