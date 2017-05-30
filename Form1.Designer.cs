@@ -924,6 +924,7 @@
             this.label29.Size = new System.Drawing.Size(41, 13);
             this.label29.TabIndex = 15;
             this.label29.Text = "label29";
+            this.label29.Visible = false;
             // 
             // chb_Calibr
             // 
