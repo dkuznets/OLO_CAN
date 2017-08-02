@@ -5571,6 +5571,99 @@ namespace OLO_CAN
             uniCAN = null;
         }
         #region Тест загрузки ПЛИС
+//#define	CAN_ID_LOAD_PLIS1								0x66
+//#define	CAN_ID_LOAD_PLIS2								0x67
+//#define	CAN_ID_INIT_PLIS								0x68
+        private void bt_plis_init_Click(object sender, EventArgs e)
+        {
+            timer_temperature.Enabled = false;
+            gb_Tests.Enabled = false;
+            lb_plis_init.Text = "";
+            gb_Tests.Refresh();
+            Array.Clear(frame.data, 0, 8);
+            frame.id = 0x68;
+            if (!uniCAN.Send(ref frame))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            timer_temperature.Enabled = true;
+            gb_Tests.Enabled = true;
+            Byte init = (Byte)(frame.data[0] & 1);
+            lb_plis_init.Text = "";
+            if (init > 0)
+                lb_plis_init.Text = "OK";
+            else
+                lb_plis_init.Text = "ERR";
+        }
+
+        private void bt_plis1_load_Click(object sender, EventArgs e)
+        {
+            timer_temperature.Enabled = false;
+            gb_Tests.Enabled = false;
+            lb_plis1_load.Text = "";
+            gb_Tests.Refresh();
+            Array.Clear(frame.data, 0, 8);
+            frame.id = 0x66;
+            if (!uniCAN.Send(ref frame))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            timer_temperature.Enabled = true;
+            gb_Tests.Enabled = true;
+            Byte init = (Byte)(frame.data[0] & 1);
+            lb_plis1_load.Text = "";
+            if (init > 0)
+                lb_plis1_load.Text = "OK";
+            else
+                lb_plis1_load.Text = "ERR";
+        }
+
+        private void bt_plis2_load_Click(object sender, EventArgs e)
+        {
+            timer_temperature.Enabled = false;
+            gb_Tests.Enabled = false;
+            lb_plis2_load.Text = "";
+            gb_Tests.Refresh();
+            Array.Clear(frame.data, 0, 8);
+            frame.id = 0x67;
+            if (!uniCAN.Send(ref frame))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            timer_temperature.Enabled = true;
+            gb_Tests.Enabled = true;
+            Byte init = (Byte)(frame.data[0] & 1);
+            //            Byte upload1 = (Byte)((frame.data[0] >> 1) & 1);
+            //            Byte upload2 = (Byte)((frame.data[0] >> 2) & 1);
+            lb_plis2_load.Text = "";
+            if (init > 0)
+                lb_plis2_load.Text = "OK";
+            else
+                lb_plis2_load.Text = "ERR";
+
+            //            lb_test_plis.Text += (upload1 > 0) ? "PLIS1 ERR, " : "PLIS1 OK, ";
+            //            lb_test_plis.Text += (upload2 > 0) ? "PLIS2 ERR" : "PLIS2 OK";
+            //            lb_test_plis.Text += (upload1 > 0) ? "PLIS1 OK, " : "PLIS1 ERR, ";
+            //            lb_test_plis.Text += (upload2 > 0) ? "PLIS2 OK" : "PLIS2 ERR";
+        }
         private void bt_test_PLIS_Click(object sender, EventArgs e)
         {
 			timer_temperature.Enabled = false;
@@ -6482,5 +6575,6 @@ namespace OLO_CAN
                 }
             }
         }
+
     }
 }

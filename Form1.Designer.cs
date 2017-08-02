@@ -69,7 +69,6 @@
             this.rb_CMOS2 = new System.Windows.Forms.RadioButton();
             this.rb_CMOS1 = new System.Windows.Forms.RadioButton();
             this.gbox_Passports = new System.Windows.Forms.GroupBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.chb_Calibr = new System.Windows.Forms.CheckBox();
             this.lb_num_bad_points = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -102,6 +101,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bt_CMOS1SetDAC1 = new System.Windows.Forms.Button();
             this.gbox_Image = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.pb_CMOS = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN = new System.Windows.Forms.GroupBox();
@@ -382,6 +382,12 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
+            this.bt_plis_init = new System.Windows.Forms.Button();
+            this.bt_plis1_load = new System.Windows.Forms.Button();
+            this.bt_plis2_load = new System.Windows.Forms.Button();
+            this.lb_plis_init = new System.Windows.Forms.Label();
+            this.lb_plis2_load = new System.Windows.Forms.Label();
+            this.lb_plis1_load = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -916,16 +922,6 @@
             this.gbox_Passports.TabStop = false;
             this.gbox_Passports.Text = "Паспорта матриц";
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(604, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
-            this.label29.TabIndex = 15;
-            this.label29.Text = "label29";
-            this.label29.Visible = false;
-            // 
             // chb_Calibr
             // 
             this.chb_Calibr.Location = new System.Drawing.Point(174, 289);
@@ -1259,6 +1255,16 @@
             this.gbox_Image.TabIndex = 16;
             this.gbox_Image.TabStop = false;
             this.gbox_Image.Text = "Картинка";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(604, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.TabIndex = 15;
+            this.label29.Text = "label29";
+            this.label29.Visible = false;
             // 
             // pb_CMOS
             // 
@@ -3640,6 +3646,12 @@
             // 
             // gb_Tests
             // 
+            this.gb_Tests.Controls.Add(this.lb_plis_init);
+            this.gb_Tests.Controls.Add(this.lb_plis2_load);
+            this.gb_Tests.Controls.Add(this.lb_plis1_load);
+            this.gb_Tests.Controls.Add(this.bt_plis2_load);
+            this.gb_Tests.Controls.Add(this.bt_plis1_load);
+            this.gb_Tests.Controls.Add(this.bt_plis_init);
             this.gb_Tests.Controls.Add(this.bt5_reset);
             this.gb_Tests.Controls.Add(this.chb5_d19);
             this.gb_Tests.Controls.Add(this.chb5_d13);
@@ -4225,6 +4237,66 @@
             // 
             this.timer1s.Interval = 1000;
             // 
+            // bt_plis_init
+            // 
+            this.bt_plis_init.Location = new System.Drawing.Point(293, 19);
+            this.bt_plis_init.Name = "bt_plis_init";
+            this.bt_plis_init.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis_init.TabIndex = 34;
+            this.bt_plis_init.Text = "Init";
+            this.bt_plis_init.UseVisualStyleBackColor = true;
+            this.bt_plis_init.Click += new System.EventHandler(this.bt_plis_init_Click);
+            // 
+            // bt_plis1_load
+            // 
+            this.bt_plis1_load.Location = new System.Drawing.Point(293, 49);
+            this.bt_plis1_load.Name = "bt_plis1_load";
+            this.bt_plis1_load.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis1_load.TabIndex = 35;
+            this.bt_plis1_load.Text = "PLIS1";
+            this.bt_plis1_load.UseVisualStyleBackColor = true;
+            this.bt_plis1_load.Click += new System.EventHandler(this.bt_plis1_load_Click);
+            // 
+            // bt_plis2_load
+            // 
+            this.bt_plis2_load.Location = new System.Drawing.Point(292, 78);
+            this.bt_plis2_load.Name = "bt_plis2_load";
+            this.bt_plis2_load.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis2_load.TabIndex = 36;
+            this.bt_plis2_load.Text = "PLIS2";
+            this.bt_plis2_load.UseVisualStyleBackColor = true;
+            this.bt_plis2_load.Click += new System.EventHandler(this.bt_plis2_load_Click);
+            // 
+            // lb_plis_init
+            // 
+            this.lb_plis_init.AutoSize = true;
+            this.lb_plis_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis_init.Location = new System.Drawing.Point(343, 25);
+            this.lb_plis_init.Name = "lb_plis_init";
+            this.lb_plis_init.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis_init.TabIndex = 39;
+            this.lb_plis_init.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_plis2_load
+            // 
+            this.lb_plis2_load.AutoSize = true;
+            this.lb_plis2_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis2_load.Location = new System.Drawing.Point(343, 83);
+            this.lb_plis2_load.Name = "lb_plis2_load";
+            this.lb_plis2_load.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis2_load.TabIndex = 38;
+            this.lb_plis2_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_plis1_load
+            // 
+            this.lb_plis1_load.AutoSize = true;
+            this.lb_plis1_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis1_load.Location = new System.Drawing.Point(343, 54);
+            this.lb_plis1_load.Name = "lb_plis1_load";
+            this.lb_plis1_load.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis1_load.TabIndex = 37;
+            this.lb_plis1_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4676,6 +4748,12 @@
         private System.Windows.Forms.Label lb_stL2_cmos1;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lb_plis_init;
+        private System.Windows.Forms.Label lb_plis2_load;
+        private System.Windows.Forms.Label lb_plis1_load;
+        private System.Windows.Forms.Button bt_plis2_load;
+        private System.Windows.Forms.Button bt_plis1_load;
+        private System.Windows.Forms.Button bt_plis_init;
 	}
 }
 
