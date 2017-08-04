@@ -3434,11 +3434,17 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.lb_plis_init);
             this.tabPage5.Controls.Add(this.chb5_timer_enable);
+            this.tabPage5.Controls.Add(this.lb_plis2_load);
             this.tabPage5.Controls.Add(this.gb_Image24);
+            this.tabPage5.Controls.Add(this.lb_plis1_load);
             this.tabPage5.Controls.Add(this.gb_Temperature);
+            this.tabPage5.Controls.Add(this.bt_plis2_load);
             this.tabPage5.Controls.Add(this.gb_Image14);
+            this.tabPage5.Controls.Add(this.bt_plis1_load);
             this.tabPage5.Controls.Add(this.gb_Tests);
+            this.tabPage5.Controls.Add(this.bt_plis_init);
             this.tabPage5.Controls.Add(this.gbox_CAN4);
             this.tabPage5.Controls.Add(this.bt_About4);
             this.tabPage5.Controls.Add(this.bt_Exit4);
@@ -3646,12 +3652,6 @@
             // 
             // gb_Tests
             // 
-            this.gb_Tests.Controls.Add(this.lb_plis_init);
-            this.gb_Tests.Controls.Add(this.lb_plis2_load);
-            this.gb_Tests.Controls.Add(this.lb_plis1_load);
-            this.gb_Tests.Controls.Add(this.bt_plis2_load);
-            this.gb_Tests.Controls.Add(this.bt_plis1_load);
-            this.gb_Tests.Controls.Add(this.bt_plis_init);
             this.gb_Tests.Controls.Add(this.bt5_reset);
             this.gb_Tests.Controls.Add(this.chb5_d19);
             this.gb_Tests.Controls.Add(this.chb5_d13);
@@ -4239,7 +4239,7 @@
             // 
             // bt_plis_init
             // 
-            this.bt_plis_init.Location = new System.Drawing.Point(293, 19);
+            this.bt_plis_init.Location = new System.Drawing.Point(726, 155);
             this.bt_plis_init.Name = "bt_plis_init";
             this.bt_plis_init.Size = new System.Drawing.Size(44, 23);
             this.bt_plis_init.TabIndex = 34;
@@ -4249,7 +4249,7 @@
             // 
             // bt_plis1_load
             // 
-            this.bt_plis1_load.Location = new System.Drawing.Point(293, 49);
+            this.bt_plis1_load.Location = new System.Drawing.Point(726, 185);
             this.bt_plis1_load.Name = "bt_plis1_load";
             this.bt_plis1_load.Size = new System.Drawing.Size(44, 23);
             this.bt_plis1_load.TabIndex = 35;
@@ -4259,7 +4259,7 @@
             // 
             // bt_plis2_load
             // 
-            this.bt_plis2_load.Location = new System.Drawing.Point(292, 78);
+            this.bt_plis2_load.Location = new System.Drawing.Point(725, 214);
             this.bt_plis2_load.Name = "bt_plis2_load";
             this.bt_plis2_load.Size = new System.Drawing.Size(44, 23);
             this.bt_plis2_load.TabIndex = 36;
@@ -4271,7 +4271,7 @@
             // 
             this.lb_plis_init.AutoSize = true;
             this.lb_plis_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis_init.Location = new System.Drawing.Point(343, 25);
+            this.lb_plis_init.Location = new System.Drawing.Point(776, 161);
             this.lb_plis_init.Name = "lb_plis_init";
             this.lb_plis_init.Size = new System.Drawing.Size(0, 13);
             this.lb_plis_init.TabIndex = 39;
@@ -4281,7 +4281,7 @@
             // 
             this.lb_plis2_load.AutoSize = true;
             this.lb_plis2_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis2_load.Location = new System.Drawing.Point(343, 83);
+            this.lb_plis2_load.Location = new System.Drawing.Point(776, 219);
             this.lb_plis2_load.Name = "lb_plis2_load";
             this.lb_plis2_load.Size = new System.Drawing.Size(0, 13);
             this.lb_plis2_load.TabIndex = 38;
@@ -4291,7 +4291,7 @@
             // 
             this.lb_plis1_load.AutoSize = true;
             this.lb_plis1_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis1_load.Location = new System.Drawing.Point(343, 54);
+            this.lb_plis1_load.Location = new System.Drawing.Point(776, 190);
             this.lb_plis1_load.Name = "lb_plis1_load";
             this.lb_plis1_load.Size = new System.Drawing.Size(0, 13);
             this.lb_plis1_load.TabIndex = 37;
@@ -4374,6 +4374,7 @@
             this.gbox_CAN3.ResumeLayout(false);
             this.gbox_CAN3.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.gb_Image24.ResumeLayout(false);
             this.gb_Image24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
