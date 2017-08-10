@@ -345,17 +345,17 @@ namespace OLO_CAN
                 chb_6_6.Checked = true;
             }
             if (!chb_6_1.Checked)
-                tabControl1.TabPages[0].Hide();
+                tabControl1.TabPages[0].Parent = null;
             if (!chb_6_2.Checked)
-                tabControl1.TabPages[1].Hide();
+                tabControl1.TabPages[1].Parent = null;
             if (!chb_6_3.Checked)
-                tabControl1.TabPages[2].Hide();
+                tabControl1.TabPages[2].Parent = null;
             if (!chb_6_4.Checked)
-                tabControl1.TabPages[3].Hide();
+                tabControl1.TabPages[3].Parent = null;
             if (!chb_6_5.Checked)
-                tabControl1.TabPages[4].Hide();
+                tabControl1.TabPages[4].Parent = null;
             if (!chb_6_6.Checked)
-                tabControl1.TabPages[5].Hide();
+                tabControl1.TabPages[5].Parent = null;
 
 
         }
