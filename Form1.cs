@@ -326,7 +326,7 @@ namespace OLO_CAN
             }
 
             inicfg = new IniFile(Application.StartupPath.ToString() + "\\olo_can.cfg");
-            if (!System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
+            if (System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
            {
                 chb_6_1.Checked = inicfg._GetBool("setup", "key1");
                 chb_6_2.Checked = inicfg._GetBool("setup", "key2");
