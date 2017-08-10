@@ -388,6 +388,14 @@
             this.lb_plis_init = new System.Windows.Forms.Label();
             this.lb_plis2_load = new System.Windows.Forms.Label();
             this.lb_plis1_load = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chb_6_1 = new System.Windows.Forms.CheckBox();
+            this.chb_6_2 = new System.Windows.Forms.CheckBox();
+            this.chb_6_3 = new System.Windows.Forms.CheckBox();
+            this.chb_6_4 = new System.Windows.Forms.CheckBox();
+            this.chb_6_5 = new System.Windows.Forms.CheckBox();
+            this.chb_6_6 = new System.Windows.Forms.CheckBox();
+            this.bt_6_savesetup = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -437,6 +445,7 @@
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -451,6 +460,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -4297,6 +4307,93 @@
             this.lb_plis1_load.TabIndex = 37;
             this.lb_plis1_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.bt_6_savesetup);
+            this.tabPage6.Controls.Add(this.chb_6_6);
+            this.tabPage6.Controls.Add(this.chb_6_5);
+            this.tabPage6.Controls.Add(this.chb_6_4);
+            this.tabPage6.Controls.Add(this.chb_6_3);
+            this.tabPage6.Controls.Add(this.chb_6_2);
+            this.tabPage6.Controls.Add(this.chb_6_1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(962, 654);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Настройка";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_1
+            // 
+            this.chb_6_1.AutoSize = true;
+            this.chb_6_1.Location = new System.Drawing.Point(9, 18);
+            this.chb_6_1.Name = "chb_6_1";
+            this.chb_6_1.Size = new System.Drawing.Size(82, 17);
+            this.chb_6_1.TabIndex = 0;
+            this.chb_6_1.Text = "Юстировка";
+            this.chb_6_1.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_2
+            // 
+            this.chb_6_2.AutoSize = true;
+            this.chb_6_2.Location = new System.Drawing.Point(9, 42);
+            this.chb_6_2.Name = "chb_6_2";
+            this.chb_6_2.Size = new System.Drawing.Size(92, 17);
+            this.chb_6_2.TabIndex = 1;
+            this.chb_6_2.Text = "Загрузка ПО";
+            this.chb_6_2.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_3
+            // 
+            this.chb_6_3.AutoSize = true;
+            this.chb_6_3.Location = new System.Drawing.Point(9, 66);
+            this.chb_6_3.Name = "chb_6_3";
+            this.chb_6_3.Size = new System.Drawing.Size(77, 17);
+            this.chb_6_3.TabIndex = 2;
+            this.chb_6_3.Text = "Тест ОЛО";
+            this.chb_6_3.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_4
+            // 
+            this.chb_6_4.AutoSize = true;
+            this.chb_6_4.Location = new System.Drawing.Point(9, 90);
+            this.chb_6_4.Name = "chb_6_4";
+            this.chb_6_4.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_4.TabIndex = 3;
+            this.chb_6_4.Text = "Эмулятор";
+            this.chb_6_4.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_5
+            // 
+            this.chb_6_5.AutoSize = true;
+            this.chb_6_5.Location = new System.Drawing.Point(9, 114);
+            this.chb_6_5.Name = "chb_6_5";
+            this.chb_6_5.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_5.TabIndex = 4;
+            this.chb_6_5.Text = "Тест БОС";
+            this.chb_6_5.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_6
+            // 
+            this.chb_6_6.AutoSize = true;
+            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
+            this.chb_6_6.Name = "chb_6_6";
+            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_6.TabIndex = 5;
+            this.chb_6_6.Text = "Настройка";
+            this.chb_6_6.UseVisualStyleBackColor = true;
+            // 
+            // bt_6_savesetup
+            // 
+            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 162);
+            this.bt_6_savesetup.Name = "bt_6_savesetup";
+            this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
+            this.bt_6_savesetup.TabIndex = 6;
+            this.bt_6_savesetup.Text = "save";
+            this.bt_6_savesetup.UseVisualStyleBackColor = true;
+            this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4391,6 +4488,8 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -4755,6 +4854,14 @@
         private System.Windows.Forms.Button bt_plis2_load;
         private System.Windows.Forms.Button bt_plis1_load;
         private System.Windows.Forms.Button bt_plis_init;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button bt_6_savesetup;
+        private System.Windows.Forms.CheckBox chb_6_6;
+        private System.Windows.Forms.CheckBox chb_6_5;
+        private System.Windows.Forms.CheckBox chb_6_4;
+        private System.Windows.Forms.CheckBox chb_6_3;
+        private System.Windows.Forms.CheckBox chb_6_2;
+        private System.Windows.Forms.CheckBox chb_6_1;
 	}
 }
 

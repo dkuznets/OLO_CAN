@@ -137,6 +137,9 @@ namespace OLO_CAN
 
         int currTab = 0;
         ComboBox[] cb_CAN = new ComboBox[5];
+
+        IniFile inicfg;
+
         #endregion
 
         #region Tab2
@@ -321,6 +324,40 @@ namespace OLO_CAN
                     cb_CAN[k].Items.Add(item);
                 cb_CAN[k].SelectedIndex = 0;
             }
+
+            inicfg = new IniFile("olo_can.cfg");
+            if(!System.IO.File.Exists("olo_can.cfg"))
+            {
+                chb_6_1.Checked = inicfg._GetBool("setup", "key1");
+                chb_6_2.Checked = inicfg._GetBool("setup", "key2");
+                chb_6_3.Checked = inicfg._GetBool("setup", "key3");
+                chb_6_4.Checked = inicfg._GetBool("setup", "key4");
+                chb_6_5.Checked = inicfg._GetBool("setup", "key5");
+                chb_6_6.Checked = inicfg._GetBool("setup", "key6");
+            }
+            else
+            {
+                chb_6_1.Checked = true;
+                chb_6_2.Checked = true;
+                chb_6_3.Checked = true;
+                chb_6_4.Checked = true;
+                chb_6_5.Checked = true;
+                chb_6_6.Checked = true;
+            }
+            if (!chb_6_1.Checked)
+                tabControl1.TabPages[0].Hide();
+            if (!chb_6_2.Checked)
+                tabControl1.TabPages[1].Hide();
+            if (!chb_6_3.Checked)
+                tabControl1.TabPages[2].Hide();
+            if (!chb_6_4.Checked)
+                tabControl1.TabPages[3].Hide();
+            if (!chb_6_5.Checked)
+                tabControl1.TabPages[4].Hide();
+            if (!chb_6_6.Checked)
+                tabControl1.TabPages[5].Hide();
+
+
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -6574,6 +6611,16 @@ namespace OLO_CAN
                     sw.WriteLine();
                 }
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            inicfg._SetBool("setup", "key1", chb_6_1.Checked);
+            inicfg._SetBool("setup", "key2", chb_6_2.Checked);
+            inicfg._SetBool("setup", "key3", chb_6_3.Checked);
+            inicfg._SetBool("setup", "key4", chb_6_4.Checked);
+            inicfg._SetBool("setup", "key5", chb_6_5.Checked);
+            inicfg._SetBool("setup", "key6", chb_6_6.Checked);
         }
 
     }
