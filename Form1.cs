@@ -326,24 +326,24 @@ namespace OLO_CAN
             }
 
             inicfg = new IniFile(Application.StartupPath.ToString() + "\\olo_can.cfg");
-            if (!System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
-            {
+//            if (!System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
+//           {
                 chb_6_1.Checked = inicfg._GetBool("setup", "key1");
                 chb_6_2.Checked = inicfg._GetBool("setup", "key2");
                 chb_6_3.Checked = inicfg._GetBool("setup", "key3");
                 chb_6_4.Checked = inicfg._GetBool("setup", "key4");
                 chb_6_5.Checked = inicfg._GetBool("setup", "key5");
                 chb_6_6.Checked = inicfg._GetBool("setup", "key6");
-            }
-            else
-            {
-                chb_6_1.Checked = true;
-                chb_6_2.Checked = true;
-                chb_6_3.Checked = true;
-                chb_6_4.Checked = true;
-                chb_6_5.Checked = true;
-                chb_6_6.Checked = true;
-            }
+//            }
+            //else
+            //{
+            //    chb_6_1.Checked = true;
+            //    chb_6_2.Checked = true;
+            //    chb_6_3.Checked = true;
+            //    chb_6_4.Checked = true;
+            //    chb_6_5.Checked = true;
+            //    chb_6_6.Checked = true;
+            //}
             try
             {
                 if (!chb_6_1.Checked)
