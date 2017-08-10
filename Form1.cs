@@ -346,16 +346,28 @@ namespace OLO_CAN
             }
             if (!chb_6_1.Checked)
                 tabControl1.TabPages[0].Parent = null;
+            else
+                tabControl1.TabPages[0].Parent = tabControl1;
             if (!chb_6_2.Checked)
                 tabControl1.TabPages[1].Parent = null;
+            else
+                tabControl1.TabPages[1].Parent = tabControl1;
             if (!chb_6_3.Checked)
                 tabControl1.TabPages[2].Parent = null;
+            else
+                tabControl1.TabPages[2].Parent = tabControl1;
             if (!chb_6_4.Checked)
                 tabControl1.TabPages[3].Parent = null;
+            else
+                tabControl1.TabPages[3].Parent = tabControl1;
             if (!chb_6_5.Checked)
                 tabControl1.TabPages[4].Parent = null;
+            else
+                tabControl1.TabPages[4].Parent = tabControl1;
             if (!chb_6_6.Checked)
                 tabControl1.TabPages[5].Parent = null;
+            else
+                tabControl1.TabPages[5].Parent = tabControl1;
 
 
         }
