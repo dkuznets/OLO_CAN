@@ -2581,18 +2581,6 @@ namespace OLO_CAN
         }
         private void bt_REQSN1_Click(object sender, EventArgs e)
         {
-            COMMAND cmd = new COMMAND();
-            RESULT res = new RESULT();
-
-            while (EnqueueCommandList.Count > 0)
-            {
-                SendCommand(EnqueueCommandList[0], ref res);
-                EnqueueCommandList.RemoveAt(0);
-            }
-
-            cmd.magic = Const.MAGIC_BYTE;
-            cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
-
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             RESULT rr = new RESULT();
