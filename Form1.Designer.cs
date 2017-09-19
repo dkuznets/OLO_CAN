@@ -302,12 +302,15 @@
             this.bt_About3 = new System.Windows.Forms.Button();
             this.bt_Exit3 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lb_plis_init = new System.Windows.Forms.Label();
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
+            this.lb_plis2_load = new System.Windows.Forms.Label();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
             this.lb_CMOS24 = new System.Windows.Forms.Label();
             this.bt_get_CMOS2 = new System.Windows.Forms.Button();
+            this.lb_plis1_load = new System.Windows.Forms.Label();
             this.gb_Temperature = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -315,11 +318,13 @@
             this.lb_T3 = new System.Windows.Forms.Label();
             this.lb_T2_val4 = new System.Windows.Forms.Label();
             this.lb_T1_val4 = new System.Windows.Forms.Label();
+            this.bt_plis2_load = new System.Windows.Forms.Button();
             this.gb_Image14 = new System.Windows.Forms.GroupBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS1 = new System.Windows.Forms.ProgressBar();
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
+            this.bt_plis1_load = new System.Windows.Forms.Button();
             this.gb_Tests = new System.Windows.Forms.GroupBox();
             this.bt5_reset = new System.Windows.Forms.Button();
             this.chb5_d19 = new System.Windows.Forms.CheckBox();
@@ -356,6 +361,7 @@
             this.bt_test_D21_1 = new System.Windows.Forms.Button();
             this.lb_test_plis = new System.Windows.Forms.Label();
             this.bt_test_PLIS = new System.Windows.Forms.Button();
+            this.bt_plis_init = new System.Windows.Forms.Button();
             this.gbox_CAN4 = new System.Windows.Forms.GroupBox();
             this.lb_version = new System.Windows.Forms.Label();
             this.lb_noerr4 = new System.Windows.Forms.Label();
@@ -366,6 +372,14 @@
             this.bt_OpenCAN4 = new System.Windows.Forms.Button();
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.bt_6_savesetup = new System.Windows.Forms.Button();
+            this.chb_6_6 = new System.Windows.Forms.CheckBox();
+            this.chb_6_5 = new System.Windows.Forms.CheckBox();
+            this.chb_6_4 = new System.Windows.Forms.CheckBox();
+            this.chb_6_3 = new System.Windows.Forms.CheckBox();
+            this.chb_6_2 = new System.Windows.Forms.CheckBox();
+            this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.Timer_UpdateTime = new System.Windows.Forms.Timer(this.components);
             this.Timer_GetData = new System.Windows.Forms.Timer(this.components);
             this.timer_testOLO_L = new System.Windows.Forms.Timer(this.components);
@@ -382,20 +396,9 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.bt_plis_init = new System.Windows.Forms.Button();
-            this.bt_plis1_load = new System.Windows.Forms.Button();
-            this.bt_plis2_load = new System.Windows.Forms.Button();
-            this.lb_plis_init = new System.Windows.Forms.Label();
-            this.lb_plis2_load = new System.Windows.Forms.Label();
-            this.lb_plis1_load = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.chb_6_1 = new System.Windows.Forms.CheckBox();
-            this.chb_6_2 = new System.Windows.Forms.CheckBox();
-            this.chb_6_3 = new System.Windows.Forms.CheckBox();
-            this.chb_6_4 = new System.Windows.Forms.CheckBox();
-            this.chb_6_5 = new System.Windows.Forms.CheckBox();
-            this.chb_6_6 = new System.Windows.Forms.CheckBox();
-            this.bt_6_savesetup = new System.Windows.Forms.Button();
+            this.tb_SN1 = new System.Windows.Forms.TextBox();
+            this.bt_REQSN1 = new System.Windows.Forms.Button();
+            this.bt_SAVESN1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -472,6 +475,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.bt_SAVESN1);
+            this.tabPage1.Controls.Add(this.bt_REQSN1);
+            this.tabPage1.Controls.Add(this.tb_SN1);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.gbox_Temperature);
@@ -525,7 +531,7 @@
             this.gbox_Temperature.Controls.Add(this.lb_T1_val);
             this.gbox_Temperature.Location = new System.Drawing.Point(252, 571);
             this.gbox_Temperature.Name = "gbox_Temperature";
-            this.gbox_Temperature.Size = new System.Drawing.Size(155, 78);
+            this.gbox_Temperature.Size = new System.Drawing.Size(179, 41);
             this.gbox_Temperature.TabIndex = 32;
             this.gbox_Temperature.TabStop = false;
             this.gbox_Temperature.Text = "Температуры";
@@ -534,27 +540,27 @@
             // 
             this.lb_T1.AutoSize = true;
             this.lb_T1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lb_T1.Location = new System.Drawing.Point(6, 25);
+            this.lb_T1.Location = new System.Drawing.Point(6, 20);
             this.lb_T1.Name = "lb_T1";
-            this.lb_T1.Size = new System.Drawing.Size(83, 13);
+            this.lb_T1.Size = new System.Drawing.Size(46, 13);
             this.lb_T1.TabIndex = 7;
-            this.lb_T1.Text = "Температура 1";
+            this.lb_T1.Text = "Темп. 1";
             // 
             // lb_T2
             // 
             this.lb_T2.AutoSize = true;
             this.lb_T2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lb_T2.Location = new System.Drawing.Point(6, 55);
+            this.lb_T2.Location = new System.Drawing.Point(92, 20);
             this.lb_T2.Name = "lb_T2";
-            this.lb_T2.Size = new System.Drawing.Size(83, 13);
+            this.lb_T2.Size = new System.Drawing.Size(46, 13);
             this.lb_T2.TabIndex = 8;
-            this.lb_T2.Text = "Температура 2";
+            this.lb_T2.Text = "Темп. 2";
             // 
             // lb_T2_val
             // 
             this.lb_T2_val.AutoSize = true;
             this.lb_T2_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lb_T2_val.Location = new System.Drawing.Point(107, 55);
+            this.lb_T2_val.Location = new System.Drawing.Point(147, 20);
             this.lb_T2_val.Name = "lb_T2_val";
             this.lb_T2_val.Size = new System.Drawing.Size(11, 13);
             this.lb_T2_val.TabIndex = 11;
@@ -564,7 +570,7 @@
             // 
             this.lb_T1_val.AutoSize = true;
             this.lb_T1_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lb_T1_val.Location = new System.Drawing.Point(107, 25);
+            this.lb_T1_val.Location = new System.Drawing.Point(60, 20);
             this.lb_T1_val.Name = "lb_T1_val";
             this.lb_T1_val.Size = new System.Drawing.Size(11, 13);
             this.lb_T1_val.TabIndex = 10;
@@ -590,16 +596,16 @@
             this.gbox_Cross.Controls.Add(this.num_CY);
             this.gbox_Cross.Controls.Add(this.num_CX);
             this.gbox_Cross.Controls.Add(this.chb_EnableCross);
-            this.gbox_Cross.Location = new System.Drawing.Point(413, 571);
+            this.gbox_Cross.Location = new System.Drawing.Point(437, 571);
             this.gbox_Cross.Name = "gbox_Cross";
-            this.gbox_Cross.Size = new System.Drawing.Size(420, 78);
+            this.gbox_Cross.Size = new System.Drawing.Size(396, 78);
             this.gbox_Cross.TabIndex = 31;
             this.gbox_Cross.TabStop = false;
             this.gbox_Cross.Text = "Крест";
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(247, 25);
+            this.label12.Location = new System.Drawing.Point(225, 25);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 20);
             this.label12.TabIndex = 28;
@@ -609,7 +615,7 @@
             // chb_oldlens
             // 
             this.chb_oldlens.AutoSize = true;
-            this.chb_oldlens.Location = new System.Drawing.Point(280, 11);
+            this.chb_oldlens.Location = new System.Drawing.Point(258, 11);
             this.chb_oldlens.Name = "chb_oldlens";
             this.chb_oldlens.Size = new System.Drawing.Size(115, 17);
             this.chb_oldlens.TabIndex = 27;
@@ -619,7 +625,7 @@
             // rb_RightW
             // 
             this.rb_RightW.AutoSize = true;
-            this.rb_RightW.Location = new System.Drawing.Point(345, 27);
+            this.rb_RightW.Location = new System.Drawing.Point(323, 27);
             this.rb_RightW.Name = "rb_RightW";
             this.rb_RightW.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.rb_RightW.Size = new System.Drawing.Size(65, 17);
@@ -632,7 +638,7 @@
             // 
             this.rb_LeftW.AutoSize = true;
             this.rb_LeftW.Checked = true;
-            this.rb_LeftW.Location = new System.Drawing.Point(280, 27);
+            this.rb_LeftW.Location = new System.Drawing.Point(258, 27);
             this.rb_LeftW.Name = "rb_LeftW";
             this.rb_LeftW.Size = new System.Drawing.Size(59, 17);
             this.rb_LeftW.TabIndex = 25;
@@ -643,7 +649,7 @@
             // 
             // bt_SaveConf
             // 
-            this.bt_SaveConf.Location = new System.Drawing.Point(280, 50);
+            this.bt_SaveConf.Location = new System.Drawing.Point(258, 50);
             this.bt_SaveConf.Name = "bt_SaveConf";
             this.bt_SaveConf.Size = new System.Drawing.Size(134, 23);
             this.bt_SaveConf.TabIndex = 24;
@@ -653,17 +659,17 @@
             // 
             // chb_CCirkle
             // 
-            this.chb_CCirkle.Location = new System.Drawing.Point(189, 53);
+            this.chb_CCirkle.Location = new System.Drawing.Point(188, 53);
             this.chb_CCirkle.Name = "chb_CCirkle";
-            this.chb_CCirkle.Size = new System.Drawing.Size(90, 20);
+            this.chb_CCirkle.Size = new System.Drawing.Size(50, 20);
             this.chb_CCirkle.TabIndex = 23;
-            this.chb_CCirkle.Text = "Окружность";
+            this.chb_CCirkle.Text = "Круг";
             this.chb_CCirkle.UseVisualStyleBackColor = true;
             this.chb_CCirkle.Click += new System.EventHandler(this.chb_CCirkle_CheckedChanged);
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(188, 21);
+            this.label13.Location = new System.Drawing.Point(187, 21);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 20);
             this.label13.TabIndex = 22;
@@ -672,7 +678,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(121, 51);
+            this.label14.Location = new System.Drawing.Point(120, 51);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(14, 20);
             this.label14.TabIndex = 21;
@@ -681,7 +687,7 @@
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(108, 21);
+            this.label15.Location = new System.Drawing.Point(107, 21);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 20);
             this.label15.TabIndex = 20;
@@ -690,7 +696,7 @@
             // 
             // num_CCirkle
             // 
-            this.num_CCirkle.Location = new System.Drawing.Point(141, 53);
+            this.num_CCirkle.Location = new System.Drawing.Point(140, 53);
             this.num_CCirkle.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -708,7 +714,7 @@
             // 
             // num_CAngle
             // 
-            this.num_CAngle.Location = new System.Drawing.Point(141, 25);
+            this.num_CAngle.Location = new System.Drawing.Point(140, 25);
             this.num_CAngle.Maximum = new decimal(new int[] {
             180,
             0,
@@ -726,7 +732,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(70, 51);
+            this.label10.Location = new System.Drawing.Point(69, 51);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 20);
             this.label10.TabIndex = 17;
@@ -735,7 +741,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(70, 21);
+            this.label11.Location = new System.Drawing.Point(69, 21);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 20);
             this.label11.TabIndex = 16;
@@ -744,7 +750,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(7, 51);
+            this.label9.Location = new System.Drawing.Point(6, 51);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 20);
             this.label9.TabIndex = 15;
@@ -753,7 +759,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(7, 21);
+            this.label8.Location = new System.Drawing.Point(6, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(14, 20);
             this.label8.TabIndex = 14;
@@ -762,7 +768,7 @@
             // 
             // num_CY
             // 
-            this.num_CY.Location = new System.Drawing.Point(23, 53);
+            this.num_CY.Location = new System.Drawing.Point(22, 53);
             this.num_CY.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -780,7 +786,7 @@
             // 
             // num_CX
             // 
-            this.num_CX.Location = new System.Drawing.Point(23, 23);
+            this.num_CX.Location = new System.Drawing.Point(22, 23);
             this.num_CX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -799,7 +805,7 @@
             // chb_EnableCross
             // 
             this.chb_EnableCross.AutoSize = true;
-            this.chb_EnableCross.Location = new System.Drawing.Point(47, 1);
+            this.chb_EnableCross.Location = new System.Drawing.Point(46, 1);
             this.chb_EnableCross.Name = "chb_EnableCross";
             this.chb_EnableCross.Size = new System.Drawing.Size(15, 14);
             this.chb_EnableCross.TabIndex = 11;
@@ -3466,6 +3472,16 @@
             this.tabPage5.Text = "Тестирование платы БОС";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // lb_plis_init
+            // 
+            this.lb_plis_init.AutoSize = true;
+            this.lb_plis_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis_init.Location = new System.Drawing.Point(776, 161);
+            this.lb_plis_init.Name = "lb_plis_init";
+            this.lb_plis_init.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis_init.TabIndex = 39;
+            this.lb_plis_init.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // chb5_timer_enable
             // 
             this.chb5_timer_enable.Appearance = System.Windows.Forms.Appearance.Button;
@@ -3479,6 +3495,16 @@
             this.chb5_timer_enable.Text = "Таймер";
             this.chb5_timer_enable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chb5_timer_enable.UseVisualStyleBackColor = true;
+            // 
+            // lb_plis2_load
+            // 
+            this.lb_plis2_load.AutoSize = true;
+            this.lb_plis2_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis2_load.Location = new System.Drawing.Point(776, 219);
+            this.lb_plis2_load.Name = "lb_plis2_load";
+            this.lb_plis2_load.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis2_load.TabIndex = 38;
+            this.lb_plis2_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gb_Image24
             // 
@@ -3531,6 +3557,16 @@
             this.bt_get_CMOS2.Text = "Считать";
             this.bt_get_CMOS2.UseVisualStyleBackColor = true;
             this.bt_get_CMOS2.Click += new System.EventHandler(this.bt_get_CMOS2_Click);
+            // 
+            // lb_plis1_load
+            // 
+            this.lb_plis1_load.AutoSize = true;
+            this.lb_plis1_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_plis1_load.Location = new System.Drawing.Point(776, 190);
+            this.lb_plis1_load.Name = "lb_plis1_load";
+            this.lb_plis1_load.Size = new System.Drawing.Size(0, 13);
+            this.lb_plis1_load.TabIndex = 37;
+            this.lb_plis1_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gb_Temperature
             // 
@@ -3608,6 +3644,16 @@
             this.lb_T1_val4.TabIndex = 10;
             this.lb_T1_val4.Text = "-";
             // 
+            // bt_plis2_load
+            // 
+            this.bt_plis2_load.Location = new System.Drawing.Point(725, 214);
+            this.bt_plis2_load.Name = "bt_plis2_load";
+            this.bt_plis2_load.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis2_load.TabIndex = 36;
+            this.bt_plis2_load.Text = "PLIS2";
+            this.bt_plis2_load.UseVisualStyleBackColor = true;
+            this.bt_plis2_load.Click += new System.EventHandler(this.bt_plis2_load_Click);
+            // 
             // gb_Image14
             // 
             this.gb_Image14.Controls.Add(this.pictureBox14);
@@ -3659,6 +3705,16 @@
             this.lb_CMOS14.Size = new System.Drawing.Size(0, 13);
             this.lb_CMOS14.TabIndex = 22;
             this.lb_CMOS14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_plis1_load
+            // 
+            this.bt_plis1_load.Location = new System.Drawing.Point(726, 185);
+            this.bt_plis1_load.Name = "bt_plis1_load";
+            this.bt_plis1_load.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis1_load.TabIndex = 35;
+            this.bt_plis1_load.Text = "PLIS1";
+            this.bt_plis1_load.UseVisualStyleBackColor = true;
+            this.bt_plis1_load.Click += new System.EventHandler(this.bt_plis1_load_Click);
             // 
             // gb_Tests
             // 
@@ -4062,6 +4118,16 @@
             this.bt_test_PLIS.UseVisualStyleBackColor = true;
             this.bt_test_PLIS.Click += new System.EventHandler(this.bt_test_PLIS_Click);
             // 
+            // bt_plis_init
+            // 
+            this.bt_plis_init.Location = new System.Drawing.Point(726, 155);
+            this.bt_plis_init.Name = "bt_plis_init";
+            this.bt_plis_init.Size = new System.Drawing.Size(44, 23);
+            this.bt_plis_init.TabIndex = 34;
+            this.bt_plis_init.Text = "Init";
+            this.bt_plis_init.UseVisualStyleBackColor = true;
+            this.bt_plis_init.Click += new System.EventHandler(this.bt_plis_init_Click);
+            // 
             // gbox_CAN4
             // 
             this.gbox_CAN4.Controls.Add(this.lb_version);
@@ -4175,6 +4241,93 @@
             this.bt_Exit4.UseVisualStyleBackColor = true;
             this.bt_Exit4.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.bt_6_savesetup);
+            this.tabPage6.Controls.Add(this.chb_6_6);
+            this.tabPage6.Controls.Add(this.chb_6_5);
+            this.tabPage6.Controls.Add(this.chb_6_4);
+            this.tabPage6.Controls.Add(this.chb_6_3);
+            this.tabPage6.Controls.Add(this.chb_6_2);
+            this.tabPage6.Controls.Add(this.chb_6_1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(962, 654);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Настройка";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // bt_6_savesetup
+            // 
+            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 162);
+            this.bt_6_savesetup.Name = "bt_6_savesetup";
+            this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
+            this.bt_6_savesetup.TabIndex = 6;
+            this.bt_6_savesetup.Text = "save";
+            this.bt_6_savesetup.UseVisualStyleBackColor = true;
+            this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // chb_6_6
+            // 
+            this.chb_6_6.AutoSize = true;
+            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
+            this.chb_6_6.Name = "chb_6_6";
+            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_6.TabIndex = 5;
+            this.chb_6_6.Text = "Настройка";
+            this.chb_6_6.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_5
+            // 
+            this.chb_6_5.AutoSize = true;
+            this.chb_6_5.Location = new System.Drawing.Point(9, 114);
+            this.chb_6_5.Name = "chb_6_5";
+            this.chb_6_5.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_5.TabIndex = 4;
+            this.chb_6_5.Text = "Тест БОС";
+            this.chb_6_5.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_4
+            // 
+            this.chb_6_4.AutoSize = true;
+            this.chb_6_4.Location = new System.Drawing.Point(9, 90);
+            this.chb_6_4.Name = "chb_6_4";
+            this.chb_6_4.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_4.TabIndex = 3;
+            this.chb_6_4.Text = "Эмулятор";
+            this.chb_6_4.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_3
+            // 
+            this.chb_6_3.AutoSize = true;
+            this.chb_6_3.Location = new System.Drawing.Point(9, 66);
+            this.chb_6_3.Name = "chb_6_3";
+            this.chb_6_3.Size = new System.Drawing.Size(77, 17);
+            this.chb_6_3.TabIndex = 2;
+            this.chb_6_3.Text = "Тест ОЛО";
+            this.chb_6_3.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_2
+            // 
+            this.chb_6_2.AutoSize = true;
+            this.chb_6_2.Location = new System.Drawing.Point(9, 42);
+            this.chb_6_2.Name = "chb_6_2";
+            this.chb_6_2.Size = new System.Drawing.Size(92, 17);
+            this.chb_6_2.TabIndex = 1;
+            this.chb_6_2.Text = "Загрузка ПО";
+            this.chb_6_2.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_1
+            // 
+            this.chb_6_1.AutoSize = true;
+            this.chb_6_1.Location = new System.Drawing.Point(9, 18);
+            this.chb_6_1.Name = "chb_6_1";
+            this.chb_6_1.Size = new System.Drawing.Size(82, 17);
+            this.chb_6_1.TabIndex = 0;
+            this.chb_6_1.Text = "Юстировка";
+            this.chb_6_1.UseVisualStyleBackColor = true;
+            // 
             // Timer_UpdateTime
             // 
             this.Timer_UpdateTime.Enabled = true;
@@ -4247,152 +4400,32 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // bt_plis_init
+            // tb_SN1
             // 
-            this.bt_plis_init.Location = new System.Drawing.Point(726, 155);
-            this.bt_plis_init.Name = "bt_plis_init";
-            this.bt_plis_init.Size = new System.Drawing.Size(44, 23);
-            this.bt_plis_init.TabIndex = 34;
-            this.bt_plis_init.Text = "Init";
-            this.bt_plis_init.UseVisualStyleBackColor = true;
-            this.bt_plis_init.Click += new System.EventHandler(this.bt_plis_init_Click);
+            this.tb_SN1.Location = new System.Drawing.Point(255, 623);
+            this.tb_SN1.Name = "tb_SN1";
+            this.tb_SN1.Size = new System.Drawing.Size(58, 20);
+            this.tb_SN1.TabIndex = 69;
             // 
-            // bt_plis1_load
+            // bt_REQSN1
             // 
-            this.bt_plis1_load.Location = new System.Drawing.Point(726, 185);
-            this.bt_plis1_load.Name = "bt_plis1_load";
-            this.bt_plis1_load.Size = new System.Drawing.Size(44, 23);
-            this.bt_plis1_load.TabIndex = 35;
-            this.bt_plis1_load.Text = "PLIS1";
-            this.bt_plis1_load.UseVisualStyleBackColor = true;
-            this.bt_plis1_load.Click += new System.EventHandler(this.bt_plis1_load_Click);
+            this.bt_REQSN1.Location = new System.Drawing.Point(319, 622);
+            this.bt_REQSN1.Name = "bt_REQSN1";
+            this.bt_REQSN1.Size = new System.Drawing.Size(53, 23);
+            this.bt_REQSN1.TabIndex = 70;
+            this.bt_REQSN1.Text = "Запрос";
+            this.bt_REQSN1.UseVisualStyleBackColor = true;
+            this.bt_REQSN1.Click += new System.EventHandler(this.bt_REQSN1_Click);
             // 
-            // bt_plis2_load
+            // bt_SAVESN1
             // 
-            this.bt_plis2_load.Location = new System.Drawing.Point(725, 214);
-            this.bt_plis2_load.Name = "bt_plis2_load";
-            this.bt_plis2_load.Size = new System.Drawing.Size(44, 23);
-            this.bt_plis2_load.TabIndex = 36;
-            this.bt_plis2_load.Text = "PLIS2";
-            this.bt_plis2_load.UseVisualStyleBackColor = true;
-            this.bt_plis2_load.Click += new System.EventHandler(this.bt_plis2_load_Click);
-            // 
-            // lb_plis_init
-            // 
-            this.lb_plis_init.AutoSize = true;
-            this.lb_plis_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis_init.Location = new System.Drawing.Point(776, 161);
-            this.lb_plis_init.Name = "lb_plis_init";
-            this.lb_plis_init.Size = new System.Drawing.Size(0, 13);
-            this.lb_plis_init.TabIndex = 39;
-            this.lb_plis_init.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lb_plis2_load
-            // 
-            this.lb_plis2_load.AutoSize = true;
-            this.lb_plis2_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis2_load.Location = new System.Drawing.Point(776, 219);
-            this.lb_plis2_load.Name = "lb_plis2_load";
-            this.lb_plis2_load.Size = new System.Drawing.Size(0, 13);
-            this.lb_plis2_load.TabIndex = 38;
-            this.lb_plis2_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lb_plis1_load
-            // 
-            this.lb_plis1_load.AutoSize = true;
-            this.lb_plis1_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_plis1_load.Location = new System.Drawing.Point(776, 190);
-            this.lb_plis1_load.Name = "lb_plis1_load";
-            this.lb_plis1_load.Size = new System.Drawing.Size(0, 13);
-            this.lb_plis1_load.TabIndex = 37;
-            this.lb_plis1_load.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.bt_6_savesetup);
-            this.tabPage6.Controls.Add(this.chb_6_6);
-            this.tabPage6.Controls.Add(this.chb_6_5);
-            this.tabPage6.Controls.Add(this.chb_6_4);
-            this.tabPage6.Controls.Add(this.chb_6_3);
-            this.tabPage6.Controls.Add(this.chb_6_2);
-            this.tabPage6.Controls.Add(this.chb_6_1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(962, 654);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Настройка";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_1
-            // 
-            this.chb_6_1.AutoSize = true;
-            this.chb_6_1.Location = new System.Drawing.Point(9, 18);
-            this.chb_6_1.Name = "chb_6_1";
-            this.chb_6_1.Size = new System.Drawing.Size(82, 17);
-            this.chb_6_1.TabIndex = 0;
-            this.chb_6_1.Text = "Юстировка";
-            this.chb_6_1.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_2
-            // 
-            this.chb_6_2.AutoSize = true;
-            this.chb_6_2.Location = new System.Drawing.Point(9, 42);
-            this.chb_6_2.Name = "chb_6_2";
-            this.chb_6_2.Size = new System.Drawing.Size(92, 17);
-            this.chb_6_2.TabIndex = 1;
-            this.chb_6_2.Text = "Загрузка ПО";
-            this.chb_6_2.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_3
-            // 
-            this.chb_6_3.AutoSize = true;
-            this.chb_6_3.Location = new System.Drawing.Point(9, 66);
-            this.chb_6_3.Name = "chb_6_3";
-            this.chb_6_3.Size = new System.Drawing.Size(77, 17);
-            this.chb_6_3.TabIndex = 2;
-            this.chb_6_3.Text = "Тест ОЛО";
-            this.chb_6_3.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_4
-            // 
-            this.chb_6_4.AutoSize = true;
-            this.chb_6_4.Location = new System.Drawing.Point(9, 90);
-            this.chb_6_4.Name = "chb_6_4";
-            this.chb_6_4.Size = new System.Drawing.Size(75, 17);
-            this.chb_6_4.TabIndex = 3;
-            this.chb_6_4.Text = "Эмулятор";
-            this.chb_6_4.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_5
-            // 
-            this.chb_6_5.AutoSize = true;
-            this.chb_6_5.Location = new System.Drawing.Point(9, 114);
-            this.chb_6_5.Name = "chb_6_5";
-            this.chb_6_5.Size = new System.Drawing.Size(75, 17);
-            this.chb_6_5.TabIndex = 4;
-            this.chb_6_5.Text = "Тест БОС";
-            this.chb_6_5.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_6
-            // 
-            this.chb_6_6.AutoSize = true;
-            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
-            this.chb_6_6.Name = "chb_6_6";
-            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
-            this.chb_6_6.TabIndex = 5;
-            this.chb_6_6.Text = "Настройка";
-            this.chb_6_6.UseVisualStyleBackColor = true;
-            // 
-            // bt_6_savesetup
-            // 
-            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 162);
-            this.bt_6_savesetup.Name = "bt_6_savesetup";
-            this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
-            this.bt_6_savesetup.TabIndex = 6;
-            this.bt_6_savesetup.Text = "save";
-            this.bt_6_savesetup.UseVisualStyleBackColor = true;
-            this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
+            this.bt_SAVESN1.Location = new System.Drawing.Point(378, 622);
+            this.bt_SAVESN1.Name = "bt_SAVESN1";
+            this.bt_SAVESN1.Size = new System.Drawing.Size(53, 23);
+            this.bt_SAVESN1.TabIndex = 71;
+            this.bt_SAVESN1.Text = "Запись";
+            this.bt_SAVESN1.UseVisualStyleBackColor = true;
+            this.bt_SAVESN1.Click += new System.EventHandler(this.bt_SAVESN1_Click);
             // 
             // Form1
             // 
@@ -4410,6 +4443,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.gbox_Temperature.ResumeLayout(false);
             this.gbox_Temperature.PerformLayout();
             this.gbox_Cross.ResumeLayout(false);
@@ -4862,6 +4896,9 @@
         private System.Windows.Forms.CheckBox chb_6_3;
         private System.Windows.Forms.CheckBox chb_6_2;
         private System.Windows.Forms.CheckBox chb_6_1;
+        private System.Windows.Forms.TextBox tb_SN1;
+        private System.Windows.Forms.Button bt_SAVESN1;
+        private System.Windows.Forms.Button bt_REQSN1;
 	}
 }
 

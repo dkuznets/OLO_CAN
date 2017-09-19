@@ -2530,7 +2530,80 @@ namespace OLO_CAN
                 }
             }
         }
+        #region Запрос и запись серийника
+        private void bt_SAVESN1_Click(object sender, EventArgs e)
+        {
+            if (tb_SN1.TextLength != 8)
+            {
+                MessageBox.Show("Ошибка! Длина серийного номера должна быть 8 цифр.");
+                return;
+            }
+            char[] char_sn = new char[tb_SN1.TextLength];
+            String[] str_sn = new String[tb_SN1.TextLength];
 
+            Byte[] byte_sn = new Byte[tb_SN1.TextLength];
+            char_sn = tb_SN1.Text.ToCharArray();
+            for (int i = 0; i < char_sn.Length; i++)
+            {
+                Byte a;
+                String b = "";
+                b += char_sn[i];
+                if (!Byte.TryParse(b, out a))
+                {
+                    MessageBox.Show("Ошибка! Длина серийного номера должна быть 8 цифр.");
+                    return;
+                }
+                byte_sn[i] = a;
+            }
+
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = 0x16;
+            if (_state == State.VideoState)
+                EnqueueCommandList.Add(cmd);
+            else
+                if (!SendCommand(cmd, ref res))
+                    return;
+
+        }
+        private void bt_REQSN1_Click(object sender, EventArgs e)
+        {
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+
+            while (EnqueueCommandList.Count > 0)
+            {
+                SendCommand(EnqueueCommandList[0], ref res);
+                EnqueueCommandList.RemoveAt(0);
+            }
+
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
+
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            RESULT rr = new RESULT();
+            msg.id = Const.CAN_PC2ARM_MSG_ID;
+            msg.len = 8;
+            msg.data[0] = Const.MAGIC_BYTE;
+            msg.data[1] = 0x15;
+
+            if (!uniCAN.Send(ref msg))
+            {
+                Trace.WriteLine("error send cmd");
+                return;
+            }
+            Byte[] aaa = new Byte[8];
+            msg.data = new Byte[8];
+            uniCAN.Recv(ref msg, 2000);
+            tb_SN1.Clear();
+            for (int j = 0; j < 8; j++)
+            {
+                tb_SN1.Text += msg.data[j].ToString();
+            }
+        }
+        #endregion
         #endregion
         #region OLO_CANBoot
         #region Открытие файла
@@ -6640,6 +6713,7 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
         }
+
 
     }
 }
