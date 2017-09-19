@@ -2582,8 +2582,9 @@ namespace OLO_CAN
             //        uniCAN.Recv_Disable();
             //        uniCAN.Close();
             //    }
-            if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
-                return;
+//            if (cb_CAN1.SelectedItem.ToString() == "No CAN" || cb_CAN1.Items.Count < 1)
+            if (cb_CAN1.Items.Count < 1)
+                    return;
             if (cb_CAN1.SelectedItem.ToString() == "USB Marathon")
             {
                 marCAN = new MCANConverter();
