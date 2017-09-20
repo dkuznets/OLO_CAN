@@ -2581,6 +2581,14 @@ namespace OLO_CAN
         }
         private void bt_REQSN1_Click(object sender, EventArgs e)
         {
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = 0x15;
+            if (!SendCommand(cmd, ref res))
+                return;
+            
+/*
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             RESULT rr = new RESULT();
@@ -2602,6 +2610,7 @@ namespace OLO_CAN
             {
                 tb_SN1.Text += msg.data[j].ToString();
             }
+ */
         }
         #endregion
         #endregion
