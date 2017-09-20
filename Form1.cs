@@ -2588,21 +2588,7 @@ namespace OLO_CAN
             if (!SendCommand(cmd, ref res))
                 return;
             
-/*
             canmsg_t msg = new canmsg_t();
-            msg.data = new Byte[8];
-            RESULT rr = new RESULT();
-            msg.id = Const.CAN_PC2ARM_MSG_ID;
-            msg.len = 8;
-            msg.data[0] = Const.MAGIC_BYTE;
-            msg.data[1] = 0x15;
-
-            if (!uniCAN.Send(ref msg))
-            {
-                Trace.WriteLine("error send cmd");
-                return;
-            }
-            Byte[] aaa = new Byte[8];
             msg.data = new Byte[8];
             uniCAN.Recv(ref msg, 2000);
             tb_SN1.Clear();
@@ -2610,7 +2596,6 @@ namespace OLO_CAN
             {
                 tb_SN1.Text += msg.data[j].ToString();
             }
- */
         }
         #endregion
         #endregion
