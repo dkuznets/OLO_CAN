@@ -2575,6 +2575,9 @@ namespace OLO_CAN
                 Trace.WriteLine("error send cmd");
                 return;
             }
+            if (!uniCAN.Recv(ref msg, 2000))
+                return;
+
         }
         private void bt_REQSN1_Click(object sender, EventArgs e)
         {
