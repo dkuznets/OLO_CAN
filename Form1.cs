@@ -2565,6 +2565,8 @@ namespace OLO_CAN
 
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
+            msg.id = Const.CAN_MSG_ID_PC2MC;
+            msg.len = 8;
             for (int i = 0; i < 8; i++)
                 msg.data[i] = byte_sn[i];
 
