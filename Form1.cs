@@ -2556,26 +2556,21 @@ namespace OLO_CAN
                 byte_sn[i] = a;
             }
 
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = 0x16;
+            if (!SendCommand(cmd, ref res))
+                return;
+
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
-            RESULT rr = new RESULT();
-            msg.id = Const.CAN_PC2ARM_MSG_ID;
-            msg.len = 8;
-            msg.data[0] = Const.MAGIC_BYTE;
-            msg.data[1] = 0x16;
+            for (int i = 0; i < 8; i++)
+                msg.data[i] = byte_sn[i];
 
             if (!uniCAN.Send(ref msg))
             {
                 Trace.WriteLine("error send cmd");
-                return;
-            }
-
-            msg.len = 8;
-            msg.data = byte_sn;
-
-            if (!uniCAN.Send(ref msg))
-            {
-                Trace.WriteLine("error send data");
                 return;
             }
         }
