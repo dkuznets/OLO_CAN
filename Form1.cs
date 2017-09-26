@@ -2304,7 +2304,7 @@ namespace OLO_CAN
                     scrname += "_CMOS1";
                 else
                     scrname += "_CMOS2";
-                pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp");
+                pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp",ImageFormat.Bmp);
             }
 
             if (pictureBox1.Image != null)
