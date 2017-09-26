@@ -104,6 +104,7 @@ namespace OLO_CAN
 
         String m_strPathToPassports = Path.GetDirectoryName(Application.ExecutablePath) + "\\passports\\";
         String m_strPathToConfigs = Path.GetDirectoryName(Application.ExecutablePath) + "\\configs\\";
+        String m_strPathToScreens = Path.GetDirectoryName(Application.ExecutablePath) + "\\screenshots\\";
         public enum State
         {
             NotOpenState,
@@ -247,6 +248,8 @@ namespace OLO_CAN
                 Directory.CreateDirectory(m_strPathToPassports);
             if (!Directory.Exists(m_strPathToConfigs))
                 Directory.CreateDirectory(m_strPathToConfigs);
+            if (!Directory.Exists(m_strPathToScreens))
+                Directory.CreateDirectory(m_strPathToScreens);
             UpdatePassportList();
 
             comboBox1.Items.Clear();
@@ -2025,6 +2028,15 @@ namespace OLO_CAN
                 ((DateTime.Now.Hour < 10) ? '0' + DateTime.Now.Hour.ToString() : DateTime.Now.Hour.ToString()) +
                 ((DateTime.Now.Minute < 10) ? '0' + DateTime.Now.Minute.ToString() : DateTime.Now.Minute.ToString());
         }
+        public String dttostr2()
+        {
+            return DateTime.Now.Year.ToString() +
+                ((DateTime.Now.Month < 10) ? '0' + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) +
+                ((DateTime.Now.Day < 10) ? '0' + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) +
+                ((DateTime.Now.Hour < 10) ? '0' + DateTime.Now.Hour.ToString() : DateTime.Now.Hour.ToString()) +
+                ((DateTime.Now.Minute < 10) ? '0' + DateTime.Now.Minute.ToString() : DateTime.Now.Minute.ToString()) +
+                ((DateTime.Now.Second < 10) ? '0' + DateTime.Now.Second.ToString() : DateTime.Now.Second.ToString());
+        }
         #endregion
 
         #region Чтение картинки из ОЛО, отправка команд из буфера, рисование круга и прочая хрень
@@ -2285,6 +2297,15 @@ namespace OLO_CAN
             }
 
             pictureBox1.Image = newImage;
+            if(chb0_screen.Checked)
+            {
+                String scrname = dttostr2();
+                if (select_CMOS == 0)
+                    scrname += "_CMOS1";
+                else
+                    scrname += "_CMOS2";
+                pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp");
+            }
 
             if (pictureBox1.Image != null)
                 DrawCrossCirkle();
@@ -6706,6 +6727,11 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key4", chb_6_4.Checked);
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
 

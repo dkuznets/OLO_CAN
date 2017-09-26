@@ -33,8 +33,10 @@
             this.VideoTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.chb0_screen = new System.Windows.Forms.CheckBox();
+            this.bt_SAVESN1 = new System.Windows.Forms.Button();
+            this.bt_REQSN1 = new System.Windows.Forms.Button();
+            this.tb_SN1 = new System.Windows.Forms.TextBox();
             this.gbox_Temperature = new System.Windows.Forms.GroupBox();
             this.lb_T1 = new System.Windows.Forms.Label();
             this.lb_T2 = new System.Windows.Forms.Label();
@@ -396,9 +398,6 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.tb_SN1 = new System.Windows.Forms.TextBox();
-            this.bt_REQSN1 = new System.Windows.Forms.Button();
-            this.bt_SAVESN1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -475,11 +474,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chb0_screen);
             this.tabPage1.Controls.Add(this.bt_SAVESN1);
             this.tabPage1.Controls.Add(this.bt_REQSN1);
             this.tabPage1.Controls.Add(this.tb_SN1);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.gbox_Temperature);
             this.tabPage1.Controls.Add(this.gbox_Cross);
             this.tabPage1.Controls.Add(this.bt_About);
@@ -501,27 +499,43 @@
             this.tabPage1.Text = "Юстировка ОЛО";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // chb0_screen
             // 
-            this.button4.Location = new System.Drawing.Point(877, 567);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(37, 19);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.chb0_screen.AutoSize = true;
+            this.chb0_screen.Location = new System.Drawing.Point(669, 541);
+            this.chb0_screen.Name = "chb0_screen";
+            this.chb0_screen.Size = new System.Drawing.Size(85, 17);
+            this.chb0_screen.TabIndex = 72;
+            this.chb0_screen.Text = "Screenshots";
+            this.chb0_screen.UseVisualStyleBackColor = true;
+            this.chb0_screen.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button3
+            // bt_SAVESN1
             // 
-            this.button3.Location = new System.Drawing.Point(840, 567);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 19);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.bt_SAVESN1.Location = new System.Drawing.Point(378, 622);
+            this.bt_SAVESN1.Name = "bt_SAVESN1";
+            this.bt_SAVESN1.Size = new System.Drawing.Size(53, 23);
+            this.bt_SAVESN1.TabIndex = 71;
+            this.bt_SAVESN1.Text = "Запись";
+            this.bt_SAVESN1.UseVisualStyleBackColor = true;
+            this.bt_SAVESN1.Click += new System.EventHandler(this.bt_SAVESN1_Click);
+            // 
+            // bt_REQSN1
+            // 
+            this.bt_REQSN1.Location = new System.Drawing.Point(319, 622);
+            this.bt_REQSN1.Name = "bt_REQSN1";
+            this.bt_REQSN1.Size = new System.Drawing.Size(53, 23);
+            this.bt_REQSN1.TabIndex = 70;
+            this.bt_REQSN1.Text = "Запрос";
+            this.bt_REQSN1.UseVisualStyleBackColor = true;
+            this.bt_REQSN1.Click += new System.EventHandler(this.bt_REQSN1_Click);
+            // 
+            // tb_SN1
+            // 
+            this.tb_SN1.Location = new System.Drawing.Point(255, 623);
+            this.tb_SN1.Name = "tb_SN1";
+            this.tb_SN1.Size = new System.Drawing.Size(58, 20);
+            this.tb_SN1.TabIndex = 69;
             // 
             // gbox_Temperature
             // 
@@ -560,7 +574,7 @@
             // 
             this.lb_T2_val.AutoSize = true;
             this.lb_T2_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lb_T2_val.Location = new System.Drawing.Point(147, 20);
+            this.lb_T2_val.Location = new System.Drawing.Point(138, 20);
             this.lb_T2_val.Name = "lb_T2_val";
             this.lb_T2_val.Size = new System.Drawing.Size(11, 13);
             this.lb_T2_val.TabIndex = 11;
@@ -570,7 +584,7 @@
             // 
             this.lb_T1_val.AutoSize = true;
             this.lb_T1_val.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lb_T1_val.Location = new System.Drawing.Point(60, 20);
+            this.lb_T1_val.Location = new System.Drawing.Point(51, 20);
             this.lb_T1_val.Name = "lb_T1_val";
             this.lb_T1_val.Size = new System.Drawing.Size(11, 13);
             this.lb_T1_val.TabIndex = 10;
@@ -838,7 +852,7 @@
             this.gbox_Process.Controls.Add(this.chb_PFIFO);
             this.gbox_Process.Controls.Add(this.chb_PShot);
             this.gbox_Process.Controls.Add(this.chb_PRunVideo);
-            this.gbox_Process.Location = new System.Drawing.Point(663, 506);
+            this.gbox_Process.Location = new System.Drawing.Point(663, 476);
             this.gbox_Process.Name = "gbox_Process";
             this.gbox_Process.Size = new System.Drawing.Size(284, 59);
             this.gbox_Process.TabIndex = 30;
@@ -931,7 +945,7 @@
             this.gbox_Passports.Controls.Add(this.bt_SavePass);
             this.gbox_Passports.Controls.Add(this.lb_num_points_in_pass);
             this.gbox_Passports.Controls.Add(this.listb_Passport);
-            this.gbox_Passports.Location = new System.Drawing.Point(663, 153);
+            this.gbox_Passports.Location = new System.Drawing.Point(663, 123);
             this.gbox_Passports.Name = "gbox_Passports";
             this.gbox_Passports.Size = new System.Drawing.Size(284, 354);
             this.gbox_Passports.TabIndex = 27;
@@ -1106,7 +1120,7 @@
             this.gbox_CMOS2.Enabled = false;
             this.gbox_CMOS2.Location = new System.Drawing.Point(808, 28);
             this.gbox_CMOS2.Name = "gbox_CMOS2";
-            this.gbox_CMOS2.Size = new System.Drawing.Size(139, 119);
+            this.gbox_CMOS2.Size = new System.Drawing.Size(139, 89);
             this.gbox_CMOS2.TabIndex = 26;
             this.gbox_CMOS2.TabStop = false;
             // 
@@ -1115,7 +1129,7 @@
             this.cb_CMOS2Enable.AutoSize = true;
             this.cb_CMOS2Enable.Checked = true;
             this.cb_CMOS2Enable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_CMOS2Enable.Location = new System.Drawing.Point(6, 96);
+            this.cb_CMOS2Enable.Location = new System.Drawing.Point(6, 64);
             this.cb_CMOS2Enable.Name = "cb_CMOS2Enable";
             this.cb_CMOS2Enable.Size = new System.Drawing.Size(131, 17);
             this.cb_CMOS2Enable.TabIndex = 7;
@@ -1125,7 +1139,7 @@
             // 
             // tb_VINB2
             // 
-            this.tb_VINB2.Location = new System.Drawing.Point(6, 71);
+            this.tb_VINB2.Location = new System.Drawing.Point(6, 39);
             this.tb_VINB2.Name = "tb_VINB2";
             this.tb_VINB2.Size = new System.Drawing.Size(36, 20);
             this.tb_VINB2.TabIndex = 5;
@@ -1134,7 +1148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 55);
+            this.label3.Location = new System.Drawing.Point(46, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 4;
@@ -1142,9 +1156,9 @@
             // 
             // CMOS2SetDAC2
             // 
-            this.CMOS2SetDAC2.Location = new System.Drawing.Point(48, 69);
+            this.CMOS2SetDAC2.Location = new System.Drawing.Point(81, 37);
             this.CMOS2SetDAC2.Name = "CMOS2SetDAC2";
-            this.CMOS2SetDAC2.Size = new System.Drawing.Size(58, 23);
+            this.CMOS2SetDAC2.Size = new System.Drawing.Size(51, 23);
             this.CMOS2SetDAC2.TabIndex = 3;
             this.CMOS2SetDAC2.Text = "Задать";
             this.CMOS2SetDAC2.UseVisualStyleBackColor = true;
@@ -1152,7 +1166,7 @@
             // 
             // tb_VREF2
             // 
-            this.tb_VREF2.Location = new System.Drawing.Point(6, 32);
+            this.tb_VREF2.Location = new System.Drawing.Point(6, 13);
             this.tb_VREF2.Name = "tb_VREF2";
             this.tb_VREF2.Size = new System.Drawing.Size(36, 20);
             this.tb_VREF2.TabIndex = 2;
@@ -1161,7 +1175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Location = new System.Drawing.Point(46, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 1;
@@ -1169,9 +1183,9 @@
             // 
             // CMOS2SetDAC1
             // 
-            this.CMOS2SetDAC1.Location = new System.Drawing.Point(48, 30);
+            this.CMOS2SetDAC1.Location = new System.Drawing.Point(81, 11);
             this.CMOS2SetDAC1.Name = "CMOS2SetDAC1";
-            this.CMOS2SetDAC1.Size = new System.Drawing.Size(58, 23);
+            this.CMOS2SetDAC1.Size = new System.Drawing.Size(51, 23);
             this.CMOS2SetDAC1.TabIndex = 0;
             this.CMOS2SetDAC1.Text = "Задать";
             this.CMOS2SetDAC1.UseVisualStyleBackColor = true;
@@ -1189,7 +1203,7 @@
             this.gbox_CMOS1.Controls.Add(this.bt_CMOS1SetDAC1);
             this.gbox_CMOS1.Location = new System.Drawing.Point(663, 28);
             this.gbox_CMOS1.Name = "gbox_CMOS1";
-            this.gbox_CMOS1.Size = new System.Drawing.Size(139, 119);
+            this.gbox_CMOS1.Size = new System.Drawing.Size(139, 89);
             this.gbox_CMOS1.TabIndex = 25;
             this.gbox_CMOS1.TabStop = false;
             // 
@@ -1198,7 +1212,7 @@
             this.cb_CMOS1Enable.AutoSize = true;
             this.cb_CMOS1Enable.Checked = true;
             this.cb_CMOS1Enable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_CMOS1Enable.Location = new System.Drawing.Point(6, 96);
+            this.cb_CMOS1Enable.Location = new System.Drawing.Point(6, 64);
             this.cb_CMOS1Enable.Name = "cb_CMOS1Enable";
             this.cb_CMOS1Enable.Size = new System.Drawing.Size(131, 17);
             this.cb_CMOS1Enable.TabIndex = 6;
@@ -1208,7 +1222,7 @@
             // 
             // tb_VINB1
             // 
-            this.tb_VINB1.Location = new System.Drawing.Point(6, 71);
+            this.tb_VINB1.Location = new System.Drawing.Point(6, 39);
             this.tb_VINB1.Name = "tb_VINB1";
             this.tb_VINB1.Size = new System.Drawing.Size(36, 20);
             this.tb_VINB1.TabIndex = 5;
@@ -1217,7 +1231,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Location = new System.Drawing.Point(46, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 4;
@@ -1225,9 +1239,9 @@
             // 
             // CMOS1SetDAC2
             // 
-            this.CMOS1SetDAC2.Location = new System.Drawing.Point(48, 69);
+            this.CMOS1SetDAC2.Location = new System.Drawing.Point(81, 37);
             this.CMOS1SetDAC2.Name = "CMOS1SetDAC2";
-            this.CMOS1SetDAC2.Size = new System.Drawing.Size(58, 23);
+            this.CMOS1SetDAC2.Size = new System.Drawing.Size(51, 23);
             this.CMOS1SetDAC2.TabIndex = 3;
             this.CMOS1SetDAC2.Text = "Задать";
             this.CMOS1SetDAC2.UseVisualStyleBackColor = true;
@@ -1235,7 +1249,7 @@
             // 
             // tb_VREF1
             // 
-            this.tb_VREF1.Location = new System.Drawing.Point(6, 32);
+            this.tb_VREF1.Location = new System.Drawing.Point(6, 13);
             this.tb_VREF1.Name = "tb_VREF1";
             this.tb_VREF1.Size = new System.Drawing.Size(36, 20);
             this.tb_VREF1.TabIndex = 2;
@@ -1244,7 +1258,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(46, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
@@ -1252,9 +1266,9 @@
             // 
             // bt_CMOS1SetDAC1
             // 
-            this.bt_CMOS1SetDAC1.Location = new System.Drawing.Point(48, 30);
+            this.bt_CMOS1SetDAC1.Location = new System.Drawing.Point(81, 11);
             this.bt_CMOS1SetDAC1.Name = "bt_CMOS1SetDAC1";
-            this.bt_CMOS1SetDAC1.Size = new System.Drawing.Size(58, 23);
+            this.bt_CMOS1SetDAC1.Size = new System.Drawing.Size(51, 23);
             this.bt_CMOS1SetDAC1.TabIndex = 0;
             this.bt_CMOS1SetDAC1.Text = "Задать";
             this.bt_CMOS1SetDAC1.UseVisualStyleBackColor = true;
@@ -4400,33 +4414,6 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // tb_SN1
-            // 
-            this.tb_SN1.Location = new System.Drawing.Point(255, 623);
-            this.tb_SN1.Name = "tb_SN1";
-            this.tb_SN1.Size = new System.Drawing.Size(58, 20);
-            this.tb_SN1.TabIndex = 69;
-            // 
-            // bt_REQSN1
-            // 
-            this.bt_REQSN1.Location = new System.Drawing.Point(319, 622);
-            this.bt_REQSN1.Name = "bt_REQSN1";
-            this.bt_REQSN1.Size = new System.Drawing.Size(53, 23);
-            this.bt_REQSN1.TabIndex = 70;
-            this.bt_REQSN1.Text = "Запрос";
-            this.bt_REQSN1.UseVisualStyleBackColor = true;
-            this.bt_REQSN1.Click += new System.EventHandler(this.bt_REQSN1_Click);
-            // 
-            // bt_SAVESN1
-            // 
-            this.bt_SAVESN1.Location = new System.Drawing.Point(378, 622);
-            this.bt_SAVESN1.Name = "bt_SAVESN1";
-            this.bt_SAVESN1.Size = new System.Drawing.Size(53, 23);
-            this.bt_SAVESN1.TabIndex = 71;
-            this.bt_SAVESN1.Text = "Запись";
-            this.bt_SAVESN1.UseVisualStyleBackColor = true;
-            this.bt_SAVESN1.Click += new System.EventHandler(this.bt_SAVESN1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4740,8 +4727,6 @@
         private System.Windows.Forms.RadioButton rb_cmos12_select_lg;
         private System.Windows.Forms.RadioButton rb_flight_right_wing_double_pass_lg;
         private System.Windows.Forms.RadioButton rb_flight_left_wing_double_pass_lg;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox chb_R_Err_file;
         private System.Windows.Forms.CheckBox chb_R_Err_plis;
         private System.Windows.Forms.Label label27;
@@ -4899,6 +4884,7 @@
         private System.Windows.Forms.TextBox tb_SN1;
         private System.Windows.Forms.Button bt_SAVESN1;
         private System.Windows.Forms.Button bt_REQSN1;
+        private System.Windows.Forms.CheckBox chb0_screen;
 	}
 }
 
