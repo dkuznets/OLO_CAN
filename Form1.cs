@@ -3075,6 +3075,48 @@ namespace OLO_CAN
             gb_CAN1.Enabled = false;
             gb_MC1.Enabled = false;
 
+            if (rb_cmos12_select_long_time.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_SELECT_LONG_size];
+                Buffer = (_u8[])FWDATA.SOLO2_SELECT_LONG;
+            }
+            if (rb_cmos12_select.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_SELECT_size];
+                Buffer = (_u8[])FWDATA.SOLO2_SELECT;
+            }
+            if (rb_flight_left_wing_double_pass.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_LEFT_size];
+                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_LEFT;
+            }
+            if (rb_flight_right_wing_double_pass.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_size];
+                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT;
+            }
+            if (rb_cmos12_select_lg.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_SELECT_LOWGAIN_size];
+                Buffer = (_u8[])FWDATA.SOLO2_SELECT_LOWGAIN;
+            }
+            if (rb_flight_right_wing_double_pass_lg.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN_size];
+                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN;
+            }
+            if (rb_flight_left_wing_double_pass_lg.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN_size];
+                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN;
+            }
+            if (rb_cmos12_select_long_time2.Checked)
+            {
+                Buffer = new _u8[FWDATA.SELECT_LONG_TIME_V2_size];
+                Buffer = (_u8[])FWDATA.SELECT_LONG_TIME_V2;
+            }
+
+            size = (uint)Buffer.Length;
             _u8 crc8 = 0;
             for (int i = 0; i < size; i++)
                 crc8 += Buffer[i];
