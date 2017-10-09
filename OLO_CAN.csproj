@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="select_long_time_v2.cs" />
     <Compile Include="solo2_flight_left.cs" />
     <Compile Include="solo2_flight_left_lowgain.cs" />
     <Compile Include="solo2_flight_right.cs" />

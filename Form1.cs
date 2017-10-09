@@ -3606,6 +3606,33 @@ namespace OLO_CAN
                 rb_flight_left_wing_double_pass_lg.BackColor = Color.Transparent;
             }
         }
+        private void rb_cmos12_select_long_time2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_cmos12_select_long_time.Checked)
+            {
+                rb_cmos12_select_long_time2.BackColor = SystemColors.ActiveCaption;
+                //size = (UInt32)Properties.Resources.firmware_solo2_cmos12_select_long_time.Length;
+                //var assembly = Assembly.GetExecutingAssembly();
+                //var firmware = "OLO_CAN.Resources.firmware_solo2_cmos12_select_long_time.bin";
+                //Buffer = new _u8[size];
+                //Stream stream = assembly.GetManifestResourceStream(firmware);
+                //using (BinaryReader reader = new BinaryReader(stream))
+                //{
+                //    reader.Read(Buffer, 0, (int)stream.Length);
+                //}
+                Buffer = new _u8[FWDATA.SELECT_LONG_TIME_V2_size];
+                Buffer = (_u8[])FWDATA.SELECT_LONG_TIME_V2;
+                size = (uint)Buffer.Length;
+                bt_loadMC1.Enabled = true;
+                chb_eraseALL1.Enabled = true;
+            }
+            else
+            {
+                rb_cmos12_select_long_time2.BackColor = Color.Transparent;
+            }
+
+        }
+
         #endregion
         private void timer_Error_Boot_Tick(object sender, EventArgs e)
         {
