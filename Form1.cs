@@ -3608,7 +3608,7 @@ namespace OLO_CAN
         }
         private void rb_cmos12_select_long_time2_CheckedChanged(object sender, EventArgs e)
         {
-            if (rb_cmos12_select_long_time.Checked)
+            if (rb_cmos12_select_long_time2.Checked)
             {
                 rb_cmos12_select_long_time2.BackColor = SystemColors.ActiveCaption;
                 //size = (UInt32)Properties.Resources.firmware_solo2_cmos12_select_long_time.Length;
