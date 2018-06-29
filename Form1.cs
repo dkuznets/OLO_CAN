@@ -241,6 +241,7 @@ namespace OLO_CAN
             cb_CAN[2] = cb_CAN2;
             cb_CAN[3] = cb_CAN3;
             cb_CAN[4] = cb_CAN4;
+            cb_CAN[5] = cb_CAN5;
 
             state_Error();
             
@@ -428,6 +429,10 @@ namespace OLO_CAN
             lb_error_CAN4.Text = e.Text;
             lb_error_CAN4.Visible = true;
             lb_version.Visible = false;
+            state_Error();
+
+            lb_error_CAN5.Text = e.Text;
+            lb_error_CAN5.Visible = true;
             state_Error();
             uniCAN.Close();
             uniCAN = null;
@@ -876,6 +881,12 @@ namespace OLO_CAN
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
+                        break;
+                case 5:
+                        bt_CloseCAN.PerformClick();
+                        bt_CloseCAN2.PerformClick();
+                        bt_CloseCAN3.PerformClick();
+                        bt_CloseCAN4.PerformClick();
                         break;
                 default:
                         break;
