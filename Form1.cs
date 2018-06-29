@@ -434,6 +434,7 @@ namespace OLO_CAN
 
             lb_error_CAN5.Text = e.Text;
             lb_error_CAN5.Visible = true;
+            lb_noerr5.Visible = false;
             state_Error();
             uniCAN.Close();
             uniCAN = null;
@@ -751,6 +752,30 @@ namespace OLO_CAN
             lb_test_D21_2.Text = "";
             lb_test_FLASH.Text = "";
             lb_CMOS14.Text = "";
+
+            // Tab3
+            bt_CloseCAN3.Enabled = true;
+            bt_OpenCAN3.Enabled = false;
+
+            lb_noerr3.Visible = true;
+            lb_noerr3.Text = uniCAN.Info;
+
+            bt_About3.Enabled = true;
+            bt_Exit3.Enabled = true;
+
+            cb_CAN3.Enabled = true;
+            dgview3.Enabled = true;
+            panel3.Enabled = true;
+            gb_olo_L.Enabled = true;
+            gb_olo_R.Enabled = true;
+
+            // Tab5
+            bt_CloseCAN5.Enabled = true;
+            bt_OpenCAN5.Enabled = false;
+            cb_CAN5.Enabled = false;
+            lb_noerr5.Visible = true;
+            lb_noerr5.Text = uniCAN.Info;
+
         }
         private void state_NotReady()
         {
