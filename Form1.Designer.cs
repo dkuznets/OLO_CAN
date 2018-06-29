@@ -400,6 +400,13 @@
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.gbox_CAN5 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr5 = new System.Windows.Forms.Label();
+            this.cb_CAN5 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN5 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN5 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -450,6 +457,8 @@
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.gbox_CAN5.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -4434,6 +4443,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.gbox_CAN5);
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -4441,6 +4451,85 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // gbox_CAN5
+            // 
+            this.gbox_CAN5.Controls.Add(this.lb_noerr5);
+            this.gbox_CAN5.Controls.Add(this.cb_CAN5);
+            this.gbox_CAN5.Controls.Add(this.lb_error_CAN5);
+            this.gbox_CAN5.Controls.Add(this.label51);
+            this.gbox_CAN5.Controls.Add(this.bt_CloseCAN5);
+            this.gbox_CAN5.Controls.Add(this.bt_OpenCAN5);
+            this.gbox_CAN5.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN5.Name = "gbox_CAN5";
+            this.gbox_CAN5.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN5.TabIndex = 40;
+            this.gbox_CAN5.TabStop = false;
+            this.gbox_CAN5.Text = "CAN";
+            // 
+            // lb_noerr5
+            // 
+            this.lb_noerr5.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr5.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr5.Name = "lb_noerr5";
+            this.lb_noerr5.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr5.TabIndex = 15;
+            this.lb_noerr5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr5.Visible = false;
+            // 
+            // cb_CAN5
+            // 
+            this.cb_CAN5.FormattingEnabled = true;
+            this.cb_CAN5.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN5.Name = "cb_CAN5";
+            this.cb_CAN5.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN5.TabIndex = 29;
+            // 
+            // lb_error_CAN5
+            // 
+            this.lb_error_CAN5.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN5.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN5.Name = "lb_error_CAN5";
+            this.lb_error_CAN5.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN5.TabIndex = 14;
+            this.lb_error_CAN5.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN5.Visible = false;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label51.Location = new System.Drawing.Point(159, 49);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(0, 13);
+            this.label51.TabIndex = 10;
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN5
+            // 
+            this.bt_CloseCAN5.Enabled = false;
+            this.bt_CloseCAN5.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN5.Name = "bt_CloseCAN5";
+            this.bt_CloseCAN5.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN5.TabIndex = 2;
+            this.bt_CloseCAN5.Text = "Закрыть";
+            this.bt_CloseCAN5.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN5.Click += new System.EventHandler(this.bt_CloseCAN5_Click);
+            // 
+            // bt_OpenCAN5
+            // 
+            this.bt_OpenCAN5.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN5.Name = "bt_OpenCAN5";
+            this.bt_OpenCAN5.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN5.TabIndex = 0;
+            this.bt_OpenCAN5.Text = "Открыть";
+            this.bt_OpenCAN5.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN5.Click += new System.EventHandler(this.bt_OpenCAN5_Click);
             // 
             // Form1
             // 
@@ -4539,6 +4628,9 @@
             this.gbox_CAN4.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.gbox_CAN5.ResumeLayout(false);
+            this.gbox_CAN5.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -4915,6 +5007,13 @@
         private System.Windows.Forms.CheckBox chb0_screen;
         private System.Windows.Forms.RadioButton rb_cmos12_select_long_time2;
         private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.GroupBox gbox_CAN5;
+        private System.Windows.Forms.Label lb_noerr5;
+        private System.Windows.Forms.ComboBox cb_CAN5;
+        private System.Windows.Forms.Label lb_error_CAN5;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Button bt_CloseCAN5;
+        private System.Windows.Forms.Button bt_OpenCAN5;
 	}
 }
 

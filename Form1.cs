@@ -6803,6 +6803,61 @@ namespace OLO_CAN
 
         }
 
+        #region newRUP
+        #region CAN
+        private void bt_OpenCAN5_Click(object sender, EventArgs e)
+        {
+            if (cb_CAN5.SelectedItem.ToString() == "No CAN" || cb_CAN5.Items.Count < 1)
+                return;
+            if (cb_CAN5.SelectedItem.ToString() == "USB Marathon")
+            {
+                marCAN = new MCANConverter();
+                uniCAN = marCAN as MCANConverter;
+            }
+            else if (cb_CAN5.SelectedItem.ToString() == "PCI Advantech")
+            {
+                advCAN = new ACANConverter();
+                uniCAN = advCAN as ACANConverter;
+            }
+            else
+            {
+                elcCAN = new ECANConverter();
+                uniCAN = elcCAN as ECANConverter;
+            }
+
+            uniCAN.ErrEvent += new MyDelegate(Err_Handler);
+            uniCAN.Progress += new MyDelegate(Progress_Handler);
+
+            uniCAN.Port = 0;
+            uniCAN.Speed = 2;
+            lb_error_CAN5.Visible = false;
+            if (!uniCAN.Open())
+            {
+                state_Error();
+                return;
+            }
+            state_Ready();
+            frame.data = new Byte[8];
+            _state = State.OpenedState;
+            uniCAN.Recv_Enable();
+        }
+        private void bt_CloseCAN5_Click(object sender, EventArgs e)
+        {
+            if (uniCAN.Is_Open)
+            {
+                uniCAN.Recv_Disable();
+                uniCAN.Close();
+            }
+            state_NotReady();
+            lb_error_CAN5.Visible = false;
+            uniCAN.Recv_Disable();
+            uniCAN = null;
+//            Timer_GetData3.Enabled = false;
+        }
+         #endregion
+
+       #endregion
+
 
     }
 }
