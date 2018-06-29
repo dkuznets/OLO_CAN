@@ -241,7 +241,7 @@ namespace OLO_CAN
             cb_CAN[2] = cb_CAN2;
             cb_CAN[3] = cb_CAN3;
             cb_CAN[4] = cb_CAN4;
-            cb_CAN[5] = cb_CAN5;
+//            cb_CAN[5] = cb_CAN5;
 
             state_Error();
             
