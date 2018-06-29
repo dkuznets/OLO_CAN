@@ -607,6 +607,16 @@ namespace OLO_CAN
             bt_About4.Enabled = true;
             bt_Exit4.Enabled = true;
             сброс_результатов();
+
+
+            // Tab5
+            bt_CloseCAN5.Enabled = false;
+            bt_OpenCAN5.Enabled = true;
+            cb_CAN5.Enabled = true;
+            bt_CloseCAN5.Enabled = false;
+            bt_OpenCAN5.Enabled = true;
+
+            lb_noerr5.Visible = false;
         }
         private void state_Ready()
         {
