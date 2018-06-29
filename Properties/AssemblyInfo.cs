@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("НПК СПП")]
 [assembly: AssemblyProduct("OLO_CAN")]
-[assembly: AssemblyCopyright("© DK'2016")]
+[assembly: AssemblyCopyright("© DK'2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.3.171")]
-[assembly: AssemblyFileVersion("1.3.3.171")]
+[assembly: AssemblyVersion("1.4.0.173")]
+[assembly: AssemblyFileVersion("1.4.0.173")]

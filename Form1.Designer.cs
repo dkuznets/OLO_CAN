@@ -123,6 +123,7 @@
             this.bt_About1 = new System.Windows.Forms.Button();
             this.bt_Exit1 = new System.Windows.Forms.Button();
             this.gb_MC1 = new System.Windows.Forms.GroupBox();
+            this.rb_cmos12_select_long_time2 = new System.Windows.Forms.RadioButton();
             this.chb1_need_reset = new System.Windows.Forms.CheckBox();
             this.rb_flight_right_wing_double_pass_lg = new System.Windows.Forms.RadioButton();
             this.rb_flight_left_wing_double_pass_lg = new System.Windows.Forms.RadioButton();
@@ -398,7 +399,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.rb_cmos12_select_long_time2 = new System.Windows.Forms.RadioButton();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -464,6 +465,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -1528,6 +1530,17 @@
             this.gb_MC1.TabIndex = 7;
             this.gb_MC1.TabStop = false;
             this.gb_MC1.Text = "Микропрограмма";
+            // 
+            // rb_cmos12_select_long_time2
+            // 
+            this.rb_cmos12_select_long_time2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rb_cmos12_select_long_time2.Location = new System.Drawing.Point(6, 144);
+            this.rb_cmos12_select_long_time2.Name = "rb_cmos12_select_long_time2";
+            this.rb_cmos12_select_long_time2.Size = new System.Drawing.Size(444, 17);
+            this.rb_cmos12_select_long_time2.TabIndex = 36;
+            this.rb_cmos12_select_long_time2.Text = "Загрузка прошивки \"SOLO2_SELECT_LONG_TIME 2\"";
+            this.rb_cmos12_select_long_time2.UseVisualStyleBackColor = true;
+            this.rb_cmos12_select_long_time2.CheckedChanged += new System.EventHandler(this.rb_cmos12_select_long_time2_CheckedChanged);
             // 
             // chb1_need_reset
             // 
@@ -4419,16 +4432,15 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // rb_cmos12_select_long_time2
+            // tabPage7
             // 
-            this.rb_cmos12_select_long_time2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_cmos12_select_long_time2.Location = new System.Drawing.Point(6, 144);
-            this.rb_cmos12_select_long_time2.Name = "rb_cmos12_select_long_time2";
-            this.rb_cmos12_select_long_time2.Size = new System.Drawing.Size(444, 17);
-            this.rb_cmos12_select_long_time2.TabIndex = 36;
-            this.rb_cmos12_select_long_time2.Text = "Загрузка прошивки \"SOLO2_SELECT_LONG_TIME 2\"";
-            this.rb_cmos12_select_long_time2.UseVisualStyleBackColor = true;
-            this.rb_cmos12_select_long_time2.CheckedChanged += new System.EventHandler(this.rb_cmos12_select_long_time2_CheckedChanged);
+            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(962, 654);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -4902,6 +4914,7 @@
         private System.Windows.Forms.Button bt_REQSN1;
         private System.Windows.Forms.CheckBox chb0_screen;
         private System.Windows.Forms.RadioButton rb_cmos12_select_long_time2;
+        private System.Windows.Forms.TabPage tabPage7;
 	}
 }
 
