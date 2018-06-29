@@ -876,6 +876,11 @@ namespace OLO_CAN
             lb_stR2_cmos1.Text = "";
             lb_stR2_cmos2.Text = "";
             tb_SN.Text = "";
+            
+            // Tab3
+            bt_CloseCAN5.Enabled = false;
+            bt_OpenCAN5.Enabled = true;
+            lb_noerr5.Visible = false;
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
