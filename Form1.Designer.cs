@@ -407,6 +407,8 @@
             this.label51 = new System.Windows.Forms.Label();
             this.bt_CloseCAN5 = new System.Windows.Forms.Button();
             this.bt_OpenCAN5 = new System.Windows.Forms.Button();
+            this.bt_About5 = new System.Windows.Forms.Button();
+            this.bt_Exit5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4443,6 +4445,8 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.bt_About5);
+            this.tabPage7.Controls.Add(this.bt_Exit5);
             this.tabPage7.Controls.Add(this.gbox_CAN5);
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
             this.tabPage7.Name = "tabPage7";
@@ -4530,6 +4534,26 @@
             this.bt_OpenCAN5.Text = "Открыть";
             this.bt_OpenCAN5.UseVisualStyleBackColor = true;
             this.bt_OpenCAN5.Click += new System.EventHandler(this.bt_OpenCAN5_Click);
+            // 
+            // bt_About5
+            // 
+            this.bt_About5.Location = new System.Drawing.Point(839, 592);
+            this.bt_About5.Name = "bt_About5";
+            this.bt_About5.Size = new System.Drawing.Size(108, 23);
+            this.bt_About5.TabIndex = 42;
+            this.bt_About5.Text = "О программе";
+            this.bt_About5.UseVisualStyleBackColor = true;
+            this.bt_About5.Click += new System.EventHandler(this.bt_About_Click);
+            // 
+            // bt_Exit5
+            // 
+            this.bt_Exit5.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit5.Name = "bt_Exit5";
+            this.bt_Exit5.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit5.TabIndex = 41;
+            this.bt_Exit5.Text = "Выход";
+            this.bt_Exit5.UseVisualStyleBackColor = true;
+            this.bt_Exit5.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
             // Form1
             // 
@@ -5014,6 +5038,8 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Button bt_CloseCAN5;
         private System.Windows.Forms.Button bt_OpenCAN5;
+        private System.Windows.Forms.Button bt_About5;
+        private System.Windows.Forms.Button bt_Exit5;
 	}
 }
 
