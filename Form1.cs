@@ -309,7 +309,7 @@ namespace OLO_CAN
                 comboBox1.Items.Add("No CAN");
                 comboBox1.SelectedIndex = 0;
                 lb_error_CAN.Text = "CAN-контроллеры не найдены!";
-                for (int k = 1; k < 5; k++)
+                for (int k = 1; k < 6; k++)
                 {
                     cb_CAN[k].Items.Clear();
                     foreach (var item in comboBox1.Items)
@@ -321,7 +321,7 @@ namespace OLO_CAN
             }
             comboBox1.SelectedIndex = 0;
             cb_module2.SelectedIndex = 0;
-            for (int k = 1; k < 5; k++)
+            for (int k = 1; k < 6; k++)
             {
                 cb_CAN[k].Items.Clear();
                 foreach (var item in comboBox1.Items)
