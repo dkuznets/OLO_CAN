@@ -137,7 +137,8 @@ namespace OLO_CAN
         Byte[] cfg_array;// = new Byte[Marshal.SizeOf(cfg)];
 
         int currTab = 0;
-        ComboBox[] cb_CAN = new ComboBox[5];
+        const Byte def_NUM_TABS = 6;
+        ComboBox[] cb_CAN = new ComboBox[def_NUM_TABS];
 
         IniFile inicfg;
 
@@ -241,7 +242,7 @@ namespace OLO_CAN
             cb_CAN[2] = cb_CAN2;
             cb_CAN[3] = cb_CAN3;
             cb_CAN[4] = cb_CAN4;
-//            cb_CAN[5] = cb_CAN5;
+            cb_CAN[5] = cb_CAN5;
 
             state_Error();
             
@@ -309,7 +310,7 @@ namespace OLO_CAN
                 comboBox1.Items.Add("No CAN");
                 comboBox1.SelectedIndex = 0;
                 lb_error_CAN.Text = "CAN-контроллеры не найдены!";
-                for (int k = 1; k < 6; k++)
+                for (int k = 1; k < def_NUM_TABS; k++)
                 {
                     cb_CAN[k].Items.Clear();
                     foreach (var item in comboBox1.Items)
@@ -321,7 +322,7 @@ namespace OLO_CAN
             }
             comboBox1.SelectedIndex = 0;
             cb_module2.SelectedIndex = 0;
-            for (int k = 1; k < 6; k++)
+            for (int k = 1; k < def_NUM_TABS; k++)
             {
                 cb_CAN[k].Items.Clear();
                 foreach (var item in comboBox1.Items)
