@@ -6920,17 +6920,19 @@ namespace OLO_CAN
         private void button3_Click_1(object sender, EventArgs e) //акт руп
         {
             Array.Clear(frame.data, 0, 8);
-            frame.id = 0x68;
-            if (!uniCAN.Send(ref frame))
+            frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                timer_temperature.Enabled = true;
+                Trace.WriteLine("Error send RUP_ID");
                 return;
             }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-            {
-                timer_temperature.Enabled = true;
-                return;
-            }
+            //if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            //{
+            //    Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+            //    return;
+            //}
+            //print2_msg(frame);
         }
         private void button4_Click_1(object sender, EventArgs e) //деакт руп
         {
@@ -6938,7 +6940,14 @@ namespace OLO_CAN
         }
         private void button7_Click_1(object sender, EventArgs e) //рестарт
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.RECONFIG_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send RECONFIG_ID");
+                return;
+            }
         }
         private void button12_Click(object sender, EventArgs e) //стереть
         {
