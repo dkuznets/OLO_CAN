@@ -7056,7 +7056,20 @@ namespace OLO_CAN
         }
         private void button14_Click(object sender, EventArgs e) //файлы
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.FILE_TABLE_REQUEST_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send FILE_TABLE_REQUEST_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv FILE_TABLE_ADDRESS_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button15_Click(object sender, EventArgs e) //границы
         {
