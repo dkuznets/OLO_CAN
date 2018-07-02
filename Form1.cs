@@ -6747,8 +6747,8 @@ namespace OLO_CAN
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
-                Trace.Write(" Начальный адрес " + (BitConverter.ToInt32(msg.data,0)).ToString());
-                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString());
+                Trace.Write(" Начальный адрес " + (BitConverter.ToInt32(msg.data, 0)).ToString("X8"));
+                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
             Trace.WriteLine("");
         }
