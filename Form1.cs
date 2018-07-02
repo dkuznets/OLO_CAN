@@ -7119,6 +7119,7 @@ namespace OLO_CAN
                 //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
             byte[] buf = new byte[128];
             UInt32 buf_count = 0;
+            FILETABLE fff = new FILETABLE();
             for (int i = 0; i < numpack; i++)
             {
                 frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
@@ -7140,7 +7141,6 @@ namespace OLO_CAN
                     buf[buf_count++] = frame.data[j];
                 }
             }
-            FILETABLE fff = new FILETABLE();
             fff = BuffToStruct<FILETABLE>(buf);
             Trace.WriteLine("file table read");
         }
