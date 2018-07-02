@@ -188,6 +188,21 @@ namespace OLO_CAN
         SaveFileDialog savelog = new SaveFileDialog();
         StreamWriter logwr;
         #endregion
+        #region Tab7
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public unsafe struct FILETABLE
+        {
+            public fixed char name[28];
+            public UInt32 begin;
+            public UInt32 size;
+            public UInt32 time;
+            public UInt32 crc32;
+            public UInt32 version;
+            public fixed char comment[80];
+        };
+        
+        #endregion
+
         #region Преобразование номера версии
         public _u32 VERSUB(_u32 ver)
         {
@@ -6747,12 +6762,12 @@ namespace OLO_CAN
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
-                Trace.Write(" Начальный адрес " + (BitConverter.ToInt32(msg.data, 0)).ToString("X8"));
+                Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
                 Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FILE_TABLE_ADDRESS_ID)
             {
-                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToInt32(msg.data, 0)).ToString("X8"));
+                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
             Trace.WriteLine("");
         }
@@ -7074,6 +7089,52 @@ namespace OLO_CAN
                 return;
             }
             print2_msg(frame);
+            UInt32 begin_filetable = BitConverter.ToUInt32(frame.data, 0);
+
+            // read file table 128 byte
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            Byte[] tmparr = new Byte[4];
+            frame.len = 8;
+            tmparr = BitConverter.GetBytes(begin_filetable);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n] = tmparr[n];
+            tmparr = BitConverter.GetBytes((UInt32)128);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n + 4] = tmparr[n];
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send READ_DATA_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK");
+                return;
+            }
+            print2_msg(frame);
+            UInt32 numpack = (128 + 8 - 1) / 8;
+                //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
+                //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
+                //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+
+            for (int i = 0; i < numpack; i++)
+            {
+                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.len = 0;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    Trace.WriteLine("Error send READ_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    Trace.WriteLine("Error recv READ_DATA_ID");
+                    return;
+                }
+                Trace.WriteLine("pack " + i.ToString());
+                print2_msg(frame);
+            }
         }
         private void button15_Click(object sender, EventArgs e) //границы
         {
