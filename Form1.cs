@@ -6927,7 +6927,9 @@ namespace OLO_CAN
         {
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
-            frame.len = 0;
+            frame.len = 2;
+            frame.data[0] = 0x5A;
+            frame.data[1] = 0x5A;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
                 Trace.WriteLine("Error send RUP_ID");
@@ -6942,7 +6944,22 @@ namespace OLO_CAN
         }
         private void button4_Click_1(object sender, EventArgs e) //деакт руп
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 2;
+            frame.data[0] = 0xB4;
+            frame.data[1] = 0xB4;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send RUP_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button7_Click_1(object sender, EventArgs e) //рестарт
         {
