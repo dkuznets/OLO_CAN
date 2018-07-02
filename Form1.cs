@@ -6741,7 +6741,7 @@ namespace OLO_CAN
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
             {
-                Trace.Write(" Режим " +  ((rup_id.Receipt)(msg.data[0] & 0x3)).ToString());
+                Trace.Write(" Режим " +  ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
                 Trace.Write(" Команда 0x" + (msg.data[2] & 0x3F).ToString("X2"));
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
