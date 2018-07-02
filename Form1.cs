@@ -6927,12 +6927,12 @@ namespace OLO_CAN
                 Trace.WriteLine("Error send RUP_ID");
                 return;
             }
-            //if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-            //{
-            //    Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-            //    return;
-            //}
-            //print2_msg(frame);
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button4_Click_1(object sender, EventArgs e) //деакт руп
         {
