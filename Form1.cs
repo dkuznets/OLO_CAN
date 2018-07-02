@@ -6908,9 +6908,99 @@ namespace OLO_CAN
 //            Timer_GetData3.Enabled = false;
         }
          #endregion
+        #region knupeli
+        private void button3_Click_1(object sender, EventArgs e) //акт руп
+        {
+            Array.Clear(frame.data, 0, 8);
+            frame.id = 0x68;
+            if (!uniCAN.Send(ref frame))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                timer_temperature.Enabled = true;
+                return;
+            }
+        }
+        private void button4_Click_1(object sender, EventArgs e) //деакт руп
+        {
 
-       #endregion
+        }
+        private void button7_Click_1(object sender, EventArgs e) //рестарт
+        {
+
+        }
+        private void button12_Click(object sender, EventArgs e) //стереть
+        {
+
+        }
+        private void button8_Click(object sender, EventArgs e) //акт флеш1
+        {
+
+        }
+        private void button9_Click(object sender, EventArgs e) //деакт флеш1
+        {
+
+        }
+        private void button10_Click(object sender, EventArgs e) //запись
+        {
+
+        }
+        private void button11_Click(object sender, EventArgs e) //чтение
+        {
+
+        }
+        private void button13_Click(object sender, EventArgs e) //статус
+        {
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.STATUS_REQUEST_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send STATUS_REQUEST_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+                return;
+            }
+            print_msg(frame);
+        }
+        private void button14_Click(object sender, EventArgs e) //файлы
+        {
+
+        }
+        private void button15_Click(object sender, EventArgs e) //границы
+        {
+
+        }
+        #endregion
+        #endregion
 
 
+    }
+
+    public class rup_id
+    {
+        public const UInt32 RECONFIG_ID                = (0x01 << 5);
+        public const UInt32 RUP_ID = (0x03 << 5);
+        public const UInt32 STATUS_REQUEST_ID = (0x04 << 5);
+        public const UInt32 STATUS_RESPONCE_ID = (0x05 << 5);
+        public const UInt32 ACTIV_FLASH_ID = (0x30 << 5);
+        public const UInt32 WRITE_DATA_ID = (0x31 << 5);
+        public const UInt32 READ_DATA_ID = (0x32 << 5);
+        public const UInt32 ACK_ID = (0x33 << 5);
+        public const UInt32 DATA_SEGMENT_ID = (0x34 << 5);
+        public const UInt32 ERASE_ID = (0x35 << 5);
+        public const UInt32 AREA_ERASE_REQUEST_ID = (0x36 << 5);
+        public const UInt32 FILE_TABLE_REQUEST_ID = (0x37 << 5);
+        public const UInt32 FLASH_TABLE_RESPONCE_ID = (0x38 << 5);
+        public const UInt32 AREA_ERASE_RESPONCE_ID = (0x39 << 5);
+        public const UInt32 FILE_TABLE_ADDRESS_ID = (0x3A << 5);
+        public const UInt32 RIGHT_WING_DEV_ID = 0x11;
+        public const UInt32 LEFT_WING_DEV_ID = 0x12;
     }
 }
