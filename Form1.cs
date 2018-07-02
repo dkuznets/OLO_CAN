@@ -6741,9 +6741,14 @@ namespace OLO_CAN
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
             {
-                Trace.Write(" Режим " +  ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
+                Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
                 Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
+            }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                Trace.Write(" Начальный адрес " + (BitConverter.ToInt32(msg.data,0)).ToString());
+                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString());
             }
             Trace.WriteLine("");
         }
