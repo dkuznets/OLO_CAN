@@ -6984,11 +6984,39 @@ namespace OLO_CAN
         }
         private void button8_Click(object sender, EventArgs e) //акт флеш1
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.ACTIV_FLASH_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 1;
+            frame.data[0] = 1;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send ACTIV_FLASH_ID 1");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button9_Click(object sender, EventArgs e) //деакт флеш1
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.ACTIV_FLASH_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 1;
+            frame.data[0] = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send ACTIV_FLASH_ID 1");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button10_Click(object sender, EventArgs e) //запись
         {
