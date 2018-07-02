@@ -6750,6 +6750,10 @@ namespace OLO_CAN
                 Trace.Write(" Начальный адрес " + (BitConverter.ToInt32(msg.data, 0)).ToString("X8"));
                 Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FILE_TABLE_ADDRESS_ID)
+            {
+                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToInt32(msg.data, 0)).ToString("X8"));
+            }
             Trace.WriteLine("");
         }
         void print_msg(msg_t msg)
