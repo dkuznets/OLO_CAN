@@ -7117,7 +7117,8 @@ namespace OLO_CAN
                 //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
                 //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
                 //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-
+            byte[] buf = new byte[128];
+            UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
             {
                 frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
@@ -7134,8 +7135,16 @@ namespace OLO_CAN
                 }
                 Trace.WriteLine("pack " + i.ToString());
                 print2_msg(frame);
+                for (int j = 0; j < frame.len; j++)
+                {
+                    buf[buf_count++] = frame.data[j];
+                }
             }
+            FILETABLE fff = new FILETABLE();
+            fff = BuffToStruct<FILETABLE>(buf);
+            Trace.WriteLine("file table read");
         }
+
         private void button15_Click(object sender, EventArgs e) //границы
         {
 
@@ -7143,6 +7152,24 @@ namespace OLO_CAN
         #endregion
         #endregion
 
+        //public static T BuffToStruct<T>(byte[] arr)
+        //{
+        //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned);
+        //    IntPtr ptr = Marshal.UnsafeAddrOfPinnedArrayElement(arr, 0);
+        //    T ret = (T)Marshal.PtrToStructure(ptr, typeof(T));
+        //    gch.Free();
+        //    return default(T);
+        //}
+
+        //public static byte[] StructToBuff<T>(T value) where T : struct
+        //{
+        //    byte[] arr = new byte[Marshal.SizeOf(value)]; // создать массив
+        //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned); // зафиксировать в памяти
+        //    IntPtr ptr = Marshal.UnsafeAddrOfPinnedArrayElement(arr, 0); // и взять его адрес
+        //    Marshal.StructureToPtr(value, ptr, true); // копировать в массив
+        //    gch.Free(); // снять фиксацию
+        //    return arr;
+        //}
 
     }
 
