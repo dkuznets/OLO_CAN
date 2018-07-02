@@ -6736,8 +6736,14 @@ namespace OLO_CAN
             Trace.WriteLine("");
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
             {
-                Trace.Write("Команда 0x" + (msg.data[0] & 0x3F).ToString("X2"));
+                Trace.Write(" Команда 0x" + (msg.data[0] & 0x3F).ToString("X2"));
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
+            }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
+            {
+                Trace.Write(" Режим " +  ((rup_id.Receipt)(msg.data[0] & 0x3)).ToString());
+                Trace.Write(" Команда 0x" + (msg.data[2] & 0x3F).ToString("X2"));
+                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
             Trace.WriteLine("");
         }
@@ -7064,7 +7070,8 @@ namespace OLO_CAN
             LEFT_WING_DEV_ID = 0x12
         };
 
-        public enum Receipt {RUN, READY, ERROR, COMPLETE};
+        public enum Receipt { RUN, READY, ERROR, COMPLETE };
+        public enum Mode { WORK, CONTROL, PROGRAM };
 
     }
 }
