@@ -6736,13 +6736,13 @@ namespace OLO_CAN
             Trace.WriteLine("");
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
             {
-                Trace.Write(" Команда 0x" + (msg.data[0] & 0x3F).ToString("X2"));
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
             }
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
             {
                 Trace.Write(" Режим " +  ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
-                Trace.Write(" Команда 0x" + (msg.data[2] & 0x3F).ToString("X2"));
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
             Trace.WriteLine("");
@@ -7071,7 +7071,16 @@ namespace OLO_CAN
         };
 
         public enum Receipt { RUN, READY, ERROR, COMPLETE };
-        public enum Mode { WORK, CONTROL, PROGRAM };
+        public enum Mode { WORK, ECONTROL, CONTROL, PROGRAM };
+        public enum Comm 
+        {
+            RUP_ID = 0x03,
+            RECONFIG_ID = 0x01,
+            ACTIV_FLASH_ID = 0x30,
+            WRITE_DATA_ID = 0x31,
+            READ_DATA_ID = 0x32,
+            ERASE_ID = 0x35
+        };
 
     }
 }
