@@ -6977,6 +6977,12 @@ namespace OLO_CAN
                 Trace.WriteLine("Error send RECONFIG_ID");
                 return;
             }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         private void button12_Click(object sender, EventArgs e) //стереть
         {
