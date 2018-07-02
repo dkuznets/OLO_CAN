@@ -6731,14 +6731,14 @@ namespace OLO_CAN
         {
             Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - rup_id.RIGHT_WING_DEV_ID)).ToString() + " len=" + msg.len.ToString());
             Trace.Write(" Data:");
+            for (int i = 0; i < msg.len; i++)
+                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
+            Trace.WriteLine("");
             if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
             {
                 Trace.Write("Команда 0x" + (msg.data[0] & 0x3F).ToString("X2"));
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
             }
-            else
-                for (int i = 0; i < msg.len; i++)
-                    Trace.Write(" 0x" + msg.data[i].ToString("X2"));
             Trace.WriteLine("");
         }
         void print_msg(msg_t msg)
