@@ -7237,6 +7237,7 @@ namespace OLO_CAN
                     c.DataGridView.CurrentCell = c;
                     c.Selected = true;
                 }
+                toolStripMenuItem1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
                 if (currentMouseOverRow >= 0)
                 {
@@ -7249,8 +7250,8 @@ namespace OLO_CAN
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
-            if (e.RowIndex != -1)
-                e.ContextMenuStrip = contextMenuStrip1;
+ //           if (e.RowIndex != -1)
+//                e.ContextMenuStrip = contextMenuStrip1;
         }
 
         //public static T BuffToStruct<T>(byte[] arr)
