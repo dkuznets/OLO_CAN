@@ -384,6 +384,15 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button17 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -425,7 +434,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -477,6 +486,7 @@
             this.gbox_CAN4.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -4390,6 +4400,8 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.textBox5);
+            this.tabPage7.Controls.Add(this.dataGridView1);
             this.tabPage7.Controls.Add(this.textBox4);
             this.tabPage7.Controls.Add(this.textBox3);
             this.tabPage7.Controls.Add(this.button17);
@@ -4417,6 +4429,71 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.start,
+            this._size,
+            this.time,
+            this.crc32,
+            this.vers,
+            this.comment});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 287);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(778, 150);
+            this.dataGridView1.TabIndex = 60;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Имя файла";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // start
+            // 
+            this.start.HeaderText = "Адрес";
+            this.start.Name = "start";
+            this.start.ReadOnly = true;
+            // 
+            // _size
+            // 
+            this._size.HeaderText = "Размер";
+            this._size.Name = "_size";
+            this._size.ReadOnly = true;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            // 
+            // crc32
+            // 
+            this.crc32.HeaderText = "CRC32";
+            this.crc32.Name = "crc32";
+            this.crc32.ReadOnly = true;
+            // 
+            // vers
+            // 
+            this.vers.HeaderText = "Версия";
+            this.vers.Name = "vers";
+            this.vers.ReadOnly = true;
+            // 
+            // comment
+            // 
+            this.comment.HeaderText = "Комментарий";
+            this.comment.Name = "comment";
+            this.comment.ReadOnly = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(181, 260);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(82, 20);
+            this.textBox4.TabIndex = 59;
             // 
             // textBox3
             // 
@@ -4740,12 +4817,12 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // textBox4
+            // textBox5
             // 
-            this.textBox4.Location = new System.Drawing.Point(181, 260);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(82, 20);
-            this.textBox4.TabIndex = 59;
+            this.textBox5.Location = new System.Drawing.Point(267, 232);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(86, 20);
+            this.textBox5.TabIndex = 61;
             // 
             // Form1
             // 
@@ -4846,6 +4923,7 @@
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbox_CAN5.ResumeLayout(false);
             this.gbox_CAN5.PerformLayout();
             this.ResumeLayout(false);
@@ -5250,6 +5328,15 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crc32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment;
+        private System.Windows.Forms.TextBox textBox5;
 	}
 }
 
