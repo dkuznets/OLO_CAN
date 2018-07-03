@@ -7231,6 +7231,9 @@ namespace OLO_CAN
         {
             if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == System.Windows.Forms.MouseButtons.Right)
             {
+                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
                 if (e.RowIndex != 0)
                 {
                     DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
@@ -7241,10 +7244,12 @@ namespace OLO_CAN
                         c.Selected = true;
                     }
                     toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    contextMenuStrip1.Show(dataGridView1, pt);
                 }
                 else
                 {
-                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    toolStripMenuItem6.Text = "Flash: " + dataGridView1.Rows[0].Cells[0].Value.ToString();
+                    contextMenuStrip2.Show(dataGridView1, pt);
                 }
             }
         }
