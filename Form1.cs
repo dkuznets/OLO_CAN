@@ -7179,7 +7179,7 @@ namespace OLO_CAN
                         "0x" + fff[i].begin.ToString("X"),
                         "0x" + fff[i].size.ToString("X8"),
                         pDate.ToString(),
-                        "0x" + fff[i].crc32.ToString("X8"),
+                        fff[i].crc32.ToString("X8"),
                         fff[i].version.ToString(),
                         comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;

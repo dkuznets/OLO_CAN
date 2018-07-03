@@ -4784,28 +4784,28 @@
             this.start.HeaderText = "Адрес";
             this.start.Name = "start";
             this.start.ReadOnly = true;
-            this.start.Width = 40;
+            this.start.Width = 50;
             // 
             // _size
             // 
             this._size.HeaderText = "Размер";
             this._size.Name = "_size";
             this._size.ReadOnly = true;
-            this._size.Width = 40;
+            this._size.Width = 50;
             // 
             // time
             // 
             this.time.HeaderText = "Время";
             this.time.Name = "time";
             this.time.ReadOnly = true;
-            this.time.Width = 150;
+            this.time.Width = 120;
             // 
             // crc32
             // 
             this.crc32.HeaderText = "CRC32";
             this.crc32.Name = "crc32";
             this.crc32.ReadOnly = true;
-            this.crc32.Width = 80;
+            this.crc32.Width = 60;
             // 
             // vers
             // 
