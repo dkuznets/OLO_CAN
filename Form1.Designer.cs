@@ -434,7 +434,6 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4400,7 +4399,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.textBox5);
             this.tabPage7.Controls.Add(this.dataGridView1);
             this.tabPage7.Controls.Add(this.textBox4);
             this.tabPage7.Controls.Add(this.textBox3);
@@ -4514,16 +4512,16 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(181, 231);
+            this.textBox2.Location = new System.Drawing.Point(168, 231);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(80, 20);
+            this.textBox2.Size = new System.Drawing.Size(81, 20);
             this.textBox2.TabIndex = 56;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(93, 231);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 20);
+            this.textBox1.Size = new System.Drawing.Size(72, 20);
             this.textBox1.TabIndex = 55;
             // 
             // button16
@@ -4816,13 +4814,6 @@
             // timer1s
             // 
             this.timer1s.Interval = 1000;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(267, 232);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(86, 20);
-            this.textBox5.TabIndex = 61;
             // 
             // Form1
             // 
@@ -5336,7 +5327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn crc32;
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
-        private System.Windows.Forms.TextBox textBox5;
 	}
 }
 
