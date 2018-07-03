@@ -7161,21 +7161,28 @@ namespace OLO_CAN
 
             } while (iii < 3);
             Byte numfiles = 0;
+            dataGridView1.RowCount = 0;
             for (int i = 0; i < 3; i++)
 			{
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
                 {
-                    dataGridView1.RowCount = numfiles + 1;
                     String name = Encoding.Default.GetString(fff[i].name, 0, 28);
                     dataGridView1.Rows[numfiles + 1].Cells[0].Value = name.Substring(0, name.IndexOf('\0'));
                     Trace.Write("Файл: " + name.Substring(0, name.IndexOf('\0')));
-                    Trace.Write(" Адрес: " + fff[i].begin.ToString("X8"));
+                    Trace.Write(" Адрес: " + fff[i].begin.ToString("X"));
                     Trace.Write(" Размер: " + fff[i].size.ToString("X8"));
                     DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
                     Trace.Write(" Время: " + pDate.ToString());
                     Trace.Write(" CRC32: " + fff[i].crc32.ToString("X8"));
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
                     Trace.WriteLine(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
+                    dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
+                        fff[i].begin.ToString("X"),
+                        fff[i].size.ToString("X8"),
+                        pDate.ToString(),
+                        fff[i].crc32.ToString("X8"),
+                        fff[i].version.ToString(),
+                        comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;
                 }
 			}
