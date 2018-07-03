@@ -7251,6 +7251,7 @@ namespace OLO_CAN
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
+            MessageBox.Show("!!!!");
             if (e.RowIndex == 0)
                 e.ContextMenuStrip = contextMenuStrip2;
             else
