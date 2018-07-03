@@ -7243,7 +7243,7 @@ namespace OLO_CAN
                     contextMenuStrip1.Items.Add(string.Format("Do something to row {0}", currentMouseOverRow.ToString()));
                 }
 
-                contextMenuStrip1.Show(dataGridView1, new Point(e.X, e.Y));
+//                contextMenuStrip1.Show(dataGridView1, new Point(e.X, e.Y));
             }
         }
 
