@@ -7240,6 +7240,12 @@ namespace OLO_CAN
             }
         }
 
+        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex != -1)
+                e.ContextMenuStrip = contextMenuStrip1;
+        }
+
         //public static T BuffToStruct<T>(byte[] arr)
         //{
         //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned);
