@@ -7154,7 +7154,6 @@ namespace OLO_CAN
                 fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
                 handle.Free();
 
-                String sn = Encoding.Default.GetString(fff[iii].name, 0, 28);
                 //            ss += "SN = " + sn.Substring(0, sn.IndexOf('\0')) + CR;
 
                 //            Trace.WriteLine(BitConverter.ToChar(fff.name,0));
@@ -7165,7 +7164,18 @@ namespace OLO_CAN
             for (int i = 0; i < 3; i++)
 			{
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
+                {
+                    String name = Encoding.Default.GetString(fff[iii].name, 0, 28);
+                    Trace.Write("Файл: " + name.Substring(0, name.IndexOf('\0')));
+                    Trace.Write(" Адрес: " + fff[iii].begin.ToString("X8"));
+                    Trace.Write(" Размер: " + fff[iii].size.ToString("X8"));
+                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[iii].time);
+                    Trace.Write(" Время: " + pDate.ToString());
+                    Trace.Write(" CRC32: " + fff[iii].crc32.ToString("X8"));
+                    String comment = Encoding.Default.GetString(fff[iii].comment, 0, 80);
+                    Trace.Write(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;
+                }
 			}
             Trace.WriteLine("Файлов: " + numfiles.ToString());
 
