@@ -437,6 +437,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1323,6 +1325,7 @@
             this.gbox_Image.Controls.Add(this.label29);
             this.gbox_Image.Controls.Add(this.pb_CMOS);
             this.gbox_Image.Controls.Add(this.pictureBox1);
+            this.gbox_Image.Controls.Add(this.menuStrip1);
             this.gbox_Image.Location = new System.Drawing.Point(6, 9);
             this.gbox_Image.Name = "gbox_Image";
             this.gbox_Image.Size = new System.Drawing.Size(651, 556);
@@ -4842,21 +4845,36 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Заменить";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Сохранить";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "toolStripMenuItem2";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(3, 16);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(645, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // Form1
             // 
@@ -5371,9 +5389,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn crc32;
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
+        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 	}
 }
 
