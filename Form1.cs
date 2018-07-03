@@ -7176,10 +7176,10 @@ namespace OLO_CAN
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
                     Trace.WriteLine(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
                     dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
-                        fff[i].begin.ToString("X"),
-                        fff[i].size.ToString("X8"),
+                        "0x" + fff[i].begin.ToString("X"),
+                        "0x" + fff[i].size.ToString("X8"),
                         pDate.ToString(),
-                        fff[i].crc32.ToString("X8"),
+                        "0x" + fff[i].crc32.ToString("X8"),
                         fff[i].version.ToString(),
                         comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;
