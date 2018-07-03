@@ -7237,6 +7237,7 @@ namespace OLO_CAN
                     c.DataGridView.CurrentCell = c;
                     c.Selected = true;
                 }
+                contextMenuStrip1.Show();
             }
         }
 
