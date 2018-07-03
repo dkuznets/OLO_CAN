@@ -4430,6 +4430,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -4441,7 +4444,10 @@
             this.comment});
             this.dataGridView1.Location = new System.Drawing.Point(12, 287);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(778, 150);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(632, 108);
             this.dataGridView1.TabIndex = 60;
             // 
             // textBox4
@@ -4778,12 +4784,14 @@
             this.name.HeaderText = "Имя файла";
             this.name.Name = "name";
             this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // start
             // 
             this.start.HeaderText = "Адрес";
             this.start.Name = "start";
             this.start.ReadOnly = true;
+            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.start.Width = 50;
             // 
             // _size
@@ -4791,6 +4799,7 @@
             this._size.HeaderText = "Размер";
             this._size.Name = "_size";
             this._size.ReadOnly = true;
+            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._size.Width = 50;
             // 
             // time
@@ -4812,7 +4821,8 @@
             this.vers.HeaderText = "Версия";
             this.vers.Name = "vers";
             this.vers.ReadOnly = true;
-            this.vers.Width = 40;
+            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vers.Width = 50;
             // 
             // comment
             // 
