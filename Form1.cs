@@ -7237,14 +7237,7 @@ namespace OLO_CAN
                     c.DataGridView.CurrentCell = c;
                     c.Selected = true;
                 }
-                toolStripMenuItem1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
-                if (currentMouseOverRow >= 0)
-                {
-                    contextMenuStrip1.Items.Add(string.Format("Do something to row {0}", currentMouseOverRow.ToString()));
-                }
-
-//                contextMenuStrip1.Show(dataGridView1, new Point(e.X, e.Y));
+                toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             }
         }
 
