@@ -192,13 +192,15 @@ namespace OLO_CAN
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct FILETABLE
         {
-            public fixed char name[28];
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+            public Byte[] name;
             public UInt32 begin;
             public UInt32 size;
             public UInt32 time;
             public UInt32 crc32;
             public UInt32 version;
-            public fixed char comment[80];
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
+            public Byte[] comment;
         };
         
         #endregion
@@ -7073,7 +7075,7 @@ namespace OLO_CAN
             }
             print2_msg(frame);
         }
-        private void button14_Click(object sender, EventArgs e) //файлы
+        private unsafe void button14_Click(object sender, EventArgs e) //файлы
         {
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.FILE_TABLE_REQUEST_ID | rup_id.RIGHT_WING_DEV_ID;
@@ -7092,38 +7094,20 @@ namespace OLO_CAN
             UInt32 begin_filetable = BitConverter.ToUInt32(frame.data, 0);
 
             // read file table 128 byte
-            Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
-            Byte[] tmparr = new Byte[4];
-            frame.len = 8;
-            tmparr = BitConverter.GetBytes(begin_filetable);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n] = tmparr[n];
-            tmparr = BitConverter.GetBytes((UInt32)128);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n + 4] = tmparr[n];
-            if (uniCAN == null || !uniCAN.Send(ref frame))
+            FILETABLE[] fff = new FILETABLE[3];
+            Byte iii = 0;
+            do
             {
-                Trace.WriteLine("Error send READ_DATA_ID");
-                return;
-            }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-            {
-                Trace.WriteLine("Error recv ACK");
-                return;
-            }
-            print2_msg(frame);
-            UInt32 numpack = (128 + 8 - 1) / 8;
-                //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
-                //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
-                //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
-            byte[] buf = new byte[128];
-            UInt32 buf_count = 0;
-            FILETABLE fff = new FILETABLE();
-            for (int i = 0; i < numpack; i++)
-            {
+                Array.Clear(frame.data, 0, 8);
                 frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
-                frame.len = 0;
+                Byte[] tmparr = new Byte[4];
+                frame.len = 8;
+                tmparr = BitConverter.GetBytes(begin_filetable + 128 * iii);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n] = tmparr[n];
+                tmparr = BitConverter.GetBytes((UInt32)128);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n + 4] = tmparr[n];
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
                     Trace.WriteLine("Error send READ_DATA_ID");
@@ -7131,18 +7115,59 @@ namespace OLO_CAN
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    Trace.WriteLine("Error recv READ_DATA_ID");
+                    Trace.WriteLine("Error recv ACK");
                     return;
                 }
-                Trace.WriteLine("pack " + i.ToString());
                 print2_msg(frame);
-                for (int j = 0; j < frame.len; j++)
+                UInt32 numpack = (128 + 8 - 1) / 8;
+                //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
+                //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
+                //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+                byte[] buf = new byte[128];
+                UInt32 buf_count = 0;
+                for (int i = 0; i < numpack; i++)
                 {
-                    buf[buf_count++] = frame.data[j];
+                    frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                    frame.len = 0;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        Trace.WriteLine("Error send READ_DATA_ID");
+                        return;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                    {
+                        Trace.WriteLine("Error recv READ_DATA_ID");
+                        return;
+                    }
+                    Trace.WriteLine("pack " + i.ToString());
+                    print2_msg(frame);
+                    for (int j = 0; j < frame.len; j++)
+                    {
+                        buf[buf_count++] = frame.data[j];
+                    }
                 }
-            }
-            fff = BuffToStruct<FILETABLE>(buf);
-            Trace.WriteLine("file table read");
+                //            fff = BuffToStruct<FILETABLE>(buf);
+                Trace.WriteLine("file table read");
+
+                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
+                fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
+                handle.Free();
+
+                String sn = Encoding.Default.GetString(fff[iii].name, 0, 28);
+                //            ss += "SN = " + sn.Substring(0, sn.IndexOf('\0')) + CR;
+
+                //            Trace.WriteLine(BitConverter.ToChar(fff.name,0));
+                iii++;
+
+            } while (iii < 3);
+            Byte numfiles = 0;
+            for (int i = 0; i < 3; i++)
+			{
+			    if(fff[i].size != 0)
+                    numfiles++;
+			}
+            Trace.WriteLine("Файлов: " + numfiles.ToString());
+
         }
 
         private void button15_Click(object sender, EventArgs e) //границы
