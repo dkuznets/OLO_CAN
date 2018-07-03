@@ -7139,8 +7139,8 @@ namespace OLO_CAN
                         Trace.WriteLine("Error recv READ_DATA_ID");
                         return;
                     }
-                    Trace.WriteLine("pack " + i.ToString());
-                    print2_msg(frame);
+//                    Trace.WriteLine("pack " + i.ToString());
+//                    print2_msg(frame);
                     for (int j = 0; j < frame.len; j++)
                     {
                         buf[buf_count++] = frame.data[j];
@@ -7163,7 +7163,7 @@ namespace OLO_CAN
             Byte numfiles = 0;
             for (int i = 0; i < 3; i++)
 			{
-			    if(fff[i].size != 0)
+                if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
                     numfiles++;
 			}
             Trace.WriteLine("Файлов: " + numfiles.ToString());
