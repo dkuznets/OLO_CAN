@@ -7165,14 +7165,14 @@ namespace OLO_CAN
 			{
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
                 {
-                    String name = Encoding.Default.GetString(fff[iii].name, 0, 28);
+                    String name = Encoding.Default.GetString(fff[i].name, 0, 28);
                     Trace.Write("Файл: " + name.Substring(0, name.IndexOf('\0')));
-                    Trace.Write(" Адрес: " + fff[iii].begin.ToString("X8"));
-                    Trace.Write(" Размер: " + fff[iii].size.ToString("X8"));
-                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[iii].time);
+                    Trace.Write(" Адрес: " + fff[i].begin.ToString("X8"));
+                    Trace.Write(" Размер: " + fff[i].size.ToString("X8"));
+                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
                     Trace.Write(" Время: " + pDate.ToString());
-                    Trace.Write(" CRC32: " + fff[iii].crc32.ToString("X8"));
-                    String comment = Encoding.Default.GetString(fff[iii].comment, 0, 80);
+                    Trace.Write(" CRC32: " + fff[i].crc32.ToString("X8"));
+                    String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
                     Trace.Write(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;
                 }
