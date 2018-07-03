@@ -384,6 +384,9 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button17 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -422,7 +425,7 @@
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4387,6 +4390,9 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.textBox4);
+            this.tabPage7.Controls.Add(this.textBox3);
+            this.tabPage7.Controls.Add(this.button17);
             this.tabPage7.Controls.Add(this.textBox2);
             this.tabPage7.Controls.Add(this.textBox1);
             this.tabPage7.Controls.Add(this.button16);
@@ -4412,11 +4418,35 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(93, 260);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(82, 20);
+            this.textBox3.TabIndex = 58;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(12, 258);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.TabIndex = 57;
+            this.button17.Text = "CRC32";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(181, 231);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(80, 20);
+            this.textBox2.TabIndex = 56;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(93, 231);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.Size = new System.Drawing.Size(82, 20);
             this.textBox1.TabIndex = 55;
             // 
             // button16
@@ -4425,7 +4455,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 23);
             this.button16.TabIndex = 54;
-            this.button16.Text = "button16";
+            this.button16.Text = "unixtime";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -4710,12 +4740,12 @@
             // 
             this.timer1s.Interval = 1000;
             // 
-            // textBox2
+            // textBox4
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 231);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 56;
+            this.textBox4.Location = new System.Drawing.Point(181, 260);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(82, 20);
+            this.textBox4.TabIndex = 59;
             // 
             // Form1
             // 
@@ -5217,6 +5247,9 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.TextBox textBox4;
 	}
 }
 

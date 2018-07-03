@@ -7184,6 +7184,29 @@ namespace OLO_CAN
         }
         #endregion
 
+        private void button17_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Файлы (*.bin)|*.bin";
+                ofd.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                if (ofd.ShowDialog() != DialogResult.OK)
+                    return;
+                FileInfo fi = new FileInfo(ofd.FileName);
+                textBox3.Text = fi.Name;
+                Byte[] rdfile = new Byte[fi.Length];
+                FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
+                fs.Read(rdfile, 0, (int)fi.Length);
+                Crc32 crc32 = new Crc32();
+                String hash = String.Empty;
+                foreach (byte b in crc32.ComputeHash(rdfile))
+                {
+                    hash += b.ToString("x2").ToLower();
+                }
+                textBox4.Text = hash;
+            }
+        }
+
         //public static T BuffToStruct<T>(byte[] arr)
         //{
         //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned);
