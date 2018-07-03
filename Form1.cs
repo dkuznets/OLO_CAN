@@ -7161,7 +7161,8 @@ namespace OLO_CAN
 
             } while (iii < 3);
             Byte numfiles = 0;
-            dataGridView1.RowCount = 1;
+//            dataGridView1.RowCount = 1;
+            dataGridView1.Rows.Clear();
             for (int i = 0; i < 3; i++)
 			{
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
