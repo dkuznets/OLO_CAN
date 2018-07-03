@@ -7165,6 +7165,7 @@ namespace OLO_CAN
 			{
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
                 {
+                    dataGridView1.RowCount = numfiles + 1;
                     String name = Encoding.Default.GetString(fff[i].name, 0, 28);
                     Trace.Write("Файл: " + name.Substring(0, name.IndexOf('\0')));
                     Trace.Write(" Адрес: " + fff[i].begin.ToString("X8"));
