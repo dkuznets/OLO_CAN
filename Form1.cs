@@ -7231,41 +7231,32 @@ namespace OLO_CAN
         {
             if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
-                if (!c.Selected)
+                if (e.RowIndex != 0)
                 {
-                    c.DataGridView.ClearSelection();
-                    c.DataGridView.CurrentCell = c;
-                    c.Selected = true;
+                    DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
+                    if (!c.Selected)
+                    {
+                        c.DataGridView.ClearSelection();
+                        c.DataGridView.CurrentCell = c;
+                        c.Selected = true;
+                    }
+                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 }
-                toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                else
+                {
+                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                }
             }
         }
 
         private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
- //           if (e.RowIndex != -1)
-//                e.ContextMenuStrip = contextMenuStrip1;
+            if (e.RowIndex == 0)
+                e.ContextMenuStrip = contextMenuStrip2;
+            else
+                e.ContextMenuStrip = contextMenuStrip1;
         }
 
-        //public static T BuffToStruct<T>(byte[] arr)
-        //{
-        //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned);
-        //    IntPtr ptr = Marshal.UnsafeAddrOfPinnedArrayElement(arr, 0);
-        //    T ret = (T)Marshal.PtrToStructure(ptr, typeof(T));
-        //    gch.Free();
-        //    return default(T);
-        //}
-
-        //public static byte[] StructToBuff<T>(T value) where T : struct
-        //{
-        //    byte[] arr = new byte[Marshal.SizeOf(value)]; // создать массив
-        //    GCHandle gch = GCHandle.Alloc(arr, GCHandleType.Pinned); // зафиксировать в памяти
-        //    IntPtr ptr = Marshal.UnsafeAddrOfPinnedArrayElement(arr, 0); // и взять его адрес
-        //    Marshal.StructureToPtr(value, ptr, true); // копировать в массив
-        //    gch.Free(); // снять фиксацию
-        //    return arr;
-        //}
 
     }
 
