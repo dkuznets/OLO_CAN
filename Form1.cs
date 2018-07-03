@@ -7173,7 +7173,7 @@ namespace OLO_CAN
                     Trace.Write(" Время: " + pDate.ToString());
                     Trace.Write(" CRC32: " + fff[i].crc32.ToString("X8"));
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
-                    Trace.Write(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
+                    Trace.WriteLine(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
                     numfiles++;
                 }
 			}
