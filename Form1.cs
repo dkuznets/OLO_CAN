@@ -7189,9 +7189,8 @@ namespace OLO_CAN
 
         private void button16_Click(object sender, EventArgs e)
         {
-            textBox2.Text = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000).ToString("X8");
-            textBox1.Text = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000).ToString();
-            textBox5.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString();
+            textBox2.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString("X8");
+            textBox1.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString();
         }
         #endregion
 
