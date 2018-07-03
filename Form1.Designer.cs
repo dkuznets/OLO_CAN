@@ -4798,7 +4798,7 @@
             this.time.HeaderText = "Время";
             this.time.Name = "time";
             this.time.ReadOnly = true;
-            this.time.Width = 120;
+            this.time.Width = 110;
             // 
             // crc32
             // 
@@ -4812,13 +4812,14 @@
             this.vers.HeaderText = "Версия";
             this.vers.Name = "vers";
             this.vers.ReadOnly = true;
-            this.vers.Width = 30;
+            this.vers.Width = 40;
             // 
             // comment
             // 
             this.comment.HeaderText = "Комментарий";
             this.comment.Name = "comment";
             this.comment.ReadOnly = true;
+            this.comment.Width = 200;
             // 
             // Form1
             // 

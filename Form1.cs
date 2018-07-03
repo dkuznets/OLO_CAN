@@ -7177,7 +7177,7 @@ namespace OLO_CAN
                     Trace.WriteLine(" Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
                     dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
                         "0x" + fff[i].begin.ToString("X"),
-                        "0x" + fff[i].size.ToString("X8"),
+                        "0x" + fff[i].size.ToString("X"),
                         pDate.ToString(),
                         fff[i].crc32.ToString("X8"),
                         fff[i].version.ToString(),
