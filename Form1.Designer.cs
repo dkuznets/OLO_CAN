@@ -384,6 +384,12 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.bt_verifi5 = new System.Windows.Forms.Button();
+            this.bt_status5 = new System.Windows.Forms.Button();
+            this.bt_reboot5 = new System.Windows.Forms.Button();
+            this.rb_l5 = new System.Windows.Forms.RadioButton();
+            this.rb_r5 = new System.Windows.Forms.RadioButton();
+            this.bt_aktiv5 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -449,9 +455,6 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button18 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4419,9 +4422,12 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.radioButton2);
-            this.tabPage7.Controls.Add(this.radioButton1);
-            this.tabPage7.Controls.Add(this.button18);
+            this.tabPage7.Controls.Add(this.bt_verifi5);
+            this.tabPage7.Controls.Add(this.bt_status5);
+            this.tabPage7.Controls.Add(this.bt_reboot5);
+            this.tabPage7.Controls.Add(this.rb_l5);
+            this.tabPage7.Controls.Add(this.rb_r5);
+            this.tabPage7.Controls.Add(this.bt_aktiv5);
             this.tabPage7.Controls.Add(this.progressBar1);
             this.tabPage7.Controls.Add(this.dataGridView1);
             this.tabPage7.Controls.Add(this.textBox4);
@@ -4451,6 +4457,65 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // bt_verifi5
+            // 
+            this.bt_verifi5.Location = new System.Drawing.Point(549, 255);
+            this.bt_verifi5.Name = "bt_verifi5";
+            this.bt_verifi5.Size = new System.Drawing.Size(95, 23);
+            this.bt_verifi5.TabIndex = 67;
+            this.bt_verifi5.Text = "Верификация";
+            this.bt_verifi5.UseVisualStyleBackColor = true;
+            // 
+            // bt_status5
+            // 
+            this.bt_status5.Location = new System.Drawing.Point(448, 255);
+            this.bt_status5.Name = "bt_status5";
+            this.bt_status5.Size = new System.Drawing.Size(95, 23);
+            this.bt_status5.TabIndex = 66;
+            this.bt_status5.Text = "Статус";
+            this.bt_status5.UseVisualStyleBackColor = true;
+            this.bt_status5.Click += new System.EventHandler(this.bt_status5_Click);
+            // 
+            // bt_reboot5
+            // 
+            this.bt_reboot5.Location = new System.Drawing.Point(303, 255);
+            this.bt_reboot5.Name = "bt_reboot5";
+            this.bt_reboot5.Size = new System.Drawing.Size(95, 23);
+            this.bt_reboot5.TabIndex = 65;
+            this.bt_reboot5.Text = "Перезагрузить";
+            this.bt_reboot5.UseVisualStyleBackColor = true;
+            // 
+            // rb_l5
+            // 
+            this.rb_l5.AutoSize = true;
+            this.rb_l5.Location = new System.Drawing.Point(110, 258);
+            this.rb_l5.Name = "rb_l5";
+            this.rb_l5.Size = new System.Drawing.Size(86, 17);
+            this.rb_l5.TabIndex = 64;
+            this.rb_l5.Text = "ОЛО-Левый";
+            this.rb_l5.UseVisualStyleBackColor = true;
+            // 
+            // rb_r5
+            // 
+            this.rb_r5.AutoSize = true;
+            this.rb_r5.Checked = true;
+            this.rb_r5.Location = new System.Drawing.Point(12, 258);
+            this.rb_r5.Name = "rb_r5";
+            this.rb_r5.Size = new System.Drawing.Size(92, 17);
+            this.rb_r5.TabIndex = 63;
+            this.rb_r5.TabStop = true;
+            this.rb_r5.Text = "ОЛО-Правый";
+            this.rb_r5.UseVisualStyleBackColor = true;
+            // 
+            // bt_aktiv5
+            // 
+            this.bt_aktiv5.Location = new System.Drawing.Point(202, 255);
+            this.bt_aktiv5.Name = "bt_aktiv5";
+            this.bt_aktiv5.Size = new System.Drawing.Size(95, 23);
+            this.bt_aktiv5.TabIndex = 62;
+            this.bt_aktiv5.Text = "Активировать";
+            this.bt_aktiv5.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
@@ -4979,37 +5044,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(322, 252);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 62;
-            this.button18.Text = "button18";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 258);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(92, 17);
-            this.radioButton1.TabIndex = 63;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ОЛО-Правый";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(110, 258);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 17);
-            this.radioButton2.TabIndex = 64;
-            this.radioButton2.Text = "ОЛО-Левый";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -5540,9 +5574,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.RadioButton rb_l5;
+        private System.Windows.Forms.RadioButton rb_r5;
+        private System.Windows.Forms.Button bt_aktiv5;
+        private System.Windows.Forms.Button bt_verifi5;
+        private System.Windows.Forms.Button bt_status5;
+        private System.Windows.Forms.Button bt_reboot5;
 	}
 }
 
