@@ -7356,30 +7356,30 @@ namespace OLO_CAN
         #endregion
         void msg_2_log(canmsg_t msg)
         {
-            listBox1.Items.Add(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
+            listBox1.Items.Insert(0," ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
             String tttt = " Data:";
             for (int i = 0; i < msg.len; i++)
                 tttt += " 0x" + msg.data[i].ToString("X2");
-            listBox1.Items.Add(tttt);
+            listBox1.Items.Insert(0,tttt);
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
             {
-                listBox1.Items.Add(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
+                listBox1.Items.Insert(0," Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
                     " Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
             {
-                listBox1.Items.Add(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
+                listBox1.Items.Insert(0," Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
                     " Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString() +
                     " Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
-                listBox1.Items.Add(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
+                listBox1.Items.Insert(0," Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
                     " Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
             {
-                listBox1.Items.Add(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+                listBox1.Items.Insert(0," Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
         }
 
@@ -7400,19 +7400,19 @@ namespace OLO_CAN
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Add("Error send STATUS_REQUEST_ID");
+                    listBox1.Items.Insert(0,"Error send STATUS_REQUEST_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Add("Error recv STATUS_RESPONCE_ID");
+                    listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
                     return;
                 }
                 msg_2_log(frame);
             }
             catch (Exception ee)
             {
-                listBox1.Items.Add("Ошибка " + ee.ToString());
+                listBox1.Items.Insert(0,"Ошибка " + ee.ToString());
             }
         }
         #endregion
@@ -7433,18 +7433,18 @@ namespace OLO_CAN
                 frame.data[1] = 0x5A;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Add("Error send RUP_ID");
+                    listBox1.Items.Insert(0,"Error send RUP_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Add("Error recv ACK_ID");
+                    listBox1.Items.Insert(0,"Error recv ACK_ID");
                     return;
                 }
             }
             catch (Exception)
             {
-                listBox1.Items.Add("Ошибка! Контроллер не активирован.");
+                listBox1.Items.Insert(0,"Ошибка! Контроллер не активирован.");
                 return;
             }
             msg_2_log(frame);
@@ -7457,27 +7457,27 @@ namespace OLO_CAN
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Add("Error send STATUS_REQUEST_ID");
+                    listBox1.Items.Insert(0,"Error send STATUS_REQUEST_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Add("Error recv STATUS_RESPONCE_ID");
+                    listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
                     return;
                 }
                 if((frame.data[0] & 0x3) == 3)
-                    listBox1.Items.Add("РУП активирован.");
+                    listBox1.Items.Insert(0,"РУП активирован.");
                 else
                 {
                     listBox1.Items.Clear();
-                    listBox1.Items.Add("Ошибка! РУП не активирован.");
+                    listBox1.Items.Insert(0,"Ошибка! РУП не активирован.");
                     return;
                 }
             }
             else
             {
                 listBox1.Items.Clear();
-                listBox1.Items.Add("Ошибка! РУП не активирован.");
+                listBox1.Items.Insert(0,"Ошибка! РУП не активирован.");
                 return;
             }
 
@@ -7489,12 +7489,12 @@ namespace OLO_CAN
             frame.data[0] = 1;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Add("Error send ACTIV_FLASH_ID 1");
+                listBox1.Items.Insert(0,"Error send ACTIV_FLASH_ID 1");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                listBox1.Items.Add("Error recv ACK_ID");
+                listBox1.Items.Insert(0,"Error recv ACK_ID");
                 return;
             }
             msg_2_log(frame);
@@ -7506,7 +7506,7 @@ namespace OLO_CAN
             }
             else
             {
-                listBox1.Items.Add("Ошибка! Flash #1 не активирован.");
+                listBox1.Items.Insert(0,"Ошибка! Flash #1 не активирован.");
                 return;
             }
             msg_2_log(frame);
@@ -7518,12 +7518,12 @@ namespace OLO_CAN
             frame.len = 0;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Add("Error send FILE_TABLE_REQUEST_ID");
+                listBox1.Items.Insert(0,"Error send FILE_TABLE_REQUEST_ID");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                listBox1.Items.Add("Error recv FILE_TABLE_ADDRESS_ID");
+                listBox1.Items.Insert(0,"Error recv FILE_TABLE_ADDRESS_ID");
                 return;
             }
             msg_2_log(frame);
@@ -7546,12 +7546,12 @@ namespace OLO_CAN
                     frame.data[n + 4] = tmparr[n];
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Add("Error send READ_DATA_ID");
+                    listBox1.Items.Insert(0,"Error send READ_DATA_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Add("Error recv ACK");
+                    listBox1.Items.Insert(0,"Error recv ACK");
                     return;
                 }
                 msg_2_log(frame);
@@ -7564,12 +7564,12 @@ namespace OLO_CAN
                     frame.len = 0;
                     if (uniCAN == null || !uniCAN.Send(ref frame))
                     {
-                        listBox1.Items.Add("Error send READ_DATA_ID");
+                        listBox1.Items.Insert(0,"Error send READ_DATA_ID");
                         return;
                     }
                     if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                     {
-                        listBox1.Items.Add("Error recv READ_DATA_ID");
+                        listBox1.Items.Insert(0,"Error recv READ_DATA_ID");
                         return;
                     }
                     for (int j = 0; j < frame.len; j++)
@@ -7593,7 +7593,7 @@ namespace OLO_CAN
                     String name = Encoding.Default.GetString(fff[i].name, 0, 28);
                     DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
-                    listBox1.Items.Add("Файл: " + name.Substring(0, name.IndexOf('\0')) +
+                    listBox1.Items.Insert(0,"Файл: " + name.Substring(0, name.IndexOf('\0')) +
                         " Адрес: " + fff[i].begin.ToString("X") +
                         " Размер: " + fff[i].size.ToString("X") +
                         " Время: " + pDate.ToString() +
@@ -7612,7 +7612,7 @@ namespace OLO_CAN
                     numfiles++;
                 }
             }
-            listBox1.Items.Add("Файлов: " + numfiles.ToString());
+            listBox1.Items.Insert(0,"Файлов: " + numfiles.ToString());
 
         }
 
