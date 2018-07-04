@@ -7244,7 +7244,7 @@ namespace OLO_CAN
                         c.DataGridView.CurrentCell = c;
                         c.Selected = true;
                     }
-                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + " " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
                     contextMenuStrip1.Show(dataGridView1, pt);
                 }
                 else
