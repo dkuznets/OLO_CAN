@@ -385,13 +385,6 @@
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button17 = new System.Windows.Forms.Button();
@@ -447,6 +440,14 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4457,7 +4458,8 @@
             this.time,
             this.crc32,
             this.vers,
-            this.comment});
+            this.comment,
+            this.id});
             this.dataGridView1.Location = new System.Drawing.Point(12, 287);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -4466,58 +4468,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(632, 108);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Имя файла";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // start
-            // 
-            this.start.HeaderText = "Адрес";
-            this.start.Name = "start";
-            this.start.ReadOnly = true;
-            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.start.Width = 50;
-            // 
-            // _size
-            // 
-            this._size.HeaderText = "Размер";
-            this._size.Name = "_size";
-            this._size.ReadOnly = true;
-            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._size.Width = 50;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Время";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.Width = 110;
-            // 
-            // crc32
-            // 
-            this.crc32.HeaderText = "CRC32";
-            this.crc32.Name = "crc32";
-            this.crc32.ReadOnly = true;
-            this.crc32.Width = 60;
-            // 
-            // vers
-            // 
-            this.vers.HeaderText = "Версия";
-            this.vers.Name = "vers";
-            this.vers.ReadOnly = true;
-            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vers.Width = 50;
-            // 
-            // comment
-            // 
-            this.comment.HeaderText = "Комментарий";
-            this.comment.Name = "comment";
-            this.comment.ReadOnly = true;
-            this.comment.Width = 200;
             // 
             // textBox4
             // 
@@ -4804,6 +4754,7 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "Скачать";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -4812,6 +4763,7 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "Заменить";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripSeparator1
             // 
@@ -4825,6 +4777,7 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem4.Text = "Стереть";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripSeparator2
             // 
@@ -4838,6 +4791,7 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "Проверить";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // Timer_UpdateTime
             // 
@@ -4936,6 +4890,7 @@
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem7.Text = "Закачать";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripSeparator3
             // 
@@ -4949,6 +4904,66 @@
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Имя файла";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // start
+            // 
+            this.start.HeaderText = "Адрес";
+            this.start.Name = "start";
+            this.start.ReadOnly = true;
+            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.start.Width = 50;
+            // 
+            // _size
+            // 
+            this._size.HeaderText = "Размер";
+            this._size.Name = "_size";
+            this._size.ReadOnly = true;
+            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._size.Width = 50;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 110;
+            // 
+            // crc32
+            // 
+            this.crc32.HeaderText = "CRC32";
+            this.crc32.Name = "crc32";
+            this.crc32.ReadOnly = true;
+            this.crc32.Width = 60;
+            // 
+            // vers
+            // 
+            this.vers.HeaderText = "Версия";
+            this.vers.Name = "vers";
+            this.vers.ReadOnly = true;
+            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vers.Width = 50;
+            // 
+            // comment
+            // 
+            this.comment.HeaderText = "Комментарий";
+            this.comment.Name = "comment";
+            this.comment.ReadOnly = true;
+            this.comment.Width = 200;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // Form1
             // 
@@ -5457,13 +5472,6 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn start;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn crc32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -5477,6 +5485,14 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn crc32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
 	}
 }
 

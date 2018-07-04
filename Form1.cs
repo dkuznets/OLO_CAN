@@ -7183,7 +7183,8 @@ namespace OLO_CAN
                         pDate.ToString(),
                         fff[i].crc32.ToString("X8"),
                         fff[i].version.ToString(),
-                        comment.Substring(0, comment.IndexOf('\0')));
+                        comment.Substring(0, comment.IndexOf('\0')),
+                        i);
                     numfiles++;
                 }
 			}
@@ -7253,6 +7254,37 @@ namespace OLO_CAN
                 }
             }
         }
+        #region Обработка меню
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать
+        {
+        
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
+        {
+
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть
+        {
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e) // проверить
+        {
+
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
+        {
+
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать
+        {
+
+        }
+        #endregion
 
     }
 
