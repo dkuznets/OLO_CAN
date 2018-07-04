@@ -7437,6 +7437,8 @@ namespace OLO_CAN
             }
             catch (Exception)
             {
+                listBox1.Items.Add("Ошибка! Контроллер не активирован.");
+                return;
             }
             msg_2_log(frame);
             if ((frame.data[0] >> 6) == 3)
