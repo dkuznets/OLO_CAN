@@ -6941,6 +6941,7 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
+            listBox1.Items.Clear();
         }
         private void bt_CloseCAN5_Click(object sender, EventArgs e)
         {
@@ -7408,6 +7409,18 @@ namespace OLO_CAN
             }
         }
         #endregion
+
+        private void bt_aktiv5_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            dataGridView1.Rows.Clear();
+        }
+
+        private void bt_reboot5_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            dataGridView1.Rows.Clear();
+        }
 
     }
 

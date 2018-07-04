@@ -384,6 +384,7 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
             this.bt_reboot5 = new System.Windows.Forms.Button();
@@ -455,7 +456,6 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4460,6 +4460,15 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 421);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(632, 56);
+            this.listBox1.TabIndex = 68;
+            // 
             // bt_verifi5
             // 
             this.bt_verifi5.Location = new System.Drawing.Point(549, 255);
@@ -4487,6 +4496,7 @@
             this.bt_reboot5.TabIndex = 65;
             this.bt_reboot5.Text = "Перезагрузить";
             this.bt_reboot5.UseVisualStyleBackColor = true;
+            this.bt_reboot5.Click += new System.EventHandler(this.bt_reboot5_Click);
             // 
             // rb_l5
             // 
@@ -4518,6 +4528,7 @@
             this.bt_aktiv5.TabIndex = 62;
             this.bt_aktiv5.Text = "Активировать";
             this.bt_aktiv5.UseVisualStyleBackColor = true;
+            this.bt_aktiv5.Click += new System.EventHandler(this.bt_aktiv5_Click);
             // 
             // progressBar1
             // 
@@ -5046,15 +5057,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 421);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(632, 56);
-            this.listBox1.TabIndex = 68;
             // 
             // Form1
             // 
