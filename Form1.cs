@@ -7380,7 +7380,6 @@ namespace OLO_CAN
             {
                 listBox1.Items.Add(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
-            Trace.WriteLine("");
         }
 
         #region основные кнопки
@@ -7403,8 +7402,9 @@ namespace OLO_CAN
                 }
                 msg_2_log(frame);
             }
-            catch (Exception)
+            catch (Exception ee)
             {
+                listBox1.Items.Add("Ошибка " + ee.ToString());
             }
         }
         #endregion
