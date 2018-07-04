@@ -7414,6 +7414,29 @@ namespace OLO_CAN
         {
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
+            //активация РУП
+            try
+            {
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.len = 2;
+                frame.data[0] = 0x5A;
+                frame.data[1] = 0x5A;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Add("Error send RUP_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    listBox1.Items.Add("Error recv ACK_ID");
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            msg_2_log(frame);
         }
 
         private void bt_reboot5_Click(object sender, EventArgs e)
