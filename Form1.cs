@@ -7258,7 +7258,7 @@ namespace OLO_CAN
         private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать
         {
             progressBar1.Value = 0;
-            Byte fileindex = (Byte)dataGridView1.SelectedRows[0].Cells[7].Value;
+            Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
