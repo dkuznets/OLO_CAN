@@ -7356,6 +7356,8 @@ namespace OLO_CAN
         #region основные кнопки
         private void bt_status5_Click(object sender, EventArgs e)
         {
+            if (frame.Equals(null))
+                return;
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             frame.len = 0;
