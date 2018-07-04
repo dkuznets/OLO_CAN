@@ -203,7 +203,11 @@ namespace OLO_CAN
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
             public Byte[] comment;
         };
-        FILETABLE[] fff = new FILETABLE[3];
+        FILETABLE[] fff = new FILETABLE[4];
+        UInt32 begin_filetable = 0;
+        UInt32 begin_flash1 = 0;
+        UInt32 size_flash1 = 0;
+        Boolean aktiv = false;
         
         #endregion
 
@@ -6746,35 +6750,6 @@ namespace OLO_CAN
                 Trace.Write(" 0x" + msg.data[i].ToString("X2"));
             Trace.WriteLine("");
         }
-        void print2_msg(canmsg_t msg)
-        {
-            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - rup_id.RIGHT_WING_DEV_ID)).ToString() + " len=" + msg.len.ToString());
-            Trace.Write(" Data:");
-            for (int i = 0; i < msg.len; i++)
-                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
-            Trace.WriteLine("");
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
-            {
-                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
-                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
-            }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
-            {
-                Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
-                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
-                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
-            }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
-            {
-                Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
-                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
-            }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FILE_TABLE_ADDRESS_ID)
-            {
-                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
-            }
-            Trace.WriteLine("");
-        }
         void print_msg(msg_t msg)
         {
             Trace.Write(" dID=" + msg.deviceID.ToString("X2") + " mID=" + msg.messageID.ToString("X2") + " len=" + msg.messageLen.ToString());
@@ -6905,6 +6880,35 @@ namespace OLO_CAN
         }
 
         #region newRUP
+        void print2_msg(canmsg_t msg)
+        {
+            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - rup_id.RIGHT_WING_DEV_ID)).ToString() + " len=" + msg.len.ToString());
+            Trace.Write(" Data:");
+            for (int i = 0; i < msg.len; i++)
+                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
+            Trace.WriteLine("");
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
+            {
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
+                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
+            }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
+            {
+                Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
+                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
+            }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
+            }
+            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FILE_TABLE_ADDRESS_ID)
+            {
+                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+            }
+            Trace.WriteLine("");
+        }
         #region CAN
         private void bt_OpenCAN5_Click(object sender, EventArgs e)
         {
@@ -7195,7 +7199,22 @@ namespace OLO_CAN
 
         private void button15_Click(object sender, EventArgs e) //границы
         {
-
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.len = 2;
+            frame.data[0] = 0x5A;
+            frame.data[1] = 0x5A;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send RUP_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK_ID");
+                return;
+            }
+            print2_msg(frame);
         }
         #endregion
 
@@ -7351,7 +7370,31 @@ namespace OLO_CAN
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать
         {
-
+            if(aktiv)
+            {
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                frame.len = 8;
+                Byte[] tmparr = new Byte[4];
+                frame.len = 8;
+                tmparr = BitConverter.GetBytes(begin_flash1);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n] = tmparr[n];
+                tmparr = BitConverter.GetBytes(size_flash1);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n + 4] = tmparr[n];
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Insert(0, "Error send ERASE_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    listBox1.Items.Insert(0, "Error recv ACK");
+                    return;
+                }
+                msg_2_log(frame);
+            }
         }
         #endregion
         void msg_2_log(canmsg_t msg)
@@ -7423,7 +7466,7 @@ namespace OLO_CAN
             dataGridView1.Rows.Clear();
 
             //активация РУП
-
+            aktiv = false;
             try
             {
                 Array.Clear(frame.data, 0, 8);
@@ -7503,12 +7546,15 @@ namespace OLO_CAN
                 dataGridView1.Rows.Add("Flash #1",
                     "0x" + (BitConverter.ToUInt32(frame.data, 0)).ToString("X"),
                     "0x" + (BitConverter.ToInt32(frame.data, 4)).ToString("X"));
+                begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
+                size_flash1 = BitConverter.ToUInt32(frame.data, 4);
             }
             else
             {
                 listBox1.Items.Insert(0,"Ошибка! Flash #1 не активирован.");
                 return;
             }
+            aktiv = true;
             msg_2_log(frame);
 
             // Запрос таблицы файлов
@@ -7527,7 +7573,7 @@ namespace OLO_CAN
                 return;
             }
             msg_2_log(frame);
-            UInt32 begin_filetable = BitConverter.ToUInt32(frame.data, 0);
+            begin_filetable = BitConverter.ToUInt32(frame.data, 0);
 
             // read file table 128 byte 3 блока!!!!
 
@@ -7584,7 +7630,7 @@ namespace OLO_CAN
                 handle.Free();
                 iii++;
 
-            } while (iii < 3);
+            } while (iii < 4);
             Byte numfiles = 0;
             for (int i = 0; i < 3; i++)
             {
