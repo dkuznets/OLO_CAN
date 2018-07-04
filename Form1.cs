@@ -7310,9 +7310,12 @@ namespace OLO_CAN
             foreach (byte b in crc32.ComputeHash(buf))
                 hash += b.ToString("X2");
             Trace.WriteLine(hash);
-            Trace.WriteLine(BitConverter.ToUInt32(crc32.ComputeHash(buf), 0).ToString());
+            Byte[] crc = new Byte[4];
+            crc = crc32.ComputeHash(buf);
+            Array.Reverse(crc);
+            Trace.WriteLine(BitConverter.ToUInt32(crc, 0).ToString());
             Trace.WriteLine(fff[fileindex].crc32.ToString());
-            if (BitConverter.ToUInt32(crc32.ComputeHash(buf), 0) == fff[fileindex].crc32)
+            if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
                 Trace.WriteLine("CRC32 OK");
             using (SaveFileDialog fd = new SaveFileDialog())
             {
