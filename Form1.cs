@@ -7254,25 +7254,6 @@ namespace OLO_CAN
             }
         }
 
-        private void dataGridView1_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
-        {
-            MessageBox.Show("!!!!");
-            if (e.RowIndex == 0)
-                e.ContextMenuStrip = contextMenuStrip2;
-            else
-                e.ContextMenuStrip = contextMenuStrip1;
-        }
-
-        private void dataGridView1_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
-        {
-            MessageBox.Show("???");
-            if (e.RowIndex == 0)
-                e.ContextMenuStrip = contextMenuStrip2;
-            else
-                e.ContextMenuStrip = contextMenuStrip1;
-        }
-
-
     }
 
     public class rup_id
