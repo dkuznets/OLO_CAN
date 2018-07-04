@@ -203,6 +203,7 @@ namespace OLO_CAN
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
             public Byte[] comment;
         };
+        FILETABLE[] fff = new FILETABLE[3];
         
         #endregion
 
@@ -7095,7 +7096,6 @@ namespace OLO_CAN
             UInt32 begin_filetable = BitConverter.ToUInt32(frame.data, 0);
 
             // read file table 128 byte
-            FILETABLE[] fff = new FILETABLE[3];
             Byte iii = 0;
             do
             {
@@ -7244,7 +7244,7 @@ namespace OLO_CAN
                         c.DataGridView.CurrentCell = c;
                         c.Selected = true;
                     }
-                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + " " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();// +" " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
                     contextMenuStrip1.Show(dataGridView1, pt);
                 }
                 else
@@ -7257,7 +7257,58 @@ namespace OLO_CAN
         #region Обработка меню
         private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать
         {
-        
+            progressBar1.Value = 0;
+            Byte fileindex = (Byte)dataGridView1.SelectedRows[0].Cells[7].Value;
+            progressBar1.Maximum = (int)fff[fileindex].size;
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            Byte[] tmparr = new Byte[4];
+            frame.len = 8;
+            tmparr = BitConverter.GetBytes(fff[fileindex].begin);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n] = tmparr[n];
+            tmparr = BitConverter.GetBytes(fff[fileindex].size);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n + 4] = tmparr[n];
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send READ_DATA_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK");
+                return;
+            }
+            print2_msg(frame);
+            UInt32 numpack = (fff[fileindex].size + 8 - 1) / 8;
+            //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
+            //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
+            //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
+            byte[] buf = new byte[fff[fileindex].size];
+            UInt32 buf_count = 0;
+            for (int i = 0; i < numpack; i++)
+            {
+                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.len = 0;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    Trace.WriteLine("Error send READ_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    Trace.WriteLine("Error recv READ_DATA_ID");
+                    return;
+                }
+                for (int j = 0; j < frame.len; j++)
+                {
+                    progressBar1.Value = (int)buf_count;
+                    buf[buf_count++] = frame.data[j];
+                }
+            }
+            Trace.WriteLine("file read");
+
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
