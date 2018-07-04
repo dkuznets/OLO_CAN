@@ -7306,7 +7306,11 @@ namespace OLO_CAN
             }
             Trace.WriteLine("file read");
             Crc32 crc32 = new Crc32();
-            if(BitConverter.ToUInt32(crc32.ComputeHash(buf),0) == fff[fileindex].crc32)
+            String hash = String.Empty;
+            foreach (byte b in crc32.ComputeHash(buf))
+                hash += b.ToString("X2");
+            Trace.WriteLine(hash);
+            if (BitConverter.ToUInt32(crc32.ComputeHash(buf), 0) == fff[fileindex].crc32)
                 Trace.WriteLine("CRC32 OK");
             using (SaveFileDialog fd = new SaveFileDialog())
             {
