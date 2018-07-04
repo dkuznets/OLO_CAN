@@ -7282,9 +7282,6 @@ namespace OLO_CAN
             }
             print2_msg(frame);
             UInt32 numpack = (fff[fileindex].size + 8 - 1) / 8;
-            //_u32 num_of_packets = (size + Const.CAN_MAX_PACKET_SIZE - 1) / Const.CAN_MAX_PACKET_SIZE;
-            //_u32 last_packet_size = (size % Const.CAN_MAX_PACKET_SIZE > 0 ? size % Const.CAN_MAX_PACKET_SIZE : Const.CAN_MAX_PACKET_SIZE);
-            //_u32 packets_in_block = Const.PACKETS_IN_BLOCK;
             byte[] buf = new byte[fff[fileindex].size];
             UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
@@ -7308,6 +7305,17 @@ namespace OLO_CAN
                 }
             }
             Trace.WriteLine("file read");
+
+            using (SaveFileDialog fd = new SaveFileDialog())
+            {
+                fd.Filter = "Файлы (*.bin)|*.bin";
+                fd.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                fd.FileName = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                if (fd.ShowDialog() != DialogResult.OK)
+                    return;
+                FileStream fs = new FileStream(fd.FileName, FileMode.Create, FileAccess.Write);
+                fs.Write(buf, 0, (int)fff[fileindex].size);
+            }
 
         }
 
