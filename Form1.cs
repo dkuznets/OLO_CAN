@@ -7353,6 +7353,36 @@ namespace OLO_CAN
 
         }
         #endregion
+        void msg_2_log(canmsg_t msg)
+        {
+            listBox1.Items.Add(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
+            String tttt = " Data:";
+            for (int i = 0; i < msg.len; i++)
+                tttt += " 0x" + msg.data[i].ToString("X2");
+            listBox1.Items.Add(tttt);
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
+            {
+                listBox1.Items.Add(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
+                listBox1.Items.Add(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
+            {
+                listBox1.Items.Add(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
+                listBox1.Items.Add(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
+                listBox1.Items.Add(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                listBox1.Items.Add(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+                listBox1.Items.Add(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
+            {
+                listBox1.Items.Add(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+            }
+            Trace.WriteLine("");
+        }
+
         #region основные кнопки
         private void bt_status5_Click(object sender, EventArgs e)
         {
@@ -7363,15 +7393,15 @@ namespace OLO_CAN
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    Trace.WriteLine("Error send STATUS_REQUEST_ID");
+                    listBox1.Items.Add("Error send STATUS_REQUEST_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+                    listBox1.Items.Add("Error recv STATUS_RESPONCE_ID");
                     return;
                 }
-                print2_msg(frame);
+                msg_2_log(frame);
             }
             catch (Exception)
             {
