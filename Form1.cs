@@ -7414,11 +7414,13 @@ namespace OLO_CAN
         {
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
+
             //активация РУП
+
             try
             {
                 Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.RUP_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.id = rup_id.RUP_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                 frame.len = 2;
                 frame.data[0] = 0x5A;
                 frame.data[1] = 0x5A;
@@ -7437,6 +7439,171 @@ namespace OLO_CAN
             {
             }
             msg_2_log(frame);
+            if ((frame.data[0] >> 6) == 3)
+            { 
+                // запрос статуса
+
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                frame.len = 0;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Add("Error send STATUS_REQUEST_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    listBox1.Items.Add("Error recv STATUS_RESPONCE_ID");
+                    return;
+                }
+                if((frame.data[0] & 0x3) == 3)
+                    listBox1.Items.Add("РУП активирован.");
+                else
+                {
+                    listBox1.Items.Clear();
+                    listBox1.Items.Add("Ошибка! РУП не активирован.");
+                    return;
+                }
+            }
+            else
+            {
+                listBox1.Items.Clear();
+                listBox1.Items.Add("Ошибка! РУП не активирован.");
+                return;
+            }
+
+            // активация флеш 1
+
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.ACTIV_FLASH_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            frame.len = 1;
+            frame.data[0] = 1;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                listBox1.Items.Add("Error send ACTIV_FLASH_ID 1");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                listBox1.Items.Add("Error recv ACK_ID");
+                return;
+            }
+            msg_2_log(frame);
+            if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                dataGridView1.Rows.Add("Flash #1",
+                    "0x" + (BitConverter.ToUInt32(frame.data, 0)).ToString("X"),
+                    "0x" + (BitConverter.ToInt32(frame.data, 4)).ToString("X"));
+            }
+            else
+            {
+                listBox1.Items.Add("Ошибка! Flash #1 не активирован.");
+                return;
+            }
+            msg_2_log(frame);
+
+            // Запрос таблицы файлов
+
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.FILE_TABLE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            frame.len = 0;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                listBox1.Items.Add("Error send FILE_TABLE_REQUEST_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                listBox1.Items.Add("Error recv FILE_TABLE_ADDRESS_ID");
+                return;
+            }
+            msg_2_log(frame);
+            UInt32 begin_filetable = BitConverter.ToUInt32(frame.data, 0);
+
+            // read file table 128 byte 3 блока!!!!
+
+            Byte iii = 0;
+            do
+            {
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                Byte[] tmparr = new Byte[4];
+                frame.len = 8;
+                tmparr = BitConverter.GetBytes(begin_filetable + 128 * iii);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n] = tmparr[n];
+                tmparr = BitConverter.GetBytes((UInt32)128);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n + 4] = tmparr[n];
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Add("Error send READ_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    listBox1.Items.Add("Error recv ACK");
+                    return;
+                }
+                msg_2_log(frame);
+                UInt32 numpack = (128 + 8 - 1) / 8;
+                byte[] buf = new byte[128];
+                UInt32 buf_count = 0;
+                for (int i = 0; i < numpack; i++)
+                {
+                    frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                    frame.len = 0;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        listBox1.Items.Add("Error send READ_DATA_ID");
+                        return;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                    {
+                        listBox1.Items.Add("Error recv READ_DATA_ID");
+                        return;
+                    }
+                    for (int j = 0; j < frame.len; j++)
+                    {
+                        buf[buf_count++] = frame.data[j];
+                    }
+                }
+                Trace.WriteLine("file table read");
+
+                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
+                fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
+                handle.Free();
+                iii++;
+
+            } while (iii < 3);
+            Byte numfiles = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
+                {
+                    String name = Encoding.Default.GetString(fff[i].name, 0, 28);
+                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
+                    String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
+                    listBox1.Items.Add("Файл: " + name.Substring(0, name.IndexOf('\0')) +
+                        " Адрес: " + fff[i].begin.ToString("X") +
+                        " Размер: " + fff[i].size.ToString("X8") +
+                        " Время: " + pDate.ToString() +
+                        " CRC32: " + fff[i].crc32.ToString("X8") +
+                        " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
+
+                    dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
+                        "0x" + fff[i].begin.ToString("X"),
+                        "0x" + fff[i].size.ToString("X"),
+                        pDate.ToString(),
+                        fff[i].crc32.ToString("X8"),
+                        fff[i].version.ToString(),
+                        comment.Substring(0, comment.IndexOf('\0')),
+                        i);
+                    numfiles++;
+                }
+            }
+            listBox1.Items.Add("Файлов: " + numfiles.ToString());
+
         }
 
         private void bt_reboot5_Click(object sender, EventArgs e)
