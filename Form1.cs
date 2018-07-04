@@ -7383,6 +7383,13 @@ namespace OLO_CAN
             }
         }
 
+        String getver(UInt32 num)
+        {
+            Byte[] v = new Byte[4];
+            v = BitConverter.GetBytes(num);
+            return v[0].ToString() + "." + v[1].ToString() + "." + v[2].ToString() + "." + v[3].ToString();
+        }
+
         #region основные кнопки
         private void bt_status5_Click(object sender, EventArgs e)
         {
@@ -7588,9 +7595,10 @@ namespace OLO_CAN
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
                     listBox1.Items.Add("Файл: " + name.Substring(0, name.IndexOf('\0')) +
                         " Адрес: " + fff[i].begin.ToString("X") +
-                        " Размер: " + fff[i].size.ToString("X8") +
+                        " Размер: " + fff[i].size.ToString("X") +
                         " Время: " + pDate.ToString() +
                         " CRC32: " + fff[i].crc32.ToString("X8") +
+                        " версия " + getver(fff[i].version) + 
                         " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
 
                     dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
@@ -7598,7 +7606,7 @@ namespace OLO_CAN
                         "0x" + fff[i].size.ToString("X"),
                         pDate.ToString(),
                         fff[i].crc32.ToString("X8"),
-                        fff[i].version.ToString(),
+                        getver(fff[i].version),
                         comment.Substring(0, comment.IndexOf('\0')),
                         i);
                     numfiles++;
