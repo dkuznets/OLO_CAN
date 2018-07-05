@@ -135,6 +135,12 @@
     <Compile Include="solo2_select.cs" />
     <Compile Include="solo2_select_long.cs" />
     <Compile Include="solo2_select_lowgain.cs" />
+    <Compile Include="UploadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadFile.Designer.cs">
+      <DependentUpon>UploadFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZoomedForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UploadFile.resx">
+      <DependentUpon>UploadFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ZoomedForm.resx">
       <DependentUpon>ZoomedForm.cs</DependentUpon>
     </EmbeddedResource>
