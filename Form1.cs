@@ -7444,6 +7444,7 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
 
                 fff[filenum] = new FILETABLE();
+                filetable_sort();
                 filetable_save();
                 filetable_2_dg();
             }
