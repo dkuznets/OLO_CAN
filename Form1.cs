@@ -7713,7 +7713,6 @@ namespace OLO_CAN
                         buf[buf_count++] = frame.data[j];
                     }
                 }
-                Trace.WriteLine("file table read");
 
                 GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
                 fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
@@ -7721,6 +7720,7 @@ namespace OLO_CAN
                 iii++;
 
             } while (iii < 4);
+            Trace.WriteLine("file table read");
         }
         void filetable_save()
         {
@@ -7812,7 +7812,6 @@ namespace OLO_CAN
                     frame.len = 8;
                     for (int j = 0; j < 8; j++)
                         frame.data[j] = buf[i * 8 + j];
-                }
                     if (uniCAN == null || !uniCAN.Send(ref frame))
                     {
                         listBox1.Items.Insert(0, "Error send DATA_SEGMENT_ID");
@@ -7823,6 +7822,7 @@ namespace OLO_CAN
                         listBox1.Items.Insert(0, "Error recv ACK");
                         return;
                     }
+                }
                 Trace.WriteLine("file table saved");
             }
         }
