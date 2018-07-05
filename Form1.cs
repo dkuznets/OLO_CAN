@@ -7484,6 +7484,9 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error send ERASE_ID");
                     return;
                 }
+                progressBar1.Value = 0;
+                progressBar1.Maximum = 16;
+                int pbval = 0;
                 do
                 {
                     Array.Clear(frame.data, 0, 8);
@@ -7500,6 +7503,7 @@ namespace OLO_CAN
                         return;
                     }
                     print2_msg(frame);
+                    progressBar1.Value = pbval++;
                 } while ((frame.data[2] >> 6) == 0);
                 listBox1.Items.Insert(0, "Форматирование флеша завершено.");
             }
