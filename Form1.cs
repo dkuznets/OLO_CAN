@@ -7019,7 +7019,26 @@ namespace OLO_CAN
         }
         private void button12_Click(object sender, EventArgs e) //стереть
         {
-
+            frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            frame.len = 8;
+            Byte[] tmparr = new Byte[4];
+            tmparr = BitConverter.GetBytes(0x4000);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n] = tmparr[n];
+            tmparr = BitConverter.GetBytes(0x2000);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n + 4] = tmparr[n];
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                listBox1.Items.Insert(0, "Error send ERASE_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 50000))
+            {
+                listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
+                return;
+            }
+            msg_2_log(frame);
         }
         private void button8_Click(object sender, EventArgs e) //акт флеш1
         {
