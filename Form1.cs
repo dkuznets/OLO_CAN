@@ -7444,34 +7444,34 @@ namespace OLO_CAN
             {
                 // запрос границ стирания
 
-                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.AREA_ERASE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
-                Byte[] tmparr = new Byte[4];
-                frame.len = 8;
-                tmparr = BitConverter.GetBytes(0x4000);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n] = tmparr[n];
-                tmparr = BitConverter.GetBytes(0x3E000);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n + 4] = tmparr[n];
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    listBox1.Items.Insert(0, "Error send AREA_ERASE_REQUEST_ID");
-                    return;
-                }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                {
-                    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
-                    return;
-                }
-                msg_2_log(frame);
-                print2_msg(frame);
+                //Array.Clear(frame.data, 0, 8);
+                //frame.id = rup_id.AREA_ERASE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                //frame.len = 8;
+                //Byte[] tmparr = new Byte[4];
+                //frame.len = 8;
+                //tmparr = BitConverter.GetBytes(0x4000);
+                //for (byte n = 0; n < 4; n++)
+                //    frame.data[n] = tmparr[n];
+                //tmparr = BitConverter.GetBytes(0x3E000);
+                //for (byte n = 0; n < 4; n++)
+                //    frame.data[n + 4] = tmparr[n];
+                //if (uniCAN == null || !uniCAN.Send(ref frame))
+                //{
+                //    listBox1.Items.Insert(0, "Error send AREA_ERASE_REQUEST_ID");
+                //    return;
+                //}
+                //if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                //{
+                //    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
+                //    return;
+                //}
+                //msg_2_log(frame);
+                //print2_msg(frame);
 
                 Array.Clear(frame.data, 0, 8);
                 frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                 frame.len = 8;
-//                Byte[] tmparr = new Byte[4];
+                Byte[] tmparr = new Byte[4];
                 frame.len = 8;
                 tmparr = BitConverter.GetBytes(begin_flash1);
                 for (byte n = 0; n < 4; n++)
@@ -7484,23 +7484,23 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error send ERASE_ID");
                     return;
                 }
-                //do
-                //{
-                //    Array.Clear(frame.data, 0, 8);
-                //    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                //    frame.len = 0;
-                //    if (uniCAN == null || !uniCAN.Send(ref frame))
-                //    {
-                //        Trace.WriteLine("Error send STATUS_REQUEST_ID");
-                //        return;
-                //    }
-                //    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                //    {
-                //        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-                //        return;
-                //    }
-                //    print2_msg(frame);
-                //} while ((frame.data[2] >> 6) == 0);
+                do
+                {
+                    Array.Clear(frame.data, 0, 8);
+                    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                    frame.len = 0;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        Trace.WriteLine("Error send STATUS_REQUEST_ID");
+                        return;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                    {
+                        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+                        return;
+                    }
+                    print2_msg(frame);
+                } while ((frame.data[2] >> 6) == 0);
                 listBox1.Items.Insert(0, "Форматирование флеша завершено.");
             }
         }
