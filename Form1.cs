@@ -7082,6 +7082,8 @@ namespace OLO_CAN
         }
         private void button11_Click(object sender, EventArgs e) //чтение
         {
+            filetable_sort();
+            Trace.WriteLine("qqqqq");
 
         }
         private void button13_Click(object sender, EventArgs e) //статус
@@ -7443,7 +7445,7 @@ namespace OLO_CAN
 
                 fff[filenum] = new FILETABLE();
                 filetable_save();
-                filetable2dg();
+                filetable_2_dg();
             }
         }
 
@@ -7651,7 +7653,7 @@ namespace OLO_CAN
                 // Запрос таблицы файлов
 
                 filetable_load();
-                filetable2dg();
+                filetable_2_dg();
             }
             else
             {
@@ -7665,8 +7667,8 @@ namespace OLO_CAN
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
         }
-         #endregion
-       void filetable_load()
+        #endregion
+        void filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.FILE_TABLE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -7843,8 +7845,9 @@ namespace OLO_CAN
                 Trace.WriteLine("file table saved");
             }
         }
-        void filetable2dg()
+        void filetable_2_dg()
         {
+            dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("Flash #1",
                 "0x" + begin_flash1.ToString("X"),
                 "0x" + size_flash1.ToString("X"));
@@ -7873,6 +7876,13 @@ namespace OLO_CAN
                         i);
                 }
             }
+        }
+        void filetable_sort()
+        {
+            Array.Sort(fff, delegate(FILETABLE fff1, FILETABLE fff2)
+            {
+                return fff1.begin.CompareTo(fff2.begin);
+            });
         }
 
 
