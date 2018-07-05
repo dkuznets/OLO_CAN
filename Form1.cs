@@ -7456,6 +7456,8 @@ namespace OLO_CAN
         }
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
+            UploadFile uf = new UploadFile();
+            uf.ShowDialog();
         }
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать
         {
