@@ -42,7 +42,7 @@ namespace OLO_CAN
                 Array.Reverse(crc);
                 tb_fname.Text = fi.FullName;
                 mtb_size.Text = fi.Length.ToString("X");
-                tb_crc32.Text = hash;
+                mtb_crc32.Text = hash;
                 UInt32 _crc = BitConverter.ToUInt32(crc, 0);
 
                 // 

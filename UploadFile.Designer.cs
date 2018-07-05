@@ -33,6 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.mtb_size = new System.Windows.Forms.MaskedTextBox();
             this.mtb_begin = new System.Windows.Forms.MaskedTextBox();
+            this.mtb_crc32 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // tb_fname
@@ -44,7 +45,7 @@
             // 
             // tb_crc32
             // 
-            this.tb_crc32.Location = new System.Drawing.Point(172, 38);
+            this.tb_crc32.Location = new System.Drawing.Point(172, 64);
             this.tb_crc32.Name = "tb_crc32";
             this.tb_crc32.ReadOnly = true;
             this.tb_crc32.Size = new System.Drawing.Size(100, 20);
@@ -81,11 +82,21 @@
             this.mtb_begin.Size = new System.Drawing.Size(74, 20);
             this.mtb_begin.TabIndex = 6;
             // 
+            // mtb_crc32
+            // 
+            this.mtb_crc32.Location = new System.Drawing.Point(172, 38);
+            this.mtb_crc32.Mask = ">AAAAAAAA";
+            this.mtb_crc32.Name = "mtb_crc32";
+            this.mtb_crc32.ReadOnly = true;
+            this.mtb_crc32.Size = new System.Drawing.Size(100, 20);
+            this.mtb_crc32.TabIndex = 7;
+            // 
             // UploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 262);
+            this.Controls.Add(this.mtb_crc32);
             this.Controls.Add(this.mtb_begin);
             this.Controls.Add(this.mtb_size);
             this.Controls.Add(this.button1);
@@ -106,5 +117,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox mtb_size;
         private System.Windows.Forms.MaskedTextBox mtb_begin;
+        private System.Windows.Forms.MaskedTextBox mtb_crc32;
     }
 }
