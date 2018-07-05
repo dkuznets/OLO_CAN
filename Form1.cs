@@ -7763,14 +7763,13 @@ namespace OLO_CAN
 
             // структуру в массив
 
-            Byte[] buf = new Byte[Marshal.SizeOf(fff)];
+            Byte[] buf = new Byte[512];
             for (int i = 0; i < 4; i++)
             {
-                Byte[] arr = new Byte[Marshal.SizeOf(fff[i])];
+                Byte[] arr = new Byte[128];
                 arr = StructToBuff<FILETABLE>(fff[i]);
-                Array.Copy(arr, 0, buf, Marshal.SizeOf(fff[i]) * i, Marshal.SizeOf(fff[i]));
+                Array.Copy(arr, 0, buf, 128 * i, 128);
             }
-            uint qq = (uint)Marshal.SizeOf(fff);
             for (int i = 0; i < 16; i++)
             {
                 for (int j = 0; j < 32; j++)
