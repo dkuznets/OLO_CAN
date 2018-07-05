@@ -7652,7 +7652,7 @@ namespace OLO_CAN
             {
                 dataGridView1.Rows.Add("Flash #1",
                     "0x" + (BitConverter.ToUInt32(frame.data, 0)).ToString("X"),
-                    "0x" + (BitConverter.ToInt32(frame.data, 4)).ToString("X"));
+                    "0x" + (BitConverter.ToInt32(frame.data, 4) + 1).ToString("X"));
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
                 size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1;
             }
