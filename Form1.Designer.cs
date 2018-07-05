@@ -4467,12 +4467,12 @@
             this.listBox1.Location = new System.Drawing.Point(12, 483);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(642, 108);
+            this.listBox1.Size = new System.Drawing.Size(634, 108);
             this.listBox1.TabIndex = 68;
             // 
             // bt_verifi5
             // 
-            this.bt_verifi5.Location = new System.Drawing.Point(559, 255);
+            this.bt_verifi5.Location = new System.Drawing.Point(551, 255);
             this.bt_verifi5.Name = "bt_verifi5";
             this.bt_verifi5.Size = new System.Drawing.Size(95, 23);
             this.bt_verifi5.TabIndex = 67;
@@ -4481,7 +4481,7 @@
             // 
             // bt_status5
             // 
-            this.bt_status5.Location = new System.Drawing.Point(458, 255);
+            this.bt_status5.Location = new System.Drawing.Point(450, 255);
             this.bt_status5.Name = "bt_status5";
             this.bt_status5.Size = new System.Drawing.Size(95, 23);
             this.bt_status5.TabIndex = 66;
@@ -4535,7 +4535,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 463);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(642, 13);
+            this.progressBar1.Size = new System.Drawing.Size(634, 13);
             this.progressBar1.TabIndex = 61;
             // 
             // dataGridView1
@@ -4559,7 +4559,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(634, 136);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
