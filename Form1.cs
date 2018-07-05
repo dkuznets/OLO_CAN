@@ -7078,7 +7078,7 @@ namespace OLO_CAN
         }
         private void button10_Click(object sender, EventArgs e) //запись
         {
-
+            filetable_save();
         }
         private void button11_Click(object sender, EventArgs e) //чтение
         {
