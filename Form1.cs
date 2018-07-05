@@ -7646,35 +7646,7 @@ namespace OLO_CAN
             // Запрос таблицы файлов
 
             filetable_load();
-
-            Byte numfiles = 0;
-            for (int i = 0; i < 3; i++)
-            {
-                if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
-                {
-                    String name = Encoding.Default.GetString(fff[i].name, 0, 28);
-                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
-                    String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
-                    listBox1.Items.Insert(0,"Файл: " + name.Substring(0, name.IndexOf('\0')) +
-                        " Адрес: " + fff[i].begin.ToString("X") +
-                        " Размер: " + fff[i].size.ToString("X") +
-                        " Время: " + pDate.ToString() +
-                        " CRC32: " + fff[i].crc32.ToString("X8") +
-                        " версия " + getver(fff[i].version) + 
-                        " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
-
-                    dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
-                        "0x" + fff[i].begin.ToString("X"),
-                        "0x" + fff[i].size.ToString("X"),
-                        pDate.ToString(),
-                        fff[i].crc32.ToString("X8"),
-                        getver(fff[i].version),
-                        comment.Substring(0, comment.IndexOf('\0')),
-                        i);
-                    numfiles++;
-                }
-            }
-            listBox1.Items.Insert(0,"Файлов: " + numfiles.ToString());
+            filetable2dg();
 
         }
 
@@ -7759,6 +7731,38 @@ namespace OLO_CAN
 
             } while (iii < 4);
         }
+        void filetable_save()
+        {
+        }
+        void filetable2dg()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
+                {
+                    String name = Encoding.Default.GetString(fff[i].name, 0, 28);
+                    DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
+                    String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
+                    listBox1.Items.Insert(0, "Файл: " + name.Substring(0, name.IndexOf('\0')) +
+                        " Адрес: " + fff[i].begin.ToString("X") +
+                        " Размер: " + fff[i].size.ToString("X") +
+                        " Время: " + pDate.ToString() +
+                        " CRC32: " + fff[i].crc32.ToString("X8") +
+                        " версия " + getver(fff[i].version) +
+                        " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
+
+                    dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
+                        "0x" + fff[i].begin.ToString("X"),
+                        "0x" + fff[i].size.ToString("X"),
+                        pDate.ToString(),
+                        fff[i].crc32.ToString("X8"),
+                        getver(fff[i].version),
+                        comment.Substring(0, comment.IndexOf('\0')),
+                        i);
+                }
+            }
+        }
+
 
     }
 
