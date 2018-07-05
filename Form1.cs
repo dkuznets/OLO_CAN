@@ -7422,6 +7422,34 @@ namespace OLO_CAN
                     return;
                 }
                 msg_2_log(frame);
+
+                progressBar1.Value = 0;
+                progressBar1.Maximum = 15;
+                int pbval = 0;
+                do
+                {
+                    Array.Clear(frame.data, 0, 8);
+                    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                    frame.len = 0;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        Trace.WriteLine("Error send STATUS_REQUEST_ID");
+                        return;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                    {
+                        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+                        return;
+                    }
+                    print2_msg(frame);
+                    progressBar1.Value = pbval++;
+                } while ((frame.data[2] >> 6) == 0);
+                listBox1.Items.Insert(0, "Удаление файла завершено.");
+                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
+
+                fff[filenum] = new FILETABLE();
+                filetable_save();
+                filetable2dg();
             }
         }
 
@@ -7538,7 +7566,6 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0,"Ошибка " + ee.ToString());
             }
         }
-        #endregion
         private void bt_aktiv5_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -7647,7 +7674,8 @@ namespace OLO_CAN
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
         }
-        void filetable_load()
+         #endregion
+       void filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.FILE_TABLE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -7804,8 +7832,6 @@ namespace OLO_CAN
             msg_2_log(frame);
             if ((frame.data[0] >> 6) == 1)
             {
-                UInt32 numpack = (128 + 8 - 1) / 8;
-                UInt32 buf_count = 0;
                 for (int i = 0; i < 64; i++)
                 {
                     frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
