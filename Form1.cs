@@ -7643,24 +7643,21 @@ namespace OLO_CAN
             msg_2_log(frame);
             if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
-                dataGridView1.Rows.Add("Flash #1",
-                    "0x" + (BitConverter.ToUInt32(frame.data, 0)).ToString("X"),
-                    "0x" + (BitConverter.ToInt32(frame.data, 4) + 1 - 0x4000).ToString("X"));
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
                 size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000;
+                aktiv = true;
+                msg_2_log(frame);
+
+                // Запрос таблицы файлов
+
+                filetable_load();
+                filetable2dg();
             }
             else
             {
                 listBox1.Items.Insert(0,"Ошибка! Flash #1 не активирован.");
                 return;
             }
-            aktiv = true;
-            msg_2_log(frame);
-
-            // Запрос таблицы файлов
-
-            filetable_load();
-            filetable2dg();
 
         }
         private void bt_reboot5_Click(object sender, EventArgs e)
@@ -7848,7 +7845,9 @@ namespace OLO_CAN
         }
         void filetable2dg()
         {
-
+            dataGridView1.Rows.Add("Flash #1",
+                "0x" + begin_flash1.ToString("X"),
+                "0x" + size_flash1.ToString("X"));
             for (int i = 0; i < 4; i++)
             {
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
