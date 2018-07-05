@@ -7466,6 +7466,7 @@ namespace OLO_CAN
                     return;
                 }
                 msg_2_log(frame);
+                print2_msg(frame);
 
                 Array.Clear(frame.data, 0, 8);
                 frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -7652,9 +7653,9 @@ namespace OLO_CAN
             {
                 dataGridView1.Rows.Add("Flash #1",
                     "0x" + (BitConverter.ToUInt32(frame.data, 0)).ToString("X"),
-                    "0x" + (BitConverter.ToInt32(frame.data, 4) + 1).ToString("X"));
+                    "0x" + (BitConverter.ToInt32(frame.data, 4) + 1 - 0x4000).ToString("X"));
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
-                size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1;
+                size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000;
             }
             else
             {
