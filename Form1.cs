@@ -7485,7 +7485,7 @@ namespace OLO_CAN
                     return;
                 }
                 progressBar1.Value = 0;
-                progressBar1.Maximum = 16;
+                progressBar1.Maximum = 15;
                 int pbval = 0;
                 do
                 {
