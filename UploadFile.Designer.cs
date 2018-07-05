@@ -32,6 +32,9 @@
             this.tb_begin = new System.Windows.Forms.TextBox();
             this.tb_size = new System.Windows.Forms.TextBox();
             this.tb_crc32 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.mtb_size = new System.Windows.Forms.MaskedTextBox();
+            this.mtb_begin = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // tb_fname
@@ -62,11 +65,39 @@
             this.tb_crc32.Size = new System.Drawing.Size(100, 20);
             this.tb_crc32.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(477, 227);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // mtb_size
+            // 
+            this.mtb_size.Location = new System.Drawing.Point(119, 65);
+            this.mtb_size.Mask = "\\0x";
+            this.mtb_size.Name = "mtb_size";
+            this.mtb_size.Size = new System.Drawing.Size(100, 20);
+            this.mtb_size.TabIndex = 5;
+            // 
+            // mtb_begin
+            // 
+            this.mtb_begin.Location = new System.Drawing.Point(12, 65);
+            this.mtb_begin.Mask = "\\0x";
+            this.mtb_begin.Name = "mtb_begin";
+            this.mtb_begin.Size = new System.Drawing.Size(100, 20);
+            this.mtb_begin.TabIndex = 6;
+            // 
             // UploadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 262);
+            this.Controls.Add(this.mtb_begin);
+            this.Controls.Add(this.mtb_size);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tb_crc32);
             this.Controls.Add(this.tb_size);
             this.Controls.Add(this.tb_begin);
@@ -85,5 +116,8 @@
         private System.Windows.Forms.TextBox tb_begin;
         private System.Windows.Forms.TextBox tb_size;
         private System.Windows.Forms.TextBox tb_crc32;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox mtb_size;
+        private System.Windows.Forms.MaskedTextBox mtb_begin;
     }
 }
