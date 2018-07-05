@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.tb_fname = new System.Windows.Forms.TextBox();
-            this.tb_begin = new System.Windows.Forms.TextBox();
-            this.tb_size = new System.Windows.Forms.TextBox();
             this.tb_crc32 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.mtb_size = new System.Windows.Forms.MaskedTextBox();
@@ -44,24 +42,11 @@
             this.tb_fname.Size = new System.Drawing.Size(540, 20);
             this.tb_fname.TabIndex = 0;
             // 
-            // tb_begin
-            // 
-            this.tb_begin.Location = new System.Drawing.Point(13, 39);
-            this.tb_begin.Name = "tb_begin";
-            this.tb_begin.Size = new System.Drawing.Size(100, 20);
-            this.tb_begin.TabIndex = 1;
-            // 
-            // tb_size
-            // 
-            this.tb_size.Location = new System.Drawing.Point(119, 38);
-            this.tb_size.Name = "tb_size";
-            this.tb_size.Size = new System.Drawing.Size(100, 20);
-            this.tb_size.TabIndex = 2;
-            // 
             // tb_crc32
             // 
-            this.tb_crc32.Location = new System.Drawing.Point(225, 38);
+            this.tb_crc32.Location = new System.Drawing.Point(172, 38);
             this.tb_crc32.Name = "tb_crc32";
+            this.tb_crc32.ReadOnly = true;
             this.tb_crc32.Size = new System.Drawing.Size(100, 20);
             this.tb_crc32.TabIndex = 3;
             // 
@@ -77,18 +62,23 @@
             // 
             // mtb_size
             // 
-            this.mtb_size.Location = new System.Drawing.Point(119, 65);
-            this.mtb_size.Mask = "\\0x>AAAAAAAA";
+            this.mtb_size.AsciiOnly = true;
+            this.mtb_size.Location = new System.Drawing.Point(92, 38);
+            this.mtb_size.Mask = "\\0x>aaaaaaaa";
             this.mtb_size.Name = "mtb_size";
-            this.mtb_size.Size = new System.Drawing.Size(100, 20);
+            this.mtb_size.PromptChar = ' ';
+            this.mtb_size.ReadOnly = true;
+            this.mtb_size.Size = new System.Drawing.Size(74, 20);
             this.mtb_size.TabIndex = 5;
             // 
             // mtb_begin
             // 
-            this.mtb_begin.Location = new System.Drawing.Point(12, 65);
+            this.mtb_begin.AsciiOnly = true;
+            this.mtb_begin.Location = new System.Drawing.Point(12, 38);
             this.mtb_begin.Mask = "\\0x>aaaaaaaa";
             this.mtb_begin.Name = "mtb_begin";
-            this.mtb_begin.Size = new System.Drawing.Size(100, 20);
+            this.mtb_begin.PromptChar = ' ';
+            this.mtb_begin.Size = new System.Drawing.Size(74, 20);
             this.mtb_begin.TabIndex = 6;
             // 
             // UploadFile
@@ -100,8 +90,6 @@
             this.Controls.Add(this.mtb_size);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tb_crc32);
-            this.Controls.Add(this.tb_size);
-            this.Controls.Add(this.tb_begin);
             this.Controls.Add(this.tb_fname);
             this.Name = "UploadFile";
             this.Text = "UploadFile";
@@ -114,8 +102,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox tb_fname;
-        private System.Windows.Forms.TextBox tb_begin;
-        private System.Windows.Forms.TextBox tb_size;
         private System.Windows.Forms.TextBox tb_crc32;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox mtb_size;

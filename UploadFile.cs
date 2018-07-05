@@ -41,7 +41,6 @@ namespace OLO_CAN
                 crc = crc32.ComputeHash(rdfile);
                 Array.Reverse(crc);
                 tb_fname.Text = fi.FullName;
-                tb_size.Text = fi.Length.ToString("X");
                 mtb_size.Text = fi.Length.ToString("X");
                 tb_crc32.Text = hash;
                 UInt32 _crc = BitConverter.ToUInt32(crc, 0);
