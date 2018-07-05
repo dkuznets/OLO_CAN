@@ -7782,7 +7782,7 @@ namespace OLO_CAN
         }
         void filetable2dg()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
                 {
