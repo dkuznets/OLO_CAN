@@ -7416,12 +7416,6 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error send ERASE_ID");
                     return;
                 }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-                {
-                    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
-                    return;
-                }
-                msg_2_log(frame);
 
                 progressBar1.Value = 0;
                 progressBar1.Maximum = 15;
