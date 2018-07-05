@@ -78,7 +78,7 @@
             // mtb_size
             // 
             this.mtb_size.Location = new System.Drawing.Point(119, 65);
-            this.mtb_size.Mask = "\\0xAAAAAAAA";
+            this.mtb_size.Mask = "\\0x>AAAAAAAA";
             this.mtb_size.Name = "mtb_size";
             this.mtb_size.Size = new System.Drawing.Size(100, 20);
             this.mtb_size.TabIndex = 5;
@@ -86,7 +86,7 @@
             // mtb_begin
             // 
             this.mtb_begin.Location = new System.Drawing.Point(12, 65);
-            this.mtb_begin.Mask = "\\0xAAAAAAAA";
+            this.mtb_begin.Mask = "\\0x>aaaaaaaa";
             this.mtb_begin.Name = "mtb_begin";
             this.mtb_begin.Size = new System.Drawing.Size(100, 20);
             this.mtb_begin.TabIndex = 6;
