@@ -7770,14 +7770,14 @@ namespace OLO_CAN
                 arr = StructToBuff<FILETABLE>(fff[i]);
                 Array.Copy(arr, 0, buf, 128 * i, 128);
             }
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 64; j++)
-                {
-                    Trace.Write(buf[j+i*64].ToString("X2") + " ");
-                }
-                Trace.WriteLine("");
-            }
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    for (int j = 0; j < 64; j++)
+            //    {
+            //        Trace.Write(buf[j+i*64].ToString("X2") + " ");
+            //    }
+            //    Trace.WriteLine("");
+            //}
 
             // записать в флеш
 
