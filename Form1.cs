@@ -7215,7 +7215,6 @@ namespace OLO_CAN
             Trace.WriteLine("Файлов: " + numfiles.ToString());
 
         }
-
         private void button15_Click(object sender, EventArgs e) //границы
         {
             Array.Clear(frame.data, 0, 8);
@@ -7236,14 +7235,12 @@ namespace OLO_CAN
             print2_msg(frame);
         }
         #endregion
-
         private void button16_Click(object sender, EventArgs e)
         {
             textBox2.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString("X8");
             textBox1.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString();
         }
         #endregion
-
         private void button17_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -7432,12 +7429,10 @@ namespace OLO_CAN
         {
 
         }
-
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
 
         }
-
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать
         {
             if(aktiv)
@@ -7511,7 +7506,6 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0," Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
         }
-
         String getver(UInt32 num)
         {
             Byte[] v = new Byte[4];
@@ -7545,7 +7539,6 @@ namespace OLO_CAN
             }
         }
         #endregion
-
         private void bt_aktiv5_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -7649,13 +7642,11 @@ namespace OLO_CAN
             filetable2dg();
 
         }
-
         private void bt_reboot5_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
         }
-
         void filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
@@ -7769,7 +7760,25 @@ namespace OLO_CAN
                 }
             } while ((frame.data[2] >> 6) == 0);
             Trace.WriteLine("Erase sector 16 complete.");
+
             // структуру в массив
+
+            Byte[] buf = new Byte[Marshal.SizeOf(fff)];
+            for (int i = 0; i < 4; i++)
+            {
+                Byte[] arr = new Byte[Marshal.SizeOf(fff[i])];
+                arr = StructToBuff<FILETABLE>(fff[i]);
+                Array.Copy(arr, 0, buf, Marshal.SizeOf(fff[i]) * i, Marshal.SizeOf(fff[i]));
+            }
+            uint qq = (uint)Marshal.SizeOf(fff);
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 32; j++)
+                {
+                    Trace.Write(buf[j+i*16].ToString("X2") + " ");
+                }
+                Trace.WriteLine("");
+            }
             // записать в флешку
         }
         void filetable2dg()
