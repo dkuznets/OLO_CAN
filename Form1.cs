@@ -7022,7 +7022,7 @@ namespace OLO_CAN
             frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             frame.len = 8;
             Byte[] tmparr = new Byte[4];
-            tmparr = BitConverter.GetBytes(0x4000);
+            tmparr = BitConverter.GetBytes(0x6000);
             for (byte n = 0; n < 4; n++)
                 frame.data[n] = tmparr[n];
             tmparr = BitConverter.GetBytes(0x2000);
