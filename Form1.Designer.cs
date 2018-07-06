@@ -4430,7 +4430,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 319);
+            this.listBox1.Location = new System.Drawing.Point(12, 296);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(634, 108);
@@ -4500,7 +4500,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 300);
+            this.progressBar1.Location = new System.Drawing.Point(12, 277);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(634, 13);
             this.progressBar1.TabIndex = 61;
