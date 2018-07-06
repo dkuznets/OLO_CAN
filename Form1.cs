@@ -7890,6 +7890,7 @@ namespace OLO_CAN
         private void button18_Click(object sender, EventArgs e)
         {
             UploadFile uf = new UploadFile();
+            uf.lbaddr = 16384;
             uf.ShowDialog();
         }
 

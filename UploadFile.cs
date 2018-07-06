@@ -16,7 +16,11 @@ namespace OLO_CAN
         {
             InitializeComponent();
         }
-
+        public UInt32 lbaddr
+        {
+            get { return Convert.ToUInt32(mtb_begin.Text.Replace("0x", "").Trim(), 16); }
+            set { mtb_begin.Text = value.ToString(); }
+        }
         private void UploadFile_Load(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
