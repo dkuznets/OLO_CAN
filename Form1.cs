@@ -7374,11 +7374,21 @@ namespace OLO_CAN
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
             UploadFile uf = new UploadFile();
-            uf.lbaddr = 16384;
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
 
+            if(fff[0].size != 0 && fff[0].size != 0xFFFFFFFF)
+            {
+                Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, 28);
+                fff[0].begin = uf._addr;
+                fff[0].size = uf._len;
+                fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+                fff[0].crc32 = uf._crc;
+                fff[0].version = uf._ver;
+//                fff[0].comment = 
+                MessageBox.Show(Environment.UserName);
+            }
         }
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать флеш
         {

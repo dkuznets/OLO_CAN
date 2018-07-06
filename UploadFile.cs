@@ -17,6 +17,7 @@ namespace OLO_CAN
         public UInt32 _len;
         public UInt32 _addr;
         public UInt32 _ver;
+        public String _fname;
         bool _cancel = false;
         public UploadFile()
         {
@@ -56,21 +57,9 @@ namespace OLO_CAN
                 _crc = BitConverter.ToUInt32(crc, 0);
                 _len = (UInt32)fi.Length;
                 tb_date.Text = DateTime.Now.ToString();
+                _fname = tb_fname.Text;
             }
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = mtb_begin.Text;
-           
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if(mtb_begin.Text != "0x")
-                textBox1.Text = Convert.ToUInt32(mtb_begin.Text.Replace("0x","").Trim(),16).ToString();
-        }
-
         private void bt_save_Click(object sender, EventArgs e)
         {
             if (mtb_version.Text == " . . .")
