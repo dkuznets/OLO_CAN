@@ -384,7 +384,6 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button18 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
@@ -402,23 +401,6 @@
             this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button17 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.bt_About5 = new System.Windows.Forms.Button();
             this.bt_Exit5 = new System.Windows.Forms.Button();
             this.gbox_CAN5 = new System.Windows.Forms.GroupBox();
@@ -4424,7 +4406,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.button18);
             this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.bt_verifi5);
             this.tabPage7.Controls.Add(this.bt_status5);
@@ -4434,23 +4415,6 @@
             this.tabPage7.Controls.Add(this.bt_aktiv5);
             this.tabPage7.Controls.Add(this.progressBar1);
             this.tabPage7.Controls.Add(this.dataGridView1);
-            this.tabPage7.Controls.Add(this.textBox4);
-            this.tabPage7.Controls.Add(this.textBox3);
-            this.tabPage7.Controls.Add(this.button17);
-            this.tabPage7.Controls.Add(this.textBox2);
-            this.tabPage7.Controls.Add(this.textBox1);
-            this.tabPage7.Controls.Add(this.button16);
-            this.tabPage7.Controls.Add(this.button15);
-            this.tabPage7.Controls.Add(this.button14);
-            this.tabPage7.Controls.Add(this.button13);
-            this.tabPage7.Controls.Add(this.button12);
-            this.tabPage7.Controls.Add(this.button11);
-            this.tabPage7.Controls.Add(this.button10);
-            this.tabPage7.Controls.Add(this.button9);
-            this.tabPage7.Controls.Add(this.button8);
-            this.tabPage7.Controls.Add(this.button7);
-            this.tabPage7.Controls.Add(this.button4);
-            this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.bt_About5);
             this.tabPage7.Controls.Add(this.bt_Exit5);
             this.tabPage7.Controls.Add(this.gbox_CAN5);
@@ -4462,21 +4426,11 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(12, 196);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 69;
-            this.button18.Text = "button18";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 471);
+            this.listBox1.Location = new System.Drawing.Point(12, 319);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(634, 108);
@@ -4484,7 +4438,7 @@
             // 
             // bt_verifi5
             // 
-            this.bt_verifi5.Location = new System.Drawing.Point(551, 255);
+            this.bt_verifi5.Location = new System.Drawing.Point(551, 103);
             this.bt_verifi5.Name = "bt_verifi5";
             this.bt_verifi5.Size = new System.Drawing.Size(95, 23);
             this.bt_verifi5.TabIndex = 67;
@@ -4494,7 +4448,7 @@
             // 
             // bt_status5
             // 
-            this.bt_status5.Location = new System.Drawing.Point(450, 255);
+            this.bt_status5.Location = new System.Drawing.Point(450, 103);
             this.bt_status5.Name = "bt_status5";
             this.bt_status5.Size = new System.Drawing.Size(95, 23);
             this.bt_status5.TabIndex = 66;
@@ -4504,7 +4458,7 @@
             // 
             // bt_reboot5
             // 
-            this.bt_reboot5.Location = new System.Drawing.Point(303, 255);
+            this.bt_reboot5.Location = new System.Drawing.Point(303, 103);
             this.bt_reboot5.Name = "bt_reboot5";
             this.bt_reboot5.Size = new System.Drawing.Size(95, 23);
             this.bt_reboot5.TabIndex = 65;
@@ -4515,7 +4469,7 @@
             // rb_l5
             // 
             this.rb_l5.AutoSize = true;
-            this.rb_l5.Location = new System.Drawing.Point(110, 258);
+            this.rb_l5.Location = new System.Drawing.Point(110, 106);
             this.rb_l5.Name = "rb_l5";
             this.rb_l5.Size = new System.Drawing.Size(86, 17);
             this.rb_l5.TabIndex = 64;
@@ -4526,7 +4480,7 @@
             // 
             this.rb_r5.AutoSize = true;
             this.rb_r5.Checked = true;
-            this.rb_r5.Location = new System.Drawing.Point(12, 258);
+            this.rb_r5.Location = new System.Drawing.Point(12, 106);
             this.rb_r5.Name = "rb_r5";
             this.rb_r5.Size = new System.Drawing.Size(92, 17);
             this.rb_r5.TabIndex = 63;
@@ -4536,7 +4490,7 @@
             // 
             // bt_aktiv5
             // 
-            this.bt_aktiv5.Location = new System.Drawing.Point(202, 255);
+            this.bt_aktiv5.Location = new System.Drawing.Point(202, 103);
             this.bt_aktiv5.Name = "bt_aktiv5";
             this.bt_aktiv5.Size = new System.Drawing.Size(95, 23);
             this.bt_aktiv5.TabIndex = 62;
@@ -4546,7 +4500,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 452);
+            this.progressBar1.Location = new System.Drawing.Point(12, 300);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(634, 13);
             this.progressBar1.TabIndex = 61;
@@ -4567,7 +4521,7 @@
             this.vers,
             this.comment,
             this.id});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 287);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -4634,164 +4588,6 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Visible = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(873, 38);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(82, 20);
-            this.textBox4.TabIndex = 59;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(785, 38);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(82, 20);
-            this.textBox3.TabIndex = 58;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(704, 36);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 57;
-            this.button17.Text = "CRC32";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(860, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(57, 20);
-            this.textBox2.TabIndex = 56;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(785, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
-            this.textBox1.TabIndex = 55;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(704, 7);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 54;
-            this.button16.Text = "unixtime";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(174, 167);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 53;
-            this.button15.Text = "границы";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(336, 93);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 52;
-            this.button14.Text = "файлы";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(12, 167);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 51;
-            this.button13.Text = "статус";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(93, 122);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 50;
-            this.button12.Text = "стереть";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(336, 122);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 49;
-            this.button11.Text = "чтение";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(255, 93);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 48;
-            this.button10.Text = "запись";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(174, 122);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 47;
-            this.button9.Text = "деакт flash1";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(174, 93);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 46;
-            this.button8.Text = "акт flash1";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(93, 93);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 45;
-            this.button7.Text = "рестарт";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(12, 122);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 44;
-            this.button4.Text = "деакт руп";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(12, 93);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 43;
-            this.button3.Text = "акт руп";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // bt_About5
             // 
@@ -5561,23 +5357,6 @@
         private System.Windows.Forms.Button bt_OpenCAN5;
         private System.Windows.Forms.Button bt_About5;
         private System.Windows.Forms.Button bt_Exit5;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -5608,7 +5387,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.Button button18;
 	}
 }
 
