@@ -7657,7 +7657,7 @@ namespace OLO_CAN
                 fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
                 handle.Free();
                 if (fff[iii].name[0] == 0 || fff[iii].name[0] == 0xFF)
-                    fff[iii].begin = 0;
+                    fff[iii] = new FILETABLE();
                 iii++;
 
             } while (iii < 4);
