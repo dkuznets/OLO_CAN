@@ -78,7 +78,7 @@ namespace OLO_CAN
             if (!mtb_version.MaskCompleted)
             {
                 mtb_version.BackColor = Color.Red;
-                _cancel = true;
+                _cancel = false;
                 return;
             }
 
