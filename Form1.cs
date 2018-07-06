@@ -7905,14 +7905,19 @@ namespace OLO_CAN
                 if ((frame.data[0] >> 6) == 1)
                 {
                     UInt32 numpack = (size + 8 - 1) / 8;
+                    UInt32 lastframelen = (UInt32)(buf.Length - (numpack - 1) * 8);
                     progressBar1.Value = 0;
                     progressBar1.Maximum = (int)numpack;
                     for (int i = 0; i < numpack; i++)
                     {
                         Array.Clear(frame.data, 0, 8);
                         frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                        frame.len = 8;
-                        for (int j = 0; j < 8; j++)
+                        if(i != (numpack - 1))
+                            frame.len = 8;
+                        else
+                            frame.len = (Byte)lastframelen;
+
+                        for (int j = 0; j < frame.len; j++)
                             frame.data[j] = buf[i * 8 + j];
                         if (uniCAN == null || !uniCAN.Send(ref frame))
                         {
