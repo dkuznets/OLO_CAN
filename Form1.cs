@@ -7381,6 +7381,8 @@ namespace OLO_CAN
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
+                for (int i = 0; i < 28; i++)
+                    fff[0].name[i] = 0;
                 Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, tmparr.Length);
                 fff[0].begin = uf._addr;
                 fff[0].size = uf._len;
@@ -7388,6 +7390,8 @@ namespace OLO_CAN
                 fff[0].crc32 = uf._crc;
                 fff[0].version = uf._ver;
                 tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                for (int i = 0; i < 80; i++)
+                    fff[0].comment[i] = 0;
                 Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
 
                 // очистка флеш
