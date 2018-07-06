@@ -19,7 +19,7 @@ namespace OLO_CAN
         public UInt32 lbaddr
         {
             get { return Convert.ToUInt32(mtb_begin.Text.Replace("0x", "").Trim(), 16); }
-            set { mtb_begin.Text = value.ToString(); }
+            set { mtb_begin.Text = value.ToString("X"); }
         }
         private void UploadFile_Load(object sender, EventArgs e)
         {
