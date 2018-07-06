@@ -92,6 +92,8 @@ namespace OLO_CAN
             _ver = BitConverter.ToUInt32(bb, 0);
 //            MessageBox.Show(_ver.ToString());
             //_ver = 
+            if (!valid())
+                _cancel = false;
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
@@ -104,8 +106,7 @@ namespace OLO_CAN
             if (_cancel)
                 e.Cancel = false;
             else
-                if (!valid())
-                    e.Cancel = true;
+                e.Cancel = true;
         }
 
         private bool valid()
