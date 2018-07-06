@@ -91,7 +91,11 @@ namespace OLO_CAN
             }
             _ver = BitConverter.ToUInt32(bb, 0);
             if (!valid())
+            {
                 _cancel = false;
+                return;
+            }
+            _cancel = true;
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
