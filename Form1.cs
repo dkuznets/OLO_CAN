@@ -7236,7 +7236,6 @@ namespace OLO_CAN
             }
             print2_msg(frame);
         }
-        #endregion
         private void button17_Click(object sender, EventArgs e)
         {
         }
@@ -7244,6 +7243,9 @@ namespace OLO_CAN
         {
             textBox2.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString("X8");
             textBox1.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString();
+        }
+        private void button18_Click(object sender, EventArgs e)
+        {
         }
         #endregion
 
@@ -7915,12 +7917,7 @@ namespace OLO_CAN
                 }
             }
         }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-        }
-
-
+        #endregion
     }
 
     public class rup_id
