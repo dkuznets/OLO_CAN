@@ -7602,6 +7602,22 @@ namespace OLO_CAN
                 return;
             }
             msg_2_log(frame);
+            listBox1.Items.Insert(0, "РУП деактивирован.");
+            Array.Clear(frame.data, 0, 8);
+            frame.len = 0;
+            frame.id = rup_id.RECONFIG_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                listBox1.Items.Insert(0, "Error send RECONFIG_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                listBox1.Items.Insert(0, "Error recv ACK_ID");
+                return;
+            }
+            msg_2_log(frame);
+            listBox1.Items.Insert(0, "Перезагрузка.");
 
         }
         #endregion
