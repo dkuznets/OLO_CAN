@@ -90,8 +90,6 @@ namespace OLO_CAN
                 bb[i] = Convert.ToByte(vv[i]);
             }
             _ver = BitConverter.ToUInt32(bb, 0);
-//            MessageBox.Show(_ver.ToString());
-            //_ver = 
             if (!valid())
                 _cancel = false;
         }
@@ -128,6 +126,21 @@ namespace OLO_CAN
         private void mtb_begin_TextChanged(object sender, EventArgs e)
         {
             mtb_begin.BackColor = SystemColors.Control;
+        }
+
+        private void mtb_version_TextChanged(object sender, EventArgs e)
+        {
+            mtb_version.BackColor = SystemColors.Control;
+        }
+
+        private void mtb_version_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            mtb_version.BackColor = Color.Red;
+        }
+
+        private void mtb_begin_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            mtb_begin.BackColor = Color.Red;
         }
     }
 }

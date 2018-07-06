@@ -84,6 +84,7 @@
             this.mtb_begin.PromptChar = ' ';
             this.mtb_begin.Size = new System.Drawing.Size(74, 20);
             this.mtb_begin.TabIndex = 6;
+            this.mtb_begin.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtb_begin_MaskInputRejected);
             this.mtb_begin.TextChanged += new System.EventHandler(this.mtb_begin_TextChanged);
             // 
             // mtb_crc32
@@ -129,6 +130,8 @@
             this.mtb_version.Name = "mtb_version";
             this.mtb_version.Size = new System.Drawing.Size(56, 20);
             this.mtb_version.TabIndex = 11;
+            this.mtb_version.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtb_version_MaskInputRejected);
+            this.mtb_version.TextChanged += new System.EventHandler(this.mtb_version_TextChanged);
             // 
             // tb_date
             // 
