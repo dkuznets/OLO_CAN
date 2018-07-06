@@ -7067,7 +7067,60 @@ namespace OLO_CAN
         }
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
         {
+            if (aktiv)
+            {
+                Byte filenum = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
+                UploadFile uf = new UploadFile();
+                uf.mtb_begin.Text = fff[filenum].begin.ToString("X");
+                DialogResult re = uf.ShowDialog();
+                if (re == System.Windows.Forms.DialogResult.Cancel)
+                    return;
 
+                listBox1.Items.Insert(0, "Удаляю файл.");
+                erase_area(fff[filenum].begin, fff[filenum].size);
+                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
+
+                fff[filenum] = new FILETABLE();
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+
+                if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+                {
+                    Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
+                    fff[0].name = new Byte[28];
+                    for (int i = 0; i < 28; i++)
+                        fff[0].name[i] = 0;
+                    Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, tmparr.Length);
+                    fff[0].begin = uf._addr;
+                    fff[0].size = uf._len;
+                    fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+                    fff[0].crc32 = uf._crc;
+                    fff[0].version = uf._ver;
+                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                    fff[0].comment = new Byte[80];
+                    for (int i = 0; i < 80; i++)
+                        fff[0].comment[i] = 0;
+                    Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
+                }
+
+                // очистка флеш
+
+                listBox1.Items.Insert(0, "Очистка области.");
+                erase_area(fff[0].begin, fff[0].size);
+                listBox1.Items.Insert(0, "Очистка области завершена.");
+
+                // запись файла
+
+                listBox1.Items.Insert(0, "Записываю новый файл.");
+                write_area(fff[0].begin, fff[0].size, uf._rdfile);
+                listBox1.Items.Insert(0, "Запись файла завершена.");
+
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+
+            }
         }
         private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть файл
         {
