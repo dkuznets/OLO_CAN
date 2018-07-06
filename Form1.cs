@@ -7656,8 +7656,18 @@ namespace OLO_CAN
                 GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
                 fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
                 handle.Free();
-                if (fff[iii].name[0] == 0 || fff[iii].name[0] == 0xFF)
-                    fff[iii] = new FILETABLE();
+                if (fff[iii].name[0] == 0xFF)
+                {
+                    for (int i = 0; i < 28; i++)
+                        fff[iii].name[i] = 0;
+                    fff[0].begin = 0;
+                    fff[0].size = 0;
+                    fff[0].time = 0;
+                    fff[0].crc32 = 0;
+                    fff[0].version = 0;
+                    for (int i = 0; i < 80; i++)
+                        fff[iii].comment[i] = 0;
+                }
                 iii++;
 
             } while (iii < 4);
