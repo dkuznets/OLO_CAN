@@ -7237,15 +7237,15 @@ namespace OLO_CAN
             print2_msg(frame);
         }
         #endregion
+        private void button17_Click(object sender, EventArgs e)
+        {
+        }
         private void button16_Click(object sender, EventArgs e)
         {
             textBox2.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString("X8");
             textBox1.Text = ((UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds)).ToString();
         }
         #endregion
-        private void button17_Click(object sender, EventArgs e)
-        {
-        }
 
         private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -7346,12 +7346,10 @@ namespace OLO_CAN
             }
 
         }
-
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
         {
 
         }
-
         private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть файл
         {
             if (aktiv)
@@ -7366,7 +7364,6 @@ namespace OLO_CAN
                 filetable_2_dg();
             }
         }
-
         private void toolStripMenuItem5_Click(object sender, EventArgs e) // проверить
         {
 
@@ -7661,9 +7658,11 @@ namespace OLO_CAN
 
             } while (iii < 4);
             Trace.WriteLine("file table read");
+            filetable_sort();
         }
         void filetable_save()
         {
+            filetable_sort();
             // стереть последний сектор
 
             Array.Clear(frame.data, 0, 8);
@@ -7710,14 +7709,6 @@ namespace OLO_CAN
                 arr = StructToBuff<FILETABLE>(fff[i]);
                 Array.Copy(arr, 0, buf, 128 * i, 128);
             }
-            //for (int i = 0; i < 8; i++)
-            //{
-            //    for (int j = 0; j < 64; j++)
-            //    {
-            //        Trace.Write(buf[j+i*64].ToString("X2") + " ");
-            //    }
-            //    Trace.WriteLine("");
-            //}
 
             // записать в флеш
 
@@ -7766,6 +7757,7 @@ namespace OLO_CAN
         }
         void filetable_2_dg()
         {
+            filetable_sort();
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("Flash #1",
                 "0x" + begin_flash1.ToString("X"),
@@ -7926,12 +7918,6 @@ namespace OLO_CAN
 
         private void button18_Click(object sender, EventArgs e)
         {
-            UploadFile uf = new UploadFile();
-            uf.lbaddr = 16384;
-            DialogResult re = uf.ShowDialog();
-            if (re == System.Windows.Forms.DialogResult.Cancel)
-                return;
-//            MessageBox.Show(uf._addr.ToString());
         }
 
 
