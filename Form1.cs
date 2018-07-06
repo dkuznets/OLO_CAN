@@ -7541,11 +7541,18 @@ namespace OLO_CAN
 #if DEBUG
                 msg_2_log(frame);
 #endif
+                if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
+                {
+                    listBox1.Items.Insert(0, "Режим " + ((rup_id.Mode)(frame.data[0] & 0x3)).ToString() +
+                        " Команда " + ((rup_id.Comm)(frame.data[2] & 0x3F)).ToString() +
+                        " Состояние " + ((rup_id.Receipt)(frame.data[2] >> 6)).ToString());
+                }
             }
             catch (Exception ee)
             {
                 listBox1.Items.Insert(0,"Ошибка " + ee.ToString());
             }
+
         }
         private void bt_aktiv5_Click(object sender, EventArgs e)
         {
