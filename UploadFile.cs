@@ -77,6 +77,7 @@ namespace OLO_CAN
                 mtb_version.Text = "1000";
             if (!mtb_version.MaskCompleted)
             {
+                MessageBox.Show("1111");
                 mtb_version.BackColor = Color.Red;
                 _cancel = false;
                 return;
