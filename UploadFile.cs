@@ -16,6 +16,7 @@ namespace OLO_CAN
         public UInt32 _crc;
         public UInt32 _len;
         public UInt32 _addr;
+        public UInt32 _ver;
         bool _cancel = false;
         public UploadFile()
         {
@@ -71,6 +72,17 @@ namespace OLO_CAN
 
         private void bt_save_Click(object sender, EventArgs e)
         {
+            if (mtb_version.Text == " . . . ")
+                mtb_version.Text = "1000";
+            String[] vv = mtb_version.Text.Split(new char[] { '.' });
+            Byte[] bb = new Byte[4];
+            for (int i = 0; i < 4; i++)
+            {
+                bb[i] = Convert.ToByte(vv[i]);
+            }
+            _ver = BitConverter.ToUInt32(bb, 0);
+            MessageBox.Show(_ver.ToString());
+            //_ver = 
         }
 
         private void bt_cancel_Click(object sender, EventArgs e)
