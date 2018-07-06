@@ -7838,6 +7838,7 @@ namespace OLO_CAN
                     String name = Encoding.Default.GetString(fff[i].name, 0, 28);
                     DateTime pDate = (new DateTime(1970, 1, 1, 0, 0, 0, 0)).AddSeconds(fff[i].time);
                     String comment = Encoding.Default.GetString(fff[i].comment, 0, 80);
+#if DEBUG
                     listBox1.Items.Insert(0, "Файл: " + name.Substring(0, name.IndexOf('\0')) +
                         " Адрес: " + fff[i].begin.ToString("X") +
                         " Размер: " + fff[i].size.ToString("X") +
@@ -7845,6 +7846,7 @@ namespace OLO_CAN
                         " CRC32: " + fff[i].crc32.ToString("X8") +
                         " версия " + getver(fff[i].version) +
                         " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
+#endif
 
                     dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
                         "0x" + fff[i].begin.ToString("X"),
