@@ -57,7 +57,7 @@ namespace OLO_CAN
                 _crc = BitConverter.ToUInt32(crc, 0);
                 _len = (UInt32)fi.Length;
                 tb_date.Text = DateTime.Now.ToString();
-                _fname = tb_fname.Text;
+                _fname = fi.Name;
             }
         }
         private void bt_save_Click(object sender, EventArgs e)
