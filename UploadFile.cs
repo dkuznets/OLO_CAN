@@ -12,7 +12,7 @@ namespace OLO_CAN
 {
     public partial class UploadFile : Form
     {
-        public Byte[] rdfile;
+        public Byte[] _rdfile;
         public UInt32 _crc;
         public UInt32 _len;
         public UInt32 _addr;
@@ -39,17 +39,17 @@ namespace OLO_CAN
                 if (ofd.ShowDialog() != DialogResult.OK)
                     return;
                 FileInfo fi = new FileInfo(ofd.FileName);
-                rdfile = new Byte[fi.Length];
+                _rdfile = new Byte[fi.Length];
                 FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
-                fs.Read(rdfile, 0, (int)fi.Length);
+                fs.Read(_rdfile, 0, (int)fi.Length);
                 Crc32 crc32 = new Crc32();
                 String hash = String.Empty;
-                foreach (byte b in crc32.ComputeHash(rdfile))
+                foreach (byte b in crc32.ComputeHash(_rdfile))
                 {
                     hash += b.ToString("x2").ToLower();
                 }
                 Byte[] crc = new Byte[4];
-                crc = crc32.ComputeHash(rdfile);
+                crc = crc32.ComputeHash(_rdfile);
                 Array.Reverse(crc);
                 tb_fname.Text = fi.FullName;
                 mtb_size.Text = fi.Length.ToString("X");

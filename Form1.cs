@@ -7386,8 +7386,22 @@ namespace OLO_CAN
                 fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
                 fff[0].crc32 = uf._crc;
                 fff[0].version = uf._ver;
-//                fff[0].comment = 
-                MessageBox.Show(Environment.UserName);
+                Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, 80);
+
+                // очистка флеш
+
+                erase_area(fff[0].begin, fff[0].size);
+                listBox1.Items.Insert(0, "Очистка флеша завершена.");
+
+                // запись файла
+
+                write_area(fff[0].begin, fff[0].size, uf._rdfile);
+                listBox1.Items.Insert(0, "Запись файла завершена.");
+
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+
             }
         }
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать флеш
@@ -7845,6 +7859,58 @@ namespace OLO_CAN
                 } while ((frame.data[2] >> 6) == 0);
 
                 listBox1.Items.Insert(0, "Очистка области завершена.");
+            }
+        }
+        void write_area(UInt32 begin, UInt32 size, Byte[] buf)
+        {
+            if (aktiv)
+            {
+                // записать в флеш
+
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.WRITE_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                Byte[] tmparr = new Byte[4];
+                frame.len = 8;
+                tmparr = BitConverter.GetBytes(begin);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n] = tmparr[n];
+                tmparr = BitConverter.GetBytes(size);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n + 4] = tmparr[n];
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Insert(0, "Error send WRITE_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    listBox1.Items.Insert(0, "Error recv ACK");
+                    return;
+                }
+                msg_2_log(frame);
+                if ((frame.data[0] >> 6) == 1)
+                {
+                    UInt32 numpack = (size + 8 - 1) / 8;
+                    for (int i = 0; i < numpack; i++)
+                    {
+                        Array.Clear(frame.data, 0, 8);
+                        frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                        frame.len = 8;
+                        for (int j = 0; j < 8; j++)
+                            frame.data[j] = buf[i * 8 + j];
+                        if (uniCAN == null || !uniCAN.Send(ref frame))
+                        {
+                            listBox1.Items.Insert(0, "Error send DATA_SEGMENT_ID");
+                            return;
+                        }
+                        if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                        {
+                            listBox1.Items.Insert(0, "Error recv ACK");
+                            return;
+                        }
+                    }
+                    Trace.WriteLine("file table saved");
+                }
             }
         }
 
