@@ -49,5 +49,15 @@ namespace OLO_CAN
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = mtb_version.Text;
+        }
     }
 }
