@@ -50,7 +50,7 @@
             // 
             this.tb_fname.Location = new System.Drawing.Point(12, 12);
             this.tb_fname.Name = "tb_fname";
-            this.tb_fname.Size = new System.Drawing.Size(260, 20);
+            this.tb_fname.Size = new System.Drawing.Size(430, 20);
             this.tb_fname.TabIndex = 0;
             // 
             // bt_save
@@ -92,7 +92,7 @@
             this.mtb_crc32.Mask = ">AAAAAAAA";
             this.mtb_crc32.Name = "mtb_crc32";
             this.mtb_crc32.ReadOnly = true;
-            this.mtb_crc32.Size = new System.Drawing.Size(100, 20);
+            this.mtb_crc32.Size = new System.Drawing.Size(78, 20);
             this.mtb_crc32.TabIndex = 7;
             // 
             // label1
@@ -124,7 +124,7 @@
             // 
             // mtb_version
             // 
-            this.mtb_version.Location = new System.Drawing.Point(278, 61);
+            this.mtb_version.Location = new System.Drawing.Point(256, 61);
             this.mtb_version.Mask = "0\\.0\\.0\\.0";
             this.mtb_version.Name = "mtb_version";
             this.mtb_version.Size = new System.Drawing.Size(56, 20);
@@ -132,15 +132,15 @@
             // 
             // tb_date
             // 
-            this.tb_date.Location = new System.Drawing.Point(340, 61);
+            this.tb_date.Location = new System.Drawing.Point(318, 61);
             this.tb_date.Name = "tb_date";
-            this.tb_date.Size = new System.Drawing.Size(100, 20);
+            this.tb_date.Size = new System.Drawing.Size(124, 20);
             this.tb_date.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(275, 45);
+            this.label4.Location = new System.Drawing.Point(253, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 13;
@@ -149,7 +149,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(337, 45);
+            this.label5.Location = new System.Drawing.Point(315, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 14;
