@@ -72,6 +72,7 @@ namespace OLO_CAN
 
         private void bt_save_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("-" + mtb_version.Text + "-");
             if (mtb_version.Text == " . . . ")
                 mtb_version.Text = "1000";
             String[] vv = mtb_version.Text.Split(new char[] { '.' });
