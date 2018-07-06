@@ -7378,7 +7378,8 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
 
-            if(fff[0].size == 0 && fff[0].size == 0xFFFFFFFF)
+            MessageBox.Show(Environment.UserName);
+            if (fff[0].size == 0 && fff[0].size == 0xFFFFFFFF)
             {
                 Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, 28);
                 fff[0].begin = uf._addr;
