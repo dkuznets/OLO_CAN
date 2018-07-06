@@ -54,10 +54,6 @@ namespace OLO_CAN
                 mtb_crc32.Text = hash;
                 _crc = BitConverter.ToUInt32(crc, 0);
                 _len = (UInt32)fi.Length;
-//                _addr =
-
-                // 
-
             }
         }
 
@@ -99,8 +95,11 @@ namespace OLO_CAN
                 return false;
             }
             _addr = Convert.ToUInt32(mtb_begin.Text.Replace("0x", "").Trim(), 16);
-            if(_addr < 16535)
+            if(_addr < 16384)
+            {
+                mtb_begin.BackColor = Color.Red;
                 return false;
+            }
             return true;
         }
     }
