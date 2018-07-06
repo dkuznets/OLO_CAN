@@ -55,6 +55,7 @@ namespace OLO_CAN
                 mtb_crc32.Text = hash;
                 _crc = BitConverter.ToUInt32(crc, 0);
                 _len = (UInt32)fi.Length;
+                tb_date.Text = DateTime.Now.ToString();
             }
         }
 
@@ -82,7 +83,7 @@ namespace OLO_CAN
                 bb[i] = Convert.ToByte(vv[i]);
             }
             _ver = BitConverter.ToUInt32(bb, 0);
-            MessageBox.Show(_ver.ToString());
+//            MessageBox.Show(_ver.ToString());
             //_ver = 
         }
 
