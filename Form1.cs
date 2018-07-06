@@ -7371,76 +7371,12 @@ namespace OLO_CAN
 
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть
+        private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть файл
         {
             if (aktiv)
             {
-                // запрос границ стирания
-
                 Byte filenum = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.AREA_ERASE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
-                Byte[] tmparr = new Byte[4];
-                frame.len = 8;
-                tmparr = BitConverter.GetBytes(fff[filenum].begin);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n] = tmparr[n];
-                tmparr = BitConverter.GetBytes(fff[filenum].size);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n + 4] = tmparr[n];
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    listBox1.Items.Insert(0, "Error send AREA_ERASE_REQUEST_ID");
-                    return;
-                }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                {
-                    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
-                    return;
-                }
-                msg_2_log(frame);
-
-                // команда на стирание
-
-//                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
-//                Byte[] tmparr = new Byte[4];
-//                tmparr = BitConverter.GetBytes(fff[filenum].begin);
-//                for (byte n = 0; n < 4; n++)
-//                    frame.data[n] = tmparr[n];
-//                tmparr = BitConverter.GetBytes(fff[filenum].size);
-//                for (byte n = 0; n < 4; n++)
-//                    frame.data[n + 4] = tmparr[n];
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    listBox1.Items.Insert(0, "Error send ERASE_ID");
-                    return;
-                }
-
-                progressBar1.Value = 0;
-                progressBar1.Maximum = 15;
-                int pbval = 0;
-                do
-                {
-                    Array.Clear(frame.data, 0, 8);
-                    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                    frame.len = 0;
-                    if (uniCAN == null || !uniCAN.Send(ref frame))
-                    {
-                        Trace.WriteLine("Error send STATUS_REQUEST_ID");
-                        return;
-                    }
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                    {
-                        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-                        return;
-                    }
-                    print2_msg(frame);
-                    progressBar1.Value = pbval++;
-                } while ((frame.data[2] >> 6) == 0);
-                listBox1.Items.Insert(0, "Удаление файла завершено.");
+                erase_area(fff[filenum].begin, fff[filenum].size);
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
 
                 fff[filenum] = new FILETABLE();
@@ -7457,50 +7393,19 @@ namespace OLO_CAN
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
             UploadFile uf = new UploadFile();
-            uf.ShowDialog();
+            uf.lbaddr = 16384;
+            DialogResult re = uf.ShowDialog();
+            if (re == System.Windows.Forms.DialogResult.Cancel)
+                return;
         }
-        private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать
+        private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать флеш
         {
             if(aktiv)
             {
-                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
-                Byte[] tmparr = new Byte[4];
-                frame.len = 8;
-                tmparr = BitConverter.GetBytes(begin_flash1);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n] = tmparr[n];
-                tmparr = BitConverter.GetBytes(size_flash1);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n + 4] = tmparr[n];
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    listBox1.Items.Insert(0, "Error send ERASE_ID");
-                    return;
-                }
-                progressBar1.Value = 0;
-                progressBar1.Maximum = 15;
-                int pbval = 0;
-                do
-                {
-                    Array.Clear(frame.data, 0, 8);
-                    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                    frame.len = 0;
-                    if (uniCAN == null || !uniCAN.Send(ref frame))
-                    {
-                        Trace.WriteLine("Error send STATUS_REQUEST_ID");
-                        return;
-                    }
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                    {
-                        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-                        return;
-                    }
-                    print2_msg(frame);
-                    progressBar1.Value = pbval++;
-                } while ((frame.data[2] >> 6) == 0);
+                erase_area(begin_flash1, size_flash1);
                 listBox1.Items.Insert(0, "Форматирование флеша завершено.");
+                filetable_load();
+                filetable_2_dg();
             }
         }
         #endregion
@@ -7886,6 +7791,70 @@ namespace OLO_CAN
                 return fff1.begin.CompareTo(fff2.begin);
             });
         }
+        void erase_area(UInt32 begin, UInt32 size)
+        {
+            if (aktiv)
+            {
+                // запрос границ стирания
+
+                Array.Clear(frame.data, 0, 8);
+                frame.id = rup_id.AREA_ERASE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                frame.len = 8;
+                Byte[] tmparr = new Byte[4];
+                frame.len = 8;
+                tmparr = BitConverter.GetBytes(begin);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n] = tmparr[n];
+                tmparr = BitConverter.GetBytes(size);
+                for (byte n = 0; n < 4; n++)
+                    frame.data[n + 4] = tmparr[n];
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Insert(0, "Error send AREA_ERASE_REQUEST_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                {
+                    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
+                    return;
+                }
+                msg_2_log(frame);
+
+                // команда на стирание
+
+                frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                frame.len = 8;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    listBox1.Items.Insert(0, "Error send ERASE_ID");
+                    return;
+                }
+
+                progressBar1.Value = 0;
+                progressBar1.Maximum = 15;
+                int pbval = 0;
+                do
+                {
+                    Array.Clear(frame.data, 0, 8);
+                    frame.id = rup_id.STATUS_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                    frame.len = 0;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        Trace.WriteLine("Error send STATUS_REQUEST_ID");
+                        return;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
+                    {
+                        Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
+                        return;
+                    }
+                    print2_msg(frame);
+                    progressBar1.Value = pbval++;
+                } while ((frame.data[2] >> 6) == 0);
+
+                listBox1.Items.Insert(0, "Очистка области завершена.");
+            }
+        }
 
         private void button18_Click(object sender, EventArgs e)
         {
@@ -7894,7 +7863,7 @@ namespace OLO_CAN
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            MessageBox.Show(uf._addr.ToString());
+//            MessageBox.Show(uf._addr.ToString());
         }
 
 
