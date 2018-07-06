@@ -64,7 +64,7 @@ namespace OLO_CAN
         private void button4_Click(object sender, EventArgs e)
         {
             if(mtb_begin.Text != "0x")
-                textBox1.Text = Convert.ToUInt32(mtb_begin.Text).ToString();
+                textBox1.Text = Convert.ToUInt32(mtb_begin.Text,16).ToString();
         }
     }
 }
