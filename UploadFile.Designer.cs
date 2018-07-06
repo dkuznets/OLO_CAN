@@ -84,6 +84,7 @@
             this.mtb_begin.PromptChar = ' ';
             this.mtb_begin.Size = new System.Drawing.Size(74, 20);
             this.mtb_begin.TabIndex = 6;
+            this.mtb_begin.TextChanged += new System.EventHandler(this.mtb_begin_TextChanged);
             // 
             // mtb_crc32
             // 

@@ -102,5 +102,10 @@ namespace OLO_CAN
             }
             return true;
         }
+
+        private void mtb_begin_TextChanged(object sender, EventArgs e)
+        {
+            mtb_begin.BackColor = SystemColors.Control;
+        }
     }
 }
