@@ -57,7 +57,7 @@ namespace OLO_CAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = mtb_version.Text;
+            textBox1.Text = mtb_begin.Text;
            
         }
 
