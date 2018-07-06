@@ -93,7 +93,15 @@ namespace OLO_CAN
 
         private bool valid()
         {
-            throw new NotImplementedException();
+            if (mtb_begin.Text == "0x")
+            {
+                mtb_begin.BackColor = Color.Red;
+                return false;
+            }
+            _addr = Convert.ToUInt32(mtb_begin.Text.Replace("0x", "").Trim(), 16);
+            if(_addr < 16535)
+                return false;
+            return true;
         }
     }
 }
