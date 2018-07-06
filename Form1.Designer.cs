@@ -384,6 +384,7 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button18 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
@@ -456,7 +457,6 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button18 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4462,6 +4462,16 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(12, 196);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 69;
+            this.button18.Text = "button18";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -4480,6 +4490,7 @@
             this.bt_verifi5.TabIndex = 67;
             this.bt_verifi5.Text = "Верификация";
             this.bt_verifi5.UseVisualStyleBackColor = true;
+            this.bt_verifi5.Click += new System.EventHandler(this.bt_verifi5_Click);
             // 
             // bt_status5
             // 
@@ -5060,16 +5071,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(12, 196);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 69;
-            this.button18.Text = "button18";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // Form1
             // 

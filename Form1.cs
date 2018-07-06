@@ -7695,6 +7695,71 @@ namespace OLO_CAN
             listBox1.Items.Insert(0, "Перезагрузка.");
 
         }
+        private void bt_verifi5_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 0;
+            Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
+            progressBar1.Maximum = (int)fff[fileindex].size;
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            Byte[] tmparr = new Byte[4];
+            frame.len = 8;
+            tmparr = BitConverter.GetBytes(fff[fileindex].begin);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n] = tmparr[n];
+            tmparr = BitConverter.GetBytes(fff[fileindex].size);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n + 4] = tmparr[n];
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send READ_DATA_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK");
+                return;
+            }
+#if DEBUG
+            print2_msg(frame);
+#endif
+            UInt32 numpack = (fff[fileindex].size + 8 - 1) / 8;
+            byte[] buf = new byte[fff[fileindex].size];
+            UInt32 buf_count = 0;
+            for (int i = 0; i < numpack; i++)
+            {
+                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.len = 0;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    Trace.WriteLine("Error send READ_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    Trace.WriteLine("Error recv READ_DATA_ID");
+                    return;
+                }
+                for (int j = 0; j < frame.len; j++)
+                {
+                    progressBar1.Value = (int)buf_count;
+                    buf[buf_count++] = frame.data[j];
+                }
+            }
+            Trace.WriteLine("file read");
+            Crc32 crc32 = new Crc32();
+            String hash = String.Empty;
+            foreach (byte b in crc32.ComputeHash(buf))
+                hash += b.ToString("X2");
+            Trace.WriteLine(hash);
+            Byte[] crc = new Byte[4];
+            crc = crc32.ComputeHash(buf);
+            Array.Reverse(crc);
+            if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
+                listBox1.Items.Insert(0, "Контрольная сумма CRC32 совпадает.");
+            else
+                listBox1.Items.Insert(0, "Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
+        }
         #endregion
         void filetable_load()
         {
@@ -8061,7 +8126,8 @@ namespace OLO_CAN
             }
         }
         #endregion
-    }
+
+     }
 
     public class rup_id
     {
