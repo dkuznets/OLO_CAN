@@ -7893,6 +7893,8 @@ namespace OLO_CAN
                 if ((frame.data[0] >> 6) == 1)
                 {
                     UInt32 numpack = (size + 8 - 1) / 8;
+                    progressBar1.Value = 0;
+                    progressBar1.Maximum = (int)numpack;
                     for (int i = 0; i < numpack; i++)
                     {
                         Array.Clear(frame.data, 0, 8);
@@ -7910,8 +7912,10 @@ namespace OLO_CAN
                             listBox1.Items.Insert(0, "Error recv ACK");
                             return;
                         }
+                        Application.DoEvents();
+                        progressBar1.Value = i;
                     }
-                    Trace.WriteLine("file table saved");
+                    Trace.WriteLine("file saved");
                 }
             }
         }
