@@ -7891,7 +7891,10 @@ namespace OLO_CAN
         {
             UploadFile uf = new UploadFile();
             uf.lbaddr = 16384;
-            uf.ShowDialog();
+            DialogResult re = uf.ShowDialog();
+            if (re == System.Windows.Forms.DialogResult.Cancel)
+                return;
+            MessageBox.Show(uf._addr.ToString());
         }
 
 

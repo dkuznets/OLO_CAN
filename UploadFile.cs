@@ -12,6 +12,11 @@ namespace OLO_CAN
 {
     public partial class UploadFile : Form
     {
+        public Byte[] rdfile;
+        public UInt32 _crc;
+        public UInt32 _len;
+        public UInt32 _addr;
+        bool _cancel = false;
         public UploadFile()
         {
             InitializeComponent();
@@ -32,7 +37,7 @@ namespace OLO_CAN
                 if (ofd.ShowDialog() != DialogResult.OK)
                     return;
                 FileInfo fi = new FileInfo(ofd.FileName);
-                Byte[] rdfile = new Byte[fi.Length];
+                rdfile = new Byte[fi.Length];
                 FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
                 fs.Read(rdfile, 0, (int)fi.Length);
                 Crc32 crc32 = new Crc32();
@@ -47,16 +52,13 @@ namespace OLO_CAN
                 tb_fname.Text = fi.FullName;
                 mtb_size.Text = fi.Length.ToString("X");
                 mtb_crc32.Text = hash;
-                UInt32 _crc = BitConverter.ToUInt32(crc, 0);
+                _crc = BitConverter.ToUInt32(crc, 0);
+                _len = (UInt32)fi.Length;
+//                _addr =
 
                 // 
 
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -69,6 +71,29 @@ namespace OLO_CAN
         {
             if(mtb_begin.Text != "0x")
                 textBox1.Text = Convert.ToUInt32(mtb_begin.Text.Replace("0x","").Trim(),16).ToString();
+        }
+
+        private void bt_save_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void bt_cancel_Click(object sender, EventArgs e)
+        {
+            _cancel = true;
+        }
+
+        private void UploadFile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_cancel)
+                e.Cancel = false;
+            else
+                if (!valid())
+                    e.Cancel = true;
+        }
+
+        private bool valid()
+        {
+            throw new NotImplementedException();
         }
     }
 }
