@@ -7586,6 +7586,23 @@ namespace OLO_CAN
         {
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.RUP_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            frame.len = 2;
+            frame.data[0] = 0xB4;
+            frame.data[1] = 0xB4;
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                listBox1.Items.Insert(0, "Error send RUP_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                listBox1.Items.Insert(0, "Error recv ACK_ID");
+                return;
+            }
+            msg_2_log(frame);
+
         }
         #endregion
         void filetable_load()
