@@ -208,7 +208,7 @@ namespace OLO_CAN
         UInt32 begin_flash1 = 0;
         UInt32 size_flash1 = 0;
         Boolean aktiv = false;
-        
+       
         #endregion
 
         #region Преобразование номера версии
@@ -7301,7 +7301,9 @@ namespace OLO_CAN
                 Trace.WriteLine("Error recv ACK");
                 return;
             }
+#if DEBUG
             print2_msg(frame);
+#endif
             UInt32 numpack = (fff[fileindex].size + 8 - 1) / 8;
             byte[] buf = new byte[fff[fileindex].size];
             UInt32 buf_count = 0;
@@ -7475,7 +7477,9 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
                     return;
                 }
+#if DEBUG
                 msg_2_log(frame);
+#endif
             }
             catch (Exception ee)
             {
@@ -7512,7 +7516,9 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0,"Ошибка! Контроллер не активирован.");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             if ((frame.data[0] >> 6) == 3)
             { 
                 // запрос статуса
@@ -7562,13 +7568,17 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0,"Error recv ACK_ID");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
                 size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000;
                 aktiv = true;
+#if DEBUG
                 msg_2_log(frame);
+#endif
 
                 // Запрос таблицы файлов
 
@@ -7601,7 +7611,9 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Error recv ACK_ID");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             listBox1.Items.Insert(0, "РУП деактивирован.");
             Array.Clear(frame.data, 0, 8);
             frame.len = 0;
@@ -7616,7 +7628,9 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Error recv ACK_ID");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             listBox1.Items.Insert(0, "Перезагрузка.");
 
         }
@@ -7636,7 +7650,9 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Error recv FILE_TABLE_ADDRESS_ID");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             begin_filetable = BitConverter.ToUInt32(frame.data, 0);
 
             // read file table 128 byte 4 блока!!!!
@@ -7664,7 +7680,9 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error recv ACK");
                     return;
                 }
+#if DEBUG
                 msg_2_log(frame);
+#endif
                 UInt32 numpack = (128 + 8 - 1) / 8;
                 byte[] buf = new byte[128];
                 UInt32 buf_count = 0;
@@ -7781,7 +7799,9 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Error recv ACK");
                 return;
             }
+#if DEBUG
             msg_2_log(frame);
+#endif
             if ((frame.data[0] >> 6) == 1)
             {
                 for (int i = 0; i < 64; i++)
@@ -7871,7 +7891,9 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
                     return;
                 }
+#if DEBUG
                 msg_2_log(frame);
+#endif
 
                 // команда на стирание
 
@@ -7901,7 +7923,9 @@ namespace OLO_CAN
                         Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
                         return;
                     }
-                    print2_msg(frame);
+#if DEBUG
+                    msg_2_log(frame);
+#endif
                     progressBar1.Value = pbval++;
                 } while ((frame.data[2] >> 6) == 0);
 
@@ -7934,7 +7958,9 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Error recv ACK");
                     return;
                 }
+#if DEBUG
                 msg_2_log(frame);
+#endif
                 if ((frame.data[0] >> 6) == 1)
                 {
                     UInt32 numpack = (size + 8 - 1) / 8;
@@ -8026,7 +8052,6 @@ namespace OLO_CAN
         };
 
     }
-
     public class Crc32 : HashAlgorithm
     {
         public const UInt32 DefaultPolynomial = 0xedb88320;
