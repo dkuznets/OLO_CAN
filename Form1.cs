@@ -7984,6 +7984,8 @@ namespace OLO_CAN
             UInt32 x0 = 123456, x1 = 123457, x2 = 123458, x3 = 123456, xx = 0;;
             xx = (x0 & x1) | (x0 & x2) | (x0 & x3) | (x1 & x2) | (x1 & x3) | (x2 & x3);
             MessageBox.Show(xx.ToString());
+            Byte[] aaa = new Byte[6] { 1, 3, 16, 5, 100, 2 };
+            Array.ForEach(aaa, eee => Trace.WriteLine("Error " + eee.ToString()));
         }
 
      }
