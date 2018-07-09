@@ -362,7 +362,8 @@ namespace OLO_CAN
                 chb_6_4.Checked = inicfg._GetBool("setup", "key4");
                 chb_6_5.Checked = inicfg._GetBool("setup", "key5");
                 chb_6_6.Checked = inicfg._GetBool("setup", "key6");
-            }
+                chb_6_7.Checked = inicfg._GetBool("setup", "key7");
+           }
             else
             {
                 chb_6_1.Checked = true;
@@ -371,6 +372,7 @@ namespace OLO_CAN
                 chb_6_4.Checked = true;
                 chb_6_5.Checked = true;
                 chb_6_6.Checked = true;
+                chb_6_7.Checked = true;
             }
             try
             {
@@ -398,6 +400,10 @@ namespace OLO_CAN
                     tabControl1.TabPages["tabPage6"].Parent = null;
                 else
                     tabControl1.TabPages["tabPage6"].Parent = tabControl1;
+                if (!chb_6_7.Checked)
+                    tabControl1.TabPages["tabPage7"].Parent = null;
+                else
+                    tabControl1.TabPages["tabPage7"].Parent = tabControl1;
             }
             catch (Exception)
             {
@@ -957,17 +963,20 @@ namespace OLO_CAN
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
                         break;
                 case 1:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
                         break;
                 case 2:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
                         state_NotReady();
                         dgview2.Rows.Clear();
                         comboBox2.SelectedIndex = 0;
@@ -977,13 +986,29 @@ namespace OLO_CAN
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
                         break;
                 case 4:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
+                        bt_CloseCAN5.PerformClick();
                         break;
                 case 5:
+                        bt_CloseCAN.PerformClick();
+                        bt_CloseCAN2.PerformClick();
+                        bt_CloseCAN3.PerformClick();
+                        bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
+                        break;
+                case 6:
+                        bt_CloseCAN.PerformClick();
+                        bt_CloseCAN2.PerformClick();
+                        bt_CloseCAN3.PerformClick();
+                        bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
+                        break;
+                case 7:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
@@ -6908,6 +6933,7 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key4", chb_6_4.Checked);
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
+            inicfg._SetBool("setup", "key7", chb_6_6.Checked);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -7942,6 +7968,11 @@ namespace OLO_CAN
             }
         }
         #endregion
+
+        private void chb_6_6_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
      }
 

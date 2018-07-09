@@ -375,14 +375,6 @@
             this.bt_OpenCAN4 = new System.Windows.Forms.Button();
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.bt_6_savesetup = new System.Windows.Forms.Button();
-            this.chb_6_6 = new System.Windows.Forms.CheckBox();
-            this.chb_6_5 = new System.Windows.Forms.CheckBox();
-            this.chb_6_4 = new System.Windows.Forms.CheckBox();
-            this.chb_6_3 = new System.Windows.Forms.CheckBox();
-            this.chb_6_2 = new System.Windows.Forms.CheckBox();
-            this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
@@ -410,6 +402,15 @@
             this.label51 = new System.Windows.Forms.Label();
             this.bt_CloseCAN5 = new System.Windows.Forms.Button();
             this.bt_OpenCAN5 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chb_6_7 = new System.Windows.Forms.CheckBox();
+            this.bt_6_savesetup = new System.Windows.Forms.Button();
+            this.chb_6_6 = new System.Windows.Forms.CheckBox();
+            this.chb_6_5 = new System.Windows.Forms.CheckBox();
+            this.chb_6_4 = new System.Windows.Forms.CheckBox();
+            this.chb_6_3 = new System.Windows.Forms.CheckBox();
+            this.chb_6_2 = new System.Windows.Forms.CheckBox();
+            this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -488,10 +489,10 @@
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -508,8 +509,8 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -4317,93 +4318,6 @@
             this.bt_Exit4.UseVisualStyleBackColor = true;
             this.bt_Exit4.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.bt_6_savesetup);
-            this.tabPage6.Controls.Add(this.chb_6_6);
-            this.tabPage6.Controls.Add(this.chb_6_5);
-            this.tabPage6.Controls.Add(this.chb_6_4);
-            this.tabPage6.Controls.Add(this.chb_6_3);
-            this.tabPage6.Controls.Add(this.chb_6_2);
-            this.tabPage6.Controls.Add(this.chb_6_1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(962, 654);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Настройка";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // bt_6_savesetup
-            // 
-            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 162);
-            this.bt_6_savesetup.Name = "bt_6_savesetup";
-            this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
-            this.bt_6_savesetup.TabIndex = 6;
-            this.bt_6_savesetup.Text = "save";
-            this.bt_6_savesetup.UseVisualStyleBackColor = true;
-            this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // chb_6_6
-            // 
-            this.chb_6_6.AutoSize = true;
-            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
-            this.chb_6_6.Name = "chb_6_6";
-            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
-            this.chb_6_6.TabIndex = 5;
-            this.chb_6_6.Text = "Настройка";
-            this.chb_6_6.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_5
-            // 
-            this.chb_6_5.AutoSize = true;
-            this.chb_6_5.Location = new System.Drawing.Point(9, 114);
-            this.chb_6_5.Name = "chb_6_5";
-            this.chb_6_5.Size = new System.Drawing.Size(75, 17);
-            this.chb_6_5.TabIndex = 4;
-            this.chb_6_5.Text = "Тест БОС";
-            this.chb_6_5.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_4
-            // 
-            this.chb_6_4.AutoSize = true;
-            this.chb_6_4.Location = new System.Drawing.Point(9, 90);
-            this.chb_6_4.Name = "chb_6_4";
-            this.chb_6_4.Size = new System.Drawing.Size(75, 17);
-            this.chb_6_4.TabIndex = 3;
-            this.chb_6_4.Text = "Эмулятор";
-            this.chb_6_4.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_3
-            // 
-            this.chb_6_3.AutoSize = true;
-            this.chb_6_3.Location = new System.Drawing.Point(9, 66);
-            this.chb_6_3.Name = "chb_6_3";
-            this.chb_6_3.Size = new System.Drawing.Size(77, 17);
-            this.chb_6_3.TabIndex = 2;
-            this.chb_6_3.Text = "Тест ОЛО";
-            this.chb_6_3.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_2
-            // 
-            this.chb_6_2.AutoSize = true;
-            this.chb_6_2.Location = new System.Drawing.Point(9, 42);
-            this.chb_6_2.Name = "chb_6_2";
-            this.chb_6_2.Size = new System.Drawing.Size(92, 17);
-            this.chb_6_2.TabIndex = 1;
-            this.chb_6_2.Text = "Загрузка ПО";
-            this.chb_6_2.UseVisualStyleBackColor = true;
-            // 
-            // chb_6_1
-            // 
-            this.chb_6_1.AutoSize = true;
-            this.chb_6_1.Location = new System.Drawing.Point(9, 18);
-            this.chb_6_1.Name = "chb_6_1";
-            this.chb_6_1.Size = new System.Drawing.Size(82, 17);
-            this.chb_6_1.TabIndex = 0;
-            this.chb_6_1.Text = "Юстировка";
-            this.chb_6_1.UseVisualStyleBackColor = true;
-            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.listBox1);
@@ -4423,7 +4337,7 @@
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(962, 654);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // listBox1
@@ -4687,6 +4601,105 @@
             this.bt_OpenCAN5.Text = "Открыть";
             this.bt_OpenCAN5.UseVisualStyleBackColor = true;
             this.bt_OpenCAN5.Click += new System.EventHandler(this.bt_OpenCAN5_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.chb_6_7);
+            this.tabPage6.Controls.Add(this.bt_6_savesetup);
+            this.tabPage6.Controls.Add(this.chb_6_6);
+            this.tabPage6.Controls.Add(this.chb_6_5);
+            this.tabPage6.Controls.Add(this.chb_6_4);
+            this.tabPage6.Controls.Add(this.chb_6_3);
+            this.tabPage6.Controls.Add(this.chb_6_2);
+            this.tabPage6.Controls.Add(this.chb_6_1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(962, 654);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Настройка";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_7
+            // 
+            this.chb_6_7.AutoSize = true;
+            this.chb_6_7.Location = new System.Drawing.Point(9, 161);
+            this.chb_6_7.Name = "chb_6_7";
+            this.chb_6_7.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_7.TabIndex = 7;
+            this.chb_6_7.Text = "Настройка";
+            this.chb_6_7.UseVisualStyleBackColor = true;
+            // 
+            // bt_6_savesetup
+            // 
+            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 184);
+            this.bt_6_savesetup.Name = "bt_6_savesetup";
+            this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
+            this.bt_6_savesetup.TabIndex = 6;
+            this.bt_6_savesetup.Text = "save";
+            this.bt_6_savesetup.UseVisualStyleBackColor = true;
+            this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // chb_6_6
+            // 
+            this.chb_6_6.AutoSize = true;
+            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
+            this.chb_6_6.Name = "chb_6_6";
+            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_6.TabIndex = 5;
+            this.chb_6_6.Text = "Настройка";
+            this.chb_6_6.UseVisualStyleBackColor = true;
+            this.chb_6_6.CheckedChanged += new System.EventHandler(this.chb_6_6_CheckedChanged);
+            // 
+            // chb_6_5
+            // 
+            this.chb_6_5.AutoSize = true;
+            this.chb_6_5.Location = new System.Drawing.Point(9, 114);
+            this.chb_6_5.Name = "chb_6_5";
+            this.chb_6_5.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_5.TabIndex = 4;
+            this.chb_6_5.Text = "Тест БОС";
+            this.chb_6_5.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_4
+            // 
+            this.chb_6_4.AutoSize = true;
+            this.chb_6_4.Location = new System.Drawing.Point(9, 90);
+            this.chb_6_4.Name = "chb_6_4";
+            this.chb_6_4.Size = new System.Drawing.Size(75, 17);
+            this.chb_6_4.TabIndex = 3;
+            this.chb_6_4.Text = "Эмулятор";
+            this.chb_6_4.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_3
+            // 
+            this.chb_6_3.AutoSize = true;
+            this.chb_6_3.Location = new System.Drawing.Point(9, 66);
+            this.chb_6_3.Name = "chb_6_3";
+            this.chb_6_3.Size = new System.Drawing.Size(77, 17);
+            this.chb_6_3.TabIndex = 2;
+            this.chb_6_3.Text = "Тест ОЛО";
+            this.chb_6_3.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_2
+            // 
+            this.chb_6_2.AutoSize = true;
+            this.chb_6_2.Location = new System.Drawing.Point(9, 42);
+            this.chb_6_2.Name = "chb_6_2";
+            this.chb_6_2.Size = new System.Drawing.Size(92, 17);
+            this.chb_6_2.TabIndex = 1;
+            this.chb_6_2.Text = "Загрузка ПО";
+            this.chb_6_2.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_1
+            // 
+            this.chb_6_1.AutoSize = true;
+            this.chb_6_1.Location = new System.Drawing.Point(9, 18);
+            this.chb_6_1.Name = "chb_6_1";
+            this.chb_6_1.Size = new System.Drawing.Size(82, 17);
+            this.chb_6_1.TabIndex = 0;
+            this.chb_6_1.Text = "Юстировка";
+            this.chb_6_1.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -4963,13 +4976,13 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbox_CAN5.ResumeLayout(false);
             this.gbox_CAN5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -5387,6 +5400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.CheckBox chb_6_7;
 	}
 }
 
