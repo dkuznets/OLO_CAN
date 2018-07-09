@@ -7546,6 +7546,7 @@ namespace OLO_CAN
 //            MessageBox.Show(dataGridView1.SelectedRows[0].Index.ToString());
             if(dataGridView1.SelectedRows[0].Index == 0)
                 return;
+            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -7557,7 +7558,6 @@ namespace OLO_CAN
             tmparr = BitConverter.GetBytes(fff[fileindex].size);
             for (byte n = 0; n < 4; n++)
                 frame.data[n + 4] = tmparr[n];
-            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
                 Trace.WriteLine("Error send READ_DATA_ID");
