@@ -7462,7 +7462,11 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0,"Ошибка! Flash #1 не активирован.");
                 return;
             }
+            bt_verifi5.Enabled = true;
 
+            dataGridView1.Enabled = true;
+            progressBar1.Enabled = true;
+            listBox1.Enabled = true;
         }
         private void bt_reboot5_Click(object sender, EventArgs e)
         {
@@ -7505,7 +7509,7 @@ namespace OLO_CAN
 #endif
             listBox1.Items.Insert(0, "Перезагрузка.");
             aktiv = false;
-
+            bt_verifi5.Enabled = false;
         }
         private void bt_verifi5_Click(object sender, EventArgs e)
         {
