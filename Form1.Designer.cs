@@ -4649,7 +4649,6 @@
             this.chb_6_7.TabIndex = 5;
             this.chb_6_7.Text = "МУП";
             this.chb_6_7.UseVisualStyleBackColor = true;
-            this.chb_6_7.CheckedChanged += new System.EventHandler(this.chb_6_6_CheckedChanged);
             // 
             // chb_6_5
             // 

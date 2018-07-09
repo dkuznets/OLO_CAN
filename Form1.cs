@@ -7021,6 +7021,8 @@ namespace OLO_CAN
             uniCAN.Recv_Disable();
             uniCAN = null;
 //            Timer_GetData3.Enabled = false;
+            aktiv = false;
+            dataGridView1.Rows.Clear();
         }
          #endregion
         #region knupeli
@@ -7541,9 +7543,10 @@ namespace OLO_CAN
         {
             progressBar1.Value = 0;
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
+            MessageBox.Show(fileindex.ToString());
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             Byte[] tmparr = new Byte[4];
             frame.len = 8;
             tmparr = BitConverter.GetBytes(fff[fileindex].begin);
@@ -7968,11 +7971,6 @@ namespace OLO_CAN
             }
         }
         #endregion
-
-        private void chb_6_6_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
      }
 
