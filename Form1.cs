@@ -7981,7 +7981,7 @@ namespace OLO_CAN
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            UInt32 x0 = 123456, x1 = 123457, x2 = 123457, xx = 0;;
+            UInt32 x0 = 123456, x1 = 123457, x2 = 123458, xx = 0;;
             xx = (x0 & x1) | (x0 & x2) | (x1 & x2);
             MessageBox.Show(xx.ToString());
         }
