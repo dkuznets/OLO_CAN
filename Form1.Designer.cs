@@ -403,9 +403,9 @@
             this.bt_CloseCAN5 = new System.Windows.Forms.Button();
             this.bt_OpenCAN5 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.chb_6_7 = new System.Windows.Forms.CheckBox();
-            this.bt_6_savesetup = new System.Windows.Forms.Button();
             this.chb_6_6 = new System.Windows.Forms.CheckBox();
+            this.bt_6_savesetup = new System.Windows.Forms.Button();
+            this.chb_6_7 = new System.Windows.Forms.CheckBox();
             this.chb_6_5 = new System.Windows.Forms.CheckBox();
             this.chb_6_4 = new System.Windows.Forms.CheckBox();
             this.chb_6_3 = new System.Windows.Forms.CheckBox();
@@ -4604,9 +4604,9 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.chb_6_7);
-            this.tabPage6.Controls.Add(this.bt_6_savesetup);
             this.tabPage6.Controls.Add(this.chb_6_6);
+            this.tabPage6.Controls.Add(this.bt_6_savesetup);
+            this.tabPage6.Controls.Add(this.chb_6_7);
             this.tabPage6.Controls.Add(this.chb_6_5);
             this.tabPage6.Controls.Add(this.chb_6_4);
             this.tabPage6.Controls.Add(this.chb_6_3);
@@ -4620,15 +4620,15 @@
             this.tabPage6.Text = "Настройка";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // chb_6_7
+            // chb_6_6
             // 
-            this.chb_6_7.AutoSize = true;
-            this.chb_6_7.Location = new System.Drawing.Point(9, 161);
-            this.chb_6_7.Name = "chb_6_7";
-            this.chb_6_7.Size = new System.Drawing.Size(81, 17);
-            this.chb_6_7.TabIndex = 7;
-            this.chb_6_7.Text = "Настройка";
-            this.chb_6_7.UseVisualStyleBackColor = true;
+            this.chb_6_6.AutoSize = true;
+            this.chb_6_6.Location = new System.Drawing.Point(9, 161);
+            this.chb_6_6.Name = "chb_6_6";
+            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_6.TabIndex = 7;
+            this.chb_6_6.Text = "Настройка";
+            this.chb_6_6.UseVisualStyleBackColor = true;
             // 
             // bt_6_savesetup
             // 
@@ -4640,16 +4640,16 @@
             this.bt_6_savesetup.UseVisualStyleBackColor = true;
             this.bt_6_savesetup.Click += new System.EventHandler(this.button7_Click);
             // 
-            // chb_6_6
+            // chb_6_7
             // 
-            this.chb_6_6.AutoSize = true;
-            this.chb_6_6.Location = new System.Drawing.Point(9, 138);
-            this.chb_6_6.Name = "chb_6_6";
-            this.chb_6_6.Size = new System.Drawing.Size(51, 17);
-            this.chb_6_6.TabIndex = 5;
-            this.chb_6_6.Text = "МУП";
-            this.chb_6_6.UseVisualStyleBackColor = true;
-            this.chb_6_6.CheckedChanged += new System.EventHandler(this.chb_6_6_CheckedChanged);
+            this.chb_6_7.AutoSize = true;
+            this.chb_6_7.Location = new System.Drawing.Point(9, 138);
+            this.chb_6_7.Name = "chb_6_7";
+            this.chb_6_7.Size = new System.Drawing.Size(51, 17);
+            this.chb_6_7.TabIndex = 5;
+            this.chb_6_7.Text = "МУП";
+            this.chb_6_7.UseVisualStyleBackColor = true;
+            this.chb_6_7.CheckedChanged += new System.EventHandler(this.chb_6_6_CheckedChanged);
             // 
             // chb_6_5
             // 
@@ -5349,7 +5349,7 @@
         private System.Windows.Forms.Button bt_plis_init;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button bt_6_savesetup;
-        private System.Windows.Forms.CheckBox chb_6_6;
+        private System.Windows.Forms.CheckBox chb_6_7;
         private System.Windows.Forms.CheckBox chb_6_5;
         private System.Windows.Forms.CheckBox chb_6_4;
         private System.Windows.Forms.CheckBox chb_6_3;
@@ -5400,7 +5400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.CheckBox chb_6_7;
+        private System.Windows.Forms.CheckBox chb_6_6;
 	}
 }
 

@@ -361,8 +361,8 @@ namespace OLO_CAN
                 chb_6_3.Checked = inicfg._GetBool("setup", "key3");
                 chb_6_4.Checked = inicfg._GetBool("setup", "key4");
                 chb_6_5.Checked = inicfg._GetBool("setup", "key5");
-                chb_6_6.Checked = inicfg._GetBool("setup", "key6");
-                chb_6_7.Checked = inicfg._GetBool("setup", "key7");
+                chb_6_7.Checked = inicfg._GetBool("setup", "key6");
+                chb_6_6.Checked = inicfg._GetBool("setup", "key7");
            }
             else
             {
@@ -371,8 +371,8 @@ namespace OLO_CAN
                 chb_6_3.Checked = true;
                 chb_6_4.Checked = true;
                 chb_6_5.Checked = true;
-                chb_6_6.Checked = true;
                 chb_6_7.Checked = true;
+                chb_6_6.Checked = true;
             }
             try
             {
@@ -396,11 +396,11 @@ namespace OLO_CAN
                     tabControl1.TabPages["tabPage5"].Parent = null;
                 else
                     tabControl1.TabPages["tabPage5"].Parent = tabControl1;
-                if (!chb_6_6.Checked)
+                if (!chb_6_7.Checked)
                     tabControl1.TabPages["tabPage6"].Parent = null;
                 else
                     tabControl1.TabPages["tabPage6"].Parent = tabControl1;
-                if (!chb_6_7.Checked)
+                if (!chb_6_6.Checked)
                     tabControl1.TabPages["tabPage7"].Parent = null;
                 else
                     tabControl1.TabPages["tabPage7"].Parent = tabControl1;
@@ -6932,8 +6932,8 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key3", chb_6_3.Checked);
             inicfg._SetBool("setup", "key4", chb_6_4.Checked);
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
-            inicfg._SetBool("setup", "key6", chb_6_6.Checked);
-            inicfg._SetBool("setup", "key7", chb_6_6.Checked);
+            inicfg._SetBool("setup", "key6", chb_6_7.Checked);
+            inicfg._SetBool("setup", "key7", chb_6_7.Checked);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
