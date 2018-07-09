@@ -7543,6 +7543,7 @@ namespace OLO_CAN
         {
             progressBar1.Value = 0;
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
+            MessageBox.Show(dataGridView1.SelectedRows[0].Index.ToString());
             if(dataGridView1.SelectedRows[0].Index == 0);
                 return;
             progressBar1.Maximum = (int)fff[fileindex].size;
