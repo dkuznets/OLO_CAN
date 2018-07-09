@@ -7986,6 +7986,8 @@ namespace OLO_CAN
             MessageBox.Show(xx.ToString());
             Byte[] aaa = new Byte[6] { 1, 3, 16, 5, 100, 2 };
             Array.ForEach(aaa, eee => Trace.WriteLine("Error " + eee.ToString()));
+            aaa = aaa.OrderBy(x => x).ToArray();
+            Array.ForEach(aaa, eee => Trace.WriteLine("Sort " + eee.ToString()));
         }
 
      }
