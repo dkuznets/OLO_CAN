@@ -7557,6 +7557,7 @@ namespace OLO_CAN
             tmparr = BitConverter.GetBytes(fff[fileindex].size);
             for (byte n = 0; n < 4; n++)
                 frame.data[n + 4] = tmparr[n];
+            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
                 Trace.WriteLine("Error send READ_DATA_ID");
@@ -7567,7 +7568,6 @@ namespace OLO_CAN
                 Trace.WriteLine("Error recv ACK");
                 return;
             }
-            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString());
 
 #if DEBUG
             print2_msg(frame);
