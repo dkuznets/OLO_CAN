@@ -4645,9 +4645,9 @@
             this.chb_6_6.AutoSize = true;
             this.chb_6_6.Location = new System.Drawing.Point(9, 138);
             this.chb_6_6.Name = "chb_6_6";
-            this.chb_6_6.Size = new System.Drawing.Size(81, 17);
+            this.chb_6_6.Size = new System.Drawing.Size(51, 17);
             this.chb_6_6.TabIndex = 5;
-            this.chb_6_6.Text = "Настройка";
+            this.chb_6_6.Text = "МУП";
             this.chb_6_6.UseVisualStyleBackColor = true;
             this.chb_6_6.CheckedChanged += new System.EventHandler(this.chb_6_6_CheckedChanged);
             // 
