@@ -640,6 +640,18 @@ namespace OLO_CAN
             bt_OpenCAN5.Enabled = true;
 
             lb_noerr5.Visible = false;
+
+            rb_r5.Enabled = false;
+            rb_l5.Enabled = false;
+            bt_aktiv5.Enabled = false;
+            bt_reboot5.Enabled = false;
+            bt_status5.Enabled = false;
+            bt_verifi5.Enabled = false;
+
+            dataGridView1.Enabled = false;
+            progressBar1.Enabled = false;
+            listBox1.Enabled = false;
+
         }
         private void state_Ready()
         {
@@ -809,6 +821,17 @@ namespace OLO_CAN
             lb_noerr5.Visible = true;
             lb_noerr5.Text = uniCAN.Info;
 
+            rb_r5.Enabled = true;
+            rb_l5.Enabled = true;
+            bt_aktiv5.Enabled = true;
+            bt_reboot5.Enabled = true;
+            bt_status5.Enabled = true;
+            bt_verifi5.Enabled = false;
+
+            dataGridView1.Enabled = false;
+            progressBar1.Enabled = false;
+            listBox1.Enabled = false;
+
         }
         private void state_NotReady()
         {
@@ -905,6 +928,19 @@ namespace OLO_CAN
             bt_OpenCAN5.Enabled = true;
             lb_noerr5.Visible = false;
             cb_CAN5.Enabled = true;
+
+            rb_r5.Enabled = false;
+            rb_l5.Enabled = false;
+            bt_aktiv5.Enabled = false;
+            bt_reboot5.Enabled = false;
+            bt_status5.Enabled = false;
+            bt_verifi5.Enabled = false;
+
+            dataGridView1.Enabled = false;
+            progressBar1.Enabled = false;
+            listBox1.Enabled = false;
+
+
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -7468,6 +7504,7 @@ namespace OLO_CAN
             msg_2_log(frame);
 #endif
             listBox1.Items.Insert(0, "Перезагрузка.");
+            aktiv = false;
 
         }
         private void bt_verifi5_Click(object sender, EventArgs e)
