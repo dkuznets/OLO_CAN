@@ -203,7 +203,19 @@ namespace OLO_CAN
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
             public Byte[] comment;
         };
+        public unsafe struct DATATABLE
+        {
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+            public Byte[] dev_id;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+            public Byte[] ser_num;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 117)]
+            public Byte[] rezerv;
+        };
+        UInt32 size_dtable = 128;
+        UInt32 begin_dtable = 0x3A000;
         FILETABLE[] fff = new FILETABLE[4];
+        DATATABLE dtable = new DATATABLE();
         UInt32 begin_filetable = 0;
         UInt32 begin_flash1 = 0;
         UInt32 size_flash1 = 0;
@@ -7061,7 +7073,7 @@ namespace OLO_CAN
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             Byte[] tmparr = new Byte[4];
             frame.len = 8;
             tmparr = BitConverter.GetBytes(fff[fileindex].begin);
@@ -7208,7 +7220,7 @@ namespace OLO_CAN
             Application.DoEvents();
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+            frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             Byte[] tmparr = new Byte[4];
             frame.len = 8;
             tmparr = BitConverter.GetBytes(fff[fileindex].begin);
@@ -7235,7 +7247,7 @@ namespace OLO_CAN
             UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
             {
-                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
@@ -7708,6 +7720,12 @@ namespace OLO_CAN
         void filetable_save()
         {
             filetable_sort();
+
+            // вычитываем таблицу данных
+
+            Byte[] ddt = new Byte[size_dtable];
+            datatable_load(ref ddt);
+
             // стереть последний сектор
 
             Array.Clear(frame.data, 0, 8);
@@ -7755,6 +7773,13 @@ namespace OLO_CAN
                 Array.Copy(arr, 0, buf, 128 * i, 128);
             }
 
+            Byte[] lastpage = new Byte[8192];
+            for (int i = 0; i < 8192; i++)
+			    lastpage[i] = 0;
+
+            Array.Copy(ddt, 0, lastpage, 0, 128);
+            Array.Copy(buf, 0, lastpage, 0x1E00, 512);
+
             // записать в флеш
 
             Array.Clear(frame.data, 0, 8);
@@ -7764,7 +7789,8 @@ namespace OLO_CAN
             tmparr = BitConverter.GetBytes(begin_filetable);
             for (byte n = 0; n < 4; n++)
                 frame.data[n] = tmparr[n];
-            tmparr = BitConverter.GetBytes((UInt32)512);
+//            tmparr = BitConverter.GetBytes((UInt32)512);
+            tmparr = BitConverter.GetBytes((UInt32)8192);
             for (byte n = 0; n < 4; n++)
                 frame.data[n + 4] = tmparr[n];
             if (uniCAN == null || !uniCAN.Send(ref frame))
@@ -7782,12 +7808,13 @@ namespace OLO_CAN
 #endif
             if ((frame.data[0] >> 6) == 1)
             {
-                for (int i = 0; i < 64; i++)
+                for (int i = 0; i < 1024; i++)
                 {
                     frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                     frame.len = 8;
                     for (int j = 0; j < 8; j++)
-                        frame.data[j] = buf[i * 8 + j];
+//                        frame.data[j] = buf[i * 8 + j];
+                        frame.data[j] = lastpage[i * 8 + j];
                     if (uniCAN == null || !uniCAN.Send(ref frame))
                     {
                         listBox1.Items.Insert(0, "Error send DATA_SEGMENT_ID");
@@ -7977,6 +8004,61 @@ namespace OLO_CAN
                 }
             }
         }
+        void datatable_load(ref Byte[] arr)
+        {
+            progressBar1.Value = 0;
+//            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            Application.DoEvents();
+            progressBar1.Maximum = 128;
+            Array.Clear(frame.data, 0, 8);
+            frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+            Byte[] tmparr = new Byte[4];
+            frame.len = 8;
+            tmparr = BitConverter.GetBytes(begin_dtable);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n] = tmparr[n];
+            tmparr = BitConverter.GetBytes(size_dtable);
+            for (byte n = 0; n < 4; n++)
+                frame.data[n + 4] = tmparr[n];
+            if (uniCAN == null || !uniCAN.Send(ref frame))
+            {
+                Trace.WriteLine("Error send READ_DATA_ID");
+                return;
+            }
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            {
+                Trace.WriteLine("Error recv ACK");
+                return;
+            }
+#if DEBUG
+            print2_msg(frame);
+#endif
+            UInt32 numpack = (size_dtable + 8 - 1) / 8;
+            byte[] buf = new byte[size_dtable];
+            UInt32 buf_count = 0;
+            for (int i = 0; i < numpack; i++)
+            {
+                frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                frame.len = 0;
+                if (uniCAN == null || !uniCAN.Send(ref frame))
+                {
+                    Trace.WriteLine("Error send READ_DATA_ID");
+                    return;
+                }
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                {
+                    Trace.WriteLine("Error recv READ_DATA_ID");
+                    return;
+                }
+                for (int j = 0; j < frame.len; j++)
+                {
+                    progressBar1.Value = (int)buf_count;
+                    buf[buf_count++] = frame.data[j];
+                }
+            }
+            Trace.WriteLine("file read");
+        }
+
         #endregion
 
         private void button3_Click_1(object sender, EventArgs e)
