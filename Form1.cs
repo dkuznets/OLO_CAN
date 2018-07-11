@@ -7726,10 +7726,10 @@ namespace OLO_CAN
             Byte[] ddt = new Byte[size_dtable];
             datatable_load(ref ddt);
 
-            for (int i = 0; i < 128; i++)
-            {
-                ddt[i] = 0;
-            }
+            //for (int i = 0; i < 128; i++)
+            //{
+            //    ddt[i] = 0;
+            //}
 
             // стереть последний сектор
 
