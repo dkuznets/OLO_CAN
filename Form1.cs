@@ -7075,7 +7075,8 @@ namespace OLO_CAN
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
             byte[] buf = new byte[fff[fileindex].size];
             read_area(fff[fileindex].begin, fff[fileindex].size, ref buf);
-
+            listBox1.Items.Insert(0, "Скачивание завершено.");
+            Application.DoEvents();
             Trace.WriteLine("file read");
             Crc32 crc32 = new Crc32();
             String hash = String.Empty;
@@ -7087,11 +7088,17 @@ namespace OLO_CAN
             Array.Reverse(crc);
             if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
             {
-                listBox1.Items.Insert(0, "Скачивание завершено. CRC32 OК");
+                listBox1.Items.Insert(0, "CRC32 OК");
                 Application.DoEvents();
 
                 Trace.WriteLine("CRC32 OK");
             }
+            else
+            {
+                listBox1.Items.Insert(0, "CRC32 failed!!!");
+                Application.DoEvents();
+            }
+
             using (SaveFileDialog fd = new SaveFileDialog())
             {
                 fd.Filter = "Файлы (*.bin)|*.bin";
