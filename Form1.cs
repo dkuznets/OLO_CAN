@@ -213,7 +213,7 @@ namespace OLO_CAN
             public Byte[] rezerv;
         };
         UInt32 size_dtable = 128;
-        UInt32 begin_dtable = 0x3A000;
+        UInt32 begin_dtable = 0x3C000;
         FILETABLE[] fff = new FILETABLE[4];
         DATATABLE dtable = new DATATABLE();
         UInt32 begin_filetable = 0;
