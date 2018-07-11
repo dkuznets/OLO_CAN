@@ -7638,7 +7638,7 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Error send FILE_TABLE_REQUEST_ID");
                 return;
             }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
             {
                 listBox1.Items.Insert(0, "Error recv FILE_TABLE_ADDRESS_ID");
                 return;
@@ -7653,66 +7653,23 @@ namespace OLO_CAN
             Byte iii = 0;
             do
             {
-                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                Byte[] tmparr = new Byte[4];
-                frame.len = 8;
-                tmparr = BitConverter.GetBytes(begin_filetable + 128 * iii);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n] = tmparr[n];
-                tmparr = BitConverter.GetBytes((UInt32)128);
-                for (byte n = 0; n < 4; n++)
-                    frame.data[n + 4] = tmparr[n];
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    listBox1.Items.Insert(0, "Error send READ_DATA_ID");
-                    return;
-                }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-                {
-                    listBox1.Items.Insert(0, "Error recv ACK");
-                    return;
-                }
-#if DEBUG
-                msg_2_log(frame);
-#endif
-                UInt32 numpack = (128 + 8 - 1) / 8;
-                byte[] buf = new byte[128];
-                UInt32 buf_count = 0;
-                for (int i = 0; i < numpack; i++)
-                {
-                    frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                    frame.len = 0;
-                    if (uniCAN == null || !uniCAN.Send(ref frame))
-                    {
-                        listBox1.Items.Insert(0, "Error send READ_DATA_ID");
-                        return;
-                    }
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-                    {
-                        listBox1.Items.Insert(0, "Error recv READ_DATA_ID");
-                        return;
-                    }
-                    for (int j = 0; j < frame.len; j++)
-                    {
-                        buf[buf_count++] = frame.data[j];
-                    }
-                }
+                Byte[] buf = new Byte[128];
+                read_area((UInt32)(begin_filetable + iii * 128), 128, ref buf);
 
                 GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
                 fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
                 handle.Free();
-                if (fff[iii].name[0] == 0xFF || fff[iii].name[0] == 0x00)
+                if (fff[iii].begin == 0xFF)
                 {
-                    for (int i = 0; i < 28; i++)
-                        fff[iii].name[i] = 0;
+                    //for (int i = 0; i < 28; i++)
+                    //    fff[iii].name[i] = 0;
                     fff[0].begin = 0;
-                    fff[0].size = 0;
-                    fff[0].time = 0;
-                    fff[0].crc32 = 0;
-                    fff[0].version = 0;
-                    for (int i = 0; i < 80; i++)
-                        fff[iii].comment[i] = 0;
+                    //fff[0].size = 0;
+                    //fff[0].time = 0;
+                    //fff[0].crc32 = 0;
+                    //fff[0].version = 0;
+                    //for (int i = 0; i < 80; i++)
+                    //    fff[iii].comment[i] = 0;
                 }
                 iii++;
 
