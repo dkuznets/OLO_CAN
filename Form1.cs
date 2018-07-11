@@ -7121,9 +7121,13 @@ namespace OLO_CAN
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
 
-                listBox1.Items.Insert(0, "Удаляю файл.");
+                listBox1.Items.Insert(0, "Удаляю файл...");
+                Application.DoEvents();
                 erase_area(fff[filenum].begin, fff[filenum].size);
+                listBox1.Items.Insert(0, "Удаление завершено.");
+                Application.DoEvents();
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
+                Application.DoEvents();
 
                 fff[filenum] = new FILETABLE();
                 filetable_sort();
@@ -7152,14 +7156,18 @@ namespace OLO_CAN
                 // очистка флеш
 
                 listBox1.Items.Insert(0, "Очистка области.");
+                Application.DoEvents();
                 erase_area(fff[0].begin, fff[0].size);
                 listBox1.Items.Insert(0, "Очистка области завершена.");
+                Application.DoEvents();
 
                 // запись файла
 
                 listBox1.Items.Insert(0, "Записываю новый файл.");
+                Application.DoEvents();
                 write_area(fff[0].begin, fff[0].size, uf._rdfile);
                 listBox1.Items.Insert(0, "Запись файла завершена.");
+                Application.DoEvents();
 
                 filetable_sort();
                 filetable_save();
