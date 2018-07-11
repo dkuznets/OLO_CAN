@@ -8030,7 +8030,7 @@ namespace OLO_CAN
                 Trace.WriteLine("Error send READ_DATA_ID");
                 return;
             }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+            if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
             {
                 Trace.WriteLine("Error recv ACK");
                 return;
@@ -8039,7 +8039,7 @@ namespace OLO_CAN
             print2_msg(frame);
 #endif
             UInt32 numpack = (size_dtable + 8 - 1) / 8;
-            byte[] buf = new byte[size_dtable];
+//            byte[] buf = new byte[size_dtable];
             UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
             {
@@ -8050,7 +8050,7 @@ namespace OLO_CAN
                     Trace.WriteLine("Error send READ_DATA_ID");
                     return;
                 }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
                     Trace.WriteLine("Error recv READ_DATA_ID");
                     return;
@@ -8058,10 +8058,10 @@ namespace OLO_CAN
                 for (int j = 0; j < frame.len; j++)
                 {
                     progressBar1.Value = (int)buf_count;
-                    buf[buf_count++] = frame.data[j];
+                    arr[buf_count++] = frame.data[j];
                 }
             }
-            Trace.WriteLine("file read");
+            Trace.WriteLine("datable read");
         }
 
         #endregion
