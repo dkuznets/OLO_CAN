@@ -7723,13 +7723,7 @@ namespace OLO_CAN
 
             // вычитываем таблицу данных
 
-            Byte[] ddt = new Byte[size_dtable];
-            datatable_load(ref ddt);
-
-            //for (int i = 0; i < 128; i++)
-            //{
-            //    ddt[i] = 0;
-            //}
+            datatable_load();
 
             // стереть последний сектор
 
@@ -7778,16 +7772,9 @@ namespace OLO_CAN
                 Array.Copy(arr, 0, buf, 128 * i, 128);
             }
 
-            Byte[] lastpage = new Byte[8192];
-            for (int i = 0; i < 8192; i++)
-			    lastpage[i] = 0;
-
-            Array.Copy(ddt, 0, lastpage, 0, 128);
-            Array.Copy(buf, 0, lastpage, 0x1E00, 512);
-
             // записать в флеш datatable
 
-            write_area(begin_dtable, size_dtable, ddt);
+            datatable_save();
             Trace.WriteLine("data table saved");
 
             // записать в флеш filetable
@@ -7970,20 +7957,20 @@ namespace OLO_CAN
                 }
             }
         }
-        void datatable_load(ref Byte[] arr)
+        void read_area(UInt32 begin, UInt32 size, ref Byte[] buf)
         {
             progressBar1.Value = 0;
-//            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             Application.DoEvents();
-            progressBar1.Maximum = 128;
+            progressBar1.Maximum = (int)size;
+
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             Byte[] tmparr = new Byte[4];
             frame.len = 8;
-            tmparr = BitConverter.GetBytes(begin_dtable);
+            tmparr = BitConverter.GetBytes(begin);
             for (byte n = 0; n < 4; n++)
                 frame.data[n] = tmparr[n];
-            tmparr = BitConverter.GetBytes(size_dtable);
+            tmparr = BitConverter.GetBytes(size);
             for (byte n = 0; n < 4; n++)
                 frame.data[n + 4] = tmparr[n];
             if (uniCAN == null || !uniCAN.Send(ref frame))
@@ -7999,8 +7986,7 @@ namespace OLO_CAN
 #if DEBUG
             print2_msg(frame);
 #endif
-            UInt32 numpack = (size_dtable + 8 - 1) / 8;
-//            byte[] buf = new byte[size_dtable];
+            UInt32 numpack = (size + 8 - 1) / 8;
             UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
             {
@@ -8019,10 +8005,25 @@ namespace OLO_CAN
                 for (int j = 0; j < frame.len; j++)
                 {
                     progressBar1.Value = (int)buf_count;
-                    arr[buf_count++] = frame.data[j];
+                    buf[buf_count++] = frame.data[j];
                 }
             }
-            Trace.WriteLine("datable read");
+            Trace.WriteLine("area read complete");
+        }
+        void datatable_load()
+        {
+            Byte[] arr = new Byte[size_dtable];
+            read_area(begin_dtable, size_dtable, ref arr);
+            GCHandle handle = GCHandle.Alloc(arr, GCHandleType.Pinned);
+            dtable = (DATATABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(DATATABLE));
+            handle.Free();
+        }
+        void datatable_save()
+        {
+            Byte[] arr = new Byte[size_dtable];
+//            read_area(begin_dtable, size_dtable, ref arr);
+            arr = StructToBuff<DATATABLE>(dtable);
+            write_area(begin_dtable, size_dtable, arr);
         }
 
         #endregion
