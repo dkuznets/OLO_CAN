@@ -7324,7 +7324,9 @@ namespace OLO_CAN
         {
             if(aktiv)
             {
+                datatable_load();
                 erase_area(begin_flash1, size_flash1);
+                datatable_save();
                 listBox1.Items.Insert(0, "Форматирование флеша завершено.");
                 filetable_load();
                 filetable_2_dg();
