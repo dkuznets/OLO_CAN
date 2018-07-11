@@ -7785,54 +7785,15 @@ namespace OLO_CAN
             Array.Copy(ddt, 0, lastpage, 0, 128);
             Array.Copy(buf, 0, lastpage, 0x1E00, 512);
 
-            // записать в флеш
+            // записать в флеш datatable
 
-            Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.WRITE_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-            tmparr = new Byte[4];
-            frame.len = 8;
-            tmparr = BitConverter.GetBytes(begin_filetable);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n] = tmparr[n];
-//            tmparr = BitConverter.GetBytes((UInt32)512);
-            tmparr = BitConverter.GetBytes((UInt32)8192);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n + 4] = tmparr[n];
-            if (uniCAN == null || !uniCAN.Send(ref frame))
-            {
-                listBox1.Items.Insert(0, "Error send WRITE_DATA_ID");
-                return;
-            }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-            {
-                listBox1.Items.Insert(0, "Error recv ACK");
-                return;
-            }
-#if DEBUG
-            msg_2_log(frame);
-#endif
-            if ((frame.data[0] >> 6) == 1)
-            {
-                for (int i = 0; i < 1024; i++)
-                {
-                    frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                    frame.len = 8;
-                    for (int j = 0; j < 8; j++)
-//                        frame.data[j] = buf[i * 8 + j];
-                        frame.data[j] = lastpage[i * 8 + j];
-                    if (uniCAN == null || !uniCAN.Send(ref frame))
-                    {
-                        listBox1.Items.Insert(0, "Error send DATA_SEGMENT_ID");
-                        return;
-                    }
-                    if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
-                    {
-                        listBox1.Items.Insert(0, "Error recv ACK");
-                        return;
-                    }
-                }
-                Trace.WriteLine("file table saved");
-            }
+            write_area(begin_dtable, size_dtable, ddt);
+            Trace.WriteLine("data table saved");
+
+            // записать в флеш filetable
+
+            write_area(begin_filetable, 512, buf);
+            Trace.WriteLine("file table saved");
         }
         void filetable_2_dg()
         {
