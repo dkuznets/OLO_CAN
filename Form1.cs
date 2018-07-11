@@ -7281,6 +7281,7 @@ namespace OLO_CAN
         }
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
+            filetable_sort();
             UploadFile uf = new UploadFile();
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
