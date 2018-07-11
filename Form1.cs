@@ -7069,55 +7069,13 @@ namespace OLO_CAN
         #region Обработка меню
         private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать файл
         {
-            progressBar1.Value = 0;
+            listBox1.Items.Insert(0, "Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
+            Application.DoEvents();
+
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-            progressBar1.Maximum = (int)fff[fileindex].size;
-            Array.Clear(frame.data, 0, 8);
-            frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-            Byte[] tmparr = new Byte[4];
-            frame.len = 8;
-            tmparr = BitConverter.GetBytes(fff[fileindex].begin);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n] = tmparr[n];
-            tmparr = BitConverter.GetBytes(fff[fileindex].size);
-            for (byte n = 0; n < 4; n++)
-                frame.data[n + 4] = tmparr[n];
-            if (uniCAN == null || !uniCAN.Send(ref frame))
-            {
-                Trace.WriteLine("Error send READ_DATA_ID");
-                return;
-            }
-            if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-            {
-                Trace.WriteLine("Error recv ACK");
-                return;
-            }
-#if DEBUG
-            print2_msg(frame);
-#endif
-            UInt32 numpack = (fff[fileindex].size + 8 - 1) / 8;
             byte[] buf = new byte[fff[fileindex].size];
-            UInt32 buf_count = 0;
-            for (int i = 0; i < numpack; i++)
-            {
-                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
-                frame.len = 0;
-                if (uniCAN == null || !uniCAN.Send(ref frame))
-                {
-                    Trace.WriteLine("Error send READ_DATA_ID");
-                    return;
-                }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
-                {
-                    Trace.WriteLine("Error recv READ_DATA_ID");
-                    return;
-                }
-                for (int j = 0; j < frame.len; j++)
-                {
-                    progressBar1.Value = (int)buf_count;
-                    buf[buf_count++] = frame.data[j];
-                }
-            }
+            read_area(fff[fileindex].begin, fff[fileindex].size, ref buf);
+
             Trace.WriteLine("file read");
             Crc32 crc32 = new Crc32();
             String hash = String.Empty;
@@ -7128,7 +7086,12 @@ namespace OLO_CAN
             crc = crc32.ComputeHash(buf);
             Array.Reverse(crc);
             if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
+            {
+                listBox1.Items.Insert(0, "Скачивание завершено. CRC32 OК");
+                Application.DoEvents();
+
                 Trace.WriteLine("CRC32 OK");
+            }
             using (SaveFileDialog fd = new SaveFileDialog())
             {
                 fd.Filter = "Файлы (*.bin)|*.bin";
@@ -7139,7 +7102,6 @@ namespace OLO_CAN
                 FileStream fs = new FileStream(fd.FileName, FileMode.Create, FileAccess.Write);
                 fs.Write(buf, 0, (int)fff[fileindex].size);
             }
-
         }
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
         {
@@ -7202,9 +7164,14 @@ namespace OLO_CAN
         {
             if (aktiv)
             {
+                listBox1.Items.Insert(0, "Стираю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
+                Application.DoEvents();
                 Byte filenum = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
                 erase_area(fff[filenum].begin, fff[filenum].size);
+                listBox1.Items.Insert(0, "Стирание завешено.");
+                Application.DoEvents();
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
+                Application.DoEvents();
 
                 fff[filenum] = new FILETABLE();
                 filetable_sort();
@@ -7286,7 +7253,7 @@ namespace OLO_CAN
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            MessageBox.Show(fff[0].size.ToString());
+//            MessageBox.Show(fff[0].size.ToString());
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
@@ -7307,13 +7274,20 @@ namespace OLO_CAN
 
                 // очистка флеш
 
+                listBox1.Items.Insert(0, "Очистка области...");
+                Application.DoEvents();
                 erase_area(fff[0].begin, fff[0].size);
                 listBox1.Items.Insert(0, "Очистка области завершена.");
+                Application.DoEvents();
 
                 // запись файла
 
+                listBox1.Items.Insert(0, "Запись файла ...");
+                Application.DoEvents();
+
                 write_area(fff[0].begin, fff[0].size, uf._rdfile);
                 listBox1.Items.Insert(0, "Запись файла завершена.");
+                Application.DoEvents();
 
                 filetable_sort();
                 filetable_save();
@@ -7325,10 +7299,13 @@ namespace OLO_CAN
         {
             if(aktiv)
             {
-                datatable_load();
+                listBox1.Items.Insert(0, "Форматирование флеша...");
+                Application.DoEvents();
+                //                datatable_load();
                 erase_area(begin_flash1, size_flash1);
-                datatable_save();
+//                datatable_save();
                 listBox1.Items.Insert(0, "Форматирование флеша завершено.");
+                Application.DoEvents();
                 filetable_load();
                 filetable_2_dg();
             }
