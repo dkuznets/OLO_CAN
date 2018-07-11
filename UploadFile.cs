@@ -108,7 +108,8 @@ namespace OLO_CAN
                 return false;
             }
             _addr = Convert.ToUInt32(mtb_begin.Text.Replace("0x", "").Trim(), 16);
-            if(_addr < 16384 || _addr >= 0x3C000)
+//            if (_addr < 16384 || _addr >= 0x3C000)
+            if (_addr < 16384 || _addr >= 0x3E000)
             {
                 mtb_begin.BackColor = Color.Red;
                 return false;
