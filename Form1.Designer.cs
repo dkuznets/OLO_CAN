@@ -4360,7 +4360,7 @@
             this.listBox1.Location = new System.Drawing.Point(12, 296);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(634, 108);
+            this.listBox1.Size = new System.Drawing.Size(760, 108);
             this.listBox1.TabIndex = 68;
             // 
             // bt_verifi5
@@ -4429,7 +4429,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 277);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(634, 13);
+            this.progressBar1.Size = new System.Drawing.Size(760, 13);
             this.progressBar1.TabIndex = 61;
             // 
             // dataGridView1
@@ -4453,7 +4453,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(935, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(760, 136);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
@@ -4885,7 +4885,7 @@
             this.comment.HeaderText = "Комментарий";
             this.comment.Name = "comment";
             this.comment.ReadOnly = true;
-            this.comment.Width = 200;
+            this.comment.Width = 226;
             // 
             // id
             // 
