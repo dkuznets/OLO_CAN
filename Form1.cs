@@ -7286,7 +7286,7 @@ namespace OLO_CAN
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-
+            MessageBox.Show(fff[0].size.ToString());
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
