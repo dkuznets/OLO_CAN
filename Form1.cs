@@ -7663,7 +7663,7 @@ namespace OLO_CAN
                 {
                     //for (int i = 0; i < 28; i++)
                     //    fff[iii].name[i] = 0;
-                    fff[0].begin = 0;
+                    fff[iii].begin = 0;
                     //fff[0].size = 0;
                     //fff[0].time = 0;
                     //fff[0].crc32 = 0;
