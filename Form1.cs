@@ -7757,15 +7757,21 @@ namespace OLO_CAN
                         " версия " + getver(fff[i].version) +
                         " Коммент: " + comment.Substring(0, comment.IndexOf('\0')));
 #endif
-
-                    dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
-                        "0x" + fff[i].begin.ToString("X"),
-                        "0x" + fff[i].size.ToString("X"),
-                        pDate.ToString(),
-                        fff[i].crc32.ToString("X8"),
-                        getver(fff[i].version),
-                        comment.Substring(0, comment.IndexOf('\0')),
-                        i);
+                    try
+                    {
+                        dataGridView1.Rows.Add(name.Substring(0, name.IndexOf('\0')),
+                            "0x" + fff[i].begin.ToString("X"),
+                            "0x" + fff[i].size.ToString("X"),
+                            pDate.ToString(),
+                            fff[i].crc32.ToString("X8"),
+                            getver(fff[i].version),
+                            comment.Substring(0, comment.IndexOf('\0')),
+                            i);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Загрузчик не соответствует!\r\nНе удалось прочитать таблицу файлов!");
+                    }
                 }
             }
         }
