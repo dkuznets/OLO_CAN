@@ -6956,28 +6956,28 @@ namespace OLO_CAN
         #region newRUP
         void print2_msg(canmsg_t msg)
         {
-            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - rup_id.RIGHT_WING_DEV_ID)).ToString() + " len=" + msg.len.ToString());
+            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
             Trace.Write(" Data:");
             for (int i = 0; i < msg.len; i++)
                 Trace.Write(" 0x" + msg.data[i].ToString("X2"));
             Trace.WriteLine("");
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.ACK_ID)
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
             {
                 Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
             }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.STATUS_RESPONCE_ID)
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
             {
                 Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
                 Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
                 Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FLASH_TABLE_RESPONCE_ID)
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
                 Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
                 Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
-            if (msg.id - rup_id.RIGHT_WING_DEV_ID == rup_id.FILE_TABLE_ADDRESS_ID)
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
             {
                 Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
@@ -7587,7 +7587,7 @@ namespace OLO_CAN
             UInt32 buf_count = 0;
             for (int i = 0; i < numpack; i++)
             {
-                frame.id = rup_id.READ_DATA_ID | rup_id.RIGHT_WING_DEV_ID;
+                frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
