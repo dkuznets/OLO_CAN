@@ -205,13 +205,16 @@ namespace OLO_CAN
         };
         public unsafe struct DATATABLE
         {
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 1)]
+            public Byte[] test;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
             public Byte[] dev_id;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
             public Byte[] ser_num;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 117)]
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 116)]
             public Byte[] rezerv;
         };
+
         UInt32 size_dtable = 128;
         UInt32 begin_dtable = 0x3C000;
         FILETABLE[] fff = new FILETABLE[4];
