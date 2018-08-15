@@ -4342,7 +4342,10 @@ namespace OLO_CAN
                     case msg_t.mID_GETVER:
                         #region mID_GETVER
                         mss = Convert.ToChar(messages[i].messageData[0]) + "" + Convert.ToChar(messages[i].messageData[1]);
-                        mss += " " + (Convert.ToChar(messages[i].messageData[2]) == 'L' ? "Левый борт" : "Правый борт");
+                        if (Convert.ToChar(messages[i].messageData[2]) == '_')
+                            mss += " " + "универсальная";
+                        else
+                            mss += " " + (Convert.ToChar(messages[i].messageData[2]) == 'L' ? "Левый борт" : "Правый борт");
                         mss += " " + (messages[i].messageData[6] < 10 ? "0" + messages[i].messageData[6].ToString() : messages[i].messageData[6].ToString());
                         mss += "." + (messages[i].messageData[5] < 10 ? "0" + messages[i].messageData[5].ToString() : messages[i].messageData[5].ToString());
                         mss += "." + BitConverter.ToUInt16(messages[i].messageData, 3).ToString();
