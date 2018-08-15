@@ -75,7 +75,7 @@ namespace OLO_CAN
 //        static Byte[] Buffer;
 
         Boolean calibration_started = false;
-        Boolean calibration_ended = false;
+//        Boolean calibration_ended = false;
 
         public byte select_CMOS = 0;
         public byte select_wing = 0;
@@ -2069,7 +2069,7 @@ namespace OLO_CAN
         private unsafe void bt_DnLoadPass_Click(object sender, EventArgs e)
         {
             COMMAND cmd = new COMMAND();
-            RESULT res = new RESULT();
+//            RESULT res = new RESULT();
             cmd.magic = Const.MAGIC_BYTE;
             if (rb_CMOS1.Checked == true && rb_CMOS2.Checked == false)
                 cmd.cmd = Const.COMMAND_CMOS1_GET_BAD_PIXELS;
@@ -2084,7 +2084,7 @@ namespace OLO_CAN
             list_badpix_FIFO.Clear();
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
-            RESULT rr = new RESULT();
+//            RESULT rr = new RESULT();
             msg.id = Const.CAN_PC2ARM_MSG_ID;
             msg.len = 6;
             Marshal.Copy(new IntPtr(&cmd), msg.data, 0, 8);
@@ -2263,7 +2263,7 @@ namespace OLO_CAN
 //                    UInt32 image_data_count = 0;
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                    UInt32 image_data_count = 0;
+//                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
 
                     canmsg_t dat = new canmsg_t();
@@ -4052,7 +4052,7 @@ namespace OLO_CAN
                 Bitmap strelka_L = Properties.Resources.a_left;
                 Bitmap strelka_R = Properties.Resources.a_right;
 
-                String mss = "", devname = "";
+                String mss = ""; //, devname = "";
                 switch (messages[i].deviceID)
                 {
                     case Const.OLO_Left:
@@ -4771,7 +4771,7 @@ namespace OLO_CAN
         }
         private void bt_mod2_Click(object sender, EventArgs e)
         {
-            int to = 0;
+//            int to = 0;
             msg_t mm = new msg_t();
             mm.messageID = msg_t.mID_MODULE;
             mm.messageLen = 1;
@@ -4926,7 +4926,7 @@ namespace OLO_CAN
             //    return;
             //messages.Add(mm);
 
-            int to = 0;
+//            int to = 0;
             msg_t mm = new msg_t();
 
             if (comboBox3.SelectedIndex == 0)
@@ -6927,7 +6927,7 @@ namespace OLO_CAN
                 {
                     image_size = shot_pixels * 4;
                     msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                    UInt32 image_data_count = 0;
+//                    UInt32 image_data_count = 0;
                     Trace.WriteLine("Чтение выстрелов");
                     j = 0;
                     for (UInt32 i = 0; i < msg_count; i++)
@@ -6945,7 +6945,7 @@ namespace OLO_CAN
                     Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
                 }
             }
-            _ddd:
+//            _ddd:
             using (StreamWriter sw = new StreamWriter("test.csv"))
             {
                 for (int l = 0; l < dd.Count; l++)
