@@ -6805,9 +6805,6 @@ namespace OLO_CAN
         }
         #endregion
 
-        private unsafe void button3_Click(object sender, EventArgs e)
-        {
-        }
         public unsafe void print_cmd(COMMAND cmd, String txt)
         {
             canmsg_t msg = new canmsg_t();
