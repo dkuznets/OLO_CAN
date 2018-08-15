@@ -4758,6 +4758,7 @@ namespace OLO_CAN
             int to = 0;
             msg_t mm = new msg_t();
             mm.messageID = msg_t.mID_MODULE;
+            mm.messageLen = 1;
             Byte[] tmp = new Byte[4];
 
             switch (cb_module2.SelectedIndex)
@@ -4807,7 +4808,10 @@ namespace OLO_CAN
                     gbox_ecR2.Refresh();
                     break;
                 case 3: // режим программирования
-                    mm.messageData[0] = 3;
+                    mm.messageID = msg_t.mID_PROG;
+                    mm.messageData[0] = 0x5A;
+                    mm.messageData[1] = 0x5A;
+                    mm.messageLen = 2;
                     break;
             }
             switch (comboBox3.SelectedIndex)
@@ -4827,7 +4831,6 @@ namespace OLO_CAN
             }
 //            tmp = BitConverter.GetBytes(to);
 //            Array.Copy(tmp, mm.messageData, 4);
-            mm.messageLen = 1;
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg = mm.ToCAN(mm);
