@@ -4127,6 +4127,14 @@ namespace OLO_CAN
                         break;
                     #endregion
 
+                    case msg_t.mID_PROG:
+                        mss = "Переход ОЛО в РУП";
+                        if (messages[i].deviceID != 0)
+                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
+                        else
+                            strelka = strelka_L;
+                        break;
+
                     case msg_t.mID_STATUS:
                         #region mID_STATUS
                         mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
@@ -4138,15 +4146,19 @@ namespace OLO_CAN
                             {
                                 case 0:
                                     lb_statusL_mode2.Text = "OPERATIONAL";
+                                    cb_module2.SelectedIndex = 0;
                                     break;
                                 case 1:
                                     lb_statusL_mode2.Text = "SELFTEST";
+                                    cb_module2.SelectedIndex = 1;
                                     break;
                                 case 2:
                                     lb_statusL_mode2.Text = "EMBEDCONTROL";
+                                    cb_module2.SelectedIndex = 2;
                                     break;
                                 case 3:
                                     lb_statusL_mode2.Text = "PROGRAMMING";
+                                    cb_module2.SelectedIndex = 3;
                                     break;
                                 default:
                                     lb_statusL_mode2.Text = "OPERATIONAL";
@@ -4196,15 +4208,19 @@ namespace OLO_CAN
                             {
                                 case 0:
                                     lb_statusR_mode2.Text = "OPERATIONAL";
+                                    cb_module2.SelectedIndex = 0;
                                     break;
                                 case 1:
                                     lb_statusR_mode2.Text = "SELFTEST";
+                                    cb_module2.SelectedIndex = 1;
                                     break;
                                 case 2:
                                     lb_statusR_mode2.Text = "EMBEDCONTROL";
+                                    cb_module2.SelectedIndex = 2;
                                     break;
                                 case 3:
                                     lb_statusR_mode2.Text = "PROGRAMMING";
+                                    cb_module2.SelectedIndex = 3;
                                     break;
                                 default:
                                     lb_statusR_mode2.Text = "OPERATIONAL";
