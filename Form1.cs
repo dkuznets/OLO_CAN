@@ -7059,9 +7059,6 @@ namespace OLO_CAN
             dataGridView1.Rows.Clear();
         }
          #endregion
-        #region knupeli
-        #endregion
-
         private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -7421,32 +7418,41 @@ namespace OLO_CAN
         {
             listBox1.Items.Clear();
             dataGridView1.Rows.Clear();
+            Boolean test = false;
 
             //активация РУП
             aktiv = false;
-            try
+            for (int i = 0; i < 3; i++)
             {
-                Array.Clear(frame.data, 0, 8);
-                frame.id = rup_id.RUP_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 2;
-                frame.data[0] = 0x5A;
-                frame.data[1] = 0x5A;
-                if (uniCAN == null || !uniCAN.Send(ref frame))
+                try
                 {
-                    listBox1.Items.Insert(0,"Error send RUP_ID");
-                    return;
+                    Array.Clear(frame.data, 0, 8);
+                    frame.id = rup_id.RUP_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
+                    frame.len = 2;
+                    frame.data[0] = 0x5A;
+                    frame.data[1] = 0x5A;
+                    if (uniCAN == null || !uniCAN.Send(ref frame))
+                    {
+                        listBox1.Items.Insert(0, "Error send RUP_ID");
+                        continue;
+                    }
+                    if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
+                    {
+                        listBox1.Items.Insert(0, "Error recv ACK_ID");
+                        continue;
+                    }
+                    test = true;
                 }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                catch (Exception)
                 {
-                    listBox1.Items.Insert(0,"Error recv ACK_ID");
-                    return;
                 }
             }
-            catch (Exception)
+            if (!test)
             {
-                listBox1.Items.Insert(0,"Ошибка! Контроллер не активирован.");
+                listBox1.Items.Insert(0, "Ошибка! РУП не активирован.");
                 return;
             }
+
 #if DEBUG
             msg_2_log(frame);
 #endif
@@ -7462,7 +7468,7 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0,"Error send STATUS_REQUEST_ID");
                     return;
                 }
-                if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
+                if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
                     listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
                     return;
