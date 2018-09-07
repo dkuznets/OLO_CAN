@@ -7349,6 +7349,7 @@ namespace OLO_CAN
             filetable_sort();
             UploadFile uf = new UploadFile();
             uf.mtb_begin.Text = "0x4000";
+            uf.Text = "Загрузка файла прошивки";
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
@@ -7396,7 +7397,53 @@ namespace OLO_CAN
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
+            filetable_sort();
+            UploadFile uf = new UploadFile();
+            uf.mtb_begin.Text = "0x3C000";
+            uf.Text = "Загрузка файла конфигурации";
+            DialogResult re = uf.ShowDialog();
+            if (re == System.Windows.Forms.DialogResult.Cancel)
+                return;
+            //            MessageBox.Show(fff[0].size.ToString());
+            if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+            {
+                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
+                fff[0].name = new Byte[28];
+                for (int i = 0; i < 28; i++)
+                    fff[0].name[i] = 0;
+                Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, tmparr.Length);
+                fff[0].begin = uf._addr;
+                fff[0].size = uf._len;
+                fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+                fff[0].crc32 = uf._crc;
+                fff[0].version = uf._ver;
+                tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                fff[0].comment = new Byte[80];
+                for (int i = 0; i < 80; i++)
+                    fff[0].comment[i] = 0;
+                Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
 
+                // очистка флеш
+
+                listBox1.Items.Insert(0, "Очистка области...");
+                Application.DoEvents();
+                erase_area(fff[0].begin, fff[0].size);
+                listBox1.Items.Insert(0, "Очистка области завершена.");
+                Application.DoEvents();
+
+                // запись файла
+
+                listBox1.Items.Insert(0, "Запись файла ...");
+                Application.DoEvents();
+
+                write_area(fff[0].begin, fff[0].size, uf._rdfile);
+                listBox1.Items.Insert(0, "Запись файла завершена.");
+                Application.DoEvents();
+
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+            }
         }
 
         #endregion
