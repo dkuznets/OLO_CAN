@@ -4883,6 +4883,7 @@ namespace OLO_CAN
             dgview2.GridColor = SystemColors.ControlDark;
             chb_dgview2.BackColor = Color.SpringGreen;
             messages.Clear();
+            list_shots.Clear();
             dgview2.Rows.Clear();
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
