@@ -4637,7 +4637,10 @@ namespace OLO_CAN
                         x = (int)(z * Math.Cos((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
                         y = (int)(z * Math.Sin((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
                     }
-                    gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                    if ((ugol / 60) <= 90)
+                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                    else
+                        gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - 5, y + 99 - 5, 10, 10);
                 }
             }
             gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
@@ -7394,7 +7397,6 @@ namespace OLO_CAN
                 filetable_2_dg();
             }
         }
-
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
             filetable_sort();
@@ -7980,6 +7982,7 @@ namespace OLO_CAN
 #if DEBUG
                 listBox1.Items.Insert(0, "Очистка области завершена.");
 #endif
+                progressBar1.Value = 0;
             }
         }
         void write_area(UInt32 begin, UInt32 size, Byte[] buf)
@@ -8042,6 +8045,7 @@ namespace OLO_CAN
                         progressBar1.Value = i;
                     }
                     Trace.WriteLine("file saved");
+                    progressBar1.Value = 0;
                 }
             }
         }
@@ -8097,6 +8101,7 @@ namespace OLO_CAN
                 }
             }
             Trace.WriteLine("area read complete");
+            progressBar1.Value = 0;
         }
         void datatable_load()
         {
