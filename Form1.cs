@@ -4036,7 +4036,7 @@ namespace OLO_CAN
             while (uniCAN.VectorSize() > 0)
             {
                 uniCAN.Recv(ref msg, 100);
-                Application.DoEvents();
+//                Application.DoEvents();
                 mm = mm.FromCAN(msg);
                 messages.Add(mm);
             }
