@@ -4100,6 +4100,20 @@ namespace OLO_CAN
                             sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
                             sh.ugol = BitConverter.ToInt16(messages[i].messageData, 6);
                             list_shots.Add(sh);
+
+                            if (timer_Reset_Shots.Enabled == false)
+                            {
+                                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                                timer_Reset_Shots.Enabled = true;
+                                panel1.Refresh();
+                            }
+                            else
+                            {
+                                timer_Reset_Shots.Enabled = false;
+                                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                                timer_Reset_Shots.Enabled = true;
+                                panel1.Refresh();
+                            }
                         }
                         //if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
                         //{
@@ -4111,19 +4125,6 @@ namespace OLO_CAN
                         //}
                         //label3.Text = list_shots.Count.ToString();
                         
-                        if (timer_Reset_Shots.Enabled == false)
-                        {
-                            timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
-                            timer_Reset_Shots.Enabled = true;
-                            panel1.Refresh();
-                        }
-                        else
-                        {
-                            timer_Reset_Shots.Enabled = false;
-                            timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
-                            timer_Reset_Shots.Enabled = true;
-                            panel1.Refresh();
-                        }
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
                     #endregion
