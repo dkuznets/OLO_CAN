@@ -4791,7 +4791,7 @@
             // 
             // Timer_GetData
             // 
-            this.Timer_GetData.Interval = 200;
+            this.Timer_GetData.Interval = 50;
             this.Timer_GetData.Tick += new System.EventHandler(this.Timer_GetData_Tick);
             // 
             // timer_testOLO_L
