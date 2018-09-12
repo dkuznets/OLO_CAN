@@ -444,6 +444,8 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1829,6 +1831,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label42);
+            this.tabPage3.Controls.Add(this.label37);
             this.tabPage3.Controls.Add(this.gb_stR2);
             this.tabPage3.Controls.Add(this.gb_stL2);
             this.tabPage3.Controls.Add(this.btn_SAVESN);
@@ -4922,6 +4926,22 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(619, 512);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(0, 13);
+            this.label37.TabIndex = 72;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(666, 512);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(0, 13);
+            this.label42.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5446,6 +5466,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label37;
 	}
 }
 

@@ -4041,6 +4041,8 @@ namespace OLO_CAN
                 messages.Add(mm);
             }
 //            Trace.WriteLine("OK");
+            label37.Text = messages.Count.ToString();
+            label37.Refresh();
             for (int i = 0; i < messages.Count; i++)
             {
 //                Application.DoEvents();
