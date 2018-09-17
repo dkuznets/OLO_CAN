@@ -4469,7 +4469,7 @@ namespace OLO_CAN
                 for (int j = 0; j < messages[i].messageLen; j++)
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
 
-//                Application.DoEvents();
+                Application.DoEvents();
                 if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
 //              if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
                 {
@@ -4479,6 +4479,7 @@ namespace OLO_CAN
                             dgview2.Rows.Clear();
                         dgview2.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
                         dgview2.FirstDisplayedScrollingRowIndex = dgview2.Rows.Count - 1;
+                        dgview2.Refresh();
                     }
 
                     if (chb3_savelog.Checked && logwr != null)
@@ -4646,6 +4647,7 @@ namespace OLO_CAN
                         gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
                     else
                         gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - 5, y + 99 - 5, 10, 10);
+                    Application.DoEvents();
                 }
                 list_shots.Clear();
             }
