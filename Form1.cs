@@ -4647,7 +4647,7 @@ namespace OLO_CAN
                         gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
                     else
                         gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - 5, y + 99 - 5, 10, 10);
-                    Application.DoEvents();
+//                    Application.DoEvents();
                 }
                 list_shots.Clear();
             }
