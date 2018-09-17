@@ -256,7 +256,11 @@ namespace OLO_CAN
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+            UpdateStyles();
+            DoubleBuffered = true;
             EnableDoubleBuffering();
+
             this.Text = AboutBox.AssemblyTitle + String.Format(" Версия {0}", AboutBox.AssemblyVersion) + " " + AboutBox.AssemblyCopyright + " CANLib " 
             + String.Format(" Версия {0}", CANLib.AssemblyVersion);
 
