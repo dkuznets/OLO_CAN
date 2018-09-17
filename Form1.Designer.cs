@@ -147,6 +147,8 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.gb_stR2 = new System.Windows.Forms.GroupBox();
             this.lb_stR2_cmos2 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -444,8 +446,6 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1871,6 +1871,22 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(666, 512);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(0, 13);
+            this.label42.TabIndex = 73;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(619, 512);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(0, 13);
+            this.label37.TabIndex = 72;
             // 
             // gb_stR2
             // 
@@ -4795,7 +4811,6 @@
             // 
             // Timer_GetData
             // 
-            this.Timer_GetData.Interval = 50;
             this.Timer_GetData.Tick += new System.EventHandler(this.Timer_GetData_Tick);
             // 
             // timer_testOLO_L
@@ -4925,22 +4940,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(619, 512);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(0, 13);
-            this.label37.TabIndex = 72;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(666, 512);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(0, 13);
-            this.label42.TabIndex = 73;
             // 
             // Form1
             // 
