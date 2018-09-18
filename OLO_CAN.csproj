@@ -201,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="olo6.png" />
+    <None Include="olo7.png" />
     <Content Include="Resources\olo6.png" />
     <None Include="olo5.png" />
     <Content Include="Resources\olo5.png" />
