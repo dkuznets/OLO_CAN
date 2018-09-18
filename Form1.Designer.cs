@@ -4831,7 +4831,6 @@
             // panel1
             // 
             this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo4;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(413, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 200);
