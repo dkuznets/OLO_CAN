@@ -161,6 +161,16 @@ namespace OLO_CAN.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap olo4 {
+            get {
+                object obj = ResourceManager.GetObject("olo4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
         internal static byte[] SOLO2_SELECT_31082016_01 {

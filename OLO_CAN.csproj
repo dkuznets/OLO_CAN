@@ -200,6 +200,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="olo4.png" />
     <None Include="a_left_Blue.bmp" />
     <None Include="a_left_Green.bmp" />
     <None Include="a_right_Blue.bmp" />

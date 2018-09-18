@@ -4134,7 +4134,7 @@ namespace OLO_CAN
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
                     #endregion
-
+                    #region mID_PROG
                     case msg_t.mID_PROG:
                         mss = "Переход ОЛО в РУП";
                         if (messages[i].deviceID != 0)
@@ -4142,9 +4142,9 @@ namespace OLO_CAN
                         else
                             strelka = strelka_L;
                         break;
-
+                    #endregion
+                    #region mID_STATUS
                     case msg_t.mID_STATUS:
-                        #region mID_STATUS
                         mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T2=" + ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T3=" + ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
@@ -4278,9 +4278,8 @@ namespace OLO_CAN
                             strelka = strelka_L;
                         break;
                         #endregion
-
+                    #region mID_REQTIME
                     case msg_t.mID_REQTIME:
-                        #region mID_REQTIME
                         mss = "Запрос времени" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
@@ -4288,9 +4287,8 @@ namespace OLO_CAN
                             strelka = strelka_R;
                         break;
                     #endregion      
-
+                    #region mID_GETTIME
                     case msg_t.mID_GETTIME:
-                        #region mID_GETTIME
                         DateTime dt = ConvertFromUnixTimestamp(BitConverter.ToUInt64(messages[i].messageData, 0));
                         mss = "Время" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П") + " " + dt.ToShortDateString() + " " + dt.ToLongTimeString();
                         if (messages[i].deviceID != 0)
@@ -4299,9 +4297,8 @@ namespace OLO_CAN
                             strelka = strelka_L;
                         break;
                         #endregion
-
+                    #region mID_STATREQ
                     case msg_t.mID_STATREQ:
-                        #region mID_STATREQ
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Запрос статуса" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -4314,9 +4311,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_MODULE
                     case msg_t.mID_MODULE:
-                        #region mID_MODULE
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Режим модуля";
@@ -4347,9 +4343,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_REQVER
                     case msg_t.mID_REQVER:
-                        #region mID_REQVER
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Запрос версии ПО" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -4362,9 +4357,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_GETVER
                     case msg_t.mID_GETVER:
-                        #region mID_GETVER
                         mss = Convert.ToChar(messages[i].messageData[0]) + "" + Convert.ToChar(messages[i].messageData[1]);
                         if (Convert.ToChar(messages[i].messageData[2]) == '_')
                             mss += " " + "универсальная";
@@ -4380,9 +4374,8 @@ namespace OLO_CAN
                             strelka = strelka_L;
                         break;
                         #endregion
-
+                    #region mID_GET_SN
                     case msg_t.mID_GET_SN:
-                        #region mID_GET_SN
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Запрос серийного номера" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -4395,9 +4388,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_SET_SN
                     case msg_t.mID_SET_SN:
-                        #region mID_SET_SN
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Установка s/n" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П") + " ";
@@ -4409,9 +4401,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_SN
                     case msg_t.mID_SN:
-                        #region mID_SN
                         if (messages[i].deviceID != 0)
                         {
                             tb_SN.Clear();
@@ -4425,9 +4416,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_RESET
                     case msg_t.mID_RESET:
-                        #region mID_RESET
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Системный сброс" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -4440,9 +4430,8 @@ namespace OLO_CAN
                         }
                         break;
                         #endregion
-
+                    #region mID_SIMRESET
                     case msg_t.mID_SIMRESET:
-                        #region mID_SIMRESET
                         mss = "Сброс эмулятора" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                         if (messages[i].deviceID != 0)
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
@@ -4450,9 +4439,8 @@ namespace OLO_CAN
                             strelka = strelka_R;
                         break;
                         #endregion
-
+                    #region mID_SYNCTIME
                     case msg_t.mID_SYNCTIME:
-                        #region mID_SYNCTIME
                         mss = "Синхронизация времени" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                         if (messages[i].deviceID != 0)
                         {
@@ -4486,6 +4474,13 @@ namespace OLO_CAN
                         dgview2.Refresh();
                     }
 
+
+                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
+                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
+                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
+                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
+                    if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
+                        dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                     if (chb3_savelog.Checked && logwr != null)
                     {
                         logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
@@ -4494,15 +4489,8 @@ namespace OLO_CAN
                         logwr.Write(mss + ";");
                         logwr.WriteLine(messages[i].messageID.ToString("X2") + ";");
                     }
-
-                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
-                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
-                    if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                        dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
-                #endregion
                 }
+                #endregion
             }
             if (scroll)
                 messages.Clear();
