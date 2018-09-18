@@ -4599,7 +4599,9 @@ namespace OLO_CAN
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics gr = e.Graphics;
+/*
             Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
+
             gr.FillEllipse(new SolidBrush(Color.White), 0, 0, 199, 199);
             gr.DrawEllipse(p, 0, 0, 199, 199);
 
@@ -4611,7 +4613,7 @@ namespace OLO_CAN
                 Point p2 = new Point(x + 99, y + 99);// вторая точка
                 gr.DrawLine(p, p1, p2);// рисуем линию
             }
-
+*/
             if (list_shots.Count > 0)
             {
                 foreach (var it in list_shots)
