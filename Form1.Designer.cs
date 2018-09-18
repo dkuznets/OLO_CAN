@@ -4830,7 +4830,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo5;
+            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo6;
             this.panel1.Location = new System.Drawing.Point(413, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 200);
