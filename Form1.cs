@@ -2343,6 +2343,7 @@ namespace OLO_CAN
                     //    return;
 
                 // read CMOS FIFO buffer size
+/*
                 Trace.WriteLine("Чтение кол-ва выстрелов");
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
@@ -2399,6 +2400,7 @@ namespace OLO_CAN
                         shot_array_list.Add(tmp);
                     }
 			    }
+*/
             }
             //if (_state != State.VideoState)
             //    return;
