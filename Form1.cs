@@ -2356,8 +2356,8 @@ namespace OLO_CAN
 //                shot_pixels = 0;
                 // read CMOS FIFO buffer data if exists
                 // получаем массив координат выстрелов
-//                if (shot_pixels > 0 && shot_pixels < 10) /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-                if (shot_pixels > 0)
+                if (shot_pixels > 0 && shot_pixels < 10) /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+//                if (shot_pixels > 0)
                 {
                     UInt32 image_size = shot_pixels * 4;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
