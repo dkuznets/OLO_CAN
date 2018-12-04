@@ -2343,7 +2343,7 @@ namespace OLO_CAN
                     //    return;
 
                 // read CMOS FIFO buffer size
-/*
+///*
                 Trace.WriteLine("Чтение кол-ва выстрелов");
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
@@ -2357,8 +2357,8 @@ namespace OLO_CAN
 //                shot_pixels = 0;
                 // read CMOS FIFO buffer data if exists
                 // получаем массив координат выстрелов
-                if (shot_pixels > 0 && shot_pixels < 10) /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-//                if (shot_pixels > 0)
+//                if (shot_pixels > 0 && shot_pixels < 10) /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                if (shot_pixels > 0)
                 {
                     UInt32 image_size = shot_pixels * 4;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
@@ -2400,7 +2400,7 @@ namespace OLO_CAN
                         shot_array_list.Add(tmp);
                     }
 			    }
-*/
+//*/
             }
             //if (_state != State.VideoState)
             //    return;
