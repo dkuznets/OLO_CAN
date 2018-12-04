@@ -2294,6 +2294,7 @@ namespace OLO_CAN
                         image_data_count += data_size;
                     }
  */
+                    pb_CMOS.Value = 0;
                     if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
                     {
                         Trace.WriteLine("Err recv image data");
