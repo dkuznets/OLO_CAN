@@ -2269,7 +2269,7 @@ namespace OLO_CAN
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
 //                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
-
+                    MessageBox.Show(image_size.ToString() + CR + msg_count.ToString());
                     canmsg_t dat = new canmsg_t();
                     dat.data = new Byte[8];
                     pb_CMOS.Maximum = msg_count;
