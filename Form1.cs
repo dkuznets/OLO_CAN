@@ -3822,6 +3822,38 @@ namespace OLO_CAN
             }
 
         }
+        private void rb_cmos12_select2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_cmos12_select2.Checked)
+            {
+                rb_cmos12_select2.BackColor = SystemColors.ActiveCaption;
+                Buffer = new _u8[FWDATA.SOLO2_SELECT_V2_size];
+                Buffer = (_u8[])FWDATA.SOLO2_SELECT_V2;
+                size = (uint)Buffer.Length;
+                bt_loadMC1.Enabled = true;
+                chb_eraseALL1.Enabled = true;
+            }
+            else
+            {
+                rb_cmos12_select2.BackColor = Color.Transparent;
+            }
+        }
+        private void rb_new_RUP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_new_RUP.Checked)
+            {
+                rb_new_RUP.BackColor = SystemColors.ActiveCaption;
+                Buffer = new _u8[FWDATA.solo2_new_rup_size];
+                Buffer = (_u8[])FWDATA.solo2_new_rup;
+                size = (uint)Buffer.Length;
+                bt_loadMC1.Enabled = true;
+                chb_eraseALL1.Enabled = true;
+            }
+            else
+            {
+                rb_new_RUP.BackColor = Color.Transparent;
+            }
+        }
 
         #endregion
         private void timer_Error_Boot_Tick(object sender, EventArgs e)
@@ -8126,6 +8158,7 @@ namespace OLO_CAN
             aaa = aaa.OrderBy(x => x).ToArray();
             Array.ForEach(aaa, eee => Trace.WriteLine("Sort " + eee.ToString()));
         }
+
      }
 
     public class rup_id

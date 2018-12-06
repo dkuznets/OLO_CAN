@@ -1595,6 +1595,7 @@
             this.rb_new_RUP.TabIndex = 38;
             this.rb_new_RUP.Text = "Загрузка прошивки МУП";
             this.rb_new_RUP.UseVisualStyleBackColor = true;
+            this.rb_new_RUP.CheckedChanged += new System.EventHandler(this.rb_new_RUP_CheckedChanged);
             // 
             // rb_cmos12_select2
             // 
@@ -1605,6 +1606,7 @@
             this.rb_cmos12_select2.TabIndex = 37;
             this.rb_cmos12_select2.Text = "Загрузка прошивки \"SOLO2_SELECT 2\"";
             this.rb_cmos12_select2.UseVisualStyleBackColor = true;
+            this.rb_cmos12_select2.CheckedChanged += new System.EventHandler(this.rb_cmos12_select2_CheckedChanged);
             // 
             // rb_cmos12_select_long_time2
             // 
