@@ -132,9 +132,11 @@
     <Compile Include="solo2_flight_left_lowgain.cs" />
     <Compile Include="solo2_flight_right.cs" />
     <Compile Include="solo2_flight_right_lowgain.cs" />
+    <Compile Include="solo2_new_rup.cs" />
     <Compile Include="solo2_select.cs" />
     <Compile Include="solo2_select_long.cs" />
     <Compile Include="solo2_select_lowgain.cs" />
+    <Compile Include="solo2_select_v2.cs" />
     <Compile Include="UploadFile.cs">
       <SubType>Form</SubType>
     </Compile>

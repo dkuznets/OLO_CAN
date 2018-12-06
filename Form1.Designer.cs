@@ -123,6 +123,8 @@
             this.bt_About1 = new System.Windows.Forms.Button();
             this.bt_Exit1 = new System.Windows.Forms.Button();
             this.gb_MC1 = new System.Windows.Forms.GroupBox();
+            this.rb_new_RUP = new System.Windows.Forms.RadioButton();
+            this.rb_cmos12_select2 = new System.Windows.Forms.RadioButton();
             this.rb_cmos12_select_long_time2 = new System.Windows.Forms.RadioButton();
             this.chb1_need_reset = new System.Windows.Forms.CheckBox();
             this.rb_flight_right_wing_double_pass_lg = new System.Windows.Forms.RadioButton();
@@ -1556,6 +1558,8 @@
             // 
             // gb_MC1
             // 
+            this.gb_MC1.Controls.Add(this.rb_new_RUP);
+            this.gb_MC1.Controls.Add(this.rb_cmos12_select2);
             this.gb_MC1.Controls.Add(this.rb_cmos12_select_long_time2);
             this.gb_MC1.Controls.Add(this.chb1_need_reset);
             this.gb_MC1.Controls.Add(this.rb_flight_right_wing_double_pass_lg);
@@ -1577,10 +1581,30 @@
             this.gb_MC1.Controls.Add(this.bt_openMC1);
             this.gb_MC1.Location = new System.Drawing.Point(6, 131);
             this.gb_MC1.Name = "gb_MC1";
-            this.gb_MC1.Size = new System.Drawing.Size(463, 380);
+            this.gb_MC1.Size = new System.Drawing.Size(463, 436);
             this.gb_MC1.TabIndex = 7;
             this.gb_MC1.TabStop = false;
             this.gb_MC1.Text = "Микропрограмма";
+            // 
+            // rb_new_RUP
+            // 
+            this.rb_new_RUP.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rb_new_RUP.Location = new System.Drawing.Point(6, 190);
+            this.rb_new_RUP.Name = "rb_new_RUP";
+            this.rb_new_RUP.Size = new System.Drawing.Size(444, 17);
+            this.rb_new_RUP.TabIndex = 38;
+            this.rb_new_RUP.Text = "Загрузка прошивки МУП";
+            this.rb_new_RUP.UseVisualStyleBackColor = true;
+            // 
+            // rb_cmos12_select2
+            // 
+            this.rb_cmos12_select2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rb_cmos12_select2.Location = new System.Drawing.Point(6, 167);
+            this.rb_cmos12_select2.Name = "rb_cmos12_select2";
+            this.rb_cmos12_select2.Size = new System.Drawing.Size(444, 17);
+            this.rb_cmos12_select2.TabIndex = 37;
+            this.rb_cmos12_select2.Text = "Загрузка прошивки \"SOLO2_SELECT 2\"";
+            this.rb_cmos12_select2.UseVisualStyleBackColor = true;
             // 
             // rb_cmos12_select_long_time2
             // 
@@ -1596,7 +1620,7 @@
             // chb1_need_reset
             // 
             this.chb1_need_reset.AutoSize = true;
-            this.chb1_need_reset.Location = new System.Drawing.Point(113, 345);
+            this.chb1_need_reset.Location = new System.Drawing.Point(113, 410);
             this.chb1_need_reset.Name = "chb1_need_reset";
             this.chb1_need_reset.Size = new System.Drawing.Size(57, 17);
             this.chb1_need_reset.TabIndex = 35;
@@ -1607,7 +1631,7 @@
             // 
             this.rb_flight_right_wing_double_pass_lg.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_flight_right_wing_double_pass_lg.Enabled = false;
-            this.rb_flight_right_wing_double_pass_lg.Location = new System.Drawing.Point(6, 265);
+            this.rb_flight_right_wing_double_pass_lg.Location = new System.Drawing.Point(6, 330);
             this.rb_flight_right_wing_double_pass_lg.Name = "rb_flight_right_wing_double_pass_lg";
             this.rb_flight_right_wing_double_pass_lg.Size = new System.Drawing.Size(444, 17);
             this.rb_flight_right_wing_double_pass_lg.TabIndex = 34;
@@ -1619,7 +1643,7 @@
             // 
             this.rb_flight_left_wing_double_pass_lg.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_flight_left_wing_double_pass_lg.Enabled = false;
-            this.rb_flight_left_wing_double_pass_lg.Location = new System.Drawing.Point(6, 242);
+            this.rb_flight_left_wing_double_pass_lg.Location = new System.Drawing.Point(6, 307);
             this.rb_flight_left_wing_double_pass_lg.Name = "rb_flight_left_wing_double_pass_lg";
             this.rb_flight_left_wing_double_pass_lg.Size = new System.Drawing.Size(444, 17);
             this.rb_flight_left_wing_double_pass_lg.TabIndex = 33;
@@ -1665,7 +1689,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label24.Location = new System.Drawing.Point(6, 176);
+            this.label24.Location = new System.Drawing.Point(6, 241);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(114, 13);
             this.label24.TabIndex = 29;
@@ -1674,7 +1698,7 @@
             // rb_flight_right_wing_double_pass
             // 
             this.rb_flight_right_wing_double_pass.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_flight_right_wing_double_pass.Location = new System.Drawing.Point(6, 219);
+            this.rb_flight_right_wing_double_pass.Location = new System.Drawing.Point(6, 284);
             this.rb_flight_right_wing_double_pass.Name = "rb_flight_right_wing_double_pass";
             this.rb_flight_right_wing_double_pass.Size = new System.Drawing.Size(444, 17);
             this.rb_flight_right_wing_double_pass.TabIndex = 28;
@@ -1685,7 +1709,7 @@
             // rb_flight_left_wing_double_pass
             // 
             this.rb_flight_left_wing_double_pass.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_flight_left_wing_double_pass.Location = new System.Drawing.Point(6, 196);
+            this.rb_flight_left_wing_double_pass.Location = new System.Drawing.Point(6, 261);
             this.rb_flight_left_wing_double_pass.Name = "rb_flight_left_wing_double_pass";
             this.rb_flight_left_wing_double_pass.Size = new System.Drawing.Size(444, 17);
             this.rb_flight_left_wing_double_pass.TabIndex = 27;
@@ -1724,7 +1748,7 @@
             // 
             // pb_loadMC1
             // 
-            this.pb_loadMC1.Location = new System.Drawing.Point(113, 309);
+            this.pb_loadMC1.Location = new System.Drawing.Point(113, 374);
             this.pb_loadMC1.Name = "pb_loadMC1";
             this.pb_loadMC1.Size = new System.Drawing.Size(337, 21);
             this.pb_loadMC1.Step = 1;
@@ -1735,7 +1759,7 @@
             // 
             this.chb_eraseALL1.AutoSize = true;
             this.chb_eraseALL1.Enabled = false;
-            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 345);
+            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 410);
             this.chb_eraseALL1.Name = "chb_eraseALL1";
             this.chb_eraseALL1.Size = new System.Drawing.Size(104, 17);
             this.chb_eraseALL1.TabIndex = 14;
@@ -1744,7 +1768,7 @@
             // 
             // bt_runMC1
             // 
-            this.bt_runMC1.Location = new System.Drawing.Point(280, 341);
+            this.bt_runMC1.Location = new System.Drawing.Point(280, 406);
             this.bt_runMC1.Name = "bt_runMC1";
             this.bt_runMC1.Size = new System.Drawing.Size(170, 23);
             this.bt_runMC1.TabIndex = 11;
@@ -1756,7 +1780,7 @@
             // 
             this.lb_Load_OK1.AutoSize = true;
             this.lb_Load_OK1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_Load_OK1.Location = new System.Drawing.Point(117, 313);
+            this.lb_Load_OK1.Location = new System.Drawing.Point(117, 378);
             this.lb_Load_OK1.Name = "lb_Load_OK1";
             this.lb_Load_OK1.Size = new System.Drawing.Size(0, 13);
             this.lb_Load_OK1.TabIndex = 7;
@@ -1766,7 +1790,7 @@
             // bt_loadMC1
             // 
             this.bt_loadMC1.Enabled = false;
-            this.bt_loadMC1.Location = new System.Drawing.Point(6, 308);
+            this.bt_loadMC1.Location = new System.Drawing.Point(6, 373);
             this.bt_loadMC1.Name = "bt_loadMC1";
             this.bt_loadMC1.Size = new System.Drawing.Size(101, 23);
             this.bt_loadMC1.TabIndex = 2;
@@ -5469,6 +5493,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.RadioButton rb_cmos12_select2;
+        private System.Windows.Forms.RadioButton rb_new_RUP;
 	}
 }
 

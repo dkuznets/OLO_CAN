@@ -2891,6 +2891,17 @@ namespace OLO_CAN
                 Buffer = new _u8[FWDATA.SELECT_LONG_TIME_V2_size];
                 Buffer = (_u8[])FWDATA.SELECT_LONG_TIME_V2;
             }
+            if (rb_cmos12_select2.Checked)
+            {
+                Buffer = new _u8[FWDATA.SOLO2_SELECT_V2_size];
+                Buffer = (_u8[])FWDATA.SOLO2_SELECT_V2;
+            }
+            if (rb_new_RUP.Checked)
+            {
+                Buffer = new _u8[FWDATA.solo2_new_rup_size];
+                Buffer = (_u8[])FWDATA.solo2_new_rup;
+            }
+
 
             size = (uint)Buffer.Length;
             _u8 crc8 = 0;
