@@ -448,6 +448,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cb_shotshow = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -530,6 +531,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cb_shotshow);
             this.tabPage1.Controls.Add(this.chb0_screen);
             this.tabPage1.Controls.Add(this.bt_SAVESN1);
             this.tabPage1.Controls.Add(this.bt_REQSN1);
@@ -4969,6 +4971,16 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // cb_shotshow
+            // 
+            this.cb_shotshow.AutoSize = true;
+            this.cb_shotshow.Location = new System.Drawing.Point(810, 541);
+            this.cb_shotshow.Name = "cb_shotshow";
+            this.cb_shotshow.Size = new System.Drawing.Size(143, 17);
+            this.cb_shotshow.TabIndex = 73;
+            this.cb_shotshow.Text = "Показывать выстрелы";
+            this.cb_shotshow.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5497,6 +5509,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.RadioButton rb_cmos12_select2;
         private System.Windows.Forms.RadioButton rb_new_RUP;
+        private System.Windows.Forms.CheckBox cb_shotshow;
 	}
 }
 

@@ -2342,6 +2342,12 @@ namespace OLO_CAN
                     Trace.WriteLine("Чтение выстрелов");
                     if (uniCAN.Info.Contains("Marathon"))
                     {
+                        if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
+                        {
+                            Trace.WriteLine("Error read CMOS FIFO buffer data");
+                            return;
+                        }
+/*
                         for (UInt32 i = 0; i < msg_count; i++)
                         {
                             canmsg_t dat = new canmsg_t();
@@ -2357,6 +2363,7 @@ namespace OLO_CAN
                                 shot_array[j + image_data_count] = dat.data[j];
                             image_data_count += data_size;
                         }
+*/
                     }
                     if (uniCAN.Info.Contains("Elcus"))
                     { 
@@ -2411,11 +2418,13 @@ namespace OLO_CAN
                     image_CMOS.SetPixel(item.x, item.y, Color.Lime);
             }
 
-            // рисуем выстрелы фиолетовым !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            foreach (var item in shot_array_list)
-                image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
-
-            shot_array_list.Clear();
+            if (cb_shotshow.Checked)
+            {
+                // рисуем выстрелы фиолетовым
+                foreach (var item in shot_array_list)
+                    image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
+                shot_array_list.Clear();
+            }
 
             // Увеличиваем картинку под размер picturebox
             Bitmap newImage = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2);
@@ -6856,155 +6865,6 @@ namespace OLO_CAN
             chb_Sin.Checked = false;
         }
         #endregion
-
-        public unsafe void print_cmd(COMMAND cmd, String txt)
-        {
-            canmsg_t msg = new canmsg_t();
-            Trace.WriteLine(txt);
-            msg.data = new Byte[8];
-            msg.id = Const.CAN_PC2ARM_MSG_ID;
-            msg.len = 6;
-            Marshal.Copy(new IntPtr(&cmd), msg.data, 0, 8);
-            print_msg(msg);
-        }
-        void print_msg(canmsg_t msg)
-        {
-            Trace.Write(" ID=" + msg.id.ToString("X2") + " len=" + msg.len.ToString());
-            Trace.Write(" Data:");
-            for (int i = 0; i < msg.len; i++)
-                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
-            Trace.WriteLine("");
-        }
-        void print_msg(msg_t msg)
-        {
-            Trace.Write(" dID=" + msg.deviceID.ToString("X2") + " mID=" + msg.messageID.ToString("X2") + " len=" + msg.messageLen.ToString());
-            Trace.Write(" Data:");
-            for (int i = 0; i < msg.messageLen; i++)
-                Trace.Write(" 0x" + msg.messageData[i].ToString("X2"));
-            Trace.WriteLine("");
-        }
-        private unsafe void button4_Click(object sender, EventArgs e)
-        {
-            COMMAND cmd = new COMMAND();
-            RESULT res = new RESULT();
-            // Установка симуляции выстрелов
-            cmd.magic = Const.MAGIC_BYTE;
-            cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
-            cmd.prm.words.lo_word.bytes.lo_byte = 1;
-            cmd.prm.words.lo_word.bytes.hi_byte = 0;
-
-            if (!SendCommand(cmd, ref res))
-                return;
-            Trace.WriteLine("Установка симуляции выстрелов");
-            UInt32 shot_pixels = 0;
-
-            // Чтение картинки
-            cmd.magic = Const.MAGIC_BYTE;
-            cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
-
-            List<canmsg_t> dd = new List<canmsg_t>();
-
-            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
-            {
-                Trace.WriteLine("Чтение картинки");
-                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
-                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                image_data1 = new Byte[81345];
-
-                canmsg_t dat = new canmsg_t();
-                dat.data = new Byte[8];
-                //pb_CMOS.Maximum = msg_count;
-
-                //if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
-                //{
-                //    Trace.WriteLine("Err recv image data");
-                //    return;
-                //}
-                int j = 0;
-//                for (int i = 0; i < msg_count; i++)
-                uniCAN.RecvPack(ref image_data1, ref msg_count, 100);
-                //for (int i = 0; i < 100000; i++)
-                //{
-                //    dat = new canmsg_t();
-                //    dat.data = new Byte[8];
-                //    if (!uniCAN.Recv(ref dat, 1000))
-                //    {
-                //        Trace.WriteLine("err recv image data " + dd.Count + " pack");
-                //        goto _ddd;
-                //    }
-                //    dd.Add(dat);
-//                    for (int k = 0; k < dat.len; k++)
-//                        image_data1[j++] = dat.data[k];
-//                }
-                Trace.WriteLine("recv image data " + dd.Count + " pack");
-//                goto _ddd;
-                Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
-                // read CMOS FIFO buffer size
-                Trace.WriteLine("Чтение кол-ва выстрелов");
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
-                {
-                    Trace.WriteLine("Error read CMOS FIFO buffer size");
-                    return;
-                }
-                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
-                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
-
-                // read CMOS FIFO buffer data if exists
-                // получаем массив координат выстрелов
-                if (shot_pixels > 0)
-                {
-                    image_size = shot_pixels * 4;
-                    msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-//                    UInt32 image_data_count = 0;
-                    Trace.WriteLine("Чтение выстрелов");
-                    j = 0;
-                    for (UInt32 i = 0; i < msg_count; i++)
-                    {
-                        dat = new canmsg_t();
-                        dat.data = new Byte[8];
-                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
-                        {
-                            Trace.WriteLine("Error read CMOS FIFO buffer data");
-                            return;
-                        }
-                        for (int k = 0; k < dat.len; k++)
-                            shot_array[j++] = dat.data[k];
-                    }
-                    Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
-                }
-            }
-//            _ddd:
-            using (StreamWriter sw = new StreamWriter("test.csv"))
-            {
-                for (int l = 0; l < dd.Count; l++)
-                {
-                    for (int m = 0; m < dd[l].len; m++)
-                    {
-                        sw.Write(dd[l].data[m] + ";");
-                    }
-                    sw.WriteLine();
-                }
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            inicfg._SetBool("setup", "key1", chb_6_1.Checked);
-            inicfg._SetBool("setup", "key2", chb_6_2.Checked);
-            inicfg._SetBool("setup", "key3", chb_6_3.Checked);
-            inicfg._SetBool("setup", "key4", chb_6_4.Checked);
-            inicfg._SetBool("setup", "key5", chb_6_5.Checked);
-            inicfg._SetBool("setup", "key6", chb_6_6.Checked);
-            inicfg._SetBool("setup", "key7", chb_6_7.Checked);
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         #region newRUP
         void print2_msg(canmsg_t msg)
         {
@@ -8148,6 +8008,151 @@ namespace OLO_CAN
 
         #endregion
 
+        public unsafe void print_cmd(COMMAND cmd, String txt)
+        {
+            canmsg_t msg = new canmsg_t();
+            Trace.WriteLine(txt);
+            msg.data = new Byte[8];
+            msg.id = Const.CAN_PC2ARM_MSG_ID;
+            msg.len = 6;
+            Marshal.Copy(new IntPtr(&cmd), msg.data, 0, 8);
+            print_msg(msg);
+        }
+        void print_msg(canmsg_t msg)
+        {
+            Trace.Write(" ID=" + msg.id.ToString("X2") + " len=" + msg.len.ToString());
+            Trace.Write(" Data:");
+            for (int i = 0; i < msg.len; i++)
+                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
+            Trace.WriteLine("");
+        }
+        void print_msg(msg_t msg)
+        {
+            Trace.Write(" dID=" + msg.deviceID.ToString("X2") + " mID=" + msg.messageID.ToString("X2") + " len=" + msg.messageLen.ToString());
+            Trace.Write(" Data:");
+            for (int i = 0; i < msg.messageLen; i++)
+                Trace.Write(" 0x" + msg.messageData[i].ToString("X2"));
+            Trace.WriteLine("");
+        }
+        private unsafe void button4_Click(object sender, EventArgs e)
+        {
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            // Установка симуляции выстрелов
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
+            cmd.prm.words.lo_word.bytes.lo_byte = 1;
+            cmd.prm.words.lo_word.bytes.hi_byte = 0;
+
+            if (!SendCommand(cmd, ref res))
+                return;
+            Trace.WriteLine("Установка симуляции выстрелов");
+            UInt32 shot_pixels = 0;
+
+            // Чтение картинки
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
+
+            List<canmsg_t> dd = new List<canmsg_t>();
+
+            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
+            {
+                Trace.WriteLine("Чтение картинки");
+                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                image_data1 = new Byte[81345];
+
+                canmsg_t dat = new canmsg_t();
+                dat.data = new Byte[8];
+                //pb_CMOS.Maximum = msg_count;
+
+                //if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
+                //{
+                //    Trace.WriteLine("Err recv image data");
+                //    return;
+                //}
+                int j = 0;
+//                for (int i = 0; i < msg_count; i++)
+                uniCAN.RecvPack(ref image_data1, ref msg_count, 100);
+                //for (int i = 0; i < 100000; i++)
+                //{
+                //    dat = new canmsg_t();
+                //    dat.data = new Byte[8];
+                //    if (!uniCAN.Recv(ref dat, 1000))
+                //    {
+                //        Trace.WriteLine("err recv image data " + dd.Count + " pack");
+                //        goto _ddd;
+                //    }
+                //    dd.Add(dat);
+//                    for (int k = 0; k < dat.len; k++)
+//                        image_data1[j++] = dat.data[k];
+//                }
+                Trace.WriteLine("recv image data " + dd.Count + " pack");
+//                goto _ddd;
+                Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
+                // read CMOS FIFO buffer size
+                Trace.WriteLine("Чтение кол-ва выстрелов");
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+                {
+                    Trace.WriteLine("Error read CMOS FIFO buffer size");
+                    return;
+                }
+                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
+                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
+
+                // read CMOS FIFO buffer data if exists
+                // получаем массив координат выстрелов
+                if (shot_pixels > 0)
+                {
+                    image_size = shot_pixels * 4;
+                    msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+//                    UInt32 image_data_count = 0;
+                    Trace.WriteLine("Чтение выстрелов");
+                    j = 0;
+                    for (UInt32 i = 0; i < msg_count; i++)
+                    {
+                        dat = new canmsg_t();
+                        dat.data = new Byte[8];
+                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
+                        {
+                            Trace.WriteLine("Error read CMOS FIFO buffer data");
+                            return;
+                        }
+                        for (int k = 0; k < dat.len; k++)
+                            shot_array[j++] = dat.data[k];
+                    }
+                    Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
+                }
+            }
+//            _ddd:
+            using (StreamWriter sw = new StreamWriter("test.csv"))
+            {
+                for (int l = 0; l < dd.Count; l++)
+                {
+                    for (int m = 0; m < dd[l].len; m++)
+                    {
+                        sw.Write(dd[l].data[m] + ";");
+                    }
+                    sw.WriteLine();
+                }
+            }
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            inicfg._SetBool("setup", "key1", chb_6_1.Checked);
+            inicfg._SetBool("setup", "key2", chb_6_2.Checked);
+            inicfg._SetBool("setup", "key3", chb_6_3.Checked);
+            inicfg._SetBool("setup", "key4", chb_6_4.Checked);
+            inicfg._SetBool("setup", "key5", chb_6_5.Checked);
+            inicfg._SetBool("setup", "key6", chb_6_6.Checked);
+            inicfg._SetBool("setup", "key7", chb_6_7.Checked);
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
         private void button3_Click_1(object sender, EventArgs e)
         {
             UInt32 x0 = 123456, x1 = 123457, x2 = 123458, x3 = 123456, xx = 0;;
