@@ -2266,7 +2266,9 @@ namespace OLO_CAN
                 {
 //                    UInt32 image_data_count = 0;
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                    image_size = 81353;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                    msg_count = 10170;
 //                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
                     MessageBox.Show(image_size.ToString() + CR + msg_count.ToString());
