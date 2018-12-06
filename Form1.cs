@@ -2264,46 +2264,20 @@ namespace OLO_CAN
                 Trace.WriteLine("Чтение картинки");
                 if (!chb_PFIFO.Checked)
                 {
-                    UInt32 image_data_count = 0;
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                     image_size = 81353;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
                     msg_count = 10169;
-//                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
-//                    MessageBox.Show(image_size.ToString() + CR + msg_count.ToString());
-//                    canmsg_t dat = new canmsg_t();
-//                    dat.data = new Byte[8];
                     pb_CMOS.Maximum = msg_count;
-/*
-                    for (UInt32 i = 0; i < msg_count; i++)
-                    {
-                        canmsg_t dat = new canmsg_t();
-//                        label29.Text = i.ToString();
-//                        label29.Refresh();
-                        dat.data = new Byte[8];
-                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
-                        {
-                            Trace.WriteLine("Err recv image data");
-                            return;
-                        }
-//                        pb_CMOS.Value = (int)i;
-//                        pb_CMOS.Refresh();
-//                        pb_CMOS.Invalidate();
-                        UInt32 data_size = dat.len;
-                        for (UInt32 j = 0; j < data_size; j++)
-                            image_data[j + image_data_count] = dat.data[j];
-                        image_data_count += data_size;
-                    }
-*/
                     pb_CMOS.Value = 0;
-///*
+
                     if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 1000))
                     {
                         Trace.WriteLine("Err recv image data");
                         return;
                     }
-//*/
+
                     #region Режим калибровки (поиска плохих точек)
                     if (chb_Calibr.Checked)
                     {
@@ -2343,8 +2317,6 @@ namespace OLO_CAN
                     lb_num_bad_points.Text = "Плохих точек:" + list_badpix_FIFO.Count().ToString();
                     #endregion
                 }
-                    //if (_state != State.VideoState)
-                    //    return;
 
                 // read CMOS FIFO buffer size
 ///*
@@ -2440,8 +2412,8 @@ namespace OLO_CAN
             }
 
             // рисуем выстрелы фиолетовым !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //foreach (var item in shot_array_list)
-            //    image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
+            foreach (var item in shot_array_list)
+                image_CMOS.SetPixel(item.x, item.y, Color.Fuchsia);
 
             // Увеличиваем картинку под размер picturebox
             Bitmap newImage = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2);
