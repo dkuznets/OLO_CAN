@@ -2288,8 +2288,8 @@ namespace OLO_CAN
                             return;
                         }
                         pb_CMOS.Value = (int)i;
-                        pb_CMOS.Refresh();
-                        pb_CMOS.Invalidate();
+//                        pb_CMOS.Refresh();
+//                        pb_CMOS.Invalidate();
                         UInt32 data_size = dat.len;
                         for (UInt32 j = 0; j < data_size; j++)
                             image_data[j + image_data_count] = dat.data[j];
