@@ -2275,7 +2275,7 @@ namespace OLO_CAN
 //                    canmsg_t dat = new canmsg_t();
 //                    dat.data = new Byte[8];
                     pb_CMOS.Maximum = msg_count;
-///*
+/*
                     for (UInt32 i = 0; i < msg_count; i++)
                     {
                         canmsg_t dat = new canmsg_t();
@@ -2295,15 +2295,15 @@ namespace OLO_CAN
                             image_data[j + image_data_count] = dat.data[j];
                         image_data_count += data_size;
                     }
-// */
-//                    pb_CMOS.Value = 0;
-/*
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
+*/
+                    pb_CMOS.Value = 0;
+///*
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 1000))
                     {
                         Trace.WriteLine("Err recv image data");
                         return;
                     }
-*/
+//*/
                     #region Режим калибровки (поиска плохих точек)
                     if (chb_Calibr.Checked)
                     {
