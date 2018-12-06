@@ -33,6 +33,7 @@
             this.VideoTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cb_shotshow = new System.Windows.Forms.CheckBox();
             this.chb0_screen = new System.Windows.Forms.CheckBox();
             this.bt_SAVESN1 = new System.Windows.Forms.Button();
             this.bt_REQSN1 = new System.Windows.Forms.Button();
@@ -448,7 +449,6 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cb_shotshow = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -556,6 +556,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Юстировка ОЛО";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cb_shotshow
+            // 
+            this.cb_shotshow.AutoSize = true;
+            this.cb_shotshow.Location = new System.Drawing.Point(810, 541);
+            this.cb_shotshow.Name = "cb_shotshow";
+            this.cb_shotshow.Size = new System.Drawing.Size(143, 17);
+            this.cb_shotshow.TabIndex = 73;
+            this.cb_shotshow.Text = "Показывать выстрелы";
+            this.cb_shotshow.UseVisualStyleBackColor = true;
             // 
             // chb0_screen
             // 
@@ -929,12 +939,11 @@
             // chb_PFIFO
             // 
             this.chb_PFIFO.AutoSize = true;
-            this.chb_PFIFO.Enabled = false;
             this.chb_PFIFO.Location = new System.Drawing.Point(147, 13);
             this.chb_PFIFO.Name = "chb_PFIFO";
-            this.chb_PFIFO.Size = new System.Drawing.Size(113, 17);
+            this.chb_PFIFO.Size = new System.Drawing.Size(89, 17);
             this.chb_PFIFO.TabIndex = 2;
-            this.chb_PFIFO.Text = "Передавать FIFO";
+            this.chb_PFIFO.Text = "Только FIFO";
             this.chb_PFIFO.UseVisualStyleBackColor = true;
             // 
             // chb_PShot
@@ -4970,16 +4979,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // cb_shotshow
-            // 
-            this.cb_shotshow.AutoSize = true;
-            this.cb_shotshow.Location = new System.Drawing.Point(810, 541);
-            this.cb_shotshow.Name = "cb_shotshow";
-            this.cb_shotshow.Size = new System.Drawing.Size(143, 17);
-            this.cb_shotshow.TabIndex = 73;
-            this.cb_shotshow.Text = "Показывать выстрелы";
-            this.cb_shotshow.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
