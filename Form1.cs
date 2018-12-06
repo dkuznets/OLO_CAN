@@ -2272,13 +2272,13 @@ namespace OLO_CAN
 //                    UInt32 image_data_count = 0;
                     image_data = new Byte[msg_count * 8];
 //                    MessageBox.Show(image_size.ToString() + CR + msg_count.ToString());
-                    canmsg_t dat = new canmsg_t();
-                    dat.data = new Byte[8];
+//                    canmsg_t dat = new canmsg_t();
+//                    dat.data = new Byte[8];
                     pb_CMOS.Maximum = msg_count;
 ///*
                     for (UInt32 i = 0; i < msg_count; i++)
                     {
-//                        canmsg_t dat = new canmsg_t();
+                        canmsg_t dat = new canmsg_t();
 //                        label29.Text = i.ToString();
 //                        label29.Refresh();
                         dat.data = new Byte[8];
@@ -2287,7 +2287,7 @@ namespace OLO_CAN
                             Trace.WriteLine("Err recv image data");
                             return;
                         }
-                        pb_CMOS.Value = (int)i;
+//                        pb_CMOS.Value = (int)i;
 //                        pb_CMOS.Refresh();
 //                        pb_CMOS.Invalidate();
                         UInt32 data_size = dat.len;
