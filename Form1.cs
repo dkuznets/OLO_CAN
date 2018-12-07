@@ -2326,7 +2326,6 @@ namespace OLO_CAN
                 }
 
                 // read CMOS FIFO buffer size
-///*
                 Trace.WriteLine("Чтение кол-ва выстрелов");
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
@@ -2337,48 +2336,18 @@ namespace OLO_CAN
                 }
                 shot_pixels = BitConverter.ToUInt16(msg.data, 0);
                 Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
-//                shot_pixels = 0;
+
                 // read CMOS FIFO buffer data if exists
                 // получаем массив координат выстрелов
-//                if (shot_pixels > 0 && shot_pixels < 10) /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
                 if (shot_pixels > 0)
                 {
                     UInt32 image_size = shot_pixels * 4;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                    UInt32 image_data_count = 0;
                     Trace.WriteLine("Чтение выстрелов");
-                    if (uniCAN.Info.Contains("Marathon"))
+                    if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
                     {
-                        if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
-                        {
-                            Trace.WriteLine("Error read CMOS FIFO buffer data");
-                            return;
-                        }
-/*
-                        for (UInt32 i = 0; i < msg_count; i++)
-                        {
-                            canmsg_t dat = new canmsg_t();
-                            dat.data = new Byte[8];
-                            if (uniCAN == null || !uniCAN.Recv(ref dat, 1000))
-                            {
-                                Trace.WriteLine("Error read CMOS FIFO buffer data");
-                                return;
-                            }
-
-                            UInt32 data_size = dat.len;
-                            for (UInt32 j = 0; j < data_size; j++)
-                                shot_array[j + image_data_count] = dat.data[j];
-                            image_data_count += data_size;
-                        }
-*/
-                    }
-                    if (uniCAN.Info.Contains("Elcus"))
-                    { 
-                        if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
-                        {
-                            Trace.WriteLine("Error read CMOS FIFO buffer data");
-                            return;
-                        }
+                        Trace.WriteLine("Error read CMOS FIFO buffer data");
+                        return;
                     }
 
                     shot_array_list.Clear();
@@ -2390,7 +2359,6 @@ namespace OLO_CAN
                         shot_array_list.Add(tmp);
                     }
 			    }
-//*/
             }
             else
             {
