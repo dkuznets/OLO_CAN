@@ -2279,7 +2279,7 @@ namespace OLO_CAN
                     pb_CMOS.Maximum = msg_count;
                     pb_CMOS.Value = 0;
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 100))
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
                     {
                         Trace.WriteLine("Err recv image data");
                         return;
@@ -2330,7 +2330,7 @@ namespace OLO_CAN
                 Trace.WriteLine("Чтение кол-ва выстрелов");
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
-                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+                if (uniCAN == null || !uniCAN.Recv(ref msg, 1000))
                 {
                     Trace.WriteLine("Error read CMOS FIFO buffer size");
                     return;
