@@ -1432,6 +1432,7 @@ namespace OLO_CAN
                 bt_UpLoadConf.Enabled = true;
                 bt_DnLoadConf.Enabled = true;
                 chb_PShot.CheckState = CheckState.Unchecked;
+                malevich();
             }
         }
         #endregion
@@ -1576,6 +1577,7 @@ namespace OLO_CAN
         }
         #endregion
 
+        #region Включение калибровки
         private void chb_Calibr_CheckedChanged(object sender, EventArgs e)
         {
             if (chb_Calibr.Checked)
@@ -1597,6 +1599,7 @@ namespace OLO_CAN
             //    g.FillRectangle(Brushes.Black, 0, 0, IMAGE_CX, IMAGE_CY);
             //}
         }
+        #endregion
 
         #region Выбор правое/левое крыло для паспорта и конфига
         private void rb_LeftW_CheckedChanged(object sender, EventArgs e)
@@ -2228,10 +2231,11 @@ namespace OLO_CAN
             cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
 
             if (!SendCommand(cmd, ref res))
+            {
+                chb_PRunVideo.CheckState = CheckState.Unchecked;
                 return;
+            }
             Trace.WriteLine("Читаем температуру CMOS1");
-            //if (_state != State.VideoState)
-            //    return;
 
             Single fT1 = ((short)res.prm.words.lo_word.word) / (Single)10.0;
             lb_T1_val.Text = fT1.ToString("'+'0.0'°';'-'0.0'°';'0.0°'");
@@ -2241,7 +2245,10 @@ namespace OLO_CAN
             cmd.cmd = Const.COMMAND_CMOS2_GET_TEMPERATURE;
 
             if (!SendCommand(cmd, ref res))
+            {
+                chb_PRunVideo.CheckState = CheckState.Unchecked;
                 return;
+            }
             Trace.WriteLine("Читаем температуру CMOS2");
             //if (_state != State.VideoState)
             //    return;
@@ -2256,10 +2263,10 @@ namespace OLO_CAN
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
 //            Byte[] image_data = new Byte[IMAGE_CX * IMAGE_CY];
 
-            //if (_state != State.VideoState)
-            //    return;
+            if (_state != State.VideoState)
+                return;
 
-            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
+            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)     
             {
                 Trace.WriteLine("Чтение картинки");
                 if (!chb_PFIFO.Checked)
@@ -2272,7 +2279,7 @@ namespace OLO_CAN
                     pb_CMOS.Maximum = msg_count;
                     pb_CMOS.Value = 0;
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 1000))
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 100))
                     {
                         Trace.WriteLine("Err recv image data");
                         return;
@@ -2384,6 +2391,11 @@ namespace OLO_CAN
                     }
 			    }
 //*/
+            }
+            else
+            {
+                chb_PRunVideo.CheckState = CheckState.Unchecked;
+                return;
             }
             //if (_state != State.VideoState)
             //    return;
