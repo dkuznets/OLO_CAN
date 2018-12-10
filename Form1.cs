@@ -2282,6 +2282,8 @@ namespace OLO_CAN
                     if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
                     {
                         Trace.WriteLine("Err recv image data");
+                        if (!chb_PShot.Checked)
+                            goto lbl_pass;
                         return;
                     }
 
@@ -2473,6 +2475,8 @@ namespace OLO_CAN
                     zoom.ClearView();
             }
             #endregion
+
+        lbl_pass:
             if (_state == State.StoppingVideoState)
             {
                 _state = State.OpenedState;
