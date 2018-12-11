@@ -95,6 +95,7 @@ namespace OLO_CAN
         MCANConverter marCAN = null;
         ACANConverter advCAN = null;
         ECANConverter elcCAN = null;
+        ECAN18Converter elcCAN18 = null;
 
         IUCANConverter uniCAN = null;
 
@@ -345,6 +346,19 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
+            try
+            {
+                elcCAN18 = new ECAN18Converter();
+                if (elcCAN18.Is_Present)
+                {
+                    comboBox1.Items.Add("PCI Elcus 1.8");
+                    elcCAN18.Close();
+                }
+            }
+            catch (Exception)
+            {
+            }
+
 
 
             if (comboBox1.Items.Count == 0)
