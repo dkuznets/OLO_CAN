@@ -2345,7 +2345,7 @@ namespace OLO_CAN
                 Trace.WriteLine("Чтение кол-ва выстрелов");
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
-                if (uniCAN == null || !uniCAN.Recv(ref msg, 2000))
+                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
                 {
                     Trace.WriteLine("Error read CMOS FIFO buffer size");
                     shot_pixels = 0;
