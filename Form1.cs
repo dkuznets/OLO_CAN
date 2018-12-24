@@ -2282,9 +2282,9 @@ namespace OLO_CAN
 
             if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)     
             {
-                Trace.WriteLine("Чтение картинки");
                 if (!chb_PFIFO.Checked)
                 {
+                    Trace.WriteLine("Чтение картинки");
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                     image_size = 81353;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
