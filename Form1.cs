@@ -2348,11 +2348,14 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Recv(ref msg, 2000))
                 {
                     Trace.WriteLine("Error read CMOS FIFO buffer size");
-                    return;
+                    shot_pixels = 0;
+                    //                    return;
                 }
-                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
-                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
-
+                else
+                {
+                    shot_pixels = BitConverter.ToUInt16(msg.data, 0);
+                    Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
+                }
                 // read CMOS FIFO buffer data if exists
                 // получаем массив координат выстрелов
                 if (shot_pixels > 0)
