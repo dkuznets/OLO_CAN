@@ -2234,13 +2234,16 @@ namespace OLO_CAN
 		    cmd.prm.words.lo_word.bytes.lo_byte = (chb_PShot.Checked ? (Byte)0x01 : (Byte)0x00);
 		    cmd.prm.words.lo_word.bytes.hi_byte = (chb_PFIFO.Checked ? (Byte)0x01 : (Byte)0x00);
 
-            if(!SendCommand(cmd, ref res))
+            pb_CMOS.Maximum = 100;
+            pb_CMOS.Value = 0;
+            if (!SendCommand(cmd, ref res))
                 return;
             Trace.WriteLine("Установка симуляции выстрелов");
             //if (_state != State.VideoState)
             //    return;
 
             // Читаем температуру CMOS1
+            pb_CMOS.Value = 25;
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
 
@@ -2258,6 +2261,7 @@ namespace OLO_CAN
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS2_GET_TEMPERATURE;
 
+            pb_CMOS.Value = 50;
             if (!SendCommand(cmd, ref res))
             {
                 chb_PRunVideo.CheckState = CheckState.Unchecked;
@@ -2270,6 +2274,7 @@ namespace OLO_CAN
             Single fT2 = ((short)res.prm.words.lo_word.word) / (Single)10.0;
             lb_T2_val.Text = fT2.ToString("'+'0.0'°';'-'0.0'°';'0.0°'");
 
+            pb_CMOS.Value = 75;
             UInt32 shot_pixels = 0;
 
             // Чтение картинки
