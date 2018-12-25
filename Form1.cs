@@ -2246,7 +2246,7 @@ namespace OLO_CAN
             // Читаем температуру CMOS1
             pb_CMOS.Value = 25;
             pb_CMOS.Refresh();
-            Thread.Sleep(2000);
+            Thread.Sleep(100);
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
 
@@ -2266,7 +2266,7 @@ namespace OLO_CAN
 
             pb_CMOS.Value = 50;
             pb_CMOS.Refresh();
-            Thread.Sleep(2000);
+            Thread.Sleep(100);
             if (!SendCommand(cmd, ref res))
             {
                 chb_PRunVideo.CheckState = CheckState.Unchecked;
@@ -2281,7 +2281,7 @@ namespace OLO_CAN
 
             pb_CMOS.Value = 75;
             pb_CMOS.Refresh();
-            Thread.Sleep(2000);
+            Thread.Sleep(100);
             UInt32 shot_pixels = 0;
 
             // Чтение картинки
@@ -2294,6 +2294,9 @@ namespace OLO_CAN
 
             if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)     
             {
+                pb_CMOS.Value = 100;
+                pb_CMOS.Refresh();
+                Thread.Sleep(100);
                 pb_CMOS.Value = 0;
                 if (!chb_PFIFO.Checked)
                 {
