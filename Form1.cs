@@ -2282,6 +2282,7 @@ namespace OLO_CAN
 
             if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)     
             {
+                pb_CMOS.Value = 0;
                 if (!chb_PFIFO.Checked)
                 {
                     Trace.WriteLine("Чтение картинки");
