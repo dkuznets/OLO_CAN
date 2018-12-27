@@ -4548,11 +4548,14 @@ namespace OLO_CAN
         }
         private void timer_Reset_Shots_Tick(object sender, EventArgs e)
         {
-            timer_Reset_Shots.Enabled = false;
-            timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
-            list_shots.Clear();
-            //label3.Text = list_shots.Count.ToString();
-            panel1.Refresh();
+            if (numericUpDown1.Value > 0)
+            {
+                timer_Reset_Shots.Enabled = false;
+                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                list_shots.Clear();
+                //label3.Text = list_shots.Count.ToString();
+                panel1.Refresh();
+            }
         }
         static DateTime ConvertFromUnixTimestamp(UInt64 timestamp)
         {
