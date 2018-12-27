@@ -163,6 +163,16 @@ namespace OLO_CAN.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap olo10 {
+            get {
+                object obj = ResourceManager.GetObject("olo10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap olo4 {
             get {
                 object obj = ResourceManager.GetObject("olo4", resourceCulture);
@@ -196,6 +206,16 @@ namespace OLO_CAN.Properties {
         internal static System.Drawing.Bitmap olo7 {
             get {
                 object obj = ResourceManager.GetObject("olo7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap olo9 {
+            get {
+                object obj = ResourceManager.GetObject("olo9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

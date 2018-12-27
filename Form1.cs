@@ -185,7 +185,6 @@ namespace OLO_CAN
         UInt16 count_l = 0, count_r = 0;
 
         #endregion
-
         #region Tab3
         SaveFileDialog savelog = new SaveFileDialog();
         StreamWriter logwr;
@@ -2783,6 +2782,7 @@ namespace OLO_CAN
         }
         #endregion
         #endregion
+
         #region OLO_CANBoot
         #region Открытие файла
         private void bt_openMC1_Click(object sender, EventArgs e)
@@ -3995,6 +3995,7 @@ namespace OLO_CAN
         }
         #endregion
         #endregion
+
         #region OLO_Test
         #region CAN
         private void bt_CloseCAN2_Click(object sender, EventArgs e)
@@ -4670,28 +4671,24 @@ namespace OLO_CAN
                 {
                     int x = 0, y = 0;
                     int z = 0;
-                    // костылик, мля... лениво думать...
-                    int ugol = it.ugol + 5400, azimut = it.azimut + 5400;
+                    int ugol = it.ugol / 60, azimut = it.azimut / 60;
 
-                    if ((ugol / 60) <= 90)
-                        z = (int)(ugol / 60 * Math.Sin(ugol / 60 * Math.PI / 180));
-                    else
-                        z = (int)((180 - ugol / 60) * Math.Sin((180 - ugol / 60) * Math.PI / 180));
+                    z = (int)Math.Abs(ugol);
+
                     if (it.bort == 1)
                     {
-                        x = (int)(z * Math.Cos((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
+                        x = (int)(z * Math.Cos((Double)(azimut * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)(azimut * Math.PI / 180)));
                     }
                     else
                     {
-                        x = (int)(z * Math.Cos((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
-                        y = (int)(z * Math.Sin((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
+                        x = (int)(z * Math.Cos((Double)((azimut + 180) * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)((azimut + 180) * Math.PI / 180)));
                     }
-                    if ((ugol / 60) <= 90)
+                    if (ugol < 0)
                         gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
                     else
                         gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - 5, y + 99 - 5, 10, 10);
-//                    Application.DoEvents();
                 }
                 list_shots.Clear();
             }
@@ -5018,6 +5015,7 @@ namespace OLO_CAN
             }
         }
         #endregion
+
         #region OLO_Emu
         #region CAN
         private void bt_OpenCAN3_Click(object sender, EventArgs e)
@@ -5928,6 +5926,7 @@ namespace OLO_CAN
         {
         }
         #endregion
+
         #region OLO_CANTest
         private void bt_OpenCAN4_Click(object sender, EventArgs e)
         {
@@ -6882,6 +6881,7 @@ namespace OLO_CAN
             chb_Sin.Checked = false;
         }
         #endregion
+
         #region newRUP
         void print2_msg(canmsg_t msg)
         {
