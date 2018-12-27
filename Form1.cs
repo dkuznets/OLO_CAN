@@ -4651,21 +4651,6 @@ namespace OLO_CAN
         {
             Graphics gr = e.Graphics;
             const UInt16 DSPOT = 4;
-/*
-            Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
-
-            gr.FillEllipse(new SolidBrush(Color.White), 0, 0, 199, 199);
-            gr.DrawEllipse(p, 0, 0, 199, 199);
-
-            for (int i = 0; i < 12; i++)
-            {
-                Point p1 = new Point(99, 99);// первая точка
-                int x = (int)(99 * Math.Cos((Double)(i * 30 * Math.PI / 180)));
-                int y = (int)(99 * Math.Sin((Double)(i * 30 * Math.PI / 180)));
-                Point p2 = new Point(x + 99, y + 99);// вторая точка
-                gr.DrawLine(p, p1, p2);// рисуем линию
-            }
-*/
             if (list_shots.Count > 0)
             {
                 foreach (var it in list_shots)
@@ -4690,7 +4675,7 @@ namespace OLO_CAN
                     else
                         gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
                 }
-//                list_shots.Clear();
+                list_shots.Clear();
             }
             gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
         }
