@@ -4923,7 +4923,8 @@ namespace OLO_CAN
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+            if (numericUpDown1.Value > 0)
+                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {
