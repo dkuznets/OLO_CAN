@@ -144,6 +144,8 @@ namespace OLO_CAN
 
         IniFile inicfg;
 
+        int timer_Reset_Shots_Interval = 10;
+
         #endregion
 
         #region Tab2
@@ -4159,13 +4161,13 @@ namespace OLO_CAN
 
                             if (timer_Reset_Shots.Enabled == false)
                             {
-                                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                                timer_Reset_Shots.Interval = timer_Reset_Shots_Interval;
                                 timer_Reset_Shots.Enabled = true;
                             }
                             else
                             {
                                 timer_Reset_Shots.Enabled = false;
-                                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                                timer_Reset_Shots.Interval = timer_Reset_Shots_Interval;
                                 timer_Reset_Shots.Enabled = true;
                             }
                             if (az != 0x7FFF && um != 0x7FFF && messages[i].messageID == msg_t.mID_DATA)
@@ -4551,7 +4553,7 @@ namespace OLO_CAN
             if (numericUpDown1.Value > 0)
             {
                 timer_Reset_Shots.Enabled = false;
-                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                timer_Reset_Shots.Interval = timer_Reset_Shots_Interval;
                 list_shots.Clear();
                 //label3.Text = list_shots.Count.ToString();
                 panel1.Refresh();
@@ -4924,7 +4926,7 @@ namespace OLO_CAN
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (numericUpDown1.Value > 0)
-                timer_Reset_Shots.Interval = (int)numericUpDown1.Value * 1000;
+                timer_Reset_Shots_Interval = (int)numericUpDown1.Value * 1000;
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {
