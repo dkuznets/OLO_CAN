@@ -4650,6 +4650,7 @@ namespace OLO_CAN
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics gr = e.Graphics;
+            const UInt16 dspot = 4;
 /*
             Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
 
@@ -4684,10 +4685,6 @@ namespace OLO_CAN
                         x = (int)(z * Math.Cos((Double)((azimut + 180) * Math.PI / 180)));
                         y = (int)(z * Math.Sin((Double)((azimut + 180) * Math.PI / 180)));
                     }
-                    if (ugol < 0)
-                        gr.FillEllipse(new SolidBrush(Color.Aquamarine), x + 100 - 5, y + 100 - 5, 10, 10);
-                    else
-                        gr.FillEllipse(new SolidBrush(Color.Indigo), x + 100 - 5, y + 100 - 5, 10, 10);
                     if (ugol < 0)
                         gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
                     else
