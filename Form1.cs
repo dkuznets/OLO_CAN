@@ -4650,7 +4650,7 @@ namespace OLO_CAN
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics gr = e.Graphics;
-            const UInt16 dspot = 4;
+            const UInt16 DSPOT = 4;
 /*
             Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
 
@@ -4686,9 +4686,9 @@ namespace OLO_CAN
                         y = (int)(z * Math.Sin((Double)((azimut + 180) * Math.PI / 180)));
                     }
                     if (ugol < 0)
-                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
                     else
-                        gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - 5, y + 99 - 5, 10, 10);
+                        gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
                 }
 //                list_shots.Clear();
             }
