@@ -144,7 +144,7 @@ namespace OLO_CAN
 
         IniFile inicfg;
 
-        int timer_Reset_Shots_Interval = 10;
+        int timer_Reset_Shots_Interval = 10000;
 
         #endregion
 
@@ -4680,7 +4680,8 @@ namespace OLO_CAN
                     else
                         gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
                 }
-                list_shots.Clear();
+                if(cb_clear_shot.Checked)
+                    list_shots.Clear();
             }
             gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
         }
