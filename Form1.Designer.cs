@@ -2905,6 +2905,7 @@
             // 
             // bt_SyncTime
             // 
+            this.bt_SyncTime.Enabled = false;
             this.bt_SyncTime.Location = new System.Drawing.Point(201, 158);
             this.bt_SyncTime.Name = "bt_SyncTime";
             this.bt_SyncTime.Size = new System.Drawing.Size(181, 23);
