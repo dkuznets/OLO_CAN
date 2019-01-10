@@ -563,6 +563,8 @@
             // chb0_srfon
             // 
             this.chb0_srfon.AutoSize = true;
+            this.chb0_srfon.Checked = true;
+            this.chb0_srfon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb0_srfon.Location = new System.Drawing.Point(669, 559);
             this.chb0_srfon.Name = "chb0_srfon";
             this.chb0_srfon.Size = new System.Drawing.Size(92, 17);
@@ -1370,11 +1372,10 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(498, 0);
+            this.label29.Location = new System.Drawing.Point(514, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(0, 13);
             this.label29.TabIndex = 15;
-            this.label29.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pb_CMOS
             // 

@@ -2415,6 +2415,9 @@ namespace OLO_CAN
                 srfon /= Const.IMAGE_CY * Const.IMAGE_CX;
                 label29.Text = "Средний фон = " + srfon.ToString();
             }
+            else
+                label29.Text = "";
+
             #endregion
 
             #region построение картинки
