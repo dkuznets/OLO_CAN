@@ -2408,7 +2408,7 @@ namespace OLO_CAN
             UInt32 srfon = 0;
             if (chb0_srfon.Checked)
             {
-                for (uint ii = 0; ii < Const.IMAGE_CY * Const.IMAGE_CX; ii++)
+                for (uint ii = 1; ii < Const.IMAGE_CY * Const.IMAGE_CX; ii++)
                 {
                     if ((image_data[ii] > srfon / ii - 10) && (image_data[ii] < srfon / ii + 10))
                         srfon += image_data[ii];
