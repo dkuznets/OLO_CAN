@@ -1369,10 +1369,11 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(529, 0);
+            this.label29.Location = new System.Drawing.Point(644, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(0, 13);
             this.label29.TabIndex = 15;
+            this.label29.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pb_CMOS
             // 
