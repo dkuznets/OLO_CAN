@@ -52,7 +52,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>128x128.ico</ApplicationIcon>
+    <ApplicationIcon>128_32.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>C2761A2988EB7BD99B6CA8BB6661F16A1A71DA4C</ManifestCertificateThumbprint>
@@ -207,6 +207,7 @@
     <None Include="olo9.png" />
     <None Include="olo10.png" />
     <Content Include="128x128.ico" />
+    <Content Include="128_32.ico" />
     <Content Include="Resources\olo6.png" />
     <None Include="olo5.png" />
     <Content Include="Resources\olo5.png" />
