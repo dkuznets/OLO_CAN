@@ -2403,6 +2403,20 @@ namespace OLO_CAN
             }
             //if (_state != State.VideoState)
             //    return;
+
+            #region Средний фон
+            UInt32 srfon = 0;
+            if (chb0_srfon.Checked)
+            {
+                for (int ii = 0; ii < Const.IMAGE_CY * Const.IMAGE_CX; ii++)
+                {
+                    srfon += image_data[ii];
+                }
+                srfon /= Const.IMAGE_CY * Const.IMAGE_CX;
+                label29.Text = " Средний фон = " + srfon.ToString();
+            }
+            #endregion
+
             #region построение картинки
             
             Trace.WriteLine("построение картинки");

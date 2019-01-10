@@ -450,6 +450,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.chb0_srfon = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -532,6 +533,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chb0_srfon);
             this.tabPage1.Controls.Add(this.cb_shotshow);
             this.tabPage1.Controls.Add(this.chb0_screen);
             this.tabPage1.Controls.Add(this.bt_SAVESN1);
@@ -4988,6 +4990,16 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // chb0_srfon
+            // 
+            this.chb0_srfon.AutoSize = true;
+            this.chb0_srfon.Location = new System.Drawing.Point(669, 559);
+            this.chb0_srfon.Name = "chb0_srfon";
+            this.chb0_srfon.Size = new System.Drawing.Size(92, 17);
+            this.chb0_srfon.TabIndex = 74;
+            this.chb0_srfon.Text = "Средний фон";
+            this.chb0_srfon.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5518,6 +5530,7 @@
         private System.Windows.Forms.RadioButton rb_new_RUP;
         private System.Windows.Forms.CheckBox cb_shotshow;
         private System.Windows.Forms.CheckBox cb_clear_shot;
+        private System.Windows.Forms.CheckBox chb0_srfon;
 	}
 }
 
