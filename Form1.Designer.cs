@@ -33,6 +33,7 @@
             this.VideoTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chb0_srfon = new System.Windows.Forms.CheckBox();
             this.cb_shotshow = new System.Windows.Forms.CheckBox();
             this.chb0_screen = new System.Windows.Forms.CheckBox();
             this.bt_SAVESN1 = new System.Windows.Forms.Button();
@@ -450,7 +451,6 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.chb0_srfon = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -559,6 +559,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Юстировка ОЛО";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chb0_srfon
+            // 
+            this.chb0_srfon.AutoSize = true;
+            this.chb0_srfon.Location = new System.Drawing.Point(669, 559);
+            this.chb0_srfon.Name = "chb0_srfon";
+            this.chb0_srfon.Size = new System.Drawing.Size(92, 17);
+            this.chb0_srfon.TabIndex = 74;
+            this.chb0_srfon.Text = "Средний фон";
+            this.chb0_srfon.UseVisualStyleBackColor = true;
             // 
             // cb_shotshow
             // 
@@ -1364,7 +1374,6 @@
             this.label29.Size = new System.Drawing.Size(41, 13);
             this.label29.TabIndex = 15;
             this.label29.Text = "label29";
-            this.label29.Visible = false;
             // 
             // pb_CMOS
             // 
@@ -4989,16 +4998,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // chb0_srfon
-            // 
-            this.chb0_srfon.AutoSize = true;
-            this.chb0_srfon.Location = new System.Drawing.Point(669, 559);
-            this.chb0_srfon.Name = "chb0_srfon";
-            this.chb0_srfon.Size = new System.Drawing.Size(92, 17);
-            this.chb0_srfon.TabIndex = 74;
-            this.chb0_srfon.Text = "Средний фон";
-            this.chb0_srfon.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
