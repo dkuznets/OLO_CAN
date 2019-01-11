@@ -4569,7 +4569,7 @@ namespace OLO_CAN
                 }
                 #endregion
             }
-            if (scroll)
+//            if (scroll)
                 messages.Clear();
         }
         private void timer_Reset_Shots_Tick(object sender, EventArgs e)
