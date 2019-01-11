@@ -4546,7 +4546,7 @@ namespace OLO_CAN
                             dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                     }
                     tb2_datagrid.AppendText(
-                        DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + " " +
+//                        DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + " " +
                         strelka_s + " " +
                         rawdata + " " +
                         mss + " " +
