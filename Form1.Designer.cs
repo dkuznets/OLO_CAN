@@ -451,6 +451,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tb2_datagrid = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1882,6 +1883,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tb2_datagrid);
             this.tabPage3.Controls.Add(this.cb_clear_shot);
             this.tabPage3.Controls.Add(this.label42);
             this.tabPage3.Controls.Add(this.label37);
@@ -5001,6 +5003,15 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // tb2_datagrid
+            // 
+            this.tb2_datagrid.Location = new System.Drawing.Point(619, 3);
+            this.tb2_datagrid.Multiline = true;
+            this.tb2_datagrid.Name = "tb2_datagrid";
+            this.tb2_datagrid.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tb2_datagrid.Size = new System.Drawing.Size(335, 415);
+            this.tb2_datagrid.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5532,6 +5543,7 @@
         private System.Windows.Forms.CheckBox cb_shotshow;
         private System.Windows.Forms.CheckBox cb_clear_shot;
         private System.Windows.Forms.CheckBox chb0_srfon;
+        private System.Windows.Forms.TextBox tb2_datagrid;
 	}
 }
 
