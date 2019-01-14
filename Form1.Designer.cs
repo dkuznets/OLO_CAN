@@ -151,6 +151,7 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tb2_datagrid = new System.Windows.Forms.TextBox();
             this.cb_clear_shot = new System.Windows.Forms.CheckBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -451,7 +452,6 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tb2_datagrid = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1925,6 +1925,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tb2_datagrid
+            // 
+            this.tb2_datagrid.Location = new System.Drawing.Point(6, 265);
+            this.tb2_datagrid.Multiline = true;
+            this.tb2_datagrid.Name = "tb2_datagrid";
+            this.tb2_datagrid.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tb2_datagrid.Size = new System.Drawing.Size(607, 350);
+            this.tb2_datagrid.TabIndex = 16;
             // 
             // cb_clear_shot
             // 
@@ -5002,15 +5011,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // tb2_datagrid
-            // 
-            this.tb2_datagrid.Location = new System.Drawing.Point(619, 3);
-            this.tb2_datagrid.Multiline = true;
-            this.tb2_datagrid.Name = "tb2_datagrid";
-            this.tb2_datagrid.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tb2_datagrid.Size = new System.Drawing.Size(335, 415);
-            this.tb2_datagrid.TabIndex = 16;
             // 
             // Form1
             // 
