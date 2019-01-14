@@ -4530,6 +4530,8 @@ namespace OLO_CAN
                 String rawdata = "";
                 for (int j = 0; j < messages[i].messageLen; j++)
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
+                String timestamp = "";
+                timestamp = BitConverter.ToUInt32(messages[i].messageData, 0).ToString();
 
 //                Application.DoEvents();
                 if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
@@ -4550,7 +4552,7 @@ namespace OLO_CAN
                         strelka_s + " " +
                         rawdata + " " +
                         mss + " " +
-                        messages[i].messageID.ToString("X2") + "\r\n"
+                        messages[i].messageID.ToString("X2") + " " + timestamp + "\r\n"
                     );
 
 
