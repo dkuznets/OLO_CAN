@@ -4547,14 +4547,16 @@ namespace OLO_CAN
                         if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
                             dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                     }
-                    tb2_datagrid.AppendText(
+                    String temp_str = "";
+//                    tb2_datagrid.AppendText(
 //                        DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + " " +
-                        strelka_s + "\t" +
-                        rawdata + "\t" +
-                        mss + "\t" +
-                        messages[i].messageID.ToString("X2") + "\t" + 
-                        timestamp + "\r\n"
-                    );
+                    temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
+                    if(messages[i].messageID.ToString("X2") == "2D")
+                        temp_str += "\t" + timestamp;
+//                        messages[i].messageID.ToString("X2") + "\t" + 
+                    temp_str += "\r\n";
+//                    );
+                    tb2_datagrid.AppendText(temp_str);
 
 
                     //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
