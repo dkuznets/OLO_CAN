@@ -4549,10 +4549,11 @@ namespace OLO_CAN
                     }
                     tb2_datagrid.AppendText(
 //                        DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + " " +
-                        strelka_s + " " +
-                        rawdata + " " +
-                        mss + " " +
-                        messages[i].messageID.ToString("X2") + " " + timestamp + "\r\n"
+                        strelka_s + "\t" +
+                        rawdata + "\t" +
+                        mss + "\t" +
+                        messages[i].messageID.ToString("X2") + "\t" + 
+                        timestamp + "\r\n"
                     );
 
 
