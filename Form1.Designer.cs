@@ -151,6 +151,7 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rtb2_datagrid = new System.Windows.Forms.RichTextBox();
             this.tb2_datagrid = new System.Windows.Forms.TextBox();
             this.cb_clear_shot = new System.Windows.Forms.CheckBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -452,7 +453,6 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtb2_datagrid = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1927,6 +1927,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // rtb2_datagrid
+            // 
+            this.rtb2_datagrid.DetectUrls = false;
+            this.rtb2_datagrid.Location = new System.Drawing.Point(6, 285);
+            this.rtb2_datagrid.Name = "rtb2_datagrid";
+            this.rtb2_datagrid.Size = new System.Drawing.Size(607, 330);
+            this.rtb2_datagrid.TabIndex = 75;
+            this.rtb2_datagrid.Text = "";
+            this.rtb2_datagrid.WordWrap = false;
             // 
             // tb2_datagrid
             // 
@@ -5013,15 +5023,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // rtb2_datagrid
-            // 
-            this.rtb2_datagrid.Location = new System.Drawing.Point(6, 285);
-            this.rtb2_datagrid.Name = "rtb2_datagrid";
-            this.rtb2_datagrid.Size = new System.Drawing.Size(607, 330);
-            this.rtb2_datagrid.TabIndex = 75;
-            this.rtb2_datagrid.Text = "";
-            this.rtb2_datagrid.WordWrap = false;
             // 
             // Form1
             // 
