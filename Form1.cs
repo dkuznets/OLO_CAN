@@ -4560,7 +4560,7 @@ namespace OLO_CAN
                         rtb2_datagrid.AppendText(temp_str, Color.Red);
                     else
                         rtb2_datagrid.AppendText(temp_str);
-
+                    rtb2_datagrid.ScrollToCaret();
 
                     //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
                     //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
