@@ -4556,7 +4556,10 @@ namespace OLO_CAN
 //                        messages[i].messageID.ToString("X2") + "\t" + 
                     temp_str += "\r\n";
 //                    );
-                    rtb2_datagrid.AppendText(temp_str);
+                    if (messages[i].messageID.ToString("X2") == "2D")
+                        rtb2_datagrid.AppendText(temp_str, Color.Red);
+                    else
+                        rtb2_datagrid.AppendText(temp_str);
 
 
                     //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
@@ -8376,4 +8379,17 @@ namespace OLO_CAN
             return hash;
         }
     }
+
+    public static class RichTextBoxExtensions
+    {
+        public static void AppendText(this RichTextBox box, string text, Color color)
+        {
+            box.SelectionStart = box.TextLength;
+            box.SelectionLength = 0;
+            box.SelectionColor = color;
+            box.AppendText(text);
+            box.SelectionColor = box.ForeColor;
+        }
+    }
 }
+
