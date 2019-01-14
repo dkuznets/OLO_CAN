@@ -4556,7 +4556,7 @@ namespace OLO_CAN
 //                        messages[i].messageID.ToString("X2") + "\t" + 
                     temp_str += "\r\n";
 //                    );
-                    tb2_datagrid.AppendText(temp_str);
+                    rtb2_datagrid.AppendText(temp_str);
 
 
                     //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
