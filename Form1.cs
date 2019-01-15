@@ -4546,7 +4546,7 @@ namespace OLO_CAN
                             if(timestampold != 0)
                             {
                                 UInt32 period = timestamp - timestampold;
-                                if (period > 0)
+                                if (period > 0 && period < 100000)
                                 {
                                     temp_str += "\t" + period.ToString();
                                     temp_str += "\t" + (100000 / period).ToString();
