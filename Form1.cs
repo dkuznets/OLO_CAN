@@ -4187,7 +4187,7 @@ namespace OLO_CAN
                             panel1.Refresh();
                         }
                         else
-                            mss = "Не определено...";
+                            mss = "\tНе определено...\t";
 
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
