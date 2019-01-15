@@ -4573,32 +4573,11 @@ namespace OLO_CAN
                         timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
                         stimestamp = timestamp.ToString();
                         temp_str += "\t" + stimestamp;
-                        if (timestampold != 0)
-                        {
-                            UInt32 period = timestamp - timestampold;
-                            if (period > 0 && period < 100000)
-                            {
-                                temp_str += "\t" + (period / 100).ToString() + "мс";
-                                temp_str += "\t" + (100000 / period).ToString() + "Гц";
-                            }
-                        }
-                        timestampold = timestamp;
+                        temp_str += "\r\n";
                     }
-                    temp_str += "\r\n";
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
-                        if (BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
-                        {
-                            rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
-                        }
-                        else
-                        {
-                            rtb2_datagrid.AppendText(temp_str, Color.Red);
-                        }
-                    }
-                    else
-                    {
-                        rtb2_datagrid.AppendText(temp_str);
+                        rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
                     }
                     rtb2_datagrid.ScrollToCaret();
                 }
