@@ -4524,7 +4524,7 @@ namespace OLO_CAN
                 if (rb2_filter_all.Checked)
                 {
                     String temp_str = "";
-                    temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
+                    temp_str = strelka_s + "\t" + rawdata + "\t\t" + mss;
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
                         timestamp = 0;
