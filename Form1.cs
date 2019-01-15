@@ -4524,7 +4524,7 @@ namespace OLO_CAN
                 if (rb2_filter_all.Checked)
                 {
                     String temp_str = "";
-                    temp_str = strelka_s + " " + rawdata + "\t" + mss;
+                    temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
                         timestamp = 0;
@@ -4539,7 +4539,7 @@ namespace OLO_CAN
                                 if (period > 0 && period < 100000)
                                 {
                                     temp_str += "\t" + (period / 100).ToString() + "мс";
-                                    temp_str += "\t" + (100000 / period).ToString() + "Гц";
+                                    temp_str += ", " + (100000 / period).ToString() + "Гц";
                                 }
                             }
                             timestampold = timestamp;
