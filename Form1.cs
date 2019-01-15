@@ -4566,9 +4566,9 @@ namespace OLO_CAN
                 if (rb2_filter_data.Checked)
                 {
                     String temp_str = "";
-                    temp_str = strelka_s + " " + rawdata + "\t" + mss;
                     if (messages[i].messageID.ToString("X2") == "2D" && BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
                     {
+                        temp_str = strelka_s + " " + rawdata + "\t" + mss;
                         timestamp = 0;
                         timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
                         stimestamp = timestamp.ToString();
