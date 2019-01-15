@@ -443,9 +443,10 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rb2_filter_data = new System.Windows.Forms.RadioButton();
+            this.rb2_filter_7fff = new System.Windows.Forms.RadioButton();
+            this.rb2_filter_all = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -500,6 +501,7 @@
             this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1876,9 +1878,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.radioButton3);
-            this.tabPage3.Controls.Add(this.radioButton2);
-            this.tabPage3.Controls.Add(this.radioButton1);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.rtb2_datagrid);
             this.tabPage3.Controls.Add(this.cb_clear_shot);
             this.tabPage3.Controls.Add(this.label42);
@@ -1931,10 +1931,11 @@
             // 
             // cb_clear_shot
             // 
+            this.cb_clear_shot.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_clear_shot.AutoSize = true;
-            this.cb_clear_shot.Location = new System.Drawing.Point(759, 505);
+            this.cb_clear_shot.Location = new System.Drawing.Point(717, 454);
             this.cb_clear_shot.Name = "cb_clear_shot";
-            this.cb_clear_shot.Size = new System.Drawing.Size(121, 17);
+            this.cb_clear_shot.Size = new System.Drawing.Size(112, 23);
             this.cb_clear_shot.TabIndex = 74;
             this.cb_clear_shot.Text = "Стирать выстрелы";
             this.cb_clear_shot.UseVisualStyleBackColor = true;
@@ -4919,37 +4920,50 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // radioButton1
+            // rb2_filter_data
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(620, 492);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 17);
-            this.radioButton1.TabIndex = 76;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Выводить все";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb2_filter_data.AutoSize = true;
+            this.rb2_filter_data.Location = new System.Drawing.Point(7, 41);
+            this.rb2_filter_data.Name = "rb2_filter_data";
+            this.rb2_filter_data.Size = new System.Drawing.Size(103, 17);
+            this.rb2_filter_data.TabIndex = 77;
+            this.rb2_filter_data.Text = "Только данные";
+            this.rb2_filter_data.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb2_filter_7fff
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(620, 516);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 17);
-            this.radioButton2.TabIndex = 77;
-            this.radioButton2.Text = "Только данные";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb2_filter_7fff.AutoSize = true;
+            this.rb2_filter_7fff.Location = new System.Drawing.Point(6, 64);
+            this.rb2_filter_7fff.Name = "rb2_filter_7fff";
+            this.rb2_filter_7fff.Size = new System.Drawing.Size(100, 17);
+            this.rb2_filter_7fff.TabIndex = 78;
+            this.rb2_filter_7fff.Text = "Только 0x7FFF";
+            this.rb2_filter_7fff.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rb2_filter_all
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(620, 540);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(100, 17);
-            this.radioButton3.TabIndex = 78;
-            this.radioButton3.Text = "Только 0x7FFF";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb2_filter_all.AutoSize = true;
+            this.rb2_filter_all.Checked = true;
+            this.rb2_filter_all.Location = new System.Drawing.Point(7, 19);
+            this.rb2_filter_all.Name = "rb2_filter_all";
+            this.rb2_filter_all.Size = new System.Drawing.Size(96, 17);
+            this.rb2_filter_all.TabIndex = 76;
+            this.rb2_filter_all.TabStop = true;
+            this.rb2_filter_all.Text = "Выводить все";
+            this.rb2_filter_all.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox1.Controls.Add(this.rb2_filter_all);
+            this.groupBox1.Controls.Add(this.rb2_filter_7fff);
+            this.groupBox1.Controls.Add(this.rb2_filter_data);
+            this.groupBox1.Location = new System.Drawing.Point(620, 483);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(127, 94);
+            this.groupBox1.TabIndex = 79;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтр";
             // 
             // Form1
             // 
@@ -5054,6 +5068,8 @@
             this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -5473,9 +5489,10 @@
         private System.Windows.Forms.CheckBox cb_clear_shot;
         private System.Windows.Forms.CheckBox chb0_srfon;
         private System.Windows.Forms.RichTextBox rtb2_datagrid;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rb2_filter_all;
+        private System.Windows.Forms.RadioButton rb2_filter_7fff;
+        private System.Windows.Forms.RadioButton rb2_filter_data;
 	}
 }
 

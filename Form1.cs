@@ -4156,17 +4156,16 @@ namespace OLO_CAN
                         um = BitConverter.ToInt16(messages[i].messageData, 6);
                         //az = BitConverter.ToUInt16(messages[i].messageData, 4);
                         //um = BitConverter.ToUInt16(messages[i].messageData, 6);
-                        if (az >= 0)
-                            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
-                        else
-                            mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
-                        if(um >= 0)
-                              mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                        else
-                              mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
-
-                        if ((az != 0x7FFF && um != 0x7FFF) || !chb3_7fff.Checked)
+                        if (az != 0x7FFF && um != 0x7FFF)
                         {
+                            if (az >= 0)
+                                mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+                            else
+                                mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
+                            if (um >= 0)
+                                mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                            else
+                                mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
                             Shots sh = new Shots();
                             sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
                             sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
@@ -4184,20 +4183,12 @@ namespace OLO_CAN
                                 timer_Reset_Shots.Interval = timer_Reset_Shots_Interval;
                                 timer_Reset_Shots.Enabled = true;
                             }
-                            if (az != 0x7FFF && um != 0x7FFF && messages[i].messageID == msg_t.mID_DATA)
-                                panel1.Refresh();
-
+                            //                        if (az != 0x7FFF && um != 0x7FFF && messages[i].messageID == msg_t.mID_DATA)
+                            panel1.Refresh();
                         }
-                        //if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
-                        //{
-                        //    Shots sh = new Shots();
-                        //    sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
-                        //    sh.azimut = BitConverter.ToUInt16(messages[i].messageData, 4);
-                        //    sh.ugol = BitConverter.ToUInt16(messages[i].messageData, 6);
-                        //    list_shots.Add(sh);
-                        //}
-                        //label3.Text = list_shots.Count.ToString();
-                        
+                        else
+                            mss = "Не определено...";
+
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
                     #endregion
