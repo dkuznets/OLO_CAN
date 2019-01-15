@@ -232,8 +232,6 @@
             this.REQ_VER = new System.Windows.Forms.Button();
             this.chb3_savelog = new System.Windows.Forms.CheckBox();
             this.chb3_7fff = new System.Windows.Forms.CheckBox();
-            this.chb3_um = new System.Windows.Forms.CheckBox();
-            this.chb3_az = new System.Windows.Forms.CheckBox();
             this.btn_REQSN = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -445,6 +443,9 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1875,6 +1876,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.radioButton3);
+            this.tabPage3.Controls.Add(this.radioButton2);
+            this.tabPage3.Controls.Add(this.radioButton1);
             this.tabPage3.Controls.Add(this.rtb2_datagrid);
             this.tabPage3.Controls.Add(this.cb_clear_shot);
             this.tabPage3.Controls.Add(this.label42);
@@ -1892,8 +1896,6 @@
             this.tabPage3.Controls.Add(this.REQ_VER);
             this.tabPage3.Controls.Add(this.chb3_savelog);
             this.tabPage3.Controls.Add(this.chb3_7fff);
-            this.tabPage3.Controls.Add(this.chb3_um);
-            this.tabPage3.Controls.Add(this.chb3_az);
             this.tabPage3.Controls.Add(this.btn_REQSN);
             this.tabPage3.Controls.Add(this.btn_Reset);
             this.tabPage3.Controls.Add(this.label16);
@@ -1940,7 +1942,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(666, 512);
+            this.label42.Location = new System.Drawing.Point(668, 517);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(0, 13);
             this.label42.TabIndex = 73;
@@ -2705,10 +2707,10 @@
             // 
             // chb3_savelog
             // 
-            this.chb3_savelog.AutoSize = true;
-            this.chb3_savelog.Location = new System.Drawing.Point(759, 482);
+            this.chb3_savelog.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb3_savelog.Location = new System.Drawing.Point(619, 454);
             this.chb3_savelog.Name = "chb3_savelog";
-            this.chb3_savelog.Size = new System.Drawing.Size(95, 17);
+            this.chb3_savelog.Size = new System.Drawing.Size(91, 23);
             this.chb3_savelog.TabIndex = 60;
             this.chb3_savelog.Text = "Включить лог";
             this.chb3_savelog.UseVisualStyleBackColor = true;
@@ -2717,34 +2719,12 @@
             // chb3_7fff
             // 
             this.chb3_7fff.AutoSize = true;
-            this.chb3_7fff.Location = new System.Drawing.Point(620, 482);
+            this.chb3_7fff.Location = new System.Drawing.Point(759, 530);
             this.chb3_7fff.Name = "chb3_7fff";
             this.chb3_7fff.Size = new System.Drawing.Size(103, 17);
             this.chb3_7fff.TabIndex = 59;
             this.chb3_7fff.Text = "Проверка 7FFF";
             this.chb3_7fff.UseVisualStyleBackColor = true;
-            // 
-            // chb3_um
-            // 
-            this.chb3_um.AutoSize = true;
-            this.chb3_um.Enabled = false;
-            this.chb3_um.Location = new System.Drawing.Point(759, 459);
-            this.chb3_um.Name = "chb3_um";
-            this.chb3_um.Size = new System.Drawing.Size(147, 17);
-            this.chb3_um.TabIndex = 58;
-            this.chb3_um.Text = "проверка по углу места";
-            this.chb3_um.UseVisualStyleBackColor = true;
-            // 
-            // chb3_az
-            // 
-            this.chb3_az.AutoSize = true;
-            this.chb3_az.Enabled = false;
-            this.chb3_az.Location = new System.Drawing.Point(620, 459);
-            this.chb3_az.Name = "chb3_az";
-            this.chb3_az.Size = new System.Drawing.Size(133, 17);
-            this.chb3_az.TabIndex = 57;
-            this.chb3_az.Text = "проверка по азимуту";
-            this.chb3_az.UseVisualStyleBackColor = true;
             // 
             // btn_REQSN
             // 
@@ -4939,6 +4919,38 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(622, 510);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(96, 17);
+            this.radioButton1.TabIndex = 76;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Выводить все";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(622, 534);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 17);
+            this.radioButton2.TabIndex = 77;
+            this.radioButton2.Text = "Только данные";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(622, 558);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(100, 17);
+            this.radioButton3.TabIndex = 78;
+            this.radioButton3.Text = "Только 0x7FFF";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5290,8 +5302,6 @@
         private System.Windows.Forms.CheckBox chb5_d13;
         private System.Windows.Forms.Button bt5_reset;
         private System.Windows.Forms.CheckBox chb5_timer_enable;
-        private System.Windows.Forms.CheckBox chb3_um;
-        private System.Windows.Forms.CheckBox chb3_az;
         private System.Windows.Forms.CheckBox chb3_7fff;
         private System.Windows.Forms.CheckBox chb3_savelog;
         private System.Windows.Forms.Label lb3_freq_txt;
@@ -5463,6 +5473,9 @@
         private System.Windows.Forms.CheckBox cb_clear_shot;
         private System.Windows.Forms.CheckBox chb0_srfon;
         private System.Windows.Forms.RichTextBox rtb2_datagrid;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
 	}
 }
 
