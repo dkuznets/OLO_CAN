@@ -4104,12 +4104,12 @@ namespace OLO_CAN
         private void Timer_GetData_Tick(object sender, EventArgs e)
         {
 //            Trace.Write("Recv... ");
-            canmsg_t msg = new canmsg_t();
-            msg.data = new Byte[8];
-            msg_t mm = new msg_t();
             int az = 0, um = 0;
             while (uniCAN.VectorSize() > 0)
             {
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                msg_t mm = new msg_t();
                 uniCAN.Recv(ref msg, 100);
 //                Application.DoEvents();
                 mm = mm.FromCAN(msg);
