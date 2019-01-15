@@ -1950,7 +1950,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(619, 512);
+            this.label37.Location = new System.Drawing.Point(756, 460);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(0, 13);
             this.label37.TabIndex = 72;
@@ -4923,7 +4923,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(620, 494);
+            this.radioButton1.Location = new System.Drawing.Point(620, 492);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(96, 17);
             this.radioButton1.TabIndex = 76;
@@ -4934,7 +4934,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(620, 518);
+            this.radioButton2.Location = new System.Drawing.Point(620, 516);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(103, 17);
             this.radioButton2.TabIndex = 77;
@@ -4944,7 +4944,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(620, 542);
+            this.radioButton3.Location = new System.Drawing.Point(620, 540);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(100, 17);
             this.radioButton3.TabIndex = 78;
