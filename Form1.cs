@@ -4521,13 +4521,13 @@ namespace OLO_CAN
                 String stimestamp = "";
 
                 #region Фильтры
+                timestamp = 0;
                 if (rb2_filter_all.Checked)
                 {
                     String temp_str = "";
                     temp_str = strelka_s + "\t" + rawdata + " \t" + mss;
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
-                        timestamp = 0;
                         timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
                         stimestamp = timestamp.ToString();
                         temp_str += "\t" + stimestamp;
