@@ -4547,8 +4547,8 @@ namespace OLO_CAN
                             {
                                 UInt32 period = timestamp - timestampold;
                                 temp_str += "\t" + period.ToString();
-                                timestampold = timestamp;
                             }
+                            timestampold = timestamp;
                         }
                     }
                     temp_str += "\r\n";
