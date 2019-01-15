@@ -4525,10 +4525,31 @@ namespace OLO_CAN
                         temp_str += "\t" + stimestamp;
                         temp_str += "\r\n";
                     }
-                    if (messages[i].messageID.ToString("X2") == "2D")
+                    rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                    rtb2_datagrid.ScrollToCaret();
+                }
+                if (rb2_filter_7fff.Checked)
+                {
+                    String temp_str = "";
+                    temp_str = strelka_s + "\t" + rawdata + " \t" + mss;
+                    if (messages[i].messageID.ToString("X2") == "2D" && BitConverter.ToInt16(messages[i].messageData, 4) == 0x7FFF)
                     {
-                        rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                        timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
+                        stimestamp = timestamp.ToString();
+                        temp_str += "\t" + stimestamp;
+                        if (timestampold != 0)
+                        {
+                            UInt32 period = timestamp - timestampold;
+                            if (period > 0 && period < 100000)
+                            {
+                                temp_str += "\t" + (period / 100).ToString() + "мс";
+                                temp_str += ", " + (100000 / period).ToString() + "Гц";
+                            }
+                        }
+                        timestampold = timestamp;
                     }
+                    temp_str += "\r\n";
+                    rtb2_datagrid.AppendText(temp_str, Color.Red);
                     rtb2_datagrid.ScrollToCaret();
                 }
                 #endregion
