@@ -4547,8 +4547,8 @@ namespace OLO_CAN
                             }
                         }
                         timestampold = timestamp;
+                        temp_str += "\r\n";
                     }
-                    temp_str += "\r\n";
                     rtb2_datagrid.AppendText(temp_str, Color.Red);
                     rtb2_datagrid.ScrollToCaret();
                 }
