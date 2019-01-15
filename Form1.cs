@@ -4543,9 +4543,20 @@ namespace OLO_CAN
                         temp_str += "\t" + timestamp;
                     temp_str += "\r\n";
                     if (messages[i].messageID.ToString("X2") == "2D")
-                        rtb2_datagrid.AppendText(temp_str, Color.Green, Color.Orange);
+                    {
+                        if (BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
+                        {
+                            rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                        }
+                        else
+                        {
+                            rtb2_datagrid.AppendText(temp_str, Color.Red);
+                        }
+                    }
                     else
+                    {
                         rtb2_datagrid.AppendText(temp_str);
+                    }
                     rtb2_datagrid.ScrollToCaret();
 
                     if (chb3_savelog.Checked && logwr != null)
