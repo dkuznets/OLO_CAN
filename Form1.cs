@@ -579,7 +579,7 @@ namespace OLO_CAN
             bt_About3.Enabled = false;
             bt_SyncTime.Enabled = false;
             bt_Request2.Enabled = false;
-            dgview2.Enabled = false;
+            rtb2_datagrid.Enabled = false;
             panel1.Enabled = false;
             btn_REQSN.Enabled = false;
             btn_Reset.Enabled = false;
@@ -744,7 +744,7 @@ namespace OLO_CAN
             label17.Enabled = true;
             cb_CAN2.Enabled = true;
             bt_Request2.Enabled = true;
-            dgview2.Enabled = true;
+            rtb2_datagrid.Enabled = true;
             panel1.Enabled = true;
             btn_REQSN.Enabled = true;
             btn_Reset.Enabled = true;
@@ -891,7 +891,7 @@ namespace OLO_CAN
             bt_SyncTime.Enabled = false;
             cb_CAN2.Enabled = true;
             bt_Request2.Enabled = false;
-            dgview2.Enabled = false;
+            rtb2_datagrid.Enabled = false;
             panel1.Enabled = false;
             btn_REQSN.Enabled = false;
             bt_SyncTime.Enabled = false;
@@ -1012,7 +1012,7 @@ namespace OLO_CAN
                         bt_CloseCAN4.PerformClick();
                         bt_CloseCAN5.PerformClick();
                         state_NotReady();
-                        dgview2.Rows.Clear();
+                        rtb2_datagrid.ResetText();
                         comboBox2.SelectedIndex = 0;
                         comboBox3.SelectedIndex = 0;
                         break;
@@ -4537,42 +4537,27 @@ namespace OLO_CAN
                 if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
 //              if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
                 {
-                    if (scroll)
-                    {
-                        if (dgview2.RowCount >= 100)
-                            dgview2.Rows.Clear();
-                        dgview2.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
-                        dgview2.FirstDisplayedScrollingRowIndex = dgview2.Rows.Count - 1;
-                        dgview2.Refresh();
-                        if (dgview2.Rows[dgview2.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                            dgview2.Rows[dgview2.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
-                    }
                     String temp_str = "";
-//                    tb2_datagrid.AppendText(
-//                        DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + " " +
                     temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
                     if(messages[i].messageID.ToString("X2") == "2D")
                         temp_str += "\t" + timestamp;
-//                        messages[i].messageID.ToString("X2") + "\t" + 
                     temp_str += "\r\n";
-//                    );
                     if (messages[i].messageID.ToString("X2") == "2D")
-                        rtb2_datagrid.AppendText(temp_str, Color.Red);
+                        rtb2_datagrid.AppendText(temp_str, Color.Green, Color.Orange);
                     else
                         rtb2_datagrid.AppendText(temp_str);
                     rtb2_datagrid.ScrollToCaret();
 
-                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
-                    //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                    //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
                     if (chb3_savelog.Checked && logwr != null)
                     {
                         logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
                         logwr.Write(strelka_s + ";");
                         logwr.Write(rawdata + ";");
                         logwr.Write(mss + ";");
-                        logwr.WriteLine(messages[i].messageID.ToString("X2") + ";");
+                        if (messages[i].messageID.ToString("X2") == "2D")
+                            logwr.WriteLine(timestamp + ";");
+                        else
+                            logwr.WriteLine(";");
                     }
                 }
                 #endregion
@@ -4929,34 +4914,15 @@ namespace OLO_CAN
                 return;
             messages.Add(mm);
         }
-        private void dgview2_Click(object sender, EventArgs e)
-        {
-            if (!scroll)
-            {
-                scroll = true;
-                chb_dgview2.Text = "Скролл включен";
-                dgview2.GridColor = SystemColors.ControlDark;
-                chb_dgview2.BackColor = Color.SpringGreen;
-            }
-            else
-            {
-                scroll = false;
-                chb_dgview2.Text = "Скролл выключен";
-                dgview2.GridColor = Color.Blue;
-                chb_dgview2.BackColor = Color.OrangeRed;
-            }
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             scroll = true;
             chb_dgview2.Text = "Скролл включен";
-            dgview2.GridColor = SystemColors.ControlDark;
             chb_dgview2.BackColor = Color.SpringGreen;
             messages.Clear();
             list_shots.Clear();
-            dgview2.Rows.Clear();
-            if (tb2_datagrid.Created)
-                tb2_datagrid.ResetText();
+            if (rtb2_datagrid.Created)
+                rtb2_datagrid.ResetText();
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -8389,6 +8355,16 @@ namespace OLO_CAN
             box.SelectionColor = color;
             box.AppendText(text);
             box.SelectionColor = box.ForeColor;
+        }
+        public static void AppendText(this RichTextBox box, string text, Color bgcolor, Color fgcolor)
+        {
+            box.SelectionStart = box.TextLength;
+            box.SelectionLength = 0;
+            box.SelectionColor = fgcolor;
+            box.SelectionBackColor = bgcolor;
+            box.AppendText(text);
+            box.SelectionColor = box.ForeColor;
+            box.SelectionBackColor = box.BackColor;
         }
     }
 }

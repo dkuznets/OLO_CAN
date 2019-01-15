@@ -152,7 +152,6 @@
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.rtb2_datagrid = new System.Windows.Forms.RichTextBox();
-            this.tb2_datagrid = new System.Windows.Forms.TextBox();
             this.cb_clear_shot = new System.Windows.Forms.CheckBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -242,13 +241,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chb_dgview2 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgview2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.bt_Request2 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -481,7 +473,6 @@
             this.gbox_statusR2.SuspendLayout();
             this.gbox_statusL2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgview2)).BeginInit();
             this.gbox_CAN2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.gb3_shoot.SuspendLayout();
@@ -1885,7 +1876,6 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.rtb2_datagrid);
-            this.tabPage3.Controls.Add(this.tb2_datagrid);
             this.tabPage3.Controls.Add(this.cb_clear_shot);
             this.tabPage3.Controls.Add(this.label42);
             this.tabPage3.Controls.Add(this.label37);
@@ -1911,7 +1901,6 @@
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.chb_dgview2);
             this.tabPage3.Controls.Add(this.panel1);
-            this.tabPage3.Controls.Add(this.dgview2);
             this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Controls.Add(this.bt_Request2);
             this.tabPage3.Controls.Add(this.label17);
@@ -1931,21 +1920,12 @@
             // rtb2_datagrid
             // 
             this.rtb2_datagrid.DetectUrls = false;
-            this.rtb2_datagrid.Location = new System.Drawing.Point(6, 285);
+            this.rtb2_datagrid.Location = new System.Drawing.Point(6, 245);
             this.rtb2_datagrid.Name = "rtb2_datagrid";
-            this.rtb2_datagrid.Size = new System.Drawing.Size(607, 330);
+            this.rtb2_datagrid.Size = new System.Drawing.Size(607, 399);
             this.rtb2_datagrid.TabIndex = 75;
             this.rtb2_datagrid.Text = "";
             this.rtb2_datagrid.WordWrap = false;
-            // 
-            // tb2_datagrid
-            // 
-            this.tb2_datagrid.Location = new System.Drawing.Point(6, 265);
-            this.tb2_datagrid.Multiline = true;
-            this.tb2_datagrid.Name = "tb2_datagrid";
-            this.tb2_datagrid.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tb2_datagrid.Size = new System.Drawing.Size(607, 350);
-            this.tb2_datagrid.TabIndex = 16;
             // 
             // cb_clear_shot
             // 
@@ -2841,71 +2821,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 200);
             this.panel1.TabIndex = 49;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // dgview2
-            // 
-            this.dgview2.AllowUserToAddRows = false;
-            this.dgview2.AllowUserToDeleteRows = false;
-            this.dgview2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgview2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgview2.ColumnHeadersVisible = false;
-            this.dgview2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column5,
-            this.Column3,
-            this.Column4,
-            this.Column6});
-            this.dgview2.Location = new System.Drawing.Point(8, 245);
-            this.dgview2.MultiSelect = false;
-            this.dgview2.Name = "dgview2";
-            this.dgview2.RowHeadersVisible = false;
-            this.dgview2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgview2.ShowCellErrors = false;
-            this.dgview2.ShowEditingIcon = false;
-            this.dgview2.Size = new System.Drawing.Size(605, 399);
-            this.dgview2.TabIndex = 48;
-            this.dgview2.Click += new System.EventHandler(this.dgview2_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "";
-            this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Column1.MinimumWidth = 22;
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 22;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 75;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Column5";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 140;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 190;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Column4";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 130;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Column6";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
             // 
             // comboBox3
             // 
@@ -5084,7 +4999,6 @@
             this.gbox_statusL2.ResumeLayout(false);
             this.gbox_statusL2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgview2)).EndInit();
             this.gbox_CAN2.ResumeLayout(false);
             this.gbox_CAN2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -5243,7 +5157,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chb_dgview2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgview2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button bt_Request2;
         private System.Windows.Forms.Label label17;
@@ -5377,12 +5290,6 @@
         private System.Windows.Forms.CheckBox chb5_d13;
         private System.Windows.Forms.Button bt5_reset;
         private System.Windows.Forms.CheckBox chb5_timer_enable;
-        private System.Windows.Forms.DataGridViewImageColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.CheckBox chb3_um;
         private System.Windows.Forms.CheckBox chb3_az;
         private System.Windows.Forms.CheckBox chb3_7fff;
@@ -5555,7 +5462,6 @@
         private System.Windows.Forms.CheckBox cb_shotshow;
         private System.Windows.Forms.CheckBox cb_clear_shot;
         private System.Windows.Forms.CheckBox chb0_srfon;
-        private System.Windows.Forms.TextBox tb2_datagrid;
         private System.Windows.Forms.RichTextBox rtb2_datagrid;
 	}
 }
