@@ -145,7 +145,8 @@ namespace OLO_CAN
         IniFile inicfg;
 
         int timer_Reset_Shots_Interval = 10000;
-
+        UInt32 timestamp = 0;
+        UInt32 timestampold = 0;
         #endregion
 
         #region Tab2
@@ -4146,10 +4147,6 @@ namespace OLO_CAN
                         strelka_s = "Всем ОЛО";
                         break;
                 }
-                //if (messages[i].deviceID == Const.OLO_Left)
-                //    strelka_s = "ОЛО левый";
-                //else
-                //    strelka_s = "ОЛО правый";
                 switch (messages[i].messageID)
                 {
                     #region mID_DATA
@@ -4530,8 +4527,7 @@ namespace OLO_CAN
                 String rawdata = "";
                 for (int j = 0; j < messages[i].messageLen; j++)
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
-                String timestamp = "";
-                timestamp = BitConverter.ToUInt32(messages[i].messageData, 0).ToString();
+                String stimestamp = "";
 
 //                Application.DoEvents();
                 if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
@@ -4539,8 +4535,22 @@ namespace OLO_CAN
                 {
                     String temp_str = "";
                     temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
-                    if(messages[i].messageID.ToString("X2") == "2D")
-                        temp_str += "\t" + timestamp;
+                    if (messages[i].messageID.ToString("X2") == "2D")
+                    {
+                        timestamp = 0;
+                        timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
+                        stimestamp = timestamp.ToString();
+                        temp_str += "\t" + stimestamp;
+                        if (BitConverter.ToInt16(messages[i].messageData, 4) == 0x7FFF)
+                        {
+                            if(timestampold != 0)
+                            {
+                                UInt32 period = timestamp - timestampold;
+                                temp_str += "\t" + period.ToString();
+                                timestampold = timestamp;
+                            }
+                        }
+                    }
                     temp_str += "\r\n";
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
@@ -4566,7 +4576,7 @@ namespace OLO_CAN
                         logwr.Write(rawdata + ";");
                         logwr.Write(mss + ";");
                         if (messages[i].messageID.ToString("X2") == "2D")
-                            logwr.WriteLine(timestamp + ";");
+                            logwr.WriteLine(stimestamp + ";");
                         else
                             logwr.WriteLine(";");
                     }
