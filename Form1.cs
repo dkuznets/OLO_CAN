@@ -4525,7 +4525,7 @@ namespace OLO_CAN
 //              if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
                 {
                     String temp_str = "";
-                    temp_str = strelka_s + "\t" + rawdata + "\t" + mss;
+                    temp_str = strelka_s + " " + rawdata + "\t" + mss;
                     if (messages[i].messageID.ToString("X2") == "2D")
                     {
                         timestamp = 0;
