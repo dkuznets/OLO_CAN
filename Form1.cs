@@ -4520,9 +4520,8 @@ namespace OLO_CAN
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
                 String stimestamp = "";
 
-//                Application.DoEvents();
-                if ((BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF && BitConverter.ToInt16(messages[i].messageData, 6) != 0x7FFF) || !chb3_7fff.Checked)
-//              if ((((az <= 10800) && (az >= 0)) || !chb3_az.Checked) && ((um <= 10800) && (um >= 0)) || !chb3_um.Checked)
+                #region Фильтры
+                if (rb2_filter_all.Checked)
                 {
                     String temp_str = "";
                     temp_str = strelka_s + " " + rawdata + "\t" + mss;
@@ -4534,7 +4533,7 @@ namespace OLO_CAN
                         temp_str += "\t" + stimestamp;
                         if (BitConverter.ToInt16(messages[i].messageData, 4) == 0x7FFF)
                         {
-                            if(timestampold != 0)
+                            if (timestampold != 0)
                             {
                                 UInt32 period = timestamp - timestampold;
                                 if (period > 0 && period < 100000)
@@ -4563,19 +4562,60 @@ namespace OLO_CAN
                         rtb2_datagrid.AppendText(temp_str);
                     }
                     rtb2_datagrid.ScrollToCaret();
-
-                    if (chb3_savelog.Checked && logwr != null)
-                    {
-                        logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
-                        logwr.Write(strelka_s + ";");
-                        logwr.Write(rawdata + ";");
-                        logwr.Write(mss + ";");
-                        if (messages[i].messageID.ToString("X2") == "2D")
-                            logwr.WriteLine(stimestamp + ";");
-                        else
-                            logwr.WriteLine(";");
-                    }
                 }
+                if (rb2_filter_data.Checked)
+                {
+                    String temp_str = "";
+                    temp_str = strelka_s + " " + rawdata + "\t" + mss;
+                    if (messages[i].messageID.ToString("X2") == "2D" && BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
+                    {
+                        timestamp = 0;
+                        timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
+                        stimestamp = timestamp.ToString();
+                        temp_str += "\t" + stimestamp;
+                        if (timestampold != 0)
+                        {
+                            UInt32 period = timestamp - timestampold;
+                            if (period > 0 && period < 100000)
+                            {
+                                temp_str += "\t" + (period / 100).ToString() + "мс";
+                                temp_str += "\t" + (100000 / period).ToString() + "Гц";
+                            }
+                        }
+                        timestampold = timestamp;
+                    }
+                    temp_str += "\r\n";
+                    if (messages[i].messageID.ToString("X2") == "2D")
+                    {
+                        if (BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
+                        {
+                            rtb2_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                        }
+                        else
+                        {
+                            rtb2_datagrid.AppendText(temp_str, Color.Red);
+                        }
+                    }
+                    else
+                    {
+                        rtb2_datagrid.AppendText(temp_str);
+                    }
+                    rtb2_datagrid.ScrollToCaret();
+                }
+                #endregion
+                #region Запись в лог
+                if (chb3_savelog.Checked && logwr != null)
+                {
+                    logwr.Write(DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff") + ";");
+                    logwr.Write(strelka_s + ";");
+                    logwr.Write(rawdata + ";");
+                    logwr.Write(mss + ";");
+                    if (messages[i].messageID.ToString("X2") == "2D")
+                        logwr.WriteLine(stimestamp + ";");
+                    else
+                        logwr.WriteLine(";");
+                }
+                #endregion
                 #endregion
             }
 //            if (scroll)
