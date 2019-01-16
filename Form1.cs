@@ -181,7 +181,7 @@ namespace OLO_CAN
         public Bitmap image_CMOS14 = null;
         public Bitmap image_CMOS24 = null;
 
-        bool mousetest = false;
+//        bool mousetest = false;
 
         TM.Timer rstTimer3 = new TM.Timer();
 
@@ -2716,16 +2716,10 @@ namespace OLO_CAN
             if (pictureBox1.Image != null)
                 DrawCrossCirkle();
         }
-        private void listb_Passport_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-                mousetest = true;
-        }
         private void listb_Passport_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                mousetest = false;
                 if (MessageBox.Show("Удалить " + m_strPathToPassports + listb_Passport.SelectedItem.ToString() + "?", "Удаление файла", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
                     File.Delete(m_strPathToPassports + listb_Passport.SelectedItem.ToString());

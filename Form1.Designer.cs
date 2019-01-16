@@ -1182,8 +1182,6 @@
             this.listb_Passport.Click += new System.EventHandler(this.listb_Passport_Click);
             this.listb_Passport.SelectedIndexChanged += new System.EventHandler(this.listb_Passport_SelectedIndexChanged);
             this.listb_Passport.DoubleClick += new System.EventHandler(this.listb_Passport_DoubleClick);
-            this.listb_Passport.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listb_Passport_MouseDown);
-            this.listb_Passport.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listb_Passport_MouseUp);
             // 
             // gbox_CMOS2
             // 
