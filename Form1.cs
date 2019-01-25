@@ -7464,7 +7464,9 @@ namespace OLO_CAN
                     }
                     if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     {
+                        Application.DoEvents();
                         listBox1.Items.Insert(0, "Error recv ACK_ID");
+                        Application.DoEvents();
                         continue;
                     }
                     test = true;
@@ -8185,10 +8187,10 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
         }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
         private void button3_Click_1(object sender, EventArgs e)
         {
             UInt32 x0 = 123456, x1 = 123457, x2 = 123458, x3 = 123456, xx = 0;;

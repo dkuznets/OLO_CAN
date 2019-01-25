@@ -586,7 +586,6 @@
             this.chb0_screen.TabIndex = 72;
             this.chb0_screen.Text = "Screenshots";
             this.chb0_screen.UseVisualStyleBackColor = true;
-            this.chb0_screen.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // bt_SAVESN1
             // 
