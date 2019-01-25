@@ -7058,9 +7058,7 @@ namespace OLO_CAN
                     // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
                     if (uf._fname.Length > 28)
                     {
-                        //                    MessageBox.Show(uf._fname.Length.ToString());
-                        filename = uf._fname.Remove(24) + ".bin";
-                        //                    MessageBox.Show(filename);
+                        filename = uf._fname.Remove(22) + "~.bin";
                     }
                     Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                     fff[0].name = new Byte[28];
@@ -7201,9 +7199,7 @@ namespace OLO_CAN
                 // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
                 if (uf._fname.Length > 28)
                 {
-//                    MessageBox.Show(uf._fname.Length.ToString());
-                    filename = uf._fname.Remove(24) + ".bin";
-//                    MessageBox.Show(filename);
+                    filename = uf._fname.Remove(22) + "~.bin";
                 }
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
@@ -7275,16 +7271,14 @@ namespace OLO_CAN
                 // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
                 if (uf._fname.Length > 28)
                 {
-                    MessageBox.Show(uf._fname.Length.ToString());
-                    filename = uf._fname.Remove(24) + ".bin";
-                    MessageBox.Show(filename);
+//                    MessageBox.Show(uf._fname.Length.ToString());
+                    filename = uf._fname.Remove(22) + "~.bin";
+//                    MessageBox.Show(filename);
                 }
-//                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
                 for (int i = 0; i < 28; i++)
                     fff[0].name[i] = 0;
-//                Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, tmparr.Length);
                 Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
                 fff[0].begin = uf._addr;
                 fff[0].size = uf._len;
@@ -8072,113 +8066,6 @@ namespace OLO_CAN
                 Trace.Write(" 0x" + msg.messageData[i].ToString("X2"));
             Trace.WriteLine("");
         }
-/*
-        private unsafe void button4_Click(object sender, EventArgs e)
-        {
-            COMMAND cmd = new COMMAND();
-            RESULT res = new RESULT();
-            // Установка симуляции выстрелов
-            cmd.magic = Const.MAGIC_BYTE;
-            cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
-            cmd.prm.words.lo_word.bytes.lo_byte = 1;
-            cmd.prm.words.lo_word.bytes.hi_byte = 0;
-
-            if (!SendCommand(cmd, ref res))
-                return;
-            Trace.WriteLine("Установка симуляции выстрелов");
-            UInt32 shot_pixels = 0;
-
-            // Чтение картинки
-            cmd.magic = Const.MAGIC_BYTE;
-            cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
-
-            List<canmsg_t> dd = new List<canmsg_t>();
-
-            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)
-            {
-                Trace.WriteLine("Чтение картинки");
-                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
-                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                image_data1 = new Byte[81345];
-
-                canmsg_t dat = new canmsg_t();
-                dat.data = new Byte[8];
-                //pb_CMOS.Maximum = msg_count;
-
-                //if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000))
-                //{
-                //    Trace.WriteLine("Err recv image data");
-                //    return;
-                //}
-                int j = 0;
-//                for (int i = 0; i < msg_count; i++)
-                uniCAN.RecvPack(ref image_data1, ref msg_count, 100);
-                //for (int i = 0; i < 100000; i++)
-                //{
-                //    dat = new canmsg_t();
-                //    dat.data = new Byte[8];
-                //    if (!uniCAN.Recv(ref dat, 1000))
-                //    {
-                //        Trace.WriteLine("err recv image data " + dd.Count + " pack");
-                //        goto _ddd;
-                //    }
-                //    dd.Add(dat);
-//                    for (int k = 0; k < dat.len; k++)
-//                        image_data1[j++] = dat.data[k];
-//                }
-                Trace.WriteLine("recv image data " + dd.Count + " pack");
-//                goto _ddd;
-                Trace.WriteLine("recv image data " + msg_count + " pack " + j + " bytes");
-                // read CMOS FIFO buffer size
-                Trace.WriteLine("Чтение кол-ва выстрелов");
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
-                {
-                    Trace.WriteLine("Error read CMOS FIFO buffer size");
-                    return;
-                }
-                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
-                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
-
-                // read CMOS FIFO buffer data if exists
-                // получаем массив координат выстрелов
-                if (shot_pixels > 0)
-                {
-                    image_size = shot_pixels * 4;
-                    msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-//                    UInt32 image_data_count = 0;
-                    Trace.WriteLine("Чтение выстрелов");
-                    j = 0;
-                    for (UInt32 i = 0; i < msg_count; i++)
-                    {
-                        dat = new canmsg_t();
-                        dat.data = new Byte[8];
-                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
-                        {
-                            Trace.WriteLine("Error read CMOS FIFO buffer data");
-                            return;
-                        }
-                        for (int k = 0; k < dat.len; k++)
-                            shot_array[j++] = dat.data[k];
-                    }
-                    Trace.WriteLine("recv FIFO data " + msg_count + " pack " + j + " bytes");
-                }
-            }
-//            _ddd:
-            using (StreamWriter sw = new StreamWriter("test.csv"))
-            {
-                for (int l = 0; l < dd.Count; l++)
-                {
-                    for (int m = 0; m < dd[l].len; m++)
-                    {
-                        sw.Write(dd[l].data[m] + ";");
-                    }
-                    sw.WriteLine();
-                }
-            }
-        }
-*/
         private void button7_Click(object sender, EventArgs e)
         {
             inicfg._SetBool("setup", "key1", chb_6_1.Checked);
