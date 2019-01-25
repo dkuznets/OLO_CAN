@@ -8072,6 +8072,7 @@ namespace OLO_CAN
                 Trace.Write(" 0x" + msg.messageData[i].ToString("X2"));
             Trace.WriteLine("");
         }
+/*
         private unsafe void button4_Click(object sender, EventArgs e)
         {
             COMMAND cmd = new COMMAND();
@@ -8177,6 +8178,7 @@ namespace OLO_CAN
                 }
             }
         }
+*/
         private void button7_Click(object sender, EventArgs e)
         {
             inicfg._SetBool("setup", "key1", chb_6_1.Checked);
@@ -8187,21 +8189,6 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
         }
-        //private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        //{
-
-        //}
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            UInt32 x0 = 123456, x1 = 123457, x2 = 123458, x3 = 123456, xx = 0;;
-            xx = (x0 & x1) | (x0 & x2) | (x0 & x3) | (x1 & x2) | (x1 & x3) | (x2 & x3);
-            MessageBox.Show(xx.ToString());
-            Byte[] aaa = new Byte[6] { 1, 3, 16, 5, 100, 2 };
-            Array.ForEach(aaa, eee => Trace.WriteLine("Error " + eee.ToString()));
-            aaa = aaa.OrderBy(x => x).ToArray();
-            Array.ForEach(aaa, eee => Trace.WriteLine("Sort " + eee.ToString()));
-        }
-
      }
 
     public class rup_id

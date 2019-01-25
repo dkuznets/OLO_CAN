@@ -378,7 +378,6 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
@@ -4352,7 +4351,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.bt_verifi5);
             this.tabPage7.Controls.Add(this.bt_status5);
@@ -4372,17 +4370,6 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(777, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // listBox1
             // 
@@ -5454,7 +5441,6 @@
         private System.Windows.Forms.Button bt_reboot5;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox chb_6_6;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn start;
         private System.Windows.Forms.DataGridViewTextBoxColumn _size;
