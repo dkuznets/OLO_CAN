@@ -7313,7 +7313,7 @@ namespace OLO_CAN
                 filetable_2_dg();
             }
         }
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        private void toolStripMenuItem10_Click(object sender, EventArgs e) // закачать файл конфигурации
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
@@ -7323,13 +7323,21 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
             //            MessageBox.Show(fff[0].size.ToString());
+            String filename = "";
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
-                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(uf._fname).Length];
+                // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
+                if (uf._fname.Length > 28)
+                {
+                    //                    MessageBox.Show(uf._fname.Length.ToString());
+                    filename = uf._fname.Remove(22) + "~.bin";
+                    //                    MessageBox.Show(filename);
+                }
+                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
                 for (int i = 0; i < 28; i++)
                     fff[0].name[i] = 0;
-                Array.Copy(Encoding.Default.GetBytes(uf._fname), fff[0].name, tmparr.Length);
+                Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
                 fff[0].begin = uf._addr;
                 fff[0].size = uf._len;
                 fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
