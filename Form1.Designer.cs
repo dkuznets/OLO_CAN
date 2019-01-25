@@ -446,6 +446,7 @@
             this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4821,10 +4822,11 @@
             this.toolStripSeparator3,
             this.toolStripMenuItem9,
             this.toolStripMenuItem10,
+            this.toolStripMenuItem11,
             this.toolStripSeparator4,
             this.toolStripMenuItem8});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(240, 126);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 170);
             // 
             // toolStripMenuItem6
             // 
@@ -4949,6 +4951,14 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Visible = false;
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Image = global::OLO_CAN.Properties.Resources.a_right;
+            this.toolStripMenuItem11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem11.Text = "Создать и закачать файл конфигурации";
             // 
             // Form1
             // 
@@ -5477,6 +5487,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
 	}
 }
 
