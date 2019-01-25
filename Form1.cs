@@ -7066,6 +7066,8 @@ namespace OLO_CAN
                     {
                         filename = uf._fname.Remove(22) + "~.bin";
                     }
+                    else
+                        filename = uf._fname;
                     Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                     fff[0].name = new Byte[28];
                     for (int i = 0; i < 28; i++)
@@ -7207,6 +7209,8 @@ namespace OLO_CAN
                 {
                     filename = uf._fname.Remove(22) + "~.bin";
                 }
+                else
+                    filename = uf._fname;
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
                 for (int i = 0; i < 28; i++)
@@ -7339,6 +7343,8 @@ namespace OLO_CAN
                     filename = uf._fname.Remove(22) + "~.bin";
                     //                    MessageBox.Show(filename);
                 }
+                else
+                    filename = uf._fname;
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
                 for (int i = 0; i < 28; i++)
