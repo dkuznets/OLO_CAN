@@ -7058,7 +7058,7 @@ namespace OLO_CAN
                 filetable_save();
                 filetable_2_dg();
 
-                String filename = "";
+                String filename = uf._fname;
                 if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
                 {
                     // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
@@ -7199,7 +7199,7 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
 //            MessageBox.Show(fff[0].size.ToString());
-            String filename = "";
+            String filename = uf._fname;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
                 // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
@@ -7329,7 +7329,7 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
             //            MessageBox.Show(fff[0].size.ToString());
-            String filename = "";
+            String filename = uf._fname;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
                 // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
