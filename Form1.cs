@@ -2938,8 +2938,14 @@ namespace OLO_CAN
             }
             if (rb_new_RUP.Checked)
             {
-                Buffer = new _u8[FWDATA.solo2_new_rup_size];
-                Buffer = (_u8[])FWDATA.solo2_new_rup;
+                Buffer = new _u8[FWDATA.new_bootldr_size];
+                Buffer = (_u8[])FWDATA.new_bootldr;
+            }
+
+            if (rb_flight_universal.Checked)
+            {
+                Buffer = new _u8[FWDATA.flight_u_222_size];
+                Buffer = (_u8[])FWDATA.flight_u_222;
             }
 
 

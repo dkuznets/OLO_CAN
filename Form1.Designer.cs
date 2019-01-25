@@ -445,6 +445,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rb_flight_universal = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1575,6 +1576,7 @@
             // 
             // gb_MC1
             // 
+            this.gb_MC1.Controls.Add(this.rb_flight_universal);
             this.gb_MC1.Controls.Add(this.rb_new_RUP);
             this.gb_MC1.Controls.Add(this.rb_cmos12_select2);
             this.gb_MC1.Controls.Add(this.rb_cmos12_select_long_time2);
@@ -1598,7 +1600,7 @@
             this.gb_MC1.Controls.Add(this.bt_openMC1);
             this.gb_MC1.Location = new System.Drawing.Point(6, 131);
             this.gb_MC1.Name = "gb_MC1";
-            this.gb_MC1.Size = new System.Drawing.Size(463, 436);
+            this.gb_MC1.Size = new System.Drawing.Size(463, 513);
             this.gb_MC1.TabIndex = 7;
             this.gb_MC1.TabStop = false;
             this.gb_MC1.Text = "Микропрограмма";
@@ -1639,7 +1641,7 @@
             // chb1_need_reset
             // 
             this.chb1_need_reset.AutoSize = true;
-            this.chb1_need_reset.Location = new System.Drawing.Point(113, 410);
+            this.chb1_need_reset.Location = new System.Drawing.Point(113, 481);
             this.chb1_need_reset.Name = "chb1_need_reset";
             this.chb1_need_reset.Size = new System.Drawing.Size(57, 17);
             this.chb1_need_reset.TabIndex = 35;
@@ -1767,7 +1769,7 @@
             // 
             // pb_loadMC1
             // 
-            this.pb_loadMC1.Location = new System.Drawing.Point(113, 374);
+            this.pb_loadMC1.Location = new System.Drawing.Point(113, 445);
             this.pb_loadMC1.Name = "pb_loadMC1";
             this.pb_loadMC1.Size = new System.Drawing.Size(337, 21);
             this.pb_loadMC1.Step = 1;
@@ -1778,7 +1780,7 @@
             // 
             this.chb_eraseALL1.AutoSize = true;
             this.chb_eraseALL1.Enabled = false;
-            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 410);
+            this.chb_eraseALL1.Location = new System.Drawing.Point(6, 481);
             this.chb_eraseALL1.Name = "chb_eraseALL1";
             this.chb_eraseALL1.Size = new System.Drawing.Size(104, 17);
             this.chb_eraseALL1.TabIndex = 14;
@@ -1787,7 +1789,7 @@
             // 
             // bt_runMC1
             // 
-            this.bt_runMC1.Location = new System.Drawing.Point(280, 406);
+            this.bt_runMC1.Location = new System.Drawing.Point(280, 477);
             this.bt_runMC1.Name = "bt_runMC1";
             this.bt_runMC1.Size = new System.Drawing.Size(170, 23);
             this.bt_runMC1.TabIndex = 11;
@@ -1799,7 +1801,7 @@
             // 
             this.lb_Load_OK1.AutoSize = true;
             this.lb_Load_OK1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lb_Load_OK1.Location = new System.Drawing.Point(117, 378);
+            this.lb_Load_OK1.Location = new System.Drawing.Point(117, 449);
             this.lb_Load_OK1.Name = "lb_Load_OK1";
             this.lb_Load_OK1.Size = new System.Drawing.Size(0, 13);
             this.lb_Load_OK1.TabIndex = 7;
@@ -1809,7 +1811,7 @@
             // bt_loadMC1
             // 
             this.bt_loadMC1.Enabled = false;
-            this.bt_loadMC1.Location = new System.Drawing.Point(6, 373);
+            this.bt_loadMC1.Location = new System.Drawing.Point(6, 444);
             this.bt_loadMC1.Name = "bt_loadMC1";
             this.bt_loadMC1.Size = new System.Drawing.Size(101, 23);
             this.bt_loadMC1.TabIndex = 2;
@@ -4938,6 +4940,16 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // rb_flight_universal
+            // 
+            this.rb_flight_universal.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rb_flight_universal.Location = new System.Drawing.Point(6, 353);
+            this.rb_flight_universal.Name = "rb_flight_universal";
+            this.rb_flight_universal.Size = new System.Drawing.Size(444, 17);
+            this.rb_flight_universal.TabIndex = 39;
+            this.rb_flight_universal.Text = "Загрузка прошивки \"FLIGHT_UNIVERSAL\"";
+            this.rb_flight_universal.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5464,6 +5476,7 @@
         private System.Windows.Forms.RadioButton rb2_filter_all;
         private System.Windows.Forms.RadioButton rb2_filter_7fff;
         private System.Windows.Forms.RadioButton rb2_filter_data;
+        private System.Windows.Forms.RadioButton rb_flight_universal;
 	}
 }
 
