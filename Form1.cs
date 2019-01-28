@@ -7333,6 +7333,9 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
             //            MessageBox.Show(fff[0].size.ToString());
+
+//            writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
+
             String filename = uf._fname;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
@@ -7406,59 +7409,6 @@ namespace OLO_CAN
                     writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
                 else
                     writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text);
-/*
-                String filename = nc.nc_filename;
-                if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
-                {
-                    if (nc.nc_filename.Length > 28)
-                    {
-                        filename = nc.nc_filename.Remove(22) + "~.bin";
-                    }
-                    else
-                        filename = nc.nc_filename;
-                    Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
-                    fff[0].name = new Byte[28];
-                    for (int i = 0; i < 28; i++)
-                        fff[0].name[i] = 0;
-                    Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
-                    fff[0].begin = 0x3C000;
-                    fff[0].size = 128;
-                    fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-                    Byte[] crc = new Byte[4];
-                    Crc32 crc32 = new Crc32();
-                    crc = crc32.ComputeHash(rdfile);
-                    Array.Reverse(crc);
-                    UInt32 _crc = BitConverter.ToUInt32(crc, 0);
-                    fff[0].crc32 = _crc;
-                    fff[0].version = 1;
-                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
-                    fff[0].comment = new Byte[80];
-                    for (int i = 0; i < 80; i++)
-                        fff[0].comment[i] = 0;
-                    Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
-
-                    // очистка флеш
-
-                    listBox1.Items.Insert(0, "Очистка области...");
-                    Application.DoEvents();
-                    erase_area(fff[0].begin, fff[0].size);
-                    listBox1.Items.Insert(0, "Очистка области завершена.");
-                    Application.DoEvents();
-
-                    // запись файла
-
-                    listBox1.Items.Insert(0, "Запись файла ...");
-                    Application.DoEvents();
-
-                    write_area(fff[0].begin, fff[0].size, rdfile);
-                    listBox1.Items.Insert(0, "Запись файла завершена.");
-                    Application.DoEvents();
-
-                    filetable_sort();
-                    filetable_save();
-                    filetable_2_dg();
-                }
-*/
             }
         }
 
