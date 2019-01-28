@@ -7788,7 +7788,7 @@ namespace OLO_CAN
             }
             listBox1.Items.Insert(0, "файл 2 " + filenum.ToString());
 
-            if (filenum == 0 && (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF))
+            if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
             {
                 listBox1.Items.Insert(0, "Удаляю файл...");
                 Application.DoEvents();
