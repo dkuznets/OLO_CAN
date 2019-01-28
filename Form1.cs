@@ -7681,7 +7681,7 @@ namespace OLO_CAN
         {
             Byte filenum = 0;
             Byte rownum = 0;
-            for (Byte i = 0; i < dataGridView1.Rows.Count; i++)
+            for (Byte i = 1; i < dataGridView1.Rows.Count; i++)
             {
                 if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
                 {
@@ -7690,7 +7690,7 @@ namespace OLO_CAN
                     break;
                 }
             }
-            listBox1.Items.Insert(0, filenum.ToString() + " " + rownum.ToString());
+//            listBox1.Items.Insert(0, filenum.ToString() + " " + rownum.ToString());
             if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
             {
                 listBox1.Items.Insert(0, "Файл по адресу " + (String)dataGridView1.Rows[rownum].Cells[1].Value + " существует.");
