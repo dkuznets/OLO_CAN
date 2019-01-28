@@ -7402,6 +7402,11 @@ namespace OLO_CAN
                 {
                     fs.Read(rdfile, 0, 128);
                 }
+                if (nc.rb7_olo_right.Checked)
+                    writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
+                else
+                    writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text);
+/*
                 String filename = nc.nc_filename;
                 if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
                 {
@@ -7453,7 +7458,7 @@ namespace OLO_CAN
                     filetable_save();
                     filetable_2_dg();
                 }
-
+*/
             }
         }
 
@@ -7862,15 +7867,6 @@ namespace OLO_CAN
                 filetable_2_dg();
             }
         }
-        void rewritefile()
-        {
-
-        }
-        Boolean testfile()
-        {
-            return true;
-        }
-
         void filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
