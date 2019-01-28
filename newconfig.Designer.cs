@@ -67,18 +67,15 @@
             this.tb7_sernum.Name = "tb7_sernum";
             this.tb7_sernum.Size = new System.Drawing.Size(94, 20);
             this.tb7_sernum.TabIndex = 2;
-            this.tb7_sernum.Text = "22223333";
             // 
             // tb7_comment
             // 
-            this.tb7_comment.Location = new System.Drawing.Point(13, 95);
+            this.tb7_comment.Location = new System.Drawing.Point(12, 89);
             this.tb7_comment.MaxLength = 116;
             this.tb7_comment.Multiline = true;
             this.tb7_comment.Name = "tb7_comment";
-            this.tb7_comment.Size = new System.Drawing.Size(233, 59);
+            this.tb7_comment.Size = new System.Drawing.Size(245, 49);
             this.tb7_comment.TabIndex = 3;
-            this.tb7_comment.Text = "К ОСРВ мягкого типа можно отнести наши с Вами компьютеры т.е. пользователь должен" +
-    " видеть, что, например, нажав кнопку";
             // 
             // lb7_sernum
             // 
@@ -92,15 +89,16 @@
             // lb7_comment
             // 
             this.lb7_comment.AutoSize = true;
-            this.lb7_comment.Location = new System.Drawing.Point(13, 76);
+            this.lb7_comment.Location = new System.Drawing.Point(10, 73);
             this.lb7_comment.Name = "lb7_comment";
-            this.lb7_comment.Size = new System.Drawing.Size(77, 13);
+            this.lb7_comment.Size = new System.Drawing.Size(205, 13);
             this.lb7_comment.TabIndex = 5;
-            this.lb7_comment.Text = "Комментарий";
+            this.lb7_comment.Text = "Комментарий (не более 116 символов)";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(90, 160);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button1.Location = new System.Drawing.Point(101, 144);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -109,7 +107,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(171, 160);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(182, 144);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -120,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 188);
+            this.ClientSize = new System.Drawing.Size(270, 172);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lb7_comment);
