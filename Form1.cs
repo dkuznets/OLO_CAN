@@ -7777,6 +7777,7 @@ namespace OLO_CAN
                     break;
                 }
             }
+            listBox1.Items.Insert(0, "файл " + filenum.ToString());
 
             if (filenum == 0 && (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF))
             {
