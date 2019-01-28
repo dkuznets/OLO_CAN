@@ -34,8 +34,8 @@
             this.tb7_comment = new System.Windows.Forms.TextBox();
             this.lb7_sernum = new System.Windows.Forms.Label();
             this.lb7_comment = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt7_saveconf = new System.Windows.Forms.Button();
+            this.bt7_cancelconf = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rb7_olo_right
@@ -95,33 +95,34 @@
             this.lb7_comment.TabIndex = 5;
             this.lb7_comment.Text = "Комментарий (не более 116 символов)";
             // 
-            // button1
+            // bt7_saveconf
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(101, 144);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Записать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bt7_saveconf.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.bt7_saveconf.Location = new System.Drawing.Point(101, 144);
+            this.bt7_saveconf.Name = "bt7_saveconf";
+            this.bt7_saveconf.Size = new System.Drawing.Size(75, 23);
+            this.bt7_saveconf.TabIndex = 6;
+            this.bt7_saveconf.Text = "Записать";
+            this.bt7_saveconf.UseVisualStyleBackColor = true;
+            this.bt7_saveconf.Click += new System.EventHandler(this.bt7_saveconf_Click);
             // 
-            // button2
+            // bt7_cancelconf
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(182, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Отменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bt7_cancelconf.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bt7_cancelconf.Location = new System.Drawing.Point(182, 144);
+            this.bt7_cancelconf.Name = "bt7_cancelconf";
+            this.bt7_cancelconf.Size = new System.Drawing.Size(75, 23);
+            this.bt7_cancelconf.TabIndex = 7;
+            this.bt7_cancelconf.Text = "Отменить";
+            this.bt7_cancelconf.UseVisualStyleBackColor = true;
             // 
             // newconfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 172);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bt7_cancelconf);
+            this.Controls.Add(this.bt7_saveconf);
             this.Controls.Add(this.lb7_comment);
             this.Controls.Add(this.lb7_sernum);
             this.Controls.Add(this.tb7_comment);
@@ -147,7 +148,7 @@
         private System.Windows.Forms.TextBox tb7_comment;
         private System.Windows.Forms.Label lb7_sernum;
         private System.Windows.Forms.Label lb7_comment;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt7_saveconf;
+        private System.Windows.Forms.Button bt7_cancelconf;
     }
 }
