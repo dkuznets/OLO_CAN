@@ -7850,7 +7850,7 @@ namespace OLO_CAN
 
                 // запись файла
 
-                listBox1.Items.Insert(0, "Запись файла ...");
+                listBox1.Items.Insert(0, "Запись файла \"" + filename + "\" ...");
                 Application.DoEvents();
 
                 write_area(fff[0].begin, fff[0].size, _buffer);
