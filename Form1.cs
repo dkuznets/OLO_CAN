@@ -7769,18 +7769,20 @@ namespace OLO_CAN
         void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
             Byte filenum = 0;
+            Byte rownum = 0;
             for (Byte i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
                 {
                     filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
+                    rownum = i;
                     break;
                 }
             }
             if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
             {
-                listBox1.Items.Insert(0, "Файл по адресу " + (String)dataGridView1.Rows[filenum].Cells[1].Value + " существует." + filenum.ToString());
-                listBox1.Items.Insert(0, "Удаляю файл \"" + (String)dataGridView1.Rows[filenum].Cells[0].Value + "\"");
+                listBox1.Items.Insert(0, "Файл по адресу " + (String)dataGridView1.Rows[rownum].Cells[1].Value + " существует.");
+                listBox1.Items.Insert(0, "Удаляю файл \"" + (String)dataGridView1.Rows[rownum].Cells[0].Value + "\" ...");
                 Application.DoEvents();
                 erase_area(fff[filenum].begin, fff[filenum].size);
                 listBox1.Items.Insert(0, "Удаление завершено.");
