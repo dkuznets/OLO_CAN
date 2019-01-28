@@ -4920,7 +4920,7 @@
             this.name.ReadOnly = true;
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 180;
+            this.name.Width = 150;
             // 
             // start
             // 
