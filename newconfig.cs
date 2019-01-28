@@ -33,7 +33,11 @@ namespace OLO_CAN
         {
             String nc_filename = "";
             Form1.DATATABLE newconf = new Form1.DATATABLE();
+
+            newconf.test = new Byte[1];
             newconf.test[0] = 0;
+
+            newconf.dev_id = new Byte[3];
             if (rb7_olo_right.Checked)
             {
                 nc_filename = "config_right.bin";
@@ -50,7 +54,8 @@ namespace OLO_CAN
                     newconf.dev_id[i] = 0x12;
                 }
             }
-            Byte[] tmparr = new Byte[8];
+            newconf.ser_num = new Byte[8];
+            newconf.rezerv = new Byte[116];
             if (tb7_sernum.Text == "")
             {
                 tb7_sernum.Text = "00000000";
