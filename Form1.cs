@@ -7690,6 +7690,7 @@ namespace OLO_CAN
                     break;
                 }
             }
+            listBox1.Items.Insert(0, filenum.ToString() + " " + rownum.ToString());
             if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
             {
                 listBox1.Items.Insert(0, "Файл по адресу " + (String)dataGridView1.Rows[rownum].Cells[1].Value + " существует.");
