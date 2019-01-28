@@ -7397,10 +7397,10 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО левый, зав. номер " + nc.tb7_sernum);
                 Application.DoEvents();
 
-                Byte[] tmp = new Byte[128];
+                Byte[] rdfile = new Byte[128];
                 using (FileStream fs = new FileStream(nc.nc_filename, FileMode.Open, FileAccess.Read))
                 {
-                    fs.Read(tmp, 0, 128);
+                    fs.Read(rdfile, 0, 128);
                 }
                 String filename = nc.nc_filename;
                 if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
@@ -7419,8 +7419,13 @@ namespace OLO_CAN
                     fff[0].begin = 0x3C000;
                     fff[0].size = 128;
                     fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-//                    fff[0].crc32 = uf._crc;
-//                    fff[0].version = uf._ver;
+                    Byte[] crc = new Byte[4];
+                    Crc32 crc32 = new Crc32();
+                    crc = crc32.ComputeHash(rdfile);
+                    Array.Reverse(crc);
+                    UInt32 _crc = BitConverter.ToUInt32(crc, 0);
+                    fff[0].crc32 = _crc;
+                    fff[0].version = 1;
                     tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
                     fff[0].comment = new Byte[80];
                     for (int i = 0; i < 80; i++)
@@ -7440,7 +7445,7 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Запись файла ...");
                     Application.DoEvents();
 
-//                    write_area(fff[0].begin, fff[0].size, uf._rdfile);
+                    write_area(fff[0].begin, fff[0].size, rdfile);
                     listBox1.Items.Insert(0, "Запись файла завершена.");
                     Application.DoEvents();
 
