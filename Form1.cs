@@ -7333,8 +7333,11 @@ namespace OLO_CAN
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
             //            MessageBox.Show(fff[0].size.ToString());
+            DATATABLE dt = new DATATABLE();
+            dt = CreateStruct<DATATABLE>(uf._rdfile);
 
-//            writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
+//            if(dt.dev_id[0] == 0x11)
+//                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
 
             String filename = uf._fname;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
@@ -7720,7 +7723,6 @@ namespace OLO_CAN
         }
         #endregion
         #region Служебные функции
-
         void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
             Byte filenum = 0;
@@ -8183,7 +8185,24 @@ namespace OLO_CAN
             arr = StructToBuff<DATATABLE>(dtable);
             write_area(begin_dtable, size_dtable, arr);
         }
-        
+        static unsafe byte[] GetBytes<T>(T obj) where T : struct
+        {
+            var size = Marshal.SizeOf(typeof(T));
+            var buffer = new byte[size];
+
+            fixed (void* pointer = buffer)
+            {
+                Marshal.StructureToPtr(obj, new IntPtr(pointer), false);
+                return buffer;
+            }
+        }
+        static unsafe T CreateStruct<T>(byte[] buffer)
+        {
+            fixed (void* pointer = buffer)
+            {
+                return (T)Marshal.PtrToStructure(new IntPtr(pointer), typeof(T));
+            }
+        }
         #endregion
 
         #endregion
