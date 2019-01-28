@@ -7281,10 +7281,10 @@ namespace OLO_CAN
                 // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
                 if (uf._fname.Length > 28)
                 {
-//                    MessageBox.Show(uf._fname.Length.ToString());
                     filename = uf._fname.Remove(22) + "~.bin";
-//                    MessageBox.Show(filename);
                 }
+                else
+                    filename = uf._fname;
                 Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
                 fff[0].name = new Byte[28];
                 for (int i = 0; i < 28; i++)
@@ -7335,10 +7335,12 @@ namespace OLO_CAN
             //            MessageBox.Show(fff[0].size.ToString());
             DATATABLE dt = new DATATABLE();
             dt = CreateStruct<DATATABLE>(uf._rdfile);
-
-//            if(dt.dev_id[0] == 0x11)
-//                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
-
+            String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
+            if(dt.dev_id[0] == 0x11)
+                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + sn);
+            else
+                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + sn);
+/*
             String filename = uf._fname;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
@@ -7388,6 +7390,7 @@ namespace OLO_CAN
                 filetable_save();
                 filetable_2_dg();
             }
+ */
         }
         private void toolStripMenuItem11_Click(object sender, EventArgs e) // создать и закачать конфиг
         {
