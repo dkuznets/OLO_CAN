@@ -7780,7 +7780,7 @@ namespace OLO_CAN
             }
             for (Byte i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if (Convert.ToUInt32(dataGridView1.Rows[i].Cells[1].Value) == _addr)
+                if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
                 {
                     filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
                     break;
