@@ -4836,7 +4836,7 @@
             this.toolStripSeparator4,
             this.toolStripMenuItem8});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 170);
             // 
             // toolStripMenuItem6
             // 
@@ -4848,6 +4848,7 @@
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.Enabled = false;
             this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
             this.toolStripMenuItem7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
