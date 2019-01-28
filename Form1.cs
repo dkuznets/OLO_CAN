@@ -7392,9 +7392,9 @@ namespace OLO_CAN
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
                 if(nc.rb7_olo_right.Checked)
-                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО правый, зав. номер " + nc.tb7_sernum);
+                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО правый, зав. номер " + nc.tb7_sernum.Text);
                 else
-                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО левый, зав. номер " + nc.tb7_sernum);
+                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО левый, зав. номер " + nc.tb7_sernum.Text);
                 Application.DoEvents();
 
                 Byte[] rdfile = new Byte[128];
