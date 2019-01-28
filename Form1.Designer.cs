@@ -5462,7 +5462,7 @@
         private System.Windows.Forms.Button bt_verifi5;
         private System.Windows.Forms.Button bt_status5;
         private System.Windows.Forms.Button bt_reboot5;
-        private System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox chb_6_6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;

@@ -13,6 +13,7 @@ namespace OLO_CAN
 {
     public partial class newconfig : Form
     {
+        public String nc_filename = "";
         public newconfig()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace OLO_CAN
 
         private unsafe void bt7_saveconf_Click(object sender, EventArgs e)
         {
-            String nc_filename = "";
+//            String nc_filename = "";
             Form1.DATATABLE newconf = new Form1.DATATABLE();
 
             newconf.test = new Byte[1];
@@ -69,7 +70,6 @@ namespace OLO_CAN
                 tmp = GetBytes<Form1.DATATABLE>(newconf);
                 fs.Write(tmp, 0, 128);
             }
-
         }
     }
 }

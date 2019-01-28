@@ -7391,6 +7391,64 @@ namespace OLO_CAN
                 DialogResult re = nc.ShowDialog();
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
+                if(nc.rb7_olo_right.Checked)
+                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО правый, зав. номер " + nc.tb7_sernum);
+                else
+                    listBox1.Items.Insert(0, "Создан файл " + nc.nc_filename + " для ОЛО левый, зав. номер " + nc.tb7_sernum);
+                Application.DoEvents();
+
+                Byte[] tmp = new Byte[128];
+                using (FileStream fs = new FileStream(nc.nc_filename, FileMode.Open, FileAccess.Read))
+                {
+                    fs.Read(tmp, 0, 128);
+                }
+                String filename = nc.nc_filename;
+                if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+                {
+                    if (nc.nc_filename.Length > 28)
+                    {
+                        filename = nc.nc_filename.Remove(22) + "~.bin";
+                    }
+                    else
+                        filename = nc.nc_filename;
+                    Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
+                    fff[0].name = new Byte[28];
+                    for (int i = 0; i < 28; i++)
+                        fff[0].name[i] = 0;
+                    Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
+                    fff[0].begin = 0x3C000;
+                    fff[0].size = 128;
+                    fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+//                    fff[0].crc32 = uf._crc;
+//                    fff[0].version = uf._ver;
+                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                    fff[0].comment = new Byte[80];
+                    for (int i = 0; i < 80; i++)
+                        fff[0].comment[i] = 0;
+                    Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
+
+                    // очистка флеш
+
+                    listBox1.Items.Insert(0, "Очистка области...");
+                    Application.DoEvents();
+                    erase_area(fff[0].begin, fff[0].size);
+                    listBox1.Items.Insert(0, "Очистка области завершена.");
+                    Application.DoEvents();
+
+                    // запись файла
+
+                    listBox1.Items.Insert(0, "Запись файла ...");
+                    Application.DoEvents();
+
+//                    write_area(fff[0].begin, fff[0].size, uf._rdfile);
+                    listBox1.Items.Insert(0, "Запись файла завершена.");
+                    Application.DoEvents();
+
+                    filetable_sort();
+                    filetable_save();
+                    filetable_2_dg();
+                }
+
             }
         }
 

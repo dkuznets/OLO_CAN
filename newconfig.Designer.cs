@@ -142,10 +142,10 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rb7_olo_right;
-        private System.Windows.Forms.RadioButton rb7_olo_left;
-        private System.Windows.Forms.TextBox tb7_sernum;
-        private System.Windows.Forms.TextBox tb7_comment;
+        public System.Windows.Forms.RadioButton rb7_olo_right;
+        public System.Windows.Forms.RadioButton rb7_olo_left;
+        public System.Windows.Forms.TextBox tb7_sernum;
+        public System.Windows.Forms.TextBox tb7_comment;
         private System.Windows.Forms.Label lb7_sernum;
         private System.Windows.Forms.Label lb7_comment;
         private System.Windows.Forms.Button bt7_saveconf;
