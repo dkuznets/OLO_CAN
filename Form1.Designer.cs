@@ -4928,6 +4928,7 @@
             this.start.Name = "start";
             this.start.ReadOnly = true;
             this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.start.Width = 50;
             // 
             // _size
@@ -4936,6 +4937,7 @@
             this._size.Name = "_size";
             this._size.ReadOnly = true;
             this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this._size.Width = 60;
             // 
             // time
@@ -4943,6 +4945,7 @@
             this.time.HeaderText = "Время";
             this.time.Name = "time";
             this.time.ReadOnly = true;
+            this.time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.time.Width = 110;
             // 
             // crc32
@@ -4950,6 +4953,7 @@
             this.crc32.HeaderText = "CRC32";
             this.crc32.Name = "crc32";
             this.crc32.ReadOnly = true;
+            this.crc32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.crc32.Width = 70;
             // 
             // vers
@@ -4958,6 +4962,7 @@
             this.vers.Name = "vers";
             this.vers.ReadOnly = true;
             this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.vers.Width = 50;
             // 
             // comment
@@ -4965,7 +4970,8 @@
             this.comment.HeaderText = "Комментарий";
             this.comment.Name = "comment";
             this.comment.ReadOnly = true;
-            this.comment.Width = 226;
+            this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.comment.Width = 252;
             // 
             // id
             // 
