@@ -4393,7 +4393,7 @@
             this.listBox1.Location = new System.Drawing.Point(12, 296);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(752, 108);
+            this.listBox1.Size = new System.Drawing.Size(776, 108);
             this.listBox1.TabIndex = 68;
             // 
             // bt_verifi5
@@ -4462,7 +4462,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 277);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(752, 13);
+            this.progressBar1.Size = new System.Drawing.Size(776, 13);
             this.progressBar1.TabIndex = 61;
             // 
             // dataGridView1
@@ -4486,7 +4486,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(752, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 136);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
@@ -4971,7 +4971,7 @@
             this.comment.Name = "comment";
             this.comment.ReadOnly = true;
             this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.comment.Width = 252;
+            this.comment.Width = 280;
             // 
             // id
             // 
