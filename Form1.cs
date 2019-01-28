@@ -8277,13 +8277,7 @@ namespace OLO_CAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Byte[] rdfile = new Byte[128];
-            using (FileStream fs = new FileStream("config_right.bin", FileMode.Open, FileAccess.Read))
-            {
-                fs.Read(rdfile, 0, 128);
-            }
 
-            writefile(0x3C000, "config_right.bin", rdfile, 128, "файл конфигурации ОЛО - правый");        
         }
 
      }
