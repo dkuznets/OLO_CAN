@@ -7383,6 +7383,16 @@ namespace OLO_CAN
                 filetable_2_dg();
             }
         }
+        private void toolStripMenuItem11_Click(object sender, EventArgs e) // создать и закачать конфиг
+        {
+            if (aktiv)
+            {
+                newconfig nc = new newconfig();
+                DialogResult re = nc.ShowDialog();
+                if (re == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+            }
+        }
 
         #endregion
         void msg_2_log(canmsg_t msg)
@@ -8096,6 +8106,7 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
         }
+
      }
 
     public class rup_id

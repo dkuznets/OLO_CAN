@@ -4959,6 +4959,7 @@
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem11.Text = "Создать и закачать файл конфигурации";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // Form1
             // 
