@@ -7764,6 +7764,85 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
         }
         #endregion
+        #region Служебные функции
+
+        void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
+        {
+            String filename = _filename;
+            if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+            {
+                if (_filename.Length > 28)
+                {
+                    filename = _filename.Remove(22) + "~.bin";
+                }
+                else
+                    filename = _filename;
+                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
+                fff[0].name = new Byte[28];
+                for (int i = 0; i < 28; i++)
+                    fff[0].name[i] = 0;
+                Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
+                fff[0].begin = _addr;
+                fff[0].size = _bufsize;
+                fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+                Byte[] crc = new Byte[4];
+                Crc32 crc32 = new Crc32();
+                crc = crc32.ComputeHash(_buffer);
+                Array.Reverse(crc);
+                UInt32 _crc = BitConverter.ToUInt32(crc, 0);
+                fff[0].crc32 = _crc;
+                fff[0].version = 1;
+                if (_comment == "")
+                {
+                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                    tmparr = Encoding.Default.GetBytes(Environment.UserName);
+                }
+                else
+                {
+                    tmparr = new Byte[Encoding.Default.GetBytes(_comment).Length];
+                    tmparr = Encoding.Default.GetBytes(_comment);
+                }
+                fff[0].comment = new Byte[80];
+                for (int i = 0; i < 80; i++)
+                    fff[0].comment[i] = 0;
+                if (tmparr.Length > 80)
+                {
+                    Array.Copy(tmparr, fff[0].comment, 80);
+                }
+                else
+                    Array.Copy(tmparr, fff[0].comment, tmparr.Length);
+
+                // очистка флеш
+
+                listBox1.Items.Insert(0, "Очистка области...");
+                Application.DoEvents();
+                erase_area(fff[0].begin, fff[0].size);
+                listBox1.Items.Insert(0, "Очистка области завершена.");
+                Application.DoEvents();
+
+                // запись файла
+
+                listBox1.Items.Insert(0, "Запись файла ...");
+                Application.DoEvents();
+
+                write_area(fff[0].begin, fff[0].size, _buffer);
+                listBox1.Items.Insert(0, "Запись файла завершена.");
+                Application.DoEvents();
+
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+            }
+        }
+        void rewritefile()
+        {
+
+        }
+        Boolean testfile()
+        {
+            return true;
+        }
+
         void filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
@@ -8130,6 +8209,8 @@ namespace OLO_CAN
             arr = StructToBuff<DATATABLE>(dtable);
             write_area(begin_dtable, size_dtable, arr);
         }
+        
+        #endregion
 
         #endregion
 
@@ -8168,6 +8249,17 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Byte[] rdfile = new Byte[128];
+            using (FileStream fs = new FileStream("config_right.bin", FileMode.Open, FileAccess.Read))
+            {
+                fs.Read(rdfile, 0, 128);
+            }
+
+            writefile(0x3C000, "config_right.bin", rdfile, 128, "файл конфигурации ОЛО - правый");        
         }
 
      }
@@ -8235,58 +8327,48 @@ namespace OLO_CAN
         private UInt32 seed;
         private UInt32[] table;
         private static UInt32[] defaultTable;
-
         public Crc32()
         {
             table = InitializeTable(DefaultPolynomial);
             seed = DefaultSeed;
             Initialize();
         }
-
         public Crc32(UInt32 polynomial, UInt32 seed)
         {
             table = InitializeTable(polynomial);
             this.seed = seed;
             Initialize();
         }
-
         public override void Initialize()
         {
             hash = seed;
         }
-
         protected override void HashCore(byte[] buffer, int start, int length)
         {
             hash = CalculateHash(table, hash, buffer, start, length);
         }
-
         protected override byte[] HashFinal()
         {
             byte[] hashBuffer = UInt32ToBigEndianBytes(~hash);
             this.HashValue = hashBuffer;
             return hashBuffer;
         }
-
         public override int HashSize
         {
             get { return 32; }
         }
-
         public static UInt32 Compute(byte[] buffer)
         {
             return ~CalculateHash(InitializeTable(DefaultPolynomial), DefaultSeed, buffer, 0, buffer.Length);
         }
-
         public static UInt32 Compute(UInt32 seed, byte[] buffer)
         {
             return ~CalculateHash(InitializeTable(DefaultPolynomial), seed, buffer, 0, buffer.Length);
         }
-
         public static UInt32 Compute(UInt32 polynomial, UInt32 seed, byte[] buffer)
         {
             return ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
         }
-
         private static UInt32[] InitializeTable(UInt32 polynomial)
         {
             if (polynomial == DefaultPolynomial && defaultTable != null)
@@ -8309,7 +8391,6 @@ namespace OLO_CAN
 
             return createTable;
         }
-
         private static UInt32 CalculateHash(UInt32[] table, UInt32 seed, byte[] buffer, int start, int size)
         {
             UInt32 crc = seed;
@@ -8320,7 +8401,6 @@ namespace OLO_CAN
                 }
             return crc;
         }
-
         private byte[] UInt32ToBigEndianBytes(UInt32 x)
         {
             return new byte[] {
@@ -8330,7 +8410,6 @@ namespace OLO_CAN
             (byte)(x & 0xff)
         };
         }
-
         public string Get(string FilePath)
         {
             Crc32 crc32 = new Crc32();
