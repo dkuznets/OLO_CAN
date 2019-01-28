@@ -28,101 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.rb7_olo_right = new System.Windows.Forms.RadioButton();
+            this.rb7_olo_left = new System.Windows.Forms.RadioButton();
+            this.tb7_sernum = new System.Windows.Forms.TextBox();
+            this.tb7_comment = new System.Windows.Forms.TextBox();
+            this.lb7_sernum = new System.Windows.Forms.Label();
+            this.lb7_comment = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // rb7_olo_right
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(13, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb7_olo_right.AutoSize = true;
+            this.rb7_olo_right.Checked = true;
+            this.rb7_olo_right.Location = new System.Drawing.Point(13, 13);
+            this.rb7_olo_right.Name = "rb7_olo_right";
+            this.rb7_olo_right.Size = new System.Drawing.Size(90, 17);
+            this.rb7_olo_right.TabIndex = 0;
+            this.rb7_olo_right.TabStop = true;
+            this.rb7_olo_right.Text = "ОЛО правый";
+            this.rb7_olo_right.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb7_olo_left
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(13, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb7_olo_left.AutoSize = true;
+            this.rb7_olo_left.Location = new System.Drawing.Point(13, 37);
+            this.rb7_olo_left.Name = "rb7_olo_left";
+            this.rb7_olo_left.Size = new System.Drawing.Size(84, 17);
+            this.rb7_olo_left.TabIndex = 1;
+            this.rb7_olo_left.Text = "ОЛО левый";
+            this.rb7_olo_left.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tb7_sernum
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb7_sernum.Location = new System.Drawing.Point(116, 36);
+            this.tb7_sernum.MaxLength = 8;
+            this.tb7_sernum.Name = "tb7_sernum";
+            this.tb7_sernum.Size = new System.Drawing.Size(94, 20);
+            this.tb7_sernum.TabIndex = 2;
+            this.tb7_sernum.Text = "22223333";
             // 
-            // textBox2
+            // tb7_comment
             // 
-            this.textBox2.Location = new System.Drawing.Point(13, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(259, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb7_comment.Location = new System.Drawing.Point(13, 95);
+            this.tb7_comment.MaxLength = 116;
+            this.tb7_comment.Multiline = true;
+            this.tb7_comment.Name = "tb7_comment";
+            this.tb7_comment.Size = new System.Drawing.Size(233, 59);
+            this.tb7_comment.TabIndex = 3;
+            this.tb7_comment.Text = "К ОСРВ мягкого типа можно отнести наши с Вами компьютеры т.е. пользователь должен" +
+    " видеть, что, например, нажав кнопку";
             // 
-            // label1
+            // lb7_sernum
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(117, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.lb7_sernum.AutoSize = true;
+            this.lb7_sernum.Location = new System.Drawing.Point(117, 15);
+            this.lb7_sernum.Name = "lb7_sernum";
+            this.lb7_sernum.Size = new System.Drawing.Size(93, 13);
+            this.lb7_sernum.TabIndex = 4;
+            this.lb7_sernum.Text = "Серийный номер";
             // 
-            // label2
+            // lb7_comment
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.lb7_comment.AutoSize = true;
+            this.lb7_comment.Location = new System.Drawing.Point(13, 76);
+            this.lb7_comment.Name = "lb7_comment";
+            this.lb7_comment.Size = new System.Drawing.Size(77, 13);
+            this.lb7_comment.TabIndex = 5;
+            this.lb7_comment.Text = "Комментарий";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 122);
+            this.button1.Location = new System.Drawing.Point(90, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
+            this.button1.Text = "Записать";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(95, 122);
+            this.button2.Location = new System.Drawing.Point(171, 160);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
+            this.button2.Text = "Отменить";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // newconfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 152);
+            this.ClientSize = new System.Drawing.Size(258, 188);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.lb7_comment);
+            this.Controls.Add(this.lb7_sernum);
+            this.Controls.Add(this.tb7_comment);
+            this.Controls.Add(this.tb7_sernum);
+            this.Controls.Add(this.rb7_olo_left);
+            this.Controls.Add(this.rb7_olo_right);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -136,12 +142,12 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rb7_olo_right;
+        private System.Windows.Forms.RadioButton rb7_olo_left;
+        private System.Windows.Forms.TextBox tb7_sernum;
+        private System.Windows.Forms.TextBox tb7_comment;
+        private System.Windows.Forms.Label lb7_sernum;
+        private System.Windows.Forms.Label lb7_comment;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }
