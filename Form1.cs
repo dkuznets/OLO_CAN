@@ -7769,6 +7769,7 @@ namespace OLO_CAN
         void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
             Byte filenum = 0;
+            listBox1.Items.Insert(0, "файл 1 " + filenum.ToString());
             for (Byte i = 0; i < 4; i++)
             {
                 if (fff[i].begin == _addr)
@@ -7777,7 +7778,15 @@ namespace OLO_CAN
                     break;
                 }
             }
-            listBox1.Items.Insert(0, "файл " + filenum.ToString());
+            for (Byte i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (Convert.ToByte(dataGridView1.Rows[i].Cells[1].Value) == _addr)
+                {
+                    filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
+                    break;
+                }
+            }
+            listBox1.Items.Insert(0, "файл 2 " + filenum.ToString());
 
             if (filenum == 0 && (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF))
             {
