@@ -7768,6 +7768,32 @@ namespace OLO_CAN
 
         void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
+            Byte filenum = 0;
+            for (Byte i = 0; i < 4; i++)
+            {
+                if (fff[i].begin == _addr)
+                {
+                    filenum = i;
+                    break;
+                }
+            }
+
+            if (filenum == 0 && (fff[filenum].size == 0 || fff[filenum].size == 0xFFFFFFFF))
+            {
+                listBox1.Items.Insert(0, "Удаляю файл...");
+                Application.DoEvents();
+                erase_area(fff[filenum].begin, fff[filenum].size);
+                listBox1.Items.Insert(0, "Удаление завершено.");
+                Application.DoEvents();
+                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
+                Application.DoEvents();
+
+                fff[filenum] = new FILETABLE();
+                filetable_sort();
+                filetable_save();
+                filetable_2_dg();
+            }
+
             String filename = _filename;
             if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
             {
