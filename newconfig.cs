@@ -61,7 +61,7 @@ namespace OLO_CAN
                 tb7_sernum.Text = "00000000";
             }
             Array.Copy(Encoding.Default.GetBytes(tb7_sernum.Text), newconf.ser_num, 8);
-            Array.Copy(Encoding.Default.GetBytes(tb7_comment.Text), newconf.rezerv, 116);
+            Array.Copy(Encoding.Default.GetBytes(tb7_comment.Text), newconf.rezerv, tb7_comment.Text.Length);
 
             using (FileStream fs = new FileStream(nc_filename, FileMode.Create, FileAccess.Write))
             {
