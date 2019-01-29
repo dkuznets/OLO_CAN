@@ -8174,7 +8174,7 @@ namespace OLO_CAN
         private void button3_Click(object sender, EventArgs e)
         {
             UInt32 aaa = 0x3A000;
-            MessageBox.Show(aaa.ToString("X4"));
+            MessageBox.Show(aaa.ToString("\\#\\#\\# ##0 dollars and \\0\\0 cents \\#\\#\\#"));
         }
      }
 
