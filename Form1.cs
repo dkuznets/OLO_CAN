@@ -7764,7 +7764,7 @@ namespace OLO_CAN
             msg_2_log(frame);
 #endif
             begin_filetable = BitConverter.ToUInt32(frame.data, 0);
-
+            Trace.WriteLine(begin_filetable.ToString());
             // read file table 128 byte 4 блока!!!!
 
             Byte iii = 0;
