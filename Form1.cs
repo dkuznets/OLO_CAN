@@ -7866,6 +7866,8 @@ namespace OLO_CAN
             dataGridView1.Rows.Add("Flash #1",
                 "0x" + begin_flash1.ToString("X"),
                 "0x" + size_flash1.ToString("X"));
+            dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.LightGreen;
+
             for (int i = 0; i < 4; i++)
             {
                 if (fff[i].size != 0 && fff[i].size != 0xFFFFFFFF)
