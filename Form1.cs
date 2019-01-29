@@ -228,6 +228,8 @@ namespace OLO_CAN
         Boolean aktiv = false;
         const UInt32 START_CONFIG = 0x3A000;
         const UInt32 SIZE_CONFIG = 0x80;
+        const UInt32 START_FILE = 0x4000;
+        const UInt32 SIZE_FILE = 0x80;
        
         #endregion
 
@@ -6992,21 +6994,21 @@ namespace OLO_CAN
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
 
-                if (uf._addr == 0x4000)
+                if (uf._addr == START_FILE)
                 {
                     listBox1.Items.Insert(0, "Обновление файла прошивки...");
                     writefile(uf._addr, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
                 }
-                if (uf._addr == 0x3C000)
+                if (uf._addr == START_CONFIG)
                 {
                     listBox1.Items.Insert(0, "Обновление файла конфигурации...");
                     DATATABLE dt = new DATATABLE();
                     dt = CreateStruct<DATATABLE>(uf._rdfile);
                     String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
                     if (dt.dev_id[0] == 0x11)
-                        writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + sn);
+                        writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn);
                     else
-                        writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + sn);
+                        writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn);
                 }
 
 
@@ -7236,18 +7238,18 @@ namespace OLO_CAN
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
-            uf.mtb_begin.Text = "0x4000";
+            uf.mtb_begin.Text = String.Format("0x{0:X}", START_FILE);
             uf.Text = "Загрузка файла прошивки";
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            writefile(0x4000, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
+            writefile(START_FILE, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
         }
         private void toolStripMenuItem10_Click(object sender, EventArgs e) // закачать файл конфигурации
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
-            uf.mtb_begin.Text = START_CONFIG.ToString("X6");
+            uf.mtb_begin.Text = String.Format("0x{0:X}", START_CONFIG);
             uf.Text = "Загрузка файла конфигурации";
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
@@ -7674,33 +7676,26 @@ namespace OLO_CAN
 #if DEBUG
             msg_2_log(frame);
 #endif
-            begin_filetable = BitConverter.ToUInt32(frame.data, 0);
+//            begin_filetable = BitConverter.ToUInt32(frame.data, 0);
+            begin_filetable = START_FILE;
             Trace.WriteLine(begin_filetable.ToString());
             // read file table 128 byte 4 блока!!!!
 
             Byte iii = 0;
             do
             {
-                Byte[] buf = new Byte[128];
-                read_area((UInt32)(begin_filetable + iii * 128), 128, ref buf);
+                Byte[] buf = new Byte[SIZE_FILE];
+                read_area((UInt32)(begin_filetable + iii * SIZE_FILE), SIZE_FILE, ref buf);
 
-                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
-                fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
-                handle.Free();
+                fff[iii] = CreateStruct<FILETABLE>(buf);
+//                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
+//                fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
+//                handle.Free();
                 if (fff[iii].begin == 0xFFFFFFFF)
                 {
-                    //for (int i = 0; i < 28; i++)
-                    //    fff[iii].name[i] = 0;
                     fff[iii].begin = 0;
-                    //fff[0].size = 0;
-                    //fff[0].time = 0;
-                    //fff[0].crc32 = 0;
-                    //fff[0].version = 0;
-                    //for (int i = 0; i < 80; i++)
-                    //    fff[iii].comment[i] = 0;
                 }
                 iii++;
-
             } while (iii < 4);
             Trace.WriteLine("file table read");
             filetable_sort();
