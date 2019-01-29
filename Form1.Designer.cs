@@ -388,6 +388,14 @@
             this.bt_aktiv5 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bt_About5 = new System.Windows.Forms.Button();
             this.bt_Exit5 = new System.Windows.Forms.Button();
             this.gbox_CAN5 = new System.Windows.Forms.GroupBox();
@@ -439,14 +447,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4364,6 +4365,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.bt_verifi5);
             this.tabPage7.Controls.Add(this.bt_status5);
@@ -4487,6 +4489,73 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 136);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Имя файла";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 150;
+            // 
+            // start
+            // 
+            this.start.HeaderText = "Адрес";
+            this.start.Name = "start";
+            this.start.ReadOnly = true;
+            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.start.Width = 50;
+            // 
+            // _size
+            // 
+            this._size.HeaderText = "Размер";
+            this._size.Name = "_size";
+            this._size.ReadOnly = true;
+            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._size.Width = 60;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.time.Width = 110;
+            // 
+            // crc32
+            // 
+            this.crc32.HeaderText = "CRC32";
+            this.crc32.Name = "crc32";
+            this.crc32.ReadOnly = true;
+            this.crc32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.crc32.Width = 70;
+            // 
+            // vers
+            // 
+            this.vers.HeaderText = "Версия";
+            this.vers.Name = "vers";
+            this.vers.ReadOnly = true;
+            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vers.Width = 50;
+            // 
+            // comment
+            // 
+            this.comment.HeaderText = "Комментарий";
+            this.comment.Name = "comment";
+            this.comment.ReadOnly = true;
+            this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.comment.Width = 280;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
             // bt_About5
             // 
@@ -4836,7 +4905,7 @@
             this.toolStripSeparator4,
             this.toolStripMenuItem8});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 170);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
             // 
             // toolStripMenuItem6
             // 
@@ -4902,72 +4971,15 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // name
+            // button3
             // 
-            this.name.HeaderText = "Имя файла";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 150;
-            // 
-            // start
-            // 
-            this.start.HeaderText = "Адрес";
-            this.start.Name = "start";
-            this.start.ReadOnly = true;
-            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.start.Width = 50;
-            // 
-            // _size
-            // 
-            this._size.HeaderText = "Размер";
-            this._size.Name = "_size";
-            this._size.ReadOnly = true;
-            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this._size.Width = 60;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Время";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.time.Width = 110;
-            // 
-            // crc32
-            // 
-            this.crc32.HeaderText = "CRC32";
-            this.crc32.Name = "crc32";
-            this.crc32.ReadOnly = true;
-            this.crc32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.crc32.Width = 70;
-            // 
-            // vers
-            // 
-            this.vers.HeaderText = "Версия";
-            this.vers.Name = "vers";
-            this.vers.ReadOnly = true;
-            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vers.Width = 50;
-            // 
-            // comment
-            // 
-            this.comment.HeaderText = "Комментарий";
-            this.comment.Name = "comment";
-            this.comment.ReadOnly = true;
-            this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.comment.Width = 280;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.button3.Location = new System.Drawing.Point(713, 103);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -5497,6 +5509,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vers;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.Button button3;
 	}
 }
 

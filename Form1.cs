@@ -219,13 +219,15 @@ namespace OLO_CAN
         };
 
         UInt32 size_dtable = 128;
-        UInt32 begin_dtable = 0x3C000;
+        UInt32 begin_dtable = 0x3A000;
         FILETABLE[] fff = new FILETABLE[4];
         DATATABLE dtable = new DATATABLE();
         UInt32 begin_filetable = 0;
         UInt32 begin_flash1 = 0;
         UInt32 size_flash1 = 0;
         Boolean aktiv = false;
+        const UInt32 START_CONFIG = 0x3A000;
+        const UInt32 SIZE_CONFIG = 0x80;
        
         #endregion
 
@@ -6881,35 +6883,6 @@ namespace OLO_CAN
         #endregion
 
         #region newRUP
-        void print2_msg(canmsg_t msg)
-        {
-            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
-            Trace.Write(" Data:");
-            for (int i = 0; i < msg.len; i++)
-                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
-            Trace.WriteLine("");
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
-            {
-                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
-                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
-            {
-                Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
-                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
-                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
-            {
-                Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
-                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
-            {
-                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
-            }
-            Trace.WriteLine("");
-        }
         #region CAN
         private void bt_OpenCAN5_Click(object sender, EventArgs e)
         {
@@ -6964,32 +6937,6 @@ namespace OLO_CAN
             dataGridView1.Rows.Clear();
         }
          #endregion
-        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
-                pt.X += e.Location.X;
-                pt.Y += e.Location.Y;
-                if (e.RowIndex != 0)
-                {
-                    DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
-                    if (!c.Selected)
-                    {
-                        c.DataGridView.ClearSelection();
-                        c.DataGridView.CurrentCell = c;
-                        c.Selected = true;
-                    }
-                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();// +" " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-                    contextMenuStrip1.Show(dataGridView1, pt);
-                }
-                else
-                {
-                    toolStripMenuItem6.Text = "Flash: " + dataGridView1.Rows[0].Cells[0].Value.ToString();
-                    contextMenuStrip2.Show(dataGridView1, pt);
-                }
-            }
-        }
         #region Обработка меню
         private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать файл
         {
@@ -7300,19 +7247,18 @@ namespace OLO_CAN
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
-            uf.mtb_begin.Text = "0x3C000";
+            uf.mtb_begin.Text = START_CONFIG.ToString("X6");
             uf.Text = "Загрузка файла конфигурации";
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            //            MessageBox.Show(fff[0].size.ToString());
             DATATABLE dt = new DATATABLE();
             dt = CreateStruct<DATATABLE>(uf._rdfile);
             String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
             if(dt.dev_id[0] == 0x11)
-                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + sn);
+                writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn);
             else
-                writefile(0x3C000, uf._fname, uf._rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + sn);
+                writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn);
         }
         private void toolStripMenuItem11_Click(object sender, EventArgs e) // создать и закачать конфиг
         {
@@ -7328,54 +7274,19 @@ namespace OLO_CAN
                     listBox1.Items.Insert(0, "Создан файл \"" + nc.nc_filename + "\" для ОЛО левый, зав. номер " + nc.tb7_sernum.Text);
                 Application.DoEvents();
 
-                Byte[] rdfile = new Byte[128];
+                Byte[] rdfile = new Byte[SIZE_CONFIG];
                 using (FileStream fs = new FileStream(nc.nc_filename, FileMode.Open, FileAccess.Read))
                 {
-                    fs.Read(rdfile, 0, 128);
+                    fs.Read(rdfile, 0, (int)SIZE_CONFIG);
                 }
                 if (nc.rb7_olo_right.Checked)
-                    writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
+                    writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
                 else
-                    writefile(0x3C000, nc.nc_filename, rdfile, 128, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text);
+                    writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text);
             }
         }
 
         #endregion
-        void msg_2_log(canmsg_t msg)
-        {
-            listBox1.Items.Insert(0," ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
-            String tttt = " Data:";
-            for (int i = 0; i < msg.len; i++)
-                tttt += " 0x" + msg.data[i].ToString("X2");
-            listBox1.Items.Insert(0,tttt);
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
-            {
-                listBox1.Items.Insert(0," Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
-                    " Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
-            {
-                listBox1.Items.Insert(0," Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
-                    " Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString() +
-                    " Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
-            {
-                listBox1.Items.Insert(0," Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
-                    " Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
-            }
-            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
-            {
-                listBox1.Items.Insert(0," Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
-            }
-        }
-        String getver(UInt32 num)
-        {
-            Byte[] v = new Byte[4];
-            v = BitConverter.GetBytes(num);
-            return v[0].ToString() + "." + v[1].ToString() + "." + v[2].ToString() + "." + v[3].ToString();
-        }
-
         #region основные кнопки
         private void bt_status5_Click(object sender, EventArgs e)
         {
@@ -8109,7 +8020,6 @@ namespace OLO_CAN
         void datatable_save()
         {
             Byte[] arr = new Byte[size_dtable];
-//            read_area(begin_dtable, size_dtable, ref arr);
             arr = StructToBuff<DATATABLE>(dtable);
             write_area(begin_dtable, size_dtable, arr);
         }
@@ -8131,10 +8041,98 @@ namespace OLO_CAN
                 return (T)Marshal.PtrToStructure(new IntPtr(pointer), typeof(T));
             }
         }
+        String getver(UInt32 num)
+        {
+            Byte[] v = new Byte[4];
+            v = BitConverter.GetBytes(num);
+            return v[0].ToString() + "." + v[1].ToString() + "." + v[2].ToString() + "." + v[3].ToString();
+        }
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                Point pt = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                pt.X += e.Location.X;
+                pt.Y += e.Location.Y;
+                if (e.RowIndex != 0)
+                {
+                    DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
+                    if (!c.Selected)
+                    {
+                        c.DataGridView.ClearSelection();
+                        c.DataGridView.CurrentCell = c;
+                        c.Selected = true;
+                    }
+                    toolStripMenuItem1.Text = "Файл: " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString();// +" " + dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                    contextMenuStrip1.Show(dataGridView1, pt);
+                }
+                else
+                {
+                    toolStripMenuItem6.Text = "Flash: " + dataGridView1.Rows[0].Cells[0].Value.ToString();
+                    contextMenuStrip2.Show(dataGridView1, pt);
+                }
+            }
+        }
         #endregion
-
         #endregion
-
+        #region принты разные
+        void print2_msg(canmsg_t msg)
+        {
+            Trace.Write(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
+            Trace.Write(" Data:");
+            for (int i = 0; i < msg.len; i++)
+                Trace.Write(" 0x" + msg.data[i].ToString("X2"));
+            Trace.WriteLine("");
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
+            {
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString());
+                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
+            {
+                Trace.Write(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString());
+                Trace.Write(" Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString());
+                Trace.Write(" Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                Trace.Write(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+                Trace.Write(" Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
+            {
+                Trace.Write(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+            }
+            Trace.WriteLine("");
+        }
+        void msg_2_log(canmsg_t msg)
+        {
+            listBox1.Items.Insert(0, " ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
+            String tttt = " Data:";
+            for (int i = 0; i < msg.len; i++)
+                tttt += " 0x" + msg.data[i].ToString("X2");
+            listBox1.Items.Insert(0, tttt);
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
+            {
+                listBox1.Items.Insert(0, " Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
+                    " Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
+            {
+                listBox1.Items.Insert(0, " Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
+                    " Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString() +
+                    " Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
+            {
+                listBox1.Items.Insert(0, " Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
+                    " Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
+            }
+            if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
+            {
+                listBox1.Items.Insert(0, " Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+            }
+        }
         public unsafe void print_cmd(COMMAND cmd, String txt)
         {
             canmsg_t msg = new canmsg_t();
@@ -8161,6 +8159,7 @@ namespace OLO_CAN
                 Trace.Write(" 0x" + msg.messageData[i].ToString("X2"));
             Trace.WriteLine("");
         }
+        #endregion
         private void button7_Click(object sender, EventArgs e)
         {
             inicfg._SetBool("setup", "key1", chb_6_1.Checked);
@@ -8174,9 +8173,9 @@ namespace OLO_CAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            UInt32 aaa = 0x3A000;
+            MessageBox.Show(aaa.ToString("bbX4aa"));
         }
-
      }
 
     public class rup_id
@@ -8219,7 +8218,6 @@ namespace OLO_CAN
             RIGHT_WING_DEV_ID = 0x11,
             LEFT_WING_DEV_ID = 0x12
         };
-
         public enum Receipt { RUN, READY, ERROR, COMPLETE };
         public enum Mode { WORK, ECONTROL, CONTROL, PROGRAM };
         public enum Comm 
@@ -8336,7 +8334,6 @@ namespace OLO_CAN
             return hash;
         }
     }
-
     public static class RichTextBoxExtensions
     {
         public static void AppendText(this RichTextBox box, string text, Color color)
