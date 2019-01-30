@@ -7244,7 +7244,7 @@ namespace OLO_CAN
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            writefile(START_FILE, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
+            writefile(START_FW, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
         }
         private void toolStripMenuItem10_Click(object sender, EventArgs e) // закачать файл конфигурации
         {
