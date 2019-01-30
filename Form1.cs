@@ -7752,6 +7752,8 @@ namespace OLO_CAN
             }
 
             // записать в флеш filetable
+            Trace.WriteLine("Запись адрес" + begin_filetable.ToString("X"));
+            Trace.WriteLine("Запись длина" + ((uint)buf.Length).ToString("X"));
 
             write_area(begin_filetable, (uint)buf.Length, buf);
             Trace.WriteLine("file table saved");
