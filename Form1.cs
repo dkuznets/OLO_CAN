@@ -228,7 +228,7 @@ namespace OLO_CAN
         Boolean aktiv = false;
         const UInt32 START_CONFIG = 0x3A000;
         const UInt32 SIZE_CONFIG = 0x80;
-        const UInt32 START_FILE = 0x4000;
+        const UInt32 START_FILE = 0x3C000;
         const UInt32 SIZE_FILE = 0x80;
        
         #endregion
@@ -7755,7 +7755,7 @@ namespace OLO_CAN
             Trace.WriteLine("Запись адрес" + begin_filetable.ToString("X"));
             Trace.WriteLine("Запись длина" + ((uint)buf.Length).ToString("X"));
 
-            write_area(begin_filetable, (uint)buf.Length, buf);
+            write_area(START_FILE, (uint)buf.Length, buf);
             Trace.WriteLine("file table saved");
         }
         void filetable_2_dg()
