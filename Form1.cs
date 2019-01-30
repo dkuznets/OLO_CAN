@@ -7743,6 +7743,10 @@ namespace OLO_CAN
             // структуру в массив
 
             Byte[] buf = new Byte[SIZE_FILE * 4];
+            for (int i = 0; i < buf.Length; i++)
+            {
+                buf[i] = 0xFF;
+            }
             for (int i = 0; i < 4; i++)
             {
                 if (fff[i].size > 0 && fff[i].size < UInt32.MaxValue)
