@@ -230,6 +230,7 @@ namespace OLO_CAN
         const UInt32 SIZE_CONFIG = 0x80;
         const UInt32 START_FILE = 0x3C000;
         const UInt32 SIZE_FILE = 0x80;
+        const UInt32 START_FW = 0x4000;
        
         #endregion
 
@@ -7238,7 +7239,7 @@ namespace OLO_CAN
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
-            uf.mtb_begin.Text = String.Format("0x{0:X}", START_FILE);
+            uf.mtb_begin.Text = String.Format("0x{0:X}", START_FW);
             uf.Text = "Загрузка файла прошивки";
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
