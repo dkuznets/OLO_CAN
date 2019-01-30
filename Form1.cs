@@ -7704,10 +7704,6 @@ namespace OLO_CAN
         {
             filetable_sort();
 
-            // вычитываем таблицу данных
-
-//            datatable_load();
-
             // стереть последний сектор
 
             Array.Clear(frame.data, 0, 8);
@@ -7754,11 +7750,6 @@ namespace OLO_CAN
                 arr = StructToBuff<FILETABLE>(fff[i]);
                 Array.Copy(arr, 0, buf, SIZE_FILE * i, SIZE_FILE);
             }
-
-            // записать в флеш datatable
-
-//            datatable_save();
-//            Trace.WriteLine("data table saved");
 
             // записать в флеш filetable
 
