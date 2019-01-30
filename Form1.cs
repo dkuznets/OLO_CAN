@@ -7745,9 +7745,12 @@ namespace OLO_CAN
             Byte[] buf = new Byte[SIZE_FILE * 4];
             for (int i = 0; i < 4; i++)
             {
-                Byte[] arr = new Byte[SIZE_FILE];
-                arr = StructToBuff<FILETABLE>(fff[i]);
-                Array.Copy(arr, 0, buf, SIZE_FILE * i, SIZE_FILE);
+                if (fff[i].size > 0 && fff[i].size < UInt32.MaxValue)
+                {
+                    Byte[] arr = new Byte[SIZE_FILE];
+                    arr = StructToBuff<FILETABLE>(fff[i]);
+                    Array.Copy(arr, 0, buf, SIZE_FILE * i, SIZE_FILE);
+                }
             }
 
             // записать в флеш filetable
