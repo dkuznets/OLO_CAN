@@ -207,18 +207,18 @@ namespace OLO_CAN
             public Byte[] comment;
             public FILETABLE(Byte init) : this()
             {
-                this.begin = UInt32.MaxValue;
-                this.size = UInt32.MaxValue;
-                this.time = UInt32.MaxValue;
-                this.crc32 = UInt32.MaxValue;
-                this.version = UInt32.MaxValue;
+                begin = UInt32.MaxValue;
+                size = UInt32.MaxValue;
+                time = UInt32.MaxValue;
+                crc32 = UInt32.MaxValue;
+                version = UInt32.MaxValue;
                 for (int i = 0; i < 28; i++)
                 {
-                    this.name[i] = init;
+                    name[i] = init;
                 }
                 for (int i = 0; i < 80; i++)
                 {
-                    this.comment[i] = init;
+                    comment[i] = init;
                 }
             }
         };
