@@ -7615,7 +7615,7 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
                 Application.DoEvents();
 
-                fff[filenum] = new FILETABLE();
+                fff[filenum] = new FILETABLE(0xFF);
                 filetable_sort();
                 filetable_save();
                 filetable_2_dg();
