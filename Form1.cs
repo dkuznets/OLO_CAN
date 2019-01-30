@@ -7747,13 +7747,15 @@ namespace OLO_CAN
             {
                 buf[i] = 0xFF;
             }
+            int ii = 0;
             for (int i = 0; i < 4; i++)
             {
                 if (fff[i].size > 0 && fff[i].size < UInt32.MaxValue)
                 {
                     Byte[] arr = new Byte[SIZE_FILE];
                     arr = StructToBuff<FILETABLE>(fff[i]);
-                    Array.Copy(arr, 0, buf, SIZE_FILE * i, SIZE_FILE);
+                    Array.Copy(arr, 0, buf, SIZE_FILE * ii, SIZE_FILE);
+                    ii++;
                 }
             }
 
