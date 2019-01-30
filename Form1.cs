@@ -7689,13 +7689,10 @@ namespace OLO_CAN
                 read_area((UInt32)(START_FILE + iii * SIZE_FILE), SIZE_FILE, ref buf);
 
                 fff[iii] = CreateStruct<FILETABLE>(buf);
-//                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
-//                fff[iii] = (FILETABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FILETABLE));
-//                handle.Free();
-                if (fff[iii].begin == 0xFFFFFFFF)
-                {
-                    fff[iii].begin = 0;
-                }
+                //if (fff[iii].begin == 0xFFFFFFFF)
+                //{
+                //    fff[iii].begin = 0;
+                //}
                 iii++;
             } while (iii < 4);
             Trace.WriteLine("file table read");
