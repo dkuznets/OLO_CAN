@@ -212,10 +212,12 @@ namespace OLO_CAN
                 time = UInt32.MaxValue;
                 crc32 = UInt32.MaxValue;
                 version = UInt32.MaxValue;
+                name = new Byte[28];
                 for (int i = 0; i < 28; i++)
                 {
                     name[i] = init;
                 }
+                comment = new Byte[80];
                 for (int i = 0; i < 80; i++)
                 {
                     comment[i] = init;
