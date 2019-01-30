@@ -7604,7 +7604,6 @@ namespace OLO_CAN
                     break;
                 }
             }
-//            if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
 
             if (filenum != 0xFF)
             {
@@ -7617,77 +7616,93 @@ namespace OLO_CAN
                 listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
                 Application.DoEvents();
 
+                // зачищаем слот и сортируем
                 fff[filenum] = new FILETABLE(0xFF);
                 filetable_sort();
                 filetable_save();
                 filetable_2_dg();
             }
 
-            String filename = _filename;
-            if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+            // поиск первого свободного слота
+            filenum = 0xFF;
+            for (Byte i = 0; i < 4; i++)
             {
-                if (_filename.Length > 28)
+                if (fff[i].begin == 0 || fff[i].begin == 0xFFFFFFFF)
                 {
-                    filename = _filename.Remove(22) + "~.bin";
+                    filenum = i;
+                    break;
                 }
-                else
-                    filename = _filename;
-                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
-                fff[0].name = new Byte[28];
-                for (int i = 0; i < 28; i++)
-                    fff[0].name[i] = 0;
-                Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
-                fff[0].begin = _addr;
-                fff[0].size = _bufsize;
-                fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-                Byte[] crc = new Byte[4];
-                Crc32 crc32 = new Crc32();
-                crc = crc32.ComputeHash(_buffer);
-                Array.Reverse(crc);
-                UInt32 _crc = BitConverter.ToUInt32(crc, 0);
-                fff[0].crc32 = _crc;
-                fff[0].version = 1;
-                if (_comment == "")
-                {
-                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
-                    tmparr = Encoding.Default.GetBytes(Environment.UserName);
-                }
-                else
-                {
-                    tmparr = new Byte[Encoding.Default.GetBytes(_comment).Length];
-                    tmparr = Encoding.Default.GetBytes(_comment);
-                }
-                fff[0].comment = new Byte[80];
-                for (int i = 0; i < 80; i++)
-                    fff[0].comment[i] = 0;
-                if (tmparr.Length > 80)
-                {
-                    Array.Copy(tmparr, fff[0].comment, 80);
-                }
-                else
-                    Array.Copy(tmparr, fff[0].comment, tmparr.Length);
-
-                // очистка флеш
-
-                listBox1.Items.Insert(0, "Очистка области...");
-                Application.DoEvents();
-                erase_area(fff[0].begin, fff[0].size);
-                listBox1.Items.Insert(0, "Очистка области завершена.");
-                Application.DoEvents();
-
-                // запись файла
-
-                listBox1.Items.Insert(0, "Запись файла \"" + filename + "\" ...");
-                Application.DoEvents();
-
-                write_area(fff[0].begin, fff[0].size, _buffer);
-                listBox1.Items.Insert(0, "Запись файла завершена.");
-                Application.DoEvents();
-
-                filetable_sort();
-                filetable_save();
-                filetable_2_dg();
             }
+            if (filenum == 0xFF)
+            {
+                listBox1.Items.Insert(0, "Нельзя записать больше 4-х файлов!!!");
+                Application.DoEvents();
+                return;
+            }
+
+            // нашли свободный слот, пишем в него
+            String filename = _filename;
+            if (_filename.Length > 28)
+            {
+                filename = _filename.Remove(22) + "~.bin";
+            }
+            else
+                filename = _filename;
+            Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
+            fff[filenum].name = new Byte[28];
+            for (int i = 0; i < 28; i++)
+                fff[filenum].name[i] = 0;
+            Array.Copy(Encoding.Default.GetBytes(filename), fff[filenum].name, tmparr.Length);
+            fff[filenum].begin = _addr;
+            fff[filenum].size = _bufsize;
+            fff[filenum].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
+            Byte[] crc = new Byte[4];
+            Crc32 crc32 = new Crc32();
+            crc = crc32.ComputeHash(_buffer);
+            Array.Reverse(crc);
+            UInt32 _crc = BitConverter.ToUInt32(crc, 0);
+            fff[filenum].crc32 = _crc;
+            fff[filenum].version = 1;
+            if (_comment == "")
+            {
+                tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
+                tmparr = Encoding.Default.GetBytes(Environment.UserName);
+            }
+            else
+            {
+                tmparr = new Byte[Encoding.Default.GetBytes(_comment).Length];
+                tmparr = Encoding.Default.GetBytes(_comment);
+            }
+            fff[filenum].comment = new Byte[80];
+            for (int i = 0; i < 80; i++)
+                fff[filenum].comment[i] = 0;
+            if (tmparr.Length > 80)
+            {
+                Array.Copy(tmparr, fff[filenum].comment, 80);
+            }
+            else
+                Array.Copy(tmparr, fff[filenum].comment, tmparr.Length);
+
+            // очистка флеш
+
+            listBox1.Items.Insert(0, "Очистка области...");
+            Application.DoEvents();
+            erase_area(fff[filenum].begin, fff[filenum].size);
+            listBox1.Items.Insert(0, "Очистка области завершена.");
+            Application.DoEvents();
+
+            // запись файла
+
+            listBox1.Items.Insert(0, "Запись файла \"" + filename + "\" ...");
+            Application.DoEvents();
+
+            write_area(fff[filenum].begin, fff[filenum].size, _buffer);
+            listBox1.Items.Insert(0, "Запись файла завершена.");
+            Application.DoEvents();
+
+            filetable_sort();
+            filetable_save();
+            filetable_2_dg();
         }
         void filetable_load()
         {
