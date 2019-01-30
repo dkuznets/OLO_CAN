@@ -379,6 +379,7 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
@@ -447,7 +448,6 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4386,6 +4386,16 @@
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(713, 103);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -4905,7 +4915,7 @@
             this.toolStripSeparator4,
             this.toolStripMenuItem8});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 170);
             // 
             // toolStripMenuItem6
             // 
@@ -4917,7 +4927,6 @@
             // 
             // toolStripMenuItem7
             // 
-            this.toolStripMenuItem7.Enabled = false;
             this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
             this.toolStripMenuItem7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
@@ -4970,16 +4979,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(713, 103);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
