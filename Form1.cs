@@ -7706,7 +7706,7 @@ namespace OLO_CAN
 
             // вычитываем таблицу данных
 
-            datatable_load();
+//            datatable_load();
 
             // стереть последний сектор
 
@@ -7715,7 +7715,7 @@ namespace OLO_CAN
             frame.len = 8;
             Byte[] tmparr = new Byte[4];
             frame.len = 8;
-            tmparr = BitConverter.GetBytes(0x3C000);
+            tmparr = BitConverter.GetBytes(START_FILE);
             for (byte n = 0; n < 4; n++)
                 frame.data[n] = tmparr[n];
             tmparr = BitConverter.GetBytes(0x2000);
@@ -7747,22 +7747,22 @@ namespace OLO_CAN
 
             // структуру в массив
 
-            Byte[] buf = new Byte[512];
+            Byte[] buf = new Byte[SIZE_FILE * 4];
             for (int i = 0; i < 4; i++)
             {
-                Byte[] arr = new Byte[128];
+                Byte[] arr = new Byte[SIZE_FILE];
                 arr = StructToBuff<FILETABLE>(fff[i]);
-                Array.Copy(arr, 0, buf, 128 * i, 128);
+                Array.Copy(arr, 0, buf, SIZE_FILE * i, SIZE_FILE);
             }
 
             // записать в флеш datatable
 
-            datatable_save();
-            Trace.WriteLine("data table saved");
+//            datatable_save();
+//            Trace.WriteLine("data table saved");
 
             // записать в флеш filetable
 
-            write_area(begin_filetable, 512, buf);
+            write_area(begin_filetable, (uint)buf.Length, buf);
             Trace.WriteLine("file table saved");
         }
         void filetable_2_dg()
