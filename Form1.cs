@@ -7685,7 +7685,7 @@ namespace OLO_CAN
             do
             {
                 Byte[] buf = new Byte[SIZE_FILE];
-                read_area((UInt32)(begin_filetable + iii * SIZE_FILE), SIZE_FILE, ref buf);
+                read_area((UInt32)(START_FILE + iii * SIZE_FILE), SIZE_FILE, ref buf);
 
                 fff[iii] = CreateStruct<FILETABLE>(buf);
 //                GCHandle handle = GCHandle.Alloc(buf, GCHandleType.Pinned);
