@@ -205,6 +205,22 @@ namespace OLO_CAN
             public UInt32 version;
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 80)]
             public Byte[] comment;
+            public FILETABLE(Byte init) : this()
+            {
+                this.begin = UInt32.MaxValue;
+                this.size = UInt32.MaxValue;
+                this.time = UInt32.MaxValue;
+                this.crc32 = UInt32.MaxValue;
+                this.version = UInt32.MaxValue;
+                for (int i = 0; i < 28; i++)
+                {
+                    this.name[i] = init;
+                }
+                for (int i = 0; i < 80; i++)
+                {
+                    this.comment[i] = init;
+                }
+            }
         };
         public unsafe struct DATATABLE
         {
@@ -7564,22 +7580,34 @@ namespace OLO_CAN
         #region Служебные функции
         void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
-            Byte filenum = 0;
+            Byte filenum = 0xFF;
             Byte rownum = 0;
-            for (Byte i = 1; i < dataGridView1.Rows.Count; i++)
+            //for (Byte i = 1; i < dataGridView1.Rows.Count; i++)
+            //{
+            //    if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
+            //    {
+            //        filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
+            //        rownum = i;
+            //        break;
+            //    }
+            //}
+
+            // проверка наличия файла по этому адресу
+
+            for (Byte i = 0; i < 4; i++)
             {
-                if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
+                if (fff[i].begin == _addr)
                 {
-                    filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
-                    rownum = i;
+                    filenum = i;
                     break;
                 }
             }
-//            listBox1.Items.Insert(0, filenum.ToString() + " " + rownum.ToString());
-            if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
+//            if (fff[filenum].size != 0 && fff[filenum].size != 0xFFFFFFFF)
+
+            if (filenum != 0xFF)
             {
-                listBox1.Items.Insert(0, "Файл по адресу " + (String)dataGridView1.Rows[rownum].Cells[1].Value + " существует.");
-                listBox1.Items.Insert(0, "Удаляю файл \"" + (String)dataGridView1.Rows[rownum].Cells[0].Value + "\" ...");
+                listBox1.Items.Insert(0, "Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
+                listBox1.Items.Insert(0, "Удаляю файл \"" + gettextfromarr(fff[filenum].name, (Byte)(fff[filenum].name.Length)) + "\" ...");
                 Application.DoEvents();
                 erase_area(fff[filenum].begin, fff[filenum].size);
                 listBox1.Items.Insert(0, "Удаление завершено.");
@@ -8042,6 +8070,11 @@ namespace OLO_CAN
             Byte[] v = new Byte[4];
             v = BitConverter.GetBytes(num);
             return v[0].ToString() + "." + v[1].ToString() + "." + v[2].ToString() + "." + v[3].ToString();
+        }
+        String gettextfromarr(Byte[] a,Byte b)
+        {
+            String name = Encoding.Default.GetString(a, 0, b);
+            return name.Substring(0, name.IndexOf('\0'));
         }
         private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
