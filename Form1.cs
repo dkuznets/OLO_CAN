@@ -8221,7 +8221,7 @@ namespace OLO_CAN
         {
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
-            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString());
+            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
         }
      }
 
