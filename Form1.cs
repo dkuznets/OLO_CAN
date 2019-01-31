@@ -8219,8 +8219,9 @@ namespace OLO_CAN
 
         private void button3_Click(object sender, EventArgs e)
         {
-            UInt32 aaa = 0x3A000;
-            MessageBox.Show(String.Format("0x{0:X}", aaa));
+//            MessageBox.Show(String.Format("0x{0:X}", aaa));
+//            MessageBox.Show(String.Format("0x{0:X}", aaa));
+            MessageBox.Show((trackBar2.Value * 3.3f / 1023).ToString());
         }
      }
 

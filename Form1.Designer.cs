@@ -448,6 +448,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -503,6 +504,7 @@
             this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -4365,6 +4367,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.trackBar2);
             this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.bt_verifi5);
@@ -4915,7 +4918,7 @@
             this.toolStripSeparator4,
             this.toolStripMenuItem8});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 170);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
             // 
             // toolStripMenuItem6
             // 
@@ -4979,6 +4982,14 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(713, 42);
+            this.trackBar2.Maximum = 1023;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(243, 45);
+            this.trackBar2.TabIndex = 70;
             // 
             // Form1
             // 
@@ -5085,6 +5096,7 @@
             this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -5509,6 +5521,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TrackBar trackBar2;
 	}
 }
 
