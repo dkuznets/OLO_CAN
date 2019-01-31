@@ -8236,6 +8236,11 @@ namespace OLO_CAN
             Double c = k - 273.16;
             label56.Text = a.ToString() + " # " + v.ToString() + " # " + c.ToString();
         }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            label58.Text = (5.5 * 100 / 0.77 - 100).ToString();
+        }
      }
 
     public class rup_id
