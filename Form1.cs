@@ -8226,7 +8226,15 @@ namespace OLO_CAN
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            label56.Text = trackBar2.Value.ToString() + " # " + (trackBar2.Value * 3.3f / 1023).ToString() + " # " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString();
+            int a = trackBar2.Value;
+            Double v = (Double)a * 3.3 / 1023;
+            const Double MIN_T = 50.0;	// degree  [K]
+            const Double MAX_T = 300.0;	// degree  [K]
+            const Double MIN_V = 0.73f;	// voltage [V]
+            const Double MAX_V = 1.11f;	// voltage [V]
+            Double k = ((MAX_V - (v)) / ((MAX_V - MIN_V) / (MAX_T - MIN_T)) + MIN_T);
+            Double c = k - 273.16;
+            label56.Text = a.ToString() + " # " + v.ToString() + " # " + c.ToString();
         }
      }
 
