@@ -8239,7 +8239,7 @@ namespace OLO_CAN
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            label58.Text = (5.5 * trackBar3.Value / 0.77 - trackBar3.Value).ToString();
+            label58.Text = trackBar3.Value.ToString() + " # " + (5.5 * trackBar3.Value / 0.77 - trackBar3.Value).ToString();
         }
      }
 
