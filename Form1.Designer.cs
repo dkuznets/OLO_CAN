@@ -4404,6 +4404,7 @@
             this.label56.Size = new System.Drawing.Size(41, 13);
             this.label56.TabIndex = 71;
             this.label56.Text = "label56";
+            this.label56.Visible = false;
             // 
             // trackBar2
             // 
@@ -4412,6 +4413,7 @@
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(243, 45);
             this.trackBar2.TabIndex = 70;
+            this.trackBar2.Visible = false;
             this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // button3
@@ -4422,6 +4424,7 @@
             this.button3.TabIndex = 69;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // listBox1
@@ -5015,6 +5018,7 @@
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(284, 45);
             this.trackBar3.TabIndex = 72;
+            this.trackBar3.Visible = false;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // label58
@@ -5025,6 +5029,7 @@
             this.label58.Size = new System.Drawing.Size(41, 13);
             this.label58.TabIndex = 73;
             this.label58.Text = "label58";
+            this.label58.Visible = false;
             // 
             // Form1
             // 
