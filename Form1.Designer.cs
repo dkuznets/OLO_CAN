@@ -379,6 +379,7 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
@@ -448,7 +449,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label56 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -499,12 +500,12 @@
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -4367,6 +4368,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label56);
             this.tabPage7.Controls.Add(this.trackBar2);
             this.tabPage7.Controls.Add(this.button3);
             this.tabPage7.Controls.Add(this.listBox1);
@@ -4388,6 +4390,15 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(713, 42);
+            this.trackBar2.Maximum = 1023;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(243, 45);
+            this.trackBar2.TabIndex = 70;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // button3
             // 
@@ -4983,13 +4994,14 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // trackBar2
+            // label56
             // 
-            this.trackBar2.Location = new System.Drawing.Point(713, 42);
-            this.trackBar2.Maximum = 1023;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(243, 45);
-            this.trackBar2.TabIndex = 70;
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(722, 23);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(41, 13);
+            this.label56.TabIndex = 71;
+            this.label56.Text = "label56";
             // 
             // Form1
             // 
@@ -5089,6 +5101,7 @@
             this.gbox_CAN4.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbox_CAN5.ResumeLayout(false);
             this.gbox_CAN5.PerformLayout();
@@ -5096,7 +5109,6 @@
             this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -5522,6 +5534,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.Label label56;
 	}
 }
 
