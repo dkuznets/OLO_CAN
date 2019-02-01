@@ -6964,7 +6964,6 @@ namespace OLO_CAN
             text2rtb("Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
 
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-            text2rtb(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
             UInt32 _addr = 0;
             for (Byte i = 0; i < 4; i++)
             {
@@ -7016,6 +7015,7 @@ namespace OLO_CAN
                     fs.Write(buf, 0, buf.Length);
                 }
             }
+            done2rtb("Файл сохранен.");
         }
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
         {
