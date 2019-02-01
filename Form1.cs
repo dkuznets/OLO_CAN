@@ -6964,7 +6964,8 @@ namespace OLO_CAN
             text2rtb("Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
 
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-            UInt32 _addr = Convert.ToUInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
+            text2rtb(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            UInt32 _addr = 0;
             for (Byte i = 0; i < 4; i++)
             {
                 if (fff[i].begin == _addr)
@@ -7566,7 +7567,6 @@ namespace OLO_CAN
         Boolean writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
             Byte filenum = 0xFF;
-            Byte rownum = 0;
 
             // проверка наличия файла по этому адресу
 
