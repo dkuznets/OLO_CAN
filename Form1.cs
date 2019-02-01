@@ -7156,59 +7156,13 @@ namespace OLO_CAN
                 return;
 //            MessageBox.Show(fff[0].size.ToString());
             String filename = uf._fname;
-            if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
+
+            if (!writefile(uf._addr, uf._fname, uf._rdfile, uf._len, Environment.UserName))
             {
-                // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
-                if (uf._fname.Length > 28)
-                {
-                    filename = uf._fname.Remove(22) + "~.bin";
-                }
-                else
-                    filename = uf._fname;
-                Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
-                fff[0].name = new Byte[28];
-                for (int i = 0; i < 28; i++)
-                    fff[0].name[i] = 0;
-                Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
-                fff[0].begin = uf._addr;
-                fff[0].size = uf._len;
-                fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-                fff[0].crc32 = uf._crc;
-                fff[0].version = uf._ver;
-                tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
-                fff[0].comment = new Byte[80];
-                for (int i = 0; i < 80; i++)
-                    fff[0].comment[i] = 0;
-                Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
-
-                // очистка флеш
-
-                text2rtb("Очистка области...");
-                if(!erase_area(fff[0].begin, fff[0].size))
-                {
-                    err2rtb("Не удалось очистить флеш.");
-                    return;
-                }
-                done2rtb("Очистка области завершена.");
-
-                // запись файла
-                text2rtb("Запись файла ...");
-                if(!write_area(fff[0].begin, fff[0].size, uf._rdfile))
-                {
-                    err2rtb("Не удалось записать файл.");
-                    return;
-                }
-                done2rtb("Запись файла завершена.");
-
-                filetable_sort();
-                if(!filetable_save())
-                {
-                    err2rtb("Не удалось записать таблицу файлов.");
-                    return;
-                }
-                filetable_2_dg();
-                done2rtb("Файл записан.");
+                err2rtb("Не удалось записать файл.");
+                return;
             }
+            done2rtb("Файл записан.");
         }
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать флеш
         {
