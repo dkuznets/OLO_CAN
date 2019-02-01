@@ -51,7 +51,7 @@ namespace OLO_CAN
 	public partial class Form1 : Form
 	{
         #region Переменные
-        
+        public String crlf = "\r\n";
         public const Byte qq = 0;
         public canmsg_t frame = new canmsg_t();
         public canerrs_t errs = new canerrs_t();
@@ -8145,17 +8145,17 @@ namespace OLO_CAN
         }
         void err2rtb(String sss)
         {
-            richTextBox1.AppendText(sss, Color.Red);
+            richTextBox1.AppendText(sss + crlf, Color.Red);
             Application.DoEvents();
         }
         void mark2rtb(String sss)
         {
-            richTextBox1.AppendText(sss, Color.Green);
+            richTextBox1.AppendText(sss + crlf, Color.Green);
             Application.DoEvents();
         }
         void text2rtb(String sss)
         {
-            richTextBox1.AppendText(sss);
+            richTextBox1.AppendText(sss + crlf);
             Application.DoEvents();
         }
         #endregion
