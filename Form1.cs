@@ -7252,10 +7252,20 @@ namespace OLO_CAN
             DATATABLE dt = new DATATABLE();
             dt = CreateStruct<DATATABLE>(uf._rdfile);
             String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
+            text2rtb("Закачиваю файл конфигурации...");
             if(dt.dev_id[0] == 0x11)
-                writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn);
+                if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
+                {
+                    err2rtb("Не удалось закачать файл конфигурации");
+                    return;
+                }
             else
-                writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn);
+                if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
+                {
+                    err2rtb("Не удалось закачать файл конфигурации");
+                    return;
+                }
+            done2rtb("Файл конфигурации записан.");
         }
         private void toolStripMenuItem11_Click(object sender, EventArgs e) // создать и закачать конфиг
         {
@@ -7266,20 +7276,33 @@ namespace OLO_CAN
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
                 if(nc.rb7_olo_right.Checked)
-                    listBox1.Items.Insert(0, "Создан файл \"" + nc.nc_filename + "\" для ОЛО правый, зав. номер " + nc.tb7_sernum.Text);
+                    done2rtb("Создан файл \"" + nc.nc_filename + "\" для ОЛО правый, зав. номер " + nc.tb7_sernum.Text);
                 else
-                    listBox1.Items.Insert(0, "Создан файл \"" + nc.nc_filename + "\" для ОЛО левый, зав. номер " + nc.tb7_sernum.Text);
-                Application.DoEvents();
+                    done2rtb("Создан файл \"" + nc.nc_filename + "\" для ОЛО левый, зав. номер " + nc.tb7_sernum.Text);
 
                 Byte[] rdfile = new Byte[SIZE_CONFIG];
                 using (FileStream fs = new FileStream(nc.nc_filename, FileMode.Open, FileAccess.Read))
                 {
                     fs.Read(rdfile, 0, (int)SIZE_CONFIG);
                 }
+                text2rtb("Закачиваю файл конфигурации...");
                 if (nc.rb7_olo_right.Checked)
-                    writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text);        
+                {
+                    if (!writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + nc.tb7_sernum.Text))
+                    {
+                        err2rtb("Не удалось закачать файл конфигурации");
+                        return;
+                    }
+                }
                 else
-                    writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text);
+                {
+                    if (!writefile(START_CONFIG, nc.nc_filename, rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + nc.tb7_sernum.Text))
+                    {
+                        err2rtb("Не удалось закачать файл конфигурации");
+                        return;
+                    }
+                }
+                done2rtb("Файл конфигурации записан.");
             }
         }
 
