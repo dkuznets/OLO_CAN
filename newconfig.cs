@@ -72,10 +72,9 @@ namespace OLO_CAN
                     fs.Write(tmp, 0, 128);
                 }
             }
-            catch (Exception)
+            catch (Exception ee)
             {
-                MessageBox.Show("Не могу открыть файл!");
-                
+                MessageBox.Show("Не могу сохранить файл!" + "\r\n" + e.ToString());
                 return;
             }
         }
