@@ -8121,17 +8121,17 @@ namespace OLO_CAN
         }
         void err2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf, Color.Black, Color.Red);
+            richTextBox1.AppendText(sss + crlf,  Color.Red, Color.Black);
             Application.DoEvents();
         }
         void done2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf, Color.Black, Color.LawnGreen);
+            richTextBox1.AppendText(sss + crlf, Color.LawnGreen, Color.Black);
             Application.DoEvents();
         }
         void warn2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf, Color.Black, Color.Yellow);
+            richTextBox1.AppendText(sss + crlf, Color.Yellow, Color.Black);
             Application.DoEvents();
         }
         void text2rtb(String sss)
