@@ -6961,14 +6961,16 @@ namespace OLO_CAN
         #region Обработка меню
         private void toolStripMenuItem2_Click(object sender, EventArgs e) // скачать файл
         {
-            listBox1.Items.Insert(0, "Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
-            Application.DoEvents();
+            text2rtb("Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
 
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
             byte[] buf = new byte[fff[fileindex].size];
-            read_area(fff[fileindex].begin, fff[fileindex].size, ref buf);
-            listBox1.Items.Insert(0, "Скачивание завершено.");
-            Application.DoEvents();
+            if(!read_area(fff[fileindex].begin, fff[fileindex].size, ref buf))
+            {
+                err2rtb("Не удалось скачать файл.");
+                return;
+            }
+            done2rtb("Скачивание завершено.");
             Trace.WriteLine("file read");
             Crc32 crc32 = new Crc32();
             String hash = String.Empty;
@@ -6980,15 +6982,12 @@ namespace OLO_CAN
             Array.Reverse(crc);
             if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
             {
-                listBox1.Items.Insert(0, "CRC32 OК");
-                Application.DoEvents();
-
+                done2rtb("CRC32 OК");
                 Trace.WriteLine("CRC32 OK");
             }
             else
             {
-                listBox1.Items.Insert(0, "CRC32 failed!!!");
-                Application.DoEvents();
+                err2rtb("CRC32 failed!!!");
             }
 
             using (SaveFileDialog fd = new SaveFileDialog())
@@ -7015,111 +7014,78 @@ namespace OLO_CAN
 
                 if (uf._addr == START_FILE)
                 {
-                    listBox1.Items.Insert(0, "Обновление файла прошивки...");
-                    writefile(uf._addr, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
+                    text2rtb("Обновление файла прошивки...");
+                    if(!writefile(uf._addr, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО"))
+                    {
+                        err2rtb("Не удалось записать файл.");
+                        return;
+                    }
                 }
                 if (uf._addr == START_CONFIG)
                 {
-                    listBox1.Items.Insert(0, "Обновление файла конфигурации...");
+                    text2rtb("Обновление файла конфигурации...");
                     DATATABLE dt = new DATATABLE();
                     dt = CreateStruct<DATATABLE>(uf._rdfile);
                     String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
                     if (dt.dev_id[0] == 0x11)
-                        writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn);
-                    else
-                        writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn);
-                }
-
-
-/*
-                listBox1.Items.Insert(0, "Удаляю файл...");
-                Application.DoEvents();
-                erase_area(fff[filenum].begin, fff[filenum].size);
-                listBox1.Items.Insert(0, "Удаление завершено.");
-                Application.DoEvents();
-                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
-                Application.DoEvents();
-
-                fff[filenum] = new FILETABLE();
-                filetable_sort();
-                filetable_save();
-                filetable_2_dg();
-
-                String filename = uf._fname;
-                if (fff[0].size == 0 || fff[0].size == 0xFFFFFFFF)
-                {
-                    // проверка длины имени файла. Новгородцы - идиоты!!! Забили 28 символов
-                    if (uf._fname.Length > 28)
                     {
-                        filename = uf._fname.Remove(22) + "~.bin";
+                        if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
+                        {
+                            err2rtb("Не удалось записать файл.");
+                            return;
+                        }
                     }
                     else
-                        filename = uf._fname;
-                    Byte[] tmparr = new Byte[Encoding.Default.GetBytes(filename).Length];
-                    fff[0].name = new Byte[28];
-                    for (int i = 0; i < 28; i++)
-                        fff[0].name[i] = 0;
-                    Array.Copy(Encoding.Default.GetBytes(filename), fff[0].name, tmparr.Length);
-                    fff[0].begin = uf._addr;
-                    fff[0].size = uf._len;
-                    fff[0].time = (UInt32)((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-                    fff[0].crc32 = uf._crc;
-                    fff[0].version = uf._ver;
-                    tmparr = new Byte[Encoding.Default.GetBytes(Environment.UserName).Length];
-                    fff[0].comment = new Byte[80];
-                    for (int i = 0; i < 80; i++)
-                        fff[0].comment[i] = 0;
-                    Array.Copy(Encoding.Default.GetBytes(Environment.UserName), fff[0].comment, tmparr.Length);
+                    {
+                        if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
+                        {
+                            err2rtb("Не удалось записать файл.");
+                            return;
+                        }
+                    }
                 }
-
-                // очистка флеш
-
-                listBox1.Items.Insert(0, "Очистка области.");
-                Application.DoEvents();
-                erase_area(fff[0].begin, fff[0].size);
-                listBox1.Items.Insert(0, "Очистка области завершена.");
-                Application.DoEvents();
-
-                // запись файла
-
-                listBox1.Items.Insert(0, "Записываю новый файл.");
-                Application.DoEvents();
-                write_area(fff[0].begin, fff[0].size, uf._rdfile);
-                listBox1.Items.Insert(0, "Запись файла завершена.");
-                Application.DoEvents();
-
-                filetable_sort();
-                filetable_save();
-                filetable_2_dg();
-
- */
+                done2rtb("Файл записан.");
+            }
+            else
+            {
+                err2rtb("РУП не активирован.");
+                return;
             }
         }
         private void toolStripMenuItem4_Click(object sender, EventArgs e) // стереть файл
         {
             if (aktiv)
             {
-                listBox1.Items.Insert(0, "Стираю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
-                Application.DoEvents();
+                text2rtb("Стираю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
                 Byte filenum = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-                erase_area(fff[filenum].begin, fff[filenum].size);
-                listBox1.Items.Insert(0, "Стирание завешено.");
-                Application.DoEvents();
-                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
-                Application.DoEvents();
+                if(!erase_area(fff[filenum].begin, fff[filenum].size))
+                {
+                    err2rtb("Не удалось очистить флеш.");
+                    return;
+                }
+                done2rtb("Стирание завешено.");
+                text2rtb("Обновляю таблицу файлов.");
 
                 fff[filenum] = new FILETABLE();
                 filetable_sort();
-                filetable_save();
+                if(!filetable_save())
+                {
+                    err2rtb("Не удалось записать таблицу файлов");
+                    return;
+                }
                 filetable_2_dg();
+            }
+            else
+            {
+                err2rtb("РУП не активирован.");
+                return;
             }
         }
         private void toolStripMenuItem5_Click(object sender, EventArgs e) // проверить
         {
             progressBar1.Value = 0;
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            Application.DoEvents();
+            text2rtb("Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.READ_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -7133,12 +7099,12 @@ namespace OLO_CAN
                 frame.data[n + 4] = tmparr[n];
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                Trace.WriteLine("Error send READ_DATA_ID");
+                err2rtb("Error send READ_DATA_ID");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                Trace.WriteLine("Error recv ACK");
+                err2rtb("Error recv ACK");
                 return;
             }
 #if DEBUG
@@ -7177,9 +7143,9 @@ namespace OLO_CAN
             crc = crc32.ComputeHash(buf);
             Array.Reverse(crc);
             if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
-                listBox1.Items.Insert(0, "Контрольная сумма CRC32 совпадает.");
+                done2rtb("Контрольная сумма CRC32 совпадает.");
             else
-                listBox1.Items.Insert(0, "Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
+                err2rtb("Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
         }
         private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать // НЕ РАБОТАЕТ!!!!
         {
@@ -7242,14 +7208,19 @@ namespace OLO_CAN
         {
             if(aktiv)
             {
-                listBox1.Items.Insert(0, "Форматирование флеша...");
-                Application.DoEvents();
-                //                datatable_load();
-                erase_area(begin_flash1, size_flash1);
-//                datatable_save();
-                listBox1.Items.Insert(0, "Форматирование флеша завершено.");
-                Application.DoEvents();
-                filetable_load();
+                text2rtb("Форматирование флеша...");
+                if(!erase_area(begin_flash1, size_flash1))
+                {
+                    err2rtb("Не удалось отформатировать флеш.");
+                    return;
+                }
+
+                done2rtb("Форматирование флеша завершено.");
+                if(!filetable_load())
+                {
+                    err2rtb("Не удалось прочитать таблицу файлов.");
+                    return;
+                }
                 filetable_2_dg();
             }
         }
@@ -7262,7 +7233,12 @@ namespace OLO_CAN
             DialogResult re = uf.ShowDialog();
             if (re == System.Windows.Forms.DialogResult.Cancel)
                 return;
-            writefile(START_FW, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО");
+            text2rtb("Закачиваю файл прошивки...");
+            if(!writefile(START_FW, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО"))
+            {
+                err2rtb("Не удалось закачать файл прошивки.");
+                return;
+            }
         }
         private void toolStripMenuItem10_Click(object sender, EventArgs e) // закачать файл конфигурации
         {
@@ -7331,20 +7307,20 @@ namespace OLO_CAN
 #endif
                 if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
                 {
-                    listBox1.Items.Insert(0, "Режим " + ((rup_id.Mode)(frame.data[0] & 0x3)).ToString() +
+                    done2rtb("Режим " + ((rup_id.Mode)(frame.data[0] & 0x3)).ToString() +
                         " Команда " + ((rup_id.Comm)(frame.data[2] & 0x3F)).ToString() +
                         " Состояние " + ((rup_id.Receipt)(frame.data[2] >> 6)).ToString());
                 }
             }
             catch (Exception ee)
             {
-                listBox1.Items.Insert(0,"Ошибка " + ee.ToString());
+                err2rtb("Ошибка " + ee.ToString());
             }
 
         }
         private void bt_aktiv5_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            richTextBox1.Clear();
             dataGridView1.Rows.Clear();
             Boolean test = false;
 
@@ -7361,14 +7337,12 @@ namespace OLO_CAN
                     frame.data[1] = 0x5A;
                     if (uniCAN == null || !uniCAN.Send(ref frame))
                     {
-                        listBox1.Items.Insert(0, "Error send RUP_ID");
+                        err2rtb("Error send RUP_ID");
                         continue;
                     }
                     if (uniCAN == null || !uniCAN.Recv(ref frame, 2000))
                     {
-                        Application.DoEvents();
-                        listBox1.Items.Insert(0, "Error recv ACK_ID");
-                        Application.DoEvents();
+                        err2rtb("Error recv ACK_ID");
                         continue;
                     }
                     test = true;
@@ -7380,7 +7354,7 @@ namespace OLO_CAN
             }
             if (!test)
             {
-                listBox1.Items.Insert(0, "Ошибка! РУП не активирован.");
+                err2rtb("Ошибка! РУП не активирован.");
                 return;
             }
 
@@ -7396,27 +7370,25 @@ namespace OLO_CAN
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Insert(0,"Error send STATUS_REQUEST_ID");
+                    err2rtb("Error send STATUS_REQUEST_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
-                    listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
+                    err2rtb("Error recv STATUS_RESPONCE_ID");
                     return;
                 }
                 if((frame.data[0] & 0x3) == 3)
-                    listBox1.Items.Insert(0,"РУП активирован.");
+                    done2rtb("РУП активирован.");
                 else
                 {
-                    listBox1.Items.Clear();
-                    listBox1.Items.Insert(0,"Ошибка! РУП не активирован.");
+                    err2rtb("Ошибка! РУП не активирован.");
                     return;
                 }
             }
             else
             {
-                listBox1.Items.Clear();
-                listBox1.Items.Insert(0,"Ошибка! РУП не активирован.");
+                err2rtb("Ошибка! РУП не активирован.");
                 return;
             }
 
@@ -7428,12 +7400,12 @@ namespace OLO_CAN
             frame.data[0] = 1;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Insert(0,"Error send ACTIV_FLASH_ID 1");
+                err2rtb("Error send ACTIV_FLASH_ID 1");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                listBox1.Items.Insert(0,"Error recv ACK_ID");
+                err2rtb("Error recv ACK_ID");
                 return;
             }
 #if DEBUG
@@ -7450,19 +7422,23 @@ namespace OLO_CAN
 
                 // Запрос таблицы файлов
 
-                filetable_load();
+                if(!filetable_load())
+                {
+                    err2rtb("Не могу прочитать таблицу файлов.");
+                    return;
+                }
                 filetable_2_dg();
             }
             else
             {
-                listBox1.Items.Insert(0,"Ошибка! Flash #1 не активирован.");
+                err2rtb("Ошибка! Flash #1 не активирован.");
                 return;
             }
             bt_verifi5.Enabled = true;
 
             dataGridView1.Enabled = true;
             progressBar1.Enabled = true;
-            listBox1.Enabled = true;
+            richTextBox1.Enabled = true;
         }
         private void bt_reboot5_Click(object sender, EventArgs e)
         {
@@ -7475,35 +7451,35 @@ namespace OLO_CAN
             frame.data[1] = 0xB4;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Insert(0, "Error send RUP_ID");
+                err2rtb("Error send RUP_ID");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                listBox1.Items.Insert(0, "Error recv ACK_ID");
+                err2rtb("Error recv ACK_ID");
                 return;
             }
 #if DEBUG
             msg_2_log(frame);
 #endif
-            listBox1.Items.Insert(0, "РУП деактивирован.");
+            done2rtb("РУП деактивирован.");
             Array.Clear(frame.data, 0, 8);
             frame.len = 0;
             frame.id = rup_id.RECONFIG_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Insert(0, "Error send RECONFIG_ID");
+                err2rtb("Error send RECONFIG_ID");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                listBox1.Items.Insert(0, "Error recv ACK_ID");
+                err2rtb("Error recv ACK_ID");
                 return;
             }
 #if DEBUG
             msg_2_log(frame);
 #endif
-            listBox1.Items.Insert(0, "Перезагрузка.");
+            warn2rtb("Перезагрузка.");
             aktiv = false;
             bt_verifi5.Enabled = false;
         }
@@ -7514,7 +7490,7 @@ namespace OLO_CAN
 //            MessageBox.Show(dataGridView1.SelectedRows[0].Index.ToString());
             if(dataGridView1.SelectedRows[0].Index == 0)
                 return;
-            listBox1.Items.Insert(0, "Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            text2rtb("Проверка файла " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
             Application.DoEvents();
             progressBar1.Maximum = (int)fff[fileindex].size;
             Array.Clear(frame.data, 0, 8);
@@ -7529,12 +7505,12 @@ namespace OLO_CAN
                 frame.data[n + 4] = tmparr[n];
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                Trace.WriteLine("Error send READ_DATA_ID");
+                err2rtb("Error send READ_DATA_ID");
                 return;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
             {
-                Trace.WriteLine("Error recv ACK");
+                err2rtb("Error recv ACK");
                 return;
             }
 
@@ -7574,9 +7550,9 @@ namespace OLO_CAN
             crc = crc32.ComputeHash(buf);
             Array.Reverse(crc);
             if (BitConverter.ToUInt32(crc, 0) == fff[fileindex].crc32)
-                listBox1.Items.Insert(0, "Контрольная сумма CRC32 совпадает.");
+                done2rtb("Контрольная сумма CRC32 совпадает.");
             else
-                listBox1.Items.Insert(0, "Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
+                err2rtb("Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
         }
         #endregion
         #region Служебные функции
@@ -7598,7 +7574,7 @@ namespace OLO_CAN
 
             if (filenum != 0xFF)
             {
-                text2rtb("Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
+                warn2rtb("Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
                 text2rtb("Удаляю файл \"" + gettextfromarr(fff[filenum].name, (Byte)(fff[filenum].name.Length)) + "\" ...");
                 Application.DoEvents();
                 if (!erase_area(fff[filenum].begin, fff[filenum].size))
@@ -7606,7 +7582,7 @@ namespace OLO_CAN
                     err2rtb("Не удалось очиститить флеш.");
                     return false;
                 }
-                mark2rtb("Удаление завершено.");
+                done2rtb("Удаление завершено.");
                 text2rtb("Обновляю таблицу файлов.");
 
                 // зачищаем слот и сортируем
@@ -7688,7 +7664,7 @@ namespace OLO_CAN
                 err2rtb("Не удалось очиститить флеш.");
                 return false;
             }
-            text2rtb("Очистка области завершена.");
+            done2rtb("Очистка области завершена.");
 
             // запись файла
             text2rtb("Запись файла \"" + filename + "\" ...");
@@ -7698,7 +7674,7 @@ namespace OLO_CAN
                 err2rtb("Не удалось записать данные");
                 return false;
             }
-            mark2rtb("Запись файла завершена.");
+            done2rtb("Запись файла завершена.");
 
             filetable_sort();
             if(!filetable_save())
@@ -7814,7 +7790,7 @@ namespace OLO_CAN
                 err2rtb("Не удалось записать данные.");
                 return false;
             }
-            mark2rtb("Таблица файлов записана.");
+//            mark2rtb("Таблица файлов записана.");
             Trace.WriteLine("file table saved");
             return true;
         } // !!!
@@ -8145,12 +8121,17 @@ namespace OLO_CAN
         }
         void err2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf, Color.Red);
+            richTextBox1.AppendText(sss + crlf, Color.Black, Color.Red);
             Application.DoEvents();
         }
-        void mark2rtb(String sss)
+        void done2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf, Color.Green);
+            richTextBox1.AppendText(sss + crlf, Color.Black, Color.LawnGreen);
+            Application.DoEvents();
+        }
+        void warn2rtb(String sss)
+        {
+            richTextBox1.AppendText(sss + crlf, Color.Black, Color.Yellow);
             Application.DoEvents();
         }
         void text2rtb(String sss)
