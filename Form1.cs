@@ -6964,7 +6964,19 @@ namespace OLO_CAN
             text2rtb("Скачиваю файл " + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "...");
 
             Byte fileindex = Convert.ToByte(dataGridView1.SelectedRows[0].Cells[7].Value);
-            byte[] buf = new byte[fff[fileindex].size];
+            UInt32 _addr = Convert.ToUInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
+            for (Byte i = 0; i < 4; i++)
+            {
+                if (fff[i].begin == _addr)
+                {
+                    fileindex = i;
+                    break;
+                }
+            }
+
+//            if (fileindex != 0xFF)
+
+            Byte[] buf = new Byte[fff[fileindex].size];
             if(!read_area(fff[fileindex].begin, fff[fileindex].size, ref buf))
             {
                 err2rtb("Не удалось скачать файл.");
@@ -6972,6 +6984,7 @@ namespace OLO_CAN
             }
             done2rtb("Скачивание завершено.");
             Trace.WriteLine("file read");
+            text2rtb("Проверка CRC32...");
             Crc32 crc32 = new Crc32();
             String hash = String.Empty;
             foreach (byte b in crc32.ComputeHash(buf))
@@ -7570,7 +7583,6 @@ namespace OLO_CAN
             {
                 warn2rtb("Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
                 text2rtb("Удаляю файл \"" + gettextfromarr(fff[filenum].name, (Byte)(fff[filenum].name.Length)) + "\" ...");
-                Application.DoEvents();
                 if (!erase_area(fff[filenum].begin, fff[filenum].size))
                 {
                     err2rtb("Не удалось очиститить флеш.");
