@@ -8115,22 +8115,38 @@ namespace OLO_CAN
         }
         void err2rtb(String sss)
         {
-            richTextBox1.AppendText(sss + crlf,  Color.Red, Color.Black);
+#if DBG
+            richTextBox1.AppendText(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString() + " - " + sss + crlf, Color.Red, Color.Black);
+#else
+            richTextBox1.AppendText(sss + crlf, Color.Red, Color.Black);
+#endif
             Application.DoEvents();
         }
         void done2rtb(String sss)
         {
+#if DBG
+            richTextBox1.AppendText(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString() + " - " + sss + crlf, Color.LawnGreen, Color.Black);
+#else
             richTextBox1.AppendText(sss + crlf, Color.LawnGreen, Color.Black);
+#endif
             Application.DoEvents();
         }
         void warn2rtb(String sss)
         {
+#if DBG
+            richTextBox1.AppendText(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString() + " - " + sss + crlf, Color.Yellow, Color.Black);
+#else
             richTextBox1.AppendText(sss + crlf, Color.Yellow, Color.Black);
+#endif
             Application.DoEvents();
         }
         void text2rtb(String sss)
         {
+#if DBG
+            richTextBox1.AppendText(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString() + " - " + sss + crlf);
+#else
             richTextBox1.AppendText(sss + crlf);
+#endif
             Application.DoEvents();
         }
         Byte major_id(Byte[] id)
