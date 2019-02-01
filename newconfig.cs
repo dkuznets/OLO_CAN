@@ -63,9 +63,10 @@ namespace OLO_CAN
             }
             Array.Copy(Encoding.Default.GetBytes(tb7_sernum.Text), newconf.ser_num, 8);
             Array.Copy(Encoding.Default.GetBytes(tb7_comment.Text), newconf.rezerv, tb7_comment.Text.Length);
+            FileStream fs = null;
             try
             {
-                using (FileStream fs = new FileStream(nc_filename, FileMode.Create, FileAccess.Write))
+                using (fs = new FileStream(nc_filename, FileMode.Create, FileAccess.Write))
                 {
                     Byte[] tmp = new Byte[128];
                     tmp = GetBytes<Form1.DATATABLE>(newconf);
@@ -74,7 +75,8 @@ namespace OLO_CAN
             }
             catch (Exception ee)
             {
-                MessageBox.Show("Не могу сохранить файл!" + "\r\n" + e.ToString());
+                MessageBox.Show("Не могу сохранить файл!" + "\r\n" + ee.ToString());
+                fs.Close();
                 return;
             }
         }
