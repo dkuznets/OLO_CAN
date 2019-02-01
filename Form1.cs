@@ -7181,7 +7181,7 @@ namespace OLO_CAN
             else
                 listBox1.Items.Insert(0, "Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
         }
-        private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
+        private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать // НЕ РАБОТАЕТ!!!!
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
@@ -7580,19 +7580,10 @@ namespace OLO_CAN
         }
         #endregion
         #region Служебные функции
-        void writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
+        Boolean writefile(UInt32 _addr, String _filename, Byte[] _buffer, UInt32 _bufsize, String _comment)
         {
             Byte filenum = 0xFF;
             Byte rownum = 0;
-            //for (Byte i = 1; i < dataGridView1.Rows.Count; i++)
-            //{
-            //    if (Convert.ToUInt32((String)dataGridView1.Rows[i].Cells[1].Value, 16) == _addr)
-            //    {
-            //        filenum = Convert.ToByte(dataGridView1.Rows[i].Cells[7].Value);
-            //        rownum = i;
-            //        break;
-            //    }
-            //}
 
             // проверка наличия файла по этому адресу
 
@@ -7607,19 +7598,25 @@ namespace OLO_CAN
 
             if (filenum != 0xFF)
             {
-                listBox1.Items.Insert(0, "Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
-                listBox1.Items.Insert(0, "Удаляю файл \"" + gettextfromarr(fff[filenum].name, (Byte)(fff[filenum].name.Length)) + "\" ...");
+                text2rtb("Файл по адресу " + String.Format("0x{0:X}", _addr) + " существует.");
+                text2rtb("Удаляю файл \"" + gettextfromarr(fff[filenum].name, (Byte)(fff[filenum].name.Length)) + "\" ...");
                 Application.DoEvents();
-                erase_area(fff[filenum].begin, fff[filenum].size);
-                listBox1.Items.Insert(0, "Удаление завершено.");
-                Application.DoEvents();
-                listBox1.Items.Insert(0, "Обновляю таблицу файлов.");
-                Application.DoEvents();
+                if (!erase_area(fff[filenum].begin, fff[filenum].size))
+                {
+                    err2rtb("Не удалось очиститить флеш.");
+                    return false;
+                }
+                mark2rtb("Удаление завершено.");
+                text2rtb("Обновляю таблицу файлов.");
 
                 // зачищаем слот и сортируем
                 fff[filenum] = new FILETABLE(0xFF);
                 filetable_sort();
-                filetable_save();
+                if (!filetable_save())
+                {
+                    err2rtb("Не удалось записать таблицу файлов.");
+                    return false;
+                }
                 filetable_2_dg();
             }
 
@@ -7635,9 +7632,8 @@ namespace OLO_CAN
             }
             if (filenum == 0xFF)
             {
-                listBox1.Items.Insert(0, "Нельзя записать больше 4-х файлов!!!");
-                Application.DoEvents();
-                return;
+                err2rtb("Нельзя записать больше 4-х файлов!!!");
+                return false;
             }
 
             // нашли свободный слот, пишем в него
@@ -7645,6 +7641,7 @@ namespace OLO_CAN
             if (_filename.Length > 28)
             {
                 filename = _filename.Remove(22) + "~.bin";
+                err2rtb("Имя файла слишком длинное. Обрезаем.");
             }
             else
                 filename = _filename;
@@ -7685,39 +7682,47 @@ namespace OLO_CAN
 
             // очистка флеш
 
-            listBox1.Items.Insert(0, "Очистка области...");
-            Application.DoEvents();
-            erase_area(fff[filenum].begin, fff[filenum].size);
-            listBox1.Items.Insert(0, "Очистка области завершена.");
-            Application.DoEvents();
+            text2rtb("Очистка области...");
+            if(!erase_area(fff[filenum].begin, fff[filenum].size))
+            {
+                err2rtb("Не удалось очиститить флеш.");
+                return false;
+            }
+            text2rtb("Очистка области завершена.");
 
             // запись файла
+            text2rtb("Запись файла \"" + filename + "\" ...");
 
-            listBox1.Items.Insert(0, "Запись файла \"" + filename + "\" ...");
-            Application.DoEvents();
-
-            write_area(fff[filenum].begin, fff[filenum].size, _buffer);
-            listBox1.Items.Insert(0, "Запись файла завершена.");
-            Application.DoEvents();
+            if(!write_area(fff[filenum].begin, fff[filenum].size, _buffer))
+            {
+                err2rtb("Не удалось записать данные");
+                return false;
+            }
+            mark2rtb("Запись файла завершена.");
 
             filetable_sort();
-            filetable_save();
+            if(!filetable_save())
+            {
+                err2rtb("Не удалось записать таблицу файлов.");
+                return false;
+            }
             filetable_2_dg();
-        }
-        void filetable_load()
+            return true;
+        } // !!!
+        Boolean filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.FILE_TABLE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
             frame.len = 0;
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Insert(0, "Error send FILE_TABLE_REQUEST_ID");
-                return;
+                err2rtb("Error send FILE_TABLE_REQUEST_ID");
+                return false;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
             {
-                listBox1.Items.Insert(0, "Error recv FILE_TABLE_ADDRESS_ID");
-                return;
+                err2rtb("Error recv FILE_TABLE_ADDRESS_ID");
+                return false;
             }
 #if DEBUG
             msg_2_log(frame);
@@ -7731,20 +7736,16 @@ namespace OLO_CAN
             do
             {
                 Byte[] buf = new Byte[SIZE_FILE];
-                read_area((UInt32)(START_FILE + iii * SIZE_FILE), SIZE_FILE, ref buf);
-
+                if (!read_area((UInt32)(START_FILE + iii * SIZE_FILE), SIZE_FILE, ref buf))
+                    return false;
                 fff[iii] = CreateStruct<FILETABLE>(buf);
-                //if (fff[iii].begin == 0xFFFFFFFF)
-                //{
-                //    fff[iii].begin = 0;
-                //}
                 iii++;
             } while (iii < 4);
             Trace.WriteLine("file table read");
             filetable_sort();
-
-        }
-        void filetable_save()
+            return true;
+        } // !!!
+        Boolean filetable_save()
         {
             filetable_sort();
 
@@ -7763,8 +7764,8 @@ namespace OLO_CAN
                 frame.data[n + 4] = tmparr[n];
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
-                listBox1.Items.Insert(0, "Error send ERASE_ID");
-                return;
+                err2rtb("Error send ERASE_ID");
+                return false;
             }
             progressBar1.Value = 0;
             do
@@ -7775,12 +7776,12 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
                     Trace.WriteLine("Error send STATUS_REQUEST_ID");
-                    return;
+                    return false;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
                     Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-                    return;
+                    return false;
                 }
             } while ((frame.data[2] >> 6) == 0);
             Trace.WriteLine("Erase sector 16 complete.");
@@ -7808,9 +7809,15 @@ namespace OLO_CAN
             Trace.WriteLine("Запись адрес" + begin_filetable.ToString("X"));
             Trace.WriteLine("Запись длина" + ((uint)buf.Length).ToString("X"));
 
-            write_area(START_FILE, (uint)buf.Length, buf);
+            if (!write_area(START_FILE, (uint)buf.Length, buf))
+            {
+                err2rtb("Не удалось записать данные.");
+                return false;
+            }
+            mark2rtb("Таблица файлов записана.");
             Trace.WriteLine("file table saved");
-        }
+            return true;
+        } // !!!
         void filetable_2_dg()
         {
             filetable_sort();
@@ -7861,7 +7868,7 @@ namespace OLO_CAN
                 return fff1.begin.CompareTo(fff2.begin);
             });
         }
-        void erase_area(UInt32 begin, UInt32 size)
+        Boolean erase_area(UInt32 begin, UInt32 size)
         {
             if (aktiv)
             {
@@ -7869,7 +7876,7 @@ namespace OLO_CAN
 
                 Array.Clear(frame.data, 0, 8);
                 frame.id = rup_id.AREA_ERASE_REQUEST_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
+                frame.len = 7;
                 Byte[] tmparr = new Byte[4];
                 frame.len = 8;
                 tmparr = BitConverter.GetBytes(begin);
@@ -7880,13 +7887,13 @@ namespace OLO_CAN
                     frame.data[n + 4] = tmparr[n];
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Insert(0, "Error send AREA_ERASE_REQUEST_ID");
-                    return;
+                    err2rtb("Error send AREA_ERASE_REQUEST_ID");
+                    return false;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
-                    listBox1.Items.Insert(0, "Error recv AREA_ERASE_RESPONCE_ID");
-                    return;
+                    err2rtb("Error recv AREA_ERASE_RESPONCE_ID");
+                    return false;
                 }
 #if DEBUG
                 msg_2_log(frame);
@@ -7895,11 +7902,11 @@ namespace OLO_CAN
                 // команда на стирание
 
                 frame.id = rup_id.ERASE_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                frame.len = 8;
+                frame.len = 7;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Insert(0, "Error send ERASE_ID");
-                    return;
+                    err2rtb("Error send ERASE_ID");
+                    return false;
                 }
 
                 progressBar1.Value = 0;
@@ -7913,12 +7920,12 @@ namespace OLO_CAN
                     if (uniCAN == null || !uniCAN.Send(ref frame))
                     {
                         Trace.WriteLine("Error send STATUS_REQUEST_ID");
-                        return;
+                        return false;
                     }
                     if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                     {
                         Trace.WriteLine("Error recv STATUS_RESPONCE_ID");
-                        return;
+                        return false;
                     }
 #if DEBUG
                     msg_2_log(frame);
@@ -7931,8 +7938,11 @@ namespace OLO_CAN
 #endif
                 progressBar1.Value = 0;
             }
-        }
-        void write_area(UInt32 begin, UInt32 size, Byte[] buf)
+            else
+                return false;
+            return true;
+        } // !!!
+        Boolean write_area(UInt32 begin, UInt32 size, Byte[] buf)
         {
             if (aktiv)
             {
@@ -7941,7 +7951,7 @@ namespace OLO_CAN
                 Array.Clear(frame.data, 0, 8);
                 frame.id = rup_id.WRITE_DATA_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
                 Byte[] tmparr = new Byte[4];
-                frame.len = 8;
+                frame.len = 7;
                 tmparr = BitConverter.GetBytes(begin);
                 for (byte n = 0; n < 4; n++)
                     frame.data[n] = tmparr[n];
@@ -7950,13 +7960,13 @@ namespace OLO_CAN
                     frame.data[n + 4] = tmparr[n];
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Insert(0, "Error send WRITE_DATA_ID");
-                    return;
+                    err2rtb("Error send WRITE_DATA_ID");
+                    return false;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Insert(0, "Error recv ACK");
-                    return;
+                    err2rtb("Error recv ACK");
+                    return false;
                 }
 #if DEBUG
                 msg_2_log(frame);
@@ -7971,7 +7981,7 @@ namespace OLO_CAN
                     {
                         Array.Clear(frame.data, 0, 8);
                         frame.id = rup_id.DATA_SEGMENT_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
-                        if(i != (numpack - 1))
+                        if (i != (numpack - 1))
                             frame.len = 8;
                         else
                             frame.len = (Byte)lastframelen;
@@ -7980,13 +7990,13 @@ namespace OLO_CAN
                             frame.data[j] = buf[i * 8 + j];
                         if (uniCAN == null || !uniCAN.Send(ref frame))
                         {
-                            listBox1.Items.Insert(0, "Error send DATA_SEGMENT_ID");
-                            return;
+                            err2rtb("Error send DATA_SEGMENT_ID");
+                            return false;
                         }
                         if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                         {
-                            listBox1.Items.Insert(0, "Error recv ACK");
-                            return;
+                            err2rtb("Error recv ACK");
+                            return false;
                         }
                         Application.DoEvents();
                         progressBar1.Value = i;
@@ -7995,8 +8005,11 @@ namespace OLO_CAN
                     progressBar1.Value = 0;
                 }
             }
-        }
-        void read_area(UInt32 begin, UInt32 size, ref Byte[] buf)
+            else
+                return false;
+            return true;
+        } // !!!
+        Boolean read_area(UInt32 begin, UInt32 size, ref Byte[] buf)
         {
             progressBar1.Value = 0;
             Application.DoEvents();
@@ -8015,12 +8028,12 @@ namespace OLO_CAN
             if (uniCAN == null || !uniCAN.Send(ref frame))
             {
                 Trace.WriteLine("Error send READ_DATA_ID");
-                return;
+                return false;
             }
             if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
             {
                 Trace.WriteLine("Error recv ACK");
-                return;
+                return false;
             }
 #if DEBUG
             print2_msg(frame);
@@ -8034,12 +8047,12 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
                     Trace.WriteLine("Error send READ_DATA_ID");
-                    return;
+                    return false;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 1000))
                 {
                     Trace.WriteLine("Error recv READ_DATA_ID");
-                    return;
+                    return false;
                 }
                 for (int j = 0; j < frame.len; j++)
                 {
@@ -8049,21 +8062,32 @@ namespace OLO_CAN
             }
             Trace.WriteLine("area read complete");
             progressBar1.Value = 0;
-        }
-        void datatable_load()
+            return true;
+        } // !!!
+        Boolean datatable_load()
         {
             Byte[] arr = new Byte[size_dtable];
-            read_area(begin_dtable, size_dtable, ref arr);
+            if (!read_area(begin_dtable, size_dtable, ref arr))
+            {
+                err2rtb("Не удалось прочитать файл конфигурации.");
+                return false;
+            }
             GCHandle handle = GCHandle.Alloc(arr, GCHandleType.Pinned);
             dtable = (DATATABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(DATATABLE));
             handle.Free();
-        }
-        void datatable_save()
+            return true;
+        } // !!!
+        Boolean datatable_save()
         {
             Byte[] arr = new Byte[size_dtable];
             arr = StructToBuff<DATATABLE>(dtable);
-            write_area(begin_dtable, size_dtable, arr);
-        }
+            if (!write_area(begin_dtable, size_dtable, arr))
+            {
+                err2rtb("Не удалось записать файл конфигурации.");
+                return false;
+            }
+            return true;
+        } // !!!
         static unsafe byte[] GetBytes<T>(T obj) where T : struct
         {
             var size = Marshal.SizeOf(typeof(T));
@@ -8118,6 +8142,21 @@ namespace OLO_CAN
                     contextMenuStrip2.Show(dataGridView1, pt);
                 }
             }
+        }
+        void err2rtb(String sss)
+        {
+            richTextBox1.AppendText(sss, Color.Red);
+            Application.DoEvents();
+        }
+        void mark2rtb(String sss)
+        {
+            richTextBox1.AppendText(sss, Color.Green);
+            Application.DoEvents();
+        }
+        void text2rtb(String sss)
+        {
+            richTextBox1.AppendText(sss);
+            Application.DoEvents();
         }
         #endregion
         #endregion
@@ -8206,6 +8245,8 @@ namespace OLO_CAN
             Trace.WriteLine("");
         }
         #endregion
+
+        #region Вкладка настроек
         private void button7_Click(object sender, EventArgs e)
         {
             inicfg._SetBool("setup", "key1", chb_6_1.Checked);
@@ -8216,6 +8257,7 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
         }
+        #endregion
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -8223,7 +8265,6 @@ namespace OLO_CAN
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
             MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
         }
-
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             int a = trackBar2.Value;
@@ -8236,7 +8277,6 @@ namespace OLO_CAN
             Double c = k - 273.16;
             label56.Text = a.ToString() + " # " + v.ToString() + " # " + c.ToString();
         }
-
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
             label58.Text = trackBar3.Value.ToString() + " # " + (5.5 * trackBar3.Value / 0.77 - trackBar3.Value).ToString();

@@ -379,6 +379,8 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.label56 = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button3 = new System.Windows.Forms.Button();
@@ -450,8 +452,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.label58 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -502,13 +503,13 @@
             this.gb5_bd.SuspendLayout();
             this.gbox_CAN4.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -4371,6 +4372,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.richTextBox1);
             this.tabPage7.Controls.Add(this.label58);
             this.tabPage7.Controls.Add(this.trackBar3);
             this.tabPage7.Controls.Add(this.label56);
@@ -4395,6 +4397,26 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(433, 23);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(41, 13);
+            this.label58.TabIndex = 73;
+            this.label58.Text = "label58";
+            this.label58.Visible = false;
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.Location = new System.Drawing.Point(423, 42);
+            this.trackBar3.Maximum = 1000;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(284, 45);
+            this.trackBar3.TabIndex = 72;
+            this.trackBar3.Visible = false;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // label56
             // 
@@ -5011,25 +5033,14 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // trackBar3
+            // richTextBox1
             // 
-            this.trackBar3.Location = new System.Drawing.Point(423, 42);
-            this.trackBar3.Maximum = 1000;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(284, 45);
-            this.trackBar3.TabIndex = 72;
-            this.trackBar3.Visible = false;
-            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(433, 23);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(41, 13);
-            this.label58.TabIndex = 73;
-            this.label58.Text = "label58";
-            this.label58.Visible = false;
+            this.richTextBox1.Location = new System.Drawing.Point(12, 411);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.richTextBox1.Size = new System.Drawing.Size(776, 162);
+            this.richTextBox1.TabIndex = 74;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
@@ -5129,6 +5140,7 @@
             this.gbox_CAN4.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbox_CAN5.ResumeLayout(false);
@@ -5137,7 +5149,6 @@
             this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -5566,6 +5577,7 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }
 
