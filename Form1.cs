@@ -7028,37 +7028,53 @@ namespace OLO_CAN
                 if (re == System.Windows.Forms.DialogResult.Cancel)
                     return;
 
-                if (uf._addr == START_FILE)
+                switch (uf._addr)
                 {
-                    text2rtb("Обновление файла прошивки...");
-                    if(!writefile(uf._addr, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО"))
-                    {
-                        err2rtb("Не удалось записать файл.");
-                        return;
-                    }
-                }
-                if (uf._addr == START_CONFIG)
-                {
-                    text2rtb("Обновление файла конфигурации...");
-                    DATATABLE dt = new DATATABLE();
-                    dt = CreateStruct<DATATABLE>(uf._rdfile);
-                    String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
-                    if (dt.dev_id[0] == 0x11)
-                    {
-                        if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
+                    case START_FILE:
+                        text2rtb("Обновление файла прошивки...");
+                        if (!writefile(START_FILE, uf._fname, uf._rdfile, uf._len, "Файл прошивки ОЛО"))
                         {
                             err2rtb("Не удалось записать файл.");
                             return;
                         }
-                    }
-                    else
-                    {
-                        if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
+                        break;
+
+                    case START_CONFIG:
+                        text2rtb("Обновление файла конфигурации...");
+                        DATATABLE dt = new DATATABLE();
+                        dt = CreateStruct<DATATABLE>(uf._rdfile);
+                        String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
+                        switch (major_id(dt.dev_id))
+                        {
+                            case 0x11:
+                                if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
+                                {
+                                    err2rtb("Не удалось закачать файл конфигурации");
+                                    return;
+                                }
+                                break;
+
+                            case 0x12:
+                                if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
+                                {
+                                    err2rtb("Не удалось закачать файл конфигурации");
+                                    return;
+                                }
+                                break;
+
+                            default:
+                                err2rtb("Идентификатор не распознан.");
+                                return;
+                        }
+                        break;
+
+                    default:
+                        if (!writefile(uf._addr, uf._fname, uf._rdfile, uf._len, ""))
                         {
                             err2rtb("Не удалось записать файл.");
                             return;
                         }
-                    }
+                        break;
                 }
                 done2rtb("Файл записан.");
             }
