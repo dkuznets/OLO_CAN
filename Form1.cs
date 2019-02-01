@@ -7259,18 +7259,29 @@ namespace OLO_CAN
             dt = CreateStruct<DATATABLE>(uf._rdfile);
             String sn = Encoding.Default.GetString(dt.ser_num, 0, 8);
             text2rtb("Закачиваю файл конфигурации...");
-            if(dt.dev_id[0] == 0x11)
-                if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
-                {
-                    err2rtb("Не удалось закачать файл конфигурации");
+            switch(major_id(dt.dev_id))
+            {
+                case 0x11:
+                    if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - правый, з/н " + sn))
+                    {
+                        err2rtb("Не удалось закачать файл конфигурации");
+                        return;
+                    }
+                    break;
+
+                case 0x12:
+                    if (!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
+                    {
+                        err2rtb("Не удалось закачать файл конфигурации");
+                        return;
+                    }
+                    break;
+
+                default:
+                    err2rtb("Идентификатор не распознан.");
                     return;
-                }
-            else
-                if(!writefile(START_CONFIG, uf._fname, uf._rdfile, SIZE_CONFIG, "Файл конфигурации ОЛО - левый, з/н " + sn))
-                {
-                    err2rtb("Не удалось закачать файл конфигурации");
-                    return;
-                }
+//                    break;
+            }
             done2rtb("Файл конфигурации записан.");
         }
         private void toolStripMenuItem11_Click(object sender, EventArgs e) // создать и закачать конфиг
@@ -8167,6 +8178,16 @@ namespace OLO_CAN
         {
             richTextBox1.AppendText(sss + crlf);
             Application.DoEvents();
+        }
+        Byte major_id(Byte[] id)
+        {
+            if (id[0] == id[1])
+                return id[0];
+            if (id[0] == id[2]) 
+                return id[0];
+            if (id[1] == id[2])
+                return id[1];
+            return 0;
         }
         #endregion
         #endregion
