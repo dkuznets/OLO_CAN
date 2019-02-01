@@ -379,6 +379,7 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.label56 = new System.Windows.Forms.Label();
@@ -451,7 +452,6 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4396,6 +4396,15 @@
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 296);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.richTextBox1.Size = new System.Drawing.Size(776, 348);
+            this.richTextBox1.TabIndex = 74;
+            this.richTextBox1.Text = "";
+            // 
             // label58
             // 
             this.label58.AutoSize = true;
@@ -4444,7 +4453,6 @@
             this.button3.TabIndex = 69;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // bt_verifi5
@@ -5020,15 +5028,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 296);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox1.Size = new System.Drawing.Size(776, 348);
-            this.richTextBox1.TabIndex = 74;
-            this.richTextBox1.Text = "";
             // 
             // Form1
             // 

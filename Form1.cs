@@ -7611,7 +7611,7 @@ namespace OLO_CAN
             if (_filename.Length > 28)
             {
                 filename = _filename.Remove(22) + "~.bin";
-                err2rtb("Имя файла слишком длинное. Обрезаем.");
+                warn2rtb("Имя файла слишком длинное. Обрезаем.");
             }
             else
                 filename = _filename;
@@ -8248,7 +8248,8 @@ namespace OLO_CAN
         {
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
-            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
+//            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
+            warn2rtb(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
