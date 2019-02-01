@@ -7012,7 +7012,7 @@ namespace OLO_CAN
                 if (fd.ShowDialog() != DialogResult.OK)
                     return;
                 FileStream fs = new FileStream(fd.FileName, FileMode.Create, FileAccess.Write);
-                fs.Write(buf, 0, (int)fff[fileindex].size);
+                fs.Write(buf, 0, buf.Length);
             }
         }
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
