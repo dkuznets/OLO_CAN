@@ -7011,8 +7011,10 @@ namespace OLO_CAN
                 fd.FileName = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 if (fd.ShowDialog() != DialogResult.OK)
                     return;
-                FileStream fs = new FileStream(fd.FileName, FileMode.Create, FileAccess.Write);
-                fs.Write(buf, 0, buf.Length);
+                using (FileStream fs = new FileStream(fd.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    fs.Write(buf, 0, buf.Length);
+                }
             }
         }
         private void toolStripMenuItem3_Click(object sender, EventArgs e) // заменить
