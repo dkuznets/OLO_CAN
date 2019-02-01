@@ -5564,7 +5564,7 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TrackBar trackBar3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }
 
