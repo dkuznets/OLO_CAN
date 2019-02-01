@@ -384,7 +384,6 @@
             this.label56 = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.bt_verifi5 = new System.Windows.Forms.Button();
             this.bt_status5 = new System.Windows.Forms.Button();
             this.bt_reboot5 = new System.Windows.Forms.Button();
@@ -4378,7 +4377,6 @@
             this.tabPage7.Controls.Add(this.label56);
             this.tabPage7.Controls.Add(this.trackBar2);
             this.tabPage7.Controls.Add(this.button3);
-            this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.bt_verifi5);
             this.tabPage7.Controls.Add(this.bt_status5);
             this.tabPage7.Controls.Add(this.bt_reboot5);
@@ -4448,16 +4446,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 296);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(776, 108);
-            this.listBox1.TabIndex = 68;
             // 
             // bt_verifi5
             // 
@@ -5035,10 +5023,10 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 411);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 296);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox1.Size = new System.Drawing.Size(776, 162);
+            this.richTextBox1.Size = new System.Drawing.Size(776, 348);
             this.richTextBox1.TabIndex = 74;
             this.richTextBox1.Text = "";
             // 
@@ -5545,7 +5533,6 @@
         private System.Windows.Forms.Button bt_verifi5;
         private System.Windows.Forms.Button bt_status5;
         private System.Windows.Forms.Button bt_reboot5;
-        public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox chb_6_6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;

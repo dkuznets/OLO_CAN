@@ -714,7 +714,7 @@ namespace OLO_CAN
 
             dataGridView1.Enabled = false;
             progressBar1.Enabled = false;
-            listBox1.Enabled = false;
+            richTextBox1.Enabled = false;
 
         }
         private void state_Ready()
@@ -894,7 +894,7 @@ namespace OLO_CAN
 
             dataGridView1.Enabled = false;
             progressBar1.Enabled = false;
-            listBox1.Enabled = false;
+            richTextBox1.Enabled = false;
 
         }
         private void state_NotReady()
@@ -1002,7 +1002,7 @@ namespace OLO_CAN
 
             dataGridView1.Enabled = false;
             progressBar1.Enabled = false;
-            listBox1.Enabled = false;
+            richTextBox1.Enabled = false;
 
 
         }
@@ -6940,7 +6940,7 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
-            listBox1.Items.Clear();
+            richTextBox1.Clear();
         }
         private void bt_CloseCAN5_Click(object sender, EventArgs e)
         {
@@ -7147,7 +7147,7 @@ namespace OLO_CAN
             else
                 err2rtb("Ошибка!!! Не совпадает контрольная сумма CRC32!!!");
         }
-        private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать // НЕ РАБОТАЕТ!!!!
+        private void toolStripMenuItem7_Click(object sender, EventArgs e) // закачать
         {
             filetable_sort();
             UploadFile uf = new UploadFile();
@@ -7183,25 +7183,31 @@ namespace OLO_CAN
 
                 // очистка флеш
 
-                listBox1.Items.Insert(0, "Очистка области...");
-                Application.DoEvents();
-                erase_area(fff[0].begin, fff[0].size);
-                listBox1.Items.Insert(0, "Очистка области завершена.");
-                Application.DoEvents();
+                text2rtb("Очистка области...");
+                if(!erase_area(fff[0].begin, fff[0].size))
+                {
+                    err2rtb("Не удалось очистить флеш.");
+                    return;
+                }
+                done2rtb("Очистка области завершена.");
 
                 // запись файла
-
-                listBox1.Items.Insert(0, "Запись файла ...");
-                Application.DoEvents();
-
-                write_area(fff[0].begin, fff[0].size, uf._rdfile);
-                listBox1.Items.Insert(0, "Запись файла завершена.");
-                Application.DoEvents();
+                text2rtb("Запись файла ...");
+                if(!write_area(fff[0].begin, fff[0].size, uf._rdfile))
+                {
+                    err2rtb("Не удалось записать файл.");
+                    return;
+                }
+                done2rtb("Запись файла завершена.");
 
                 filetable_sort();
-                filetable_save();
+                if(!filetable_save())
+                {
+                    err2rtb("Не удалось записать таблицу файлов.");
+                    return;
+                }
                 filetable_2_dg();
-
+                done2rtb("Файл записан.");
             }
         }
         private void toolStripMenuItem8_Click(object sender, EventArgs e) // форматировать флеш
@@ -7317,12 +7323,12 @@ namespace OLO_CAN
                 frame.len = 0;
                 if (uniCAN == null || !uniCAN.Send(ref frame))
                 {
-                    listBox1.Items.Insert(0,"Error send STATUS_REQUEST_ID");
+                    err2rtb("Error send STATUS_REQUEST_ID");
                     return;
                 }
                 if (uniCAN == null || !uniCAN.Recv(ref frame, 10000))
                 {
-                    listBox1.Items.Insert(0,"Error recv STATUS_RESPONCE_ID");
+                    err2rtb("Error recv STATUS_RESPONCE_ID");
                     return;
                 }
 #if DEBUG
@@ -7465,7 +7471,7 @@ namespace OLO_CAN
         }
         private void bt_reboot5_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            richTextBox1.Clear();
             dataGridView1.Rows.Clear();
             Array.Clear(frame.data, 0, 8);
             frame.id = rup_id.RUP_ID | (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID);
@@ -8196,30 +8202,30 @@ namespace OLO_CAN
         }
         void msg_2_log(canmsg_t msg)
         {
-            listBox1.Items.Insert(0, " ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
+            text2rtb(" ID=" + ((rup_id.IDs)(msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID))).ToString() + " len=" + msg.len.ToString());
             String tttt = " Data:";
             for (int i = 0; i < msg.len; i++)
                 tttt += " 0x" + msg.data[i].ToString("X2");
-            listBox1.Items.Insert(0, tttt);
+            text2rtb(tttt);
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.ACK_ID)
             {
-                listBox1.Items.Insert(0, " Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
+                text2rtb(" Команда " + ((rup_id.Comm)(msg.data[0] & 0x3F)).ToString() +
                     " Состояние " + ((rup_id.Receipt)(msg.data[0] >> 6)).ToString());
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.STATUS_RESPONCE_ID)
             {
-                listBox1.Items.Insert(0, " Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
+                text2rtb(" Режим " + ((rup_id.Mode)(msg.data[0] & 0x3)).ToString() +
                     " Команда " + ((rup_id.Comm)(msg.data[2] & 0x3F)).ToString() +
                     " Состояние " + ((rup_id.Receipt)(msg.data[2] >> 6)).ToString());
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
-                listBox1.Items.Insert(0, " Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
+                text2rtb(" Начальный адрес " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8") +
                     " Размер " + (BitConverter.ToInt32(msg.data, 4)).ToString("X8"));
             }
             if (msg.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FILE_TABLE_ADDRESS_ID)
             {
-                listBox1.Items.Insert(0, " Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
+                text2rtb(" Адрес таблицы файлов " + (BitConverter.ToUInt32(msg.data, 0)).ToString("X8"));
             }
         }
         public unsafe void print_cmd(COMMAND cmd, String txt)
