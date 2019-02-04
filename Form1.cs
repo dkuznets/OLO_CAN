@@ -7442,9 +7442,9 @@ namespace OLO_CAN
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
                 size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000;
                 aktiv = true;
-#if DEBUG
+//#if DEBUG
                 msg_2_log(frame);
-#endif
+//#endif
 
                 // Запрос таблицы файлов
 
