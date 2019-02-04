@@ -133,6 +133,9 @@
     <Compile Include="newconfig.Designer.cs">
       <DependentUpon>newconfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="newRUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="new_bootldr.cs" />
     <Compile Include="print.cs">
       <SubType>Form</SubType>
