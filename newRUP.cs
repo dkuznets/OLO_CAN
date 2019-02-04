@@ -326,6 +326,16 @@ namespace OLO_CAN
                 }
 
                 done2rtb("Форматирование флеша завершено.");
+                for (int i = 0; i < 4; i++)
+                {
+                    fff[i] = new FILETABLE(0xFF);
+                }
+                text2rtb("Сохраняю таблицу файлов...");
+                if (!filetable_save())
+                {
+                    err2rtb("Не удалось сохранить таблицу файлов.");
+                    return;
+                }
                 if (!filetable_load())
                 {
                     err2rtb("Не удалось прочитать таблицу файлов.");
