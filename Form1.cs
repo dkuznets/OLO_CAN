@@ -7621,6 +7621,12 @@ namespace OLO_CAN
             }
 
             // поиск первого свободного слота
+            if (!filetable_load())
+            {
+                err2rtb("Не удалось прочитать таблицу файлов.");
+                return false;
+            }
+            filetable_2_dg();
             filenum = 0xFF;
             for (Byte i = 0; i < 4; i++)
             {
