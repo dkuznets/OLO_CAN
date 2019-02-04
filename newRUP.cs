@@ -879,6 +879,11 @@ namespace OLO_CAN
             } while (iii < 4);
             Trace.WriteLine("file table read");
             filetable_sort();
+            if (fff[0].name[0] == 0xFF)
+            {
+                fff[0].name[0] = 0x03;
+                warn2rtb("Таблица файлов пуста.");
+            }
             return true;
         }
         Boolean filetable_save()
