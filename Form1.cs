@@ -7098,7 +7098,7 @@ namespace OLO_CAN
                 done2rtb("Стирание завешено.");
                 text2rtb("Обновляю таблицу файлов.");
 
-                fff[filenum] = new FILETABLE();
+                fff[filenum] = new FILETABLE(0xFF);
                 filetable_sort();
                 if(!filetable_save())
                 {
