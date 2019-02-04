@@ -7624,7 +7624,9 @@ namespace OLO_CAN
             filenum = 0xFF;
             for (Byte i = 0; i < 4; i++)
             {
-                if (fff[i].begin == 0 || fff[i].begin == 0xFFFFFFFF)
+//                if (fff[i].begin == 0 || fff[i].begin == 0xFFFFFFFF)
+                // Для МУК 
+                if ((fff[i].begin == 0 || fff[i].begin == 0xFFFFFFFF) && fff[i].name[0] == 0x03)
                 {
                     filenum = i;
                     break;
