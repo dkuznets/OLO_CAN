@@ -8380,6 +8380,7 @@ namespace OLO_CAN
         };
 
     }
+/*
     public class Crc32 : HashAlgorithm
     {
         public const UInt32 DefaultPolynomial = 0xedb88320;
@@ -8483,6 +8484,7 @@ namespace OLO_CAN
             return hash;
         }
     }
+ */
     public static class RichTextBoxExtensions
     {
         public static void AppendText(this RichTextBox box, string text, Color color)

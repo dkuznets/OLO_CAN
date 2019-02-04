@@ -119,6 +119,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRC32.cs" />
     <Compile Include="flight_u_222.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
