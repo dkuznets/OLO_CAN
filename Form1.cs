@@ -7708,7 +7708,7 @@ namespace OLO_CAN
             }
             filetable_2_dg();
             return true;
-        } // !!!
+        } 
         Boolean filetable_load()
         {
             Array.Clear(frame.data, 0, 8);
@@ -7744,7 +7744,7 @@ namespace OLO_CAN
             Trace.WriteLine("file table read");
             filetable_sort();
             return true;
-        } // !!!
+        }
         Boolean filetable_save()
         {
             filetable_sort();
@@ -7805,6 +7805,10 @@ namespace OLO_CAN
                 }
             }
 
+            // под МУК пишем в первый свободный слот 0x03
+            if(ii < 4)
+                buf[SIZE_FILE * ii] = 0x03;
+
             // записать в флеш filetable
             Trace.WriteLine("Запись адрес" + begin_filetable.ToString("X"));
             Trace.WriteLine("Запись длина" + ((uint)buf.Length).ToString("X"));
@@ -7817,7 +7821,7 @@ namespace OLO_CAN
 //            mark2rtb("Таблица файлов записана.");
             Trace.WriteLine("file table saved");
             return true;
-        } // !!!
+        } 
         void filetable_2_dg()
         {
             filetable_sort();
@@ -7941,7 +7945,7 @@ namespace OLO_CAN
             else
                 return false;
             return true;
-        } // !!!
+        } 
         Boolean write_area(UInt32 begin, UInt32 size, Byte[] buf)
         {
             if (aktiv)
@@ -8008,7 +8012,7 @@ namespace OLO_CAN
             else
                 return false;
             return true;
-        } // !!!
+        } 
         Boolean read_area(UInt32 begin, UInt32 size, ref Byte[] buf)
         {
             progressBar1.Value = 0;
@@ -8063,7 +8067,7 @@ namespace OLO_CAN
             Trace.WriteLine("area read complete");
             progressBar1.Value = 0;
             return true;
-        } // !!!
+        } 
         Boolean datatable_load()
         {
             Byte[] arr = new Byte[size_dtable];
@@ -8076,7 +8080,7 @@ namespace OLO_CAN
             dtable = (DATATABLE)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(DATATABLE));
             handle.Free();
             return true;
-        } // !!!
+        } 
         Boolean datatable_save()
         {
             Byte[] arr = new Byte[size_dtable];
@@ -8087,7 +8091,7 @@ namespace OLO_CAN
                 return false;
             }
             return true;
-        } // !!!
+        } 
         static unsafe byte[] GetBytes<T>(T obj) where T : struct
         {
             var size = Marshal.SizeOf(typeof(T));
