@@ -7440,10 +7440,10 @@ namespace OLO_CAN
             if (frame.id - (rb_r5.Checked ? rup_id.RIGHT_WING_DEV_ID : rup_id.LEFT_WING_DEV_ID) == rup_id.FLASH_TABLE_RESPONCE_ID)
             {
                 begin_flash1 = BitConverter.ToUInt32(frame.data, 0);
-                size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000;
+                size_flash1 = BitConverter.ToUInt32(frame.data, 4) + 1 - 0x4000 - 0x2000; // последний сектор отдали под файловую таблицу
                 aktiv = true;
 //#if DEBUG
-                msg_2_log(frame);
+//                msg_2_log(frame);
 //#endif
 
                 // Запрос таблицы файлов
