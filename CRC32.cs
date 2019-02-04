@@ -48,15 +48,15 @@ namespace OLO_CAN
         }
         public static UInt32 Compute(byte[] buffer)
         {
-            return ~CalculateHash(InitializeTable(DefaultPolynomial), DefaultSeed, buffer, 0, buffer.Length);
+            return CalculateHash(InitializeTable(DefaultPolynomial), DefaultSeed, buffer, 0, buffer.Length);
         }
         public static UInt32 Compute(UInt32 seed, byte[] buffer)
         {
-            return ~CalculateHash(InitializeTable(DefaultPolynomial), seed, buffer, 0, buffer.Length);
+            return CalculateHash(InitializeTable(DefaultPolynomial), seed, buffer, 0, buffer.Length);
         }
         public static UInt32 Compute(UInt32 polynomial, UInt32 seed, byte[] buffer)
         {
-            return ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
+            return CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
         }
         private static UInt32[] InitializeTable(UInt32 polynomial)
         {
