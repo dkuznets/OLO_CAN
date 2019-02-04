@@ -379,7 +379,6 @@
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
@@ -4372,7 +4371,6 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.listBox1);
             this.tabPage7.Controls.Add(this.richTextBox1);
             this.tabPage7.Controls.Add(this.label58);
             this.tabPage7.Controls.Add(this.trackBar3);
@@ -4397,15 +4395,6 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(795, 135);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 134);
-            this.listBox1.TabIndex = 75;
             // 
             // richTextBox1
             // 
@@ -5576,7 +5565,6 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TrackBar trackBar3;
         public System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ListBox listBox1;
 	}
 }
 
