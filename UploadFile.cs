@@ -38,7 +38,6 @@ namespace OLO_CAN
                 ofd.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 if (ofd.ShowDialog() != DialogResult.OK)
                 {
-                    UploadFile.ActiveForm.Close();
                     return;
                 }
                 FileInfo fi = new FileInfo(ofd.FileName);
