@@ -882,7 +882,7 @@ namespace OLO_CAN
             if (fff[0].name[0] == 0xFF)
             {
                 fff[0].name[0] = 0x03;
-                warn2rtb("Таблица файлов пуста.");
+//                warn2rtb("Таблица файлов пуста.");
             }
             return true;
         }
@@ -1293,7 +1293,7 @@ namespace OLO_CAN
 #if DBG
             richTextBox1.AppendText(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString() + " - " + sss + crlf, Color.Red, Color.Black);
 #else
-            richTextBox1.AppendText(sss + crlf, Color.Red, Color.Black);
+            richTextBox1.AppendText(sss + crlf, Color.IndianRed, Color.White);
 #endif
             Application.DoEvents();
         }
