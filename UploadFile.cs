@@ -38,6 +38,7 @@ namespace OLO_CAN
                 ofd.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 if (ofd.ShowDialog() != DialogResult.OK)
                 {
+                    this.Close();
                     return;
                 }
                 FileInfo fi = new FileInfo(ofd.FileName);
