@@ -1344,18 +1344,22 @@ namespace OLO_CAN
     {
         public CNF()
         {
+            test = 0xAA;
             dev_id = new Byte[3];
             ser_num = new Byte[8];
             rezerv = new Byte[116];
             for (int i = 0; i < 3; i++)
                 dev_id[i] = 0xFF;
-            dev_id[0] = 1;
+            dev_id[0] = 0xBA;
+            dev_id[2] = 0xBB;
             for (int i = 0; i < 8; i++)
                 ser_num[i] = 0xFF;
-            ser_num[0] = 2;
+            ser_num[0] = 0xCA;
+            ser_num[7] = 0xCB;
             for (int i = 0; i < 116; i++)
                 rezerv[i] = 0xFF;
-            rezerv[0] = 3;
+            rezerv[0] = 0xDA;
+            rezerv[115] = 0xDB;
 
         }
         public Byte test;
