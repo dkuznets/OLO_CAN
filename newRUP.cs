@@ -1339,25 +1339,8 @@ namespace OLO_CAN
         #endregion
     }
 
-    [Serializable]
     public class CNF
     {
-        public CNF()
-        {
-            for (int i = 0; i < 3; i++)
-                dev_id[i] = 0xFF;
-            //            dev_id[0] = 0xBA;
-            //            dev_id[2] = 0xBB;
-            for (int i = 0; i < 8; i++)
-                ser_num[i] = 0xFF;
-            //            ser_num[0] = 0xCA;
-            //            ser_num[7] = 0xCB;
-            for (int i = 0; i < 116; i++)
-                rezerv[i] = 0xFF;
-            //            rezerv[0] = 0xDA;
-            //            rezerv[115] = 0xDB;
-
-        }
         public CNF(Byte devid, String sernum, String comm)
         {
             for (int i = 0; i < 3; i++)
@@ -1369,20 +1352,20 @@ namespace OLO_CAN
             {
                 iser_num = "00000000";
             }
-            //            Byte[] tmparr = new Byte[8];
-            for (int i = 0; i < 8; i++)
-                ser_num[i] = 0;
-            Array.Copy(Encoding.Default.GetBytes(iser_num), ser_num, 8);
+            for (int i = 0; i < 128; i++)
+                buffer[i] = 0;
 
-            for (int i = 0; i < 116; i++)
-                rezerv[i] = 0;
-            Array.Copy(Encoding.Default.GetBytes(icomment), rezerv, Encoding.Default.GetBytes(icomment).Length);
+            buffer[0] = 0;
+            Array.Copy(dev_id, 0, buffer, 1, 3);
+            Array.Copy(Encoding.Default.GetBytes(iser_num), 0, buffer, 4, 8);
+            Array.Copy(Encoding.Default.GetBytes(icomment), 0, buffer, 12, Encoding.Default.GetBytes(icomment).Length);
+        }
+        public CNF()
+        {
         }
 
-        private Byte test = 0;
-        private Byte[] dev_id = new Byte[3]; //3
-        private Byte[] ser_num = new Byte[8]; //8
-        private Byte[] rezerv = new Byte[116]; //116
+        private Byte[] dev_id = new Byte[3];
+        private Byte[] buffer = new Byte[128];
 
         public Byte idev_id = 0;
         public String iser_num = "";
@@ -1401,21 +1384,39 @@ namespace OLO_CAN
                 iser_num = "00000000";
             }
 //            Byte[] tmparr = new Byte[8];
-            for (int i = 0; i < 8; i++)
-                ser_num[i] = 0;
-            Array.Copy(Encoding.Default.GetBytes(iser_num), ser_num, 8);
+            for (int i = 0; i < 128; i++)
+                buffer[i] = 0;
 
-            for (int i = 0; i < 116; i++)
-                rezerv[i] = 0;
-            Array.Copy(Encoding.Default.GetBytes(icomment), rezerv, Encoding.Default.GetBytes(icomment).Length);
+            buffer[0] = 0;
+            Array.Copy(dev_id, 0, buffer, 1, 3);
+            Array.Copy(Encoding.Default.GetBytes(iser_num), 0, buffer, 4, 8);
+            Array.Copy(Encoding.Default.GetBytes(icomment), 0, buffer, 12, Encoding.Default.GetBytes(icomment).Length);
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            // получаем поток, куда будем записывать сериализованный объект
             try
             {
-                using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write))
                 {
-                    formatter.Serialize(fs, this);
+                    fs.Write(buffer, 0, 128);
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+        public Byte[] GetArr()
+        {
+            return buffer;
+        }
+
+        public Boolean Load(String filename)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read))
+                {
+                    fs.Read(buffer, 0, 128);
                 }
             }
             catch (Exception)

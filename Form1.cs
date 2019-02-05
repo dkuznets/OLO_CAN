@@ -6942,13 +6942,16 @@ namespace OLO_CAN
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CNF conf = new CNF();
-            conf.idev_id = 0x11;
+            CNF conf = new CNF(0x11, "12233445", "");
             if (!conf.Save("testconfig.bin"))
-                MessageBox.Show("Error!!!");
+                MessageBox.Show("Error save!!!");
             else
-                MessageBox.Show("OK!!!");
-            
+                MessageBox.Show("Save OK!!!");
+
+            if (!conf.Load("Fla3.bin"))
+                MessageBox.Show("Error load!!!");
+            else
+                MessageBox.Show("Load OK!!!" + crlf + conf.idev_id.ToString("X2") + crlf + conf.iser_num + conf.icomment);
         }
      }
 
