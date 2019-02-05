@@ -1422,7 +1422,8 @@ namespace OLO_CAN
             }
             idev_id = buffer[1];
             iser_num = Encoding.Default.GetString(buffer, 4, 8);
-            icomment = Encoding.Default.GetString(buffer, 12, 116).Substring(0, icomment.IndexOf('\0'));
+            icomment = Encoding.Default.GetString(buffer, 12, 116);
+            icomment = icomment.Substring(0, icomment.IndexOf('\0'));
             return true;
         }
     }
