@@ -16,6 +16,7 @@ using System.Diagnostics;
 using TM = System.Timers;
 using System.Globalization;
 using System.Security.Cryptography;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace OLO_CAN
 {
@@ -1338,24 +1339,47 @@ namespace OLO_CAN
         #endregion
     }
 
+    [Serializable]
     public class CNF
     {
         public CNF()
         {
             dev_id = new Byte[3];
-            for (int i = 0; i < 3; i++)
-                dev_id[i] = 0xFF;
-            for (int i = 0; i < 8; i++)
-                ser_num[i] = 0xFF;
-            for (int i = 0; i < 116; i++)
-                dev_id[i] = 0xFF;
             rezerv = new Byte[8];
             rezerv = new Byte[116];
+            for (int i = 0; i < 3; i++)
+                dev_id[i] = 0xFF;
+            dev_id[0] = 1;
+            for (int i = 0; i < 8; i++)
+                ser_num[i] = 0xFF;
+            ser_num[0] = 2;
+            for (int i = 0; i < 116; i++)
+                rezerv[i] = 0xFF;
+            rezerv[0] = 3;
+
         }
         public Byte test;
         public Byte[] dev_id; //3
         public Byte[] ser_num; //8
         public Byte[] rezerv; //116
 //        ~CNF();
+
+        public Boolean Save(String filename)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            // получаем поток, куда будем записывать сериализованный объект
+            try
+            {
+                using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+                {
+                    formatter.Serialize(fs, this);
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

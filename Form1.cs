@@ -6939,6 +6939,15 @@ namespace OLO_CAN
         {
             label58.Text = trackBar3.Value.ToString() + " # " + (5.5 * trackBar3.Value / 0.77 - trackBar3.Value).ToString();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CNF conf = new CNF();
+            if (!conf.Save("testconfig.bin"))
+                MessageBox.Show("Error!!!");
+            else
+                MessageBox.Show("OK!!!");
+        }
      }
 
     public static class RichTextBoxExtensions

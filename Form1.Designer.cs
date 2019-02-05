@@ -452,6 +452,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -4718,6 +4719,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.chb_6_6);
             this.tabPage6.Controls.Add(this.bt_6_savesetup);
             this.tabPage6.Controls.Add(this.chb_6_7);
@@ -5029,6 +5031,16 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(879, 7);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -5565,6 +5577,7 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TrackBar trackBar3;
         public System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button4;
 	}
 }
 
