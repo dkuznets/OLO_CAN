@@ -1360,9 +1360,6 @@ namespace OLO_CAN
             Array.Copy(Encoding.Default.GetBytes(iser_num), 0, buffer, 4, 8);
             Array.Copy(Encoding.Default.GetBytes(icomment), 0, buffer, 12, Encoding.Default.GetBytes(icomment).Length);
         }
-        public CNF()
-        {
-        }
 
         private Byte[] dev_id = new Byte[3];
         private Byte[] buffer = new Byte[128];
@@ -1423,6 +1420,9 @@ namespace OLO_CAN
             {
                 return false;
             }
+            idev_id = buffer[1];
+            iser_num = Encoding.Default.GetString(buffer, 4, 8);
+            icomment = Encoding.Default.GetString(buffer, 12, 116).Substring(0, icomment.IndexOf('\0'));
             return true;
         }
     }
