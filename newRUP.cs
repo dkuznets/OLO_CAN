@@ -1341,31 +1341,32 @@ namespace OLO_CAN
 
     public class CNF
     {
-        public Byte idev_id;
-        public String iser_num;
-        public String icomment;
+        public Byte dev_id = 0;
+        public String ser_num = "";
+        public String comment = "";
+
+        private Byte[] devid = new Byte[3];
+        private Byte[] buffer = new Byte[128];
         public CNF(Byte devid, String sernum, String comm)
         {
             for (int i = 0; i < 3; i++)
             {
-                dev_id[i] = idev_id;
+                this.devid[i] = dev_id;
             }
 
-            if (iser_num == "")
+            if (ser_num == "")
             {
-                iser_num = "00000000";
+                ser_num = "00000000";
             }
             for (int i = 0; i < 128; i++)
                 buffer[i] = 0;
 
             buffer[0] = 0;
-            Array.Copy(dev_id, 0, buffer, 1, 3);
-            Array.Copy(Encoding.Default.GetBytes(iser_num), 0, buffer, 4, 8);
-            Array.Copy(Encoding.Default.GetBytes(icomment), 0, buffer, 12, Encoding.Default.GetBytes(icomment).Length);
+            Array.Copy(this.devid, 0, buffer, 1, 3);
+            Array.Copy(Encoding.Default.GetBytes(ser_num), 0, buffer, 4, 8);
+            Array.Copy(Encoding.Default.GetBytes(comment), 0, buffer, 12, Encoding.Default.GetBytes(comment).Length);
         }
 
-        private Byte[] dev_id = new Byte[3];
-        private Byte[] buffer = new Byte[128];
 
 //        ~CNF();
 
@@ -1373,21 +1374,21 @@ namespace OLO_CAN
         {
             for (int i = 0; i < 3; i++)
             {
-                dev_id[i] = idev_id;
+                devid[i] = dev_id;
             }
 
-            if (iser_num == "")
+            if (ser_num == "")
             {
-                iser_num = "00000000";
+                ser_num = "00000000";
             }
 //            Byte[] tmparr = new Byte[8];
             for (int i = 0; i < 128; i++)
                 buffer[i] = 0;
 
             buffer[0] = 0;
-            Array.Copy(dev_id, 0, buffer, 1, 3);
-            Array.Copy(Encoding.Default.GetBytes(iser_num), 0, buffer, 4, 8);
-            Array.Copy(Encoding.Default.GetBytes(icomment), 0, buffer, 12, Encoding.Default.GetBytes(icomment).Length);
+            Array.Copy(devid, 0, buffer, 1, 3);
+            Array.Copy(Encoding.Default.GetBytes(ser_num), 0, buffer, 4, 8);
+            Array.Copy(Encoding.Default.GetBytes(comment), 0, buffer, 12, Encoding.Default.GetBytes(comment).Length);
 
             try
             {
@@ -1419,10 +1420,10 @@ namespace OLO_CAN
             {
                 return false;
             }
-            idev_id = buffer[1];
-            iser_num = Encoding.Default.GetString(buffer, 4, 8);
-            icomment = Encoding.Default.GetString(buffer, 12, 116);
-            icomment = icomment.Substring(0, icomment.IndexOf('\0'));
+            dev_id = buffer[1];
+            ser_num = Encoding.Default.GetString(buffer, 4, 8);
+            comment = Encoding.Default.GetString(buffer, 12, 116);
+            comment = comment.Substring(0, comment.IndexOf('\0'));
             return true;
         }
     }

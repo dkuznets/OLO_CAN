@@ -6951,7 +6951,7 @@ namespace OLO_CAN
             if (!conf.Load("Fla3.bin"))
                 MessageBox.Show("Error load!!!");
             else
-                MessageBox.Show("Load OK!!!" + crlf + conf.idev_id.ToString("X2") + crlf + conf.iser_num + conf.icomment);
+                MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
      }
 
