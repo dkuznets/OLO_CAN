@@ -1337,4 +1337,25 @@ namespace OLO_CAN
         #endregion
         #endregion
     }
+
+    public class CNF
+    {
+        public CNF()
+        {
+            dev_id = new Byte[3];
+            for (int i = 0; i < 3; i++)
+                dev_id[i] = 0xFF;
+            for (int i = 0; i < 8; i++)
+                ser_num[i] = 0xFF;
+            for (int i = 0; i < 116; i++)
+                dev_id[i] = 0xFF;
+            rezerv = new Byte[8];
+            rezerv = new Byte[116];
+        }
+        public Byte test;
+        public Byte[] dev_id; //3
+        public Byte[] ser_num; //8
+        public Byte[] rezerv; //116
+//        ~CNF();
+    }
 }
