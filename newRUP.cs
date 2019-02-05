@@ -1362,8 +1362,8 @@ namespace OLO_CAN
             rezerv[115] = 0xDB;
 
         }
-        public Byte test;
-        public Byte[] dev_id; //3
+        public Byte test = 0;
+        public Byte[] dev_id = new Byte[3]; //3
         public Byte[] ser_num; //8
         public Byte[] rezerv; //116
 //        ~CNF();
