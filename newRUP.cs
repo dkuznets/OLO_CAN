@@ -1341,6 +1341,9 @@ namespace OLO_CAN
 
     public class CNF
     {
+        public Byte idev_id;
+        public String iser_num;
+        public String icomment;
         public CNF(Byte devid, String sernum, String comm)
         {
             for (int i = 0; i < 3; i++)
@@ -1364,9 +1367,6 @@ namespace OLO_CAN
         private Byte[] dev_id = new Byte[3];
         private Byte[] buffer = new Byte[128];
 
-        public Byte idev_id = 0;
-        public String iser_num = "";
-        public String icomment = "";
 //        ~CNF();
 
         public Boolean Save(String filename)
@@ -1406,7 +1406,6 @@ namespace OLO_CAN
         {
             return buffer;
         }
-
         public Boolean Load(String filename)
         {
             try

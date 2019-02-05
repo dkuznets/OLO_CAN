@@ -6942,7 +6942,7 @@ namespace OLO_CAN
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CNF conf = new CNF(0x11, "12233445", "");
+            CNF conf = new CNF(0x11, "12233445", "qqqqwqwrsdsdfs  fgdfgsd retre wet gg");
             if (!conf.Save("testconfig.bin"))
                 MessageBox.Show("Error save!!!");
             else
