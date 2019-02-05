@@ -1344,10 +1344,6 @@ namespace OLO_CAN
     {
         public CNF()
         {
-            test = 0xAA;
-            dev_id = new Byte[3];
-            ser_num = new Byte[8];
-            rezerv = new Byte[116];
             for (int i = 0; i < 3; i++)
                 dev_id[i] = 0xFF;
             dev_id[0] = 0xBA;
@@ -1364,8 +1360,8 @@ namespace OLO_CAN
         }
         public Byte test = 0;
         public Byte[] dev_id = new Byte[3]; //3
-        public Byte[] ser_num; //8
-        public Byte[] rezerv; //116
+        public Byte[] ser_num = new Byte[8]; //8
+        public Byte[] rezerv = new Byte[116]; //116
 //        ~CNF();
 
         public Boolean Save(String filename)
