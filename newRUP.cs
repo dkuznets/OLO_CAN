@@ -1346,26 +1346,69 @@ namespace OLO_CAN
         {
             for (int i = 0; i < 3; i++)
                 dev_id[i] = 0xFF;
-            dev_id[0] = 0xBA;
-            dev_id[2] = 0xBB;
+            //            dev_id[0] = 0xBA;
+            //            dev_id[2] = 0xBB;
             for (int i = 0; i < 8; i++)
                 ser_num[i] = 0xFF;
-            ser_num[0] = 0xCA;
-            ser_num[7] = 0xCB;
+            //            ser_num[0] = 0xCA;
+            //            ser_num[7] = 0xCB;
             for (int i = 0; i < 116; i++)
                 rezerv[i] = 0xFF;
-            rezerv[0] = 0xDA;
-            rezerv[115] = 0xDB;
+            //            rezerv[0] = 0xDA;
+            //            rezerv[115] = 0xDB;
 
         }
-        public Byte test = 0;
-        public Byte[] dev_id = new Byte[3]; //3
-        public Byte[] ser_num = new Byte[8]; //8
-        public Byte[] rezerv = new Byte[116]; //116
+        public CNF(Byte devid, String sernum, String comm)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                dev_id[i] = idev_id;
+            }
+
+            if (iser_num == "")
+            {
+                iser_num = "00000000";
+            }
+            //            Byte[] tmparr = new Byte[8];
+            for (int i = 0; i < 8; i++)
+                ser_num[i] = 0;
+            Array.Copy(Encoding.Default.GetBytes(iser_num), ser_num, 8);
+
+            for (int i = 0; i < 116; i++)
+                rezerv[i] = 0;
+            Array.Copy(Encoding.Default.GetBytes(icomment), rezerv, Encoding.Default.GetBytes(icomment).Length);
+        }
+
+        private Byte test = 0;
+        private Byte[] dev_id = new Byte[3]; //3
+        private Byte[] ser_num = new Byte[8]; //8
+        private Byte[] rezerv = new Byte[116]; //116
+
+        public Byte idev_id = 0;
+        public String iser_num = "";
+        public String icomment = "";
 //        ~CNF();
 
         public Boolean Save(String filename)
         {
+            for (int i = 0; i < 3; i++)
+            {
+                dev_id[i] = idev_id;
+            }
+
+            if (iser_num == "")
+            {
+                iser_num = "00000000";
+            }
+//            Byte[] tmparr = new Byte[8];
+            for (int i = 0; i < 8; i++)
+                ser_num[i] = 0;
+            Array.Copy(Encoding.Default.GetBytes(iser_num), ser_num, 8);
+
+            for (int i = 0; i < 116; i++)
+                rezerv[i] = 0;
+            Array.Copy(Encoding.Default.GetBytes(icomment), rezerv, Encoding.Default.GetBytes(icomment).Length);
+
             BinaryFormatter formatter = new BinaryFormatter();
             // получаем поток, куда будем записывать сериализованный объект
             try

@@ -6943,8 +6943,7 @@ namespace OLO_CAN
         private void button4_Click(object sender, EventArgs e)
         {
             CNF conf = new CNF();
-            conf.test = 0;
-            conf.dev_id[0] = 0x11;
+            conf.idev_id = 0x11;
             if (!conf.Save("testconfig.bin"))
                 MessageBox.Show("Error!!!");
             else
