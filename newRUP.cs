@@ -1347,7 +1347,7 @@ namespace OLO_CAN
 
         private Byte[] devid = new Byte[3];
         private Byte[] buffer = new Byte[128];
-        public CNF(Byte devid, String sernum, String comm)
+        public CNF(Byte dev_id, String ser_num, String comm)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -1356,15 +1356,15 @@ namespace OLO_CAN
 
             if (ser_num == "")
             {
-                ser_num = "00000000";
+                this.ser_num = "00000000";
             }
             for (int i = 0; i < 128; i++)
                 buffer[i] = 0;
 
             buffer[0] = 0;
             Array.Copy(this.devid, 0, buffer, 1, 3);
-            Array.Copy(Encoding.Default.GetBytes(ser_num), 0, buffer, 4, 8);
-            Array.Copy(Encoding.Default.GetBytes(comment), 0, buffer, 12, Encoding.Default.GetBytes(comment).Length);
+            Array.Copy(Encoding.Default.GetBytes(this.ser_num), 0, buffer, 4, 8);
+            Array.Copy(Encoding.Default.GetBytes(comment), 0, buffer, 12, Encoding.Default.GetBytes(comm).Length);
         }
 
 
