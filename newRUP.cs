@@ -1345,7 +1345,7 @@ namespace OLO_CAN
         public CNF()
         {
             dev_id = new Byte[3];
-            rezerv = new Byte[8];
+            ser_num = new Byte[8];
             rezerv = new Byte[116];
             for (int i = 0; i < 3; i++)
                 dev_id[i] = 0xFF;
