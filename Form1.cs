@@ -2934,21 +2934,6 @@ namespace OLO_CAN
                 Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_size];
                 Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT;
             }
-            if (rb_cmos12_select_lg.Checked)
-            {
-                Buffer = new _u8[FWDATA.SOLO2_SELECT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_SELECT_LOWGAIN;
-            }
-            if (rb_flight_right_wing_double_pass_lg.Checked)
-            {
-                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN;
-            }
-            if (rb_flight_left_wing_double_pass_lg.Checked)
-            {
-                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN;
-            }
             if (rb_cmos12_select_long_time2.Checked)
             {
                 Buffer = new _u8[FWDATA.SELECT_LONG_TIME_V2_size];
@@ -3815,54 +3800,6 @@ namespace OLO_CAN
             else
             {
                 rb_file_open.BackColor = Color.Transparent;
-            }
-        }
-        private void rb_cmos12_select_lg_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_cmos12_select_lg.Checked)
-            {
-                rb_cmos12_select_lg.BackColor = SystemColors.ActiveCaption;
-                Buffer = new _u8[FWDATA.SOLO2_SELECT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_SELECT_LOWGAIN;
-                size = (uint)Buffer.Length;
-                bt_loadMC1.Enabled = true;
-                chb_eraseALL1.Enabled = true;
-            }
-            else
-            {
-                rb_cmos12_select_lg.BackColor = Color.Transparent;
-            }
-        }
-        private void rb_flight_right_wing_double_pass_lg_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_flight_right_wing_double_pass_lg.Checked)
-            {
-                rb_flight_right_wing_double_pass_lg.BackColor = SystemColors.ActiveCaption;
-                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT_LOWGAIN;
-                size = (uint)Buffer.Length;
-                bt_loadMC1.Enabled = true;
-                chb_eraseALL1.Enabled = true;
-            }
-            else
-            {
-                rb_flight_right_wing_double_pass_lg.BackColor = Color.Transparent;
-            }
-        }
-        private void rb_flight_left_wing_double_pass_lg_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_flight_left_wing_double_pass_lg.Checked)
-            {
-                rb_flight_left_wing_double_pass_lg.BackColor = SystemColors.ActiveCaption;
-                Buffer = new _u8[FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN_size];
-                Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_LEFT_LOWGAIN;
-                size = (uint)Buffer.Length;
-                bt_loadMC1.Enabled = true;
-                chb_eraseALL1.Enabled = true;
-            }
-            else
-            {
-                rb_flight_left_wing_double_pass_lg.BackColor = Color.Transparent;
             }
         }
         private void rb_cmos12_select_long_time2_CheckedChanged(object sender, EventArgs e)
