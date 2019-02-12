@@ -1617,6 +1617,7 @@
             this.rb_flight_universal.TabIndex = 39;
             this.rb_flight_universal.Text = "Загрузка прошивки \"FLIGHT_UNIVERSAL\"";
             this.rb_flight_universal.UseVisualStyleBackColor = true;
+            this.rb_flight_universal.CheckedChanged += new System.EventHandler(this.rb_flight_universal_CheckedChanged);
             // 
             // rb_new_RUP
             // 

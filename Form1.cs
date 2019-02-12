@@ -3690,16 +3690,6 @@ namespace OLO_CAN
         {
             if (rb_cmos12_select_long_time.Checked)
             {
-                rb_cmos12_select_long_time.BackColor = SystemColors.ActiveCaption;
-                //size = (UInt32)Properties.Resources.firmware_solo2_cmos12_select_long_time.Length;
-                //var assembly = Assembly.GetExecutingAssembly();
-                //var firmware = "OLO_CAN.Resources.firmware_solo2_cmos12_select_long_time.bin";
-                //Buffer = new _u8[size];
-                //Stream stream = assembly.GetManifestResourceStream(firmware);
-                //using (BinaryReader reader = new BinaryReader(stream))
-                //{
-                //    reader.Read(Buffer, 0, (int)stream.Length);
-                //}
                 Buffer = new _u8[FWDATA.SOLO2_SELECT_LONG_size];
                 Buffer = (_u8[])FWDATA.SOLO2_SELECT_LONG;
                 size = (uint)Buffer.Length;
@@ -3717,17 +3707,6 @@ namespace OLO_CAN
             if (rb_cmos12_select.Checked)
             {
                 rb_cmos12_select.BackColor = SystemColors.ActiveCaption;
-//                size = (UInt32)Properties.Resources.SOLO2_SELECT_31082016_01.Length;
-////                size = (UInt32)Properties.Resources.firmware_solo2_cmos12_select.Length;
-//                var assembly = Assembly.GetExecutingAssembly();
-////                var firmware = "OLO_CAN.Resources.firmware_solo2_cmos12_select.bin";
-//                var firmware = "OLO_CAN.Resources.SOLO2_SELECT_31082016_01.bin";
-//                Buffer = new _u8[size];
-//                Stream stream = assembly.GetManifestResourceStream(firmware);
-//                using (BinaryReader reader = new BinaryReader(stream))
-//                {
-//                    reader.Read(Buffer, 0, (int)stream.Length);
-//                }
                 Buffer = new _u8[FWDATA.SOLO2_SELECT_size];
                 Buffer = (_u8[])FWDATA.SOLO2_SELECT;
                 size = (uint)Buffer.Length;
@@ -3743,15 +3722,6 @@ namespace OLO_CAN
         {
             if (rb_flight_left_wing_double_pass.Checked)
             {
-                //size = (UInt32)Properties.Resources.firmware_solo2_flight_left_wing_double_pass.Length;
-                //var assembly = Assembly.GetExecutingAssembly();
-                //var firmware = "OLO_CAN.Resources.firmware_solo2_flight_left_wing_double_pass.bin";
-                //Buffer = new _u8[size];
-                //Stream stream = assembly.GetManifestResourceStream(firmware);
-                //using (BinaryReader reader = new BinaryReader(stream))
-                //{
-                //    reader.Read(Buffer, 0, (int)stream.Length);
-                //}
                 Buffer = new _u8[FWDATA.SOLO2_FLIGHT_LEFT_size];
                 Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_LEFT;
                 size = (uint)Buffer.Length;
@@ -3769,15 +3739,6 @@ namespace OLO_CAN
             if (rb_flight_right_wing_double_pass.Checked)
             {
                 rb_flight_right_wing_double_pass.BackColor = SystemColors.ActiveCaption;
-                //size = (UInt32)Properties.Resources.firmware_solo2_flight_right_wing_double_pass.Length;
-                //var assembly = Assembly.GetExecutingAssembly();
-                //var firmware = "OLO_CAN.Resources.firmware_solo2_flight_right_wing_double_pass.bin";
-                //Buffer = new _u8[size];
-                //Stream stream = assembly.GetManifestResourceStream(firmware);
-                //using (BinaryReader reader = new BinaryReader(stream))
-                //{
-                //    reader.Read(Buffer, 0, (int)stream.Length);
-                //}
                 Buffer = new _u8[FWDATA.SOLO2_FLIGHT_RIGHT_size];
                 Buffer = (_u8[])FWDATA.SOLO2_FLIGHT_RIGHT;
                 size = (uint)Buffer.Length;
@@ -3860,7 +3821,22 @@ namespace OLO_CAN
                 rb_new_RUP.BackColor = Color.Transparent;
             }
         }
-
+        private void rb_flight_universal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_flight_universal.Checked)
+            {
+                rb_flight_universal.BackColor = SystemColors.ActiveCaption;
+                Buffer = new _u8[FWDATA.FLIGHT_U_2_2_3_size];
+                Buffer = (_u8[])FWDATA.FLIGHT_U_2_2_3;
+                size = (uint)Buffer.Length;
+                bt_loadMC1.Enabled = true;
+                chb_eraseALL1.Enabled = true;
+            }
+            else
+            {
+                rb_new_RUP.BackColor = Color.Transparent;
+            }
+        }
         #endregion
         private void timer_Error_Boot_Tick(object sender, EventArgs e)
         {
@@ -6890,6 +6866,7 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
+
      }
 
     public static class RichTextBoxExtensions
