@@ -1622,7 +1622,7 @@
             // rb_new_RUP
             // 
             this.rb_new_RUP.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_new_RUP.Location = new System.Drawing.Point(6, 167);
+            this.rb_new_RUP.Location = new System.Drawing.Point(9, 167);
             this.rb_new_RUP.Name = "rb_new_RUP";
             this.rb_new_RUP.Size = new System.Drawing.Size(444, 17);
             this.rb_new_RUP.TabIndex = 38;
@@ -1633,7 +1633,7 @@
             // rb_cmos12_select2
             // 
             this.rb_cmos12_select2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_cmos12_select2.Location = new System.Drawing.Point(6, 144);
+            this.rb_cmos12_select2.Location = new System.Drawing.Point(9, 144);
             this.rb_cmos12_select2.Name = "rb_cmos12_select2";
             this.rb_cmos12_select2.Size = new System.Drawing.Size(444, 17);
             this.rb_cmos12_select2.TabIndex = 37;
@@ -1644,7 +1644,7 @@
             // rb_cmos12_select_long_time2
             // 
             this.rb_cmos12_select_long_time2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_cmos12_select_long_time2.Location = new System.Drawing.Point(6, 121);
+            this.rb_cmos12_select_long_time2.Location = new System.Drawing.Point(9, 121);
             this.rb_cmos12_select_long_time2.Name = "rb_cmos12_select_long_time2";
             this.rb_cmos12_select_long_time2.Size = new System.Drawing.Size(444, 17);
             this.rb_cmos12_select_long_time2.TabIndex = 36;
@@ -1688,7 +1688,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label24.Location = new System.Drawing.Point(6, 200);
+            this.label24.Location = new System.Drawing.Point(6, 198);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(114, 13);
             this.label24.TabIndex = 29;
@@ -1719,7 +1719,7 @@
             // rb_cmos12_select
             // 
             this.rb_cmos12_select.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_cmos12_select.Location = new System.Drawing.Point(6, 98);
+            this.rb_cmos12_select.Location = new System.Drawing.Point(9, 98);
             this.rb_cmos12_select.Name = "rb_cmos12_select";
             this.rb_cmos12_select.Size = new System.Drawing.Size(444, 17);
             this.rb_cmos12_select.TabIndex = 26;
@@ -1730,7 +1730,7 @@
             // rb_cmos12_select_long_time
             // 
             this.rb_cmos12_select_long_time.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rb_cmos12_select_long_time.Location = new System.Drawing.Point(6, 75);
+            this.rb_cmos12_select_long_time.Location = new System.Drawing.Point(9, 75);
             this.rb_cmos12_select_long_time.Name = "rb_cmos12_select_long_time";
             this.rb_cmos12_select_long_time.Size = new System.Drawing.Size(444, 17);
             this.rb_cmos12_select_long_time.TabIndex = 25;
