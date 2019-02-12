@@ -2946,14 +2946,14 @@ namespace OLO_CAN
             }
             if (rb_new_RUP.Checked)
             {
-                Buffer = new _u8[FWDATA.new_bootldr_size];
-                Buffer = (_u8[])FWDATA.new_bootldr;
+                Buffer = new _u8[FWDATA.app_bootloader_to_RUP_style_size];
+                Buffer = (_u8[])FWDATA.app_bootloader_to_RUP_style;
             }
 
             if (rb_flight_universal.Checked)
             {
-                Buffer = new _u8[FWDATA.flight_u_222_size];
-                Buffer = (_u8[])FWDATA.flight_u_222;
+                Buffer = new _u8[FWDATA.FLIGHT_U_2_2_3_size];
+                Buffer = (_u8[])FWDATA.FLIGHT_U_2_2_3;
             }
 
 
@@ -3849,8 +3849,8 @@ namespace OLO_CAN
             if (rb_new_RUP.Checked)
             {
                 rb_new_RUP.BackColor = SystemColors.ActiveCaption;
-                Buffer = new _u8[FWDATA.solo2_new_rup_size];
-                Buffer = (_u8[])FWDATA.solo2_new_rup;
+                Buffer = new _u8[FWDATA.app_bootloader_to_RUP_style_size];
+                Buffer = (_u8[])FWDATA.app_bootloader_to_RUP_style;
                 size = (uint)Buffer.Length;
                 bt_loadMC1.Enabled = true;
                 chb_eraseALL1.Enabled = true;
