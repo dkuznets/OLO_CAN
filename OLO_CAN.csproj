@@ -120,6 +120,9 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="app_bootloader_to_rup_style.cs" />
+    <Compile Include="can_emu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CRC32.cs" />
     <Compile Include="flight_u_2_2_3.cs" />
     <Compile Include="Form1.cs">

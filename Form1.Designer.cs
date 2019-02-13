@@ -450,6 +450,7 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -2978,6 +2979,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.rtb3_datagrid);
             this.tabPage4.Controls.Add(this.checkBox2);
             this.tabPage4.Controls.Add(this.chb4_nopaint);
             this.tabPage4.Controls.Add(this.gb3_shoot);
@@ -3393,7 +3395,7 @@
             this.dgview3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgview3.ShowCellErrors = false;
             this.dgview3.ShowEditingIcon = false;
-            this.dgview3.Size = new System.Drawing.Size(605, 333);
+            this.dgview3.Size = new System.Drawing.Size(605, 107);
             this.dgview3.TabIndex = 48;
             this.dgview3.Click += new System.EventHandler(this.dgview3_Click);
             // 
@@ -5001,6 +5003,14 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // rtb3_datagrid
+            // 
+            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
+            this.rtb3_datagrid.Name = "rtb3_datagrid";
+            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 220);
+            this.rtb3_datagrid.TabIndex = 59;
+            this.rtb3_datagrid.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5534,6 +5544,7 @@
         private System.Windows.Forms.TrackBar trackBar3;
         public System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox rtb3_datagrid;
 	}
 }
 

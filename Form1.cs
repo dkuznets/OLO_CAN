@@ -4942,6 +4942,7 @@ namespace OLO_CAN
         }
         #endregion
 
+/*
         #region OLO_Emu
         #region CAN
         private void bt_OpenCAN3_Click(object sender, EventArgs e)
@@ -5852,7 +5853,7 @@ namespace OLO_CAN
         {
         }
         #endregion
-
+*/
         #region OLO_CANTest
         private void bt_OpenCAN4_Click(object sender, EventArgs e)
         {
