@@ -3368,6 +3368,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
             this.panel3.Location = new System.Drawing.Point(413, 9);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 200);
