@@ -4942,7 +4942,7 @@ namespace OLO_CAN
         }
         #endregion
 
-/*
+
         #region OLO_Emu
         #region CAN
         private void bt_OpenCAN3_Click(object sender, EventArgs e)
@@ -5532,50 +5532,36 @@ namespace OLO_CAN
         }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            if (!chb4_nopaint.Checked)
+            Graphics gr = e.Graphics;
+            const UInt16 DSPOT = 4;
+            if (list_shots.Count > 0)
             {
-                Graphics gr = e.Graphics;
-                Pen p = new Pen(Color.Blue, 1);// цвет линии и ширина
-                gr.FillEllipse(new SolidBrush(Color.White), 0, 0, 199, 199);
-                gr.DrawEllipse(p, 0, 0, 199, 199);
-
-                for (int i = 0; i < 12; i++)
+                foreach (var it in list_shots)
                 {
-                    Point p1 = new Point(99, 99);// первая точка
-                    int x = (int)(99 * Math.Cos((Double)(i * 30 * Math.PI / 180)));
-                    int y = (int)(99 * Math.Sin((Double)(i * 30 * Math.PI / 180)));
-                    Point p2 = new Point(x + 99, y + 99);// вторая точка
-                    gr.DrawLine(p, p1, p2);// рисуем линию
-                }
+                    int x = 0, y = 0;
+                    Double z = 0;
+                    Double ugol = (Double)it.ugol / 60, azimut = (Double)it.azimut / 60;
+                    z = (int)Math.Abs(ugol);
 
-                if (list_shots.Count > 0)
-                {
-                    foreach (var it in list_shots)
+                    if (it.bort == 1)
                     {
-                        int x = 0, y = 0;
-                        int z = 0;
-                        // костылик, мля... лениво думать...
-                        int ugol = it.ugol + 5400, azimut = it.azimut + 5400;
-
-                        if ((ugol / 60) <= 90)
-                            z = (int)(ugol / 60 * Math.Sin(ugol / 60 * Math.PI / 180));
-                        else
-                            z = (int)((180 - ugol / 60) * Math.Sin((180 - ugol / 60) * Math.PI / 180));
-                        if (it.bort == 1)
-                        {
-                            x = (int)(z * Math.Cos((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
-                            y = (int)(z * Math.Sin((Double)((azimut - 90 * 60) / 60 * Math.PI / 180)));
-                        }
-                        else
-                        {
-                            x = (int)(z * Math.Cos((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
-                            y = (int)(z * Math.Sin((Double)(-(azimut + 90 * 60) / 60 * Math.PI / 180)));
-                        }
-                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - 5, y + 99 - 5, 10, 10);
+                        x = (int)(z * Math.Cos((Double)(azimut * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)(azimut * Math.PI / 180)));
                     }
+                    else
+                    {
+                        x = (int)(z * Math.Cos((Double)((azimut + 180) * Math.PI / 180)));
+                        y = (int)(z * Math.Sin((Double)((azimut + 180) * Math.PI / 180)));
+                    }
+                    if (ugol < 0)
+                        gr.FillEllipse(new SolidBrush(Color.Red), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
+                    else
+                        gr.FillEllipse(new SolidBrush(Color.Green), x + 99 - DSPOT, y + 99 - DSPOT, DSPOT * 2, DSPOT * 2);
                 }
-                gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
+                if(cb_clear_shot.Checked)
+                    list_shots.Clear();
             }
+            gr.Dispose();// освобождаем все ресурсы, связанные с отрисовкой
         }
         private void timer_Reset_Shots3_Tick(object sender, EventArgs e)
         {
@@ -5853,7 +5839,7 @@ namespace OLO_CAN
         {
         }
         #endregion
-*/
+
         #region OLO_CANTest
         private void bt_OpenCAN4_Click(object sender, EventArgs e)
         {
@@ -6859,7 +6845,6 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
-
      }
 
     public static class RichTextBoxExtensions
