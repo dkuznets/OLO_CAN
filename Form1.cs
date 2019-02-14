@@ -5268,65 +5268,6 @@ namespace OLO_CAN
                         }
                         break;
 
-                    case msg_t.mID_SYNCTIME:
-                        if (messages[i].deviceID != Const.OLO_All)
-	                    {
-                            mss = "Синхронизация времени" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
-	                    }
-                        else
-	                    {
-                            mss = "Синхронизация времени ОЛО";
-                            strelka = strelka_R;
-	                    }
-                        break;
-
-                    case msg_t.mID_REQTIME:
-                        mss = "Запрос времени" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                        strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
-                        if (messages[i].deviceID == Const.OLO_Left)
-                        {
-                            mmm.messageID = msg_t.mID_GETTIME;
-                            mmm.deviceID = Const.OLO_Left;
-                            mmm.messageData = BitConverter.GetBytes(ConvertToUnixTimestamp(DateTime.Now));
-                            mmm.messageLen = 8;
-                            canmsg_t mmsg = new canmsg_t();
-                            mmsg.data = new Byte[8];
-                            mmsg = mmm.ToCAN(mmm);
-                            if (!uniCAN.Send(ref mmsg, 200))
-                                return;
-                            messages.Add(mmm);
-                        }
-                        else
-                        {
-                            mmm.messageID = msg_t.mID_GETTIME;
-                            mmm.deviceID = Const.OLO_Right;
-                            mmm.messageData = BitConverter.GetBytes(ConvertToUnixTimestamp(DateTime.Now));
-                            mmm.messageLen = 8;
-                            canmsg_t mmsg = new canmsg_t();
-                            mmsg.data = new Byte[8];
-                            mmsg = mmm.ToCAN(mmm);
-                            if (!uniCAN.Send(ref mmsg, 200))
-                                return;
-                            messages.Add(mmm);
-                        }
-
-                        break;
-
-                    case msg_t.mID_GETTIME:
-                        DateTime dt = ConvertFromUnixTimestamp(BitConverter.ToUInt64(messages[i].messageData, 0));
-                        if (messages[i].deviceID != Const.OLO_All)
-	                    {
-                            mss = "Время" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П") + " " + dt.ToShortDateString() + " " + dt.ToLongTimeString();
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
-	                    }
-                        else
-	                    {
-                            mss = "Синхронизация времени ОЛО";
-                            strelka = strelka_L;
-	                    }
-                       break;
-
                     case msg_t.mID_MODULE:
                         if (messages[i].deviceID != Const.OLO_All)
                         {
@@ -5367,6 +5308,7 @@ namespace OLO_CAN
                         break;
 
                     case msg_t.mID_STATREQ:
+#region mID_STATREQ
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Запрос статуса" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5538,6 +5480,7 @@ namespace OLO_CAN
                             }
 	                    }
                         break;
+#endregion
 
                     case msg_t.mID_DATA:
                         int az = BitConverter.ToInt16(messages[i].messageData, 4);
