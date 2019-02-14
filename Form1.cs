@@ -5395,11 +5395,29 @@ namespace OLO_CAN
                                     mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
                                     mmm.messageData[1] = 0; //штатный режим
                                     mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    unchecked
+                                    try
                                     {
-                                        mmm.messageData[3] = (Byte)(-11); //T1
-                                        mmm.messageData[4] = (Byte)(+11); //T2
-                                        mmm.messageData[5] = (Byte)(+31); //T3
+                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[3] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[4] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[5] = 0;
                                     }
                                     mmm.messageLen = 8;
                                     canmsg_t mmsg = new canmsg_t();
@@ -5418,11 +5436,29 @@ namespace OLO_CAN
                                     mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
                                     mmm.messageData[1] = 0; //штатный режим
                                     mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    unchecked
+                                    try
                                     {
-                                        mmm.messageData[3] = (Byte)(-12); //T1
-                                        mmm.messageData[4] = (Byte)(+12); //T2
-                                        mmm.messageData[5] = (Byte)(+32); //T3
+                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[3] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[4] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[5] = 0;
                                     }
                                     mmm.messageLen = 8;
                                     canmsg_t mmsg = new canmsg_t();
