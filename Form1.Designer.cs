@@ -256,6 +256,7 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.bt3_rand = new System.Windows.Forms.Button();
             this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.chb4_nopaint = new System.Windows.Forms.CheckBox();
@@ -275,6 +276,13 @@
             this.chb_dgview3 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.gb_olo_R = new System.Windows.Forms.GroupBox();
+            this.bt3_badmess_r = new System.Windows.Forms.Button();
+            this.lb3_t2_r = new System.Windows.Forms.Label();
+            this.tb3_t2_r = new System.Windows.Forms.TextBox();
+            this.lb3_t1_r = new System.Windows.Forms.Label();
+            this.tb3_t1_r = new System.Windows.Forms.TextBox();
+            this.lb3_tarm_r = new System.Windows.Forms.Label();
+            this.tb3_tarm_r = new System.Windows.Forms.TextBox();
             this.chb_R_Err_file = new System.Windows.Forms.CheckBox();
             this.cb_olo_r_ena = new System.Windows.Forms.CheckBox();
             this.chb_R_Err_plis = new System.Windows.Forms.CheckBox();
@@ -282,6 +290,13 @@
             this.label27 = new System.Windows.Forms.Label();
             this.chb_R_Err_int = new System.Windows.Forms.CheckBox();
             this.gb_olo_L = new System.Windows.Forms.GroupBox();
+            this.bt3_badmess_l = new System.Windows.Forms.Button();
+            this.lb3_t2_l = new System.Windows.Forms.Label();
+            this.tb3_t2_l = new System.Windows.Forms.TextBox();
+            this.lb3_t1_l = new System.Windows.Forms.Label();
+            this.tb3_t1_l = new System.Windows.Forms.TextBox();
+            this.lb3_tarm_l = new System.Windows.Forms.Label();
+            this.tb3_tarm_l = new System.Windows.Forms.TextBox();
             this.chb_L_Err_file = new System.Windows.Forms.CheckBox();
             this.chb_L_Err_plis = new System.Windows.Forms.CheckBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -451,21 +466,8 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tb3_tarm_l = new System.Windows.Forms.TextBox();
-            this.lb3_tarm_l = new System.Windows.Forms.Label();
-            this.lb3_t1_l = new System.Windows.Forms.Label();
-            this.tb3_t1_l = new System.Windows.Forms.TextBox();
-            this.lb3_t2_l = new System.Windows.Forms.Label();
-            this.tb3_t2_l = new System.Windows.Forms.TextBox();
-            this.lb3_t2_r = new System.Windows.Forms.Label();
-            this.tb3_t2_r = new System.Windows.Forms.TextBox();
-            this.lb3_t1_r = new System.Windows.Forms.Label();
-            this.tb3_t1_r = new System.Windows.Forms.TextBox();
-            this.lb3_tarm_r = new System.Windows.Forms.Label();
-            this.tb3_tarm_r = new System.Windows.Forms.TextBox();
-            this.bt3_rand = new System.Windows.Forms.Button();
-            this.bt3_badmess_l = new System.Windows.Forms.Button();
-            this.bt3_badmess_r = new System.Windows.Forms.Button();
+            this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
+            this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3015,6 +3017,15 @@
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // bt3_rand
+            // 
+            this.bt3_rand.Location = new System.Drawing.Point(828, 20);
+            this.bt3_rand.Name = "bt3_rand";
+            this.bt3_rand.Size = new System.Drawing.Size(126, 23);
+            this.bt3_rand.TabIndex = 41;
+            this.bt3_rand.Text = "Random message";
+            this.bt3_rand.UseVisualStyleBackColor = true;
+            // 
             // rtb3_datagrid
             // 
             this.rtb3_datagrid.Location = new System.Drawing.Point(6, 546);
@@ -3249,6 +3260,71 @@
             this.gb_olo_R.TabStop = false;
             this.gb_olo_R.Text = "ОЛО-Правый";
             // 
+            // bt3_badmess_r
+            // 
+            this.bt3_badmess_r.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badmess_r.Name = "bt3_badmess_r";
+            this.bt3_badmess_r.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badmess_r.TabIndex = 42;
+            this.bt3_badmess_r.Text = "Bad message";
+            this.bt3_badmess_r.UseVisualStyleBackColor = true;
+            // 
+            // lb3_t2_r
+            // 
+            this.lb3_t2_r.AutoSize = true;
+            this.lb3_t2_r.Location = new System.Drawing.Point(130, 181);
+            this.lb3_t2_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t2_r.Name = "lb3_t2_r";
+            this.lb3_t2_r.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t2_r.TabIndex = 46;
+            this.lb3_t2_r.Text = "T2";
+            // 
+            // tb3_t2_r
+            // 
+            this.tb3_t2_r.Location = new System.Drawing.Point(107, 178);
+            this.tb3_t2_r.Name = "tb3_t2_r";
+            this.tb3_t2_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t2_r.TabIndex = 45;
+            this.tb3_t2_r.Text = "4";
+            this.tb3_t2_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_t1_r
+            // 
+            this.lb3_t1_r.AutoSize = true;
+            this.lb3_t1_r.Location = new System.Drawing.Point(84, 181);
+            this.lb3_t1_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t1_r.Name = "lb3_t1_r";
+            this.lb3_t1_r.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t1_r.TabIndex = 44;
+            this.lb3_t1_r.Text = "T1";
+            // 
+            // tb3_t1_r
+            // 
+            this.tb3_t1_r.Location = new System.Drawing.Point(61, 178);
+            this.tb3_t1_r.Name = "tb3_t1_r";
+            this.tb3_t1_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t1_r.TabIndex = 43;
+            this.tb3_t1_r.Text = "6";
+            this.tb3_t1_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_tarm_r
+            // 
+            this.lb3_tarm_r.AutoSize = true;
+            this.lb3_tarm_r.Location = new System.Drawing.Point(29, 181);
+            this.lb3_tarm_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_tarm_r.Name = "lb3_tarm_r";
+            this.lb3_tarm_r.Size = new System.Drawing.Size(31, 13);
+            this.lb3_tarm_r.TabIndex = 42;
+            this.lb3_tarm_r.Text = "Tarm";
+            // 
+            // tb3_tarm_r
+            // 
+            this.tb3_tarm_r.Location = new System.Drawing.Point(6, 178);
+            this.tb3_tarm_r.Name = "tb3_tarm_r";
+            this.tb3_tarm_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_tarm_r.TabIndex = 41;
+            this.tb3_tarm_r.Text = "32";
+            // 
             // chb_R_Err_file
             // 
             this.chb_R_Err_file.AutoSize = true;
@@ -3337,6 +3413,71 @@
             this.gb_olo_L.TabIndex = 51;
             this.gb_olo_L.TabStop = false;
             this.gb_olo_L.Text = "ОЛО-Левый";
+            // 
+            // bt3_badmess_l
+            // 
+            this.bt3_badmess_l.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badmess_l.Name = "bt3_badmess_l";
+            this.bt3_badmess_l.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badmess_l.TabIndex = 41;
+            this.bt3_badmess_l.Text = "Bad message";
+            this.bt3_badmess_l.UseVisualStyleBackColor = true;
+            // 
+            // lb3_t2_l
+            // 
+            this.lb3_t2_l.AutoSize = true;
+            this.lb3_t2_l.Location = new System.Drawing.Point(130, 181);
+            this.lb3_t2_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t2_l.Name = "lb3_t2_l";
+            this.lb3_t2_l.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t2_l.TabIndex = 40;
+            this.lb3_t2_l.Text = "T2";
+            // 
+            // tb3_t2_l
+            // 
+            this.tb3_t2_l.Location = new System.Drawing.Point(107, 178);
+            this.tb3_t2_l.Name = "tb3_t2_l";
+            this.tb3_t2_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t2_l.TabIndex = 39;
+            this.tb3_t2_l.Text = "7";
+            this.tb3_t2_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_t1_l
+            // 
+            this.lb3_t1_l.AutoSize = true;
+            this.lb3_t1_l.Location = new System.Drawing.Point(84, 181);
+            this.lb3_t1_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t1_l.Name = "lb3_t1_l";
+            this.lb3_t1_l.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t1_l.TabIndex = 38;
+            this.lb3_t1_l.Text = "T1";
+            // 
+            // tb3_t1_l
+            // 
+            this.tb3_t1_l.Location = new System.Drawing.Point(61, 178);
+            this.tb3_t1_l.Name = "tb3_t1_l";
+            this.tb3_t1_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t1_l.TabIndex = 37;
+            this.tb3_t1_l.Text = "5";
+            this.tb3_t1_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_tarm_l
+            // 
+            this.lb3_tarm_l.AutoSize = true;
+            this.lb3_tarm_l.Location = new System.Drawing.Point(29, 181);
+            this.lb3_tarm_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_tarm_l.Name = "lb3_tarm_l";
+            this.lb3_tarm_l.Size = new System.Drawing.Size(31, 13);
+            this.lb3_tarm_l.TabIndex = 36;
+            this.lb3_tarm_l.Text = "Tarm";
+            // 
+            // tb3_tarm_l
+            // 
+            this.tb3_tarm_l.Location = new System.Drawing.Point(6, 178);
+            this.tb3_tarm_l.Name = "tb3_tarm_l";
+            this.tb3_tarm_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_tarm_l.TabIndex = 35;
+            this.tb3_tarm_l.Text = "35";
             // 
             // chb_L_Err_file
             // 
@@ -5043,144 +5184,15 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
-            // tb3_tarm_l
+            // timer3_reset_l
             // 
-            this.tb3_tarm_l.Location = new System.Drawing.Point(6, 178);
-            this.tb3_tarm_l.Name = "tb3_tarm_l";
-            this.tb3_tarm_l.Size = new System.Drawing.Size(20, 20);
-            this.tb3_tarm_l.TabIndex = 35;
-            this.tb3_tarm_l.Text = "35";
+            this.timer3_reset_l.Interval = 30000;
+            this.timer3_reset_l.Tick += new System.EventHandler(this.timer3_reset_l_Tick);
             // 
-            // lb3_tarm_l
+            // timer3_reset_r
             // 
-            this.lb3_tarm_l.AutoSize = true;
-            this.lb3_tarm_l.Location = new System.Drawing.Point(29, 181);
-            this.lb3_tarm_l.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_tarm_l.Name = "lb3_tarm_l";
-            this.lb3_tarm_l.Size = new System.Drawing.Size(31, 13);
-            this.lb3_tarm_l.TabIndex = 36;
-            this.lb3_tarm_l.Text = "Tarm";
-            // 
-            // lb3_t1_l
-            // 
-            this.lb3_t1_l.AutoSize = true;
-            this.lb3_t1_l.Location = new System.Drawing.Point(84, 181);
-            this.lb3_t1_l.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_t1_l.Name = "lb3_t1_l";
-            this.lb3_t1_l.Size = new System.Drawing.Size(20, 13);
-            this.lb3_t1_l.TabIndex = 38;
-            this.lb3_t1_l.Text = "T1";
-            // 
-            // tb3_t1_l
-            // 
-            this.tb3_t1_l.Location = new System.Drawing.Point(61, 178);
-            this.tb3_t1_l.Name = "tb3_t1_l";
-            this.tb3_t1_l.Size = new System.Drawing.Size(20, 20);
-            this.tb3_t1_l.TabIndex = 37;
-            this.tb3_t1_l.Text = "5";
-            this.tb3_t1_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lb3_t2_l
-            // 
-            this.lb3_t2_l.AutoSize = true;
-            this.lb3_t2_l.Location = new System.Drawing.Point(130, 181);
-            this.lb3_t2_l.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_t2_l.Name = "lb3_t2_l";
-            this.lb3_t2_l.Size = new System.Drawing.Size(20, 13);
-            this.lb3_t2_l.TabIndex = 40;
-            this.lb3_t2_l.Text = "T2";
-            // 
-            // tb3_t2_l
-            // 
-            this.tb3_t2_l.Location = new System.Drawing.Point(107, 178);
-            this.tb3_t2_l.Name = "tb3_t2_l";
-            this.tb3_t2_l.Size = new System.Drawing.Size(20, 20);
-            this.tb3_t2_l.TabIndex = 39;
-            this.tb3_t2_l.Text = "7";
-            this.tb3_t2_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lb3_t2_r
-            // 
-            this.lb3_t2_r.AutoSize = true;
-            this.lb3_t2_r.Location = new System.Drawing.Point(130, 181);
-            this.lb3_t2_r.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_t2_r.Name = "lb3_t2_r";
-            this.lb3_t2_r.Size = new System.Drawing.Size(20, 13);
-            this.lb3_t2_r.TabIndex = 46;
-            this.lb3_t2_r.Text = "T2";
-            // 
-            // tb3_t2_r
-            // 
-            this.tb3_t2_r.Location = new System.Drawing.Point(107, 178);
-            this.tb3_t2_r.Name = "tb3_t2_r";
-            this.tb3_t2_r.Size = new System.Drawing.Size(20, 20);
-            this.tb3_t2_r.TabIndex = 45;
-            this.tb3_t2_r.Text = "4";
-            this.tb3_t2_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lb3_t1_r
-            // 
-            this.lb3_t1_r.AutoSize = true;
-            this.lb3_t1_r.Location = new System.Drawing.Point(84, 181);
-            this.lb3_t1_r.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_t1_r.Name = "lb3_t1_r";
-            this.lb3_t1_r.Size = new System.Drawing.Size(20, 13);
-            this.lb3_t1_r.TabIndex = 44;
-            this.lb3_t1_r.Text = "T1";
-            // 
-            // tb3_t1_r
-            // 
-            this.tb3_t1_r.Location = new System.Drawing.Point(61, 178);
-            this.tb3_t1_r.Name = "tb3_t1_r";
-            this.tb3_t1_r.Size = new System.Drawing.Size(20, 20);
-            this.tb3_t1_r.TabIndex = 43;
-            this.tb3_t1_r.Text = "6";
-            this.tb3_t1_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lb3_tarm_r
-            // 
-            this.lb3_tarm_r.AutoSize = true;
-            this.lb3_tarm_r.Location = new System.Drawing.Point(29, 181);
-            this.lb3_tarm_r.Margin = new System.Windows.Forms.Padding(0);
-            this.lb3_tarm_r.Name = "lb3_tarm_r";
-            this.lb3_tarm_r.Size = new System.Drawing.Size(31, 13);
-            this.lb3_tarm_r.TabIndex = 42;
-            this.lb3_tarm_r.Text = "Tarm";
-            // 
-            // tb3_tarm_r
-            // 
-            this.tb3_tarm_r.Location = new System.Drawing.Point(6, 178);
-            this.tb3_tarm_r.Name = "tb3_tarm_r";
-            this.tb3_tarm_r.Size = new System.Drawing.Size(20, 20);
-            this.tb3_tarm_r.TabIndex = 41;
-            this.tb3_tarm_r.Text = "32";
-            // 
-            // bt3_rand
-            // 
-            this.bt3_rand.Location = new System.Drawing.Point(828, 20);
-            this.bt3_rand.Name = "bt3_rand";
-            this.bt3_rand.Size = new System.Drawing.Size(126, 23);
-            this.bt3_rand.TabIndex = 41;
-            this.bt3_rand.Text = "Random message";
-            this.bt3_rand.UseVisualStyleBackColor = true;
-            // 
-            // bt3_badmess_l
-            // 
-            this.bt3_badmess_l.Location = new System.Drawing.Point(6, 205);
-            this.bt3_badmess_l.Name = "bt3_badmess_l";
-            this.bt3_badmess_l.Size = new System.Drawing.Size(168, 23);
-            this.bt3_badmess_l.TabIndex = 41;
-            this.bt3_badmess_l.Text = "Bad message";
-            this.bt3_badmess_l.UseVisualStyleBackColor = true;
-            // 
-            // bt3_badmess_r
-            // 
-            this.bt3_badmess_r.Location = new System.Drawing.Point(6, 205);
-            this.bt3_badmess_r.Name = "bt3_badmess_r";
-            this.bt3_badmess_r.Size = new System.Drawing.Size(168, 23);
-            this.bt3_badmess_r.TabIndex = 42;
-            this.bt3_badmess_r.Text = "Bad message";
-            this.bt3_badmess_r.UseVisualStyleBackColor = true;
+            this.timer3_reset_r.Interval = 30000;
+            this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
             // Form1
             // 
@@ -5731,6 +5743,8 @@
         private System.Windows.Forms.Button bt3_rand;
         private System.Windows.Forms.Button bt3_badmess_r;
         private System.Windows.Forms.Button bt3_badmess_l;
+        private System.Windows.Forms.Timer timer3_reset_l;
+        private System.Windows.Forms.Timer timer3_reset_r;
 	}
 }
 

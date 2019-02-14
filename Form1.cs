@@ -147,6 +147,10 @@ namespace OLO_CAN
         int timer_Reset_Shots_Interval = 10000;
         UInt32 timestamp = 0;
         UInt32 timestampold = 0;
+
+        Boolean flag_reset_left = false;
+        Boolean flag_reset_right = false;
+
         #endregion
 
         #region Tab2
@@ -5240,24 +5244,25 @@ namespace OLO_CAN
                 String mss = "";
                 switch (messages[i].messageID)
                 {
-                    case msg_t.mID_SIMRESET:
-                        mss = "Сброс эмулятора" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                        strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
-                        if (messages[i].deviceID == Const.OLO_Left)
-                            cb_olo_l_ena.CheckState = CheckState.Unchecked;
-                        else
-                            cb_olo_r_ena.CheckState = CheckState.Unchecked;
-                        break;
-
                     case msg_t.mID_RESET:
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Системный сброс" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                             strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                             if (messages[i].deviceID == Const.OLO_Left)
+                            {
                                 timer_testOLO_L3.Enabled = false;
+                                flag_reset_left = true;
+                                timer3_reset_l.Enabled = false;
+                                timer3_reset_l.Enabled = true;
+                            }
                             else
+                            {
                                 timer_testOLO_R3.Enabled = false;
+                                flag_reset_right = true;
+                                timer3_reset_r.Enabled = false;
+                                timer3_reset_r.Enabled = true;
+                            }
                         }
                         else
                         {
@@ -5269,6 +5274,16 @@ namespace OLO_CAN
                         break;
 
                     case msg_t.mID_MODULE:
+                        #region сброс сообщений для ОЛО в режиме программирования
+                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        {
+                            break;
+                        }
+                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
+                        {
+                            break;
+                        }
+                        #endregion
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим модуля" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5282,6 +5297,16 @@ namespace OLO_CAN
                         break;
 
                     case msg_t.mID_SOER:
+                        #region сброс сообщений для ОЛО в режиме программирования
+                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        {
+                            break;
+                        }
+                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
+                        {
+                            break;
+                        }
+                        #endregion
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим СОЭР" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5295,6 +5320,16 @@ namespace OLO_CAN
                         break;
 
                     case msg_t.mID_PROG:
+                        #region сброс сообщений для ОЛО в режиме программирования
+                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        {
+                            break;
+                        }
+                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
+                        {
+                            break;
+                        }
+                        #endregion
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим программирования" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5309,6 +5344,51 @@ namespace OLO_CAN
 
                     case msg_t.mID_STATREQ:
 #region mID_STATREQ
+                        #region сброс сообщений для ОЛО в режиме программирования
+                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        {
+                            mmm.messageID = msg_t.mID_STATUS;
+                            mmm.deviceID = Const.OLO_Left;
+                            mmm.messageData[0] = 0x13;
+                            mmm.messageData[1] = 0x23;
+                            mmm.messageData[2] = 0xF2;
+                            mmm.messageData[3] = 0x00;
+                            mmm.messageData[4] = 0x11;
+                            mmm.messageData[5] = 0x80;
+                            mmm.messageData[6] = 0x00;
+                            mmm.messageData[7] = 0x00;
+                            mmm.messageLen = 8;
+                            canmsg_t mmsg = new canmsg_t();
+                            mmsg.data = new Byte[8];
+                            mmsg = mmm.ToCAN(mmm);
+                            if (!uniCAN.Send(ref mmsg, 200))
+                                return;
+                            messages.Add(mmm);
+                            break;
+                        }
+                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
+                        {
+                            mmm.messageID = msg_t.mID_STATUS;
+                            mmm.deviceID = Const.OLO_Right;
+                            mmm.messageData[0] = 0x13;
+                            mmm.messageData[1] = 0x23;
+                            mmm.messageData[2] = 0xF2;
+                            mmm.messageData[3] = 0x00;
+                            mmm.messageData[4] = 0x11;
+                            mmm.messageData[5] = 0x80;
+                            mmm.messageData[6] = 0x00;
+                            mmm.messageData[7] = 0x00;
+                            mmm.messageLen = 8;
+                            canmsg_t mmsg = new canmsg_t();
+                            mmsg.data = new Byte[8];
+                            mmsg = mmm.ToCAN(mmm);
+                            if (!uniCAN.Send(ref mmsg, 200))
+                                return;
+                            messages.Add(mmm);
+                            break;
+                        }
+                        #endregion
+
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Запрос статуса" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5483,6 +5563,16 @@ namespace OLO_CAN
 #endregion
 
                     case msg_t.mID_DATA:
+                        #region сброс сообщений для ОЛО в режиме программирования
+                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        {
+                            break;
+                        }
+                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
+                        {
+                            break;
+                        }
+                        #endregion
                         int az = BitConverter.ToInt16(messages[i].messageData, 4);
                         int um = BitConverter.ToInt16(messages[i].messageData, 6);
                         //mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
@@ -5545,6 +5635,18 @@ namespace OLO_CAN
             if (scroll)
                 messages.Clear();
         }
+        #region таймеры эмуляции ресета
+        private void timer3_reset_l_Tick(object sender, EventArgs e)
+        {
+            flag_reset_left = false;
+            timer3_reset_l.Enabled = false;
+        }
+        private void timer3_reset_r_Tick(object sender, EventArgs e)
+        {
+            flag_reset_right = false;
+            timer3_reset_r.Enabled = false;
+        }
+        #endregion
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
             Graphics gr = e.Graphics;
@@ -6860,6 +6962,7 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
+
      }
 
     public static class RichTextBoxExtensions
