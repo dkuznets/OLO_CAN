@@ -150,6 +150,8 @@ namespace OLO_CAN
 
         Boolean flag_reset_left = false;
         Boolean flag_reset_right = false;
+        Byte soer_l = 0;
+        Byte soer_r = 0;
 
         #endregion
 
@@ -4946,7 +4948,6 @@ namespace OLO_CAN
         }
         #endregion
 
-
         #region OLO_Emu
         #region CAN
         private void bt_OpenCAN3_Click(object sender, EventArgs e)
@@ -5245,6 +5246,7 @@ namespace OLO_CAN
                 switch (messages[i].messageID)
                 {
                     case msg_t.mID_RESET:
+#region mID_RESET
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Системный сброс" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
@@ -5272,8 +5274,9 @@ namespace OLO_CAN
                             strelka = strelka_R;
                         }
                         break;
-
+#endregion
                     case msg_t.mID_MODULE:
+#region mID_MODULE
                         #region сброс сообщений для ОЛО в режиме программирования
                         if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
                         {
@@ -5295,10 +5298,11 @@ namespace OLO_CAN
                             strelka = strelka_R;
 	                    }
                         break;
-
+#endregion
                     case msg_t.mID_SOER:
+#region mID_SOER
                         #region сброс сообщений для ОЛО в режиме программирования
-                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
+                        if (messages[i].deviceID == Const.OLO_Left && flag_reset_left)
                         {
                             break;
                         }
@@ -5310,7 +5314,16 @@ namespace OLO_CAN
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим СОЭР" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
+                            if (messages[i].deviceID != Const.OLO_Left)
+                            {
+                                soer_l = messages[i].messageData[0];
+                                strelka = strelka_RB;
+                            }
+                            else
+                            {
+                                soer_r = messages[i].messageData[0];
+                                strelka = strelka_RG;
+                            }
                         }
                         else
 	                    {
@@ -5318,8 +5331,9 @@ namespace OLO_CAN
                             strelka = strelka_R;
 	                    }
                         break;
-
+#endregion
                     case msg_t.mID_PROG:
+#region mID_PROG
                         #region сброс сообщений для ОЛО в режиме программирования
                         if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
                         {
@@ -5341,7 +5355,7 @@ namespace OLO_CAN
                             strelka = strelka_R;
 	                    }
                         break;
-
+#endregion
                     case msg_t.mID_STATREQ:
 #region mID_STATREQ
                         #region сброс сообщений для ОЛО в режиме программирования
@@ -5561,8 +5575,8 @@ namespace OLO_CAN
 	                    }
                         break;
 #endregion
-
                     case msg_t.mID_DATA:
+#region mID_DATA
                         #region сброс сообщений для ОЛО в режиме программирования
                         if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
                         {
@@ -5604,18 +5618,49 @@ namespace OLO_CAN
                         }
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
-
+#endregion
                     case msg_t.mID_STATUS:
+#region mID_STATUS
                         mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T2=" + ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T3=" + ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                         strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
-
+#endregion
                 }
+#region Вывод инфы в грид
                 String rawdata = "";
                 for (int j = 0; j < messages[i].messageLen; j++)
                     rawdata += messages[i].messageData[j].ToString("X2") + " ";
+
+                String stimestamp = "";
+
+                timestamp = 0;
+                String temp_str = "";
+                temp_str = strelka_s + "\t" + rawdata + " \t" + mss;
+                if (messages[i].messageID.ToString("X2") == "2D")
+                {
+                    timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
+                    stimestamp = timestamp.ToString();
+                    temp_str += "\t" + stimestamp;
+                }
+                temp_str += "\r\n";
+                if (messages[i].messageID.ToString("X2") == "2D")
+                {
+                    if (BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
+                    {
+                        rtb3_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                    }
+                    else
+                    {
+                        rtb3_datagrid.AppendText(temp_str, Color.Red);
+                    }
+                }
+                else
+                {
+                    rtb3_datagrid.AppendText(temp_str);
+                }
+                rtb3_datagrid.ScrollToCaret();
 
                 if (scroll)
                 {
@@ -5626,11 +5671,7 @@ namespace OLO_CAN
                     if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
                         dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                 }
-
-                //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО левый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightBlue;
-                //if (dgview.Rows[dgview.Rows.Count - 1].Cells[1].Value.ToString() == "ОЛО правый" && dgview.Rows[dgview.Rows.Count - 1].Cells[5].Value.ToString() != "2D")
-                //    dgview.Rows[dgview.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightGreen;
+#endregion
             }
             if (scroll)
                 messages.Clear();
