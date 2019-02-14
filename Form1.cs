@@ -5069,7 +5069,7 @@ namespace OLO_CAN
                 um = trackBar3_um.Value;
             }
 //            UInt32 dl = r.Next(15000);
-            UInt32 dl = (UInt32)DateTime.Now.Millisecond / 100;
+            UInt32 dl = (UInt32)(DateTime.Now.Millisecond / 100);
             mm.messageData[0] = (Byte)dl;
             mm.messageData[1] = (Byte)(dl >> 8);
             mm.messageData[2] = (Byte)(dl >> 16);
