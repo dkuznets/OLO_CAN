@@ -451,6 +451,21 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tb3_tarm_l = new System.Windows.Forms.TextBox();
+            this.lb3_tarm_l = new System.Windows.Forms.Label();
+            this.lb3_t1_l = new System.Windows.Forms.Label();
+            this.tb3_t1_l = new System.Windows.Forms.TextBox();
+            this.lb3_t2_l = new System.Windows.Forms.Label();
+            this.tb3_t2_l = new System.Windows.Forms.TextBox();
+            this.lb3_t2_r = new System.Windows.Forms.Label();
+            this.tb3_t2_r = new System.Windows.Forms.TextBox();
+            this.lb3_t1_r = new System.Windows.Forms.Label();
+            this.tb3_t1_r = new System.Windows.Forms.TextBox();
+            this.lb3_tarm_r = new System.Windows.Forms.Label();
+            this.tb3_tarm_r = new System.Windows.Forms.TextBox();
+            this.bt3_rand = new System.Windows.Forms.Button();
+            this.bt3_badmess_l = new System.Windows.Forms.Button();
+            this.bt3_badmess_r = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -2979,6 +2994,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.bt3_rand);
             this.tabPage4.Controls.Add(this.rtb3_datagrid);
             this.tabPage4.Controls.Add(this.checkBox2);
             this.tabPage4.Controls.Add(this.chb4_nopaint);
@@ -3001,9 +3017,9 @@
             // 
             // rtb3_datagrid
             // 
-            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
+            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 546);
             this.rtb3_datagrid.Name = "rtb3_datagrid";
-            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 220);
+            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 98);
             this.rtb3_datagrid.TabIndex = 59;
             this.rtb3_datagrid.Text = "";
             // 
@@ -3191,9 +3207,9 @@
             this.chb_dgview3.BackColor = System.Drawing.Color.SpringGreen;
             this.chb_dgview3.Checked = true;
             this.chb_dgview3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chb_dgview3.Location = new System.Drawing.Point(328, 282);
+            this.chb_dgview3.Location = new System.Drawing.Point(195, 395);
             this.chb_dgview3.Name = "chb_dgview3";
-            this.chb_dgview3.Size = new System.Drawing.Size(285, 23);
+            this.chb_dgview3.Size = new System.Drawing.Size(180, 23);
             this.chb_dgview3.TabIndex = 50;
             this.chb_dgview3.Text = "Скролл включен";
             this.chb_dgview3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3202,16 +3218,23 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 282);
+            this.button2.Location = new System.Drawing.Point(6, 395);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(285, 23);
+            this.button2.Size = new System.Drawing.Size(180, 23);
             this.button2.TabIndex = 53;
-            this.button2.Text = "Очистка грида";
+            this.button2.Text = "Очистка лога";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // gb_olo_R
             // 
+            this.gb_olo_R.Controls.Add(this.bt3_badmess_r);
+            this.gb_olo_R.Controls.Add(this.lb3_t2_r);
+            this.gb_olo_R.Controls.Add(this.tb3_t2_r);
+            this.gb_olo_R.Controls.Add(this.lb3_t1_r);
+            this.gb_olo_R.Controls.Add(this.tb3_t1_r);
+            this.gb_olo_R.Controls.Add(this.lb3_tarm_r);
+            this.gb_olo_R.Controls.Add(this.tb3_tarm_r);
             this.gb_olo_R.Controls.Add(this.chb_R_Err_file);
             this.gb_olo_R.Controls.Add(this.cb_olo_r_ena);
             this.gb_olo_R.Controls.Add(this.chb_R_Err_plis);
@@ -3221,7 +3244,7 @@
             this.gb_olo_R.Enabled = false;
             this.gb_olo_R.Location = new System.Drawing.Point(195, 93);
             this.gb_olo_R.Name = "gb_olo_R";
-            this.gb_olo_R.Size = new System.Drawing.Size(180, 183);
+            this.gb_olo_R.Size = new System.Drawing.Size(180, 296);
             this.gb_olo_R.TabIndex = 52;
             this.gb_olo_R.TabStop = false;
             this.gb_olo_R.Text = "ОЛО-Правый";
@@ -3264,7 +3287,7 @@
             this.shoot_r.Enabled = false;
             this.shoot_r.Location = new System.Drawing.Point(6, 43);
             this.shoot_r.Name = "shoot_r";
-            this.shoot_r.Size = new System.Drawing.Size(128, 23);
+            this.shoot_r.Size = new System.Drawing.Size(168, 23);
             this.shoot_r.TabIndex = 30;
             this.shoot_r.Text = "Выстрел";
             this.shoot_r.UseVisualStyleBackColor = true;
@@ -3274,9 +3297,10 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Enabled = false;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label27.Location = new System.Drawing.Point(6, 83);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(124, 13);
+            this.label27.Size = new System.Drawing.Size(143, 13);
             this.label27.TabIndex = 36;
             this.label27.Text = "Неисправности ОЛО-П";
             // 
@@ -3293,6 +3317,13 @@
             // 
             // gb_olo_L
             // 
+            this.gb_olo_L.Controls.Add(this.bt3_badmess_l);
+            this.gb_olo_L.Controls.Add(this.lb3_t2_l);
+            this.gb_olo_L.Controls.Add(this.tb3_t2_l);
+            this.gb_olo_L.Controls.Add(this.lb3_t1_l);
+            this.gb_olo_L.Controls.Add(this.tb3_t1_l);
+            this.gb_olo_L.Controls.Add(this.lb3_tarm_l);
+            this.gb_olo_L.Controls.Add(this.tb3_tarm_l);
             this.gb_olo_L.Controls.Add(this.chb_L_Err_file);
             this.gb_olo_L.Controls.Add(this.chb_L_Err_plis);
             this.gb_olo_L.Controls.Add(this.label26);
@@ -3302,7 +3333,7 @@
             this.gb_olo_L.Enabled = false;
             this.gb_olo_L.Location = new System.Drawing.Point(6, 93);
             this.gb_olo_L.Name = "gb_olo_L";
-            this.gb_olo_L.Size = new System.Drawing.Size(180, 183);
+            this.gb_olo_L.Size = new System.Drawing.Size(180, 296);
             this.gb_olo_L.TabIndex = 51;
             this.gb_olo_L.TabStop = false;
             this.gb_olo_L.Text = "ОЛО-Левый";
@@ -3333,9 +3364,10 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Enabled = false;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label26.Location = new System.Drawing.Point(6, 83);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(124, 13);
+            this.label26.Size = new System.Drawing.Size(143, 13);
             this.label26.TabIndex = 32;
             this.label26.Text = "Неисправности ОЛО-Л";
             // 
@@ -3367,7 +3399,7 @@
             this.shoot_l.Enabled = false;
             this.shoot_l.Location = new System.Drawing.Point(6, 43);
             this.shoot_l.Name = "shoot_l";
-            this.shoot_l.Size = new System.Drawing.Size(127, 23);
+            this.shoot_l.Size = new System.Drawing.Size(168, 23);
             this.shoot_l.TabIndex = 29;
             this.shoot_l.Text = "Выстрел";
             this.shoot_l.UseVisualStyleBackColor = true;
@@ -3396,7 +3428,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dgview3.Location = new System.Drawing.Point(8, 311);
+            this.dgview3.Location = new System.Drawing.Point(6, 433);
             this.dgview3.MultiSelect = false;
             this.dgview3.Name = "dgview3";
             this.dgview3.RowHeadersVisible = false;
@@ -5011,6 +5043,145 @@
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // tb3_tarm_l
+            // 
+            this.tb3_tarm_l.Location = new System.Drawing.Point(6, 178);
+            this.tb3_tarm_l.Name = "tb3_tarm_l";
+            this.tb3_tarm_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_tarm_l.TabIndex = 35;
+            this.tb3_tarm_l.Text = "35";
+            // 
+            // lb3_tarm_l
+            // 
+            this.lb3_tarm_l.AutoSize = true;
+            this.lb3_tarm_l.Location = new System.Drawing.Point(29, 181);
+            this.lb3_tarm_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_tarm_l.Name = "lb3_tarm_l";
+            this.lb3_tarm_l.Size = new System.Drawing.Size(31, 13);
+            this.lb3_tarm_l.TabIndex = 36;
+            this.lb3_tarm_l.Text = "Tarm";
+            // 
+            // lb3_t1_l
+            // 
+            this.lb3_t1_l.AutoSize = true;
+            this.lb3_t1_l.Location = new System.Drawing.Point(84, 181);
+            this.lb3_t1_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t1_l.Name = "lb3_t1_l";
+            this.lb3_t1_l.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t1_l.TabIndex = 38;
+            this.lb3_t1_l.Text = "T1";
+            // 
+            // tb3_t1_l
+            // 
+            this.tb3_t1_l.Location = new System.Drawing.Point(61, 178);
+            this.tb3_t1_l.Name = "tb3_t1_l";
+            this.tb3_t1_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t1_l.TabIndex = 37;
+            this.tb3_t1_l.Text = "5";
+            this.tb3_t1_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_t2_l
+            // 
+            this.lb3_t2_l.AutoSize = true;
+            this.lb3_t2_l.Location = new System.Drawing.Point(130, 181);
+            this.lb3_t2_l.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t2_l.Name = "lb3_t2_l";
+            this.lb3_t2_l.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t2_l.TabIndex = 40;
+            this.lb3_t2_l.Text = "T2";
+            // 
+            // tb3_t2_l
+            // 
+            this.tb3_t2_l.Location = new System.Drawing.Point(107, 178);
+            this.tb3_t2_l.Name = "tb3_t2_l";
+            this.tb3_t2_l.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t2_l.TabIndex = 39;
+            this.tb3_t2_l.Text = "7";
+            this.tb3_t2_l.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_t2_r
+            // 
+            this.lb3_t2_r.AutoSize = true;
+            this.lb3_t2_r.Location = new System.Drawing.Point(130, 181);
+            this.lb3_t2_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t2_r.Name = "lb3_t2_r";
+            this.lb3_t2_r.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t2_r.TabIndex = 46;
+            this.lb3_t2_r.Text = "T2";
+            // 
+            // tb3_t2_r
+            // 
+            this.tb3_t2_r.Location = new System.Drawing.Point(107, 178);
+            this.tb3_t2_r.Name = "tb3_t2_r";
+            this.tb3_t2_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t2_r.TabIndex = 45;
+            this.tb3_t2_r.Text = "4";
+            this.tb3_t2_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_t1_r
+            // 
+            this.lb3_t1_r.AutoSize = true;
+            this.lb3_t1_r.Location = new System.Drawing.Point(84, 181);
+            this.lb3_t1_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_t1_r.Name = "lb3_t1_r";
+            this.lb3_t1_r.Size = new System.Drawing.Size(20, 13);
+            this.lb3_t1_r.TabIndex = 44;
+            this.lb3_t1_r.Text = "T1";
+            // 
+            // tb3_t1_r
+            // 
+            this.tb3_t1_r.Location = new System.Drawing.Point(61, 178);
+            this.tb3_t1_r.Name = "tb3_t1_r";
+            this.tb3_t1_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_t1_r.TabIndex = 43;
+            this.tb3_t1_r.Text = "6";
+            this.tb3_t1_r.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lb3_tarm_r
+            // 
+            this.lb3_tarm_r.AutoSize = true;
+            this.lb3_tarm_r.Location = new System.Drawing.Point(29, 181);
+            this.lb3_tarm_r.Margin = new System.Windows.Forms.Padding(0);
+            this.lb3_tarm_r.Name = "lb3_tarm_r";
+            this.lb3_tarm_r.Size = new System.Drawing.Size(31, 13);
+            this.lb3_tarm_r.TabIndex = 42;
+            this.lb3_tarm_r.Text = "Tarm";
+            // 
+            // tb3_tarm_r
+            // 
+            this.tb3_tarm_r.Location = new System.Drawing.Point(6, 178);
+            this.tb3_tarm_r.Name = "tb3_tarm_r";
+            this.tb3_tarm_r.Size = new System.Drawing.Size(20, 20);
+            this.tb3_tarm_r.TabIndex = 41;
+            this.tb3_tarm_r.Text = "32";
+            // 
+            // bt3_rand
+            // 
+            this.bt3_rand.Location = new System.Drawing.Point(828, 20);
+            this.bt3_rand.Name = "bt3_rand";
+            this.bt3_rand.Size = new System.Drawing.Size(126, 23);
+            this.bt3_rand.TabIndex = 41;
+            this.bt3_rand.Text = "Random message";
+            this.bt3_rand.UseVisualStyleBackColor = true;
+            // 
+            // bt3_badmess_l
+            // 
+            this.bt3_badmess_l.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badmess_l.Name = "bt3_badmess_l";
+            this.bt3_badmess_l.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badmess_l.TabIndex = 41;
+            this.bt3_badmess_l.Text = "Bad message";
+            this.bt3_badmess_l.UseVisualStyleBackColor = true;
+            // 
+            // bt3_badmess_r
+            // 
+            this.bt3_badmess_r.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badmess_r.Name = "bt3_badmess_r";
+            this.bt3_badmess_r.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badmess_r.TabIndex = 42;
+            this.bt3_badmess_r.Text = "Bad message";
+            this.bt3_badmess_r.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5545,6 +5716,21 @@
         public System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RichTextBox rtb3_datagrid;
+        private System.Windows.Forms.Label lb3_t2_r;
+        private System.Windows.Forms.TextBox tb3_t2_r;
+        private System.Windows.Forms.Label lb3_t1_r;
+        private System.Windows.Forms.TextBox tb3_t1_r;
+        private System.Windows.Forms.Label lb3_tarm_r;
+        private System.Windows.Forms.TextBox tb3_tarm_r;
+        private System.Windows.Forms.Label lb3_t2_l;
+        private System.Windows.Forms.TextBox tb3_t2_l;
+        private System.Windows.Forms.Label lb3_t1_l;
+        private System.Windows.Forms.TextBox tb3_t1_l;
+        private System.Windows.Forms.Label lb3_tarm_l;
+        private System.Windows.Forms.TextBox tb3_tarm_l;
+        private System.Windows.Forms.Button bt3_rand;
+        private System.Windows.Forms.Button bt3_badmess_r;
+        private System.Windows.Forms.Button bt3_badmess_l;
 	}
 }
 
