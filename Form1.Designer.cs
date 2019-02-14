@@ -256,6 +256,7 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.chb4_nopaint = new System.Windows.Forms.CheckBox();
             this.gb3_shoot = new System.Windows.Forms.GroupBox();
@@ -450,7 +451,6 @@
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -2999,6 +2999,14 @@
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // rtb3_datagrid
+            // 
+            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
+            this.rtb3_datagrid.Name = "rtb3_datagrid";
+            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 220);
+            this.rtb3_datagrid.TabIndex = 59;
+            this.rtb3_datagrid.Text = "";
+            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -5002,14 +5010,6 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // rtb3_datagrid
-            // 
-            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
-            this.rtb3_datagrid.Name = "rtb3_datagrid";
-            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 220);
-            this.rtb3_datagrid.TabIndex = 59;
-            this.rtb3_datagrid.Text = "";
             // 
             // Form1
             // 
