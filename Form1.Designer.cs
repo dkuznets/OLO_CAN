@@ -3028,9 +3028,9 @@
             // 
             // rtb3_datagrid
             // 
-            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 546);
+            this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
             this.rtb3_datagrid.Name = "rtb3_datagrid";
-            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 98);
+            this.rtb3_datagrid.Size = new System.Drawing.Size(607, 220);
             this.rtb3_datagrid.TabIndex = 59;
             this.rtb3_datagrid.Text = "";
             // 
@@ -3569,15 +3569,16 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dgview3.Location = new System.Drawing.Point(6, 433);
+            this.dgview3.Location = new System.Drawing.Point(109, 443);
             this.dgview3.MultiSelect = false;
             this.dgview3.Name = "dgview3";
             this.dgview3.RowHeadersVisible = false;
             this.dgview3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgview3.ShowCellErrors = false;
             this.dgview3.ShowEditingIcon = false;
-            this.dgview3.Size = new System.Drawing.Size(605, 107);
+            this.dgview3.Size = new System.Drawing.Size(605, 29);
             this.dgview3.TabIndex = 48;
+            this.dgview3.Visible = false;
             this.dgview3.Click += new System.EventHandler(this.dgview3_Click);
             // 
             // dataGridViewImageColumn1

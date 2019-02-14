@@ -5068,9 +5068,12 @@ namespace OLO_CAN
                 az = trackBar3_az.Value;
                 um = trackBar3_um.Value;
             }
-            int dl = r.Next(15000);
+//            UInt32 dl = r.Next(15000);
+            UInt32 dl = (UInt32)DateTime.Now.Ticks;
             mm.messageData[0] = (Byte)dl;
             mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
             mm.messageData[4] = (Byte)az;
             mm.messageData[5] = (Byte)(az >> 8);
             mm.messageData[6] = (Byte)um;
@@ -5661,7 +5664,7 @@ namespace OLO_CAN
                     rtb3_datagrid.AppendText(temp_str);
                 }
                 rtb3_datagrid.ScrollToCaret();
-
+/*
                 if (scroll)
                 {
                     if (dgview3.RowCount >= 100)
@@ -5671,6 +5674,7 @@ namespace OLO_CAN
                     if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
                         dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
                 }
+ */
 #endregion
             }
             if (scroll)
