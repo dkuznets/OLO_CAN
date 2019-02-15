@@ -3115,9 +3115,9 @@
             this.lb3_freq_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_freq_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_freq_val_r.Enabled = false;
-            this.lb3_freq_val_r.Location = new System.Drawing.Point(182, 371);
+            this.lb3_freq_val_r.Location = new System.Drawing.Point(176, 371);
             this.lb3_freq_val_r.Name = "lb3_freq_val_r";
-            this.lb3_freq_val_r.Size = new System.Drawing.Size(31, 15);
+            this.lb3_freq_val_r.Size = new System.Drawing.Size(35, 15);
             this.lb3_freq_val_r.TabIndex = 72;
             this.lb3_freq_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3136,9 +3136,9 @@
             this.lb3_shoot_um_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_um_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_um_val_r.Enabled = false;
-            this.lb3_shoot_um_val_r.Location = new System.Drawing.Point(182, 351);
+            this.lb3_shoot_um_val_r.Location = new System.Drawing.Point(176, 351);
             this.lb3_shoot_um_val_r.Name = "lb3_shoot_um_val_r";
-            this.lb3_shoot_um_val_r.Size = new System.Drawing.Size(31, 15);
+            this.lb3_shoot_um_val_r.Size = new System.Drawing.Size(35, 15);
             this.lb3_shoot_um_val_r.TabIndex = 70;
             this.lb3_shoot_um_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3147,9 +3147,9 @@
             this.lb3_shoot_az_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_az_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_az_val_r.Enabled = false;
-            this.lb3_shoot_az_val_r.Location = new System.Drawing.Point(182, 331);
+            this.lb3_shoot_az_val_r.Location = new System.Drawing.Point(176, 331);
             this.lb3_shoot_az_val_r.Name = "lb3_shoot_az_val_r";
-            this.lb3_shoot_az_val_r.Size = new System.Drawing.Size(31, 15);
+            this.lb3_shoot_az_val_r.Size = new System.Drawing.Size(35, 15);
             this.lb3_shoot_az_val_r.TabIndex = 69;
             this.lb3_shoot_az_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3247,9 +3247,9 @@
             this.lb3_freq_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_freq_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_freq_val_l.Enabled = false;
-            this.lb3_freq_val_l.Location = new System.Drawing.Point(74, 371);
+            this.lb3_freq_val_l.Location = new System.Drawing.Point(68, 371);
             this.lb3_freq_val_l.Name = "lb3_freq_val_l";
-            this.lb3_freq_val_l.Size = new System.Drawing.Size(31, 15);
+            this.lb3_freq_val_l.Size = new System.Drawing.Size(35, 15);
             this.lb3_freq_val_l.TabIndex = 64;
             this.lb3_freq_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3293,9 +3293,9 @@
             this.lb3_shoot_um_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_um_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_um_val_l.Enabled = false;
-            this.lb3_shoot_um_val_l.Location = new System.Drawing.Point(74, 351);
+            this.lb3_shoot_um_val_l.Location = new System.Drawing.Point(68, 351);
             this.lb3_shoot_um_val_l.Name = "lb3_shoot_um_val_l";
-            this.lb3_shoot_um_val_l.Size = new System.Drawing.Size(31, 15);
+            this.lb3_shoot_um_val_l.Size = new System.Drawing.Size(35, 15);
             this.lb3_shoot_um_val_l.TabIndex = 61;
             this.lb3_shoot_um_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3304,9 +3304,9 @@
             this.lb3_shoot_az_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_az_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_az_val_l.Enabled = false;
-            this.lb3_shoot_az_val_l.Location = new System.Drawing.Point(74, 331);
+            this.lb3_shoot_az_val_l.Location = new System.Drawing.Point(68, 331);
             this.lb3_shoot_az_val_l.Name = "lb3_shoot_az_val_l";
-            this.lb3_shoot_az_val_l.Size = new System.Drawing.Size(31, 15);
+            this.lb3_shoot_az_val_l.Size = new System.Drawing.Size(35, 15);
             this.lb3_shoot_az_val_l.TabIndex = 60;
             this.lb3_shoot_az_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
