@@ -5866,18 +5866,13 @@ namespace OLO_CAN
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             lb3_freq_val.Text = (trackBar3_freq.Value).ToString() + " Гц";
-
-            //            tm4_test.Interval = 1000 / trackBar1.Value;
+            tm4_autoshl.Interval = 1000 / trackBar3_freq.Value;
+            tm4_autoshr.Interval = 1000 / trackBar3_freq.Value;
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
         {
             if (chb4_enshl.Checked)
             {
-                //                tm4_counter.Interval = 1000 / trackBar1.Value;
-                //                if (trackBar1.Value < 30) 
-                //                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
-                //                else
-                //                    tm4_autoshl.Interval = 1000 / 30;
                 tm4_autoshl.Interval = 1000 / trackBar3_freq.Value;
                 tm4_autoshl.Enabled = true;
             }
@@ -5890,11 +5885,6 @@ namespace OLO_CAN
         {
             if (chb4_enshr.Checked)
             {
-                //                tm4_counter.Interval = 1000 / trackBar1.Value;
-                //                if (trackBar1.Value < 30)
-                //                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
-                //                else
-                //                    tm4_autoshr.Interval = 1000 / 30;
                 tm4_autoshr.Interval = 1000 / trackBar3_freq.Value;
                 tm4_autoshr.Enabled = true;
             }
