@@ -152,6 +152,8 @@ namespace OLO_CAN
         Boolean flag_reset_right = false;
         Byte soer_l = 0;
         Byte soer_r = 0;
+        Thread thr_l_shoot;
+        Thread thr_r_shoot;
 
         #endregion
 
@@ -6943,8 +6945,23 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            UInt64 dl1 = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
-            MessageBox.Show(dl1.ToString());
+            thr_l_shoot = new Thread(new ThreadStart(shoot_left_auto));
+            thr_l_shoot.Start();
+        }
+        void shoot_left_auto()
+        {
+            while(true)
+            {
+                shoot(Const.OLO_Left);
+                Thread.Sleep(1000 / trackBar3_freq_l.Value);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            thr_l_shoot.Abort();
+            while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
+            MessageBox.Show("!!!!");
         }
      }
 
