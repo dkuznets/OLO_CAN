@@ -5031,8 +5031,16 @@ namespace OLO_CAN
             }
             else
             {
-                az = trackBar3_az_l.Value * 60;
-                um = trackBar3_um_l.Value * 60;
+                if (id == Const.OLO_Left)
+                {
+                    az = trackBar3_az_l.Value * 60;
+                    um = trackBar3_um_l.Value * 60;
+                }
+                else
+                {
+                    az = trackBar3_az_r.Value * 60;
+                    um = trackBar3_um_r.Value * 60;
+                }
             }
 
             UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
@@ -5824,12 +5832,6 @@ namespace OLO_CAN
                 chb_dgview3.BackColor = Color.OrangeRed;
             }
         }
-        private void trackBar3_az_Scroll(object sender, EventArgs e)
-        {
-        }
-        private void trackBar3_um_Scroll(object sender, EventArgs e)
-        {
-        }
         private void chb3_shoot_ena_CheckedChanged(object sender, EventArgs e)
         {
             if (chb3_shoot_ena.Checked)
@@ -5883,9 +5885,6 @@ namespace OLO_CAN
                 trackBar3_freq_r.Enabled = false;
             }
         }
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-        }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
         {
             if (chb4_enshl.Checked)
@@ -5902,7 +5901,7 @@ namespace OLO_CAN
         {
             if (chb4_enshr.Checked)
             {
-                tm4_autoshr.Interval = 1000 / trackBar3_freq_l.Value;
+                tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
                 tm4_autoshr.Enabled = true;
             }
             else
@@ -5920,6 +5919,32 @@ namespace OLO_CAN
         }
         private void tm4_counter_Tick(object sender, EventArgs e)
         {
+        }
+        private void trackBar3_az_l_Scroll(object sender, EventArgs e)
+        {
+            lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
+        }
+        private void trackBar3_um_l_Scroll(object sender, EventArgs e)
+        {
+            lb3_shoot_um_val_l.Text = (trackBar3_um_l.Value).ToString("0'°'");
+        }
+        private void trackBar3_freq_l_Scroll(object sender, EventArgs e)
+        {
+            lb3_freq_val_l.Text = (trackBar3_freq_l.Value).ToString() + " Гц";
+            tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
+        }
+        private void trackBar3_az_r_Scroll(object sender, EventArgs e)
+        {
+            lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
+        }
+        private void trackBar3_um_r_Scroll(object sender, EventArgs e)
+        {
+            lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
+        }
+        private void trackBar3_freq_r_Scroll(object sender, EventArgs e)
+        {
+            lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
+            tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
         }
 
         private void tm4_test_Tick(object sender, EventArgs e)
@@ -6938,39 +6963,6 @@ namespace OLO_CAN
             UInt64 dl1 = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
             MessageBox.Show(dl1.ToString());
         }
-
-        private void trackBar3_az_l_Scroll(object sender, EventArgs e)
-        {
-            lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
-        }
-
-        private void trackBar3_um_l_Scroll(object sender, EventArgs e)
-        {
-            lb3_shoot_um_val_l.Text = (trackBar3_um_l.Value).ToString("0'°'");
-        }
-
-        private void trackBar3_freq_l_Scroll(object sender, EventArgs e)
-        {
-            lb3_freq_val_l.Text = (trackBar3_freq_l.Value).ToString() + " Гц";
-            tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
-        }
-
-        private void trackBar3_az_r_Scroll(object sender, EventArgs e)
-        {
-            lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
-        }
-
-        private void trackBar3_um_r_Scroll(object sender, EventArgs e)
-        {
-            lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
-        }
-
-        private void trackBar3_freq_r_Scroll(object sender, EventArgs e)
-        {
-            lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
-            tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
-        }
-
      }
 
     public static class RichTextBoxExtensions
