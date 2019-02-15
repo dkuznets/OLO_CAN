@@ -5853,19 +5853,13 @@ namespace OLO_CAN
                 lb3_shoot_um_val.Enabled = true;
                 lb3_shoot_az_txt.Enabled = true;
                 lb3_shoot_um_txt.Enabled = true;
-                if(trackBar3_az.Value >= 0)
-                    lb3_shoot_az_val.Text = (trackBar3_az.Value / 60).ToString("0'°'") + (trackBar3_az.Value % 60).ToString() + "' ";
-                else
-                    lb3_shoot_az_val.Text = "-" + (Math.Abs(trackBar3_az.Value) / 60).ToString("0'°'") + (Math.Abs(trackBar3_az.Value) % 60).ToString() + "' ";
-                if(trackBar3_um.Value >= 0)
-                    lb3_shoot_um_val.Text = (trackBar3_um.Value / 60).ToString("0'°'") + (trackBar3_um.Value % 60).ToString() + "' ";
-                else
-                    lb3_shoot_um_val.Text = "-" + (Math.Abs(trackBar3_um.Value) / 60).ToString("0'°'") + (Math.Abs(trackBar3_um.Value) % 60).ToString() + "' ";
+                lb3_shoot_az_val.Text = (trackBar3_az.Value).ToString("0'°'");
+                lb3_shoot_um_val.Text = (trackBar3_um.Value).ToString("0'°'");
 
                 trackBar3_az.Enabled = true;
                 trackBar3_um.Enabled = true;
                 trackBar1.Enabled = true;
-                lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
+                lb3_freq_val.Text = (trackBar1.Value).ToString() + " Гц";
             }
             else
             {
