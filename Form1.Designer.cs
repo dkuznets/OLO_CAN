@@ -256,6 +256,7 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.bt3_rand = new System.Windows.Forms.Button();
             this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -468,7 +469,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3019,6 +3019,16 @@
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(828, 49);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 60;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
             // bt3_rand
             // 
             this.bt3_rand.Location = new System.Drawing.Point(828, 20);
@@ -3167,15 +3177,14 @@
             this.trackBar3_um.Enabled = false;
             this.trackBar3_um.LargeChange = 1080;
             this.trackBar3_um.Location = new System.Drawing.Point(74, 59);
-            this.trackBar3_um.Maximum = 5400;
-            this.trackBar3_um.Minimum = -5400;
+            this.trackBar3_um.Maximum = 90;
+            this.trackBar3_um.Minimum = -90;
             this.trackBar3_um.Name = "trackBar3_um";
             this.trackBar3_um.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_um.Size = new System.Drawing.Size(45, 305);
-            this.trackBar3_um.SmallChange = 108;
             this.trackBar3_um.TabIndex = 58;
-            this.trackBar3_um.TickFrequency = 108;
-            this.trackBar3_um.Value = -2000;
+            this.trackBar3_um.TickFrequency = 180;
+            this.trackBar3_um.Value = -45;
             this.trackBar3_um.Scroll += new System.EventHandler(this.trackBar3_um_Scroll);
             // 
             // lb3_shoot_um_txt
@@ -3193,15 +3202,13 @@
             this.trackBar3_az.Enabled = false;
             this.trackBar3_az.LargeChange = 1080;
             this.trackBar3_az.Location = new System.Drawing.Point(7, 59);
-            this.trackBar3_az.Maximum = 5400;
-            this.trackBar3_az.Minimum = -5400;
+            this.trackBar3_az.Maximum = 90;
+            this.trackBar3_az.Minimum = -90;
             this.trackBar3_az.Name = "trackBar3_az";
             this.trackBar3_az.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_az.Size = new System.Drawing.Size(45, 305);
-            this.trackBar3_az.SmallChange = 108;
             this.trackBar3_az.TabIndex = 54;
-            this.trackBar3_az.TickFrequency = 108;
-            this.trackBar3_az.Value = 2000;
+            this.trackBar3_az.Value = 45;
             this.trackBar3_az.Scroll += new System.EventHandler(this.trackBar3_az_Scroll);
             // 
             // lb3_shoot_az_txt
@@ -5196,16 +5203,6 @@
             // 
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(828, 49);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 60;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // Form1
             // 
