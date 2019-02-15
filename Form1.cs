@@ -4046,7 +4046,7 @@ namespace OLO_CAN
                 msg.data = new Byte[8];
                 msg_t mm = new msg_t();
                 uniCAN.Recv(ref msg, 100);
-//                Application.DoEvents();
+                Application.DoEvents();
                 mm = mm.FromCAN(msg);
                 messages.Add(mm);
             }
