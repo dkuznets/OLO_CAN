@@ -5221,20 +5221,12 @@ namespace OLO_CAN
                         messages.Add(mm);
                     if (mm.deviceID == Const.OLO_Right && cb_olo_r_ena.Checked)
                         messages.Add(mm);
-                    if (mm.deviceID == Const.OLO_All && (cb_olo_r_ena.Checked || cb_olo_l_ena.Checked))
-                        messages.Add(mm);
                 }
             }
             for (int i = 0; i < messages.Count; i++)
             {
                 Bitmap strelka = null;
                 String strelka_s = "";
-                Bitmap strelka_LB = Properties.Resources.a_left_Blue;
-                Bitmap strelka_RB = Properties.Resources.a_right_Blue;
-                Bitmap strelka_LG = Properties.Resources.a_left_Green;
-                Bitmap strelka_RG = Properties.Resources.a_right_Green;
-                Bitmap strelka_L = Properties.Resources.a_left;
-                Bitmap strelka_R = Properties.Resources.a_right;
 
                 if (messages[i].deviceID == Const.OLO_Left)
                     strelka_s = "ОЛО левый";
@@ -5250,7 +5242,6 @@ namespace OLO_CAN
                         if (messages[i].deviceID != 0)
                         {
                             mss = "Системный сброс" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                             if (messages[i].deviceID == Const.OLO_Left)
                             {
                                 timer_testOLO_L3.Enabled = false;
@@ -5271,7 +5262,6 @@ namespace OLO_CAN
                             mss = "Системный сброс ОЛО";
                             timer_testOLO_L3.Enabled = false;
                             timer_testOLO_R3.Enabled = false;
-                            strelka = strelka_R;
                         }
                         break;
 #endregion
@@ -5290,12 +5280,10 @@ namespace OLO_CAN
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим модуля" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                         }
                         else
 	                    {
                             mss = "Режим модуля ОЛО";
-                            strelka = strelka_R;
 	                    }
                         break;
 #endregion
@@ -5317,18 +5305,15 @@ namespace OLO_CAN
                             if (messages[i].deviceID != Const.OLO_Left)
                             {
                                 soer_l = messages[i].messageData[0];
-                                strelka = strelka_RB;
                             }
                             else
                             {
                                 soer_r = messages[i].messageData[0];
-                                strelka = strelka_RG;
                             }
                         }
                         else
 	                    {
                             mss = "Режим СОЭР ОЛО";
-                            strelka = strelka_R;
 	                    }
                         break;
 #endregion
@@ -5347,12 +5332,10 @@ namespace OLO_CAN
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Режим программирования" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                         }
                         else
 	                    {
                             mss = "Режим программирования ОЛО";
-                            strelka = strelka_R;
 	                    }
                         break;
 #endregion
@@ -5406,7 +5389,6 @@ namespace OLO_CAN
                         if (messages[i].deviceID != Const.OLO_All)
                         {
                             mss = "Запрос статуса" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_RB : strelka_RG;
                             if (messages[i].messageData[4] == 1 || messages[i].messageData[4] == 3) // Включение автоматической выдачи статуса 
                             {
                                 if (messages[i].deviceID == Const.OLO_Left)
@@ -5509,7 +5491,6 @@ namespace OLO_CAN
                         else
 	                    {
                             mss = "Запрос статуса ОЛО";
-                            strelka = strelka_R;
                             if (messages[i].messageData[4] == 1 || messages[i].messageData[4] == 3)
                             {
                                 if (cb_olo_l_ena.Checked)
@@ -5616,7 +5597,6 @@ namespace OLO_CAN
                             timer_Reset_Shots3.Enabled = true;
                             panel3.Refresh();
                         }
-                        strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
 #endregion
                     case msg_t.mID_STATUS:
@@ -5624,7 +5604,6 @@ namespace OLO_CAN
                         mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T2=" + ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                             "T3=" + ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                        strelka = (messages[i].deviceID == Const.OLO_Left) ? strelka_LB : strelka_LG;
                         break;
 #endregion
                 }
