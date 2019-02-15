@@ -5836,11 +5836,11 @@ namespace OLO_CAN
         }
         private void trackBar3_az_Scroll(object sender, EventArgs e)
         {
-            lb3_shoot_az_val.Text = (trackBar3_az.Value / 60).ToString("0'°'") + (trackBar3_az.Value % 60).ToString() + "' ";
+            lb3_shoot_az_val.Text = (trackBar3_az.Value).ToString("0'°'");
         }
         private void trackBar3_um_Scroll(object sender, EventArgs e)
         {
-            lb3_shoot_um_val.Text = (trackBar3_um.Value / 60).ToString("0'°'") + (trackBar3_um.Value % 60).ToString() + "' ";
+            lb3_shoot_um_val.Text = (trackBar3_um.Value).ToString("0'°'");
         }
         private void chb3_shoot_ena_CheckedChanged(object sender, EventArgs e)
         {
