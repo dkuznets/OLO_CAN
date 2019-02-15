@@ -266,7 +266,7 @@
             this.chb4_enshl = new System.Windows.Forms.CheckBox();
             this.lb3_freq_val = new System.Windows.Forms.Label();
             this.lb3_freq_txt = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar3_freq = new System.Windows.Forms.TrackBar();
             this.chb3_shoot_ena = new System.Windows.Forms.CheckBox();
             this.lb3_shoot_um_val = new System.Windows.Forms.Label();
             this.lb3_shoot_az_val = new System.Windows.Forms.Label();
@@ -501,7 +501,7 @@
             this.gbox_CAN2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.gb3_shoot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3_freq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_um)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_az)).BeginInit();
             this.gb_olo_R.SuspendLayout();
@@ -3073,7 +3073,7 @@
             this.gb3_shoot.Controls.Add(this.chb4_enshl);
             this.gb3_shoot.Controls.Add(this.lb3_freq_val);
             this.gb3_shoot.Controls.Add(this.lb3_freq_txt);
-            this.gb3_shoot.Controls.Add(this.trackBar1);
+            this.gb3_shoot.Controls.Add(this.trackBar3_freq);
             this.gb3_shoot.Controls.Add(this.chb3_shoot_ena);
             this.gb3_shoot.Controls.Add(this.lb3_shoot_um_val);
             this.gb3_shoot.Controls.Add(this.lb3_shoot_az_val);
@@ -3132,19 +3132,19 @@
             this.lb3_freq_txt.TabIndex = 63;
             this.lb3_freq_txt.Text = "Частота";
             // 
-            // trackBar1
+            // trackBar3_freq
             // 
-            this.trackBar1.Enabled = false;
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(141, 59);
-            this.trackBar1.Maximum = 70;
-            this.trackBar1.Minimum = 1;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 305);
-            this.trackBar1.TabIndex = 62;
-            this.trackBar1.Value = 1;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar3_freq.Enabled = false;
+            this.trackBar3_freq.LargeChange = 10;
+            this.trackBar3_freq.Location = new System.Drawing.Point(141, 59);
+            this.trackBar3_freq.Maximum = 70;
+            this.trackBar3_freq.Minimum = 1;
+            this.trackBar3_freq.Name = "trackBar3_freq";
+            this.trackBar3_freq.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar3_freq.Size = new System.Drawing.Size(45, 305);
+            this.trackBar3_freq.TabIndex = 62;
+            this.trackBar3_freq.Value = 1;
+            this.trackBar3_freq.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // chb3_shoot_ena
             // 
@@ -5274,7 +5274,7 @@
             this.tabPage4.PerformLayout();
             this.gb3_shoot.ResumeLayout(false);
             this.gb3_shoot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3_freq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_um)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_az)).EndInit();
             this.gb_olo_R.ResumeLayout(false);
@@ -5560,7 +5560,7 @@
         private System.Windows.Forms.CheckBox chb5_timer_enable;
         private System.Windows.Forms.CheckBox chb3_savelog;
         private System.Windows.Forms.Label lb3_freq_txt;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar3_freq;
         private System.Windows.Forms.Label lb3_freq_val;
         private System.Windows.Forms.CheckBox chb4_enshr;
         private System.Windows.Forms.CheckBox chb4_enshl;

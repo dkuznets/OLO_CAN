@@ -5847,8 +5847,8 @@ namespace OLO_CAN
 
                 trackBar3_az.Enabled = true;
                 trackBar3_um.Enabled = true;
-                trackBar1.Enabled = true;
-                lb3_freq_val.Text = (trackBar1.Value).ToString() + " Гц";
+                trackBar3_freq.Enabled = true;
+                lb3_freq_val.Text = (trackBar3_freq.Value).ToString() + " Гц";
             }
             else
             {
@@ -5860,12 +5860,13 @@ namespace OLO_CAN
                 lb3_freq_txt.Enabled = false;
                 trackBar3_az.Enabled = false;
                 trackBar3_um.Enabled = false;
-                trackBar1.Enabled = false;
+                trackBar3_freq.Enabled = false;
             }
         }
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            lb3_freq_val.Text = (trackBar1.Value).ToString() + " Гц";
+            lb3_freq_val.Text = (trackBar3_freq.Value).ToString() + " Гц";
+
             //            tm4_test.Interval = 1000 / trackBar1.Value;
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
@@ -5877,6 +5878,7 @@ namespace OLO_CAN
                 //                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
                 //                else
                 //                    tm4_autoshl.Interval = 1000 / 30;
+                tm4_autoshl.Interval = trackBar3_freq.Value * 1000;
                 tm4_autoshl.Enabled = true;
             }
             else
@@ -5893,6 +5895,7 @@ namespace OLO_CAN
                 //                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
                 //                else
                 //                    tm4_autoshr.Interval = 1000 / 30;
+                tm4_autoshr.Interval = trackBar3_freq.Value * 1000;
                 tm4_autoshr.Enabled = true;
             }
             else
