@@ -5068,8 +5068,9 @@ namespace OLO_CAN
                 az = trackBar3_az.Value;
                 um = trackBar3_um.Value;
             }
-//            UInt32 dl = r.Next(15000);
-            UInt32 dl = (UInt32)(DateTime.Now.Millisecond);// / 100);
+            UInt32 dl = (UInt32)r.Next(15000);
+//            UInt32 dl = (UInt32)(DateTime.Now. DateTime.Now.Millisecond);// / 100); 
+//            ConvertToUnixTimestamp
             mm.messageData[0] = (Byte)dl;
             mm.messageData[1] = (Byte)(dl >> 8);
             mm.messageData[2] = (Byte)(dl >> 16);
@@ -7006,6 +7007,16 @@ namespace OLO_CAN
                 MessageBox.Show("Error load!!!");
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            UInt64 dl = ConvertToUnixTimestamp(DateTime.Now);
+            MessageBox.Show(dl.ToString());
+            dl = dl * 1000 + (UInt32)DateTime.Now.Millisecond;
+            MessageBox.Show(dl.ToString());
+            dl = dl * 100;
+            MessageBox.Show(dl.ToString());
         }
 
      }
