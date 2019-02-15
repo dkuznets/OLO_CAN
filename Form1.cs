@@ -4422,7 +4422,7 @@ namespace OLO_CAN
                                 UInt32 period = timestamp - timestampold;
                                 if (period > 0 && period < 100000)
                                 {
-                                    temp_str += "\t" + (period / 100).ToString() + "мс";
+                                    temp_str += "\t" + (period / 100 + 1).ToString() + "мс";
                                     temp_str += ", " + (100000 / period).ToString() + "Гц";
                                 }
                             }
