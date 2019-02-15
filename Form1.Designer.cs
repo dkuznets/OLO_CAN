@@ -3206,7 +3206,7 @@
             // chb4_enshr
             // 
             this.chb4_enshr.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb4_enshr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chb4_enshr.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.chb4_enshr.Location = new System.Drawing.Point(114, 389);
             this.chb4_enshr.Name = "chb4_enshr";
             this.chb4_enshr.Size = new System.Drawing.Size(102, 23);
