@@ -469,6 +469,9 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.trackBar5 = new System.Windows.Forms.TrackBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -526,6 +529,9 @@
             this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -3021,7 +3027,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(828, 49);
+            this.button7.Location = new System.Drawing.Point(879, 47);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 60;
@@ -3031,9 +3037,9 @@
             // 
             // bt3_rand
             // 
-            this.bt3_rand.Location = new System.Drawing.Point(828, 20);
+            this.bt3_rand.Location = new System.Drawing.Point(870, 20);
             this.bt3_rand.Name = "bt3_rand";
-            this.bt3_rand.Size = new System.Drawing.Size(126, 23);
+            this.bt3_rand.Size = new System.Drawing.Size(84, 23);
             this.bt3_rand.TabIndex = 41;
             this.bt3_rand.Text = "Random message";
             this.bt3_rand.UseVisualStyleBackColor = true;
@@ -3069,7 +3075,10 @@
             // 
             // gb3_shoot
             // 
+            this.gb3_shoot.Controls.Add(this.trackBar1);
+            this.gb3_shoot.Controls.Add(this.trackBar4);
             this.gb3_shoot.Controls.Add(this.chb4_enshr);
+            this.gb3_shoot.Controls.Add(this.trackBar5);
             this.gb3_shoot.Controls.Add(this.chb4_enshl);
             this.gb3_shoot.Controls.Add(this.lb3_freq_val);
             this.gb3_shoot.Controls.Add(this.lb3_freq_txt);
@@ -3084,7 +3093,7 @@
             this.gb3_shoot.Enabled = false;
             this.gb3_shoot.Location = new System.Drawing.Point(619, 9);
             this.gb3_shoot.Name = "gb3_shoot";
-            this.gb3_shoot.Size = new System.Drawing.Size(203, 409);
+            this.gb3_shoot.Size = new System.Drawing.Size(225, 493);
             this.gb3_shoot.TabIndex = 56;
             this.gb3_shoot.TabStop = false;
             this.gb3_shoot.Text = "Выстрелы";
@@ -3092,10 +3101,9 @@
             // chb4_enshr
             // 
             this.chb4_enshr.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb4_enshr.AutoSize = true;
-            this.chb4_enshr.Location = new System.Drawing.Point(94, 371);
+            this.chb4_enshr.Location = new System.Drawing.Point(115, 464);
             this.chb4_enshr.Name = "chb4_enshr";
-            this.chb4_enshr.Size = new System.Drawing.Size(79, 23);
+            this.chb4_enshr.Size = new System.Drawing.Size(102, 23);
             this.chb4_enshr.TabIndex = 66;
             this.chb4_enshr.Text = "Авто ОЛО-П";
             this.chb4_enshr.UseVisualStyleBackColor = true;
@@ -3104,10 +3112,9 @@
             // chb4_enshl
             // 
             this.chb4_enshl.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb4_enshl.AutoSize = true;
-            this.chb4_enshl.Location = new System.Drawing.Point(7, 371);
+            this.chb4_enshl.Location = new System.Drawing.Point(7, 464);
             this.chb4_enshl.Name = "chb4_enshl";
-            this.chb4_enshl.Size = new System.Drawing.Size(79, 23);
+            this.chb4_enshl.Size = new System.Drawing.Size(102, 23);
             this.chb4_enshl.TabIndex = 65;
             this.chb4_enshl.Text = "Авто ОЛО-Л";
             this.chb4_enshl.UseVisualStyleBackColor = true;
@@ -3116,17 +3123,19 @@
             // lb3_freq_val
             // 
             this.lb3_freq_val.AutoSize = true;
+            this.lb3_freq_val.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_freq_val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_freq_val.Enabled = false;
-            this.lb3_freq_val.Location = new System.Drawing.Point(144, 43);
+            this.lb3_freq_val.Location = new System.Drawing.Point(75, 410);
             this.lb3_freq_val.Name = "lb3_freq_val";
-            this.lb3_freq_val.Size = new System.Drawing.Size(0, 13);
+            this.lb3_freq_val.Size = new System.Drawing.Size(2, 15);
             this.lb3_freq_val.TabIndex = 64;
             // 
             // lb3_freq_txt
             // 
             this.lb3_freq_txt.AutoSize = true;
             this.lb3_freq_txt.Enabled = false;
-            this.lb3_freq_txt.Location = new System.Drawing.Point(143, 21);
+            this.lb3_freq_txt.Location = new System.Drawing.Point(4, 410);
             this.lb3_freq_txt.Name = "lb3_freq_txt";
             this.lb3_freq_txt.Size = new System.Drawing.Size(49, 13);
             this.lb3_freq_txt.TabIndex = 63;
@@ -3134,14 +3143,15 @@
             // 
             // trackBar3_freq
             // 
+            this.trackBar3_freq.AutoSize = false;
             this.trackBar3_freq.Enabled = false;
             this.trackBar3_freq.LargeChange = 10;
-            this.trackBar3_freq.Location = new System.Drawing.Point(141, 59);
+            this.trackBar3_freq.Location = new System.Drawing.Point(79, 59);
             this.trackBar3_freq.Maximum = 70;
             this.trackBar3_freq.Minimum = 1;
             this.trackBar3_freq.Name = "trackBar3_freq";
             this.trackBar3_freq.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar3_freq.Size = new System.Drawing.Size(45, 305);
+            this.trackBar3_freq.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_freq.TabIndex = 62;
             this.trackBar3_freq.Value = 1;
             this.trackBar3_freq.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -3159,33 +3169,37 @@
             // lb3_shoot_um_val
             // 
             this.lb3_shoot_um_val.AutoSize = true;
+            this.lb3_shoot_um_val.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_shoot_um_val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_um_val.Enabled = false;
-            this.lb3_shoot_um_val.Location = new System.Drawing.Point(71, 43);
+            this.lb3_shoot_um_val.Location = new System.Drawing.Point(75, 390);
             this.lb3_shoot_um_val.Name = "lb3_shoot_um_val";
-            this.lb3_shoot_um_val.Size = new System.Drawing.Size(0, 13);
+            this.lb3_shoot_um_val.Size = new System.Drawing.Size(2, 15);
             this.lb3_shoot_um_val.TabIndex = 61;
             // 
             // lb3_shoot_az_val
             // 
             this.lb3_shoot_az_val.AutoSize = true;
+            this.lb3_shoot_az_val.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_shoot_az_val.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_az_val.Enabled = false;
-            this.lb3_shoot_az_val.Location = new System.Drawing.Point(4, 43);
+            this.lb3_shoot_az_val.Location = new System.Drawing.Point(75, 370);
             this.lb3_shoot_az_val.Name = "lb3_shoot_az_val";
-            this.lb3_shoot_az_val.Size = new System.Drawing.Size(0, 13);
+            this.lb3_shoot_az_val.Size = new System.Drawing.Size(2, 15);
             this.lb3_shoot_az_val.TabIndex = 60;
             // 
             // trackBar3_um
             // 
+            this.trackBar3_um.AutoSize = false;
             this.trackBar3_um.Enabled = false;
             this.trackBar3_um.LargeChange = 1080;
-            this.trackBar3_um.Location = new System.Drawing.Point(74, 59);
+            this.trackBar3_um.Location = new System.Drawing.Point(43, 59);
             this.trackBar3_um.Maximum = 90;
             this.trackBar3_um.Minimum = -90;
             this.trackBar3_um.Name = "trackBar3_um";
             this.trackBar3_um.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar3_um.Size = new System.Drawing.Size(45, 305);
+            this.trackBar3_um.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_um.TabIndex = 58;
-            this.trackBar3_um.TickFrequency = 180;
             this.trackBar3_um.Value = -45;
             this.trackBar3_um.Scroll += new System.EventHandler(this.trackBar3_um_Scroll);
             // 
@@ -3193,7 +3207,7 @@
             // 
             this.lb3_shoot_um_txt.AutoSize = true;
             this.lb3_shoot_um_txt.Enabled = false;
-            this.lb3_shoot_um_txt.Location = new System.Drawing.Point(71, 21);
+            this.lb3_shoot_um_txt.Location = new System.Drawing.Point(4, 390);
             this.lb3_shoot_um_txt.Name = "lb3_shoot_um_txt";
             this.lb3_shoot_um_txt.Size = new System.Drawing.Size(66, 13);
             this.lb3_shoot_um_txt.TabIndex = 59;
@@ -3201,6 +3215,7 @@
             // 
             // trackBar3_az
             // 
+            this.trackBar3_az.AutoSize = false;
             this.trackBar3_az.Enabled = false;
             this.trackBar3_az.LargeChange = 1080;
             this.trackBar3_az.Location = new System.Drawing.Point(7, 59);
@@ -3208,7 +3223,7 @@
             this.trackBar3_az.Minimum = -90;
             this.trackBar3_az.Name = "trackBar3_az";
             this.trackBar3_az.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar3_az.Size = new System.Drawing.Size(45, 305);
+            this.trackBar3_az.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_az.TabIndex = 54;
             this.trackBar3_az.Value = 45;
             this.trackBar3_az.Scroll += new System.EventHandler(this.trackBar3_az_Scroll);
@@ -3217,7 +3232,7 @@
             // 
             this.lb3_shoot_az_txt.AutoSize = true;
             this.lb3_shoot_az_txt.Enabled = false;
-            this.lb3_shoot_az_txt.Location = new System.Drawing.Point(4, 21);
+            this.lb3_shoot_az_txt.Location = new System.Drawing.Point(4, 370);
             this.lb3_shoot_az_txt.Name = "lb3_shoot_az_txt";
             this.lb3_shoot_az_txt.Size = new System.Drawing.Size(44, 13);
             this.lb3_shoot_az_txt.TabIndex = 55;
@@ -5206,6 +5221,48 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.AutoSize = false;
+            this.trackBar1.Enabled = false;
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(187, 59);
+            this.trackBar1.Maximum = 70;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar1.Size = new System.Drawing.Size(30, 305);
+            this.trackBar1.TabIndex = 65;
+            this.trackBar1.Value = 1;
+            // 
+            // trackBar4
+            // 
+            this.trackBar4.AutoSize = false;
+            this.trackBar4.Enabled = false;
+            this.trackBar4.LargeChange = 1080;
+            this.trackBar4.Location = new System.Drawing.Point(151, 59);
+            this.trackBar4.Maximum = 90;
+            this.trackBar4.Minimum = -90;
+            this.trackBar4.Name = "trackBar4";
+            this.trackBar4.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar4.Size = new System.Drawing.Size(30, 305);
+            this.trackBar4.TabIndex = 64;
+            this.trackBar4.Value = -45;
+            // 
+            // trackBar5
+            // 
+            this.trackBar5.AutoSize = false;
+            this.trackBar5.Enabled = false;
+            this.trackBar5.LargeChange = 1080;
+            this.trackBar5.Location = new System.Drawing.Point(115, 59);
+            this.trackBar5.Maximum = 90;
+            this.trackBar5.Minimum = -90;
+            this.trackBar5.Name = "trackBar5";
+            this.trackBar5.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar5.Size = new System.Drawing.Size(30, 305);
+            this.trackBar5.TabIndex = 63;
+            this.trackBar5.Value = 45;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5313,6 +5370,9 @@
             this.tabPage6.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -5758,6 +5818,9 @@
         private System.Windows.Forms.Timer timer3_reset_l;
         private System.Windows.Forms.Timer timer3_reset_r;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.TrackBar trackBar5;
 	}
 }
 
