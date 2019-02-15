@@ -4423,7 +4423,7 @@ namespace OLO_CAN
                                 if (period > 0 && period < 100000)
                                 {
                                     temp_str += "\t" + (period / 100).ToString() + "мс";
-                                    temp_str += ", " + (100000F / period + 1).ToString() + "Гц";
+                                    temp_str += ", " + Math.Round(100000F / period).ToString() + "Гц";
                                 }
                             }
                             timestampold = timestamp;
