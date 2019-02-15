@@ -5060,13 +5060,14 @@ namespace OLO_CAN
             int az, um;
             if (!chb3_shoot_ena.Checked)
             {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
+//                az = r.Next(180 * 60) - 5400;
+                az = r.Next(-90 * 60, 90 * 60);
+                um = r.Next(-90 * 60, 90 * 60);
             }
             else
             {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
+                az = trackBar3_az.Value * 60;
+                um = trackBar3_um.Value * 60;
             }
             UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
             mm.messageData[0] = (Byte)dl;
@@ -5881,7 +5882,7 @@ namespace OLO_CAN
         }
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            lb3_freq_val.Text = (trackBar1.Value * 10).ToString() + " Гц";
+            lb3_freq_val.Text = (trackBar1.Value).ToString() + " Гц";
             //            tm4_test.Interval = 1000 / trackBar1.Value;
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
