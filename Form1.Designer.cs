@@ -3185,7 +3185,7 @@
             this.trackBar3_freq_r.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_freq_r.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_freq_r.TabIndex = 65;
-            this.trackBar3_freq_r.Value = 1;
+            this.trackBar3_freq_r.Value = 2;
             this.trackBar3_freq_r.Scroll += new System.EventHandler(this.trackBar3_freq_r_Scroll);
             // 
             // trackBar3_um_r
@@ -3200,7 +3200,7 @@
             this.trackBar3_um_r.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_um_r.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_um_r.TabIndex = 64;
-            this.trackBar3_um_r.Value = -45;
+            this.trackBar3_um_r.Value = 60;
             this.trackBar3_um_r.Scroll += new System.EventHandler(this.trackBar3_um_r_Scroll);
             // 
             // chb4_enshr
@@ -3227,7 +3227,7 @@
             this.trackBar3_az_r.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_az_r.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_az_r.TabIndex = 63;
-            this.trackBar3_az_r.Value = 45;
+            this.trackBar3_az_r.Value = -30;
             this.trackBar3_az_r.Scroll += new System.EventHandler(this.trackBar3_az_r_Scroll);
             // 
             // chb4_enshl

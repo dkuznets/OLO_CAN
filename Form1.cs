@@ -5842,11 +5842,23 @@ namespace OLO_CAN
                 lb3_shoot_um_txt_l.Enabled = true;
                 lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
                 lb3_shoot_um_val_l.Text = (trackBar3_um_l.Value).ToString("0'°'");
-
                 trackBar3_az_l.Enabled = true;
                 trackBar3_um_l.Enabled = true;
                 trackBar3_freq_l.Enabled = true;
                 lb3_freq_val_l.Text = (trackBar3_freq_l.Value).ToString() + " Гц";
+
+                lb3_shoot_az_val_r.Enabled = true;
+                lb3_freq_val_r.Enabled = true;
+                lb3_freq_txt_r.Enabled = true;
+                lb3_shoot_um_val_r.Enabled = true;
+                lb3_shoot_az_txt_r.Enabled = true;
+                lb3_shoot_um_txt_r.Enabled = true;
+                lb3_shoot_az_val_r.Text = (trackBar3_az_r.Value).ToString("0'°'");
+                lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
+                trackBar3_az_r.Enabled = true;
+                trackBar3_um_r.Enabled = true;
+                trackBar3_freq_r.Enabled = true;
+                lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
             }
             else
             {
@@ -5859,6 +5871,16 @@ namespace OLO_CAN
                 trackBar3_az_l.Enabled = false;
                 trackBar3_um_l.Enabled = false;
                 trackBar3_freq_l.Enabled = false;
+
+                lb3_shoot_az_val_r.Enabled = false;
+                lb3_shoot_um_val_r.Enabled = false;
+                lb3_shoot_az_txt_r.Enabled = false;
+                lb3_shoot_um_txt_r.Enabled = false;
+                lb3_freq_val_r.Enabled = false;
+                lb3_freq_txt_r.Enabled = false;
+                trackBar3_az_r.Enabled = false;
+                trackBar3_um_r.Enabled = false;
+                trackBar3_freq_r.Enabled = false;
             }
         }
         private void trackBar1_Scroll(object sender, EventArgs e)
