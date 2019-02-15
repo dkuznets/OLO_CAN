@@ -7011,10 +7011,8 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            UInt64 dl1 = ConvertToUnixTimestamp(DateTime.Now);
-            UInt64 dl2 = dl1 * 1000 + (UInt32)DateTime.Now.Millisecond;
-            UInt64 dl3 = dl2 * 100;
-            MessageBox.Show(dl1.ToString() + crlf + dl2.ToString() + crlf + dl3.ToString() + crlf + ((UInt32)dl3).ToString());
+            UInt64 dl1 = (UInt32)((ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100);
+            MessageBox.Show(dl1.ToString());
         }
 
      }
