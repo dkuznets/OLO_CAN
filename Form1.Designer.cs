@@ -3091,10 +3091,11 @@
             // 
             // chb4_enshr
             // 
+            this.chb4_enshr.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb4_enshr.AutoSize = true;
             this.chb4_enshr.Location = new System.Drawing.Point(94, 371);
             this.chb4_enshr.Name = "chb4_enshr";
-            this.chb4_enshr.Size = new System.Drawing.Size(88, 17);
+            this.chb4_enshr.Size = new System.Drawing.Size(79, 23);
             this.chb4_enshr.TabIndex = 66;
             this.chb4_enshr.Text = "Авто ОЛО-П";
             this.chb4_enshr.UseVisualStyleBackColor = true;
@@ -3102,10 +3103,11 @@
             // 
             // chb4_enshl
             // 
+            this.chb4_enshl.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb4_enshl.AutoSize = true;
             this.chb4_enshl.Location = new System.Drawing.Point(7, 371);
             this.chb4_enshl.Name = "chb4_enshl";
-            this.chb4_enshl.Size = new System.Drawing.Size(88, 17);
+            this.chb4_enshl.Size = new System.Drawing.Size(79, 23);
             this.chb4_enshl.TabIndex = 65;
             this.chb4_enshl.Text = "Авто ОЛО-Л";
             this.chb4_enshl.UseVisualStyleBackColor = true;

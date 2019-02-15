@@ -5069,78 +5069,11 @@ namespace OLO_CAN
         }
         private void shoot_l_Click(object sender, EventArgs e)
         {
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Left;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-                az = r.Next(-90 * 60, 90 * 60);
-                um = r.Next(-90 * 60, 90 * 60);
-            }
-            else
-            {
-                az = trackBar3_az.Value * 60;
-                um = trackBar3_um.Value * 60;
-            }
-            int dl = r.Next(15000);
-            mm.messageData[0] = (Byte)dl;
-            mm.messageData[1] = (Byte)(dl >> 8);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (!uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
+            shoot(Const.OLO_Left);
         }
         private void shoot_r_Click(object sender, EventArgs e)
         {
             shoot(Const.OLO_Right);
-/*
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Right;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-//                az = r.Next(180 * 60) - 5400;
-                az = r.Next(-90 * 60, 90 * 60);
-                um = r.Next(-90 * 60, 90 * 60);
-            }
-            else
-            {
-                az = trackBar3_az.Value * 60;
-                um = trackBar3_um.Value * 60;
-            }
-            UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
-            mm.messageData[0] = (Byte)dl;
-            mm.messageData[1] = (Byte)(dl >> 8);
-            mm.messageData[2] = (Byte)(dl >> 16);
-            mm.messageData[3] = (Byte)(dl >> 24);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (!uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
-
- */
         }
         #endregion
         private void button2_Click(object sender, EventArgs e)
@@ -5969,79 +5902,11 @@ namespace OLO_CAN
         }
         private void tm4_autoshl_Tick(object sender, EventArgs e)
         {
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Left;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
-            }
-            else
-            {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
-            }
-
-            count_l += (UInt16)trackBar1.Value;
-
-            mm.messageData[0] = (Byte)count_l;
-            mm.messageData[1] = (Byte)(count_l >> 8);
-            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
-            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
+            shoot(Const.OLO_Left);
         }
         private void tm4_autoshr_Tick(object sender, EventArgs e)
         {
-            msg_t mm = new msg_t();
-            mm.deviceID = Const.OLO_Right;
-            mm.messageID = msg_t.mID_DATA;
-
-            Random r = new Random();
-            mm.messageLen = 8;
-            int az, um;
-            if (!chb3_shoot_ena.Checked)
-            {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
-            }
-            else
-            {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
-            }
-
-            count_r += (UInt16)trackBar1.Value;
-
-            mm.messageData[0] = (Byte)count_r;
-            mm.messageData[1] = (Byte)(count_r >> 8);
-            mm.messageData[2] = (Byte)(trackBar1.Value * 10);
-            mm.messageData[3] = (Byte)((trackBar1.Value * 10) >> 8);
-            mm.messageData[4] = (Byte)az;
-            mm.messageData[5] = (Byte)(az >> 8);
-            mm.messageData[6] = (Byte)um;
-            mm.messageData[7] = (Byte)(um >> 8);
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (uniCAN == null || !uniCAN.Send(ref mmsg, 200))
-                return;
-            messages.Add(mm);
+            shoot(Const.OLO_Right);
         }
         private void tm4_counter_Tick(object sender, EventArgs e)
         {
