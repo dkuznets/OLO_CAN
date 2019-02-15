@@ -5878,7 +5878,7 @@ namespace OLO_CAN
                 //                    tm4_autoshl.Interval = 1000 / trackBar1.Value;
                 //                else
                 //                    tm4_autoshl.Interval = 1000 / 30;
-                tm4_autoshl.Interval = trackBar3_freq.Value * 1000;
+                tm4_autoshl.Interval = 1000 / trackBar3_freq.Value;
                 tm4_autoshl.Enabled = true;
             }
             else
@@ -5895,7 +5895,7 @@ namespace OLO_CAN
                 //                    tm4_autoshr.Interval = 1000 / trackBar1.Value;
                 //                else
                 //                    tm4_autoshr.Interval = 1000 / 30;
-                tm4_autoshr.Interval = trackBar3_freq.Value * 1000;
+                tm4_autoshr.Interval = 1000 / trackBar3_freq.Value;
                 tm4_autoshr.Enabled = true;
             }
             else
