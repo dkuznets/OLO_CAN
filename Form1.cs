@@ -5891,10 +5891,12 @@ namespace OLO_CAN
             {
                 tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
                 tm4_autoshl.Enabled = true;
+                chb4_enshl.BackColor = Color.SpringGreen;
             }
             else
             {
                 tm4_autoshl.Enabled = false;
+                chb4_enshl.BackColor = Color.Transparent;
             }
         }
         private void chb4_enshr_CheckedChanged(object sender, EventArgs e)
@@ -5903,10 +5905,12 @@ namespace OLO_CAN
             {
                 tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
                 tm4_autoshr.Enabled = true;
+                chb4_enshr.BackColor = Color.SpringGreen;
             }
             else
             {
                 tm4_autoshr.Enabled = false;
+                chb4_enshr.BackColor = Color.Transparent;
             }
         }
         private void tm4_autoshl_Tick(object sender, EventArgs e)
