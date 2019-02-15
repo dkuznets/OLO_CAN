@@ -5015,6 +5015,58 @@ namespace OLO_CAN
         
         #endregion
         #region Кнопки выстрелов
+        private void shoot(_u8 id)
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = id;
+            mm.messageID = msg_t.mID_DATA;
+
+            Random r = new Random();
+            mm.messageLen = 8;
+            int az, um;
+            if (!chb3_shoot_ena.Checked)
+            {
+                az = r.Next(-90 * 60, 90 * 60);
+                um = r.Next(-90 * 60, 90 * 60);
+            }
+            else
+            {
+                az = trackBar3_az.Value * 60;
+                um = trackBar3_um.Value * 60;
+            }
+
+            UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+            mm.messageData[4] = 0xFF;
+            mm.messageData[5] = 0x7F;
+            mm.messageData[6] = 0xFF;
+            mm.messageData[7] = 0x7F;
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref mmsg, 200))
+                return;
+
+            dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+            mm.messageData[4] = (Byte)az;
+            mm.messageData[5] = (Byte)(az >> 8);
+            mm.messageData[6] = (Byte)um;
+            mm.messageData[7] = (Byte)(um >> 8);
+            mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref mmsg, 200))
+                return;
+            messages.Add(mm);
+        }
         private void shoot_l_Click(object sender, EventArgs e)
         {
             msg_t mm = new msg_t();
@@ -5026,13 +5078,13 @@ namespace OLO_CAN
             int az, um;
             if (!chb3_shoot_ena.Checked)
             {
-                az = r.Next(180 * 60) - 5400;
-                um = r.Next(180 * 60) - 5400;
+                az = r.Next(-90 * 60, 90 * 60);
+                um = r.Next(-90 * 60, 90 * 60);
             }
             else
             {
-                az = trackBar3_az.Value;
-                um = trackBar3_um.Value;
+                az = trackBar3_az.Value * 60;
+                um = trackBar3_um.Value * 60;
             }
             int dl = r.Next(15000);
             mm.messageData[0] = (Byte)dl;
@@ -5051,6 +5103,8 @@ namespace OLO_CAN
         }
         private void shoot_r_Click(object sender, EventArgs e)
         {
+            shoot(Const.OLO_Right);
+/*
             msg_t mm = new msg_t();
             mm.deviceID = Const.OLO_Right;
             mm.messageID = msg_t.mID_DATA;
@@ -5085,6 +5139,8 @@ namespace OLO_CAN
             if (!uniCAN.Send(ref mmsg, 200))
                 return;
             messages.Add(mm);
+
+ */
         }
         #endregion
         private void button2_Click(object sender, EventArgs e)
