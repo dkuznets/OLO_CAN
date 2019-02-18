@@ -6958,11 +6958,11 @@ namespace OLO_CAN
         {
 //            flag_thr_r_shoot = false;
             thr_r_shoot.Abort();
-            for (int i = 0; i < 100; i++)
-            {
-                Trace.WriteLine(thr_r_shoot.ThreadState.ToString());
-                Thread.Sleep(100);
-            }
+//            for (int i = 0; i < 100; i++)
+//            {
+//                Trace.WriteLine(thr_r_shoot.ThreadState.ToString());
+//                Thread.Sleep(100);
+//            }
 //            while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
             MessageBox.Show("!!!!");
         }
