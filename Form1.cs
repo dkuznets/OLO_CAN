@@ -154,7 +154,8 @@ namespace OLO_CAN
         Byte soer_r = 0;
         Thread thr_l_shoot;
         Thread thr_r_shoot;
-
+        autoshoots auto_l;
+        autoshoots auto_r;
         #endregion
 
         #region Tab2
@@ -6945,13 +6946,14 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            autoshoots auto = new autoshoots(Const.OLO_Right, 1800, -1800, 5);
+            auto_r = new autoshoots(Const.OLO_Right, 1800, -1800, 5);
 //            autoshoots auto = new autoshoots();
-            thr_r_shoot = new Thread(new ThreadStart(auto.Shoot));
+            thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot));
             thr_r_shoot.Start();
         }
         private void button8_Click(object sender, EventArgs e)
         {
+            auto_r.Stop();
             thr_r_shoot.Abort();
             while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
             MessageBox.Show("!!!!");
@@ -6985,17 +6987,23 @@ namespace OLO_CAN
         private Int16 az;
         private Int16 um;
         private _u8 freq;
+        private Boolean flag_stop;
         public autoshoots(_u8 id, Int16 azimut, Int16 ugolmesta, _u8 chastota)
         {
             this.id = id;
             this.az = azimut;
             this.um = ugolmesta;
             this.freq = chastota;
+            flag_stop = true;
         }
 
+        public void Stop()
+        {
+            flag_stop = false;
+        }
         public void Shoot()
         {
-            while (true)
+            while (flag_stop)
             {
                 msg_t mm = new msg_t();
                 mm.deviceID = id;
