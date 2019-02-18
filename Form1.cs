@@ -5568,6 +5568,7 @@ namespace OLO_CAN
         #endregion
         private void Timer_GetData3_Tick(object sender, EventArgs e)
         {
+            Timer_GetData3.Enabled = false;
             #region чекбоксы Неисправности
             if (chb_L_Err_plis.Checked || chb_L_Err_file.Checked)
             {
@@ -6021,29 +6022,14 @@ namespace OLO_CAN
                         rtb3_datagrid.AppendText(temp_str);
                     }
                     rtb3_datagrid.ScrollToCaret();
-    /*
-                    if (scroll)
-                    {
-                        if (dgview3.RowCount >= 100)
-                            dgview3.Rows.Clear();
-                        dgview3.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
-                        dgview3.FirstDisplayedScrollingRowIndex = dgview3.Rows.Count - 1;
-                        if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                            dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
-                    }
-     */
     #endregion
-                    if (mm.deviceID == Const.OLO_Left && cb_olo_l_ena.Checked)
-                        messages.Add(mm);
-                    if (mm.deviceID == Const.OLO_Right && cb_olo_r_ena.Checked)
-                        messages.Add(mm);
+//                    if (mm.deviceID == Const.OLO_Left && cb_olo_l_ena.Checked)
+//                        messages.Add(mm);
+//                    if (mm.deviceID == Const.OLO_Right && cb_olo_r_ena.Checked)
+//                        messages.Add(mm);
                 }
             }
-            for (int i = 0; i < messages.Count; i++)
-            {
-            }
-            if (scroll)
-                messages.Clear();
+            Timer_GetData3.Enabled = true;
         }
         #region таймеры эмуляции ресета
         private void timer3_reset_l_Tick(object sender, EventArgs e)
