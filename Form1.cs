@@ -4061,6 +4061,7 @@ namespace OLO_CAN
                 mm = mm.FromCAN(msg);
                 String strelka_s = "";
                 String mss = ""; //, devname = "";
+                Application.DoEvents();
                 switch (mm.deviceID)
                 {
                     case Const.OLO_Left:
@@ -5612,6 +5613,7 @@ namespace OLO_CAN
             }
             for (int i = 0; i < messages.Count; i++)
             {
+                Application.DoEvents();
                 Bitmap strelka = null;
                 String strelka_s = "";
 
@@ -6316,7 +6318,6 @@ namespace OLO_CAN
             lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
             tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
         }
-
         private void tm4_test_Tick(object sender, EventArgs e)
         {
         }
