@@ -6994,7 +6994,7 @@ namespace OLO_CAN
             this.az = azimut;
             this.um = ugolmesta;
             this.freq = chastota;
-            flag_stop = true;
+            this.flag_stop = true;
         }
 
         public void Stop()
@@ -7003,7 +7003,7 @@ namespace OLO_CAN
         }
         public void Shoot()
         {
-            while (flag_stop)
+            while (this.flag_stop)
             {
                 msg_t mm = new msg_t();
                 mm.deviceID = id;
