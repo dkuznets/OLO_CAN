@@ -4414,8 +4414,8 @@ namespace OLO_CAN
                 #endregion
                 //messages.
                 messages.Clear();
-                Timer_GetData.Enabled = true;
             }
+            Timer_GetData.Enabled = true;
             //            Trace.WriteLine("OK");
 
 /*
