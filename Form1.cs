@@ -4046,6 +4046,7 @@ namespace OLO_CAN
             //            Trace.Write("Recv... ");
             int az = 0, um = 0;
             label37.Text = uniCAN.VectorSize().ToString();
+            label37.Refresh();
             while (uniCAN.VectorSize() > 0)
             {
                 canmsg_t msg = new canmsg_t();
