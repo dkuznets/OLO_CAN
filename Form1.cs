@@ -5605,6 +5605,434 @@ namespace OLO_CAN
                     uniCAN.Recv(ref msg, 100);
                     Application.DoEvents();
                     mm = mm.FromCAN(msg);
+                    Application.DoEvents();
+                    Bitmap strelka = null;
+                    String strelka_s = "";
+
+                    if (mm.deviceID == Const.OLO_Left)
+                        strelka_s = "ОЛО левый";
+                    else if(mm.deviceID == Const.OLO_Right)
+                        strelka_s = "ОЛО правый";
+                    else
+                        strelka_s = "Всем ОЛО";
+                    String mss = "";
+                    switch (mm.messageID)
+                    {
+                        case msg_t.mID_RESET:
+    #region mID_RESET
+                            if (mm.deviceID != 0)
+                            {
+                                mss = "Системный сброс" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                if (mm.deviceID == Const.OLO_Left)
+                                {
+                                    timer_testOLO_L3.Enabled = false;
+                                    flag_reset_left = true;
+                                    timer3_reset_l.Enabled = false;
+                                    timer3_reset_l.Enabled = true;
+                                }
+                                else
+                                {
+                                    timer_testOLO_R3.Enabled = false;
+                                    flag_reset_right = true;
+                                    timer3_reset_r.Enabled = false;
+                                    timer3_reset_r.Enabled = true;
+                                }
+                            }
+                            else
+                            {
+                                mss = "Системный сброс ОЛО";
+                                timer_testOLO_L3.Enabled = false;
+                                timer_testOLO_R3.Enabled = false;
+                            }
+                            break;
+    #endregion
+                        case msg_t.mID_MODULE:
+    #region mID_MODULE
+                            #region сброс сообщений для ОЛО в режиме программирования
+                            if (mm.deviceID == Const.OLO_Left && flag_reset_left)
+                            {
+                                break;
+                            }
+                            if (mm.deviceID == Const.OLO_Right && flag_reset_right)
+                            {
+                                break;
+                            }
+                            #endregion
+                            if (mm.deviceID != Const.OLO_All)
+                            {
+                                mss = "Режим модуля" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                            }
+                            else
+	                        {
+                                mss = "Режим модуля ОЛО";
+	                        }
+                            break;
+    #endregion
+                        case msg_t.mID_SOER:
+    #region mID_SOER
+                            #region сброс сообщений для ОЛО в режиме программирования
+                            if (mm.deviceID == Const.OLO_Left && flag_reset_left)
+                            {
+                                break;
+                            }
+                            if (mm.deviceID == Const.OLO_Right && flag_reset_right)
+                            {
+                                break;
+                            }
+                            #endregion
+                            if (mm.deviceID != Const.OLO_All)
+                            {
+                                mss = "Режим СОЭР" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                if (mm.deviceID != Const.OLO_Left)
+                                {
+                                    soer_l = mm.messageData[0];
+                                }
+                                else
+                                {
+                                    soer_r = mm.messageData[0];
+                                }
+                            }
+                            else
+	                        {
+                                mss = "Режим СОЭР ОЛО";
+	                        }
+                            break;
+    #endregion
+                        case msg_t.mID_PROG:
+    #region mID_PROG
+                            #region сброс сообщений для ОЛО в режиме программирования
+                            if(mm.deviceID == Const.OLO_Left && flag_reset_left)
+                            {
+                                break;
+                            }
+                            if (mm.deviceID == Const.OLO_Right && flag_reset_right)
+                            {
+                                break;
+                            }
+                            #endregion
+                            if (mm.deviceID != Const.OLO_All)
+                            {
+                                mss = "Режим программирования" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                            }
+                            else
+	                        {
+                                mss = "Режим программирования ОЛО";
+	                        }
+                            break;
+    #endregion
+                        case msg_t.mID_STATREQ:
+    #region mID_STATREQ
+                            #region сброс сообщений для ОЛО в режиме программирования
+                            if(mm.deviceID == Const.OLO_Left && flag_reset_left)
+                            {
+                                mmm.messageID = msg_t.mID_STATUS;
+                                mmm.deviceID = Const.OLO_Left;
+                                mmm.messageData[0] = 0x13;
+                                mmm.messageData[1] = 0x23;
+                                mmm.messageData[2] = 0xF2;
+                                mmm.messageData[3] = 0x00;
+                                mmm.messageData[4] = 0x11;
+                                mmm.messageData[5] = 0x80;
+                                mmm.messageData[6] = 0x00;
+                                mmm.messageData[7] = 0x00;
+                                mmm.messageLen = 8;
+                                canmsg_t mmsg = new canmsg_t();
+                                mmsg.data = new Byte[8];
+                                mmsg = mmm.ToCAN(mmm);
+                                if (!uniCAN.Send(ref mmsg, 200))
+                                    return;
+                                messages.Add(mmm);
+                                break;
+                            }
+                            if (mm.deviceID == Const.OLO_Right && flag_reset_right)
+                            {
+                                mmm.messageID = msg_t.mID_STATUS;
+                                mmm.deviceID = Const.OLO_Right;
+                                mmm.messageData[0] = 0x13;
+                                mmm.messageData[1] = 0x23;
+                                mmm.messageData[2] = 0xF2;
+                                mmm.messageData[3] = 0x00;
+                                mmm.messageData[4] = 0x11;
+                                mmm.messageData[5] = 0x80;
+                                mmm.messageData[6] = 0x00;
+                                mmm.messageData[7] = 0x00;
+                                mmm.messageLen = 8;
+                                canmsg_t mmsg = new canmsg_t();
+                                mmsg.data = new Byte[8];
+                                mmsg = mmm.ToCAN(mmm);
+                                if (!uniCAN.Send(ref mmsg, 200))
+                                    return;
+                                messages.Add(mmm);
+                                break;
+                            }
+                            #endregion
+
+                            if (mm.deviceID != Const.OLO_All)
+                            {
+                                mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                if (mm.messageData[4] == 1 || mm.messageData[4] == 3) // Включение автоматической выдачи статуса 
+                                {
+                                    if (mm.deviceID == Const.OLO_Left)
+                                    {
+                                        timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                        timer_testOLO_L3.Enabled = true;
+                                    }
+                                    else
+                                    {
+                                        timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                        timer_testOLO_R3.Enabled = true;
+                                    }
+                                }
+                                else // Выдача статуса по запросу
+                                {
+                                    if (mm.deviceID == Const.OLO_Left)
+                                    {
+                                        timer_testOLO_L3.Enabled = false;
+                                        mmm.messageID = msg_t.mID_STATUS;
+                                        mmm.deviceID = Const.OLO_Left;
+                                        //отправка статуса по запросу, интегральная исправность, штатный режим
+                                        mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
+                                        mmm.messageData[1] = 0; //штатный режим
+                                        mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                        try
+                                        {
+                                            mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[3] = 0;
+                                        }
+                                        try
+                                        {
+                                            mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[4] = 0;
+                                        }
+                                        try
+                                        {
+                                            mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[5] = 0;
+                                        }
+                                        mmm.messageLen = 8;
+                                        canmsg_t mmsg = new canmsg_t();
+                                        mmsg.data = new Byte[8];
+                                        mmsg = mmm.ToCAN(mmm);
+                                        if (!uniCAN.Send(ref mmsg, 200))
+                                            return;
+                                        messages.Add(mmm);
+                                    }
+                                    else
+                                    {
+                                        timer_testOLO_R3.Enabled = false;
+                                        mmm.messageID = msg_t.mID_STATUS;
+                                        mmm.deviceID = Const.OLO_Right;
+                                        //отправка статуса по запросу, интегральная исправность, штатный режим
+                                        mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
+                                        mmm.messageData[1] = 0; //штатный режим
+                                        mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                        try
+                                        {
+                                            mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[3] = 0;
+                                        }
+                                        try
+                                        {
+                                            mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[4] = 0;
+                                        }
+                                        try
+                                        {
+                                            mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            mmm.messageData[5] = 0;
+                                        }
+                                        mmm.messageLen = 8;
+                                        canmsg_t mmsg = new canmsg_t();
+                                        mmsg.data = new Byte[8];
+                                        mmsg = mmm.ToCAN(mmm);
+                                        if (!uniCAN.Send(ref mmsg, 200))
+                                            return;
+                                        messages.Add(mmm);
+                                    }
+                                }
+                            }
+                            else
+	                        {
+                                mss = "Запрос статуса ОЛО";
+                                if (mm.messageData[4] == 1 || mm.messageData[4] == 3)
+                                {
+                                    if (cb_olo_l_ena.Checked)
+                                    {
+                                        timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                        timer_testOLO_L3.Enabled = true;
+                                    }
+                                    if (cb_olo_r_ena.Checked)
+                                    {
+                                        timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                        timer_testOLO_R3.Enabled = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (cb_olo_l_ena.Checked)
+                                    {
+                                        timer_testOLO_L3.Enabled = false;
+                                        mmm.messageID = msg_t.mID_STATUS;
+                                        mmm.deviceID = Const.OLO_Left;
+                                        //отправка статуса по запросу, интегральная исправность, штатный режим
+                                        mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
+                                        mmm.messageData[1] = 0; //штатный режим
+                                        mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                        unchecked
+                                        {
+                                            mmm.messageData[3] = (Byte)(-11); //T1
+                                            mmm.messageData[4] = (Byte)(+11); //T2
+                                            mmm.messageData[5] = (Byte)(+31); //T3
+                                        }
+                                        mmm.messageLen = 8;
+                                        canmsg_t mmsg = new canmsg_t();
+                                        mmsg.data = new Byte[8];
+                                        mmsg = mmm.ToCAN(mmm);
+                                        if (!uniCAN.Send(ref mmsg, 200))
+                                            return;
+                                        messages.Add(mmm);
+                                    }
+                                    if (cb_olo_r_ena.Checked)
+                                    {
+                                        timer_testOLO_R3.Enabled = false;
+                                        mmm.messageID = msg_t.mID_STATUS;
+                                        mmm.deviceID = Const.OLO_Right;
+                                        //отправка статуса по запросу, интегральная исправность, штатный режим
+                                        mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
+                                        mmm.messageData[1] = 0; //штатный режим
+                                        mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                        unchecked
+                                        {
+                                            mmm.messageData[3] = (Byte)(-12); //T1
+                                            mmm.messageData[4] = (Byte)(+12); //T2
+                                            mmm.messageData[5] = (Byte)(+32); //T3
+                                        }
+                                        mmm.messageLen = 8;
+                                        canmsg_t mmsg = new canmsg_t();
+                                        mmsg.data = new Byte[8];
+                                        mmsg = mmm.ToCAN(mmm);
+                                        if (!uniCAN.Send(ref mmsg, 200))
+                                            return;
+                                        messages.Add(mmm);
+                                    }
+                                }
+	                        }
+                            break;
+    #endregion
+                        case msg_t.mID_DATA:
+    #region mID_DATA
+                            #region сброс сообщений для ОЛО в режиме программирования
+                            if (mm.deviceID == Const.OLO_Left && flag_reset_left)
+                            {
+                                break;
+                            }
+                            if (mm.deviceID == Const.OLO_Right && flag_reset_right)
+                            {
+                                break;
+                            }
+                            #endregion
+                            int az = BitConverter.ToInt16(mm.messageData, 4);
+                            int um = BitConverter.ToInt16(mm.messageData, 6);
+                            //mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
+                            //      "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                            if (az >= 0)
+                                mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+                            else
+                                mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
+                            if(um >= 0)
+                                  mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+                            else
+                                  mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
+                            Shots sh = new Shots();
+                            sh.bort = (mm.deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
+                            sh.azimut = BitConverter.ToInt16(mm.messageData, 4);
+                            sh.ugol = BitConverter.ToInt16(mm.messageData, 6);
+                            list_shots.Add(sh);
+                            //label3.Text = list_shots.Count.ToString();
+                            if (timer_Reset_Shots3.Enabled == false)
+                            {
+                                timer_Reset_Shots3.Enabled = true;
+                                panel3.Refresh();
+                            }
+                            else
+                            {
+                                timer_Reset_Shots3.Enabled = false;
+                                timer_Reset_Shots3.Enabled = true;
+                                panel3.Refresh();
+                            }
+                            break;
+    #endregion
+                        case msg_t.mID_STATUS:
+    #region mID_STATUS
+                            mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                            break;
+    #endregion
+                    }
+    #region Вывод инфы в грид
+                    String rawdata = "";
+                    for (int j = 0; j < mm.messageLen; j++)
+                        rawdata += mm.messageData[j].ToString("X2") + " ";
+
+                    String stimestamp = "";
+
+                    timestamp = 0;
+                    String temp_str = "";
+                    temp_str = strelka_s + "\t" + rawdata + " \t" + mss;
+                    if (mm.messageID.ToString("X2") == "2D")
+                    {
+                        timestamp = BitConverter.ToUInt32(mm.messageData, 0);
+                        stimestamp = timestamp.ToString();
+                        temp_str += "\t" + stimestamp;
+                    }
+                    temp_str += "\r\n";
+                    if (mm.messageID.ToString("X2") == "2D")
+                    {
+                        if (BitConverter.ToInt16(mm.messageData, 4) != 0x7FFF)
+                        {
+                            rtb3_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
+                        }
+                        else
+                        {
+                            rtb3_datagrid.AppendText(temp_str, Color.Red);
+                        }
+                    }
+                    else
+                    {
+                        rtb3_datagrid.AppendText(temp_str);
+                    }
+                    rtb3_datagrid.ScrollToCaret();
+    /*
+                    if (scroll)
+                    {
+                        if (dgview3.RowCount >= 100)
+                            dgview3.Rows.Clear();
+                        dgview3.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
+                        dgview3.FirstDisplayedScrollingRowIndex = dgview3.Rows.Count - 1;
+                        if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
+                            dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
+                    }
+     */
+    #endregion
                     if (mm.deviceID == Const.OLO_Left && cb_olo_l_ena.Checked)
                         messages.Add(mm);
                     if (mm.deviceID == Const.OLO_Right && cb_olo_r_ena.Checked)
@@ -5613,434 +6041,6 @@ namespace OLO_CAN
             }
             for (int i = 0; i < messages.Count; i++)
             {
-                Application.DoEvents();
-                Bitmap strelka = null;
-                String strelka_s = "";
-
-                if (messages[i].deviceID == Const.OLO_Left)
-                    strelka_s = "ОЛО левый";
-                else if(messages[i].deviceID == Const.OLO_Right)
-                    strelka_s = "ОЛО правый";
-                else
-                    strelka_s = "Всем ОЛО";
-                String mss = "";
-                switch (messages[i].messageID)
-                {
-                    case msg_t.mID_RESET:
-#region mID_RESET
-                        if (messages[i].deviceID != 0)
-                        {
-                            mss = "Системный сброс" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            if (messages[i].deviceID == Const.OLO_Left)
-                            {
-                                timer_testOLO_L3.Enabled = false;
-                                flag_reset_left = true;
-                                timer3_reset_l.Enabled = false;
-                                timer3_reset_l.Enabled = true;
-                            }
-                            else
-                            {
-                                timer_testOLO_R3.Enabled = false;
-                                flag_reset_right = true;
-                                timer3_reset_r.Enabled = false;
-                                timer3_reset_r.Enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            mss = "Системный сброс ОЛО";
-                            timer_testOLO_L3.Enabled = false;
-                            timer_testOLO_R3.Enabled = false;
-                        }
-                        break;
-#endregion
-                    case msg_t.mID_MODULE:
-#region mID_MODULE
-                        #region сброс сообщений для ОЛО в режиме программирования
-                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
-                        {
-                            break;
-                        }
-                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
-                        {
-                            break;
-                        }
-                        #endregion
-                        if (messages[i].deviceID != Const.OLO_All)
-                        {
-                            mss = "Режим модуля" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                        }
-                        else
-	                    {
-                            mss = "Режим модуля ОЛО";
-	                    }
-                        break;
-#endregion
-                    case msg_t.mID_SOER:
-#region mID_SOER
-                        #region сброс сообщений для ОЛО в режиме программирования
-                        if (messages[i].deviceID == Const.OLO_Left && flag_reset_left)
-                        {
-                            break;
-                        }
-                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
-                        {
-                            break;
-                        }
-                        #endregion
-                        if (messages[i].deviceID != Const.OLO_All)
-                        {
-                            mss = "Режим СОЭР" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            if (messages[i].deviceID != Const.OLO_Left)
-                            {
-                                soer_l = messages[i].messageData[0];
-                            }
-                            else
-                            {
-                                soer_r = messages[i].messageData[0];
-                            }
-                        }
-                        else
-	                    {
-                            mss = "Режим СОЭР ОЛО";
-	                    }
-                        break;
-#endregion
-                    case msg_t.mID_PROG:
-#region mID_PROG
-                        #region сброс сообщений для ОЛО в режиме программирования
-                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
-                        {
-                            break;
-                        }
-                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
-                        {
-                            break;
-                        }
-                        #endregion
-                        if (messages[i].deviceID != Const.OLO_All)
-                        {
-                            mss = "Режим программирования" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                        }
-                        else
-	                    {
-                            mss = "Режим программирования ОЛО";
-	                    }
-                        break;
-#endregion
-                    case msg_t.mID_STATREQ:
-#region mID_STATREQ
-                        #region сброс сообщений для ОЛО в режиме программирования
-                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
-                        {
-                            mmm.messageID = msg_t.mID_STATUS;
-                            mmm.deviceID = Const.OLO_Left;
-                            mmm.messageData[0] = 0x13;
-                            mmm.messageData[1] = 0x23;
-                            mmm.messageData[2] = 0xF2;
-                            mmm.messageData[3] = 0x00;
-                            mmm.messageData[4] = 0x11;
-                            mmm.messageData[5] = 0x80;
-                            mmm.messageData[6] = 0x00;
-                            mmm.messageData[7] = 0x00;
-                            mmm.messageLen = 8;
-                            canmsg_t mmsg = new canmsg_t();
-                            mmsg.data = new Byte[8];
-                            mmsg = mmm.ToCAN(mmm);
-                            if (!uniCAN.Send(ref mmsg, 200))
-                                return;
-                            messages.Add(mmm);
-                            break;
-                        }
-                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
-                        {
-                            mmm.messageID = msg_t.mID_STATUS;
-                            mmm.deviceID = Const.OLO_Right;
-                            mmm.messageData[0] = 0x13;
-                            mmm.messageData[1] = 0x23;
-                            mmm.messageData[2] = 0xF2;
-                            mmm.messageData[3] = 0x00;
-                            mmm.messageData[4] = 0x11;
-                            mmm.messageData[5] = 0x80;
-                            mmm.messageData[6] = 0x00;
-                            mmm.messageData[7] = 0x00;
-                            mmm.messageLen = 8;
-                            canmsg_t mmsg = new canmsg_t();
-                            mmsg.data = new Byte[8];
-                            mmsg = mmm.ToCAN(mmm);
-                            if (!uniCAN.Send(ref mmsg, 200))
-                                return;
-                            messages.Add(mmm);
-                            break;
-                        }
-                        #endregion
-
-                        if (messages[i].deviceID != Const.OLO_All)
-                        {
-                            mss = "Запрос статуса" + ((messages[i].deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            if (messages[i].messageData[4] == 1 || messages[i].messageData[4] == 3) // Включение автоматической выдачи статуса 
-                            {
-                                if (messages[i].deviceID == Const.OLO_Left)
-                                {
-                                    timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(messages[i].messageData, 0));
-                                    timer_testOLO_L3.Enabled = true;
-                                }
-                                else
-                                {
-                                    timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(messages[i].messageData, 0));
-                                    timer_testOLO_R3.Enabled = true;
-                                }
-                            }
-                            else // Выдача статуса по запросу
-                            {
-                                if (messages[i].deviceID == Const.OLO_Left)
-                                {
-                                    timer_testOLO_L3.Enabled = false;
-                                    mmm.messageID = msg_t.mID_STATUS;
-                                    mmm.deviceID = Const.OLO_Left;
-                                    //отправка статуса по запросу, интегральная исправность, штатный режим
-                                    mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
-                                    mmm.messageData[1] = 0; //штатный режим
-                                    mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    try
-                                    {
-                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[3] = 0;
-                                    }
-                                    try
-                                    {
-                                        mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[4] = 0;
-                                    }
-                                    try
-                                    {
-                                        mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[5] = 0;
-                                    }
-                                    mmm.messageLen = 8;
-                                    canmsg_t mmsg = new canmsg_t();
-                                    mmsg.data = new Byte[8];
-                                    mmsg = mmm.ToCAN(mmm);
-                                    if (!uniCAN.Send(ref mmsg, 200))
-                                        return;
-                                    messages.Add(mmm);
-                                }
-                                else
-                                {
-                                    timer_testOLO_R3.Enabled = false;
-                                    mmm.messageID = msg_t.mID_STATUS;
-                                    mmm.deviceID = Const.OLO_Right;
-                                    //отправка статуса по запросу, интегральная исправность, штатный режим
-                                    mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
-                                    mmm.messageData[1] = 0; //штатный режим
-                                    mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    try
-                                    {
-                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[3] = 0;
-                                    }
-                                    try
-                                    {
-                                        mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[4] = 0;
-                                    }
-                                    try
-                                    {
-                                        mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
-                                    }
-                                    catch (FormatException)
-                                    {
-                                        mmm.messageData[5] = 0;
-                                    }
-                                    mmm.messageLen = 8;
-                                    canmsg_t mmsg = new canmsg_t();
-                                    mmsg.data = new Byte[8];
-                                    mmsg = mmm.ToCAN(mmm);
-                                    if (!uniCAN.Send(ref mmsg, 200))
-                                        return;
-                                    messages.Add(mmm);
-                                }
-                            }
-                        }
-                        else
-	                    {
-                            mss = "Запрос статуса ОЛО";
-                            if (messages[i].messageData[4] == 1 || messages[i].messageData[4] == 3)
-                            {
-                                if (cb_olo_l_ena.Checked)
-                                {
-                                    timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(messages[i].messageData, 0));
-                                    timer_testOLO_L3.Enabled = true;
-                                }
-                                if (cb_olo_r_ena.Checked)
-                                {
-                                    timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(messages[i].messageData, 0));
-                                    timer_testOLO_R3.Enabled = true;
-                                }
-                            }
-                            else
-                            {
-                                if (cb_olo_l_ena.Checked)
-                                {
-                                    timer_testOLO_L3.Enabled = false;
-                                    mmm.messageID = msg_t.mID_STATUS;
-                                    mmm.deviceID = Const.OLO_Left;
-                                    //отправка статуса по запросу, интегральная исправность, штатный режим
-                                    mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
-                                    mmm.messageData[1] = 0; //штатный режим
-                                    mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    unchecked
-                                    {
-                                        mmm.messageData[3] = (Byte)(-11); //T1
-                                        mmm.messageData[4] = (Byte)(+11); //T2
-                                        mmm.messageData[5] = (Byte)(+31); //T3
-                                    }
-                                    mmm.messageLen = 8;
-                                    canmsg_t mmsg = new canmsg_t();
-                                    mmsg.data = new Byte[8];
-                                    mmsg = mmm.ToCAN(mmm);
-                                    if (!uniCAN.Send(ref mmsg, 200))
-                                        return;
-                                    messages.Add(mmm);
-                                }
-                                if (cb_olo_r_ena.Checked)
-                                {
-                                    timer_testOLO_R3.Enabled = false;
-                                    mmm.messageID = msg_t.mID_STATUS;
-                                    mmm.deviceID = Const.OLO_Right;
-                                    //отправка статуса по запросу, интегральная исправность, штатный режим
-                                    mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
-                                    mmm.messageData[1] = 0; //штатный режим
-                                    mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                    unchecked
-                                    {
-                                        mmm.messageData[3] = (Byte)(-12); //T1
-                                        mmm.messageData[4] = (Byte)(+12); //T2
-                                        mmm.messageData[5] = (Byte)(+32); //T3
-                                    }
-                                    mmm.messageLen = 8;
-                                    canmsg_t mmsg = new canmsg_t();
-                                    mmsg.data = new Byte[8];
-                                    mmsg = mmm.ToCAN(mmm);
-                                    if (!uniCAN.Send(ref mmsg, 200))
-                                        return;
-                                    messages.Add(mmm);
-                                }
-                            }
-	                    }
-                        break;
-#endregion
-                    case msg_t.mID_DATA:
-#region mID_DATA
-                        #region сброс сообщений для ОЛО в режиме программирования
-                        if(messages[i].deviceID == Const.OLO_Left && flag_reset_left)
-                        {
-                            break;
-                        }
-                        if (messages[i].deviceID == Const.OLO_Right && flag_reset_right)
-                        {
-                            break;
-                        }
-                        #endregion
-                        int az = BitConverter.ToInt16(messages[i].messageData, 4);
-                        int um = BitConverter.ToInt16(messages[i].messageData, 6);
-                        //mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
-                        //      "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                        if (az >= 0)
-                            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
-                        else
-                            mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
-                        if(um >= 0)
-                              mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                        else
-                              mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
-                        Shots sh = new Shots();
-                        sh.bort = (messages[i].deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
-                        sh.azimut = BitConverter.ToInt16(messages[i].messageData, 4);
-                        sh.ugol = BitConverter.ToInt16(messages[i].messageData, 6);
-                        list_shots.Add(sh);
-                        //label3.Text = list_shots.Count.ToString();
-                        if (timer_Reset_Shots3.Enabled == false)
-                        {
-                            timer_Reset_Shots3.Enabled = true;
-                            panel3.Refresh();
-                        }
-                        else
-                        {
-                            timer_Reset_Shots3.Enabled = false;
-                            timer_Reset_Shots3.Enabled = true;
-                            panel3.Refresh();
-                        }
-                        break;
-#endregion
-                    case msg_t.mID_STATUS:
-#region mID_STATUS
-                        mss = "T1=" + ((SByte)messages[i].messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                            "T2=" + ((SByte)messages[i].messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                            "T3=" + ((SByte)messages[i].messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                        break;
-#endregion
-                }
-#region Вывод инфы в грид
-                String rawdata = "";
-                for (int j = 0; j < messages[i].messageLen; j++)
-                    rawdata += messages[i].messageData[j].ToString("X2") + " ";
-
-                String stimestamp = "";
-
-                timestamp = 0;
-                String temp_str = "";
-                temp_str = strelka_s + "\t" + rawdata + " \t" + mss;
-                if (messages[i].messageID.ToString("X2") == "2D")
-                {
-                    timestamp = BitConverter.ToUInt32(messages[i].messageData, 0);
-                    stimestamp = timestamp.ToString();
-                    temp_str += "\t" + stimestamp;
-                }
-                temp_str += "\r\n";
-                if (messages[i].messageID.ToString("X2") == "2D")
-                {
-                    if (BitConverter.ToInt16(messages[i].messageData, 4) != 0x7FFF)
-                    {
-                        rtb3_datagrid.AppendText(temp_str, Color.Orange, Color.Black);
-                    }
-                    else
-                    {
-                        rtb3_datagrid.AppendText(temp_str, Color.Red);
-                    }
-                }
-                else
-                {
-                    rtb3_datagrid.AppendText(temp_str);
-                }
-                rtb3_datagrid.ScrollToCaret();
-/*
-                if (scroll)
-                {
-                    if (dgview3.RowCount >= 100)
-                        dgview3.Rows.Clear();
-                    dgview3.Rows.Add(strelka, strelka_s, rawdata, mss, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.fff"), messages[i].messageID.ToString("X2"));
-                    dgview3.FirstDisplayedScrollingRowIndex = dgview3.Rows.Count - 1;
-                    if (dgview3.Rows[dgview3.Rows.Count - 1].Cells[5].Value.ToString() == "2D")
-                        dgview3.Rows[dgview3.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Orange;
-                }
- */
-#endregion
             }
             if (scroll)
                 messages.Clear();
