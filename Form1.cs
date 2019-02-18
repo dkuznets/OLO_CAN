@@ -6956,7 +6956,7 @@ namespace OLO_CAN
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            flag_thr_r_shoot = false;
+//            flag_thr_r_shoot = false;
             thr_r_shoot.Abort();
             for (int i = 0; i < 100; i++)
             {
