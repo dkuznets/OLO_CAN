@@ -4042,6 +4042,7 @@ namespace OLO_CAN
         }
         private void Timer_GetData_Tick(object sender, EventArgs e)
         {
+            Timer_GetData.Enabled = false;
 //            Trace.Write("Recv... ");
             int az = 0, um = 0;
             #region Выгрузка из вектора в лист
@@ -4051,7 +4052,7 @@ namespace OLO_CAN
                 msg.data = new Byte[8];
                 msg_t mm = new msg_t();
                 uniCAN.Recv(ref msg, 100);
-                Application.DoEvents();
+//                Application.DoEvents();
                 mm = mm.FromCAN(msg);
                 messages.Add(mm);
             }
@@ -4506,9 +4507,12 @@ namespace OLO_CAN
                 }
                 #endregion
                 #endregion
+                //messages.
             }
 //            if (scroll)
                 messages.Clear();
+            Timer_GetData.Enabled = true;
+
         }
         private void timer_Reset_Shots_Tick(object sender, EventArgs e)
         {
