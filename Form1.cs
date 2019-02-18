@@ -4052,8 +4052,8 @@ namespace OLO_CAN
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
                 msg_t mm = new msg_t();
+                Application.DoEvents();
                 uniCAN.Recv(ref msg, 100);
-                //                Application.DoEvents();
                 mm = mm.FromCAN(msg);
                 messages.Add(mm);
                 label37.Text = uniCAN.VectorSize().ToString();
