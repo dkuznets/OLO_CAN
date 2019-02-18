@@ -6948,7 +6948,7 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            auto_r = new autoshoots(Const.OLO_Right, 1800, -1800, 5);
+            auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value);
 //            autoshoots auto = new autoshoots();
             flag_thr_r_shoot = true;
             thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot_R));
@@ -7054,6 +7054,7 @@ namespace OLO_CAN
                 Form1.messages.Add(mm);
                 Thread.Sleep(1000 / freq);
             }
+            Trace.WriteLine("thr_l_shoot aborted");
         }
         public void Shoot_R()
         {
@@ -7100,6 +7101,7 @@ namespace OLO_CAN
                 Form1.messages.Add(mm);
                 Thread.Sleep(1000 / freq);
             }
+            Trace.WriteLine("thr_r_shoot aborted");
         }
     }
 }
