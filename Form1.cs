@@ -156,6 +156,8 @@ namespace OLO_CAN
         Thread thr_r_shoot;
         autoshoots auto_l;
         autoshoots auto_r;
+        public static Boolean flag_thr_l_shoot;
+        public static Boolean flag_thr_r_shoot;
         #endregion
 
         #region Tab2
@@ -6948,12 +6950,13 @@ namespace OLO_CAN
         {
             auto_r = new autoshoots(Const.OLO_Right, 1800, -1800, 5);
 //            autoshoots auto = new autoshoots();
-            thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot));
+            flag_thr_r_shoot = true;
+            thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot_R));
             thr_r_shoot.Start();
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            auto_r.Stop();
+            flag_thr_r_shoot = false;
             thr_r_shoot.Abort();
             while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
             MessageBox.Show("!!!!");
@@ -7001,9 +7004,55 @@ namespace OLO_CAN
         {
             flag_stop = false;
         }
-        public void Shoot()
+        public void Shoot_L()
         {
-            while (this.flag_stop)
+            while (Form1.flag_thr_l_shoot)
+            {
+                msg_t mm = new msg_t();
+                mm.deviceID = id;
+                mm.messageID = msg_t.mID_DATA;
+
+                Random r = new Random();
+                mm.messageLen = 8;
+                //                int az, um;
+
+                UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                mm.messageData[0] = (Byte)dl;
+                mm.messageData[1] = (Byte)(dl >> 8);
+                mm.messageData[2] = (Byte)(dl >> 16);
+                mm.messageData[3] = (Byte)(dl >> 24);
+                mm.messageData[4] = 0xFF;
+                mm.messageData[5] = 0x7F;
+                mm.messageData[6] = 0xFF;
+                mm.messageData[7] = 0x7F;
+
+                canmsg_t mmsg = new canmsg_t();
+                mmsg.data = new Byte[8];
+                mmsg = mm.ToCAN(mm);
+                if (!Form1.uniCAN.Send(ref mmsg, 200))
+                    return;
+
+                dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                mm.messageData[0] = (Byte)dl;
+                mm.messageData[1] = (Byte)(dl >> 8);
+                mm.messageData[2] = (Byte)(dl >> 16);
+                mm.messageData[3] = (Byte)(dl >> 24);
+                mm.messageData[4] = (Byte)this.az;
+                mm.messageData[5] = (Byte)(this.az >> 8);
+                mm.messageData[6] = (Byte)this.um;
+                mm.messageData[7] = (Byte)(this.um >> 8);
+                mmsg = new canmsg_t();
+                mmsg.data = new Byte[8];
+                mmsg = mm.ToCAN(mm);
+                if (!Form1.uniCAN.Send(ref mmsg, 200))
+                    return;
+                Form1.messages.Add(mm);
+                Thread.Sleep(1000 / freq);
+            }
+        }
+        public void Shoot_R()
+        {
+            while (Form1.flag_thr_r_shoot)
             {
                 msg_t mm = new msg_t();
                 mm.deviceID = id;
