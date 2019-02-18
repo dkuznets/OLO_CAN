@@ -4045,6 +4045,7 @@ namespace OLO_CAN
             Timer_GetData.Enabled = false;
             //            Trace.Write("Recv... ");
             int az = 0, um = 0;
+            label37.Text = uniCAN.VectorSize().ToString();
             while (uniCAN.VectorSize() > 0)
             {
                 canmsg_t msg = new canmsg_t();
@@ -4054,7 +4055,7 @@ namespace OLO_CAN
                 //                Application.DoEvents();
                 mm = mm.FromCAN(msg);
                 messages.Add(mm);
-                label37.Text = messages.Count.ToString();
+                label37.Text = uniCAN.VectorSize().ToString();
                 label37.Refresh();
                 mm = mm.FromCAN(msg);
                 String strelka_s = "";
