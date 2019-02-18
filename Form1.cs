@@ -92,12 +92,12 @@ namespace OLO_CAN
         //        public Bitmap image_CMOS = new Bitmap(IMAGE_CX, IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         static Byte[] Buffer = new Byte[Const.IMAGE_CX * Const.IMAGE_CY];
 
-        MCANConverter marCAN = null;
-        ACANConverter advCAN = null;
-        ECANConverter elcCAN = null;
-        ECAN18Converter elcCAN18 = null;
+        public MCANConverter marCAN = null;
+        public ACANConverter advCAN = null;
+        public ECANConverter elcCAN = null;
+        public ECAN18Converter elcCAN18 = null;
 
-        IUCANConverter uniCAN = null;
+        public static IUCANConverter uniCAN = null;
 
         List<String> list_badpix_TXT = new List<string>();
         List<String> list_badpixCal = new List<string>();
@@ -178,7 +178,7 @@ namespace OLO_CAN
         }
 
         List<Shots> list_shots = new List<Shots>();
-        List<msg_t> messages = new List<msg_t>();
+        public static List<msg_t> messages = new List<msg_t>();
 
 
         static bool generator_running = false;
@@ -4523,7 +4523,7 @@ namespace OLO_CAN
             DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return origin.AddSeconds(timestamp);
         }
-        static UInt64 ConvertToUnixTimestamp(DateTime date)
+        public static UInt64 ConvertToUnixTimestamp(DateTime date)
         {
             DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             TimeSpan diff = date - origin;
@@ -6945,22 +6945,15 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            thr_l_shoot = new Thread(new ThreadStart(shoot_left_auto));
-            thr_l_shoot.Start();
+            autoshoots auto = new autoshoots(Const.OLO_Right, 1800, -1800, 5);
+//            autoshoots auto = new autoshoots();
+            thr_r_shoot = new Thread(new ThreadStart(auto.Shoot));
+            thr_r_shoot.Start();
         }
-        void shoot_left_auto()
-        {
-            while(true)
-            {
-                shoot(Const.OLO_Left);
-                Thread.Sleep(1000 / trackBar3_freq_l.Value);
-            }
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
-            thr_l_shoot.Abort();
-            while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
+            thr_r_shoot.Abort();
+            while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
             MessageBox.Show("!!!!");
         }
      }
@@ -6984,6 +6977,67 @@ namespace OLO_CAN
             box.AppendText(text);
             box.SelectionColor = box.ForeColor;
             box.SelectionBackColor = box.BackColor;
+        }
+    }
+    public class autoshoots
+    {
+        private _u8 id;
+        private Int16 az;
+        private Int16 um;
+        private _u8 freq;
+        public autoshoots(_u8 id, Int16 azimut, Int16 ugolmesta, _u8 chastota)
+        {
+            this.id = id;
+            this.az = azimut;
+            this.um = ugolmesta;
+            this.freq = chastota;
+        }
+
+        public void Shoot()
+        {
+            while (true)
+            {
+                msg_t mm = new msg_t();
+                mm.deviceID = id;
+                mm.messageID = msg_t.mID_DATA;
+
+                Random r = new Random();
+                mm.messageLen = 8;
+//                int az, um;
+
+                UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                mm.messageData[0] = (Byte)dl;
+                mm.messageData[1] = (Byte)(dl >> 8);
+                mm.messageData[2] = (Byte)(dl >> 16);
+                mm.messageData[3] = (Byte)(dl >> 24);
+                mm.messageData[4] = 0xFF;
+                mm.messageData[5] = 0x7F;
+                mm.messageData[6] = 0xFF;
+                mm.messageData[7] = 0x7F;
+
+                canmsg_t mmsg = new canmsg_t();
+                mmsg.data = new Byte[8];
+                mmsg = mm.ToCAN(mm);
+                if (!Form1.uniCAN.Send(ref mmsg, 200))
+                    return;
+
+                dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                mm.messageData[0] = (Byte)dl;
+                mm.messageData[1] = (Byte)(dl >> 8);
+                mm.messageData[2] = (Byte)(dl >> 16);
+                mm.messageData[3] = (Byte)(dl >> 24);
+                mm.messageData[4] = (Byte)this.az;
+                mm.messageData[5] = (Byte)(this.az >> 8);
+                mm.messageData[6] = (Byte)this.um;
+                mm.messageData[7] = (Byte)(this.um >> 8);
+                mmsg = new canmsg_t();
+                mmsg.data = new Byte[8];
+                mmsg = mm.ToCAN(mm);
+                if (!Form1.uniCAN.Send(ref mmsg, 200))
+                    return;
+                Form1.messages.Add(mm);
+                Thread.Sleep(1000 / freq);
+            }
         }
     }
 }
