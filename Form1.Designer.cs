@@ -2920,7 +2920,6 @@
             this.bt_SyncTime.TabIndex = 44;
             this.bt_SyncTime.Text = "Перевести в РУП";
             this.bt_SyncTime.UseVisualStyleBackColor = true;
-            this.bt_SyncTime.Visible = false;
             this.bt_SyncTime.Click += new System.EventHandler(this.bt_SyncTime_Click);
             // 
             // label18
