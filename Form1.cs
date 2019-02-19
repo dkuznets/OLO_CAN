@@ -5345,6 +5345,21 @@ namespace OLO_CAN
 	                        {
                                 mss = "Режим программирования ОЛО";
 	                        }
+                            if (mm.deviceID == Const.OLO_Left)
+                            {
+                                timer_testOLO_L3.Enabled = false;
+                                flag_reset_left = true;
+                                timer3_reset_l.Enabled = false;
+                                timer3_reset_l.Enabled = true;
+                            }
+                            else
+                            {
+                                timer_testOLO_R3.Enabled = false;
+                                flag_reset_right = true;
+                                timer3_reset_r.Enabled = false;
+                                timer3_reset_r.Enabled = true;
+                            }
+
                             break;
     #endregion
                         case msg_t.mID_STATREQ:
