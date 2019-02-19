@@ -4054,16 +4054,16 @@ namespace OLO_CAN
                 canmsg_t msg = new canmsg_t();
                 msg.data = new Byte[8];
                 msg_t mm = new msg_t();
-                Application.DoEvents();
+//                Application.DoEvents();
                 uniCAN.Recv(ref msg, 100);
                 mm = mm.FromCAN(msg);
-                messages.Add(mm);
+//                messages.Add(mm);
                 label37.Text = uniCAN.VectorSize().ToString();
                 label37.Refresh();
                 mm = mm.FromCAN(msg);
                 String strelka_s = "";
                 String mss = ""; //, devname = "";
-                Application.DoEvents();
+//                Application.DoEvents();
                 switch (mm.deviceID)
                 {
                     case Const.OLO_Left:
@@ -5606,10 +5606,10 @@ namespace OLO_CAN
                 while (uniCAN.VectorSize() > 0)
                 {
                     uniCAN.Recv(ref msg, 100);
-                    Application.DoEvents();
+//                    Application.DoEvents();
                     mm = mm.FromCAN(msg);
-                    Application.DoEvents();
-                    Bitmap strelka = null;
+//                    Application.DoEvents();
+//                    Bitmap strelka = null;
                     String strelka_s = "";
 
                     if (mm.deviceID == Const.OLO_Left)
