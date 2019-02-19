@@ -149,6 +149,8 @@
             this.lb_error_CAN1 = new System.Windows.Forms.Label();
             this.cb_CAN1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rb2_piv11 = new System.Windows.Forms.RadioButton();
+            this.rb2_piv10 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rb2_filter_all = new System.Windows.Forms.RadioButton();
             this.rb2_filter_7fff = new System.Windows.Forms.RadioButton();
@@ -477,8 +479,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.rb2_piv10 = new System.Windows.Forms.RadioButton();
-            this.rb2_piv11 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1928,6 +1928,28 @@
             this.tabPage3.Text = "Тестирование ОЛО (с боевой прошивкой)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // rb2_piv11
+            // 
+            this.rb2_piv11.AutoSize = true;
+            this.rb2_piv11.Location = new System.Drawing.Point(692, 396);
+            this.rb2_piv11.Name = "rb2_piv11";
+            this.rb2_piv11.Size = new System.Drawing.Size(66, 17);
+            this.rb2_piv11.TabIndex = 81;
+            this.rb2_piv11.Text = "ПИВ 1.1";
+            this.rb2_piv11.UseVisualStyleBackColor = true;
+            // 
+            // rb2_piv10
+            // 
+            this.rb2_piv10.AutoSize = true;
+            this.rb2_piv10.Checked = true;
+            this.rb2_piv10.Location = new System.Drawing.Point(620, 396);
+            this.rb2_piv10.Name = "rb2_piv10";
+            this.rb2_piv10.Size = new System.Drawing.Size(66, 17);
+            this.rb2_piv10.TabIndex = 80;
+            this.rb2_piv10.TabStop = true;
+            this.rb2_piv10.Text = "ПИВ 1.0";
+            this.rb2_piv10.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
@@ -2896,7 +2918,7 @@
             this.bt_SyncTime.Name = "bt_SyncTime";
             this.bt_SyncTime.Size = new System.Drawing.Size(181, 23);
             this.bt_SyncTime.TabIndex = 44;
-            this.bt_SyncTime.Text = "Синхронизация времени";
+            this.bt_SyncTime.Text = "Перевести в РУП";
             this.bt_SyncTime.UseVisualStyleBackColor = true;
             this.bt_SyncTime.Visible = false;
             this.bt_SyncTime.Click += new System.EventHandler(this.bt_SyncTime_Click);
@@ -5360,28 +5382,6 @@
             // 
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
-            // 
-            // rb2_piv10
-            // 
-            this.rb2_piv10.AutoSize = true;
-            this.rb2_piv10.Checked = true;
-            this.rb2_piv10.Location = new System.Drawing.Point(620, 396);
-            this.rb2_piv10.Name = "rb2_piv10";
-            this.rb2_piv10.Size = new System.Drawing.Size(66, 17);
-            this.rb2_piv10.TabIndex = 80;
-            this.rb2_piv10.TabStop = true;
-            this.rb2_piv10.Text = "ПИВ 1.0";
-            this.rb2_piv10.UseVisualStyleBackColor = true;
-            // 
-            // rb2_piv11
-            // 
-            this.rb2_piv11.AutoSize = true;
-            this.rb2_piv11.Location = new System.Drawing.Point(692, 396);
-            this.rb2_piv11.Name = "rb2_piv11";
-            this.rb2_piv11.Size = new System.Drawing.Size(66, 17);
-            this.rb2_piv11.TabIndex = 81;
-            this.rb2_piv11.Text = "ПИВ 1.1";
-            this.rb2_piv11.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

@@ -4687,6 +4687,7 @@ namespace OLO_CAN
                 chb_dgview2.BackColor = Color.OrangeRed;
             }
         }
+        #region Старые кнопки
         private void btn_REQSN_Click(object sender, EventArgs e) // Запрос серийного номера
         {
             msg_t mm = new msg_t();
@@ -4884,6 +4885,8 @@ namespace OLO_CAN
                 return;
             messages.Add(mm);
         }
+        
+        #endregion
         private void button1_Click(object sender, EventArgs e)
         {
             scroll = true;
@@ -4951,10 +4954,12 @@ namespace OLO_CAN
             else
                 mm.deviceID = Const.OLO_All;
             mm.messageID = msg_t.mID_PROG;
-            mm.messageLen = 1;
+            mm.messageLen = 2;
             Array.Clear(mm.messageData, 0, 8);
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
+            msg.data[0] = 0x5A;
+            msg.data[1] = 0x5A;
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
