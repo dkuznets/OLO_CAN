@@ -2114,6 +2114,7 @@
             this.btn_SAVESN.TabIndex = 69;
             this.btn_SAVESN.Text = "Запись SN";
             this.btn_SAVESN.UseVisualStyleBackColor = true;
+            this.btn_SAVESN.Visible = false;
             this.btn_SAVESN.Click += new System.EventHandler(this.btn_SAVESN_Click);
             // 
             // tb_SN
@@ -2122,6 +2123,7 @@
             this.tb_SN.Name = "tb_SN";
             this.tb_SN.Size = new System.Drawing.Size(58, 20);
             this.tb_SN.TabIndex = 68;
+            this.tb_SN.Visible = false;
             // 
             // gbox_ecR2
             // 
@@ -2735,6 +2737,7 @@
             this.cb_module2.Name = "cb_module2";
             this.cb_module2.Size = new System.Drawing.Size(158, 21);
             this.cb_module2.TabIndex = 63;
+            this.cb_module2.Visible = false;
             // 
             // bt_mod2
             // 
@@ -2744,6 +2747,7 @@
             this.bt_mod2.TabIndex = 62;
             this.bt_mod2.Text = "Режим модуля";
             this.bt_mod2.UseVisualStyleBackColor = true;
+            this.bt_mod2.Visible = false;
             this.bt_mod2.Click += new System.EventHandler(this.bt_mod2_Click);
             // 
             // REQ_VER
@@ -2754,6 +2758,7 @@
             this.REQ_VER.TabIndex = 61;
             this.REQ_VER.Text = "Версия прошивки";
             this.REQ_VER.UseVisualStyleBackColor = true;
+            this.REQ_VER.Visible = false;
             this.REQ_VER.Click += new System.EventHandler(this.REQ_VER_Click);
             // 
             // chb3_savelog
@@ -2775,6 +2780,7 @@
             this.btn_REQSN.TabIndex = 56;
             this.btn_REQSN.Text = "Запрос SN";
             this.btn_REQSN.UseVisualStyleBackColor = true;
+            this.btn_REQSN.Visible = false;
             this.btn_REQSN.Click += new System.EventHandler(this.btn_REQSN_Click);
             // 
             // btn_Reset
@@ -2884,6 +2890,7 @@
             this.bt_SyncTime.TabIndex = 44;
             this.bt_SyncTime.Text = "Синхронизация времени";
             this.bt_SyncTime.UseVisualStyleBackColor = true;
+            this.bt_SyncTime.Visible = false;
             this.bt_SyncTime.Click += new System.EventHandler(this.bt_SyncTime_Click);
             // 
             // label18

@@ -4058,9 +4058,9 @@ namespace OLO_CAN
                 uniCAN.Recv(ref msg, 100);
                 mm = mm.FromCAN(msg);
 //                messages.Add(mm);
-                label37.Text = uniCAN.VectorSize().ToString();
-                label37.Refresh();
-                mm = mm.FromCAN(msg);
+//                label37.Text = uniCAN.VectorSize().ToString();
+//                label37.Refresh();
+//                mm = mm.FromCAN(msg);
                 String strelka_s = "";
                 String mss = ""; //, devname = "";
 //                Application.DoEvents();
