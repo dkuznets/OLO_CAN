@@ -6276,9 +6276,15 @@ namespace OLO_CAN
             else
             {
  //               tm4_autoshr.Enabled = false;
-                thr_r_shoot.Abort();
-                while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
+                flag_thr_r_shoot = false;
+//                thr_r_shoot.Abort();
+//                while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
                 chb4_enshr.BackColor = Color.Transparent;
+                for (int i = 0; i < 10; i++)
+                {
+                    Trace.WriteLine(thr_r_shoot.ThreadState.ToString());
+                    Thread.Sleep(100);
+                }
             }
         }
         private void tm4_autoshl_Tick(object sender, EventArgs e)
@@ -7339,7 +7345,7 @@ namespace OLO_CAN
         }
         private void button8_Click(object sender, EventArgs e)
         {
-//            flag_thr_r_shoot = false;
+            flag_thr_r_shoot = false;
             thr_r_shoot.Abort();
 //            for (int i = 0; i < 100; i++)
 //            {
