@@ -477,6 +477,8 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.rb2_piv10 = new System.Windows.Forms.RadioButton();
+            this.rb2_piv11 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -1884,6 +1886,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.rb2_piv11);
+            this.tabPage3.Controls.Add(this.rb2_piv10);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.rtb2_datagrid);
             this.tabPage3.Controls.Add(this.cb_clear_shot);
@@ -2013,6 +2017,7 @@
             this.gb_stR2.Controls.Add(this.label46);
             this.gb_stR2.Controls.Add(this.lb_stR2_cmos1);
             this.gb_stR2.Controls.Add(this.label54);
+            this.gb_stR2.Enabled = false;
             this.gb_stR2.Location = new System.Drawing.Point(791, 332);
             this.gb_stR2.Name = "gb_stR2";
             this.gb_stR2.Size = new System.Drawing.Size(163, 58);
@@ -2063,6 +2068,7 @@
             this.gb_stL2.Controls.Add(this.label33);
             this.gb_stL2.Controls.Add(this.lb_stL2_cmos1);
             this.gb_stL2.Controls.Add(this.label40);
+            this.gb_stL2.Enabled = false;
             this.gb_stL2.Location = new System.Drawing.Point(620, 332);
             this.gb_stL2.Name = "gb_stL2";
             this.gb_stL2.Size = new System.Drawing.Size(163, 58);
@@ -2140,6 +2146,7 @@
             this.gbox_ecR2.Controls.Add(this.label57);
             this.gbox_ecR2.Controls.Add(this.lb_ecR2_plis1);
             this.gbox_ecR2.Controls.Add(this.label59);
+            this.gbox_ecR2.Enabled = false;
             this.gbox_ecR2.Location = new System.Drawing.Point(791, 187);
             this.gbox_ecR2.Name = "gbox_ecR2";
             this.gbox_ecR2.Size = new System.Drawing.Size(163, 139);
@@ -2270,6 +2277,7 @@
             this.gbox_ecL2.Controls.Add(this.label73);
             this.gbox_ecL2.Controls.Add(this.lb_ecL2_plis1);
             this.gbox_ecL2.Controls.Add(this.label75);
+            this.gbox_ecL2.Enabled = false;
             this.gbox_ecL2.Location = new System.Drawing.Point(620, 187);
             this.gbox_ecL2.Name = "gbox_ecL2";
             this.gbox_ecL2.Size = new System.Drawing.Size(163, 139);
@@ -5353,6 +5361,28 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
+            // rb2_piv10
+            // 
+            this.rb2_piv10.AutoSize = true;
+            this.rb2_piv10.Checked = true;
+            this.rb2_piv10.Location = new System.Drawing.Point(620, 396);
+            this.rb2_piv10.Name = "rb2_piv10";
+            this.rb2_piv10.Size = new System.Drawing.Size(66, 17);
+            this.rb2_piv10.TabIndex = 80;
+            this.rb2_piv10.TabStop = true;
+            this.rb2_piv10.Text = "ПИВ 1.0";
+            this.rb2_piv10.UseVisualStyleBackColor = true;
+            // 
+            // rb2_piv11
+            // 
+            this.rb2_piv11.AutoSize = true;
+            this.rb2_piv11.Location = new System.Drawing.Point(692, 396);
+            this.rb2_piv11.Name = "rb2_piv11";
+            this.rb2_piv11.Size = new System.Drawing.Size(66, 17);
+            this.rb2_piv11.TabIndex = 81;
+            this.rb2_piv11.Text = "ПИВ 1.1";
+            this.rb2_piv11.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5916,6 +5946,8 @@
         private System.Windows.Forms.Label lb3_shoot_um_txt_r;
         private System.Windows.Forms.Label lb3_shoot_az_txt_r;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.RadioButton rb2_piv11;
+        private System.Windows.Forms.RadioButton rb2_piv10;
 	}
 }
 
