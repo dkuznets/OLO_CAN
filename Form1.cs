@@ -6245,8 +6245,6 @@ namespace OLO_CAN
         {
             if (chb4_enshl.Checked)
             {
-//                tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
-//                tm4_autoshl.Enabled = true;
                 chb4_enshl.BackColor = Color.SpringGreen;
                 auto_l = new autoshoots(Const.OLO_Left, (Int16)(trackBar3_az_l.Value * 60), (Int16)(trackBar3_um_l.Value * 60), (Byte)trackBar3_freq_l.Value);
                 flag_thr_l_shoot = true;
@@ -6255,9 +6253,9 @@ namespace OLO_CAN
             }
             else
             {
-//                tm4_autoshl.Enabled = false;
-                thr_l_shoot.Abort();
-                while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
+//                thr_l_shoot.Abort();
+                flag_thr_l_shoot = false;
+                while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
                 chb4_enshl.BackColor = Color.Transparent;
             }
         }
@@ -6265,8 +6263,6 @@ namespace OLO_CAN
         {
             if (chb4_enshr.Checked)
             {
-//                tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
-//                tm4_autoshr.Enabled = true;
                 chb4_enshr.BackColor = Color.SpringGreen;
                 auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value);
                 flag_thr_r_shoot = true;
@@ -6275,16 +6271,10 @@ namespace OLO_CAN
             }
             else
             {
- //               tm4_autoshr.Enabled = false;
                 flag_thr_r_shoot = false;
 //                thr_r_shoot.Abort();
-//                while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
+                while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
                 chb4_enshr.BackColor = Color.Transparent;
-                for (int i = 0; i < 10; i++)
-                {
-                    Trace.WriteLine(thr_r_shoot.ThreadState.ToString());
-                    Thread.Sleep(100);
-                }
             }
         }
         private void tm4_autoshl_Tick(object sender, EventArgs e)
@@ -6309,7 +6299,6 @@ namespace OLO_CAN
         private void trackBar3_freq_l_Scroll(object sender, EventArgs e)
         {
             lb3_freq_val_l.Text = (trackBar3_freq_l.Value).ToString() + " Гц";
-            tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
         }
         private void trackBar3_az_r_Scroll(object sender, EventArgs e)
         {
@@ -6322,7 +6311,6 @@ namespace OLO_CAN
         private void trackBar3_freq_r_Scroll(object sender, EventArgs e)
         {
             lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
-            tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
         }
         private void tm4_test_Tick(object sender, EventArgs e)
         {
@@ -7337,23 +7325,9 @@ namespace OLO_CAN
 
         private void button7_Click_1(object sender, EventArgs e)
         {
-            auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value);
-//            autoshoots auto = new autoshoots();
-            flag_thr_r_shoot = true;
-            thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot_R));
-            thr_r_shoot.Start();
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            flag_thr_r_shoot = false;
-            thr_r_shoot.Abort();
-//            for (int i = 0; i < 100; i++)
-//            {
-//                Trace.WriteLine(thr_r_shoot.ThreadState.ToString());
-//                Thread.Sleep(100);
-//            }
-//            while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
-            MessageBox.Show("!!!!");
         }
      }
 

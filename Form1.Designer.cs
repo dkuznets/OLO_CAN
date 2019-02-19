@@ -256,6 +256,7 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.bt3_rand = new System.Windows.Forms.Button();
             this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
@@ -462,8 +463,6 @@
             this.Timer_GetData3 = new System.Windows.Forms.Timer(this.components);
             this.timer_temperature = new System.Windows.Forms.Timer(this.components);
             this.timer_Error_Boot = new System.Windows.Forms.Timer(this.components);
-            this.tm4_autoshl = new System.Windows.Forms.Timer(this.components);
-            this.tm4_autoshr = new System.Windows.Forms.Timer(this.components);
             this.tm4_counter = new System.Windows.Forms.Timer(this.components);
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
@@ -478,7 +477,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3033,6 +3031,16 @@
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(879, 77);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 61;
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(879, 47);
@@ -5238,14 +5246,6 @@
             this.timer_Error_Boot.Interval = 75000;
             this.timer_Error_Boot.Tick += new System.EventHandler(this.timer_Error_Boot_Tick);
             // 
-            // tm4_autoshl
-            // 
-            this.tm4_autoshl.Tick += new System.EventHandler(this.tm4_autoshl_Tick);
-            // 
-            // tm4_autoshr
-            // 
-            this.tm4_autoshr.Tick += new System.EventHandler(this.tm4_autoshr_Tick);
-            // 
             // tm4_counter
             // 
             this.tm4_counter.Tick += new System.EventHandler(this.tm4_counter_Tick);
@@ -5345,16 +5345,6 @@
             // 
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(879, 77);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 61;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Form1
             // 
@@ -5717,8 +5707,6 @@
         private System.Windows.Forms.Label lb3_freq_val_l;
         private System.Windows.Forms.CheckBox chb4_enshr;
         private System.Windows.Forms.CheckBox chb4_enshl;
-        private System.Windows.Forms.Timer tm4_autoshl;
-        private System.Windows.Forms.Timer tm4_autoshr;
         private System.Windows.Forms.Timer tm4_counter;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox chb4_nopaint;
