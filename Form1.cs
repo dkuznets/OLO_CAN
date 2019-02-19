@@ -6245,13 +6245,19 @@ namespace OLO_CAN
         {
             if (chb4_enshl.Checked)
             {
-                tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
-                tm4_autoshl.Enabled = true;
+//                tm4_autoshl.Interval = 1000 / trackBar3_freq_l.Value;
+//                tm4_autoshl.Enabled = true;
                 chb4_enshl.BackColor = Color.SpringGreen;
+                auto_l = new autoshoots(Const.OLO_Left, (Int16)(trackBar3_az_l.Value * 60), (Int16)(trackBar3_um_l.Value * 60), (Byte)trackBar3_freq_l.Value);
+                flag_thr_l_shoot = true;
+                thr_l_shoot = new Thread(new ThreadStart(auto_l.Shoot_L));
+                thr_l_shoot.Start();
             }
             else
             {
-                tm4_autoshl.Enabled = false;
+//                tm4_autoshl.Enabled = false;
+                thr_l_shoot.Abort();
+                while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
                 chb4_enshl.BackColor = Color.Transparent;
             }
         }
@@ -6259,13 +6265,19 @@ namespace OLO_CAN
         {
             if (chb4_enshr.Checked)
             {
-                tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
-                tm4_autoshr.Enabled = true;
+//                tm4_autoshr.Interval = 1000 / trackBar3_freq_r.Value;
+//                tm4_autoshr.Enabled = true;
                 chb4_enshr.BackColor = Color.SpringGreen;
+                auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value);
+                flag_thr_r_shoot = true;
+                thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot_R));
+                thr_r_shoot.Start();
             }
             else
             {
-                tm4_autoshr.Enabled = false;
+ //               tm4_autoshr.Enabled = false;
+                thr_r_shoot.Abort();
+                while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Aborted) ;
                 chb4_enshr.BackColor = Color.Transparent;
             }
         }
