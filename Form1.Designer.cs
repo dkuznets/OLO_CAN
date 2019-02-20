@@ -317,13 +317,6 @@
             this.cb_olo_l_ena = new System.Windows.Forms.CheckBox();
             this.shoot_l = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgview3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbox_CAN3 = new System.Windows.Forms.GroupBox();
             this.lb_noerr3 = new System.Windows.Forms.Label();
             this.cb_CAN3 = new System.Windows.Forms.ComboBox();
@@ -519,7 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_az_l)).BeginInit();
             this.gb_olo_R.SuspendLayout();
             this.gb_olo_L.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgview3)).BeginInit();
             this.gbox_CAN3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.gb_Image24.SuspendLayout();
@@ -3056,7 +3048,6 @@
             this.tabPage4.Controls.Add(this.gb_olo_R);
             this.tabPage4.Controls.Add(this.gb_olo_L);
             this.tabPage4.Controls.Add(this.panel3);
-            this.tabPage4.Controls.Add(this.dgview3);
             this.tabPage4.Controls.Add(this.gbox_CAN3);
             this.tabPage4.Controls.Add(this.bt_About3);
             this.tabPage4.Controls.Add(this.bt_Exit3);
@@ -3752,72 +3743,6 @@
             this.panel3.Size = new System.Drawing.Size(200, 200);
             this.panel3.TabIndex = 49;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // dgview3
-            // 
-            this.dgview3.AllowUserToAddRows = false;
-            this.dgview3.AllowUserToDeleteRows = false;
-            this.dgview3.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgview3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgview3.ColumnHeadersVisible = false;
-            this.dgview3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dgview3.Location = new System.Drawing.Point(109, 443);
-            this.dgview3.MultiSelect = false;
-            this.dgview3.Name = "dgview3";
-            this.dgview3.RowHeadersVisible = false;
-            this.dgview3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgview3.ShowCellErrors = false;
-            this.dgview3.ShowEditingIcon = false;
-            this.dgview3.Size = new System.Drawing.Size(605, 29);
-            this.dgview3.TabIndex = 48;
-            this.dgview3.Visible = false;
-            this.dgview3.Click += new System.EventHandler(this.dgview3_Click);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.MinimumWidth = 22;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.Width = 22;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Column2";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Column5";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 190;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Column6";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // gbox_CAN3
             // 
@@ -5463,7 +5388,6 @@
             this.gb_olo_R.PerformLayout();
             this.gb_olo_L.ResumeLayout(false);
             this.gb_olo_L.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgview3)).EndInit();
             this.gbox_CAN3.ResumeLayout(false);
             this.gbox_CAN3.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -5637,7 +5561,6 @@
         private System.Windows.Forms.Button shoot_l;
         private System.Windows.Forms.CheckBox chb_dgview3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgview3;
         private System.Windows.Forms.GroupBox gbox_CAN3;
         private System.Windows.Forms.Label lb_noerr3;
         private System.Windows.Forms.ComboBox cb_CAN3;
@@ -5749,12 +5672,6 @@
         private System.Windows.Forms.Timer tm4_counter;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox chb4_nopaint;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Timer tm4_test;
         private System.Windows.Forms.Timer timer1s;
         private System.Windows.Forms.Button REQ_VER;

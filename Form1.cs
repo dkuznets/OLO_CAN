@@ -681,7 +681,7 @@ namespace OLO_CAN
             lb_noerr3.Visible = false;
             bt_About3.Enabled = true;
             bt_Exit3.Enabled = true;
-            dgview3.Enabled = false;
+            rtb3_datagrid.Enabled = false;
             panel3.Enabled = false;
             gb_olo_L.Enabled = false;
             gb_olo_R.Enabled = false;
@@ -851,7 +851,7 @@ namespace OLO_CAN
             bt_Exit3.Enabled = true;
 
             cb_CAN3.Enabled = true;
-            dgview3.Enabled = true;
+            rtb3_datagrid.Enabled = true;
             panel3.Enabled = true;
             gb_olo_L.Enabled = true;
             gb_olo_R.Enabled = true;
@@ -886,7 +886,7 @@ namespace OLO_CAN
             bt_Exit3.Enabled = true;
 
             cb_CAN3.Enabled = true;
-            dgview3.Enabled = true;
+            rtb3_datagrid.Enabled = true;
             panel3.Enabled = true;
             gb_olo_L.Enabled = true;
             gb_olo_R.Enabled = true;
@@ -943,7 +943,7 @@ namespace OLO_CAN
             lb_noerr3.Visible = false;
             bt_About3.Enabled = true;
             bt_Exit3.Enabled = true;
-            dgview3.Enabled = false;
+            rtb3_datagrid.Enabled = false;
             panel3.Enabled = false;
             gb_olo_L.Enabled = false;
             gb_olo_R.Enabled = false;
@@ -5153,10 +5153,9 @@ namespace OLO_CAN
         {
             scroll = true;
             chb_dgview3.Text = "Скролл включен";
-            dgview3.GridColor = SystemColors.ControlDark;
             chb_dgview3.BackColor = Color.SpringGreen;
             messages.Clear();
-            dgview3.Rows.Clear();
+            rtb3_datagrid.Clear();
         }
         #region Выдача статуса по таймеру
         private void timer_testOLO_L3_Tick(object sender, EventArgs e)
@@ -5663,10 +5662,6 @@ namespace OLO_CAN
                     }
                     rtb3_datagrid.ScrollToCaret();
     #endregion
-//                    if (mm.deviceID == Const.OLO_Left && cb_olo_l_ena.Checked)
-//                        messages.Add(mm);
-//                    if (mm.deviceID == Const.OLO_Right && cb_olo_r_ena.Checked)
-//                        messages.Add(mm);
                 }
             }
             Timer_GetData3.Enabled = true;
@@ -5806,13 +5801,11 @@ namespace OLO_CAN
             {
                 scroll = true;
                 chb_dgview3.Text = "Скролл включен";
-                dgview3.GridColor = SystemColors.ControlDark;
             }
             else
             {
                 scroll = false;
                 chb_dgview3.Text = "Скролл выключен";
-                dgview3.GridColor = Color.Blue;
             }
         }
         private void chb_dgview3_CheckedChanged(object sender, EventArgs e)
