@@ -4261,57 +4261,65 @@ namespace OLO_CAN
                             #region ПИВ 1.0
                             if (mm.deviceID == Const.OLO_Left)
                             {
-                                switch (mm.messageData[0] & 0x0F) // причина выдачи статуса
+                                if (mm.messageData[0] >> 5 == 1) // Рабочий режим
                                 {
-                                    case 0:
-                                        lb_statusL_reason2.Text = "BY REQUEST";
-                                        break;
-                                    case 1:
-                                        lb_statusL_reason2.Text = "BY TIMER";
-                                        break;
-                                    case 2:
-                                        lb_statusL_reason2.Text = "BY STATE";
-                                        break;
-                                    default:
-                                        lb_statusL_reason2.Text = "BY REQUEST";
-                                        break;
+                                    switch (mm.messageData[0] & 0x0F) // причина выдачи статуса
+                                    {
+                                        case 0:
+                                            lb_statusL_reason2.Text = "BY REQUEST";
+                                            break;
+                                        case 1:
+                                            lb_statusL_reason2.Text = "BY TIMER";
+                                            break;
+                                        case 2:
+                                            lb_statusL_reason2.Text = "BY STATE";
+                                            break;
+                                        default:
+                                            lb_statusL_reason2.Text = "BY REQUEST";
+                                            break;
+                                    }
+                                    switch ((mm.messageData[0] >> 4) & 0x03) // режим
+                                    {
+                                        case 1:
+                                            lb_statusL_mode2.Text = "OPERATIONAL";
+                                            cb_module2.SelectedIndex = 1;
+                                            break;
+                                        case 2:
+                                            lb_statusL_mode2.Text = "PROGRAMMING";
+                                            cb_module2.SelectedIndex = 2;
+                                            break;
+                                        default:
+                                            lb_statusL_mode2.Text = "OPERATIONAL";
+                                            break;
+                                    }
+                                    lb_statusL_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
+                                    lb_statusL_plis2.Text = (mm.messageData[2] & 0x01) == 1 ? "PLIS OK" : "PLIS FAIL";
+                                    lb_statusL_file2.Text = ((mm.messageData[2] >> 1) & 0x01) == 1 ? "FILE OK" : "FILE FAIL";
+                                    lb_statusL_t12.Text = ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    lb_statusL_t22.Text = ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    lb_statusL_t32.Text = ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+
+                                    if (mm.messageData[6] != 0)
+                                        lb_stL2_cmos1.Text = mm.messageData[6].ToString();
+                                    else
+                                        lb_stL2_cmos1.Text = "";
+                                    if (mm.messageData[7] != 0)
+                                        lb_stL2_cmos2.Text = mm.messageData[7].ToString();
+                                    else
+                                        lb_stL2_cmos2.Text = "";
                                 }
-                                switch ((mm.messageData[0] >> 4) & 0x03) // режим
+                                else // Режим программирования
                                 {
-                                    case 1:
-                                        lb_statusL_mode2.Text = "OPERATIONAL";
-                                        cb_module2.SelectedIndex = 1;
-                                        break;
-                                    case 2:
-                                        lb_statusL_mode2.Text = "PROGRAMMING";
-                                        cb_module2.SelectedIndex = 2;
-                                        break;
-                                    default:
-                                        lb_statusL_mode2.Text = "OPERATIONAL";
-                                        break;
+                                    lb_statusL_mode2.Text = "PROGRAMMING";
+                                    lb_statusL_reason2.Text = "BY REQUEST";
+                                    cb_module2.SelectedIndex = 2;
+                                    lb_statusL_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
+                                    lb_statusL_plis2.Text = "";
+                                    lb_statusL_file2.Text = "";
+                                    lb_statusL_t12.Text = "";
+                                    lb_statusL_t22.Text = "";
+                                    lb_statusL_t32.Text = "";
                                 }
-                                lb_statusL_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
-                                lb_statusL_plis2.Text = (mm.messageData[2] & 0x01) == 1 ? "PLIS OK" : "PLIS FAIL";
-                                lb_statusL_file2.Text = ((mm.messageData[2] >> 1) & 0x01) == 1 ? "FILE OK" : "FILE FAIL";
-                                lb_statusL_t12.Text = ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                lb_statusL_t22.Text = ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                lb_statusL_t32.Text = ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-
-//                                lb_ecL2_file.Text = ((mm.messageData[2] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
-//                                lb_ecL2_plis1.Text = (mm.messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-//                                lb_ecL2_plis2.Text = ((mm.messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-//                                lb_ecL2_ram.Text = ((mm.messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-//                                lb_ecL2_ram1.Text = ((mm.messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-//                                lb_ecL2_ram2.Text = ((mm.messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-
-                                if (mm.messageData[6] != 0)
-                                    lb_stL2_cmos1.Text = mm.messageData[6].ToString();
-                                else
-                                    lb_stL2_cmos1.Text = "";
-                                if (mm.messageData[7] != 0)
-                                    lb_stL2_cmos2.Text = mm.messageData[7].ToString();
-                                else
-                                    lb_stL2_cmos2.Text = "";
                             }
                             else
                             {
