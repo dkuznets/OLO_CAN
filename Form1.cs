@@ -5943,6 +5943,15 @@ namespace OLO_CAN
                 flag_thr_l_shoot = true;
                 thr_l_shoot = new Thread(new ThreadStart(auto_l.Shoot_L));
                 thr_l_shoot.Start();
+                String mss;
+                mss = "Азимут = " + trackBar3_az_l.Value.ToString("0'°'");
+                mss += "Угол = " + trackBar3_um_l.Value.ToString("0'°'");
+                Shots sh = new Shots();
+                sh.bort = (Byte)0;
+                sh.azimut = (Int16)(trackBar3_az_l.Value * 60);
+                sh.ugol = (Int16)(trackBar3_um_l.Value * 60);
+                list_shots.Add(sh);
+                text2rtb(rtb3_datagrid, "Запуск выстрелов " + lolo + "\t" + mss + trackBar3_freq_l.Value.ToString() + " Гц" , Color.Aquamarine, Color.Black);
             }
             else
             {
