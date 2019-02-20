@@ -3533,12 +3533,13 @@
             // 
             // cb_olo_r_ena
             // 
-            this.cb_olo_r_ena.AutoSize = true;
-            this.cb_olo_r_ena.Location = new System.Drawing.Point(6, 19);
+            this.cb_olo_r_ena.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_olo_r_ena.Location = new System.Drawing.Point(6, 20);
             this.cb_olo_r_ena.Name = "cb_olo_r_ena";
-            this.cb_olo_r_ena.Size = new System.Drawing.Size(136, 17);
+            this.cb_olo_r_ena.Size = new System.Drawing.Size(168, 23);
             this.cb_olo_r_ena.TabIndex = 31;
             this.cb_olo_r_ena.Text = "Эмуляция выключена";
+            this.cb_olo_r_ena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cb_olo_r_ena.UseVisualStyleBackColor = true;
             this.cb_olo_r_ena.CheckedChanged += new System.EventHandler(this.cb_olo_r_ena_CheckedChanged);
             // 
@@ -3556,7 +3557,7 @@
             // shoot_r
             // 
             this.shoot_r.Enabled = false;
-            this.shoot_r.Location = new System.Drawing.Point(6, 43);
+            this.shoot_r.Location = new System.Drawing.Point(6, 51);
             this.shoot_r.Name = "shoot_r";
             this.shoot_r.Size = new System.Drawing.Size(168, 23);
             this.shoot_r.TabIndex = 30;
@@ -3721,19 +3722,20 @@
             // 
             // cb_olo_l_ena
             // 
-            this.cb_olo_l_ena.AutoSize = true;
+            this.cb_olo_l_ena.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_olo_l_ena.Location = new System.Drawing.Point(6, 20);
             this.cb_olo_l_ena.Name = "cb_olo_l_ena";
-            this.cb_olo_l_ena.Size = new System.Drawing.Size(136, 17);
+            this.cb_olo_l_ena.Size = new System.Drawing.Size(168, 23);
             this.cb_olo_l_ena.TabIndex = 30;
             this.cb_olo_l_ena.Text = "Эмуляция выключена";
+            this.cb_olo_l_ena.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cb_olo_l_ena.UseVisualStyleBackColor = true;
             this.cb_olo_l_ena.CheckedChanged += new System.EventHandler(this.cb_olo_l_ena_CheckedChanged);
             // 
             // shoot_l
             // 
             this.shoot_l.Enabled = false;
-            this.shoot_l.Location = new System.Drawing.Point(6, 43);
+            this.shoot_l.Location = new System.Drawing.Point(6, 51);
             this.shoot_l.Name = "shoot_l";
             this.shoot_l.Size = new System.Drawing.Size(168, 23);
             this.shoot_l.TabIndex = 29;
