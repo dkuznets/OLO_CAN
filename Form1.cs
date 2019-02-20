@@ -5795,19 +5795,6 @@ namespace OLO_CAN
             //return 0x41000000;
             return 0x3F7FFFFF; // 1c
         }
-        private void dgview3_Click(object sender, EventArgs e)
-        {
-            if (!scroll)
-            {
-                scroll = true;
-                chb_dgview3.Text = "Скролл включен";
-            }
-            else
-            {
-                scroll = false;
-                chb_dgview3.Text = "Скролл выключен";
-            }
-        }
         private void chb_dgview3_CheckedChanged(object sender, EventArgs e)
         {
             if (chb_dgview3.Checked)
@@ -5934,17 +5921,10 @@ namespace OLO_CAN
                 text2rtb(rtb3_datagrid, "Выключение выстрелов " + polo, Color.Orange, Color.Black);
             }
         }
-        private void tm4_autoshl_Tick(object sender, EventArgs e)
-        {
-            shoot(Const.OLO_Left);
-        }
-        private void tm4_autoshr_Tick(object sender, EventArgs e)
-        {
-            shoot(Const.OLO_Right);
-        }
         private void tm4_counter_Tick(object sender, EventArgs e)
         {
         }
+        #region Тракбары
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
@@ -5969,6 +5949,8 @@ namespace OLO_CAN
         {
             lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
         }
+        
+        #endregion
         private void tm4_test_Tick(object sender, EventArgs e)
         {
         }
