@@ -4640,13 +4640,16 @@ namespace OLO_CAN
                     to = 0x40000000;
                     break;
             }
+            String sss = "";
             switch (comboBox3.SelectedIndex)
             {
                 case 0:
                     mm.deviceID = Const.OLO_Left;
+                    sss = "Запрос статуса левого ОЛО";
                     break;
                 case 1:
                     mm.deviceID = Const.OLO_Right;
+                    sss = "Запрос статуса правого ОЛО";
                     break;
                 case 2:
                     mm.deviceID = Const.OLO_All;
@@ -4663,7 +4666,8 @@ namespace OLO_CAN
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
-            messages.Add(mm);
+            text2rtb(rtb2_datagrid, msgdata2string(msg) +sss, Color.Aquamarine, Color.Black);
+//            messages.Add(mm);
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -6950,6 +6954,17 @@ namespace OLO_CAN
         }
         #endregion
 
+        void text2rtb(RichTextBox rtb, String txt, Color bgcolor, Color fgcolor)
+        {
+            rtb.AppendText(txt, bgcolor, fgcolor);
+        }
+        String msgdata2string(canmsg_t msg)
+        {
+            String rawdata = "";
+            for (int j = 0; j < msg.len; j++)
+                rawdata += msg.data[j].ToString("X2") + " ";
+            return rawdata;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
 //            MessageBox.Show(String.Format("0x{0:X}", aaa));
