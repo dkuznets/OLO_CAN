@@ -5197,7 +5197,10 @@ namespace OLO_CAN
             mmsg = mmm.ToCAN(mmm);
             if (!uniCAN.Send(ref mmsg, 200))
                 return;
-            messages.Add(mmm);
+            String mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+            text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss, Color.Aquamarine, Color.Black);
         }
         private void timer_testOLO_R3_Tick(object sender, EventArgs e)
         {
@@ -5238,7 +5241,10 @@ namespace OLO_CAN
             mmsg = mmm.ToCAN(mmm);
             if (!uniCAN.Send(ref mmsg, 200))
                 return;
-            messages.Add(mmm);
+            String mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+            text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss, Color.Aquamarine, Color.Black);
         }
         
         #endregion
@@ -5529,7 +5535,7 @@ namespace OLO_CAN
                                     mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                         "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                         "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                    text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss);
+                                    text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss, Color.Aquamarine, Color.Black);
                                 }
                                 else
                                 {
@@ -5573,7 +5579,7 @@ namespace OLO_CAN
                                     mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                         "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                         "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                    text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss);
+                                    text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss, Color.Aquamarine, Color.Black);
                                 }
                                 #endregion
                             }
