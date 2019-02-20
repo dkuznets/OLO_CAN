@@ -4500,7 +4500,7 @@ namespace OLO_CAN
                     }
                     else
                     {
-                        if (mm.messageID == msg_t.mID_STATUS && (mm.messageData[0] >> 4 == 1))
+                        if (mm.messageID == msg_t.mID_STATUS && (mm.messageData[0] >> 4 == 0))
                         {
                             rtb2_datagrid.AppendText(temp_str, Color.Red);
                         }
