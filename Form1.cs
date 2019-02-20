@@ -5467,9 +5467,10 @@ namespace OLO_CAN
 
                             if (mm.deviceID != Const.OLO_All)
                             {
-                                mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
                                 if (mm.messageData[4] == 1 || mm.messageData[4] == 3) // Включение автоматической выдачи статуса 
                                 {
+                                    mss = "Запрос включения автоматического статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                    text2rtb(rtb3_datagrid, mss);
                                     if (mm.deviceID == Const.OLO_Left)
                                     {
                                         timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
@@ -5483,6 +5484,8 @@ namespace OLO_CAN
                                 }
                                 else // Выдача статуса по запросу
                                 {
+                                    mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                    text2rtb(rtb3_datagrid, mss);
                                     if (mm.deviceID == Const.OLO_Left)
                                     {
                                         timer_testOLO_L3.Enabled = false;
@@ -5522,7 +5525,6 @@ namespace OLO_CAN
                                         mmsg = mmm.ToCAN(mmm);
                                         if (!uniCAN.Send(ref mmsg, 200))
                                             return;
-//                                        messages.Add(mmm);
                                         mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                             "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                             "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
@@ -5567,7 +5569,6 @@ namespace OLO_CAN
                                         mmsg = mmm.ToCAN(mmm);
                                         if (!uniCAN.Send(ref mmsg, 200))
                                             return;
-//                                        messages.Add(mmm);
                                         mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                             "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
                                             "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
