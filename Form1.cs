@@ -5945,7 +5945,7 @@ namespace OLO_CAN
                 thr_l_shoot.Start();
                 String mss;
                 mss = "Азимут = " + trackBar3_az_l.Value.ToString("0'°'");
-                mss += "Угол = " + trackBar3_um_l.Value.ToString("0'°'") + "\t";
+                mss += " Угол = " + trackBar3_um_l.Value.ToString("0'°'") + "\t";
                 Shots sh = new Shots();
                 sh.bort = (Byte)0;
                 sh.azimut = (Int16)(trackBar3_az_l.Value * 60);
@@ -5974,7 +5974,7 @@ namespace OLO_CAN
                 thr_r_shoot.Start();
                 String mss;
                 mss = "Азимут = " + trackBar3_az_r.Value.ToString("0'°'");
-                mss += "Угол = " + trackBar3_um_r.Value.ToString("0'°'") + "\t";
+                mss += " Угол = " + trackBar3_um_r.Value.ToString("0'°'") + "\t";
                 Shots sh = new Shots();
                 sh.bort = (Byte)1;
                 sh.azimut = (Int16)(trackBar3_az_r.Value * 60);
@@ -7102,7 +7102,6 @@ namespace OLO_CAN
             this.freq = chastota;
             this.flag_stop = true;
         }
-
         public void Stop()
         {
             flag_stop = false;
