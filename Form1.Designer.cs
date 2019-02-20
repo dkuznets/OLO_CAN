@@ -3410,9 +3410,10 @@
             // chb_dgview3
             // 
             this.chb_dgview3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb_dgview3.BackColor = System.Drawing.Color.SpringGreen;
+            this.chb_dgview3.BackColor = System.Drawing.Color.Transparent;
             this.chb_dgview3.Checked = true;
             this.chb_dgview3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_dgview3.Enabled = false;
             this.chb_dgview3.Location = new System.Drawing.Point(195, 395);
             this.chb_dgview3.Name = "chb_dgview3";
             this.chb_dgview3.Size = new System.Drawing.Size(180, 23);

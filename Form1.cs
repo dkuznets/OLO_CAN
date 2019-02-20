@@ -5523,7 +5523,11 @@ namespace OLO_CAN
                                         mmsg = mmm.ToCAN(mmm);
                                         if (!uniCAN.Send(ref mmsg, 200))
                                             return;
-                                        messages.Add(mmm);
+//                                        messages.Add(mmm);
+                                        mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                            "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                            "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                        text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss);
                                     }
                                     else
                                     {
@@ -5564,7 +5568,11 @@ namespace OLO_CAN
                                         mmsg = mmm.ToCAN(mmm);
                                         if (!uniCAN.Send(ref mmsg, 200))
                                             return;
-                                        messages.Add(mmm);
+//                                        messages.Add(mmm);
+                                        mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                            "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                            "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                        text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss);
                                     }
                                 }
                             }
