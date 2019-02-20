@@ -5129,7 +5129,7 @@ namespace OLO_CAN
             sh.azimut = BitConverter.ToInt16(mm.messageData, 4);
             sh.ugol = BitConverter.ToInt16(mm.messageData, 6);
             list_shots.Add(sh);
-            text2rtb(rtb3_datagrid, msgdata2string(mmsg) + "Выстрел " + (mm.deviceID == Const.OLO_Left ? lolo : polo) + mss, Color.Aquamarine, Color.Black);
+            text2rtb(rtb3_datagrid, msgdata2string(mmsg) +"\t" + "Выстрел " + (mm.deviceID == Const.OLO_Left ? lolo : polo) + "\t" + mss, Color.Aquamarine, Color.Black);
             //            messages.Add(mm);
         }
         private void shoot_l_Click(object sender, EventArgs e)
