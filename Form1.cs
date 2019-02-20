@@ -5126,11 +5126,12 @@ namespace OLO_CAN
             mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
             Shots sh = new Shots();
             sh.bort = (mm.deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
-            sh.azimut = BitConverter.ToInt16(mm.messageData, 4);
-            sh.ugol = BitConverter.ToInt16(mm.messageData, 6);
+            sh.azimut = (Int16)az;
+            sh.ugol = (Int16)um;
             list_shots.Add(sh);
             text2rtb(rtb3_datagrid, msgdata2string(mmsg) +"\t" + "Выстрел " + (mm.deviceID == Const.OLO_Left ? lolo : polo) + "\t" + mss, Color.Aquamarine, Color.Black);
             //            messages.Add(mm);
+            panel3.Refresh();
         }
         private void shoot_l_Click(object sender, EventArgs e)
         {
