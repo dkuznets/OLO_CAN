@@ -4129,6 +4129,9 @@ namespace OLO_CAN
                         if (rb2_piv11.Checked)
                         {
                             #region ПИВ 1.1
+                            mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                             if (mm.deviceID == Const.OLO_Left)
                             {
                                 switch (mm.messageData[0] & 3)
@@ -4263,6 +4266,9 @@ namespace OLO_CAN
                             {
                                 if (mm.messageData[0] >> 5 == 1) // Рабочий режим
                                 {
+                                    mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                                     switch (mm.messageData[0] & 0x0F) // причина выдачи статуса
                                     {
                                         case 0:
