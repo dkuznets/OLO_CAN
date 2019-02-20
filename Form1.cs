@@ -5121,7 +5121,16 @@ namespace OLO_CAN
             mmsg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref mmsg, 200))
                 return;
-            messages.Add(mm);
+            String mss;
+            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+            mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
+            Shots sh = new Shots();
+            sh.bort = (mm.deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
+            sh.azimut = BitConverter.ToInt16(mm.messageData, 4);
+            sh.ugol = BitConverter.ToInt16(mm.messageData, 6);
+            list_shots.Add(sh);
+            text2rtb(rtb3_datagrid, msgdata2string(mmsg) + "Выстрел " + (mm.deviceID == Const.OLO_Left ? lolo : polo) + mss, Color.Aquamarine, Color.Black);
+            //            messages.Add(mm);
         }
         private void shoot_l_Click(object sender, EventArgs e)
         {
@@ -5274,8 +5283,6 @@ namespace OLO_CAN
                     {
                         continue;
                     }
-                    //                    Application.DoEvents();
-//                    Bitmap strelka = null;
                     String strelka_s = "";
 
                     if (mm.deviceID == Const.OLO_Left)
