@@ -5465,117 +5465,118 @@ namespace OLO_CAN
                             }
                             #endregion
 
-                            if (mm.deviceID != Const.OLO_All)
+                            if (mm.messageData[4] == 1 || mm.messageData[4] == 3)
                             {
-                                if (mm.messageData[4] == 1 || mm.messageData[4] == 3) // Включение автоматической выдачи статуса 
+                                #region Включение автоматической выдачи статуса
+                                mss = "Запрос включения автоматического статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                text2rtb(rtb3_datagrid, mss);
+                                if (mm.deviceID == Const.OLO_Left)
                                 {
-                                    mss = "Запрос включения автоматического статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                                    text2rtb(rtb3_datagrid, mss);
-                                    if (mm.deviceID == Const.OLO_Left)
-                                    {
-                                        timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
-                                        timer_testOLO_L3.Enabled = true;
-                                    }
-                                    else
-                                    {
-                                        timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
-                                        timer_testOLO_R3.Enabled = true;
-                                    }
+                                    timer_testOLO_L3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                    timer_testOLO_L3.Enabled = true;
                                 }
-                                else // Выдача статуса по запросу
+                                else
                                 {
-                                    mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                                    text2rtb(rtb3_datagrid, mss);
-                                    if (mm.deviceID == Const.OLO_Left)
-                                    {
-                                        timer_testOLO_L3.Enabled = false;
-                                        mmm.messageID = msg_t.mID_STATUS;
-                                        mmm.deviceID = Const.OLO_Left;
-                                        //отправка статуса по запросу, интегральная исправность, штатный режим
-                                        mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
-                                        mmm.messageData[1] = 0; //штатный режим
-                                        mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                        try
-                                        {
-                                            mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[3] = 0;
-                                        }
-                                        try
-                                        {
-                                            mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[4] = 0;
-                                        }
-                                        try
-                                        {
-                                            mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[5] = 0;
-                                        }
-                                        mmm.messageLen = 8;
-                                        canmsg_t mmsg = new canmsg_t();
-                                        mmsg.data = new Byte[8];
-                                        mmsg = mmm.ToCAN(mmm);
-                                        if (!uniCAN.Send(ref mmsg, 200))
-                                            return;
-                                        mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                                            "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                                            "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                        text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss);
-                                    }
-                                    else
-                                    {
-                                        timer_testOLO_R3.Enabled = false;
-                                        mmm.messageID = msg_t.mID_STATUS;
-                                        mmm.deviceID = Const.OLO_Right;
-                                        //отправка статуса по запросу, интегральная исправность, штатный режим
-                                        mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
-                                        mmm.messageData[1] = 0; //штатный режим
-                                        mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
-                                        try
-                                        {
-                                            mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[3] = 0;
-                                        }
-                                        try
-                                        {
-                                            mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[4] = 0;
-                                        }
-                                        try
-                                        {
-                                            mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
-                                        }
-                                        catch (FormatException)
-                                        {
-                                            mmm.messageData[5] = 0;
-                                        }
-                                        mmm.messageLen = 8;
-                                        canmsg_t mmsg = new canmsg_t();
-                                        mmsg.data = new Byte[8];
-                                        mmsg = mmm.ToCAN(mmm);
-                                        if (!uniCAN.Send(ref mmsg, 200))
-                                            return;
-                                        mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                                            "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                                            "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                        text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss);
-                                    }
+                                    timer_testOLO_R3.Interval = (int)period(BitConverter.ToUInt32(mm.messageData, 0));
+                                    timer_testOLO_R3.Enabled = true;
                                 }
-	                        }
+                                #endregion
+                            }
+                            else
+                            {
+                                #region Выдача статуса по запросу
+                                mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                text2rtb(rtb3_datagrid, mss);
+                                if (mm.deviceID == Const.OLO_Left)
+                                {
+                                    timer_testOLO_L3.Enabled = false;
+                                    mmm.messageID = msg_t.mID_STATUS;
+                                    mmm.deviceID = Const.OLO_Left;
+                                    //отправка статуса по запросу, интегральная исправность, штатный режим
+                                    mmm.messageData[0] = (Byte)(0 + (chb_L_Err_int.Checked ? 0 : 16) + 32);
+                                    mmm.messageData[1] = 0; //штатный режим
+                                    mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                    try
+                                    {
+                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[3] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[4] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[5] = 0;
+                                    }
+                                    mmm.messageLen = 8;
+                                    canmsg_t mmsg = new canmsg_t();
+                                    mmsg.data = new Byte[8];
+                                    mmsg = mmm.ToCAN(mmm);
+                                    if (!uniCAN.Send(ref mmsg, 200))
+                                        return;
+                                    mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    text2rtb(rtb3_datagrid, "Статус " + lolo + "\t" + msgdata2string(mmsg) + "\t" + mss);
+                                }
+                                else
+                                {
+                                    timer_testOLO_R3.Enabled = false;
+                                    mmm.messageID = msg_t.mID_STATUS;
+                                    mmm.deviceID = Const.OLO_Right;
+                                    //отправка статуса по запросу, интегральная исправность, штатный режим
+                                    mmm.messageData[0] = (Byte)(0 + (chb_R_Err_int.Checked ? 0 : 16) + 32);
+                                    mmm.messageData[1] = 0; //штатный режим
+                                    mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
+                                    try
+                                    {
+                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[3] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[4] = 0;
+                                    }
+                                    try
+                                    {
+                                        mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        mmm.messageData[5] = 0;
+                                    }
+                                    mmm.messageLen = 8;
+                                    canmsg_t mmsg = new canmsg_t();
+                                    mmsg.data = new Byte[8];
+                                    mmsg = mmm.ToCAN(mmm);
+                                    if (!uniCAN.Send(ref mmsg, 200))
+                                        return;
+                                    mss = "T1=" + ((SByte)mmm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T2=" + ((SByte)mmm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T3=" + ((SByte)mmm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    text2rtb(rtb3_datagrid, "Статус " + polo + "\t" + msgdata2string(mmsg) + "\t" + mss);
+                                }
+                                #endregion
+                            }
                             break;
     #endregion
                         case msg_t.mID_DATA:
@@ -5594,14 +5595,8 @@ namespace OLO_CAN
                             int um = BitConverter.ToInt16(mm.messageData, 6);
                             //mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' " +
                             //      "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                            if (az >= 0)
-                                mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
-                            else
-                                mss = "Азимут = -" + (Math.Abs(az) / 60).ToString("0'°'") + (Math.Abs(az) % 60).ToString() + "' ";
-                            if(um >= 0)
-                                  mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
-                            else
-                                  mss += "Угол = -" + (Math.Abs(um) / 60).ToString("0'°'") + (Math.Abs(um) % 60).ToString() + "'";
+                            mss = "Азимут = " + (az / 60).ToString("0'°'") + (az % 60).ToString() + "' ";
+                            mss += "Угол = " + (um / 60).ToString("0'°'") + (um % 60).ToString() + "'";
                             Shots sh = new Shots();
                             sh.bort = (mm.deviceID == Const.OLO_Left) ? (Byte)0 : (Byte)1;
                             sh.azimut = BitConverter.ToInt16(mm.messageData, 4);
@@ -5630,6 +5625,7 @@ namespace OLO_CAN
     #endregion
                     }
     #region Вывод инфы в грид
+/*
                     String rawdata = "";
                     for (int j = 0; j < mm.messageLen; j++)
                         rawdata += mm.messageData[j].ToString("X2") + " ";
@@ -5662,6 +5658,7 @@ namespace OLO_CAN
                         rtb3_datagrid.AppendText(temp_str);
                     }
                     rtb3_datagrid.ScrollToCaret();
+*/
     #endregion
                 }
             }
