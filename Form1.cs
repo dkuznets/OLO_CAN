@@ -4123,9 +4123,6 @@ namespace OLO_CAN
                     #endregion
                     #region mID_STATUS
                     case msg_t.mID_STATUS:
-                        mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                            "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
-                            "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
                         if (rb2_piv11.Checked)
                         {
                             #region ПИВ 1.1
