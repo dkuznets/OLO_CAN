@@ -158,6 +158,8 @@ namespace OLO_CAN
         autoshoots auto_r;
         public static Boolean flag_thr_l_shoot;
         public static Boolean flag_thr_r_shoot;
+        String lolo = "левого ОЛО";
+        String polo = "правого ОЛО";
         #endregion
 
         #region Tab2
@@ -4666,7 +4668,7 @@ namespace OLO_CAN
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
-            text2rtb(rtb2_datagrid, msgdata2string(msg) +sss, Color.Aquamarine, Color.Black);
+            text2rtb(rtb2_datagrid, msgdata2string(msg) + sss, Color.Aquamarine, Color.Black);
 //            messages.Add(mm);
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -4950,7 +4952,8 @@ namespace OLO_CAN
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
-            messages.Add(mm);
+            text2rtb(rtb2_datagrid, msgdata2string(msg) + "Перезагрузка " + (mm.deviceID == Const.OLO_Left ? lolo : polo), Color.Aquamarine, Color.Black);
+//            messages.Add(mm);
         }
         private void bt_SyncTime_Click(object sender, EventArgs e) // Переход в РУП
         {
@@ -4972,7 +4975,8 @@ namespace OLO_CAN
             msg = mm.ToCAN(mm);
             if (!uniCAN.Send(ref msg, 100))
                 return;
-            messages.Add(mm);
+            text2rtb(rtb2_datagrid, msgdata2string(msg) + "Режим удаленного программирования " + (mm.deviceID == Const.OLO_Left ? lolo : polo), Color.Aquamarine, Color.Black);
+//            messages.Add(mm);
         }
         private void chb3_savelog_CheckedChanged(object sender, EventArgs e)
         {
