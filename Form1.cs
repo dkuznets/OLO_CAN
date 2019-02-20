@@ -5945,13 +5945,14 @@ namespace OLO_CAN
                 thr_l_shoot.Start();
                 String mss;
                 mss = "Азимут = " + trackBar3_az_l.Value.ToString("0'°'");
-                mss += "Угол = " + trackBar3_um_l.Value.ToString("0'°'");
+                mss += "Угол = " + trackBar3_um_l.Value.ToString("0'°'") + "\t";
                 Shots sh = new Shots();
                 sh.bort = (Byte)0;
                 sh.azimut = (Int16)(trackBar3_az_l.Value * 60);
                 sh.ugol = (Int16)(trackBar3_um_l.Value * 60);
                 list_shots.Add(sh);
-                text2rtb(rtb3_datagrid, "Запуск выстрелов " + lolo + "\t" + mss + trackBar3_freq_l.Value.ToString() + " Гц" , Color.Aquamarine, Color.Black);
+                panel3.Refresh();
+                text2rtb(rtb3_datagrid, "Запуск выстрелов " + lolo + "\t" + mss + "\t" + trackBar3_freq_l.Value.ToString() + " Гц", Color.Orange, Color.Black);
             }
             else
             {
@@ -5959,6 +5960,7 @@ namespace OLO_CAN
                 flag_thr_l_shoot = false;
                 while (thr_l_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
                 chb4_enshl.BackColor = Color.Transparent;
+                text2rtb(rtb3_datagrid, "Выключение выстрелов " + lolo, Color.Orange, Color.Black);
             }
         }
         private void chb4_enshr_CheckedChanged(object sender, EventArgs e)
@@ -5972,13 +5974,14 @@ namespace OLO_CAN
                 thr_r_shoot.Start();
                 String mss;
                 mss = "Азимут = " + trackBar3_az_r.Value.ToString("0'°'");
-                mss += "Угол = " + trackBar3_um_r.Value.ToString("0'°'");
+                mss += "Угол = " + trackBar3_um_r.Value.ToString("0'°'") + "\t";
                 Shots sh = new Shots();
-                sh.bort = (Byte)0;
+                sh.bort = (Byte)1;
                 sh.azimut = (Int16)(trackBar3_az_r.Value * 60);
                 sh.ugol = (Int16)(trackBar3_um_r.Value * 60);
                 list_shots.Add(sh);
-                text2rtb(rtb3_datagrid, "Запуск выстрелов " + polo + "\t" + mss + trackBar3_freq_r.Value.ToString() + " Гц", Color.Aquamarine, Color.Black);
+                text2rtb(rtb3_datagrid, "Запуск выстрелов " + polo + "\t" + mss + "\t" + trackBar3_freq_r.Value.ToString() + " Гц", Color.Orange, Color.Black);
+                panel3.Refresh();
             }
             else
             {
@@ -5986,6 +5989,7 @@ namespace OLO_CAN
 //                thr_r_shoot.Abort();
                 while (thr_r_shoot.ThreadState != System.Threading.ThreadState.Stopped) ;
                 chb4_enshr.BackColor = Color.Transparent;
+                text2rtb(rtb3_datagrid, "Выключение выстрелов " + polo, Color.Orange, Color.Black);
             }
         }
         private void tm4_autoshl_Tick(object sender, EventArgs e)
