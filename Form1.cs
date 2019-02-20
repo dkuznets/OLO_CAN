@@ -5266,7 +5266,15 @@ namespace OLO_CAN
                     uniCAN.Recv(ref msg, 100);
 //                    Application.DoEvents();
                     mm = mm.FromCAN(msg);
-//                    Application.DoEvents();
+                    if (!cb_olo_l_ena.Checked && mm.deviceID == Const.OLO_Left)
+                    {
+                        continue;
+                    }
+                    if (!cb_olo_r_ena.Checked && mm.deviceID == Const.OLO_Right)
+                    {
+                        continue;
+                    }
+                    //                    Application.DoEvents();
 //                    Bitmap strelka = null;
                     String strelka_s = "";
 
@@ -5768,7 +5776,7 @@ namespace OLO_CAN
                 chb_L_Err_file.Enabled = true;
                 chb_L_Err_plis.Enabled = true;
                 label26.Enabled = true;
-                cb_olo_l_ena.BackColor = Color.LawnGreen;
+                cb_olo_l_ena.BackColor = Color.SpringGreen;
 //                timer_testOLO_L.Enabled = false;
             }
             else
@@ -5796,7 +5804,7 @@ namespace OLO_CAN
                 chb_R_Err_file.Enabled = true;
                 chb_R_Err_plis.Enabled = true;
                 label27.Enabled = true;
-                cb_olo_r_ena.BackColor = Color.LawnGreen;
+                cb_olo_r_ena.BackColor = Color.SpringGreen;
             }
             else
             {
