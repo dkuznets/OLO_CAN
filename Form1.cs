@@ -812,8 +812,8 @@ namespace OLO_CAN
             lb_statusR_t22.Text = "";
             lb_statusR_t32.Text = "";
 
-            gbox_ecL2.Enabled = true;
-            gbox_ecR2.Enabled = true;
+//            gbox_ecL2.Enabled = true;
+//            gbox_ecR2.Enabled = true;
 
             lb_ecL2_file.Text = "";
             lb_ecL2_plis1.Text = "";
@@ -829,8 +829,8 @@ namespace OLO_CAN
             lb_ecR2_ram1.Text = "";
             lb_ecR2_ram2.Text = "";
 
-            gb_stL2.Enabled = true;
-            gb_stR2.Enabled = true;
+//            gb_stL2.Enabled = true;
+//            gb_stR2.Enabled = true;
 
             lb_stL2_cmos1.Text = "";
             lb_stL2_cmos2.Text = "";
@@ -4261,6 +4261,7 @@ namespace OLO_CAN
                             #region ПИВ 1.0
                             if (mm.deviceID == Const.OLO_Left)
                             {
+                            #region OLO_Left
                                 if (mm.messageData[0] >> 5 == 1) // Рабочий режим
                                 {
                                     mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
@@ -4323,61 +4324,75 @@ namespace OLO_CAN
                                     lb_statusL_t22.Text = "";
                                     lb_statusL_t32.Text = "";
                                 }
+                            #endregion
                             }
                             else
                             {
-                                switch (mm.messageData[0] & 0x0F) // причина выдачи статуса
+                            #region OLO_Right
+                                if (mm.messageData[0] >> 5 == 1) // Рабочий режим
                                 {
-                                    case 0:
-                                        lb_statusR_reason2.Text = "BY REQUEST";
-                                        break;
-                                    case 1:
-                                        lb_statusR_reason2.Text = "BY TIMER";
-                                        break;
-                                    case 2:
-                                        lb_statusR_reason2.Text = "BY STATE";
-                                        break;
-                                    default:
-                                        lb_statusR_reason2.Text = "BY REQUEST";
-                                        break;
+                                    mss = "T1=" + ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T2=" + ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'") + " " +
+                                        "T3=" + ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    switch (mm.messageData[0] & 0x0F) // причина выдачи статуса
+                                    {
+                                        case 0:
+                                            lb_statusR_reason2.Text = "BY REQUEST";
+                                            break;
+                                        case 1:
+                                            lb_statusR_reason2.Text = "BY TIMER";
+                                            break;
+                                        case 2:
+                                            lb_statusR_reason2.Text = "BY STATE";
+                                            break;
+                                        default:
+                                            lb_statusR_reason2.Text = "BY REQUEST";
+                                            break;
+                                    }
+                                    switch ((mm.messageData[0] >> 4) & 0x03) // режим
+                                    {
+                                        case 1:
+                                            lb_statusR_mode2.Text = "OPERATIONAL";
+                                            cb_module2.SelectedIndex = 1;
+                                            break;
+                                        case 2:
+                                            lb_statusR_mode2.Text = "PROGRAMMING";
+                                            cb_module2.SelectedIndex = 2;
+                                            break;
+                                        default:
+                                            lb_statusR_mode2.Text = "OPERATIONAL";
+                                            break;
+                                    }
+                                    lb_statusR_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
+                                    lb_statusR_plis2.Text = (mm.messageData[2] & 0x01) == 1 ? "PLIS OK" : "PLIS FAIL";
+                                    lb_statusR_file2.Text = ((mm.messageData[2] >> 1) & 0x01) == 1 ? "FILE OK" : "FILE FAIL";
+                                    lb_statusR_t12.Text = ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    lb_statusR_t22.Text = ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+                                    lb_statusR_t32.Text = ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
+
+                                    if (mm.messageData[6] != 0)
+                                        lb_stR2_cmos1.Text = mm.messageData[6].ToString();
+                                    else
+                                        lb_stR2_cmos1.Text = "";
+                                    if (mm.messageData[7] != 0)
+                                        lb_stR2_cmos2.Text = mm.messageData[7].ToString();
+                                    else
+                                        lb_stR2_cmos2.Text = "";
                                 }
-                                switch ((mm.messageData[0] >> 4) & 0x03) // режим
+                                else // Режим программирования
                                 {
-                                    case 1:
-                                        lb_statusR_mode2.Text = "OPERATIONAL";
-                                        cb_module2.SelectedIndex = 1;
-                                        break;
-                                    case 2:
-                                        lb_statusR_mode2.Text = "PROGRAMMING";
-                                        cb_module2.SelectedIndex = 2;
-                                        break;
-                                    default:
-                                        lb_statusR_mode2.Text = "OPERATIONAL";
-                                        break;
+                                    lb_statusR_mode2.Text = "PROGRAMMING";
+                                    lb_statusR_reason2.Text = "BY REQUEST";
+                                    cb_module2.SelectedIndex = 2;
+                                    lb_statusR_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
+                                    lb_statusR_plis2.Text = "";
+                                    lb_statusR_file2.Text = "";
+                                    lb_statusR_t12.Text = "";
+                                    lb_statusR_t22.Text = "";
+                                    lb_statusR_t32.Text = "";
                                 }
-                                lb_statusR_status2.Text = (((mm.messageData[0] >> 4) & 1) == 1) ? "STATUS OK" : "STATUS FAIL";
-                                lb_statusR_plis2.Text = (mm.messageData[2] & 0x01) == 1 ? "PLIS OK" : "PLIS FAIL";
-                                lb_statusR_file2.Text = ((mm.messageData[2] >> 1) & 0x01) == 1 ? "FILE OK" : "FILE FAIL";
-                                lb_statusR_t12.Text = ((SByte)mm.messageData[3]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                lb_statusR_t22.Text = ((SByte)mm.messageData[4]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-                                lb_statusR_t32.Text = ((SByte)mm.messageData[5]).ToString(" '+'0.0'°'; '-'0.0'°'; '0.0°'");
-
-//                                lb_ecR2_file.Text = ((mm.messageData[2] >> 2) & 1) == 1 ? "FILE OK" : "FILE FAIL";
-//                                lb_ecR2_plis1.Text = (mm.messageData[2] & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-//                                lb_ecR2_plis2.Text = ((mm.messageData[2] >> 1) & 1) == 1 ? "PLIS OK" : "PLIS FAIL";
-//                                lb_ecR2_ram.Text = ((mm.messageData[2] >> 3) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-//                                lb_ecR2_ram1.Text = ((mm.messageData[2] >> 4) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-//                                lb_ecR2_ram2.Text = ((mm.messageData[2] >> 5) & 1) == 1 ? "RAM OK" : "RAM FAIL";
-
-                                if (mm.messageData[6] != 0)
-                                    lb_stR2_cmos1.Text = mm.messageData[6].ToString();
-                                else
-                                    lb_stR2_cmos1.Text = "";
-                                if (mm.messageData[7] != 0)
-                                    lb_stR2_cmos2.Text = mm.messageData[7].ToString();
-                                else
-                                    lb_stR2_cmos2.Text = "";
                             }
+                            #endregion
                             #endregion
                         }
                         break;
