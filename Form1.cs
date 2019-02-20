@@ -6956,8 +6956,17 @@ namespace OLO_CAN
 
         void text2rtb(RichTextBox rtb, String txt, Color bgcolor, Color fgcolor)
         {
-            rtb.AppendText(txt, bgcolor, fgcolor);
+            rtb.AppendText(txt + crlf, bgcolor, fgcolor);
         }
+        void text2rtb(RichTextBox rtb, String txt)
+        {
+            rtb.AppendText(txt + crlf);
+        }
+        void text2rtb(RichTextBox rtb, String txt, Color fgcolor)
+        {
+            rtb.AppendText(txt + crlf, fgcolor);
+        }
+
         String msgdata2string(canmsg_t msg)
         {
             String rawdata = "";
