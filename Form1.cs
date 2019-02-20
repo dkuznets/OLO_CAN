@@ -4498,13 +4498,16 @@ namespace OLO_CAN
                             rtb2_datagrid.AppendText(temp_str, Color.Red);
                         }
                     }
-                    else if (mm.messageID == msg_t.mID_STATUS && (mm.messageData[0] >> 4 == 1))
-                    {
-                        rtb2_datagrid.AppendText(temp_str, Color.Red);
-                    }
                     else
                     {
-                        rtb2_datagrid.AppendText(temp_str);
+                        if (mm.messageID == msg_t.mID_STATUS && (mm.messageData[0] >> 4 == 1))
+                        {
+                            rtb2_datagrid.AppendText(temp_str, Color.Red);
+                        }
+                        else
+                        {
+                            rtb2_datagrid.AppendText(temp_str);
+                        }
                     }
                     rtb2_datagrid.ScrollToCaret();
                 }
