@@ -5149,6 +5149,92 @@ namespace OLO_CAN
             shoot(Const.OLO_Right);
         }
         #endregion
+        #region Мусорные кнопки
+        void badstatus(Byte id) // Ошибочное сообщение статуса
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = id;
+            mm.messageID = msg_t.mID_STATUS;
+            mm.messageLen = 8;
+            Random r = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                mm.messageData[i] = (Byte)r.Next(-127, 127);
+            }
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref mmsg, 200))
+                return;
+            String mss;
+            mss = "Ошибочное сообщение статуса ";
+            text2rtb(rtb3_datagrid, mss + (mm.deviceID == Const.OLO_Left ? lolo : polo) + "\t" + msgdata2string(mmsg), Color.RoyalBlue, Color.White);
+        }
+        void baddata(Byte id) // Ошибочные данные
+        {
+            msg_t mm = new msg_t();
+            mm.deviceID = id;
+            mm.messageID = msg_t.mID_DATA;
+            mm.messageLen = 8;
+            Random r = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                mm.messageData[i] = (Byte)r.Next(-127, 127);
+            }
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref mmsg, 200))
+                return;
+            String mss;
+            mss = "Ошибочные данные ";
+            text2rtb(rtb3_datagrid, mss + (mm.deviceID == Const.OLO_Left ? lolo : polo) + "\t" + msgdata2string(mmsg), Color.RoyalBlue, Color.White);
+        }
+        void trash() // полный трэш
+        {
+            msg_t mm = new msg_t();
+            Random r = new Random();
+            mm.deviceID = (Byte)r.Next(-127, 127);
+            mm.messageID = (Byte)r.Next(-127, 127);
+            mm.messageLen = (Byte)r.Next(0, 8);
+            for (int i = 0; i < mm.messageLen; i++)
+            {
+                mm.messageData[i] = (Byte)r.Next(-127, 127);
+            }
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[mm.messageLen];
+            mmsg = mm.ToCAN(mm);
+            if (!uniCAN.Send(ref mmsg, 200))
+                return;
+            String mss;
+            mss = "Полный трэш";
+            text2rtb(rtb3_datagrid, mss + "\t" + msgdata2string(mmsg), Color.RoyalBlue, Color.White);
+        }
+        private void bt3_badstatus_l_Click(object sender, EventArgs e)
+        {
+            badstatus(Const.OLO_Left);
+        }
+        private void bt3_badstatus_r_Click(object sender, EventArgs e)
+        {
+            badstatus(Const.OLO_Right);
+        }
+        private void bt3_baddata_l_Click(object sender, EventArgs e)
+        {
+            baddata(Const.OLO_Left);
+        }
+        private void bt3_baddata_r_Click(object sender, EventArgs e)
+        {
+            baddata(Const.OLO_Right);
+        }
+        private void bt3_trash_l_Click(object sender, EventArgs e)
+        {
+            trash();
+        }
+        private void bt3_trash_r_Click(object sender, EventArgs e)
+        {
+            trash();
+        }
+        #endregion
         private void button2_Click(object sender, EventArgs e)
         {
             scroll = true;
@@ -6995,20 +7081,8 @@ namespace OLO_CAN
         private void button8_Click(object sender, EventArgs e)
         {
         }
-        #region Мусорные кнопки
-        private void bt3_badstatus_l_Click(object sender, EventArgs e)
-        {
-        }
-        private void bt3_baddata_l_Click(object sender, EventArgs e)
-        {
-        }
-        private void bt3_badstatus_r_Click(object sender, EventArgs e)
-        {
-        }
-        private void bt3_baddata_r_Click(object sender, EventArgs e)
-        {
-        }
-        #endregion
+
+
      }
 
     public static class RichTextBoxExtensions
