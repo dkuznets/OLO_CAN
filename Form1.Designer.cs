@@ -5245,15 +5245,6 @@
             this.timer_Error_Boot.Interval = 75000;
             this.timer_Error_Boot.Tick += new System.EventHandler(this.timer_Error_Boot_Tick);
             // 
-            // tm4_counter
-            // 
-            this.tm4_counter.Tick += new System.EventHandler(this.tm4_counter_Tick);
-            // 
-            // tm4_test
-            // 
-            this.tm4_test.Interval = 50;
-            this.tm4_test.Tick += new System.EventHandler(this.tm4_test_Tick);
-            // 
             // timer1s
             // 
             this.timer1s.Interval = 1000;

@@ -6055,9 +6055,6 @@ namespace OLO_CAN
                 text2rtb(rtb3_datagrid, "Выключение выстрелов " + polo, Color.Orange, Color.Black);
             }
         }
-        private void tm4_counter_Tick(object sender, EventArgs e)
-        {
-        }
         #region Тракбары
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
@@ -6085,9 +6082,6 @@ namespace OLO_CAN
         }
         
         #endregion
-        private void tm4_test_Tick(object sender, EventArgs e)
-        {
-        }
         #endregion
 
         #region OLO_CANTest
