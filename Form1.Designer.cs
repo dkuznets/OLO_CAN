@@ -3393,7 +3393,6 @@
             this.button2.TabIndex = 53;
             this.button2.Text = "Очистка лога";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // gb_olo_R
             // 

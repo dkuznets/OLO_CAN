@@ -5235,14 +5235,6 @@ namespace OLO_CAN
             trash();
         }
         #endregion
-        private void button2_Click(object sender, EventArgs e)
-        {
-            scroll = true;
-            chb_dgview3.Text = "Скролл включен";
-            chb_dgview3.BackColor = Color.SpringGreen;
-            messages.Clear();
-            rtb3_datagrid.Clear();
-        }
         #region Выдача статуса по таймеру
         private void timer_testOLO_L3_Tick(object sender, EventArgs e)
         {
@@ -7067,12 +7059,18 @@ namespace OLO_CAN
             rtb.AppendText(txt + crlf, fgcolor);
             rtb.ScrollToCaret();
         }
-
         String msgdata2string(canmsg_t msg)
         {
             String rawdata = "";
             for (int j = 0; j < msg.len; j++)
                 rawdata += msg.data[j].ToString("X2") + " ";
+            return rawdata;
+        }
+        String msgdata2string(msg_t msg)
+        {
+            String rawdata = "";
+            for (int j = 0; j < msg.messageLen; j++)
+                rawdata += msg.messageData[j].ToString("X2") + " ";
             return rawdata;
         }
         private void button3_Click(object sender, EventArgs e)
@@ -7098,7 +7096,6 @@ namespace OLO_CAN
         {
             label58.Text = trackBar3.Value.ToString() + " # " + (5.5 * trackBar3.Value / 0.77 - trackBar3.Value).ToString();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             CNF conf = new CNF(0x11, "12233445", "qqqqwqwrsdsdfs  fgdfgsd retre wet gg");
@@ -7112,20 +7109,6 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
-
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-        }
-        private void button8_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void bt3_rand_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
      }
 
     public static class RichTextBoxExtensions
