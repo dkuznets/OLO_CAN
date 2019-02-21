@@ -3212,6 +3212,7 @@
             // chb4_enshr
             // 
             this.chb4_enshr.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb4_enshr.Enabled = false;
             this.chb4_enshr.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleGreen;
             this.chb4_enshr.Location = new System.Drawing.Point(114, 389);
             this.chb4_enshr.Name = "chb4_enshr";
@@ -3240,6 +3241,7 @@
             // chb4_enshl
             // 
             this.chb4_enshl.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb4_enshl.Enabled = false;
             this.chb4_enshl.Location = new System.Drawing.Point(6, 389);
             this.chb4_enshl.Name = "chb4_enshl";
             this.chb4_enshl.Size = new System.Drawing.Size(102, 23);
