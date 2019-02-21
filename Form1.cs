@@ -7170,6 +7170,12 @@ namespace OLO_CAN
         {
             flag_stop = false;
         }
+        private UInt64 ConvertToUnixTimestamp(DateTime date)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            TimeSpan diff = date - origin;
+            return (UInt64)Math.Floor(diff.TotalSeconds);
+        }
         public void Shoot_L()
         {
             while (Form1.flag_thr_l_shoot)
@@ -7179,7 +7185,7 @@ namespace OLO_CAN
                 mm.messageID = msg_t.mID_DATA;
                 mm.messageLen = 8;
 
-                UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
@@ -7195,7 +7201,7 @@ namespace OLO_CAN
                 if (!Form1.uniCAN.Send(ref mmsg, 200))
                     return;
 
-                dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
@@ -7231,7 +7237,7 @@ namespace OLO_CAN
                 mm.messageID = msg_t.mID_DATA;
                 mm.messageLen = 8;
 
-                UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
@@ -7247,7 +7253,7 @@ namespace OLO_CAN
                 if (!Form1.uniCAN.Send(ref mmsg, 200))
                     return;
 
-                dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+                dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
