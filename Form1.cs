@@ -6002,7 +6002,7 @@ namespace OLO_CAN
             if (chb4_enshl.Checked)
             {
                 chb4_enshl.BackColor = Color.SpringGreen;
-                auto_l = new autoshoots(Const.OLO_Left, (Int16)(trackBar3_az_l.Value * 60), (Int16)(trackBar3_um_l.Value * 60), (Byte)trackBar3_freq_l.Value);
+                auto_l = new autoshoots(Const.OLO_Left, (Int16)(trackBar3_az_l.Value * 60), (Int16)(trackBar3_um_l.Value * 60), (Byte)trackBar3_freq_l.Value, !chb3_shoot_ena.Checked);
                 flag_thr_l_shoot = true;
                 thr_l_shoot = new Thread(new ThreadStart(auto_l.Shoot_L));
                 thr_l_shoot.Start();
@@ -6031,7 +6031,7 @@ namespace OLO_CAN
             if (chb4_enshr.Checked)
             {
                 chb4_enshr.BackColor = Color.SpringGreen;
-                auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value);
+                auto_r = new autoshoots(Const.OLO_Right, (Int16)(trackBar3_az_r.Value * 60), (Int16)(trackBar3_um_r.Value * 60), (Byte)trackBar3_freq_r.Value, !chb3_shoot_ena.Checked);
                 flag_thr_r_shoot = true;
                 thr_r_shoot = new Thread(new ThreadStart(auto_r.Shoot_R));
                 thr_r_shoot.Start();
@@ -7156,13 +7156,15 @@ namespace OLO_CAN
         private Int16 um;
         private _u8 freq;
         private Boolean flag_stop;
-        public autoshoots(_u8 id, Int16 azimut, Int16 ugolmesta, _u8 chastota)
+        private Boolean auto;
+        public autoshoots(_u8 id, Int16 azimut, Int16 ugolmesta, _u8 chastota, Boolean rand)
         {
             this.id = id;
             this.az = azimut;
             this.um = ugolmesta;
             this.freq = chastota;
             this.flag_stop = true;
+            this.auto = rand;
         }
         public void Stop()
         {
@@ -7175,10 +7177,7 @@ namespace OLO_CAN
                 msg_t mm = new msg_t();
                 mm.deviceID = id;
                 mm.messageID = msg_t.mID_DATA;
-
-                Random r = new Random();
                 mm.messageLen = 8;
-                //                int az, um;
 
                 UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
@@ -7201,6 +7200,14 @@ namespace OLO_CAN
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
                 mm.messageData[3] = (Byte)(dl >> 24);
+
+                Random r = new Random();
+                if (auto)
+                {
+                    this.az = (Int16)r.Next(-90 * 60, 90 * 60);
+                    this.um = (Int16)r.Next(-90 * 60, 90 * 60);
+                }
+
                 mm.messageData[4] = (Byte)this.az;
                 mm.messageData[5] = (Byte)(this.az >> 8);
                 mm.messageData[6] = (Byte)this.um;
@@ -7210,7 +7217,7 @@ namespace OLO_CAN
                 mmsg = mm.ToCAN(mm);
                 if (!Form1.uniCAN.Send(ref mmsg, 200))
                     return;
-                Form1.messages.Add(mm);
+//                Form1.messages.Add(mm);
                 Thread.Sleep(1000 / freq);
             }
             Trace.WriteLine("thr_l_shoot aborted");
@@ -7222,10 +7229,7 @@ namespace OLO_CAN
                 msg_t mm = new msg_t();
                 mm.deviceID = id;
                 mm.messageID = msg_t.mID_DATA;
-
-                Random r = new Random();
                 mm.messageLen = 8;
-//                int az, um;
 
                 UInt64 dl = (Form1.ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
                 mm.messageData[0] = (Byte)dl;
@@ -7248,6 +7252,14 @@ namespace OLO_CAN
                 mm.messageData[1] = (Byte)(dl >> 8);
                 mm.messageData[2] = (Byte)(dl >> 16);
                 mm.messageData[3] = (Byte)(dl >> 24);
+
+                Random r = new Random();
+                if (auto)
+                {
+                    this.az = (Int16)r.Next(-90 * 60, 90 * 60);
+                    this.um = (Int16)r.Next(-90 * 60, 90 * 60);
+                }
+
                 mm.messageData[4] = (Byte)this.az;
                 mm.messageData[5] = (Byte)(this.az >> 8);
                 mm.messageData[6] = (Byte)this.um;
@@ -7257,7 +7269,7 @@ namespace OLO_CAN
                 mmsg = mm.ToCAN(mm);
                 if (!Form1.uniCAN.Send(ref mmsg, 200))
                     return;
-                Form1.messages.Add(mm);
+//                Form1.messages.Add(mm);
                 Thread.Sleep(1000 / freq);
             }
             Trace.WriteLine("thr_r_shoot aborted");
