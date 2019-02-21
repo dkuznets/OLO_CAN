@@ -5820,6 +5820,7 @@ namespace OLO_CAN
                 label26.Enabled = true;
                 cb_olo_l_ena.BackColor = Color.SpringGreen;
 //                timer_testOLO_L.Enabled = false;
+                chb4_enshl.Enabled = true;
             }
             else
             {
@@ -5834,6 +5835,7 @@ namespace OLO_CAN
                 chb_L_Err_file.Checked = false;
                 chb_L_Err_plis.Checked = false;
                 cb_olo_l_ena.BackColor = Color.Transparent;
+                chb4_enshl.Enabled = false;
             }
         }
         private void cb_olo_r_ena_CheckedChanged(object sender, EventArgs e)
@@ -5847,6 +5849,7 @@ namespace OLO_CAN
                 chb_R_Err_plis.Enabled = true;
                 label27.Enabled = true;
                 cb_olo_r_ena.BackColor = Color.SpringGreen;
+                chb4_enshr.Enabled = true;
             }
             else
             {
@@ -5861,6 +5864,7 @@ namespace OLO_CAN
                 chb_R_Err_plis.Checked = false;
                 label27.Enabled = false;
                 cb_olo_r_ena.BackColor = Color.Transparent;
+                chb4_enshr.Enabled = false;
             }
         }
         uint period(uint tt)
