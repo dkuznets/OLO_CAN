@@ -3456,6 +3456,7 @@
             // lb3_t2_r
             // 
             this.lb3_t2_r.AutoSize = true;
+            this.lb3_t2_r.Enabled = false;
             this.lb3_t2_r.Location = new System.Drawing.Point(130, 181);
             this.lb3_t2_r.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_t2_r.Name = "lb3_t2_r";
@@ -3465,6 +3466,7 @@
             // 
             // tb3_t2_r
             // 
+            this.tb3_t2_r.Enabled = false;
             this.tb3_t2_r.Location = new System.Drawing.Point(107, 178);
             this.tb3_t2_r.Name = "tb3_t2_r";
             this.tb3_t2_r.Size = new System.Drawing.Size(20, 20);
@@ -3475,6 +3477,7 @@
             // lb3_t1_r
             // 
             this.lb3_t1_r.AutoSize = true;
+            this.lb3_t1_r.Enabled = false;
             this.lb3_t1_r.Location = new System.Drawing.Point(84, 181);
             this.lb3_t1_r.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_t1_r.Name = "lb3_t1_r";
@@ -3484,6 +3487,7 @@
             // 
             // tb3_t1_r
             // 
+            this.tb3_t1_r.Enabled = false;
             this.tb3_t1_r.Location = new System.Drawing.Point(61, 178);
             this.tb3_t1_r.Name = "tb3_t1_r";
             this.tb3_t1_r.Size = new System.Drawing.Size(20, 20);
@@ -3494,6 +3498,7 @@
             // lb3_tarm_r
             // 
             this.lb3_tarm_r.AutoSize = true;
+            this.lb3_tarm_r.Enabled = false;
             this.lb3_tarm_r.Location = new System.Drawing.Point(29, 181);
             this.lb3_tarm_r.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_tarm_r.Name = "lb3_tarm_r";
@@ -3503,6 +3508,7 @@
             // 
             // tb3_tarm_r
             // 
+            this.tb3_tarm_r.Enabled = false;
             this.tb3_tarm_r.Location = new System.Drawing.Point(6, 178);
             this.tb3_tarm_r.Name = "tb3_tarm_r";
             this.tb3_tarm_r.Size = new System.Drawing.Size(20, 20);
@@ -3637,6 +3643,7 @@
             // lb3_t2_l
             // 
             this.lb3_t2_l.AutoSize = true;
+            this.lb3_t2_l.Enabled = false;
             this.lb3_t2_l.Location = new System.Drawing.Point(130, 181);
             this.lb3_t2_l.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_t2_l.Name = "lb3_t2_l";
@@ -3646,6 +3653,7 @@
             // 
             // tb3_t2_l
             // 
+            this.tb3_t2_l.Enabled = false;
             this.tb3_t2_l.Location = new System.Drawing.Point(107, 178);
             this.tb3_t2_l.Name = "tb3_t2_l";
             this.tb3_t2_l.Size = new System.Drawing.Size(20, 20);
@@ -3656,6 +3664,7 @@
             // lb3_t1_l
             // 
             this.lb3_t1_l.AutoSize = true;
+            this.lb3_t1_l.Enabled = false;
             this.lb3_t1_l.Location = new System.Drawing.Point(84, 181);
             this.lb3_t1_l.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_t1_l.Name = "lb3_t1_l";
@@ -3665,6 +3674,7 @@
             // 
             // tb3_t1_l
             // 
+            this.tb3_t1_l.Enabled = false;
             this.tb3_t1_l.Location = new System.Drawing.Point(61, 178);
             this.tb3_t1_l.Name = "tb3_t1_l";
             this.tb3_t1_l.Size = new System.Drawing.Size(20, 20);
@@ -3675,6 +3685,7 @@
             // lb3_tarm_l
             // 
             this.lb3_tarm_l.AutoSize = true;
+            this.lb3_tarm_l.Enabled = false;
             this.lb3_tarm_l.Location = new System.Drawing.Point(29, 181);
             this.lb3_tarm_l.Margin = new System.Windows.Forms.Padding(0);
             this.lb3_tarm_l.Name = "lb3_tarm_l";
@@ -3684,6 +3695,7 @@
             // 
             // tb3_tarm_l
             // 
+            this.tb3_tarm_l.Enabled = false;
             this.tb3_tarm_l.Location = new System.Drawing.Point(6, 178);
             this.tb3_tarm_l.Name = "tb3_tarm_l";
             this.tb3_tarm_l.Size = new System.Drawing.Size(20, 20);
