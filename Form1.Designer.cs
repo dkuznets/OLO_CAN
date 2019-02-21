@@ -284,7 +284,7 @@
             this.trackBar3_az_l = new System.Windows.Forms.TrackBar();
             this.lb3_shoot_az_txt_l = new System.Windows.Forms.Label();
             this.chb_dgview3 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt3_clearlog = new System.Windows.Forms.Button();
             this.gb_olo_R = new System.Windows.Forms.GroupBox();
             this.bt3_trash_r = new System.Windows.Forms.Button();
             this.bt3_baddata_r = new System.Windows.Forms.Button();
@@ -3042,7 +3042,7 @@
             this.tabPage4.Controls.Add(this.chb4_nopaint);
             this.tabPage4.Controls.Add(this.gb3_shoot);
             this.tabPage4.Controls.Add(this.chb_dgview3);
-            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.bt3_clearlog);
             this.tabPage4.Controls.Add(this.gb_olo_R);
             this.tabPage4.Controls.Add(this.gb_olo_L);
             this.tabPage4.Controls.Add(this.panel3);
@@ -3385,14 +3385,15 @@
             this.chb_dgview3.UseVisualStyleBackColor = false;
             this.chb_dgview3.CheckedChanged += new System.EventHandler(this.chb_dgview3_CheckedChanged);
             // 
-            // button2
+            // bt3_clearlog
             // 
-            this.button2.Location = new System.Drawing.Point(6, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 23);
-            this.button2.TabIndex = 53;
-            this.button2.Text = "Очистка лога";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bt3_clearlog.Location = new System.Drawing.Point(6, 395);
+            this.bt3_clearlog.Name = "bt3_clearlog";
+            this.bt3_clearlog.Size = new System.Drawing.Size(180, 23);
+            this.bt3_clearlog.TabIndex = 53;
+            this.bt3_clearlog.Text = "Очистка лога";
+            this.bt3_clearlog.UseVisualStyleBackColor = true;
+            this.bt3_clearlog.Click += new System.EventHandler(this.bt3_clearlog_Click);
             // 
             // gb_olo_R
             // 
@@ -5577,7 +5578,7 @@
         private System.Windows.Forms.Timer timer_testOLO_L;
         private System.Windows.Forms.Timer timer_testOLO_R;
         private System.Windows.Forms.Timer timer_Reset_Shots;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt3_clearlog;
         private System.Windows.Forms.GroupBox gb_olo_R;
         private System.Windows.Forms.CheckBox cb_olo_r_ena;
         private System.Windows.Forms.Button shoot_r;

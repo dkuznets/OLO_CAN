@@ -5921,6 +5921,10 @@ namespace OLO_CAN
             //return 0x41000000;
             return 0x3F7FFFFF; // 1c
         }
+        private void bt3_clearlog_Click(object sender, EventArgs e)
+        {
+            rtb3_datagrid.Clear();
+        }
         private void chb_dgview3_CheckedChanged(object sender, EventArgs e)
         {
             if (chb_dgview3.Checked)
