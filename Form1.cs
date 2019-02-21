@@ -5389,7 +5389,8 @@ namespace OLO_CAN
     #region mID_RESET
                             if (mm.deviceID != 0)
                             {
-                                mss = "Системный сброс" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                mss = "Запрос системного сброса" + ((mm.deviceID == Const.OLO_Left) ? lolo : polo);
+                                text2rtb(rtb3_datagrid, mss);
                                 if (mm.deviceID == Const.OLO_Left)
                                 {
                                     timer_testOLO_L3.Enabled = false;
@@ -5404,12 +5405,8 @@ namespace OLO_CAN
                                     timer3_reset_r.Enabled = false;
                                     timer3_reset_r.Enabled = true;
                                 }
-                            }
-                            else
-                            {
-                                mss = "Системный сброс ОЛО";
-                                timer_testOLO_L3.Enabled = false;
-                                timer_testOLO_R3.Enabled = false;
+                                mss = "Перезагрузка " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo) + "...";
+                                text2rtb(rtb3_datagrid, mss, Color.Aquamarine, Color.Black);
                             }
                             break;
     #endregion
@@ -5477,14 +5474,8 @@ namespace OLO_CAN
                                 break;
                             }
                             #endregion
-                            if (mm.deviceID != Const.OLO_All)
-                            {
-                                mss = "Режим программирования" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
-                            }
-                            else
-	                        {
-                                mss = "Режим программирования ОЛО";
-	                        }
+                            mss = "Запрос перехода в Режим удаленного перепрограммирования " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo);
+                            text2rtb(rtb3_datagrid, mss);
                             if (mm.deviceID == Const.OLO_Left)
                             {
                                 timer_testOLO_L3.Enabled = false;
@@ -5499,7 +5490,7 @@ namespace OLO_CAN
                                 timer3_reset_r.Enabled = false;
                                 timer3_reset_r.Enabled = true;
                             }
-
+                            text2rtb(rtb3_datagrid, "Статус " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo) + ":\t" + "PROGRAMMING MODE", Color.Aquamarine, Color.Black);
                             break;
     #endregion
                         case msg_t.mID_STATREQ:
@@ -5507,6 +5498,8 @@ namespace OLO_CAN
                             #region сброс сообщений для ОЛО в режиме программирования
                             if(mm.deviceID == Const.OLO_Left && flag_reset_left)
                             {
+                                mss = "Запрос статуса " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo);
+                                text2rtb(rtb3_datagrid, mss);
                                 mmm.messageID = msg_t.mID_STATUS;
                                 mmm.deviceID = Const.OLO_Left;
                                 mmm.messageData[0] = 0x13;
@@ -5523,11 +5516,14 @@ namespace OLO_CAN
                                 mmsg = mmm.ToCAN(mmm);
                                 if (!uniCAN.Send(ref mmsg, 200))
                                     return;
-                                messages.Add(mmm);
+//                                messages.Add(mmm);
+                                text2rtb(rtb3_datagrid, "Статус " + lolo + ":\t" + "PROGRAMMING MODE", Color.Aquamarine, Color.Black);
                                 break;
                             }
                             if (mm.deviceID == Const.OLO_Right && flag_reset_right)
                             {
+                                mss = "Запрос статуса " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo);
+                                text2rtb(rtb3_datagrid, mss);
                                 mmm.messageID = msg_t.mID_STATUS;
                                 mmm.deviceID = Const.OLO_Right;
                                 mmm.messageData[0] = 0x13;
@@ -5544,7 +5540,8 @@ namespace OLO_CAN
                                 mmsg = mmm.ToCAN(mmm);
                                 if (!uniCAN.Send(ref mmsg, 200))
                                     return;
-                                messages.Add(mmm);
+//                                messages.Add(mmm);
+                                text2rtb(rtb3_datagrid, "Статус " + polo + ":\t" + "PROGRAMMING MODE", Color.Aquamarine, Color.Black);
                                 break;
                             }
                             #endregion
@@ -5569,7 +5566,7 @@ namespace OLO_CAN
                             else
                             {
                                 #region Выдача статуса по запросу
-                                mss = "Запрос статуса" + ((mm.deviceID == Const.OLO_Left) ? " ОЛО-Л" : " ОЛО-П");
+                                mss = "Запрос статуса " + ((mm.deviceID == Const.OLO_Left) ? lolo : polo);
                                 text2rtb(rtb3_datagrid, mss);
                                 if (mm.deviceID == Const.OLO_Left)
                                 {
