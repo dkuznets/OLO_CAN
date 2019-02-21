@@ -6995,6 +6995,20 @@ namespace OLO_CAN
         private void button8_Click(object sender, EventArgs e)
         {
         }
+        #region Мусорные кнопки
+        private void bt3_badstatus_l_Click(object sender, EventArgs e)
+        {
+        }
+        private void bt3_baddata_l_Click(object sender, EventArgs e)
+        {
+        }
+        private void bt3_badstatus_r_Click(object sender, EventArgs e)
+        {
+        }
+        private void bt3_baddata_r_Click(object sender, EventArgs e)
+        {
+        }
+        #endregion
      }
 
     public static class RichTextBoxExtensions

@@ -289,7 +289,7 @@
             this.chb_dgview3 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.gb_olo_R = new System.Windows.Forms.GroupBox();
-            this.bt3_badmess_r = new System.Windows.Forms.Button();
+            this.bt3_badstatus_r = new System.Windows.Forms.Button();
             this.lb3_t2_r = new System.Windows.Forms.Label();
             this.tb3_t2_r = new System.Windows.Forms.TextBox();
             this.lb3_t1_r = new System.Windows.Forms.Label();
@@ -303,7 +303,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.chb_R_Err_int = new System.Windows.Forms.CheckBox();
             this.gb_olo_L = new System.Windows.Forms.GroupBox();
-            this.bt3_badmess_l = new System.Windows.Forms.Button();
+            this.bt3_badstatus_l = new System.Windows.Forms.Button();
             this.lb3_t2_l = new System.Windows.Forms.Label();
             this.tb3_t2_l = new System.Windows.Forms.TextBox();
             this.lb3_t1_l = new System.Windows.Forms.Label();
@@ -472,6 +472,8 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.bt3_baddata_l = new System.Windows.Forms.Button();
+            this.bt3_baddata_r = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3426,7 +3428,8 @@
             // 
             // gb_olo_R
             // 
-            this.gb_olo_R.Controls.Add(this.bt3_badmess_r);
+            this.gb_olo_R.Controls.Add(this.bt3_baddata_r);
+            this.gb_olo_R.Controls.Add(this.bt3_badstatus_r);
             this.gb_olo_R.Controls.Add(this.lb3_t2_r);
             this.gb_olo_R.Controls.Add(this.tb3_t2_r);
             this.gb_olo_R.Controls.Add(this.lb3_t1_r);
@@ -3447,14 +3450,15 @@
             this.gb_olo_R.TabStop = false;
             this.gb_olo_R.Text = "ОЛО-Правый";
             // 
-            // bt3_badmess_r
+            // bt3_badstatus_r
             // 
-            this.bt3_badmess_r.Location = new System.Drawing.Point(6, 205);
-            this.bt3_badmess_r.Name = "bt3_badmess_r";
-            this.bt3_badmess_r.Size = new System.Drawing.Size(168, 23);
-            this.bt3_badmess_r.TabIndex = 42;
-            this.bt3_badmess_r.Text = "Bad message";
-            this.bt3_badmess_r.UseVisualStyleBackColor = true;
+            this.bt3_badstatus_r.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badstatus_r.Name = "bt3_badstatus_r";
+            this.bt3_badstatus_r.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badstatus_r.TabIndex = 42;
+            this.bt3_badstatus_r.Text = "Bad status";
+            this.bt3_badstatus_r.UseVisualStyleBackColor = true;
+            this.bt3_badstatus_r.Click += new System.EventHandler(this.bt3_badstatus_r_Click);
             // 
             // lb3_t2_r
             // 
@@ -3581,7 +3585,8 @@
             // 
             // gb_olo_L
             // 
-            this.gb_olo_L.Controls.Add(this.bt3_badmess_l);
+            this.gb_olo_L.Controls.Add(this.bt3_baddata_l);
+            this.gb_olo_L.Controls.Add(this.bt3_badstatus_l);
             this.gb_olo_L.Controls.Add(this.lb3_t2_l);
             this.gb_olo_L.Controls.Add(this.tb3_t2_l);
             this.gb_olo_L.Controls.Add(this.lb3_t1_l);
@@ -3602,14 +3607,15 @@
             this.gb_olo_L.TabStop = false;
             this.gb_olo_L.Text = "ОЛО-Левый";
             // 
-            // bt3_badmess_l
+            // bt3_badstatus_l
             // 
-            this.bt3_badmess_l.Location = new System.Drawing.Point(6, 205);
-            this.bt3_badmess_l.Name = "bt3_badmess_l";
-            this.bt3_badmess_l.Size = new System.Drawing.Size(168, 23);
-            this.bt3_badmess_l.TabIndex = 41;
-            this.bt3_badmess_l.Text = "Bad message";
-            this.bt3_badmess_l.UseVisualStyleBackColor = true;
+            this.bt3_badstatus_l.Location = new System.Drawing.Point(6, 205);
+            this.bt3_badstatus_l.Name = "bt3_badstatus_l";
+            this.bt3_badstatus_l.Size = new System.Drawing.Size(168, 23);
+            this.bt3_badstatus_l.TabIndex = 41;
+            this.bt3_badstatus_l.Text = "Bad status";
+            this.bt3_badstatus_l.UseVisualStyleBackColor = true;
+            this.bt3_badstatus_l.Click += new System.EventHandler(this.bt3_badstatus_l_Click);
             // 
             // lb3_t2_l
             // 
@@ -5103,7 +5109,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem5});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 126);
             // 
             // toolStripMenuItem1
             // 
@@ -5309,6 +5315,26 @@
             // 
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
+            // 
+            // bt3_baddata_l
+            // 
+            this.bt3_baddata_l.Location = new System.Drawing.Point(6, 234);
+            this.bt3_baddata_l.Name = "bt3_baddata_l";
+            this.bt3_baddata_l.Size = new System.Drawing.Size(168, 23);
+            this.bt3_baddata_l.TabIndex = 42;
+            this.bt3_baddata_l.Text = "Bad data";
+            this.bt3_baddata_l.UseVisualStyleBackColor = true;
+            this.bt3_baddata_l.Click += new System.EventHandler(this.bt3_baddata_l_Click);
+            // 
+            // bt3_baddata_r
+            // 
+            this.bt3_baddata_r.Location = new System.Drawing.Point(6, 234);
+            this.bt3_baddata_r.Name = "bt3_baddata_r";
+            this.bt3_baddata_r.Size = new System.Drawing.Size(168, 23);
+            this.bt3_baddata_r.TabIndex = 47;
+            this.bt3_baddata_r.Text = "Bad data";
+            this.bt3_baddata_r.UseVisualStyleBackColor = true;
+            this.bt3_baddata_r.Click += new System.EventHandler(this.bt3_baddata_r_Click);
             // 
             // Form1
             // 
@@ -5850,8 +5876,8 @@
         private System.Windows.Forms.Label lb3_tarm_l;
         private System.Windows.Forms.TextBox tb3_tarm_l;
         private System.Windows.Forms.Button bt3_rand;
-        private System.Windows.Forms.Button bt3_badmess_r;
-        private System.Windows.Forms.Button bt3_badmess_l;
+        private System.Windows.Forms.Button bt3_badstatus_r;
+        private System.Windows.Forms.Button bt3_badstatus_l;
         private System.Windows.Forms.Timer timer3_reset_l;
         private System.Windows.Forms.Timer timer3_reset_r;
         private System.Windows.Forms.Button button7;
@@ -5867,6 +5893,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.RadioButton rb2_piv11;
         private System.Windows.Forms.RadioButton rb2_piv10;
+        private System.Windows.Forms.Button bt3_baddata_r;
+        private System.Windows.Forms.Button bt3_baddata_l;
 	}
 }
 
