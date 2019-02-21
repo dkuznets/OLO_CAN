@@ -5813,6 +5813,7 @@ namespace OLO_CAN
             if (cb_olo_l_ena.Checked)
             {
                 cb_olo_l_ena.Text = "Эмуляция включена";
+                gb_olo_L.BackColor = Color.PaleGreen;
                 shoot_l.Enabled = true;
                 chb_L_Err_int.Enabled = true;
                 chb_L_Err_file.Enabled = true;
@@ -5834,6 +5835,7 @@ namespace OLO_CAN
             else
             {
                 cb_olo_l_ena.Text = "Эмуляция выключена";
+                gb_olo_L.BackColor = Color.Transparent;
                 shoot_l.Enabled = false;
                 timer_testOLO_L.Enabled = false;
                 label26.Enabled = false;
@@ -5861,6 +5863,7 @@ namespace OLO_CAN
             if (cb_olo_r_ena.Checked)
             {
                 cb_olo_r_ena.Text = "Эмуляция включена";
+                gb_olo_R.BackColor = Color.PaleGreen;
                 shoot_r.Enabled = true;
                 chb_R_Err_int.Enabled = true;
                 chb_R_Err_file.Enabled = true;
@@ -5882,6 +5885,7 @@ namespace OLO_CAN
             {
                 shoot_r.Enabled = false;
                 cb_olo_r_ena.Text = "Эмуляция выключена";
+                gb_olo_R.BackColor = Color.Transparent;
                 timer_testOLO_R.Enabled = false;
                 chb_R_Err_int.Enabled = false;
                 chb_R_Err_file.Enabled = false;
