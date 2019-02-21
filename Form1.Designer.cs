@@ -3422,6 +3422,7 @@
             // 
             // bt3_trash_r
             // 
+            this.bt3_trash_r.Enabled = false;
             this.bt3_trash_r.Location = new System.Drawing.Point(6, 263);
             this.bt3_trash_r.Name = "bt3_trash_r";
             this.bt3_trash_r.Size = new System.Drawing.Size(168, 23);
@@ -3432,6 +3433,7 @@
             // 
             // bt3_baddata_r
             // 
+            this.bt3_baddata_r.Enabled = false;
             this.bt3_baddata_r.Location = new System.Drawing.Point(6, 234);
             this.bt3_baddata_r.Name = "bt3_baddata_r";
             this.bt3_baddata_r.Size = new System.Drawing.Size(168, 23);
@@ -3442,6 +3444,7 @@
             // 
             // bt3_badstatus_r
             // 
+            this.bt3_badstatus_r.Enabled = false;
             this.bt3_badstatus_r.Location = new System.Drawing.Point(6, 205);
             this.bt3_badstatus_r.Name = "bt3_badstatus_r";
             this.bt3_badstatus_r.Size = new System.Drawing.Size(168, 23);
@@ -3600,6 +3603,7 @@
             // 
             // bt3_trash_l
             // 
+            this.bt3_trash_l.Enabled = false;
             this.bt3_trash_l.Location = new System.Drawing.Point(6, 263);
             this.bt3_trash_l.Name = "bt3_trash_l";
             this.bt3_trash_l.Size = new System.Drawing.Size(168, 23);
@@ -3610,6 +3614,7 @@
             // 
             // bt3_baddata_l
             // 
+            this.bt3_baddata_l.Enabled = false;
             this.bt3_baddata_l.Location = new System.Drawing.Point(6, 234);
             this.bt3_baddata_l.Name = "bt3_baddata_l";
             this.bt3_baddata_l.Size = new System.Drawing.Size(168, 23);
@@ -3620,6 +3625,7 @@
             // 
             // bt3_badstatus_l
             // 
+            this.bt3_badstatus_l.Enabled = false;
             this.bt3_badstatus_l.Location = new System.Drawing.Point(6, 205);
             this.bt3_badstatus_l.Name = "bt3_badstatus_l";
             this.bt3_badstatus_l.Size = new System.Drawing.Size(168, 23);
