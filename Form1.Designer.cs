@@ -258,9 +258,6 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.bt3_rand = new System.Windows.Forms.Button();
             this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.chb4_nopaint = new System.Windows.Forms.CheckBox();
@@ -289,6 +286,7 @@
             this.chb_dgview3 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.gb_olo_R = new System.Windows.Forms.GroupBox();
+            this.bt3_trash_r = new System.Windows.Forms.Button();
             this.bt3_baddata_r = new System.Windows.Forms.Button();
             this.bt3_badstatus_r = new System.Windows.Forms.Button();
             this.lb3_t2_r = new System.Windows.Forms.Label();
@@ -304,6 +302,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.chb_R_Err_int = new System.Windows.Forms.CheckBox();
             this.gb_olo_L = new System.Windows.Forms.GroupBox();
+            this.bt3_trash_l = new System.Windows.Forms.Button();
             this.bt3_baddata_l = new System.Windows.Forms.Button();
             this.bt3_badstatus_l = new System.Windows.Forms.Button();
             this.lb3_t2_l = new System.Windows.Forms.Label();
@@ -474,8 +473,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.bt3_trash_l = new System.Windows.Forms.Button();
-            this.bt3_trash_r = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3040,9 +3037,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button8);
-            this.tabPage4.Controls.Add(this.button7);
-            this.tabPage4.Controls.Add(this.bt3_rand);
             this.tabPage4.Controls.Add(this.rtb3_datagrid);
             this.tabPage4.Controls.Add(this.checkBox2);
             this.tabPage4.Controls.Add(this.chb4_nopaint);
@@ -3061,35 +3055,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Эмуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(879, 77);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 61;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(879, 47);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 60;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
-            // 
-            // bt3_rand
-            // 
-            this.bt3_rand.Location = new System.Drawing.Point(870, 20);
-            this.bt3_rand.Name = "bt3_rand";
-            this.bt3_rand.Size = new System.Drawing.Size(84, 23);
-            this.bt3_rand.TabIndex = 41;
-            this.bt3_rand.Text = "Random message";
-            this.bt3_rand.UseVisualStyleBackColor = true;
             // 
             // rtb3_datagrid
             // 
@@ -3453,6 +3418,16 @@
             this.gb_olo_R.TabStop = false;
             this.gb_olo_R.Text = "ОЛО-Правый";
             // 
+            // bt3_trash_r
+            // 
+            this.bt3_trash_r.Location = new System.Drawing.Point(6, 263);
+            this.bt3_trash_r.Name = "bt3_trash_r";
+            this.bt3_trash_r.Size = new System.Drawing.Size(168, 23);
+            this.bt3_trash_r.TabIndex = 44;
+            this.bt3_trash_r.Text = "Мусор";
+            this.bt3_trash_r.UseVisualStyleBackColor = true;
+            this.bt3_trash_r.Click += new System.EventHandler(this.bt3_trash_r_Click);
+            // 
             // bt3_baddata_r
             // 
             this.bt3_baddata_r.Location = new System.Drawing.Point(6, 234);
@@ -3620,6 +3595,16 @@
             this.gb_olo_L.TabIndex = 51;
             this.gb_olo_L.TabStop = false;
             this.gb_olo_L.Text = "ОЛО-Левый";
+            // 
+            // bt3_trash_l
+            // 
+            this.bt3_trash_l.Location = new System.Drawing.Point(6, 263);
+            this.bt3_trash_l.Name = "bt3_trash_l";
+            this.bt3_trash_l.Size = new System.Drawing.Size(168, 23);
+            this.bt3_trash_l.TabIndex = 43;
+            this.bt3_trash_l.Text = "Мусор";
+            this.bt3_trash_l.UseVisualStyleBackColor = true;
+            this.bt3_trash_l.Click += new System.EventHandler(this.bt3_trash_l_Click);
             // 
             // bt3_baddata_l
             // 
@@ -5340,26 +5325,6 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
-            // bt3_trash_l
-            // 
-            this.bt3_trash_l.Location = new System.Drawing.Point(6, 263);
-            this.bt3_trash_l.Name = "bt3_trash_l";
-            this.bt3_trash_l.Size = new System.Drawing.Size(168, 23);
-            this.bt3_trash_l.TabIndex = 43;
-            this.bt3_trash_l.Text = "Мусор";
-            this.bt3_trash_l.UseVisualStyleBackColor = true;
-            this.bt3_trash_l.Click += new System.EventHandler(this.bt3_trash_l_Click);
-            // 
-            // bt3_trash_r
-            // 
-            this.bt3_trash_r.Location = new System.Drawing.Point(6, 263);
-            this.bt3_trash_r.Name = "bt3_trash_r";
-            this.bt3_trash_r.Size = new System.Drawing.Size(168, 23);
-            this.bt3_trash_r.TabIndex = 44;
-            this.bt3_trash_r.Text = "Мусор";
-            this.bt3_trash_r.UseVisualStyleBackColor = true;
-            this.bt3_trash_r.Click += new System.EventHandler(this.bt3_trash_r_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5899,12 +5864,10 @@
         private System.Windows.Forms.TextBox tb3_t1_l;
         private System.Windows.Forms.Label lb3_tarm_l;
         private System.Windows.Forms.TextBox tb3_tarm_l;
-        private System.Windows.Forms.Button bt3_rand;
         private System.Windows.Forms.Button bt3_badstatus_r;
         private System.Windows.Forms.Button bt3_badstatus_l;
         private System.Windows.Forms.Timer timer3_reset_l;
         private System.Windows.Forms.Timer timer3_reset_r;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TrackBar trackBar3_freq_r;
         private System.Windows.Forms.TrackBar trackBar3_um_r;
         private System.Windows.Forms.TrackBar trackBar3_az_r;
@@ -5914,7 +5877,6 @@
         private System.Windows.Forms.Label lb3_shoot_az_val_r;
         private System.Windows.Forms.Label lb3_shoot_um_txt_r;
         private System.Windows.Forms.Label lb3_shoot_az_txt_r;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.RadioButton rb2_piv11;
         private System.Windows.Forms.RadioButton rb2_piv10;
         private System.Windows.Forms.Button bt3_baddata_r;

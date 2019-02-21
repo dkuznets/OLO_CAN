@@ -7082,6 +7082,11 @@ namespace OLO_CAN
         {
         }
 
+        private void bt3_rand_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
      }
 
