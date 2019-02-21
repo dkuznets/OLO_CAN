@@ -5824,6 +5824,12 @@ namespace OLO_CAN
                 bt3_baddata_l.Enabled = true;
                 bt3_badstatus_l.Enabled = true;
                 bt3_trash_l.Enabled = true;
+                lb3_t1_l.Enabled = true;
+                lb3_t2_l.Enabled = true;
+                lb3_tarm_l.Enabled = true;
+                tb3_t1_l.Enabled = true;
+                tb3_t2_l.Enabled = true;
+                tb3_tarm_l.Enabled = true;
             }
             else
             {
@@ -5842,6 +5848,12 @@ namespace OLO_CAN
                 bt3_baddata_l.Enabled = false;
                 bt3_badstatus_l.Enabled = false;
                 bt3_trash_l.Enabled = false;
+                lb3_t1_l.Enabled = false;
+                lb3_t2_l.Enabled = false;
+                lb3_tarm_l.Enabled = false;
+                tb3_t1_l.Enabled = false;
+                tb3_t2_l.Enabled = false;
+                tb3_tarm_l.Enabled = false;
             }
         }
         private void cb_olo_r_ena_CheckedChanged(object sender, EventArgs e)
@@ -5859,6 +5871,12 @@ namespace OLO_CAN
                 bt3_baddata_r.Enabled = true;
                 bt3_badstatus_r.Enabled = true;
                 bt3_trash_r.Enabled = true;
+                lb3_t1_r.Enabled = true;
+                lb3_t2_r.Enabled = true;
+                lb3_tarm_r.Enabled = true;
+                tb3_t1_r.Enabled = true;
+                tb3_t2_r.Enabled = true;
+                tb3_tarm_r.Enabled = true;
             }
             else
             {
@@ -5877,6 +5895,12 @@ namespace OLO_CAN
                 bt3_baddata_r.Enabled = false;
                 bt3_badstatus_r.Enabled = false;
                 bt3_trash_r.Enabled = false;
+                lb3_t1_r.Enabled = false;
+                lb3_t2_r.Enabled = false;
+                lb3_tarm_r.Enabled = false;
+                tb3_t1_r.Enabled = false;
+                tb3_t2_r.Enabled = false;
+                tb3_tarm_r.Enabled = false;
             }
         }
         uint period(uint tt)
