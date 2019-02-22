@@ -3191,7 +3191,7 @@
             this.trackBar3_freq_r.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_freq_r.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_freq_r.TabIndex = 65;
-            this.trackBar3_freq_r.Value = 2;
+            this.trackBar3_freq_r.Value = 5;
             this.trackBar3_freq_r.Scroll += new System.EventHandler(this.trackBar3_freq_r_Scroll);
             // 
             // trackBar3_um_r
@@ -3284,7 +3284,7 @@
             this.trackBar3_freq_l.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3_freq_l.Size = new System.Drawing.Size(30, 305);
             this.trackBar3_freq_l.TabIndex = 62;
-            this.trackBar3_freq_l.Value = 1;
+            this.trackBar3_freq_l.Value = 10;
             this.trackBar3_freq_l.Scroll += new System.EventHandler(this.trackBar3_freq_l_Scroll);
             // 
             // chb3_shoot_ena
@@ -3397,6 +3397,7 @@
             // 
             // gb_olo_R
             // 
+            this.gb_olo_R.BackColor = System.Drawing.Color.Transparent;
             this.gb_olo_R.Controls.Add(this.bt3_trash_r);
             this.gb_olo_R.Controls.Add(this.bt3_baddata_r);
             this.gb_olo_R.Controls.Add(this.bt3_badstatus_r);
