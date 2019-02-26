@@ -5939,6 +5939,8 @@ namespace OLO_CAN
         }
         private void chb3_shoot_ena_CheckedChanged(object sender, EventArgs e)
         {
+            list_shots.Clear();
+            panel3.Refresh();
             if (chb3_shoot_ena.Checked)
             {
                 lb3_shoot_az_val_l.Enabled = true;
