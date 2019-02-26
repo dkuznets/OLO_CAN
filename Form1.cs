@@ -5988,6 +5988,9 @@ namespace OLO_CAN
                 trackBar3_az_r.Enabled = false;
                 trackBar3_um_r.Enabled = false;
                 trackBar3_freq_r.Enabled = false;
+
+                chb4_enshl.CheckState = CheckState.Unchecked;
+                chb4_enshr.CheckState = CheckState.Unchecked;
             }
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
