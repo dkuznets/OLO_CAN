@@ -6063,7 +6063,7 @@ namespace OLO_CAN
         }
         private void trackBar3_az_r_Scroll(object sender, EventArgs e)
         {
-            lb3_shoot_az_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
+            lb3_shoot_az_val_r.Text = (trackBar3_az_r.Value).ToString("0'°'");
         }
         private void trackBar3_um_r_Scroll(object sender, EventArgs e)
         {
