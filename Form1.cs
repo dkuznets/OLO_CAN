@@ -4351,7 +4351,7 @@ namespace OLO_CAN
                                             lb_statusR_reason2.Text = "BY REQUEST";
                                             break;
                                     }
-                                    switch ((mm.messageData[0] >> 4) & 0x03) // режим
+                                    switch ((mm.messageData[0] >> 5) & 0x03) // режим
                                     {
                                         case 1:
                                             lb_statusR_mode2.Text = "OPERATIONAL";
