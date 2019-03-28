@@ -2347,7 +2347,7 @@ namespace OLO_CAN
                     pb_CMOS.Maximum = msg_count;
                     pb_CMOS.Value = 0;
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 4000))
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 40000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
                     {
                         Trace.WriteLine("Err recv image data");
                         if (!chb_PShot.Checked)
