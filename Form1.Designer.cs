@@ -473,6 +473,7 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -559,6 +560,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.chb0_srfon);
             this.tabPage1.Controls.Add(this.cb_shotshow);
             this.tabPage1.Controls.Add(this.chb0_screen);
@@ -5337,6 +5339,16 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(857, 563);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 75;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5895,6 +5907,7 @@
         private System.Windows.Forms.Button bt3_baddata_l;
         private System.Windows.Forms.Button bt3_trash_r;
         private System.Windows.Forms.Button bt3_trash_l;
+        private System.Windows.Forms.Button button2;
 	}
 }
 

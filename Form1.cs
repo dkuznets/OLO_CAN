@@ -2609,6 +2609,19 @@ namespace OLO_CAN
             }
             VideoTimer.Enabled = true;
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            COMMAND cmd = new COMMAND();
+            RESULT res = new RESULT();
+            cmd.prm.dword = 0;
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
+            for (int i = 0; i < 10; i++)
+			{
+                SendCommand(cmd, ref res);
+                Thread.Sleep(1000);
+			}
+        }
         #endregion
 
         #region Рисуем крест и круг
@@ -7151,6 +7164,7 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
+
      }
 
     public static class RichTextBoxExtensions
