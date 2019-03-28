@@ -2296,7 +2296,7 @@ namespace OLO_CAN
             // Читаем температуру CMOS1
             pb_CMOS.Value = 25;
             pb_CMOS.Refresh();
-            Thread.Sleep(100);
+//            Thread.Sleep(100);
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = Const.COMMAND_CMOS1_GET_TEMPERATURE;
 
@@ -2316,7 +2316,7 @@ namespace OLO_CAN
 
             pb_CMOS.Value = 50;
             pb_CMOS.Refresh();
-            Thread.Sleep(100);
+//            Thread.Sleep(100);
             if (!SendCommand(cmd, ref res))
             {
                 chb_PRunVideo.CheckState = CheckState.Unchecked;
@@ -2331,7 +2331,7 @@ namespace OLO_CAN
 
             pb_CMOS.Value = 75;
             pb_CMOS.Refresh();
-            Thread.Sleep(100);
+//            Thread.Sleep(100);
             UInt32 shot_pixels = 0;
 
             // Чтение картинки
@@ -2344,7 +2344,7 @@ namespace OLO_CAN
 
             pb_CMOS.Value = 100;
             pb_CMOS.Refresh();
-            Thread.Sleep(100);
+//            Thread.Sleep(100);
             if (SendCommand(cmd, ref res) && res.stat == Const.STATUS_OK)     
             {
                 pb_CMOS.Value = 0;
@@ -2382,7 +2382,7 @@ namespace OLO_CAN
                     }
  */
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 4000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
                     {
                         Trace.WriteLine("Err recv image data");
                         if (!chb_PShot.Checked)
