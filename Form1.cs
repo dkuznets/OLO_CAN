@@ -1584,13 +1584,25 @@ namespace OLO_CAN
                 msg.id = Const.CAN_PC2ARM_MSG_ID;
                 msg.len = 6;
                 Marshal.Copy(new IntPtr(&cc), msg.data, 0, 8);
-                if (!uniCAN.Send(ref msg, 1000))
+                if (!uniCAN.Send(ref msg, 100))
                     return false;
                 Byte[] arr = new Byte[8];
+/*
                 do
                 {
-                    uniCAN.Recv(ref msg, 2000);
+                    uniCAN.Recv(ref msg, 100);
                 } while (msg.data[0] != 0x55);
+*/
+                try
+                {
+                    uniCAN.Recv(ref msg, 1000);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                if (msg.data[0] != 0x55)
+                    return false;
                 Marshal.Copy(msg.data, 0, new IntPtr(&rr), 8);
                 res = rr;
 //                uniCAN.Clear_RX();
