@@ -1595,7 +1595,7 @@ namespace OLO_CAN
 */
                 try
                 {
-                    uniCAN.Recv(ref msg, 1000);
+                    uniCAN.Recv(ref msg, 10000);
                 }
                 catch (Exception)
                 {
