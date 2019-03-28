@@ -1584,7 +1584,7 @@ namespace OLO_CAN
                 msg.id = Const.CAN_PC2ARM_MSG_ID;
                 msg.len = 6;
                 Marshal.Copy(new IntPtr(&cc), msg.data, 0, 8);
-                if (!uniCAN.Send(ref msg, 100))
+                if (!uniCAN.Send(ref msg, 10000))
                     return false;
                 Byte[] arr = new Byte[8];
 /*
