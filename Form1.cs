@@ -2354,7 +2354,7 @@ namespace OLO_CAN
 //                        label29.Text = i.ToString();
 //                        label29.Refresh();
                         dat.data = new Byte[8];
-                        if (uniCAN == null || !uniCAN.Recv(ref dat, 1000))
+                        if (uniCAN == null || !uniCAN.Recv(ref dat, 100))
                         {
                             Trace.WriteLine("Err recv image data");
                             return;
