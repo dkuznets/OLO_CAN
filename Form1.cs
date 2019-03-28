@@ -2335,6 +2335,7 @@ namespace OLO_CAN
             UInt32 shot_pixels = 0;
 
             // Чтение картинки
+            cmd.prm.dword = 0;
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
 //            Byte[] image_data = new Byte[IMAGE_CX * IMAGE_CY];
