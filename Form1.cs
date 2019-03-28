@@ -2613,12 +2613,21 @@ namespace OLO_CAN
         {
             COMMAND cmd = new COMMAND();
             RESULT res = new RESULT();
+            cmd.magic = Const.MAGIC_BYTE;
+            cmd.cmd = Const.COMMAND_CMOS_SET_SIMULATION_MODE;
+            cmd.prm.words.lo_word.bytes.lo_byte = (chb_PShot.Checked ? (Byte)0x01 : (Byte)0x00);
+            cmd.prm.words.lo_word.bytes.hi_byte = (chb_PFIFO.Checked ? (Byte)0x01 : (Byte)0x00);
+
+            if (!SendCommand(cmd, ref res))
+                return;
+            Trace.WriteLine("Установка симуляции выстрелов");
             cmd.prm.dword = 0;
             cmd.magic = Const.MAGIC_BYTE;
             cmd.cmd = rb_CMOS1.Checked ? Const.COMMAND_CMOS1_GET_RAW_IMAGE : Const.COMMAND_CMOS2_GET_RAW_IMAGE;
             for (int i = 0; i < 10; i++)
 			{
                 SendCommand(cmd, ref res);
+                Trace.WriteLine("Запрос картинки");
                 Thread.Sleep(1000);
 			}
         }
