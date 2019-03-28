@@ -2345,7 +2345,7 @@ namespace OLO_CAN
             pb_CMOS.Value = 100;
             pb_CMOS.Refresh();
             Thread.Sleep(100);
-            if (SendCommand(cmd, ref res) || res.stat == Const.STATUS_OK)     
+            if (SendCommand(cmd, ref res) && res.stat == Const.STATUS_OK)     
             {
                 pb_CMOS.Value = 0;
                 if (!chb_PFIFO.Checked)
