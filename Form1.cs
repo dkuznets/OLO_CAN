@@ -2340,12 +2340,34 @@ namespace OLO_CAN
                 {
                     Trace.WriteLine("Чтение картинки");
                     UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                    UInt32 image_data_count = 0;
                     image_size = 81353;
                     int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
                     msg_count = 10169;
                     image_data = new Byte[msg_count * 8];
                     pb_CMOS.Maximum = msg_count;
                     pb_CMOS.Value = 0;
+
+                    for (UInt32 i = 0; i < msg_count; i++)
+                    {
+                        canmsg_t dat = new canmsg_t();
+//                        label29.Text = i.ToString();
+//                        label29.Refresh();
+                        dat.data = new Byte[8];
+                        if (uniCAN == null || !uniCAN.Recv(ref dat, 1000))
+                        {
+                            Trace.WriteLine("Err recv image data");
+                            return;
+                        }
+                        pb_CMOS.Value = (int)i;
+                        pb_CMOS.Refresh();
+//                        pb_CMOS.Invalidate();
+                        UInt32 data_size = dat.len;
+                        for (UInt32 j = 0; j < data_size; j++)
+                            image_data[j + image_data_count] = dat.data[j];
+                        image_data_count += data_size;
+                    }
+                    /*
 
                     if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 4000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
                     {
@@ -2354,6 +2376,7 @@ namespace OLO_CAN
                             goto lbl_pass;
                         return;
                     }
+ */
 
                     #region Режим калибровки (поиска плохих точек)
                     if (chb_Calibr.Checked)
