@@ -2382,7 +2382,7 @@ namespace OLO_CAN
                     }
  */
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 3000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
                     {
                         Trace.WriteLine("Err recv image data");
                         if (!chb_PShot.Checked)
