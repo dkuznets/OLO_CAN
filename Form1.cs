@@ -1469,6 +1469,7 @@ namespace OLO_CAN
 //                image_CMOS = (Bitmap)malevich.Clone();
 //                pictureBox1.Image = image_CMOS;
                 malevich();
+                chb_PFIFO.Enabled = false;
             }
             else
             {
@@ -1485,6 +1486,7 @@ namespace OLO_CAN
                 bt_DnLoadConf.Enabled = true;
                 chb_PShot.CheckState = CheckState.Unchecked;
                 malevich();
+                chb_PFIFO.Enabled = true;
             }
         }
         #endregion
