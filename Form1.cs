@@ -2441,6 +2441,10 @@ namespace OLO_CAN
                 lb_num_bad_points.Text = "Плохих точек:" + list_badpix_FIFO.Count().ToString();
                 #endregion
             }
+            else
+            {
+                image_data = new Byte[10169 * 8];
+            }
 
             // read CMOS FIFO buffer size
             Trace.WriteLine("Чтение кол-ва выстрелов");
