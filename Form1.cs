@@ -2346,136 +2346,139 @@ namespace OLO_CAN
             pb_CMOS.Value = 100;
             pb_CMOS.Refresh();
 //            Thread.Sleep(100);
-            if (SendCommand(cmd, ref res) && res.stat == Const.STATUS_OK)     
+            //if (_state != State.VideoState)
+            //    return;
+            do
             {
-                pb_CMOS.Value = 0;
-                if (!chb_PFIFO.Checked)
+                if (_state != State.VideoState)
+                    return;
+                if (!SendCommand(cmd, ref res))
                 {
-                    Trace.WriteLine("Чтение картинки");
-                    UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
-                    UInt32 image_data_count = 0;
-                    image_size = 81353;
-                    int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                    msg_count = 10169;
-                    image_data = new Byte[msg_count * 8];
-                    pb_CMOS.Maximum = msg_count;
-                    pb_CMOS.Value = 0;
-                    /*
+                    chb_PRunVideo.CheckState = CheckState.Unchecked;
+                    return;
+                }
+                Application.DoEvents();
+            } while (res.stat != Const.STATUS_OK);
 
-                    for (UInt32 i = 0; i < msg_count; i++)
-                    {
-                        canmsg_t dat = new canmsg_t();
+            pb_CMOS.Value = 0;
+            if (!chb_PFIFO.Checked)
+            {
+                Trace.WriteLine("Чтение картинки");
+                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                UInt32 image_data_count = 0;
+                image_size = 81353;
+                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                msg_count = 10169;
+                image_data = new Byte[msg_count * 8];
+                pb_CMOS.Maximum = msg_count;
+                pb_CMOS.Value = 0;
+/*
+                for (UInt32 i = 0; i < msg_count; i++)
+                {
+                    canmsg_t dat = new canmsg_t();
 //                        label29.Text = i.ToString();
 //                        label29.Refresh();
-                        dat.data = new Byte[8];
-                        if (uniCAN == null || !uniCAN.Recv(ref dat, 10))
-                        {
-                            Trace.WriteLine("Err recv image data");
-                            return;
-                        }
-                        pb_CMOS.Value = (int)i;
-                        pb_CMOS.Refresh();
-//                        pb_CMOS.Invalidate();
-                        UInt32 data_size = dat.len;
-                        for (UInt32 j = 0; j < data_size; j++)
-                            image_data[j + image_data_count] = dat.data[j];
-                        image_data_count += data_size;
-                    }
- */
-
-                    if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 4000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    dat.data = new Byte[8];
+                    if (uniCAN == null || !uniCAN.Recv(ref dat, 10))
                     {
                         Trace.WriteLine("Err recv image data");
-                        if (!chb_PShot.Checked)
-                            goto lbl_pass;
                         return;
                     }
+                    pb_CMOS.Value = (int)i;
+                    pb_CMOS.Refresh();
+//                        pb_CMOS.Invalidate();
+                    UInt32 data_size = dat.len;
+                    for (UInt32 j = 0; j < data_size; j++)
+                        image_data[j + image_data_count] = dat.data[j];
+                    image_data_count += data_size;
+                }
+*/
 
-                    #region Режим калибровки (поиска плохих точек)
-                    if (chb_Calibr.Checked)
-                    {
-                        if (calibration_started == false)
-                        {
-                            calibration_started = true;
-                            list_badpix_FIFO.Clear();
-                        }
-
-                        for (int y = 0; y < Const.IMAGE_CY; y++)
-                        {
-                            for (int x = 0; x < Const.IMAGE_CX; x++)
-                            {
-                                Byte pixel = image_data[y * Const.IMAGE_CX + x];
-                                if (pixel >= num_BadPixLimit.Value)
-                                {
-                                    FIFO_ITEM item;
-                                    item.x = (ushort)x;
-                                    item.y = (ushort)y;
-                                    list_badpix_FIFO.Add(item);
-                                }
-                            }
-                        }
-                        list_badpix_FIFO = list_badpix_FIFO.Distinct().ToList();
-                        listb_badpix.DataSource = null;
-                        listb_badpix.Items.Clear();
-                        foreach (var item in list_badpix_FIFO)
-                            listb_badpix.Items.Add(item.x.ToString() + "\t" + item.y.ToString());
-                        num_bad_points = list_badpix_FIFO.Count;
-                        lb_num_bad_points.Text = "Плохих точек:  " + num_bad_points.ToString();
-
-                    }
-                    else
-                    {
-                        calibration_started = false;
-                    }
-                    lb_num_bad_points.Text = "Плохих точек:" + list_badpix_FIFO.Count().ToString();
-                    #endregion
+                if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 4000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                {
+                    Trace.WriteLine("Err recv image data");
+                    if (!chb_PShot.Checked)
+                        goto lbl_pass;
+                    return;
                 }
 
-                // read CMOS FIFO buffer size
-                Trace.WriteLine("Чтение кол-ва выстрелов");
-                canmsg_t msg = new canmsg_t();
-                msg.data = new Byte[8];
-                if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+                #region Режим калибровки (поиска плохих точек)
+                if (chb_Calibr.Checked)
                 {
-                    Trace.WriteLine("Error read CMOS FIFO buffer size");
-                    shot_pixels = 0;
-                    //                    return;
+                    if (calibration_started == false)
+                    {
+                        calibration_started = true;
+                        list_badpix_FIFO.Clear();
+                    }
+
+                    for (int y = 0; y < Const.IMAGE_CY; y++)
+                    {
+                        for (int x = 0; x < Const.IMAGE_CX; x++)
+                        {
+                            Byte pixel = image_data[y * Const.IMAGE_CX + x];
+                            if (pixel >= num_BadPixLimit.Value)
+                            {
+                                FIFO_ITEM item;
+                                item.x = (ushort)x;
+                                item.y = (ushort)y;
+                                list_badpix_FIFO.Add(item);
+                            }
+                        }
+                    }
+                    list_badpix_FIFO = list_badpix_FIFO.Distinct().ToList();
+                    listb_badpix.DataSource = null;
+                    listb_badpix.Items.Clear();
+                    foreach (var item in list_badpix_FIFO)
+                        listb_badpix.Items.Add(item.x.ToString() + "\t" + item.y.ToString());
+                    num_bad_points = list_badpix_FIFO.Count;
+                    lb_num_bad_points.Text = "Плохих точек:  " + num_bad_points.ToString();
+
                 }
                 else
                 {
-                    shot_pixels = BitConverter.ToUInt16(msg.data, 0);
-                    Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
+                    calibration_started = false;
                 }
-                // read CMOS FIFO buffer data if exists
-                // получаем массив координат выстрелов
-                if (shot_pixels > 0)
-                {
-                    UInt32 image_size = shot_pixels * 4;
-                    int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                    Trace.WriteLine("Чтение выстрелов");
-                    if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
-                    {
-                        Trace.WriteLine("Error read CMOS FIFO buffer data");
-                        return;
-                    }
+                lb_num_bad_points.Text = "Плохих точек:" + list_badpix_FIFO.Count().ToString();
+                #endregion
+            }
 
-                    shot_array_list.Clear();
-                    for (int i = 0; i < shot_pixels * 4; i += 4)
-                    {
-                        FIFO_ITEM tmp;
-                        tmp.x = BitConverter.ToUInt16(shot_array, i);
-                        tmp.y = BitConverter.ToUInt16(shot_array, i + 2);
-                        shot_array_list.Add(tmp);
-                    }
-			    }
+            // read CMOS FIFO buffer size
+            Trace.WriteLine("Чтение кол-ва выстрелов");
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            if (uniCAN == null || !uniCAN.Recv(ref msg, 100))
+            {
+                Trace.WriteLine("Error read CMOS FIFO buffer size");
+                shot_pixels = 0;
+                //                    return;
             }
             else
             {
-                chb_PRunVideo.CheckState = CheckState.Unchecked;
-                return;
+                shot_pixels = BitConverter.ToUInt16(msg.data, 0);
+                Trace.WriteLine("CMOS FIFO buffer size = " + shot_pixels.ToString());
             }
-            //if (_state != State.VideoState)
-            //    return;
+            // read CMOS FIFO buffer data if exists
+            // получаем массив координат выстрелов
+            if (shot_pixels > 0)
+            {
+                UInt32 image_size = shot_pixels * 4;
+                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                Trace.WriteLine("Чтение выстрелов");
+                if (uniCAN == null || !uniCAN.RecvPack(ref shot_array, ref msg_count, 2000))
+                {
+                    Trace.WriteLine("Error read CMOS FIFO buffer data");
+                    return;
+                }
+
+                shot_array_list.Clear();
+                for (int i = 0; i < shot_pixels * 4; i += 4)
+                {
+                    FIFO_ITEM tmp;
+                    tmp.x = BitConverter.ToUInt16(shot_array, i);
+                    tmp.y = BitConverter.ToUInt16(shot_array, i + 2);
+                    shot_array_list.Add(tmp);
+                }
+			}
 
             #region Средний фон
             UInt32 srfon = 0;
