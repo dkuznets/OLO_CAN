@@ -2570,14 +2570,10 @@ namespace OLO_CAN
                 using (var stream = new MemoryStream(image_data))
                 using (var bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb))
                 {
-                    BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0,
-                    bmp.Width,
-                    bmp.Height),
-                    ImageLockMode.WriteOnly,
-                    bmp.PixelFormat);
+                    BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
                     Marshal.Copy(image_data, 0, bmpData.Scan0, image_data.Length);
                     bmp.UnlockBits(bmpData);
-                    bmp.Save(m_strPathToScreens + scrname + "_.bmp");
+                    bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
                 }
 /*
                 unsafe
