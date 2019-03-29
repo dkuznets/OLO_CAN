@@ -2541,6 +2541,34 @@ namespace OLO_CAN
                 shot_array_list.Clear();
             }
 
+            if (chb0_screen.Checked)
+            {
+                String scrname = dttostr2();
+                if (select_CMOS == 0)
+                    scrname += "_CMOS1";
+                else
+                    scrname += "_CMOS2";
+                pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp", ImageFormat.Bmp);
+
+                Byte[] idata = new Byte[image_data.Length * 3];
+                uint num = 0;
+                for (int i = 0; i < image_data.Length; i++)
+                {
+                    idata[num++] = image_data[i];
+                    idata[num++] = image_data[i];
+                    idata[num++] = image_data[i];
+                }
+
+                //                using (var stream = new MemoryStream(idata))
+                using (var bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb))
+                {
+                    BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
+                    Marshal.Copy(idata, 0, bmpData.Scan0, idata.Length);
+                    bmp.UnlockBits(bmpData);
+                    bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
+                }
+            }
+
             // Увеличиваем картинку под размер picturebox
             Bitmap newImage = new Bitmap(Const.IMAGE_CX * 2, Const.IMAGE_CY * 2);
             using (Graphics gr = Graphics.FromImage(newImage))
@@ -2558,46 +2586,6 @@ namespace OLO_CAN
             }
 
             pictureBox1.Image = newImage;
-            if(chb0_screen.Checked)
-            {
-                String scrname = dttostr2();
-                if (select_CMOS == 0)
-                    scrname += "_CMOS1";
-                else
-                    scrname += "_CMOS2";
-                pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp",ImageFormat.Bmp);
-
-                Byte[] idata = new Byte[image_data.Length * 3];
-                uint num = 0;
-                for (int i = 0; i < image_data.Length; i++)
-                {
-                    idata[num++] = image_data[i];
-                    idata[num++] = image_data[i];
-                    idata[num++] = image_data[i];
-                }
-
-                using (var stream = new MemoryStream(idata))
-                using (var bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb))
-                {
-                    BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
-                    Marshal.Copy(idata, 0, bmpData.Scan0, idata.Length);
-                    bmp.UnlockBits(bmpData);
-                    bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
-                }
-                unsafe
-                {
-                    fixed (byte* ptr = idata)
-                    {
-                        Bitmap bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb);
-                        BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, bmp.PixelFormat);
-                        Marshal.Copy(idata, 0, bmpData.Scan0, idata.Length);
-                        using (Bitmap image = new Bitmap(319, 255, bmpData.Stride, PixelFormat.Format24bppRgb, bmpData.Scan0))
-                        {
-                            image.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
-                        }
-                    }
-                }
-            }
 
             if (pictureBox1.Image != null)
                 DrawCrossCirkle();
