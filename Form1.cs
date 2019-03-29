@@ -2566,6 +2566,17 @@ namespace OLO_CAN
                 else
                     scrname += "_CMOS2";
                 pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp",ImageFormat.Bmp);
+                unsafe
+                {
+                    fixed (byte* ptr = image_data)
+                    {
+                        int stride = 319 * 3;
+                        using (Bitmap image = new Bitmap(319, 255, stride, PixelFormat.Format24bppRgb, new IntPtr(ptr)))
+                        {
+                            image.Save(m_strPathToScreens + scrname + "_.bmp");
+                        }
+                    }
+                }
             }
 
             if (pictureBox1.Image != null)
