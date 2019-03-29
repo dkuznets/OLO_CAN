@@ -2567,20 +2567,27 @@ namespace OLO_CAN
                     scrname += "_CMOS2";
                 pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp",ImageFormat.Bmp);
 
+                Byte[] idata = new Byte[image_data.Length * 3];
+                uint num = 0;
+                for (int i = 0; i < image_data.Length; i++)
+                {
+                    idata[num++] = image_data[i];
+                    idata[num++] = image_data[i];
+                    idata[num++] = image_data[i];
+                }
 
-/*
-                using (var stream = new MemoryStream(image_data))
+                using (var stream = new MemoryStream(idata))
                 using (var bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb))
                 {
                     BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
-                    Marshal.Copy(image_data, 0, bmpData.Scan0, image_data.Length);
+                    Marshal.Copy(idata, 0, bmpData.Scan0, idata.Length);
                     bmp.UnlockBits(bmpData);
                     bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
                 }
-*/
+
                 unsafe
                 {
-                    fixed (byte* ptr = image_data)
+                    fixed (byte* ptr = idata)
                     {
                         int stride = 319 * 3;
                         using (Bitmap image = new Bitmap(319, 255, stride, PixelFormat.Format24bppRgb, new IntPtr(ptr)))
