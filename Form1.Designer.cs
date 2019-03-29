@@ -33,6 +33,7 @@
             this.VideoTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.chb0_srfon = new System.Windows.Forms.CheckBox();
             this.cb_shotshow = new System.Windows.Forms.CheckBox();
             this.chb0_screen = new System.Windows.Forms.CheckBox();
@@ -79,7 +80,6 @@
             this.num_BadPixLimit = new System.Windows.Forms.NumericUpDown();
             this.bt_sort_badpix = new System.Windows.Forms.Button();
             this.bt_clear_badpix = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.listb_badpix = new System.Windows.Forms.ListBox();
             this.bt_DnLoadConf = new System.Windows.Forms.Button();
             this.bt_UpLoadConf = new System.Windows.Forms.Button();
@@ -473,7 +473,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -587,6 +586,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Юстировка ОЛО";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(857, 563);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 75;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // chb0_srfon
             // 
@@ -1045,7 +1055,6 @@
             this.gbox_Passports.Controls.Add(this.num_BadPixLimit);
             this.gbox_Passports.Controls.Add(this.bt_sort_badpix);
             this.gbox_Passports.Controls.Add(this.bt_clear_badpix);
-            this.gbox_Passports.Controls.Add(this.label5);
             this.gbox_Passports.Controls.Add(this.listb_badpix);
             this.gbox_Passports.Controls.Add(this.bt_DnLoadConf);
             this.gbox_Passports.Controls.Add(this.bt_UpLoadConf);
@@ -1059,7 +1068,7 @@
             this.gbox_Passports.Size = new System.Drawing.Size(284, 354);
             this.gbox_Passports.TabIndex = 27;
             this.gbox_Passports.TabStop = false;
-            this.gbox_Passports.Text = "Паспорта матриц";
+            this.gbox_Passports.Text = "Паспорта матриц                              X             Y";
             // 
             // chb_Calibr
             // 
@@ -1079,7 +1088,7 @@
             this.lb_num_bad_points.Name = "lb_num_bad_points";
             this.lb_num_bad_points.Size = new System.Drawing.Size(103, 21);
             this.lb_num_bad_points.TabIndex = 13;
-            this.lb_num_bad_points.Text = "Плохих точек:";
+            this.lb_num_bad_points.Text = "Плохих:";
             this.lb_num_bad_points.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
@@ -1129,21 +1138,12 @@
             this.bt_clear_badpix.UseVisualStyleBackColor = true;
             this.bt_clear_badpix.Click += new System.EventHandler(this.bt_clear_badpix_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "   X             Y";
-            // 
             // listb_badpix
             // 
             this.listb_badpix.FormattingEnabled = true;
-            this.listb_badpix.Location = new System.Drawing.Point(174, 35);
+            this.listb_badpix.Location = new System.Drawing.Point(174, 19);
             this.listb_badpix.Name = "listb_badpix";
-            this.listb_badpix.Size = new System.Drawing.Size(103, 134);
+            this.listb_badpix.Size = new System.Drawing.Size(103, 147);
             this.listb_badpix.TabIndex = 7;
             // 
             // bt_DnLoadConf
@@ -1199,7 +1199,7 @@
             // lb_num_points_in_pass
             // 
             this.lb_num_points_in_pass.AutoSize = true;
-            this.lb_num_points_in_pass.Location = new System.Drawing.Point(6, 186);
+            this.lb_num_points_in_pass.Location = new System.Drawing.Point(10, 173);
             this.lb_num_points_in_pass.Name = "lb_num_points_in_pass";
             this.lb_num_points_in_pass.Size = new System.Drawing.Size(0, 13);
             this.lb_num_points_in_pass.TabIndex = 1;
@@ -1209,7 +1209,7 @@
             this.listb_Passport.FormattingEnabled = true;
             this.listb_Passport.Location = new System.Drawing.Point(6, 19);
             this.listb_Passport.Name = "listb_Passport";
-            this.listb_Passport.Size = new System.Drawing.Size(162, 160);
+            this.listb_Passport.Size = new System.Drawing.Size(162, 147);
             this.listb_Passport.TabIndex = 0;
             this.listb_Passport.Click += new System.EventHandler(this.listb_Passport_Click);
             this.listb_Passport.SelectedIndexChanged += new System.EventHandler(this.listb_Passport_SelectedIndexChanged);
@@ -5339,16 +5339,6 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(857, 563);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 75;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5507,7 +5497,6 @@
         private System.Windows.Forms.NumericUpDown num_BadPixLimit;
         private System.Windows.Forms.Button bt_sort_badpix;
         private System.Windows.Forms.Button bt_clear_badpix;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listb_badpix;
         private System.Windows.Forms.Button bt_DnLoadConf;
         private System.Windows.Forms.Button bt_UpLoadConf;
