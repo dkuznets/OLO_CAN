@@ -2590,6 +2590,7 @@ namespace OLO_CAN
                     {
                         Bitmap bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb);
                         BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, bmp.PixelFormat);
+                        Marshal.Copy(idata, 0, bmpData.Scan0, idata.Length);
                         using (Bitmap image = new Bitmap(319, 255, bmpData.Stride, PixelFormat.Format24bppRgb, bmpData.Scan0))
                         {
                             image.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
