@@ -2567,9 +2567,6 @@ namespace OLO_CAN
                     scrname += "_CMOS2";
                 pictureBox1.Image.Save(m_strPathToScreens + scrname + ".bmp",ImageFormat.Bmp);
 
-                MemoryStream ms = new MemoryStream(image_data);
-                Image returnImage = Image.FromStream(ms);
-                returnImage.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
 
 /*
                 using (var stream = new MemoryStream(image_data))
@@ -2580,6 +2577,7 @@ namespace OLO_CAN
                     bmp.UnlockBits(bmpData);
                     bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
                 }
+*/
                 unsafe
                 {
                     fixed (byte* ptr = image_data)
@@ -2587,11 +2585,10 @@ namespace OLO_CAN
                         int stride = 319 * 3;
                         using (Bitmap image = new Bitmap(319, 255, stride, PixelFormat.Format24bppRgb, new IntPtr(ptr)))
                         {
-                            image.Save(m_strPathToScreens + scrname + "_.bmp");
+                            image.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
                         }
                     }
                 }
-*/
             }
 
             if (pictureBox1.Image != null)
