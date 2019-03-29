@@ -2584,18 +2584,19 @@ namespace OLO_CAN
                     bmp.UnlockBits(bmpData);
                     bmp.Save(m_strPathToScreens + scrname + "_.bmp", ImageFormat.Bmp);
                 }
-
-                //unsafe
-                //{
-                //    fixed (byte* ptr = idata)
-                //    {
-                //        int stride = 319 * 3;
-                //        using (Bitmap image = new Bitmap(319, 255, stride, PixelFormat.Format24bppRgb, new IntPtr(ptr)))
-                //        {
-                //            image.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
-                //        }
-                //    }
-                //}
+                unsafe
+                {
+                    fixed (byte* ptr = idata)
+                    {
+                        int stride = 319 * 3;
+                        Bitmap bmp = new Bitmap(319, 255, PixelFormat.Format24bppRgb);
+                        BitmapData bmpData = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.WriteOnly, bmp.PixelFormat);
+                        using (Bitmap image = new Bitmap(319, 255, stride, PixelFormat.Format24bppRgb, bmpData.Scan0))
+                        {
+                            image.Save(m_strPathToScreens + scrname + "__.bmp", ImageFormat.Bmp);
+                        }
+                    }
+                }
             }
 
             if (pictureBox1.Image != null)
