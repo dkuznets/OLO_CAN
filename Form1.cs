@@ -920,6 +920,16 @@ namespace OLO_CAN
             progressBar1.Enabled = false;
             richTextBox1.Enabled = false;
 
+            // Tab8
+            bt_CloseCAN8.Enabled = true;
+            bt_OpenCAN8.Enabled = false;
+            cb_CAN8.Enabled = false;
+            lb_noerr8.Visible = true;
+            lb_noerr8.Text = uniCAN.Info;
+
+//            rb_r8.Enabled = true;
+//            rb_l8.Enabled = true;
+
         }
         private void state_NotReady()
         {
@@ -1010,7 +1020,7 @@ namespace OLO_CAN
             lb_stR2_cmos1.Text = "";
             lb_stR2_cmos2.Text = "";
             tb_SN.Text = "";
-            
+
             // Tab3
             bt_CloseCAN5.Enabled = false;
             bt_OpenCAN5.Enabled = true;
@@ -1028,7 +1038,14 @@ namespace OLO_CAN
             progressBar1.Enabled = false;
             richTextBox1.Enabled = false;
 
+            // Tab8
+            bt_CloseCAN8.Enabled = false;
+            bt_OpenCAN8.Enabled = true;
+            lb_noerr8.Visible = false;
+            cb_CAN8.Enabled = true;
 
+//            rb_r8.Enabled = false;
+//            rb_l8.Enabled = false;
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
