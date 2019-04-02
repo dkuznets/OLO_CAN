@@ -139,7 +139,7 @@ namespace OLO_CAN
         Byte[] cfg_array;// = new Byte[Marshal.SizeOf(cfg)];
 
         int currTab = 0;
-        const Byte def_NUM_TABS = 6;
+        const Byte def_NUM_TABS = 7;
         ComboBox[] cb_CAN = new ComboBox[def_NUM_TABS];
 
         IniFile inicfg;
@@ -324,6 +324,7 @@ namespace OLO_CAN
             cb_CAN[3] = cb_CAN3;
             cb_CAN[4] = cb_CAN4;
             cb_CAN[5] = cb_CAN5;
+            cb_CAN[6] = cb_CAN8;
 
             state_Error();
             
