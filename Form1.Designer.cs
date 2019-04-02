@@ -5180,6 +5180,7 @@
             // 
             // bt_stop8
             // 
+            this.bt_stop8.Enabled = false;
             this.bt_stop8.Location = new System.Drawing.Point(93, 93);
             this.bt_stop8.Name = "bt_stop8";
             this.bt_stop8.Size = new System.Drawing.Size(75, 23);

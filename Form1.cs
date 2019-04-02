@@ -7307,15 +7307,22 @@ namespace OLO_CAN
         private void bt_start8_Click(object sender, EventArgs e)
         {
             tim_getdata8.Enabled = true;
+            bt_start8.Enabled = false;
+            bt_stop8.Enabled = true;
         }
         private void bt_stop8_Click(object sender, EventArgs e)
         {
             tim_getdata8.Enabled = false;
+            bt_start8.Enabled = true;
+            bt_stop8.Enabled = false;
         }
         private void tim_getdata8_Tick(object sender, EventArgs e)
         {
             if (uniCAN == null)
+            {
+                bt_stop8.PerformClick();
                 return;
+            }
             tim_getdata8.Enabled = false;
             if (uniCAN.VectorSize() == 0)
             {
