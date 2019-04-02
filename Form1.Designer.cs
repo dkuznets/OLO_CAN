@@ -441,6 +441,12 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.bt_stop8 = new System.Windows.Forms.Button();
+            this.bt_start8 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictbox_8 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
             this.lb_noerr8 = new System.Windows.Forms.Label();
             this.cb_CAN8 = new System.Windows.Forms.ComboBox();
@@ -481,6 +487,8 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.lb_info8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -539,6 +547,8 @@
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
             this.gbox_CAN8.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -5143,6 +5153,10 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.lb_info8);
+            this.tabPage8.Controls.Add(this.bt_stop8);
+            this.tabPage8.Controls.Add(this.bt_start8);
+            this.tabPage8.Controls.Add(this.groupBox2);
             this.tabPage8.Controls.Add(this.gbox_CAN8);
             this.tabPage8.Location = new System.Drawing.Point(4, 29);
             this.tabPage8.Name = "tabPage8";
@@ -5151,6 +5165,65 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Технологическая";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // bt_stop8
+            // 
+            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
+            this.bt_stop8.Name = "bt_stop8";
+            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
+            this.bt_stop8.TabIndex = 43;
+            this.bt_stop8.Text = "Стоп";
+            this.bt_stop8.UseVisualStyleBackColor = true;
+            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
+            // 
+            // bt_start8
+            // 
+            this.bt_start8.Location = new System.Drawing.Point(12, 93);
+            this.bt_start8.Name = "bt_start8";
+            this.bt_start8.Size = new System.Drawing.Size(75, 23);
+            this.bt_start8.TabIndex = 42;
+            this.bt_start8.Text = "Старт";
+            this.bt_start8.UseVisualStyleBackColor = true;
+            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pb_loadbmp8);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.pictbox_8);
+            this.groupBox2.Location = new System.Drawing.Point(6, 136);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(369, 556);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Картинка";
+            // 
+            // pb_loadbmp8
+            // 
+            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp8.Name = "pb_loadbmp8";
+            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp8.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(232, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 15;
+            // 
+            // pictbox_8
+            // 
+            this.pictbox_8.BackColor = System.Drawing.Color.Black;
+            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_8.Name = "pictbox_8";
+            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_8.TabIndex = 6;
+            this.pictbox_8.TabStop = false;
             // 
             // gbox_CAN8
             // 
@@ -5440,6 +5513,19 @@
             this.timer3_reset_r.Interval = 30000;
             this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
             // 
+            // tim_getdata8
+            // 
+            this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
+            // 
+            // lb_info8
+            // 
+            this.lb_info8.Location = new System.Drawing.Point(175, 94);
+            this.lb_info8.Name = "lb_info8";
+            this.lb_info8.Size = new System.Drawing.Size(194, 22);
+            this.lb_info8.TabIndex = 44;
+            this.lb_info8.Text = "label60";
+            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5548,6 +5634,9 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage8.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
             this.gbox_CAN8.ResumeLayout(false);
             this.gbox_CAN8.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -6009,6 +6098,14 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Button bt_CloseCAN8;
         private System.Windows.Forms.Button bt_OpenCAN8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.PictureBox pictbox_8;
+        private System.Windows.Forms.ProgressBar pb_loadbmp8;
+        private System.Windows.Forms.Button bt_stop8;
+        private System.Windows.Forms.Button bt_start8;
+        private System.Windows.Forms.Timer tim_getdata8;
+        private System.Windows.Forms.Label lb_info8;
 	}
 }
 

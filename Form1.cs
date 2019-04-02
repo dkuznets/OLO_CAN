@@ -7171,6 +7171,7 @@ namespace OLO_CAN
         }
         #endregion
 
+        #region RichTextBox
         void text2rtb(RichTextBox rtb, String txt, Color bgcolor, Color fgcolor)
         {
             rtb.AppendText(txt + crlf, bgcolor, fgcolor);
@@ -7200,12 +7201,15 @@ namespace OLO_CAN
                 rawdata += msg.messageData[j].ToString("X2") + " ";
             return rawdata;
         }
+        #endregion
+
+        #region Хрень всякая
         private void button3_Click(object sender, EventArgs e)
         {
-//            MessageBox.Show(String.Format("0x{0:X}", aaa));
-//            MessageBox.Show(String.Format("0x{0:X}", aaa));
-//            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
-//            warn2rtb(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
+            //            MessageBox.Show(String.Format("0x{0:X}", aaa));
+            //            MessageBox.Show(String.Format("0x{0:X}", aaa));
+            //            MessageBox.Show(trackBar2.Value.ToString() + " - " + (trackBar2.Value * 3.3f / 1023).ToString() + " - " + ((1.11f - trackBar2.Value * 3.3f / 1023) / (1.11f - 0.73f) / (300.0f - 50.0f) + 50.0f - 273.16f).ToString());
+            //            warn2rtb(System.Reflection.MethodBase.GetCurrentMethod().Name.ToString());
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
@@ -7236,7 +7240,9 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
+        #endregion
 
+        #region Технологическая
         private void bt_OpenCAN8_Click(object sender, EventArgs e)
         {
             if (cb_CAN8.SelectedItem.ToString() == "No CAN" || cb_CAN8.Items.Count < 1)
@@ -7273,7 +7279,6 @@ namespace OLO_CAN
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
         }
-
         private void bt_CloseCAN8_Click(object sender, EventArgs e)
         {
             if (uniCAN.Is_Open)
@@ -7286,6 +7291,45 @@ namespace OLO_CAN
             uniCAN.Recv_Disable();
             uniCAN = null;
         }
+        private void bt_start8_Click(object sender, EventArgs e)
+        {
+            tim_getdata8.Enabled = true;
+        }
+        private void bt_stop8_Click(object sender, EventArgs e)
+        {
+            tim_getdata8.Enabled = false;
+        }
+        private void tim_getdata8_Tick(object sender, EventArgs e)
+        {
+            tim_getdata8.Enabled = false;
+            if (uniCAN.VectorSize() == 0)
+            {
+                tim_getdata8.Enabled = true;
+                Application.DoEvents();
+                return;
+            }
+
+            canmsg_t msg = new canmsg_t();
+            msg.data = new Byte[8];
+            msg_t mm = new msg_t();
+            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || (msg.id >> 5) != 0x31 || msg.len != 0)
+            {
+                tim_getdata8.Enabled = true;
+                Application.DoEvents();
+                return;
+            }
+            mm = mm.FromCAN(msg);
+            switch (mm.deviceID)
+            {
+                case Const.OLO_Left:
+                    lb_info8.Text = "ОЛО левый";
+                    break;
+                case Const.OLO_Right:
+                    lb_info8.Text = "ОЛО правый";
+                    break;
+            }
+        }
+        #endregion
 
      }
 
