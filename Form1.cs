@@ -540,6 +540,14 @@ namespace OLO_CAN
             uniCAN.Close();
             uniCAN = null;
             lb_error_CAN4.Text = e.Text;
+
+            lb_error_CAN8.Text = e.Text;
+            lb_error_CAN8.Visible = true;
+            lb_noerr8.Visible = false;
+            state_Error();
+            uniCAN.Close();
+            uniCAN = null;
+            lb_error_CAN8.Text = e.Text;
         }
         private void Progress_Handler(object sender, MyEventArgs e)
         {
@@ -564,6 +572,11 @@ namespace OLO_CAN
             {
                 pb_CMOS2.Value = e.Val;
                 pb_CMOS2.Refresh();
+            }
+            if (pb_loadbmp8.Maximum > e.Val)
+            {
+                pb_loadbmp8.Value = e.Val;
+                pb_loadbmp8.Refresh();
             }
             //MyProgressBar mpb_cmos = new MyProgressBar();
         }
@@ -7318,16 +7331,64 @@ namespace OLO_CAN
                 Application.DoEvents();
                 return;
             }
+//            Boolean leftright = false;
             mm = mm.FromCAN(msg);
             switch (mm.deviceID)
             {
                 case Const.OLO_Left:
-                    lb_info8.Text = "ОЛО левый";
+                    lb_info8.Text = "ОЛО левый. Прием картинки.";
+                    lb_info8.BackColor = Color.SpringGreen;
                     break;
                 case Const.OLO_Right:
-                    lb_info8.Text = "ОЛО правый";
+                    lb_info8.Text = "ОЛО правый. Прием картинки.";
+                    lb_info8.BackColor = Color.SpringGreen;
                     break;
             }
+            pb_loadbmp8.Value = 0;
+            UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+            UInt32 image_data_count = 0;
+            image_size = 81353;
+            int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+            msg_count = 10169;
+            image_data = new Byte[msg_count * 8];
+            pb_loadbmp8.Maximum = msg_count;
+
+            if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+            {
+                Trace.WriteLine("Err recv image data");
+                return;
+            }
+
+            Bitmap BMP_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+            for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+            {
+                for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                {
+                    Color col = Color.FromArgb(image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj]);
+                    BMP_CMOS.SetPixel(jj, ii, col);
+                }
+            }
+
+            // draw LEFT and TOP pixel lines with BLACK COLOR (for MIM Visualizer)
+            using (Graphics g = Graphics.FromImage(BMP_CMOS))
+            {
+                Pen pen_black = new Pen(Color.Black);
+                g.DrawLine(pen_black, 0, 0, Const.IMAGE_CX, 0);
+                g.DrawLine(pen_black, 0, 0, 0, Const.IMAGE_CY);
+            }
+            String scrname = dttostr2();
+            //if (select_CMOS == 0)
+            //    scrname += "_CMOS1";
+            //else
+            //    scrname += "_CMOS2";
+            BMP_CMOS.Save(m_strPathToScreens + scrname + "_tech.bmp", ImageFormat.Bmp);
+            pictbox_8.Image = BMP_CMOS;
+
+            lb_info8.Text = "";
+            lb_info8.BackColor = Color.Transparent;
+            tim_getdata8.Enabled = true;
+            Application.DoEvents();
         }
         #endregion
 
