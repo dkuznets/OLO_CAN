@@ -7367,8 +7367,24 @@ namespace OLO_CAN
             {
                 for (int jj = 0; jj < Const.IMAGE_CX; jj++)
                 {
-                    Color col = Color.FromArgb(image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj]);
-                    BMP_CMOS.SetPixel(jj, ii, col);
+                    if (!chb_contrast8.Checked)
+                    {
+                        Color col = Color.FromArgb(image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj]);
+                        BMP_CMOS.SetPixel(jj, ii, col);
+                    }
+                    else
+                    {
+                        if (image_data[Const.IMAGE_CX * ii + jj] > num_porog8.Value)
+                        {
+                            Color col = Color.White;
+                            BMP_CMOS.SetPixel(jj, ii, col);
+                        }
+                        else
+                        {
+                            Color col = Color.Black;
+                            BMP_CMOS.SetPixel(jj, ii, col);
+                        }
+                    }
                 }
             }
 

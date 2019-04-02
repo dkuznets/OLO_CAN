@@ -441,9 +441,12 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.lb_info8 = new System.Windows.Forms.Label();
             this.bt_stop8 = new System.Windows.Forms.Button();
             this.bt_start8 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
+            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
             this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
             this.label5 = new System.Windows.Forms.Label();
             this.pictbox_8 = new System.Windows.Forms.PictureBox();
@@ -488,7 +491,6 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.lb_info8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -548,6 +550,7 @@
             this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
             this.gbox_CAN8.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -5166,6 +5169,15 @@
             this.tabPage8.Text = "Технологическая";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // lb_info8
+            // 
+            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info8.Location = new System.Drawing.Point(175, 94);
+            this.lb_info8.Name = "lb_info8";
+            this.lb_info8.Size = new System.Drawing.Size(194, 22);
+            this.lb_info8.TabIndex = 44;
+            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // bt_stop8
             // 
             this.bt_stop8.Location = new System.Drawing.Point(93, 93);
@@ -5188,6 +5200,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.num_porog8);
+            this.groupBox2.Controls.Add(this.chb_contrast8);
             this.groupBox2.Controls.Add(this.pb_loadbmp8);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.pictbox_8);
@@ -5197,6 +5211,33 @@
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Картинка";
+            // 
+            // num_porog8
+            // 
+            this.num_porog8.Location = new System.Drawing.Point(185, 301);
+            this.num_porog8.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.num_porog8.Name = "num_porog8";
+            this.num_porog8.Size = new System.Drawing.Size(62, 20);
+            this.num_porog8.TabIndex = 18;
+            this.num_porog8.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            // 
+            // chb_contrast8
+            // 
+            this.chb_contrast8.AutoSize = true;
+            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
+            this.chb_contrast8.Name = "chb_contrast8";
+            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
+            this.chb_contrast8.TabIndex = 17;
+            this.chb_contrast8.Text = "Контрастирование картинки";
+            this.chb_contrast8.UseVisualStyleBackColor = true;
             // 
             // pb_loadbmp8
             // 
@@ -5517,15 +5558,6 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
-            // lb_info8
-            // 
-            this.lb_info8.Location = new System.Drawing.Point(175, 94);
-            this.lb_info8.Name = "lb_info8";
-            this.lb_info8.Size = new System.Drawing.Size(194, 22);
-            this.lb_info8.TabIndex = 44;
-            this.lb_info8.Text = "label60";
-            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5636,6 +5668,7 @@
             this.tabPage8.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
             this.gbox_CAN8.ResumeLayout(false);
             this.gbox_CAN8.PerformLayout();
@@ -6106,6 +6139,8 @@
         private System.Windows.Forms.Button bt_start8;
         private System.Windows.Forms.Timer tim_getdata8;
         private System.Windows.Forms.Label lb_info8;
+        private System.Windows.Forms.NumericUpDown num_porog8;
+        private System.Windows.Forms.CheckBox chb_contrast8;
 	}
 }
 
