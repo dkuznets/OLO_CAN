@@ -7314,6 +7314,8 @@ namespace OLO_CAN
         }
         private void tim_getdata8_Tick(object sender, EventArgs e)
         {
+            if (uniCAN == null)
+                return;
             tim_getdata8.Enabled = false;
             if (uniCAN.VectorSize() == 0)
             {
