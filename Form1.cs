@@ -709,7 +709,6 @@ namespace OLO_CAN
             bt_Exit4.Enabled = true;
             сброс_результатов();
 
-
             // Tab5
             bt_CloseCAN5.Enabled = false;
             bt_OpenCAN5.Enabled = true;
@@ -730,6 +729,17 @@ namespace OLO_CAN
             progressBar1.Enabled = false;
             richTextBox1.Enabled = false;
 
+            // Tab8
+            bt_CloseCAN8.Enabled = false;
+            bt_OpenCAN8.Enabled = true;
+            cb_CAN8.Enabled = true;
+            bt_CloseCAN8.Enabled = false;
+            bt_OpenCAN8.Enabled = true;
+
+            lb_noerr8.Visible = false;
+
+//            rb_r8.Enabled = false;
+//            rb_l8.Enabled = false;
         }
         private void state_Ready()
         {
