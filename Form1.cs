@@ -1085,6 +1085,13 @@ namespace OLO_CAN
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
                         break;
+                case 8:
+                        bt_CloseCAN.PerformClick();
+                        bt_CloseCAN2.PerformClick();
+                        bt_CloseCAN3.PerformClick();
+                        bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN5.PerformClick();
+                        break;
                 default:
                         break;
             }
@@ -7200,6 +7207,56 @@ namespace OLO_CAN
                 MessageBox.Show("Error load!!!");
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
+        }
+
+        private void bt_OpenCAN8_Click(object sender, EventArgs e)
+        {
+            if (cb_CAN8.SelectedItem.ToString() == "No CAN" || cb_CAN8.Items.Count < 1)
+                return;
+            if (cb_CAN8.SelectedItem.ToString() == "USB Marathon")
+            {
+                marCAN = new MCANConverter();
+                uniCAN = marCAN as MCANConverter;
+            }
+            else if (cb_CAN8.SelectedItem.ToString() == "PCI Advantech")
+            {
+                advCAN = new ACANConverter();
+                uniCAN = advCAN as ACANConverter;
+            }
+            else
+            {
+                elcCAN = new ECANConverter();
+                uniCAN = elcCAN as ECANConverter;
+            }
+
+            uniCAN.ErrEvent += new MyDelegate(Err_Handler);
+            uniCAN.Progress += new MyDelegate(Progress_Handler);
+
+            uniCAN.Port = 0;
+            uniCAN.Speed = 2;
+            lb_error_CAN8.Visible = false;
+            if (!uniCAN.Open())
+            {
+                state_Error();
+                return;
+            }
+            state_Ready();
+            frame.data = new Byte[8];
+            _state = State.OpenedState;
+            uniCAN.Recv_Enable();
+        }
+
+        private void bt_CloseCAN8_Click(object sender, EventArgs e)
+        {
+            if (uniCAN.Is_Open)
+            {
+                uniCAN.Recv_Disable();
+                uniCAN.Close();
+            }
+            state_NotReady();
+            lb_error_CAN8.Visible = false;
+            uniCAN.Recv_Disable();
+            uniCAN = null;
         }
 
      }

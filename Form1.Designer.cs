@@ -440,6 +440,14 @@
             this.chb_6_3 = new System.Windows.Forms.CheckBox();
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr8 = new System.Windows.Forms.Label();
+            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN8 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -530,6 +538,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.gbox_CAN8.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -548,6 +558,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -1065,7 +1076,7 @@
             this.gbox_Passports.Controls.Add(this.listb_Passport);
             this.gbox_Passports.Location = new System.Drawing.Point(663, 123);
             this.gbox_Passports.Name = "gbox_Passports";
-            this.gbox_Passports.Size = new System.Drawing.Size(284, 354);
+            this.gbox_Passports.Size = new System.Drawing.Size(284, 347);
             this.gbox_Passports.TabIndex = 27;
             this.gbox_Passports.TabStop = false;
             this.gbox_Passports.Text = "Паспорта матриц                              X             Y";
@@ -5130,6 +5141,96 @@
             this.chb_6_1.Text = "Юстировка";
             this.chb_6_1.UseVisualStyleBackColor = true;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.gbox_CAN8);
+            this.tabPage8.Location = new System.Drawing.Point(4, 29);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(962, 654);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Технологическая";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // gbox_CAN8
+            // 
+            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
+            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
+            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
+            this.gbox_CAN8.Controls.Add(this.label61);
+            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
+            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
+            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN8.Name = "gbox_CAN8";
+            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN8.TabIndex = 40;
+            this.gbox_CAN8.TabStop = false;
+            this.gbox_CAN8.Text = "CAN";
+            // 
+            // lb_noerr8
+            // 
+            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr8.Name = "lb_noerr8";
+            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr8.TabIndex = 15;
+            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr8.Visible = false;
+            // 
+            // cb_CAN8
+            // 
+            this.cb_CAN8.FormattingEnabled = true;
+            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN8.Name = "cb_CAN8";
+            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN8.TabIndex = 29;
+            // 
+            // lb_error_CAN8
+            // 
+            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN8.Name = "lb_error_CAN8";
+            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN8.TabIndex = 14;
+            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN8.Visible = false;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label61.Location = new System.Drawing.Point(159, 49);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(0, 13);
+            this.label61.TabIndex = 10;
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN8
+            // 
+            this.bt_CloseCAN8.Enabled = false;
+            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
+            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN8.TabIndex = 2;
+            this.bt_CloseCAN8.Text = "Закрыть";
+            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
+            // 
+            // bt_OpenCAN8
+            // 
+            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
+            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN8.TabIndex = 0;
+            this.bt_OpenCAN8.Text = "Открыть";
+            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -5446,6 +5547,9 @@
             this.gbox_CAN5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.gbox_CAN8.ResumeLayout(false);
+            this.gbox_CAN8.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -5897,6 +6001,14 @@
         private System.Windows.Forms.Button bt3_trash_r;
         private System.Windows.Forms.Button bt3_trash_l;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.GroupBox gbox_CAN8;
+        private System.Windows.Forms.Label lb_noerr8;
+        private System.Windows.Forms.ComboBox cb_CAN8;
+        private System.Windows.Forms.Label lb_error_CAN8;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Button bt_CloseCAN8;
+        private System.Windows.Forms.Button bt_OpenCAN8;
 	}
 }
 
