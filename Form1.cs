@@ -7344,6 +7344,8 @@ namespace OLO_CAN
                     lb_info8.BackColor = Color.SpringGreen;
                     break;
             }
+            Application.DoEvents();
+            lb_info8.Refresh();
             pb_loadbmp8.Value = 0;
             UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
             UInt32 image_data_count = 0;
