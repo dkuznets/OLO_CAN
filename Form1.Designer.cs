@@ -5205,9 +5205,9 @@
             this.groupBox2.Controls.Add(this.pb_loadbmp8);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.pictbox_8);
-            this.groupBox2.Location = new System.Drawing.Point(6, 136);
+            this.groupBox2.Location = new System.Drawing.Point(6, 122);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 556);
+            this.groupBox2.Size = new System.Drawing.Size(369, 330);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Картинка";
