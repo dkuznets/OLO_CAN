@@ -7291,6 +7291,7 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
+            bt_start8.PerformClick();
         }
         private void bt_CloseCAN8_Click(object sender, EventArgs e)
         {
@@ -7310,7 +7311,6 @@ namespace OLO_CAN
             tim_getdata8.Enabled = true;
             bt_start8.Enabled = false;
             bt_stop8.Enabled = true;
-            bt_start8.PerformClick();
         }
         private void bt_stop8_Click(object sender, EventArgs e)
         {
