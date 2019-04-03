@@ -7303,12 +7303,14 @@ namespace OLO_CAN
             lb_error_CAN8.Visible = false;
             uniCAN.Recv_Disable();
             uniCAN = null;
+            bt_stop8.PerformClick();
         }
         private void bt_start8_Click(object sender, EventArgs e)
         {
             tim_getdata8.Enabled = true;
             bt_start8.Enabled = false;
             bt_stop8.Enabled = true;
+            bt_start8.PerformClick();
         }
         private void bt_stop8_Click(object sender, EventArgs e)
         {
