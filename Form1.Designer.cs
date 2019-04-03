@@ -3079,7 +3079,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(962, 654);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Эмуляция ОЛО";
+            this.tabPage4.Text = "Симуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // rtb3_datagrid
