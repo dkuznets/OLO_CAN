@@ -1076,6 +1076,7 @@ namespace OLO_CAN
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
                         bt_CloseCAN5.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 1:
                         bt_CloseCAN.PerformClick();
@@ -1083,6 +1084,7 @@ namespace OLO_CAN
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
                         bt_CloseCAN5.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 2:
                         bt_CloseCAN.PerformClick();
@@ -1093,18 +1095,21 @@ namespace OLO_CAN
                         rtb2_datagrid.ResetText();
                         comboBox2.SelectedIndex = 0;
                         comboBox3.SelectedIndex = 0;
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 3:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN4.PerformClick();
                         bt_CloseCAN5.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 4:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN5.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 5:
                         bt_CloseCAN.PerformClick();
@@ -1112,12 +1117,14 @@ namespace OLO_CAN
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
                         bt_CloseCAN5.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 6:
                         bt_CloseCAN.PerformClick();
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         bt_CloseCAN5.PerformClick();
                         break;
                 case 7:
@@ -1125,6 +1132,7 @@ namespace OLO_CAN
                         bt_CloseCAN2.PerformClick();
                         bt_CloseCAN3.PerformClick();
                         bt_CloseCAN4.PerformClick();
+                        bt_CloseCAN8.PerformClick();
                         break;
                 case 8:
                         bt_CloseCAN.PerformClick();
