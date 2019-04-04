@@ -491,6 +491,24 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.lb3_um_su_r = new System.Windows.Forms.Label();
+            this.lb3_az_su_r = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.lb3_um_su_l = new System.Windows.Forms.Label();
+            this.lb3_az_su_l = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.lb3_um_mig_r = new System.Windows.Forms.Label();
+            this.lb3_az_mig_r = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.lb3_um_mig_l = new System.Windows.Forms.Label();
+            this.lb3_az_mig_l = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3063,6 +3081,24 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label84);
+            this.tabPage4.Controls.Add(this.label83);
+            this.tabPage4.Controls.Add(this.lb3_um_mig_r);
+            this.tabPage4.Controls.Add(this.lb3_az_mig_r);
+            this.tabPage4.Controls.Add(this.label77);
+            this.tabPage4.Controls.Add(this.label78);
+            this.tabPage4.Controls.Add(this.lb3_um_mig_l);
+            this.tabPage4.Controls.Add(this.lb3_az_mig_l);
+            this.tabPage4.Controls.Add(this.label81);
+            this.tabPage4.Controls.Add(this.label82);
+            this.tabPage4.Controls.Add(this.lb3_um_su_r);
+            this.tabPage4.Controls.Add(this.lb3_az_su_r);
+            this.tabPage4.Controls.Add(this.label63);
+            this.tabPage4.Controls.Add(this.label64);
+            this.tabPage4.Controls.Add(this.lb3_um_su_l);
+            this.tabPage4.Controls.Add(this.lb3_az_su_l);
+            this.tabPage4.Controls.Add(this.label70);
+            this.tabPage4.Controls.Add(this.label72);
             this.tabPage4.Controls.Add(this.rtb3_datagrid);
             this.tabPage4.Controls.Add(this.checkBox2);
             this.tabPage4.Controls.Add(this.chb4_nopaint);
@@ -5559,6 +5595,196 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
+            // lb3_um_su_r
+            // 
+            this.lb3_um_su_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_su_r.Enabled = false;
+            this.lb3_um_su_r.Location = new System.Drawing.Point(796, 469);
+            this.lb3_um_su_r.Name = "lb3_um_su_r";
+            this.lb3_um_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_r.TabIndex = 78;
+            this.lb3_um_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_su_r
+            // 
+            this.lb3_az_su_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_su_r.Enabled = false;
+            this.lb3_az_su_r.Location = new System.Drawing.Point(796, 449);
+            this.lb3_az_su_r.Name = "lb3_az_su_r";
+            this.lb3_az_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_r.TabIndex = 77;
+            this.lb3_az_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Enabled = false;
+            this.label63.Location = new System.Drawing.Point(731, 469);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(66, 13);
+            this.label63.TabIndex = 76;
+            this.label63.Text = "Угол места";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Enabled = false;
+            this.label64.Location = new System.Drawing.Point(731, 449);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(44, 13);
+            this.label64.TabIndex = 75;
+            this.label64.Text = "Азимут";
+            // 
+            // lb3_um_su_l
+            // 
+            this.lb3_um_su_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_su_l.Enabled = false;
+            this.lb3_um_su_l.Location = new System.Drawing.Point(688, 469);
+            this.lb3_um_su_l.Name = "lb3_um_su_l";
+            this.lb3_um_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_l.TabIndex = 74;
+            this.lb3_um_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_su_l
+            // 
+            this.lb3_az_su_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_su_l.Enabled = false;
+            this.lb3_az_su_l.Location = new System.Drawing.Point(688, 449);
+            this.lb3_az_su_l.Name = "lb3_az_su_l";
+            this.lb3_az_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_l.TabIndex = 73;
+            this.lb3_az_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Enabled = false;
+            this.label70.Location = new System.Drawing.Point(623, 469);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(66, 13);
+            this.label70.TabIndex = 72;
+            this.label70.Text = "Угол места";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Enabled = false;
+            this.label72.Location = new System.Drawing.Point(623, 449);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(44, 13);
+            this.label72.TabIndex = 71;
+            this.label72.Text = "Азимут";
+            // 
+            // lb3_um_mig_r
+            // 
+            this.lb3_um_mig_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_mig_r.Enabled = false;
+            this.lb3_um_mig_r.Location = new System.Drawing.Point(796, 531);
+            this.lb3_um_mig_r.Name = "lb3_um_mig_r";
+            this.lb3_um_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_r.TabIndex = 86;
+            this.lb3_um_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_mig_r
+            // 
+            this.lb3_az_mig_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_mig_r.Enabled = false;
+            this.lb3_az_mig_r.Location = new System.Drawing.Point(796, 511);
+            this.lb3_az_mig_r.Name = "lb3_az_mig_r";
+            this.lb3_az_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_r.TabIndex = 85;
+            this.lb3_az_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Enabled = false;
+            this.label77.Location = new System.Drawing.Point(731, 531);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(66, 13);
+            this.label77.TabIndex = 84;
+            this.label77.Text = "Угол места";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Enabled = false;
+            this.label78.Location = new System.Drawing.Point(731, 511);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(44, 13);
+            this.label78.TabIndex = 83;
+            this.label78.Text = "Азимут";
+            // 
+            // lb3_um_mig_l
+            // 
+            this.lb3_um_mig_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_mig_l.Enabled = false;
+            this.lb3_um_mig_l.Location = new System.Drawing.Point(688, 531);
+            this.lb3_um_mig_l.Name = "lb3_um_mig_l";
+            this.lb3_um_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_l.TabIndex = 82;
+            this.lb3_um_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_mig_l
+            // 
+            this.lb3_az_mig_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_mig_l.Enabled = false;
+            this.lb3_az_mig_l.Location = new System.Drawing.Point(688, 511);
+            this.lb3_az_mig_l.Name = "lb3_az_mig_l";
+            this.lb3_az_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_l.TabIndex = 81;
+            this.lb3_az_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Enabled = false;
+            this.label81.Location = new System.Drawing.Point(623, 531);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(66, 13);
+            this.label81.TabIndex = 80;
+            this.label81.Text = "Угол места";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Enabled = false;
+            this.label82.Location = new System.Drawing.Point(623, 511);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(44, 13);
+            this.label82.TabIndex = 79;
+            this.label82.Text = "Азимут";
+            // 
+            // label83
+            // 
+            this.label83.Enabled = false;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label83.Location = new System.Drawing.Point(625, 431);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(209, 15);
+            this.label83.TabIndex = 73;
+            this.label83.Text = "ССК СУ-35С";
+            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label84
+            // 
+            this.label84.Enabled = false;
+            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label84.Location = new System.Drawing.Point(623, 492);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(209, 15);
+            this.label84.TabIndex = 87;
+            this.label84.Text = "ССК МИГ-35";
+            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6142,6 +6368,24 @@
         private System.Windows.Forms.Label lb_info8;
         private System.Windows.Forms.NumericUpDown num_porog8;
         private System.Windows.Forms.CheckBox chb_contrast8;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label lb3_um_mig_r;
+        private System.Windows.Forms.Label lb3_az_mig_r;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label lb3_um_mig_l;
+        private System.Windows.Forms.Label lb3_az_mig_l;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label lb3_um_su_r;
+        private System.Windows.Forms.Label lb3_az_su_r;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label lb3_um_su_l;
+        private System.Windows.Forms.Label lb3_az_su_l;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label72;
 	}
 }
 

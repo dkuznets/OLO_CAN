@@ -160,6 +160,12 @@ namespace OLO_CAN
         public static Boolean flag_thr_r_shoot;
         String lolo = "левого ОЛО";
         String polo = "правого ОЛО";
+
+        Double[,] prsu = new Double[,] { { 0.0, -0.9903, -0.1392 }, { 0.0, 0.1392, -0.9903 }, { 1.0, 0.0, 0.0 } };
+        Double[,] plsu = new Double[,] { { 0.0, -0.9903, 0.1392 }, { 0.0, 0.1392, 0.9903 }, { -1.0, -0.0, 0.0 } };
+        Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
+        Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
+
         #endregion
 
         #region Tab2
@@ -6199,10 +6205,24 @@ namespace OLO_CAN
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
+            Double[] tmp = new Double[2];
+	        tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
+            lb3_az_su_l.Text = tmp[0].ToString("F2'°'");
+            lb3_um_su_l.Text = tmp[1].ToString("F2'°'");
+	        tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
+            lb3_az_mig_l.Text = tmp[0].ToString("F2'°'");
+            lb3_um_mig_l.Text = tmp[1].ToString("F2'°'");
         }
         private void trackBar3_um_l_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_um_val_l.Text = (trackBar3_um_l.Value).ToString("0'°'");
+            Double[] tmp = new Double[2];
+            tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
+            lb3_az_su_l.Text = tmp[0].ToString("F2'°'");
+            lb3_um_su_l.Text = tmp[1].ToString("F2'°'");
+            tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
+            lb3_az_mig_l.Text = tmp[0].ToString("F2'°'");
+            lb3_um_mig_l.Text = tmp[1].ToString("F2'°'");
         }
         private void trackBar3_freq_l_Scroll(object sender, EventArgs e)
         {
@@ -6211,10 +6231,24 @@ namespace OLO_CAN
         private void trackBar3_az_r_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_az_val_r.Text = (trackBar3_az_r.Value).ToString("0'°'");
+            Double[] tmp = new Double[2];
+            tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
+            lb3_az_su_r.Text = tmp[0].ToString("F2'°'");
+            lb3_um_su_r.Text = tmp[1].ToString("F2'°'");
+            tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
+            lb3_az_mig_r.Text = tmp[0].ToString("F2'°'");
+            lb3_um_mig_r.Text = tmp[1].ToString("F2'°'");
         }
         private void trackBar3_um_r_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
+            Double[] tmp = new Double[2];
+            tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
+            lb3_az_su_r.Text = tmp[0].ToString("F2'°'");
+            lb3_um_su_r.Text = tmp[1].ToString("F2'°'");
+            tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
+            lb3_az_mig_r.Text = tmp[0].ToString("F2'°'");
+            lb3_um_mig_r.Text = tmp[1].ToString("F2'°'");
         }
         private void trackBar3_freq_r_Scroll(object sender, EventArgs e)
         {
@@ -7261,6 +7295,47 @@ namespace OLO_CAN
             else
                 MessageBox.Show("Load OK!!!" + crlf + conf.dev_id.ToString("X2") + crlf + conf.ser_num + conf.comment);
         }
+        Double deg2rad(Double deg)
+        {
+	        return deg * (Math.PI / 180);
+        }
+        Double rad2deg(Double rad)
+        {
+	        return 180 / Math.PI * rad;
+        }
+        Double[] sph2cart(Double az, Double um, Double r)
+        {
+	        Double[] ret = new Double[3];
+	        ret[0] = (r * Math.Cos(deg2rad(um)) * Math.Cos(deg2rad(az)));
+	        ret[1] = (r * Math.Cos(deg2rad(um)) * Math.Sin(deg2rad(az)));
+	        ret[2] = (r * Math.Sin(deg2rad(um)));
+	        return ret;
+        }
+        Double[] cart2sph(Double x, Double y, Double z)
+        {
+	        Double[] ret = new Double[3];
+	        ret[0] = (Math.Atan2(y, x));
+	        ret[1] = (Math.Atan2(z, Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2))));
+	        ret[2] = (Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2)));
+	        return ret;
+        }
+        Double[] turn_to_ssk(Double azin, Double umin, Double[,] mat)
+        {
+	        Double[] ret = new Double[3];
+	        Double[] xyz = new Double[3];
+
+	        xyz = sph2cart(-azin, umin, 1);
+
+	        Double c11 = mat[0,0] * xyz[0] + mat[0,1] * xyz[2] + mat[0,2] * xyz[1];
+	        Double c21 = mat[1,0] * xyz[0] + mat[1,1] * xyz[2] + mat[1,2] * xyz[1];
+	        Double c31 = mat[2,0] * xyz[0] + mat[2,1] * xyz[2] + mat[2,2] * xyz[1];
+
+	        xyz = cart2sph(c11, c31, c21);
+	        ret[0] = rad2deg(ret[0]);
+	        ret[1] = rad2deg(ret[1]);
+	        return ret;
+        }
+
         #endregion
 
         #region Технологическая
@@ -7428,8 +7503,7 @@ namespace OLO_CAN
             Application.DoEvents();
         }
         #endregion
-
-     }
+    }
 
     public static class RichTextBoxExtensions
     {
