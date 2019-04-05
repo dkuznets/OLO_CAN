@@ -7331,8 +7331,8 @@ namespace OLO_CAN
 	        Double c31 = mat[2,0] * xyz[0] + mat[2,1] * xyz[2] + mat[2,2] * xyz[1];
 
 	        xyz = cart2sph(c11, c31, c21);
-	        ret[0] = rad2deg(ret[0]);
-	        ret[1] = rad2deg(ret[1]);
+            ret[0] = rad2deg(xyz[0]);
+            ret[1] = rad2deg(xyz[1]);
 	        return ret;
         }
 
