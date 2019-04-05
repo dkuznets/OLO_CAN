@@ -6123,8 +6123,8 @@ namespace OLO_CAN
                 lb3_um_su_r.Enabled = true;
 
                 lb3_az_mig_l.Enabled = true;
-                lb3_az_mig_l.Enabled = true;
-                lb3_um_mig_r.Enabled = true;
+                lb3_az_mig_r.Enabled = true;
+                lb3_um_mig_l.Enabled = true;
                 lb3_um_mig_r.Enabled = true;
 
                 label70.Enabled = true;
