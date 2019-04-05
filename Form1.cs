@@ -6116,6 +6116,27 @@ namespace OLO_CAN
                 trackBar3_um_r.Enabled = true;
                 trackBar3_freq_r.Enabled = true;
                 lb3_freq_val_r.Text = (trackBar3_freq_r.Value).ToString() + " Гц";
+
+                lb3_az_su_l.Enabled = true;
+                lb3_az_su_r.Enabled = true;
+                lb3_um_su_l.Enabled = true;
+                lb3_um_su_r.Enabled = true;
+
+                lb3_az_mig_l.Enabled = true;
+                lb3_az_mig_l.Enabled = true;
+                lb3_um_mig_r.Enabled = true;
+                lb3_um_mig_r.Enabled = true;
+
+                label70.Enabled = true;
+                label72.Enabled = true;
+                label83.Enabled = true;
+                label64.Enabled = true;
+                label63.Enabled = true;
+                label84.Enabled = true;
+                label82.Enabled = true;
+                label81.Enabled = true;
+                label78.Enabled = true;
+                label77.Enabled = true;
             }
             else
             {
@@ -6141,6 +6162,29 @@ namespace OLO_CAN
 
                 chb4_enshl.CheckState = CheckState.Unchecked;
                 chb4_enshr.CheckState = CheckState.Unchecked;
+
+                lb3_az_su_l.Enabled = false;
+                lb3_az_su_r.Enabled = false;
+                lb3_um_su_l.Enabled = false;
+                lb3_um_su_r.Enabled = false;
+
+                lb3_az_mig_l.Enabled = false;
+                lb3_az_mig_l.Enabled = false;
+                lb3_um_mig_r.Enabled = false;
+                lb3_um_mig_r.Enabled = false;
+
+                label70.Enabled = false;
+                label72.Enabled = false;
+                label83.Enabled = false;
+                label64.Enabled = false;
+                label63.Enabled = false;
+                label84.Enabled = false;
+                label82.Enabled = false;
+                label81.Enabled = false;
+                label78.Enabled = false;
+                label77.Enabled = false;
+
+
             }
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
