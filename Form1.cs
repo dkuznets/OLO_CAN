@@ -6137,6 +6137,21 @@ namespace OLO_CAN
                 label81.Enabled = true;
                 label78.Enabled = true;
                 label77.Enabled = true;
+
+                Double[] tmp = new Double[2];
+                tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
+                lb3_az_su_r.Text = tmp[0].ToString("F2") + '°';
+                lb3_um_su_r.Text = tmp[1].ToString("F2") + '°';
+                tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
+                lb3_az_mig_r.Text = tmp[0].ToString("F2") + '°';
+                lb3_um_mig_r.Text = tmp[1].ToString("F2") + '°';
+                tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
+                lb3_az_su_l.Text = tmp[0].ToString("F2") + '°';
+                lb3_um_su_l.Text = tmp[1].ToString("F2") + '°';
+                tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
+                lb3_az_mig_l.Text = tmp[0].ToString("F2") + '°';
+                lb3_um_mig_l.Text = tmp[1].ToString("F2") + '°';
+
             }
             else
             {
@@ -6183,8 +6198,6 @@ namespace OLO_CAN
                 label81.Enabled = false;
                 label78.Enabled = false;
                 label77.Enabled = false;
-
-
             }
         }
         private void chb4_enshl_CheckedChanged(object sender, EventArgs e)
