@@ -6183,9 +6183,9 @@ namespace OLO_CAN
                 lb3_um_su_l.Enabled = false;
                 lb3_um_su_r.Enabled = false;
 
+                lb3_az_mig_r.Enabled = false;
                 lb3_az_mig_l.Enabled = false;
-                lb3_az_mig_l.Enabled = false;
-                lb3_um_mig_r.Enabled = false;
+                lb3_um_mig_l.Enabled = false;
                 lb3_um_mig_r.Enabled = false;
 
                 label70.Enabled = false;
