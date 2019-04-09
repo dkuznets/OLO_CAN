@@ -7570,6 +7570,7 @@ namespace OLO_CAN
                 if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                     return;
                 pictbox_9.Image = new Bitmap(openbmp.FileName);
+                label60.Text = openbmp.FileName;
             }
         }
     }
