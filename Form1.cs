@@ -7560,6 +7560,17 @@ namespace OLO_CAN
             Application.DoEvents();
         }
         #endregion
+
+
+        private void bt_loadbmp9_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openbmp = new OpenFileDialog())
+            {
+                openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
+                if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+            }
+        }
     }
 
     public static class RichTextBoxExtensions

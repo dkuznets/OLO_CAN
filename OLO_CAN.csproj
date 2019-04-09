@@ -217,6 +217,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="test_tech.bmp" />
     <None Include="olo6.png" />
     <None Include="olo7.png" />
     <None Include="olo9.png" />

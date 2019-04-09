@@ -107,7 +107,6 @@
             this.gbox_Image = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.pb_CMOS = new System.Windows.Forms.ProgressBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN = new System.Windows.Forms.GroupBox();
             this.lb_noerr = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -241,7 +240,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.chb_dgview2 = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.bt_Request2 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -335,7 +333,6 @@
             this.chb_L_Err_int = new System.Windows.Forms.CheckBox();
             this.cb_olo_l_ena = new System.Windows.Forms.CheckBox();
             this.shoot_l = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.gbox_CAN3 = new System.Windows.Forms.GroupBox();
             this.lb_noerr3 = new System.Windows.Forms.Label();
             this.cb_CAN3 = new System.Windows.Forms.ComboBox();
@@ -350,7 +347,6 @@
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
             this.lb_plis2_load = new System.Windows.Forms.Label();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
             this.lb_CMOS24 = new System.Windows.Forms.Label();
             this.bt_get_CMOS2 = new System.Windows.Forms.Button();
@@ -364,7 +360,6 @@
             this.lb_T1_val4 = new System.Windows.Forms.Label();
             this.bt_plis2_load = new System.Windows.Forms.Button();
             this.gb_Image14 = new System.Windows.Forms.GroupBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS1 = new System.Windows.Forms.ProgressBar();
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
@@ -459,13 +454,8 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer_UpdateTime = new System.Windows.Forms.Timer(this.components);
             this.Timer_GetData = new System.Windows.Forms.Timer(this.components);
             this.timer_testOLO_L = new System.Windows.Forms.Timer(this.components);
@@ -481,14 +471,8 @@
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
@@ -500,7 +484,6 @@
             this.cb_CAN8 = new System.Windows.Forms.ComboBox();
             this.lb_noerr8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictbox_8 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
             this.chb_contrast8 = new System.Windows.Forms.CheckBox();
@@ -514,7 +497,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
             this.label62 = new System.Windows.Forms.Label();
-            this.pictbox_9 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lb_noerr9 = new System.Windows.Forms.Label();
             this.cb_CAN9 = new System.Windows.Forms.ComboBox();
@@ -522,6 +504,26 @@
             this.label74 = new System.Windows.Forms.Label();
             this.bt_CloseCAN9 = new System.Windows.Forms.Button();
             this.bt_OpenCAN9 = new System.Windows.Forms.Button();
+            this.label60 = new System.Windows.Forms.Label();
+            this.bt_loadbmp9 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictbox_9 = new System.Windows.Forms.PictureBox();
+            this.pictbox_8 = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -536,7 +538,6 @@
             this.gbox_CMOS2.SuspendLayout();
             this.gbox_CMOS1.SuspendLayout();
             this.gbox_Image.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbox_CAN.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gb1_Addr.SuspendLayout();
@@ -565,10 +566,8 @@
             this.gbox_CAN3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.gb_Image24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.gb_Temperature.SuspendLayout();
             this.gb_Image14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.gb_Tests.SuspendLayout();
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
@@ -583,12 +582,15 @@
             this.contextMenuStrip2.SuspendLayout();
             this.gbox_CAN8.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1468,19 +1470,6 @@
             this.pb_CMOS.Size = new System.Drawing.Size(638, 17);
             this.pb_CMOS.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
             // gbox_CAN
             // 
             this.gbox_CAN.Controls.Add(this.lb_noerr);
@@ -1964,7 +1953,6 @@
             this.tabPage3.Controls.Add(this.numericUpDown1);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.chb_dgview2);
-            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Controls.Add(this.comboBox3);
             this.tabPage3.Controls.Add(this.bt_Request2);
             this.tabPage3.Controls.Add(this.label17);
@@ -1974,6 +1962,7 @@
             this.tabPage3.Controls.Add(this.gbox_CAN2);
             this.tabPage3.Controls.Add(this.bt_About2);
             this.tabPage3.Controls.Add(this.bt_Exit2);
+            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(962, 654);
@@ -2923,15 +2912,6 @@
             this.chb_dgview2.UseVisualStyleBackColor = false;
             this.chb_dgview2.CheckedChanged += new System.EventHandler(this.chb_dgview2_CheckedChanged);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
-            this.panel1.Location = new System.Drawing.Point(413, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 200);
-            this.panel1.TabIndex = 49;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -3123,10 +3103,10 @@
             this.tabPage4.Controls.Add(this.bt3_clearlog);
             this.tabPage4.Controls.Add(this.gb_olo_R);
             this.tabPage4.Controls.Add(this.gb_olo_L);
-            this.tabPage4.Controls.Add(this.panel3);
             this.tabPage4.Controls.Add(this.gbox_CAN3);
             this.tabPage4.Controls.Add(this.bt_About3);
             this.tabPage4.Controls.Add(this.bt_Exit3);
+            this.tabPage4.Controls.Add(this.panel3);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(962, 654);
@@ -4039,15 +4019,6 @@
             this.shoot_l.UseVisualStyleBackColor = true;
             this.shoot_l.Click += new System.EventHandler(this.shoot_l_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
-            this.panel3.Location = new System.Drawing.Point(413, 9);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 200);
-            this.panel3.TabIndex = 49;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
             // gbox_CAN3
             // 
             this.gbox_CAN3.Controls.Add(this.lb_noerr3);
@@ -4219,15 +4190,6 @@
             this.gb_Image24.TabStop = false;
             this.gb_Image24.Text = "Кадр CMOS2";
             // 
-            // pictureBox24
-            // 
-            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox24.TabIndex = 6;
-            this.pictureBox24.TabStop = false;
-            // 
             // pb_CMOS2
             // 
             this.pb_CMOS2.Location = new System.Drawing.Point(69, 281);
@@ -4366,15 +4328,6 @@
             this.gb_Image14.TabIndex = 43;
             this.gb_Image14.TabStop = false;
             this.gb_Image14.Text = "Кадр CMOS1";
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
             // 
             // pb_CMOS1
             // 
@@ -5409,59 +5362,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(181, 126);
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
-            this.toolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "Скачать";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
-            this.toolStripMenuItem3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Заменить";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
-            this.toolStripMenuItem4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = "Стереть";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
-            this.toolStripMenuItem5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = "Проверить";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // Timer_UpdateTime
             // 
@@ -5532,68 +5441,15 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
             // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
-            this.toolStripMenuItem6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem6.Text = "toolStripMenuItem6";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
-            this.toolStripMenuItem7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem7.Text = "Закачать";
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(290, 6);
             // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
-            this.toolStripMenuItem9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem9.Text = "Закачать файл прошивки";
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
-            this.toolStripMenuItem10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem10.Text = "Закачать файл конфигурации";
-            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Image = global::OLO_CAN.Properties.Resources.a_right;
-            this.toolStripMenuItem11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem11.Text = "Создать и закачать файл конфигурации";
-            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(290, 6);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
-            this.toolStripMenuItem8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
-            this.toolStripMenuItem8.Text = "Форматировать";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // timer3_reset_l
             // 
@@ -5702,17 +5558,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Картинка";
             // 
-            // pictbox_8
-            // 
-            this.pictbox_8.BackColor = System.Drawing.Color.Black;
-            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_8.Name = "pictbox_8";
-            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_8.TabIndex = 6;
-            this.pictbox_8.TabStop = false;
-            // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -5819,13 +5664,15 @@
             this.bt_sendbmp9.Enabled = false;
             this.bt_sendbmp9.Location = new System.Drawing.Point(398, 94);
             this.bt_sendbmp9.Name = "bt_sendbmp9";
-            this.bt_sendbmp9.Size = new System.Drawing.Size(75, 23);
+            this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
             this.bt_sendbmp9.TabIndex = 47;
             this.bt_sendbmp9.Text = "Отправить картинку";
             this.bt_sendbmp9.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label60);
+            this.groupBox3.Controls.Add(this.bt_loadbmp9);
             this.groupBox3.Controls.Add(this.pb_loadbmp9);
             this.groupBox3.Controls.Add(this.label62);
             this.groupBox3.Controls.Add(this.pictbox_9);
@@ -5851,17 +5698,6 @@
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(0, 13);
             this.label62.TabIndex = 15;
-            // 
-            // pictbox_9
-            // 
-            this.pictbox_9.BackColor = System.Drawing.Color.Black;
-            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_9.Name = "pictbox_9";
-            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_9.TabIndex = 6;
-            this.pictbox_9.TabStop = false;
             // 
             // groupBox4
             // 
@@ -5940,6 +5776,195 @@
             this.bt_OpenCAN9.Text = "Открыть";
             this.bt_OpenCAN9.UseVisualStyleBackColor = true;
             // 
+            // label60
+            // 
+            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label60.Location = new System.Drawing.Point(88, 301);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(275, 22);
+            this.label60.TabIndex = 50;
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_loadbmp9
+            // 
+            this.bt_loadbmp9.Enabled = false;
+            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
+            this.bt_loadbmp9.Name = "bt_loadbmp9";
+            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp9.TabIndex = 49;
+            this.bt_loadbmp9.Text = "Открыть";
+            this.bt_loadbmp9.UseVisualStyleBackColor = true;
+            this.bt_loadbmp9.Click += new System.EventHandler(this.bt_loadbmp9_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
+            this.panel1.Location = new System.Drawing.Point(413, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 200);
+            this.panel1.TabIndex = 49;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
+            this.panel3.Location = new System.Drawing.Point(413, 9);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 200);
+            this.panel3.TabIndex = 49;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox24.TabIndex = 6;
+            this.pictureBox24.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictbox_9
+            // 
+            this.pictbox_9.BackColor = System.Drawing.Color.Black;
+            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_9.Name = "pictbox_9";
+            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_9.TabIndex = 6;
+            this.pictbox_9.TabStop = false;
+            // 
+            // pictbox_8
+            // 
+            this.pictbox_8.BackColor = System.Drawing.Color.Black;
+            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_8.Name = "pictbox_8";
+            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_8.TabIndex = 6;
+            this.pictbox_8.TabStop = false;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
+            this.toolStripMenuItem2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Скачать";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
+            this.toolStripMenuItem3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Заменить";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
+            this.toolStripMenuItem4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "Стереть";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
+            this.toolStripMenuItem5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Text = "Проверить";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem6.Image")));
+            this.toolStripMenuItem6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem6.Text = "toolStripMenuItem6";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem7.Image")));
+            this.toolStripMenuItem7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem7.Text = "Закачать";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
+            this.toolStripMenuItem9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem9.Text = "Закачать файл прошивки";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
+            this.toolStripMenuItem10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem10.Text = "Закачать файл конфигурации";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Image = global::OLO_CAN.Properties.Resources.a_right;
+            this.toolStripMenuItem11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem11.Text = "Создать и закачать файл конфигурации";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
+            this.toolStripMenuItem8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
+            this.toolStripMenuItem8.Text = "Форматировать";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5976,7 +6001,6 @@
             this.gbox_CMOS1.PerformLayout();
             this.gbox_Image.ResumeLayout(false);
             this.gbox_Image.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbox_CAN.ResumeLayout(false);
             this.gbox_CAN.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -6024,12 +6048,10 @@
             this.tabPage5.PerformLayout();
             this.gb_Image24.ResumeLayout(false);
             this.gb_Image24.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.gb_Temperature.ResumeLayout(false);
             this.gb_Temperature.PerformLayout();
             this.gb_Image14.ResumeLayout(false);
             this.gb_Image14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.gb_Tests.ResumeLayout(false);
             this.gb_Tests.PerformLayout();
             this.gb5_ba.ResumeLayout(false);
@@ -6053,14 +6075,17 @@
             this.gbox_CAN8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -6559,6 +6584,8 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Button bt_CloseCAN8;
         private System.Windows.Forms.Button bt_OpenCAN8;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button bt_loadbmp9;
 	}
 }
 
