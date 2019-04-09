@@ -7569,6 +7569,7 @@ namespace OLO_CAN
                 openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
                 if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                     return;
+                pictbox_9.Image = new Bitmap(openbmp.FileName);
             }
         }
     }
