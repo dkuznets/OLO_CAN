@@ -258,6 +258,24 @@
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.lb3_um_mig_r = new System.Windows.Forms.Label();
+            this.lb3_az_mig_r = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.lb3_um_mig_l = new System.Windows.Forms.Label();
+            this.lb3_az_mig_l = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.lb3_um_su_r = new System.Windows.Forms.Label();
+            this.lb3_az_su_r = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.lb3_um_su_l = new System.Windows.Forms.Label();
+            this.lb3_az_su_l = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
             this.rtb3_datagrid = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.chb4_nopaint = new System.Windows.Forms.CheckBox();
@@ -440,23 +458,6 @@
             this.chb_6_3 = new System.Windows.Forms.CheckBox();
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.lb_info8 = new System.Windows.Forms.Label();
-            this.bt_stop8 = new System.Windows.Forms.Button();
-            this.bt_start8 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
-            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
-            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictbox_8 = new System.Windows.Forms.PictureBox();
-            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr8 = new System.Windows.Forms.Label();
-            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN8 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -491,24 +492,36 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.lb3_um_su_r = new System.Windows.Forms.Label();
-            this.lb3_az_su_r = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.lb3_um_su_l = new System.Windows.Forms.Label();
-            this.lb3_az_su_l = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.lb3_um_mig_r = new System.Windows.Forms.Label();
-            this.lb3_az_mig_r = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.lb3_um_mig_l = new System.Windows.Forms.Label();
-            this.lb3_az_mig_l = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
+            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
+            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
+            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.lb_error_CAN8 = new System.Windows.Forms.Label();
+            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
+            this.lb_noerr8 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictbox_8 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
+            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
+            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
+            this.bt_start8 = new System.Windows.Forms.Button();
+            this.bt_stop8 = new System.Windows.Forms.Button();
+            this.lb_info8 = new System.Windows.Forms.Label();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.lb_info9 = new System.Windows.Forms.Label();
+            this.bt_sendbmp9 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
+            this.label62 = new System.Windows.Forms.Label();
+            this.pictbox_9 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr9 = new System.Windows.Forms.Label();
+            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN9 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -566,13 +579,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
-            this.gbox_CAN8.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            this.gbox_CAN8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -3118,6 +3134,196 @@
             this.tabPage4.Text = "Симуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label84
+            // 
+            this.label84.Enabled = false;
+            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label84.Location = new System.Drawing.Point(623, 492);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(209, 15);
+            this.label84.TabIndex = 87;
+            this.label84.Text = "ССК МИГ-35";
+            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label83
+            // 
+            this.label83.Enabled = false;
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label83.Location = new System.Drawing.Point(625, 431);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(209, 15);
+            this.label83.TabIndex = 73;
+            this.label83.Text = "ССК СУ-35С";
+            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb3_um_mig_r
+            // 
+            this.lb3_um_mig_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_mig_r.Enabled = false;
+            this.lb3_um_mig_r.Location = new System.Drawing.Point(796, 531);
+            this.lb3_um_mig_r.Name = "lb3_um_mig_r";
+            this.lb3_um_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_r.TabIndex = 86;
+            this.lb3_um_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_mig_r
+            // 
+            this.lb3_az_mig_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_mig_r.Enabled = false;
+            this.lb3_az_mig_r.Location = new System.Drawing.Point(796, 511);
+            this.lb3_az_mig_r.Name = "lb3_az_mig_r";
+            this.lb3_az_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_r.TabIndex = 85;
+            this.lb3_az_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Enabled = false;
+            this.label77.Location = new System.Drawing.Point(731, 531);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(66, 13);
+            this.label77.TabIndex = 84;
+            this.label77.Text = "Угол места";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Enabled = false;
+            this.label78.Location = new System.Drawing.Point(731, 511);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(44, 13);
+            this.label78.TabIndex = 83;
+            this.label78.Text = "Азимут";
+            // 
+            // lb3_um_mig_l
+            // 
+            this.lb3_um_mig_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_mig_l.Enabled = false;
+            this.lb3_um_mig_l.Location = new System.Drawing.Point(688, 531);
+            this.lb3_um_mig_l.Name = "lb3_um_mig_l";
+            this.lb3_um_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_l.TabIndex = 82;
+            this.lb3_um_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_mig_l
+            // 
+            this.lb3_az_mig_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_mig_l.Enabled = false;
+            this.lb3_az_mig_l.Location = new System.Drawing.Point(688, 511);
+            this.lb3_az_mig_l.Name = "lb3_az_mig_l";
+            this.lb3_az_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_l.TabIndex = 81;
+            this.lb3_az_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Enabled = false;
+            this.label81.Location = new System.Drawing.Point(623, 531);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(66, 13);
+            this.label81.TabIndex = 80;
+            this.label81.Text = "Угол места";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Enabled = false;
+            this.label82.Location = new System.Drawing.Point(623, 511);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(44, 13);
+            this.label82.TabIndex = 79;
+            this.label82.Text = "Азимут";
+            // 
+            // lb3_um_su_r
+            // 
+            this.lb3_um_su_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_su_r.Enabled = false;
+            this.lb3_um_su_r.Location = new System.Drawing.Point(796, 469);
+            this.lb3_um_su_r.Name = "lb3_um_su_r";
+            this.lb3_um_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_r.TabIndex = 78;
+            this.lb3_um_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_su_r
+            // 
+            this.lb3_az_su_r.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_su_r.Enabled = false;
+            this.lb3_az_su_r.Location = new System.Drawing.Point(796, 449);
+            this.lb3_az_su_r.Name = "lb3_az_su_r";
+            this.lb3_az_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_r.TabIndex = 77;
+            this.lb3_az_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Enabled = false;
+            this.label63.Location = new System.Drawing.Point(731, 469);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(66, 13);
+            this.label63.TabIndex = 76;
+            this.label63.Text = "Угол места";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Enabled = false;
+            this.label64.Location = new System.Drawing.Point(731, 449);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(44, 13);
+            this.label64.TabIndex = 75;
+            this.label64.Text = "Азимут";
+            // 
+            // lb3_um_su_l
+            // 
+            this.lb3_um_su_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_um_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_um_su_l.Enabled = false;
+            this.lb3_um_su_l.Location = new System.Drawing.Point(688, 469);
+            this.lb3_um_su_l.Name = "lb3_um_su_l";
+            this.lb3_um_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_l.TabIndex = 74;
+            this.lb3_um_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lb3_az_su_l
+            // 
+            this.lb3_az_su_l.BackColor = System.Drawing.Color.Transparent;
+            this.lb3_az_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb3_az_su_l.Enabled = false;
+            this.lb3_az_su_l.Location = new System.Drawing.Point(688, 449);
+            this.lb3_az_su_l.Name = "lb3_az_su_l";
+            this.lb3_az_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_l.TabIndex = 73;
+            this.lb3_az_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Enabled = false;
+            this.label70.Location = new System.Drawing.Point(623, 469);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(66, 13);
+            this.label70.TabIndex = 72;
+            this.label70.Text = "Угол места";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Enabled = false;
+            this.label72.Location = new System.Drawing.Point(623, 449);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(44, 13);
+            this.label72.TabIndex = 71;
+            this.label72.Text = "Азимут";
+            // 
             // rtb3_datagrid
             // 
             this.rtb3_datagrid.Location = new System.Drawing.Point(6, 424);
@@ -5190,198 +5396,6 @@
             this.chb_6_1.Text = "Юстировка";
             this.chb_6_1.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.lb_info8);
-            this.tabPage8.Controls.Add(this.bt_stop8);
-            this.tabPage8.Controls.Add(this.bt_start8);
-            this.tabPage8.Controls.Add(this.groupBox2);
-            this.tabPage8.Controls.Add(this.gbox_CAN8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(962, 654);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Технологическая";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // lb_info8
-            // 
-            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info8.Location = new System.Drawing.Point(175, 94);
-            this.lb_info8.Name = "lb_info8";
-            this.lb_info8.Size = new System.Drawing.Size(194, 22);
-            this.lb_info8.TabIndex = 44;
-            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bt_stop8
-            // 
-            this.bt_stop8.Enabled = false;
-            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
-            this.bt_stop8.Name = "bt_stop8";
-            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
-            this.bt_stop8.TabIndex = 43;
-            this.bt_stop8.Text = "Стоп";
-            this.bt_stop8.UseVisualStyleBackColor = true;
-            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
-            // 
-            // bt_start8
-            // 
-            this.bt_start8.Location = new System.Drawing.Point(12, 93);
-            this.bt_start8.Name = "bt_start8";
-            this.bt_start8.Size = new System.Drawing.Size(75, 23);
-            this.bt_start8.TabIndex = 42;
-            this.bt_start8.Text = "Старт";
-            this.bt_start8.UseVisualStyleBackColor = true;
-            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.num_porog8);
-            this.groupBox2.Controls.Add(this.chb_contrast8);
-            this.groupBox2.Controls.Add(this.pb_loadbmp8);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.pictbox_8);
-            this.groupBox2.Location = new System.Drawing.Point(6, 122);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 330);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Картинка";
-            // 
-            // num_porog8
-            // 
-            this.num_porog8.Location = new System.Drawing.Point(185, 301);
-            this.num_porog8.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.num_porog8.Name = "num_porog8";
-            this.num_porog8.Size = new System.Drawing.Size(62, 20);
-            this.num_porog8.TabIndex = 18;
-            this.num_porog8.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
-            // 
-            // chb_contrast8
-            // 
-            this.chb_contrast8.AutoSize = true;
-            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
-            this.chb_contrast8.Name = "chb_contrast8";
-            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
-            this.chb_contrast8.TabIndex = 17;
-            this.chb_contrast8.Text = "Контрастирование картинки";
-            this.chb_contrast8.UseVisualStyleBackColor = true;
-            // 
-            // pb_loadbmp8
-            // 
-            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
-            this.pb_loadbmp8.Name = "pb_loadbmp8";
-            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
-            this.pb_loadbmp8.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 15;
-            // 
-            // pictbox_8
-            // 
-            this.pictbox_8.BackColor = System.Drawing.Color.Black;
-            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_8.Name = "pictbox_8";
-            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_8.TabIndex = 6;
-            this.pictbox_8.TabStop = false;
-            // 
-            // gbox_CAN8
-            // 
-            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
-            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
-            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
-            this.gbox_CAN8.Controls.Add(this.label61);
-            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
-            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
-            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
-            this.gbox_CAN8.Name = "gbox_CAN8";
-            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
-            this.gbox_CAN8.TabIndex = 40;
-            this.gbox_CAN8.TabStop = false;
-            this.gbox_CAN8.Text = "CAN";
-            // 
-            // lb_noerr8
-            // 
-            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr8.Name = "lb_noerr8";
-            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr8.TabIndex = 15;
-            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr8.Visible = false;
-            // 
-            // cb_CAN8
-            // 
-            this.cb_CAN8.FormattingEnabled = true;
-            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN8.Name = "cb_CAN8";
-            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN8.TabIndex = 29;
-            // 
-            // lb_error_CAN8
-            // 
-            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN8.Name = "lb_error_CAN8";
-            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN8.TabIndex = 14;
-            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN8.Visible = false;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label61.Location = new System.Drawing.Point(159, 49);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(0, 13);
-            this.label61.TabIndex = 10;
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_CloseCAN8
-            // 
-            this.bt_CloseCAN8.Enabled = false;
-            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
-            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN8.TabIndex = 2;
-            this.bt_CloseCAN8.Text = "Закрыть";
-            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
-            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
-            // 
-            // bt_OpenCAN8
-            // 
-            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
-            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN8.TabIndex = 0;
-            this.bt_OpenCAN8.Text = "Открыть";
-            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
-            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -5595,195 +5609,336 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
-            // lb3_um_su_r
+            // gbox_CAN8
             // 
-            this.lb3_um_su_r.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_um_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_um_su_r.Enabled = false;
-            this.lb3_um_su_r.Location = new System.Drawing.Point(796, 469);
-            this.lb3_um_su_r.Name = "lb3_um_su_r";
-            this.lb3_um_su_r.Size = new System.Drawing.Size(39, 15);
-            this.lb3_um_su_r.TabIndex = 78;
-            this.lb3_um_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
+            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
+            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
+            this.gbox_CAN8.Controls.Add(this.label61);
+            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
+            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
+            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN8.Name = "gbox_CAN8";
+            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN8.TabIndex = 40;
+            this.gbox_CAN8.TabStop = false;
+            this.gbox_CAN8.Text = "CAN";
             // 
-            // lb3_az_su_r
+            // bt_OpenCAN8
             // 
-            this.lb3_az_su_r.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_az_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_az_su_r.Enabled = false;
-            this.lb3_az_su_r.Location = new System.Drawing.Point(796, 449);
-            this.lb3_az_su_r.Name = "lb3_az_su_r";
-            this.lb3_az_su_r.Size = new System.Drawing.Size(39, 15);
-            this.lb3_az_su_r.TabIndex = 77;
-            this.lb3_az_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
+            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN8.TabIndex = 0;
+            this.bt_OpenCAN8.Text = "Открыть";
+            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
             // 
-            // label63
+            // bt_CloseCAN8
             // 
-            this.label63.AutoSize = true;
-            this.label63.Enabled = false;
-            this.label63.Location = new System.Drawing.Point(731, 469);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(66, 13);
-            this.label63.TabIndex = 76;
-            this.label63.Text = "Угол места";
+            this.bt_CloseCAN8.Enabled = false;
+            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
+            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN8.TabIndex = 2;
+            this.bt_CloseCAN8.Text = "Закрыть";
+            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
             // 
-            // label64
+            // label61
             // 
-            this.label64.AutoSize = true;
-            this.label64.Enabled = false;
-            this.label64.Location = new System.Drawing.Point(731, 449);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(44, 13);
-            this.label64.TabIndex = 75;
-            this.label64.Text = "Азимут";
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label61.Location = new System.Drawing.Point(159, 49);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(0, 13);
+            this.label61.TabIndex = 10;
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lb3_um_su_l
+            // lb_error_CAN8
             // 
-            this.lb3_um_su_l.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_um_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_um_su_l.Enabled = false;
-            this.lb3_um_su_l.Location = new System.Drawing.Point(688, 469);
-            this.lb3_um_su_l.Name = "lb3_um_su_l";
-            this.lb3_um_su_l.Size = new System.Drawing.Size(39, 15);
-            this.lb3_um_su_l.TabIndex = 74;
-            this.lb3_um_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN8.Name = "lb_error_CAN8";
+            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN8.TabIndex = 14;
+            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN8.Visible = false;
             // 
-            // lb3_az_su_l
+            // cb_CAN8
             // 
-            this.lb3_az_su_l.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_az_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_az_su_l.Enabled = false;
-            this.lb3_az_su_l.Location = new System.Drawing.Point(688, 449);
-            this.lb3_az_su_l.Name = "lb3_az_su_l";
-            this.lb3_az_su_l.Size = new System.Drawing.Size(39, 15);
-            this.lb3_az_su_l.TabIndex = 73;
-            this.lb3_az_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cb_CAN8.FormattingEnabled = true;
+            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN8.Name = "cb_CAN8";
+            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN8.TabIndex = 29;
             // 
-            // label70
+            // lb_noerr8
             // 
-            this.label70.AutoSize = true;
-            this.label70.Enabled = false;
-            this.label70.Location = new System.Drawing.Point(623, 469);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(66, 13);
-            this.label70.TabIndex = 72;
-            this.label70.Text = "Угол места";
+            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr8.Name = "lb_noerr8";
+            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr8.TabIndex = 15;
+            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr8.Visible = false;
             // 
-            // label72
+            // groupBox2
             // 
-            this.label72.AutoSize = true;
-            this.label72.Enabled = false;
-            this.label72.Location = new System.Drawing.Point(623, 449);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(44, 13);
-            this.label72.TabIndex = 71;
-            this.label72.Text = "Азимут";
+            this.groupBox2.Controls.Add(this.num_porog8);
+            this.groupBox2.Controls.Add(this.chb_contrast8);
+            this.groupBox2.Controls.Add(this.pb_loadbmp8);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.pictbox_8);
+            this.groupBox2.Location = new System.Drawing.Point(6, 122);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(369, 330);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Картинка";
             // 
-            // lb3_um_mig_r
+            // pictbox_8
             // 
-            this.lb3_um_mig_r.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_um_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_um_mig_r.Enabled = false;
-            this.lb3_um_mig_r.Location = new System.Drawing.Point(796, 531);
-            this.lb3_um_mig_r.Name = "lb3_um_mig_r";
-            this.lb3_um_mig_r.Size = new System.Drawing.Size(39, 15);
-            this.lb3_um_mig_r.TabIndex = 86;
-            this.lb3_um_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.pictbox_8.BackColor = System.Drawing.Color.Black;
+            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_8.Name = "pictbox_8";
+            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_8.TabIndex = 6;
+            this.pictbox_8.TabStop = false;
             // 
-            // lb3_az_mig_r
+            // label5
             // 
-            this.lb3_az_mig_r.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_az_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_az_mig_r.Enabled = false;
-            this.lb3_az_mig_r.Location = new System.Drawing.Point(796, 511);
-            this.lb3_az_mig_r.Name = "lb3_az_mig_r";
-            this.lb3_az_mig_r.Size = new System.Drawing.Size(39, 15);
-            this.lb3_az_mig_r.TabIndex = 85;
-            this.lb3_az_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(232, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 15;
             // 
-            // label77
+            // pb_loadbmp8
             // 
-            this.label77.AutoSize = true;
-            this.label77.Enabled = false;
-            this.label77.Location = new System.Drawing.Point(731, 531);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(66, 13);
-            this.label77.TabIndex = 84;
-            this.label77.Text = "Угол места";
+            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp8.Name = "pb_loadbmp8";
+            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp8.TabIndex = 16;
             // 
-            // label78
+            // chb_contrast8
             // 
-            this.label78.AutoSize = true;
-            this.label78.Enabled = false;
-            this.label78.Location = new System.Drawing.Point(731, 511);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(44, 13);
-            this.label78.TabIndex = 83;
-            this.label78.Text = "Азимут";
+            this.chb_contrast8.AutoSize = true;
+            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
+            this.chb_contrast8.Name = "chb_contrast8";
+            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
+            this.chb_contrast8.TabIndex = 17;
+            this.chb_contrast8.Text = "Контрастирование картинки";
+            this.chb_contrast8.UseVisualStyleBackColor = true;
             // 
-            // lb3_um_mig_l
+            // num_porog8
             // 
-            this.lb3_um_mig_l.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_um_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_um_mig_l.Enabled = false;
-            this.lb3_um_mig_l.Location = new System.Drawing.Point(688, 531);
-            this.lb3_um_mig_l.Name = "lb3_um_mig_l";
-            this.lb3_um_mig_l.Size = new System.Drawing.Size(39, 15);
-            this.lb3_um_mig_l.TabIndex = 82;
-            this.lb3_um_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.num_porog8.Location = new System.Drawing.Point(185, 301);
+            this.num_porog8.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.num_porog8.Name = "num_porog8";
+            this.num_porog8.Size = new System.Drawing.Size(62, 20);
+            this.num_porog8.TabIndex = 18;
+            this.num_porog8.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
             // 
-            // lb3_az_mig_l
+            // bt_start8
             // 
-            this.lb3_az_mig_l.BackColor = System.Drawing.Color.Transparent;
-            this.lb3_az_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb3_az_mig_l.Enabled = false;
-            this.lb3_az_mig_l.Location = new System.Drawing.Point(688, 511);
-            this.lb3_az_mig_l.Name = "lb3_az_mig_l";
-            this.lb3_az_mig_l.Size = new System.Drawing.Size(39, 15);
-            this.lb3_az_mig_l.TabIndex = 81;
-            this.lb3_az_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_start8.Location = new System.Drawing.Point(12, 93);
+            this.bt_start8.Name = "bt_start8";
+            this.bt_start8.Size = new System.Drawing.Size(75, 23);
+            this.bt_start8.TabIndex = 42;
+            this.bt_start8.Text = "Старт";
+            this.bt_start8.UseVisualStyleBackColor = true;
+            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
             // 
-            // label81
+            // bt_stop8
             // 
-            this.label81.AutoSize = true;
-            this.label81.Enabled = false;
-            this.label81.Location = new System.Drawing.Point(623, 531);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(66, 13);
-            this.label81.TabIndex = 80;
-            this.label81.Text = "Угол места";
+            this.bt_stop8.Enabled = false;
+            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
+            this.bt_stop8.Name = "bt_stop8";
+            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
+            this.bt_stop8.TabIndex = 43;
+            this.bt_stop8.Text = "Стоп";
+            this.bt_stop8.UseVisualStyleBackColor = true;
+            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
             // 
-            // label82
+            // lb_info8
             // 
-            this.label82.AutoSize = true;
-            this.label82.Enabled = false;
-            this.label82.Location = new System.Drawing.Point(623, 511);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(44, 13);
-            this.label82.TabIndex = 79;
-            this.label82.Text = "Азимут";
+            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info8.Location = new System.Drawing.Point(175, 94);
+            this.lb_info8.Name = "lb_info8";
+            this.lb_info8.Size = new System.Drawing.Size(194, 22);
+            this.lb_info8.TabIndex = 44;
+            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label83
+            // tabPage8
             // 
-            this.label83.Enabled = false;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label83.Location = new System.Drawing.Point(625, 431);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(209, 15);
-            this.label83.TabIndex = 73;
-            this.label83.Text = "ССК СУ-35С";
-            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tabPage8.Controls.Add(this.lb_info9);
+            this.tabPage8.Controls.Add(this.bt_sendbmp9);
+            this.tabPage8.Controls.Add(this.groupBox3);
+            this.tabPage8.Controls.Add(this.groupBox4);
+            this.tabPage8.Controls.Add(this.lb_info8);
+            this.tabPage8.Controls.Add(this.bt_stop8);
+            this.tabPage8.Controls.Add(this.bt_start8);
+            this.tabPage8.Controls.Add(this.groupBox2);
+            this.tabPage8.Controls.Add(this.gbox_CAN8);
+            this.tabPage8.Location = new System.Drawing.Point(4, 29);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(962, 654);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Технологическая";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // label84
+            // lb_info9
             // 
-            this.label84.Enabled = false;
-            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label84.Location = new System.Drawing.Point(623, 492);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(209, 15);
-            this.label84.TabIndex = 87;
-            this.label84.Text = "ССК МИГ-35";
-            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info9.Location = new System.Drawing.Point(560, 94);
+            this.lb_info9.Name = "lb_info9";
+            this.lb_info9.Size = new System.Drawing.Size(194, 22);
+            this.lb_info9.TabIndex = 48;
+            this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_sendbmp9
+            // 
+            this.bt_sendbmp9.Enabled = false;
+            this.bt_sendbmp9.Location = new System.Drawing.Point(398, 94);
+            this.bt_sendbmp9.Name = "bt_sendbmp9";
+            this.bt_sendbmp9.Size = new System.Drawing.Size(75, 23);
+            this.bt_sendbmp9.TabIndex = 47;
+            this.bt_sendbmp9.Text = "Отправить картинку";
+            this.bt_sendbmp9.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pb_loadbmp9);
+            this.groupBox3.Controls.Add(this.label62);
+            this.groupBox3.Controls.Add(this.pictbox_9);
+            this.groupBox3.Location = new System.Drawing.Point(391, 122);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(369, 330);
+            this.groupBox3.TabIndex = 46;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Картинка";
+            // 
+            // pb_loadbmp9
+            // 
+            this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp9.Name = "pb_loadbmp9";
+            this.pb_loadbmp9.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp9.TabIndex = 16;
+            // 
+            // label62
+            // 
+            this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(232, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(0, 13);
+            this.label62.TabIndex = 15;
+            // 
+            // pictbox_9
+            // 
+            this.pictbox_9.BackColor = System.Drawing.Color.Black;
+            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_9.Name = "pictbox_9";
+            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_9.TabIndex = 6;
+            this.pictbox_9.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lb_noerr9);
+            this.groupBox4.Controls.Add(this.cb_CAN9);
+            this.groupBox4.Controls.Add(this.lb_error_CAN9);
+            this.groupBox4.Controls.Add(this.label74);
+            this.groupBox4.Controls.Add(this.bt_CloseCAN9);
+            this.groupBox4.Controls.Add(this.bt_OpenCAN9);
+            this.groupBox4.Location = new System.Drawing.Point(391, 9);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(369, 78);
+            this.groupBox4.TabIndex = 45;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "CAN";
+            // 
+            // lb_noerr9
+            // 
+            this.lb_noerr9.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr9.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr9.Name = "lb_noerr9";
+            this.lb_noerr9.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr9.TabIndex = 15;
+            this.lb_noerr9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr9.Visible = false;
+            // 
+            // cb_CAN9
+            // 
+            this.cb_CAN9.FormattingEnabled = true;
+            this.cb_CAN9.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN9.Name = "cb_CAN9";
+            this.cb_CAN9.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN9.TabIndex = 29;
+            // 
+            // lb_error_CAN9
+            // 
+            this.lb_error_CAN9.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN9.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN9.Name = "lb_error_CAN9";
+            this.lb_error_CAN9.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN9.TabIndex = 14;
+            this.lb_error_CAN9.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN9.Visible = false;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label74.Location = new System.Drawing.Point(159, 49);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(0, 13);
+            this.label74.TabIndex = 10;
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN9
+            // 
+            this.bt_CloseCAN9.Enabled = false;
+            this.bt_CloseCAN9.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN9.Name = "bt_CloseCAN9";
+            this.bt_CloseCAN9.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN9.TabIndex = 2;
+            this.bt_CloseCAN9.Text = "Закрыть";
+            this.bt_CloseCAN9.UseVisualStyleBackColor = true;
+            // 
+            // bt_OpenCAN9
+            // 
+            this.bt_OpenCAN9.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN9.Name = "bt_OpenCAN9";
+            this.bt_OpenCAN9.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN9.TabIndex = 0;
+            this.bt_OpenCAN9.Text = "Открыть";
+            this.bt_OpenCAN9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -5892,15 +6047,20 @@
             this.gbox_CAN5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
-            this.gbox_CAN8.ResumeLayout(false);
-            this.gbox_CAN8.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            this.gbox_CAN8.ResumeLayout(false);
+            this.gbox_CAN8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -6350,24 +6510,7 @@
         private System.Windows.Forms.Button bt3_trash_r;
         private System.Windows.Forms.Button bt3_trash_l;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.GroupBox gbox_CAN8;
-        private System.Windows.Forms.Label lb_noerr8;
-        private System.Windows.Forms.ComboBox cb_CAN8;
-        private System.Windows.Forms.Label lb_error_CAN8;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Button bt_CloseCAN8;
-        private System.Windows.Forms.Button bt_OpenCAN8;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.PictureBox pictbox_8;
-        private System.Windows.Forms.ProgressBar pb_loadbmp8;
-        private System.Windows.Forms.Button bt_stop8;
-        private System.Windows.Forms.Button bt_start8;
         private System.Windows.Forms.Timer tim_getdata8;
-        private System.Windows.Forms.Label lb_info8;
-        private System.Windows.Forms.NumericUpDown num_porog8;
-        private System.Windows.Forms.CheckBox chb_contrast8;
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label lb3_um_mig_r;
@@ -6386,6 +6529,36 @@
         private System.Windows.Forms.Label lb3_az_su_l;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Label lb_info9;
+        private System.Windows.Forms.Button bt_sendbmp9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ProgressBar pb_loadbmp9;
+        private System.Windows.Forms.Label label62;
+        public System.Windows.Forms.PictureBox pictbox_9;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lb_noerr9;
+        private System.Windows.Forms.ComboBox cb_CAN9;
+        private System.Windows.Forms.Label lb_error_CAN9;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Button bt_CloseCAN9;
+        private System.Windows.Forms.Button bt_OpenCAN9;
+        private System.Windows.Forms.Label lb_info8;
+        private System.Windows.Forms.Button bt_stop8;
+        private System.Windows.Forms.Button bt_start8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.NumericUpDown num_porog8;
+        private System.Windows.Forms.CheckBox chb_contrast8;
+        private System.Windows.Forms.ProgressBar pb_loadbmp8;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.PictureBox pictbox_8;
+        private System.Windows.Forms.GroupBox gbox_CAN8;
+        private System.Windows.Forms.Label lb_noerr8;
+        private System.Windows.Forms.ComboBox cb_CAN8;
+        private System.Windows.Forms.Label lb_error_CAN8;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Button bt_CloseCAN8;
+        private System.Windows.Forms.Button bt_OpenCAN8;
 	}
 }
 
