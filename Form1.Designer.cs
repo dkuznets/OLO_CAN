@@ -107,6 +107,7 @@
             this.gbox_Image = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.pb_CMOS = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN = new System.Windows.Forms.GroupBox();
             this.lb_noerr = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -255,6 +256,7 @@
             this.bt_OpenCAN2 = new System.Windows.Forms.Button();
             this.bt_About2 = new System.Windows.Forms.Button();
             this.bt_Exit2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label84 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
@@ -342,11 +344,13 @@
             this.bt_OpenCAN3 = new System.Windows.Forms.Button();
             this.bt_About3 = new System.Windows.Forms.Button();
             this.bt_Exit3 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lb_plis_init = new System.Windows.Forms.Label();
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
             this.lb_plis2_load = new System.Windows.Forms.Label();
             this.gb_Image24 = new System.Windows.Forms.GroupBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS2 = new System.Windows.Forms.ProgressBar();
             this.lb_CMOS24 = new System.Windows.Forms.Label();
             this.bt_get_CMOS2 = new System.Windows.Forms.Button();
@@ -360,6 +364,7 @@
             this.lb_T1_val4 = new System.Windows.Forms.Label();
             this.bt_plis2_load = new System.Windows.Forms.Button();
             this.gb_Image14 = new System.Windows.Forms.GroupBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pb_CMOS1 = new System.Windows.Forms.ProgressBar();
             this.bt_get_CMOS1 = new System.Windows.Forms.Button();
             this.lb_CMOS14 = new System.Windows.Forms.Label();
@@ -453,9 +458,46 @@
             this.chb_6_3 = new System.Windows.Forms.CheckBox();
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.lb_info9 = new System.Windows.Forms.Label();
+            this.bt_sendbmp9 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.bt_loadbmp9 = new System.Windows.Forms.Button();
+            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
+            this.label62 = new System.Windows.Forms.Label();
+            this.pictbox_9 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr9 = new System.Windows.Forms.Label();
+            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN9 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
+            this.lb_info8 = new System.Windows.Forms.Label();
+            this.bt_stop8 = new System.Windows.Forms.Button();
+            this.bt_start8 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
+            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
+            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictbox_8 = new System.Windows.Forms.PictureBox();
+            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr8 = new System.Windows.Forms.Label();
+            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN8 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer_UpdateTime = new System.Windows.Forms.Timer(this.components);
             this.Timer_GetData = new System.Windows.Forms.Timer(this.components);
             this.timer_testOLO_L = new System.Windows.Forms.Timer(this.components);
@@ -471,59 +513,17 @@
             this.tm4_test = new System.Windows.Forms.Timer(this.components);
             this.timer1s = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
-            this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
-            this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
-            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
-            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
-            this.lb_error_CAN8 = new System.Windows.Forms.Label();
-            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
-            this.lb_noerr8 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
-            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
-            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
-            this.bt_start8 = new System.Windows.Forms.Button();
-            this.bt_stop8 = new System.Windows.Forms.Button();
-            this.lb_info8 = new System.Windows.Forms.Label();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.lb_info9 = new System.Windows.Forms.Label();
-            this.bt_sendbmp9 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
-            this.label62 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr9 = new System.Windows.Forms.Label();
-            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN9 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
-            this.label60 = new System.Windows.Forms.Label();
-            this.bt_loadbmp9 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictbox_9 = new System.Windows.Forms.PictureBox();
-            this.pictbox_8 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
+            this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
+            this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -538,6 +538,7 @@
             this.gbox_CMOS2.SuspendLayout();
             this.gbox_CMOS1.SuspendLayout();
             this.gbox_Image.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbox_CAN.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gb1_Addr.SuspendLayout();
@@ -566,8 +567,10 @@
             this.gbox_CAN3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.gb_Image24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.gb_Temperature.SuspendLayout();
             this.gb_Image14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.gb_Tests.SuspendLayout();
             this.gb5_ba.SuspendLayout();
             this.gb5_bd.SuspendLayout();
@@ -578,19 +581,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
-            this.gbox_CAN8.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
+            this.gbox_CAN8.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -1469,6 +1469,19 @@
             this.pb_CMOS.Name = "pb_CMOS";
             this.pb_CMOS.Size = new System.Drawing.Size(638, 17);
             this.pb_CMOS.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // gbox_CAN
             // 
@@ -3075,6 +3088,15 @@
             this.bt_Exit2.UseVisualStyleBackColor = true;
             this.bt_Exit2.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
+            this.panel1.Location = new System.Drawing.Point(413, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 200);
+            this.panel1.TabIndex = 49;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.label84);
@@ -4118,6 +4140,15 @@
             this.bt_Exit3.UseVisualStyleBackColor = true;
             this.bt_Exit3.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
+            this.panel3.Location = new System.Drawing.Point(413, 9);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 200);
+            this.panel3.TabIndex = 49;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.lb_plis_init);
@@ -4189,6 +4220,15 @@
             this.gb_Image24.TabIndex = 45;
             this.gb_Image24.TabStop = false;
             this.gb_Image24.Text = "Кадр CMOS2";
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox24.TabIndex = 6;
+            this.pictureBox24.TabStop = false;
             // 
             // pb_CMOS2
             // 
@@ -4328,6 +4368,15 @@
             this.gb_Image14.TabIndex = 43;
             this.gb_Image14.TabStop = false;
             this.gb_Image14.Text = "Кадр CMOS1";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
             // 
             // pb_CMOS1
             // 
@@ -5349,288 +5398,6 @@
             this.chb_6_1.Text = "Юстировка";
             this.chb_6_1.UseVisualStyleBackColor = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem4,
-            this.toolStripSeparator2,
-            this.toolStripMenuItem5});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 126);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // Timer_UpdateTime
-            // 
-            this.Timer_UpdateTime.Enabled = true;
-            this.Timer_UpdateTime.Interval = 500;
-            this.Timer_UpdateTime.Tick += new System.EventHandler(this.Timer_UpdateTime_Tick);
-            // 
-            // Timer_GetData
-            // 
-            this.Timer_GetData.Interval = 5;
-            this.Timer_GetData.Tick += new System.EventHandler(this.Timer_GetData_Tick);
-            // 
-            // timer_testOLO_L
-            // 
-            this.timer_testOLO_L.Tick += new System.EventHandler(this.timer_testOLO_L_Tick);
-            // 
-            // timer_testOLO_R
-            // 
-            this.timer_testOLO_R.Tick += new System.EventHandler(this.timer_testOLO_R_Tick);
-            // 
-            // timer_Reset_Shots
-            // 
-            this.timer_Reset_Shots.Interval = 10000;
-            this.timer_Reset_Shots.Tick += new System.EventHandler(this.timer_Reset_Shots_Tick);
-            // 
-            // timer_Reset_Shots3
-            // 
-            this.timer_Reset_Shots3.Interval = 5000;
-            this.timer_Reset_Shots3.Tick += new System.EventHandler(this.timer_Reset_Shots3_Tick);
-            // 
-            // timer_testOLO_R3
-            // 
-            this.timer_testOLO_R3.Tick += new System.EventHandler(this.timer_testOLO_R3_Tick);
-            // 
-            // timer_testOLO_L3
-            // 
-            this.timer_testOLO_L3.Tick += new System.EventHandler(this.timer_testOLO_L3_Tick);
-            // 
-            // Timer_GetData3
-            // 
-            this.Timer_GetData3.Tick += new System.EventHandler(this.Timer_GetData3_Tick);
-            // 
-            // timer_temperature
-            // 
-            this.timer_temperature.Interval = 500;
-            this.timer_temperature.Tick += new System.EventHandler(this.timer_temperature_Tick);
-            // 
-            // timer_Error_Boot
-            // 
-            this.timer_Error_Boot.Interval = 75000;
-            this.timer_Error_Boot.Tick += new System.EventHandler(this.timer_Error_Boot_Tick);
-            // 
-            // timer1s
-            // 
-            this.timer1s.Interval = 1000;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripSeparator3,
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem11,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem8});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(290, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(290, 6);
-            // 
-            // timer3_reset_l
-            // 
-            this.timer3_reset_l.Interval = 30000;
-            this.timer3_reset_l.Tick += new System.EventHandler(this.timer3_reset_l_Tick);
-            // 
-            // timer3_reset_r
-            // 
-            this.timer3_reset_r.Interval = 30000;
-            this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
-            // 
-            // tim_getdata8
-            // 
-            this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
-            // 
-            // gbox_CAN8
-            // 
-            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
-            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
-            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
-            this.gbox_CAN8.Controls.Add(this.label61);
-            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
-            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
-            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
-            this.gbox_CAN8.Name = "gbox_CAN8";
-            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
-            this.gbox_CAN8.TabIndex = 40;
-            this.gbox_CAN8.TabStop = false;
-            this.gbox_CAN8.Text = "CAN";
-            // 
-            // bt_OpenCAN8
-            // 
-            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
-            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN8.TabIndex = 0;
-            this.bt_OpenCAN8.Text = "Открыть";
-            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
-            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
-            // 
-            // bt_CloseCAN8
-            // 
-            this.bt_CloseCAN8.Enabled = false;
-            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
-            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN8.TabIndex = 2;
-            this.bt_CloseCAN8.Text = "Закрыть";
-            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
-            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label61.Location = new System.Drawing.Point(159, 49);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(0, 13);
-            this.label61.TabIndex = 10;
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lb_error_CAN8
-            // 
-            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN8.Name = "lb_error_CAN8";
-            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN8.TabIndex = 14;
-            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN8.Visible = false;
-            // 
-            // cb_CAN8
-            // 
-            this.cb_CAN8.FormattingEnabled = true;
-            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN8.Name = "cb_CAN8";
-            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN8.TabIndex = 29;
-            // 
-            // lb_noerr8
-            // 
-            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr8.Name = "lb_noerr8";
-            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr8.TabIndex = 15;
-            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr8.Visible = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.num_porog8);
-            this.groupBox2.Controls.Add(this.chb_contrast8);
-            this.groupBox2.Controls.Add(this.pb_loadbmp8);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.pictbox_8);
-            this.groupBox2.Location = new System.Drawing.Point(6, 122);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 330);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Картинка";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 15;
-            // 
-            // pb_loadbmp8
-            // 
-            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
-            this.pb_loadbmp8.Name = "pb_loadbmp8";
-            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
-            this.pb_loadbmp8.TabIndex = 16;
-            // 
-            // chb_contrast8
-            // 
-            this.chb_contrast8.AutoSize = true;
-            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
-            this.chb_contrast8.Name = "chb_contrast8";
-            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
-            this.chb_contrast8.TabIndex = 17;
-            this.chb_contrast8.Text = "Контрастирование картинки";
-            this.chb_contrast8.UseVisualStyleBackColor = true;
-            // 
-            // num_porog8
-            // 
-            this.num_porog8.Location = new System.Drawing.Point(185, 301);
-            this.num_porog8.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.num_porog8.Name = "num_porog8";
-            this.num_porog8.Size = new System.Drawing.Size(62, 20);
-            this.num_porog8.TabIndex = 18;
-            this.num_porog8.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
-            // 
-            // bt_start8
-            // 
-            this.bt_start8.Location = new System.Drawing.Point(12, 93);
-            this.bt_start8.Name = "bt_start8";
-            this.bt_start8.Size = new System.Drawing.Size(75, 23);
-            this.bt_start8.TabIndex = 42;
-            this.bt_start8.Text = "Старт";
-            this.bt_start8.UseVisualStyleBackColor = true;
-            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
-            // 
-            // bt_stop8
-            // 
-            this.bt_stop8.Enabled = false;
-            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
-            this.bt_stop8.Name = "bt_stop8";
-            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
-            this.bt_stop8.TabIndex = 43;
-            this.bt_stop8.Text = "Стоп";
-            this.bt_stop8.UseVisualStyleBackColor = true;
-            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
-            // 
-            // lb_info8
-            // 
-            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info8.Location = new System.Drawing.Point(175, 94);
-            this.lb_info8.Name = "lb_info8";
-            this.lb_info8.Size = new System.Drawing.Size(194, 22);
-            this.lb_info8.TabIndex = 44;
-            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.lb_info9);
@@ -5683,6 +5450,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Картинка";
             // 
+            // label60
+            // 
+            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label60.Location = new System.Drawing.Point(88, 301);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(275, 22);
+            this.label60.TabIndex = 50;
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_loadbmp9
+            // 
+            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
+            this.bt_loadbmp9.Name = "bt_loadbmp9";
+            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp9.TabIndex = 49;
+            this.bt_loadbmp9.Text = "Открыть";
+            this.bt_loadbmp9.UseVisualStyleBackColor = true;
+            this.bt_loadbmp9.Click += new System.EventHandler(this.bt_loadbmp9_Click);
+            // 
             // pb_loadbmp9
             // 
             this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
@@ -5698,6 +5484,18 @@
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(0, 13);
             this.label62.TabIndex = 15;
+            // 
+            // pictbox_9
+            // 
+            this.pictbox_9.BackColor = System.Drawing.Color.Black;
+            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_9.Name = "pictbox_9";
+            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_9.TabIndex = 6;
+            this.pictbox_9.TabStop = false;
             // 
             // groupBox4
             // 
@@ -5776,86 +5574,92 @@
             this.bt_OpenCAN9.Text = "Открыть";
             this.bt_OpenCAN9.UseVisualStyleBackColor = true;
             // 
-            // label60
+            // lb_info8
             // 
-            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label60.Location = new System.Drawing.Point(88, 301);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(275, 22);
-            this.label60.TabIndex = 50;
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info8.Location = new System.Drawing.Point(175, 94);
+            this.lb_info8.Name = "lb_info8";
+            this.lb_info8.Size = new System.Drawing.Size(194, 22);
+            this.lb_info8.TabIndex = 44;
+            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bt_loadbmp9
+            // bt_stop8
             // 
-            this.bt_loadbmp9.Enabled = false;
-            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
-            this.bt_loadbmp9.Name = "bt_loadbmp9";
-            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
-            this.bt_loadbmp9.TabIndex = 49;
-            this.bt_loadbmp9.Text = "Открыть";
-            this.bt_loadbmp9.UseVisualStyleBackColor = true;
-            this.bt_loadbmp9.Click += new System.EventHandler(this.bt_loadbmp9_Click);
+            this.bt_stop8.Enabled = false;
+            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
+            this.bt_stop8.Name = "bt_stop8";
+            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
+            this.bt_stop8.TabIndex = 43;
+            this.bt_stop8.Text = "Стоп";
+            this.bt_stop8.UseVisualStyleBackColor = true;
+            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
             // 
-            // pictureBox1
+            // bt_start8
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(638, 510);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.bt_start8.Location = new System.Drawing.Point(12, 93);
+            this.bt_start8.Name = "bt_start8";
+            this.bt_start8.Size = new System.Drawing.Size(75, 23);
+            this.bt_start8.TabIndex = 42;
+            this.bt_start8.Text = "Старт";
+            this.bt_start8.UseVisualStyleBackColor = true;
+            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
             // 
-            // panel1
+            // groupBox2
             // 
-            this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
-            this.panel1.Location = new System.Drawing.Point(413, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 200);
-            this.panel1.TabIndex = 49;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.groupBox2.Controls.Add(this.num_porog8);
+            this.groupBox2.Controls.Add(this.chb_contrast8);
+            this.groupBox2.Controls.Add(this.pb_loadbmp8);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.pictbox_8);
+            this.groupBox2.Location = new System.Drawing.Point(6, 122);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(369, 330);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Картинка";
             // 
-            // panel3
+            // num_porog8
             // 
-            this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
-            this.panel3.Location = new System.Drawing.Point(413, 9);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 200);
-            this.panel3.TabIndex = 49;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.num_porog8.Location = new System.Drawing.Point(185, 301);
+            this.num_porog8.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.num_porog8.Name = "num_porog8";
+            this.num_porog8.Size = new System.Drawing.Size(62, 20);
+            this.num_porog8.TabIndex = 18;
+            this.num_porog8.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
             // 
-            // pictureBox24
+            // chb_contrast8
             // 
-            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox24.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox24.TabIndex = 6;
-            this.pictureBox24.TabStop = false;
+            this.chb_contrast8.AutoSize = true;
+            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
+            this.chb_contrast8.Name = "chb_contrast8";
+            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
+            this.chb_contrast8.TabIndex = 17;
+            this.chb_contrast8.Text = "Контрастирование картинки";
+            this.chb_contrast8.UseVisualStyleBackColor = true;
             // 
-            // pictureBox14
+            // pb_loadbmp8
             // 
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(319, 255);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
+            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp8.Name = "pb_loadbmp8";
+            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp8.TabIndex = 16;
             // 
-            // pictbox_9
+            // label5
             // 
-            this.pictbox_9.BackColor = System.Drawing.Color.Black;
-            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
-            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_9.Name = "pictbox_9";
-            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_9.TabIndex = 6;
-            this.pictbox_9.TabStop = false;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(232, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 15;
             // 
             // pictbox_8
             // 
@@ -5867,6 +5671,98 @@
             this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictbox_8.TabIndex = 6;
             this.pictbox_8.TabStop = false;
+            // 
+            // gbox_CAN8
+            // 
+            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
+            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
+            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
+            this.gbox_CAN8.Controls.Add(this.label61);
+            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
+            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
+            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN8.Name = "gbox_CAN8";
+            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN8.TabIndex = 40;
+            this.gbox_CAN8.TabStop = false;
+            this.gbox_CAN8.Text = "CAN";
+            // 
+            // lb_noerr8
+            // 
+            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr8.Name = "lb_noerr8";
+            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr8.TabIndex = 15;
+            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr8.Visible = false;
+            // 
+            // cb_CAN8
+            // 
+            this.cb_CAN8.FormattingEnabled = true;
+            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN8.Name = "cb_CAN8";
+            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN8.TabIndex = 29;
+            // 
+            // lb_error_CAN8
+            // 
+            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN8.Name = "lb_error_CAN8";
+            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN8.TabIndex = 14;
+            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN8.Visible = false;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label61.Location = new System.Drawing.Point(159, 49);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(0, 13);
+            this.label61.TabIndex = 10;
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN8
+            // 
+            this.bt_CloseCAN8.Enabled = false;
+            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
+            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN8.TabIndex = 2;
+            this.bt_CloseCAN8.Text = "Закрыть";
+            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
+            // 
+            // bt_OpenCAN8
+            // 
+            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
+            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN8.TabIndex = 0;
+            this.bt_OpenCAN8.Text = "Открыть";
+            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem4,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem5});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 126);
             // 
             // toolStripMenuItem1
             // 
@@ -5894,6 +5790,11 @@
             this.toolStripMenuItem3.Text = "Заменить";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
@@ -5903,6 +5804,11 @@
             this.toolStripMenuItem4.Text = "Стереть";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
@@ -5911,6 +5817,75 @@
             this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "Проверить";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // Timer_UpdateTime
+            // 
+            this.Timer_UpdateTime.Enabled = true;
+            this.Timer_UpdateTime.Interval = 500;
+            this.Timer_UpdateTime.Tick += new System.EventHandler(this.Timer_UpdateTime_Tick);
+            // 
+            // Timer_GetData
+            // 
+            this.Timer_GetData.Interval = 5;
+            this.Timer_GetData.Tick += new System.EventHandler(this.Timer_GetData_Tick);
+            // 
+            // timer_testOLO_L
+            // 
+            this.timer_testOLO_L.Tick += new System.EventHandler(this.timer_testOLO_L_Tick);
+            // 
+            // timer_testOLO_R
+            // 
+            this.timer_testOLO_R.Tick += new System.EventHandler(this.timer_testOLO_R_Tick);
+            // 
+            // timer_Reset_Shots
+            // 
+            this.timer_Reset_Shots.Interval = 10000;
+            this.timer_Reset_Shots.Tick += new System.EventHandler(this.timer_Reset_Shots_Tick);
+            // 
+            // timer_Reset_Shots3
+            // 
+            this.timer_Reset_Shots3.Interval = 5000;
+            this.timer_Reset_Shots3.Tick += new System.EventHandler(this.timer_Reset_Shots3_Tick);
+            // 
+            // timer_testOLO_R3
+            // 
+            this.timer_testOLO_R3.Tick += new System.EventHandler(this.timer_testOLO_R3_Tick);
+            // 
+            // timer_testOLO_L3
+            // 
+            this.timer_testOLO_L3.Tick += new System.EventHandler(this.timer_testOLO_L3_Tick);
+            // 
+            // Timer_GetData3
+            // 
+            this.Timer_GetData3.Tick += new System.EventHandler(this.Timer_GetData3_Tick);
+            // 
+            // timer_temperature
+            // 
+            this.timer_temperature.Interval = 500;
+            this.timer_temperature.Tick += new System.EventHandler(this.timer_temperature_Tick);
+            // 
+            // timer_Error_Boot
+            // 
+            this.timer_Error_Boot.Interval = 75000;
+            this.timer_Error_Boot.Tick += new System.EventHandler(this.timer_Error_Boot_Tick);
+            // 
+            // timer1s
+            // 
+            this.timer1s.Interval = 1000;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem8});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(294, 148);
             // 
             // toolStripMenuItem6
             // 
@@ -5928,6 +5903,11 @@
             this.toolStripMenuItem7.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem7.Text = "Закачать";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(290, 6);
             // 
             // toolStripMenuItem9
             // 
@@ -5956,6 +5936,11 @@
             this.toolStripMenuItem11.Text = "Создать и закачать файл конфигурации";
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(290, 6);
+            // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
@@ -5964,6 +5949,20 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(293, 22);
             this.toolStripMenuItem8.Text = "Форматировать";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // timer3_reset_l
+            // 
+            this.timer3_reset_l.Interval = 30000;
+            this.timer3_reset_l.Tick += new System.EventHandler(this.timer3_reset_l_Tick);
+            // 
+            // timer3_reset_r
+            // 
+            this.timer3_reset_r.Interval = 30000;
+            this.timer3_reset_r.Tick += new System.EventHandler(this.timer3_reset_r_Tick);
+            // 
+            // tim_getdata8
+            // 
+            this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
             // Form1
             // 
@@ -6001,6 +6000,7 @@
             this.gbox_CMOS1.PerformLayout();
             this.gbox_Image.ResumeLayout(false);
             this.gbox_Image.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbox_CAN.ResumeLayout(false);
             this.gbox_CAN.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -6048,10 +6048,12 @@
             this.tabPage5.PerformLayout();
             this.gb_Image24.ResumeLayout(false);
             this.gb_Image24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.gb_Temperature.ResumeLayout(false);
             this.gb_Temperature.PerformLayout();
             this.gb_Image14.ResumeLayout(false);
             this.gb_Image14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.gb_Tests.ResumeLayout(false);
             this.gb_Tests.PerformLayout();
             this.gb5_ba.ResumeLayout(false);
@@ -6069,23 +6071,20 @@
             this.gbox_CAN5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.gbox_CAN8.ResumeLayout(false);
-            this.gbox_CAN8.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
+            this.gbox_CAN8.ResumeLayout(false);
+            this.gbox_CAN8.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
