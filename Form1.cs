@@ -785,6 +785,7 @@ namespace OLO_CAN
             bt_OpenCAN9.Enabled = true;
             cb_CAN9.Enabled = true;
             bt_CloseCAN9.Enabled = false;
+            bt_sendbmp9.Enabled = false;
             bt_OpenCAN9.Enabled = true;
             lb_noerr9.Visible = false;
             //            rb_r8.Enabled = false;
@@ -975,14 +976,14 @@ namespace OLO_CAN
             cb_CAN8.Enabled = false;
             lb_noerr8.Visible = true;
             lb_noerr8.Text = uniCAN.Info;
-            // Tab8
+            // Tab9
             bt_CloseCAN9.Enabled = true;
             bt_OpenCAN9.Enabled = false;
             cb_CAN9.Enabled = false;
             lb_noerr9.Visible = true;
             lb_noerr9.Text = uniCAN.Info;
-
-//            rb_r8.Enabled = true;
+            bt_sendbmp9.Enabled = true;
+            //            rb_r8.Enabled = true;
 //            rb_l8.Enabled = true;
 
         }
@@ -1103,6 +1104,7 @@ namespace OLO_CAN
             bt_OpenCAN9.Enabled = true;
             lb_noerr9.Visible = false;
             cb_CAN9.Enabled = true;
+            bt_sendbmp9.Enabled = false;
 
 //            rb_r8.Enabled = false;
 //            rb_l8.Enabled = false;
