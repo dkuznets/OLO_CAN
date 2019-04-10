@@ -7717,7 +7717,7 @@ namespace OLO_CAN
             Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
             msg_count = 10169;
             image_data = new Byte[msg_count * 8];
-            pb_loadbmp8.Maximum = msg_count;
+            pb_loadbmp9.Maximum = msg_count;
 
             for (int ii = 0; ii < Const.IMAGE_CY; ii++)
             {
@@ -7739,11 +7739,11 @@ namespace OLO_CAN
                 if (uniCAN == null || !uniCAN.Send(ref msg, 100))
                 {
                     state_Error();
-                    pb_loadbmp9.Value = i;
-                    pb_loadbmp9.Refresh();
-                    Application.DoEvents();
                     return;
                 }
+                pb_loadbmp9.Value = i;
+                pb_loadbmp9.Refresh();
+                Application.DoEvents();
             }
             lb_info9.Text = "";
             lb_info9.BackColor = Color.Transparent;
