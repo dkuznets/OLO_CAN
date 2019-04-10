@@ -166,6 +166,8 @@ namespace OLO_CAN
         Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
         Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
 
+        Bitmap bm9;
+
         #endregion
 
         #region Tab2
@@ -7662,6 +7664,7 @@ namespace OLO_CAN
                 openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
                 if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                     return;
+//                bm9 = new 
                 pictbox_9.Image = new Bitmap(openbmp.FileName);
                 label60.Text = openbmp.FileName;
             }
@@ -7669,6 +7672,8 @@ namespace OLO_CAN
 
         private void bt_sendbmp9_Click(object sender, EventArgs e)
         {
+
+            pictbox_9.Image = Properties.Resources.test_tech as Bitmap;
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
