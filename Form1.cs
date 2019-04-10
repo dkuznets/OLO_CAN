@@ -983,8 +983,8 @@ namespace OLO_CAN
             lb_noerr9.Visible = true;
             lb_noerr9.Text = uniCAN.Info;
             bt_sendbmp9.Enabled = true;
-            //            rb_r8.Enabled = true;
-//            rb_l8.Enabled = true;
+            rb_olo_l9.Enabled = true;
+            rb_olo_r9.Enabled = true;
 
         }
         private void state_NotReady()
@@ -1105,6 +1105,8 @@ namespace OLO_CAN
             lb_noerr9.Visible = false;
             cb_CAN9.Enabled = true;
             bt_sendbmp9.Enabled = false;
+            rb_olo_l9.Enabled = false;
+            rb_olo_r9.Enabled = false;
 
 //            rb_r8.Enabled = false;
 //            rb_l8.Enabled = false;

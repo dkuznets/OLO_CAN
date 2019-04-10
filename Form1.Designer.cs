@@ -476,8 +476,8 @@
             this.bt_CloseCAN8 = new System.Windows.Forms.Button();
             this.bt_OpenCAN8 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_olo_r9 = new System.Windows.Forms.RadioButton();
+            this.rb_olo_l9 = new System.Windows.Forms.RadioButton();
             this.bt_sendbmp9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lb_info9 = new System.Windows.Forms.Label();
@@ -5597,8 +5597,8 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.radioButton2);
-            this.tabPage9.Controls.Add(this.radioButton1);
+            this.tabPage9.Controls.Add(this.rb_olo_r9);
+            this.tabPage9.Controls.Add(this.rb_olo_l9);
             this.tabPage9.Controls.Add(this.bt_sendbmp9);
             this.tabPage9.Controls.Add(this.groupBox3);
             this.tabPage9.Controls.Add(this.groupBox4);
@@ -5610,30 +5610,30 @@
             this.tabPage9.Text = "Техно Передача";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb_olo_r9
             // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(15, 87);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 23);
-            this.radioButton2.TabIndex = 53;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ОЛО правый";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_r9.Checked = true;
+            this.rb_olo_r9.Location = new System.Drawing.Point(15, 87);
+            this.rb_olo_r9.Name = "rb_olo_r9";
+            this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
+            this.rb_olo_r9.TabIndex = 53;
+            this.rb_olo_r9.TabStop = true;
+            this.rb_olo_r9.Text = "ОЛО правый";
+            this.rb_olo_r9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rb_olo_r9.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rb_olo_l9
             // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.Location = new System.Drawing.Point(101, 87);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(80, 23);
-            this.radioButton1.TabIndex = 51;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ОЛО левый";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_l9.Location = new System.Drawing.Point(101, 87);
+            this.rb_olo_l9.Name = "rb_olo_l9";
+            this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
+            this.rb_olo_l9.TabIndex = 51;
+            this.rb_olo_l9.TabStop = true;
+            this.rb_olo_l9.Text = "ОЛО левый";
+            this.rb_olo_l9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rb_olo_l9.UseVisualStyleBackColor = true;
             // 
             // bt_sendbmp9
             // 
@@ -6616,8 +6616,8 @@
         private System.Windows.Forms.Button bt_CloseCAN8;
         private System.Windows.Forms.Button bt_OpenCAN8;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rb_olo_r9;
+        private System.Windows.Forms.RadioButton rb_olo_l9;
         private System.Windows.Forms.Button bt_sendbmp9;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lb_info9;
