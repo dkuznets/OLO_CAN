@@ -7553,7 +7553,7 @@ namespace OLO_CAN
             image_data = new Byte[msg_count * 8];
             pb_loadbmp8.Maximum = msg_count;
 
-            if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 10000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 20000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 Trace.WriteLine("Err recv image data");
                 return;
