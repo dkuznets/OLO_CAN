@@ -7629,7 +7629,7 @@ namespace OLO_CAN
             }
 
             uniCAN.ErrEvent += new MyDelegate(Err_Handler);
-            uniCAN.Progress += new MyDelegate(Progress9_Handler);
+//            uniCAN.Progress += new MyDelegate(Progress9_Handler);
 
             uniCAN.Port = 0;
             uniCAN.Speed = 2;
@@ -7740,6 +7740,7 @@ namespace OLO_CAN
                 {
                     state_Error();
                     pb_loadbmp9.Value = i;
+                    pb_loadbmp9.Refresh();
                     Application.DoEvents();
                     return;
                 }
