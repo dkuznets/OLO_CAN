@@ -5686,6 +5686,7 @@
             this.bt_loadbmp9.TabIndex = 49;
             this.bt_loadbmp9.Text = "Открыть";
             this.bt_loadbmp9.UseVisualStyleBackColor = true;
+            this.bt_loadbmp9.Click += new System.EventHandler(this.bt_loadbmp9_Click);
             // 
             // pb_loadbmp9
             // 
