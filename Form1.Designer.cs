@@ -5613,12 +5613,10 @@
             // rb_olo_r9
             // 
             this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_olo_r9.Checked = true;
             this.rb_olo_r9.Location = new System.Drawing.Point(15, 87);
             this.rb_olo_r9.Name = "rb_olo_r9";
             this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
             this.rb_olo_r9.TabIndex = 53;
-            this.rb_olo_r9.TabStop = true;
             this.rb_olo_r9.Text = "ОЛО правый";
             this.rb_olo_r9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rb_olo_r9.UseVisualStyleBackColor = true;
@@ -5626,6 +5624,7 @@
             // rb_olo_l9
             // 
             this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_l9.Checked = true;
             this.rb_olo_l9.Location = new System.Drawing.Point(101, 87);
             this.rb_olo_l9.Name = "rb_olo_l9";
             this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
