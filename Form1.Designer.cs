@@ -524,6 +524,8 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -5400,7 +5402,8 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.lb_info9);
+            this.tabPage8.Controls.Add(this.radioButton2);
+            this.tabPage8.Controls.Add(this.radioButton1);
             this.tabPage8.Controls.Add(this.bt_sendbmp9);
             this.tabPage8.Controls.Add(this.groupBox3);
             this.tabPage8.Controls.Add(this.groupBox4);
@@ -5420,16 +5423,16 @@
             // lb_info9
             // 
             this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info9.Location = new System.Drawing.Point(560, 94);
+            this.lb_info9.Location = new System.Drawing.Point(7, 330);
             this.lb_info9.Name = "lb_info9";
-            this.lb_info9.Size = new System.Drawing.Size(194, 22);
+            this.lb_info9.Size = new System.Drawing.Size(356, 22);
             this.lb_info9.TabIndex = 48;
             this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bt_sendbmp9
             // 
             this.bt_sendbmp9.Enabled = false;
-            this.bt_sendbmp9.Location = new System.Drawing.Point(398, 94);
+            this.bt_sendbmp9.Location = new System.Drawing.Point(570, 93);
             this.bt_sendbmp9.Name = "bt_sendbmp9";
             this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
             this.bt_sendbmp9.TabIndex = 47;
@@ -5438,6 +5441,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lb_info9);
             this.groupBox3.Controls.Add(this.label60);
             this.groupBox3.Controls.Add(this.bt_loadbmp9);
             this.groupBox3.Controls.Add(this.pb_loadbmp9);
@@ -5445,7 +5449,7 @@
             this.groupBox3.Controls.Add(this.pictbox_9);
             this.groupBox3.Location = new System.Drawing.Point(391, 122);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(369, 330);
+            this.groupBox3.Size = new System.Drawing.Size(369, 360);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Картинка";
@@ -5963,6 +5967,31 @@
             // tim_getdata8
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.Location = new System.Drawing.Point(484, 93);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(80, 23);
+            this.radioButton1.TabIndex = 47;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "ОЛО левый";
+            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(398, 93);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(80, 23);
+            this.radioButton2.TabIndex = 48;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ОЛО правый";
+            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -6585,6 +6614,8 @@
         private System.Windows.Forms.Button bt_OpenCAN8;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button bt_loadbmp9;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
 	}
 }
 

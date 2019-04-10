@@ -139,7 +139,7 @@ namespace OLO_CAN
         Byte[] cfg_array;// = new Byte[Marshal.SizeOf(cfg)];
 
         int currTab = 0;
-        const Byte def_NUM_TABS = 7;
+        const Byte def_NUM_TABS = 8;
         ComboBox[] cb_CAN = new ComboBox[def_NUM_TABS];
 
         IniFile inicfg;
@@ -331,6 +331,7 @@ namespace OLO_CAN
             cb_CAN[4] = cb_CAN4;
             cb_CAN[5] = cb_CAN5;
             cb_CAN[6] = cb_CAN8;
+            cb_CAN[7] = cb_CAN9;
 
             state_Error();
             
@@ -554,6 +555,13 @@ namespace OLO_CAN
             uniCAN.Close();
             uniCAN = null;
             lb_error_CAN8.Text = e.Text;
+
+            lb_error_CAN9.Visible = true;
+            lb_noerr9.Visible = false;
+            state_Error();
+            uniCAN.Close();
+            uniCAN = null;
+            lb_error_CAN9.Text = e.Text;
         }
         private void Progress_Handler(object sender, MyEventArgs e)
         {
@@ -585,6 +593,21 @@ namespace OLO_CAN
                 pb_loadbmp8.Refresh();
             }
             //MyProgressBar mpb_cmos = new MyProgressBar();
+        }
+        private void Progress9_Handler(object sender, MyEventArgs e)
+        {
+            //if (InvokeRequired)
+            //{
+            //    BeginInvoke(new MyDelegate(Progress_Handler), new object[] { e.Val });
+            //    //this.Invoke(new Action(Progress_Handler), new object[] { e.Val });
+            //    return;
+            //}
+            //else
+            if (pb_loadbmp9.Maximum > e.Val)
+            {
+                pb_loadbmp9.Value = e.Val;
+                pb_loadbmp9.Refresh();
+            }
         }
         private void state_Error()
         {
@@ -757,7 +780,14 @@ namespace OLO_CAN
 
             lb_noerr8.Visible = false;
 
-//            rb_r8.Enabled = false;
+            // Tab8
+            bt_CloseCAN9.Enabled = false;
+            bt_OpenCAN9.Enabled = true;
+            cb_CAN9.Enabled = true;
+            bt_CloseCAN9.Enabled = false;
+            bt_OpenCAN9.Enabled = true;
+            lb_noerr9.Visible = false;
+            //            rb_r8.Enabled = false;
 //            rb_l8.Enabled = false;
         }
         private void state_Ready()
@@ -7561,6 +7591,54 @@ namespace OLO_CAN
         }
         #endregion
 
+        private void bt_OpenCAN9_Click(object sender, EventArgs e)
+        {
+            if (cb_CAN9.SelectedItem.ToString() == "No CAN" || cb_CAN9.Items.Count < 1)
+                return;
+            if (cb_CAN9.SelectedItem.ToString() == "USB Marathon")
+            {
+                marCAN = new MCANConverter();
+                uniCAN = marCAN as MCANConverter;
+            }
+            else if (cb_CAN9.SelectedItem.ToString() == "PCI Advantech")
+            {
+                advCAN = new ACANConverter();
+                uniCAN = advCAN as ACANConverter;
+            }
+            else
+            {
+                elcCAN = new ECANConverter();
+                uniCAN = elcCAN as ECANConverter;
+            }
+
+            uniCAN.ErrEvent += new MyDelegate(Err_Handler);
+            uniCAN.Progress += new MyDelegate(Progress_Handler);
+
+            uniCAN.Port = 0;
+            uniCAN.Speed = 2;
+            lb_error_CAN9.Visible = false;
+            if (!uniCAN.Open())
+            {
+                state_Error();
+                return;
+            }
+            state_Ready();
+            frame.data = new Byte[8];
+            _state = State.OpenedState;
+            uniCAN.Recv_Enable();
+        }
+        private void bt_CloseCAN9_Click(object sender, EventArgs e)
+        {
+            if (uniCAN.Is_Open)
+            {
+                uniCAN.Recv_Disable();
+                uniCAN.Close();
+            }
+            state_NotReady();
+            lb_error_CAN9.Visible = false;
+            uniCAN.Recv_Disable();
+            uniCAN = null;
+        }
 
         private void bt_loadbmp9_Click(object sender, EventArgs e)
         {
