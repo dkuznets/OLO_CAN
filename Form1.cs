@@ -392,18 +392,18 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
-            try
-            {
-                elcCAN18 = new ECAN18Converter();
-                if (elcCAN18.Is_Present)
-                {
-                    comboBox1.Items.Add("PCI Elcus 1.8");
-                    elcCAN18.Close();
-                }
-            }
-            catch (Exception)
-            {
-            }
+            //try
+            //{
+            //    elcCAN18 = new ECAN18Converter();
+            //    if (elcCAN18.Is_Present)
+            //    {
+            //        comboBox1.Items.Add("PCI Elcus 1.8");
+            //        elcCAN18.Close();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
 
 
 
@@ -7623,7 +7623,7 @@ namespace OLO_CAN
             }
 
             uniCAN.ErrEvent += new MyDelegate(Err_Handler);
-            uniCAN.Progress += new MyDelegate(Progress_Handler);
+            uniCAN.Progress += new MyDelegate(Progress9_Handler);
 
             uniCAN.Port = 0;
             uniCAN.Speed = 2;
