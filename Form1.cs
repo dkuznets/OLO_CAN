@@ -7442,7 +7442,7 @@ namespace OLO_CAN
 
         #endregion
 
-        #region Технологическая
+        #region Техно Прием
         private void bt_OpenCAN8_Click(object sender, EventArgs e)
         {
             if (cb_CAN8.SelectedItem.ToString() == "No CAN" || cb_CAN8.Items.Count < 1)
@@ -7555,6 +7555,8 @@ namespace OLO_CAN
 
             if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
             {
+                lb_info8.Text = "Ошибка приема картинки";
+                lb_info8.BackColor = Color.Red;
                 Trace.WriteLine("Err recv image data");
                 return;
             }
@@ -7607,7 +7609,7 @@ namespace OLO_CAN
             Application.DoEvents();
         }
         #endregion
-
+        #region Техно Передача
         private void bt_OpenCAN9_Click(object sender, EventArgs e)
         {
             if (cb_CAN9.SelectedItem.ToString() == "No CAN" || cb_CAN9.Items.Count < 1)
@@ -7749,6 +7751,7 @@ namespace OLO_CAN
             lb_info9.BackColor = Color.Transparent;
             Application.DoEvents();
         }
+        #endregion
     }
 
     public static class RichTextBoxExtensions
