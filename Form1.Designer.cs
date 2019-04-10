@@ -475,6 +475,24 @@
             this.label61 = new System.Windows.Forms.Label();
             this.bt_CloseCAN8 = new System.Windows.Forms.Button();
             this.bt_OpenCAN8 = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.bt_sendbmp9 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lb_info9 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.bt_loadbmp9 = new System.Windows.Forms.Button();
+            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
+            this.label62 = new System.Windows.Forms.Label();
+            this.pictbox_9 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr9 = new System.Windows.Forms.Label();
+            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN9 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -509,24 +527,6 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.bt_sendbmp9 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lb_info9 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.bt_loadbmp9 = new System.Windows.Forms.Button();
-            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
-            this.label62 = new System.Windows.Forms.Label();
-            this.pictbox_9 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr9 = new System.Windows.Forms.Label();
-            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN9 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -589,12 +589,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
             this.gbox_CAN8.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -5595,6 +5595,206 @@
             this.bt_OpenCAN8.UseVisualStyleBackColor = true;
             this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.radioButton2);
+            this.tabPage9.Controls.Add(this.radioButton1);
+            this.tabPage9.Controls.Add(this.bt_sendbmp9);
+            this.tabPage9.Controls.Add(this.groupBox3);
+            this.tabPage9.Controls.Add(this.groupBox4);
+            this.tabPage9.Location = new System.Drawing.Point(4, 29);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(962, 654);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Техно Передача";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(15, 87);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(80, 23);
+            this.radioButton2.TabIndex = 53;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ОЛО правый";
+            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.Location = new System.Drawing.Point(101, 87);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(80, 23);
+            this.radioButton1.TabIndex = 51;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "ОЛО левый";
+            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // bt_sendbmp9
+            // 
+            this.bt_sendbmp9.Enabled = false;
+            this.bt_sendbmp9.Location = new System.Drawing.Point(187, 87);
+            this.bt_sendbmp9.Name = "bt_sendbmp9";
+            this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
+            this.bt_sendbmp9.TabIndex = 52;
+            this.bt_sendbmp9.Text = "Отправить картинку";
+            this.bt_sendbmp9.UseVisualStyleBackColor = true;
+            this.bt_sendbmp9.Click += new System.EventHandler(this.bt_sendbmp9_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lb_info9);
+            this.groupBox3.Controls.Add(this.label60);
+            this.groupBox3.Controls.Add(this.bt_loadbmp9);
+            this.groupBox3.Controls.Add(this.pb_loadbmp9);
+            this.groupBox3.Controls.Add(this.label62);
+            this.groupBox3.Controls.Add(this.pictbox_9);
+            this.groupBox3.Location = new System.Drawing.Point(8, 116);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(369, 360);
+            this.groupBox3.TabIndex = 50;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Картинка";
+            // 
+            // lb_info9
+            // 
+            this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info9.Location = new System.Drawing.Point(7, 330);
+            this.lb_info9.Name = "lb_info9";
+            this.lb_info9.Size = new System.Drawing.Size(356, 22);
+            this.lb_info9.TabIndex = 48;
+            this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label60
+            // 
+            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label60.Location = new System.Drawing.Point(88, 301);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(275, 22);
+            this.label60.TabIndex = 50;
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_loadbmp9
+            // 
+            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
+            this.bt_loadbmp9.Name = "bt_loadbmp9";
+            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp9.TabIndex = 49;
+            this.bt_loadbmp9.Text = "Открыть";
+            this.bt_loadbmp9.UseVisualStyleBackColor = true;
+            // 
+            // pb_loadbmp9
+            // 
+            this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp9.Name = "pb_loadbmp9";
+            this.pb_loadbmp9.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp9.TabIndex = 16;
+            // 
+            // label62
+            // 
+            this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(232, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(0, 13);
+            this.label62.TabIndex = 15;
+            // 
+            // pictbox_9
+            // 
+            this.pictbox_9.BackColor = System.Drawing.Color.Black;
+            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_9.Name = "pictbox_9";
+            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_9.TabIndex = 6;
+            this.pictbox_9.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lb_noerr9);
+            this.groupBox4.Controls.Add(this.cb_CAN9);
+            this.groupBox4.Controls.Add(this.lb_error_CAN9);
+            this.groupBox4.Controls.Add(this.label74);
+            this.groupBox4.Controls.Add(this.bt_CloseCAN9);
+            this.groupBox4.Controls.Add(this.bt_OpenCAN9);
+            this.groupBox4.Location = new System.Drawing.Point(8, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(369, 78);
+            this.groupBox4.TabIndex = 49;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "CAN";
+            // 
+            // lb_noerr9
+            // 
+            this.lb_noerr9.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr9.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr9.Name = "lb_noerr9";
+            this.lb_noerr9.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr9.TabIndex = 15;
+            this.lb_noerr9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr9.Visible = false;
+            // 
+            // cb_CAN9
+            // 
+            this.cb_CAN9.FormattingEnabled = true;
+            this.cb_CAN9.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN9.Name = "cb_CAN9";
+            this.cb_CAN9.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN9.TabIndex = 29;
+            // 
+            // lb_error_CAN9
+            // 
+            this.lb_error_CAN9.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN9.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN9.Name = "lb_error_CAN9";
+            this.lb_error_CAN9.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN9.TabIndex = 14;
+            this.lb_error_CAN9.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN9.Visible = false;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label74.Location = new System.Drawing.Point(159, 49);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(0, 13);
+            this.label74.TabIndex = 10;
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN9
+            // 
+            this.bt_CloseCAN9.Enabled = false;
+            this.bt_CloseCAN9.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN9.Name = "bt_CloseCAN9";
+            this.bt_CloseCAN9.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN9.TabIndex = 2;
+            this.bt_CloseCAN9.Text = "Закрыть";
+            this.bt_CloseCAN9.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN9.Click += new System.EventHandler(this.bt_CloseCAN9_Click);
+            // 
+            // bt_OpenCAN9
+            // 
+            this.bt_OpenCAN9.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN9.Name = "bt_OpenCAN9";
+            this.bt_OpenCAN9.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN9.TabIndex = 0;
+            this.bt_OpenCAN9.Text = "Открыть";
+            this.bt_OpenCAN9.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN9.Click += new System.EventHandler(this.bt_OpenCAN9_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -5808,203 +6008,6 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.radioButton2);
-            this.tabPage9.Controls.Add(this.radioButton1);
-            this.tabPage9.Controls.Add(this.bt_sendbmp9);
-            this.tabPage9.Controls.Add(this.groupBox3);
-            this.tabPage9.Controls.Add(this.groupBox4);
-            this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(962, 654);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Техно Передача";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(15, 87);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 23);
-            this.radioButton2.TabIndex = 53;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ОЛО правый";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.Location = new System.Drawing.Point(101, 87);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(80, 23);
-            this.radioButton1.TabIndex = 51;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ОЛО левый";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // bt_sendbmp9
-            // 
-            this.bt_sendbmp9.Enabled = false;
-            this.bt_sendbmp9.Location = new System.Drawing.Point(187, 87);
-            this.bt_sendbmp9.Name = "bt_sendbmp9";
-            this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
-            this.bt_sendbmp9.TabIndex = 52;
-            this.bt_sendbmp9.Text = "Отправить картинку";
-            this.bt_sendbmp9.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lb_info9);
-            this.groupBox3.Controls.Add(this.label60);
-            this.groupBox3.Controls.Add(this.bt_loadbmp9);
-            this.groupBox3.Controls.Add(this.pb_loadbmp9);
-            this.groupBox3.Controls.Add(this.label62);
-            this.groupBox3.Controls.Add(this.pictbox_9);
-            this.groupBox3.Location = new System.Drawing.Point(8, 116);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(369, 360);
-            this.groupBox3.TabIndex = 50;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Картинка";
-            // 
-            // lb_info9
-            // 
-            this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info9.Location = new System.Drawing.Point(7, 330);
-            this.lb_info9.Name = "lb_info9";
-            this.lb_info9.Size = new System.Drawing.Size(356, 22);
-            this.lb_info9.TabIndex = 48;
-            this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label60
-            // 
-            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label60.Location = new System.Drawing.Point(88, 301);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(275, 22);
-            this.label60.TabIndex = 50;
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bt_loadbmp9
-            // 
-            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
-            this.bt_loadbmp9.Name = "bt_loadbmp9";
-            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
-            this.bt_loadbmp9.TabIndex = 49;
-            this.bt_loadbmp9.Text = "Открыть";
-            this.bt_loadbmp9.UseVisualStyleBackColor = true;
-            // 
-            // pb_loadbmp9
-            // 
-            this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
-            this.pb_loadbmp9.Name = "pb_loadbmp9";
-            this.pb_loadbmp9.Size = new System.Drawing.Size(319, 17);
-            this.pb_loadbmp9.TabIndex = 16;
-            // 
-            // label62
-            // 
-            this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(232, 0);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(0, 13);
-            this.label62.TabIndex = 15;
-            // 
-            // pictbox_9
-            // 
-            this.pictbox_9.BackColor = System.Drawing.Color.Black;
-            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
-            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_9.Name = "pictbox_9";
-            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_9.TabIndex = 6;
-            this.pictbox_9.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lb_noerr9);
-            this.groupBox4.Controls.Add(this.cb_CAN9);
-            this.groupBox4.Controls.Add(this.lb_error_CAN9);
-            this.groupBox4.Controls.Add(this.label74);
-            this.groupBox4.Controls.Add(this.bt_CloseCAN9);
-            this.groupBox4.Controls.Add(this.bt_OpenCAN9);
-            this.groupBox4.Location = new System.Drawing.Point(8, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(369, 78);
-            this.groupBox4.TabIndex = 49;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "CAN";
-            // 
-            // lb_noerr9
-            // 
-            this.lb_noerr9.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr9.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr9.Name = "lb_noerr9";
-            this.lb_noerr9.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr9.TabIndex = 15;
-            this.lb_noerr9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr9.Visible = false;
-            // 
-            // cb_CAN9
-            // 
-            this.cb_CAN9.FormattingEnabled = true;
-            this.cb_CAN9.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN9.Name = "cb_CAN9";
-            this.cb_CAN9.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN9.TabIndex = 29;
-            // 
-            // lb_error_CAN9
-            // 
-            this.lb_error_CAN9.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN9.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN9.Name = "lb_error_CAN9";
-            this.lb_error_CAN9.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN9.TabIndex = 14;
-            this.lb_error_CAN9.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN9.Visible = false;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label74.Location = new System.Drawing.Point(159, 49);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(0, 13);
-            this.label74.TabIndex = 10;
-            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_CloseCAN9
-            // 
-            this.bt_CloseCAN9.Enabled = false;
-            this.bt_CloseCAN9.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN9.Name = "bt_CloseCAN9";
-            this.bt_CloseCAN9.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN9.TabIndex = 2;
-            this.bt_CloseCAN9.Text = "Закрыть";
-            this.bt_CloseCAN9.UseVisualStyleBackColor = true;
-            // 
-            // bt_OpenCAN9
-            // 
-            this.bt_OpenCAN9.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN9.Name = "bt_OpenCAN9";
-            this.bt_OpenCAN9.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN9.TabIndex = 0;
-            this.bt_OpenCAN9.Text = "Открыть";
-            this.bt_OpenCAN9.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6119,14 +6122,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
             this.gbox_CAN8.ResumeLayout(false);
             this.gbox_CAN8.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}

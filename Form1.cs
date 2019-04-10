@@ -7662,6 +7662,11 @@ namespace OLO_CAN
                 label60.Text = openbmp.FileName;
             }
         }
+
+        private void bt_sendbmp9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class RichTextBoxExtensions
