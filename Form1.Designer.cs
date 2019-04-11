@@ -6030,16 +6030,17 @@
             // 
             this.rb_data_8bit8.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_data_8bit8.AutoSize = true;
+            this.rb_data_8bit8.BackColor = System.Drawing.Color.SpringGreen;
             this.rb_data_8bit8.Checked = true;
             this.rb_data_8bit8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.rb_data_8bit8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rb_data_8bit8.Location = new System.Drawing.Point(253, 299);
             this.rb_data_8bit8.Name = "rb_data_8bit8";
-            this.rb_data_8bit8.Size = new System.Drawing.Size(77, 18);
+            this.rb_data_8bit8.Size = new System.Drawing.Size(63, 23);
             this.rb_data_8bit8.TabIndex = 20;
             this.rb_data_8bit8.TabStop = true;
             this.rb_data_8bit8.Text = "Data 8 bit";
-            this.rb_data_8bit8.UseVisualStyleBackColor = true;
+            this.rb_data_8bit8.UseVisualStyleBackColor = false;
+            this.rb_data_8bit8.CheckedChanged += new System.EventHandler(this.rb_data_8bit8_CheckedChanged);
             // 
             // rb_data_6bit8
             // 
@@ -6051,6 +6052,7 @@
             this.rb_data_6bit8.TabIndex = 21;
             this.rb_data_6bit8.Text = "Data 6 bit";
             this.rb_data_6bit8.UseVisualStyleBackColor = true;
+            this.rb_data_6bit8.CheckedChanged += new System.EventHandler(this.rb_data_6bit8_CheckedChanged);
             // 
             // Form1
             // 

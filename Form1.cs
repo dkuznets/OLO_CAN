@@ -7636,7 +7636,30 @@ namespace OLO_CAN
             bt_stop8.Enabled = false;
             flag_stop8 = false;
         }
-        private void tim_getdata8_Tick(object sender, EventArgs e)
+        private void rb_data_8bit8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_data_8bit8.Checked)
+            {
+                rb_data_8bit8.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                rb_data_8bit8.BackColor = Color.Transparent;
+            }
+        }
+
+        private void rb_data_6bit8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_data_6bit8.Checked)
+            {
+                rb_data_6bit8.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                rb_data_6bit8.BackColor = Color.Transparent;
+            }
+        }
+       private void tim_getdata8_Tick(object sender, EventArgs e)
         {
         }
         #endregion
@@ -7785,6 +7808,7 @@ namespace OLO_CAN
             Application.DoEvents();
         }
         #endregion
+
     }
 
     public static class RichTextBoxExtensions
