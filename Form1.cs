@@ -167,6 +167,7 @@ namespace OLO_CAN
         Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
 
         Bitmap bm9;
+        Boolean flag_stop8 = false;
 
         #endregion
 
@@ -7498,141 +7499,148 @@ namespace OLO_CAN
             tim_getdata8.Enabled = true;
             bt_start8.Enabled = false;
             bt_stop8.Enabled = true;
+            flag_stop8 = true;
+            while(flag_stop8)
+            {
+                Application.DoEvents();
+                if (uniCAN == null)
+                {
+                    bt_stop8.PerformClick();
+                    return;
+                }
+                tim_getdata8.Enabled = false;
+                if (uniCAN.VectorSize() == 0)
+                {
+                    tim_getdata8.Enabled = true;
+                    Application.DoEvents();
+                    return;
+                }
+
+                Trace.WriteLine("11111 " + uniCAN.VectorSize().ToString());
+                canmsg_t msg = new canmsg_t();
+                msg.data = new Byte[8];
+                msg_t mm = new msg_t();
+                if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || ((msg.id >> 5) != 0x31 && (msg.id >> 5) != 0x32) || msg.len != 0)
+                {
+                    tim_getdata8.Enabled = true;
+                    Application.DoEvents();
+                    return;
+                }
+                //            Boolean leftright = false;
+                mm = mm.FromCAN(msg);
+                switch (mm.deviceID)
+                {
+                    case Const.OLO_Left:
+                        lb_info8.Text = "ОЛО левый. Прием картинки ";
+                        lb_info8.BackColor = Color.SpringGreen;
+                        break;
+                    case Const.OLO_Right:
+                        lb_info8.Text = "ОЛО правый. Прием картинки ";
+                        lb_info8.BackColor = Color.SpringGreen;
+                        break;
+                }
+
+                if ((msg.id >> 5) == 0x31)
+                {
+                    lb_info8.Text += "1";
+                }
+                else
+                {
+                    lb_info8.Text += "2";
+                }
+                lb_info8.Refresh();
+                Application.DoEvents();
+                pb_loadbmp8.Value = 0;
+                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                UInt32 image_data_count = 0;
+                image_size = 81353;
+                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+                msg_count = 10169;
+                image_data = new Byte[msg_count * 8];
+                pb_loadbmp8.Maximum = msg_count;
+
+                if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                {
+                    lb_info8.Text = "Ошибка приема картинки";
+                    lb_info8.BackColor = Color.Red;
+                    Trace.WriteLine("Err recv image data");
+                    return;
+                }
+
+                //            Bitmap BMP_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                //            Bitmap BMP_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                Bitmap BMP_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                //            if ((msg.id >> 5) == 0x31)
+                //                BMP_CMOS = BMP_CMOS1;
+                //            else
+                //                BMP_CMOS = BMP_CMOS2;
+
+                for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+                {
+                    for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                    {
+                        if (!chb_contrast8.Checked)
+                        {
+                            Color col = Color.FromArgb(image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj]);
+                            BMP_CMOS.SetPixel(jj, ii, col);
+                        }
+                        else
+                        {
+                            if (image_data[Const.IMAGE_CX * ii + jj] > num_porog8.Value)
+                            {
+                                Color col = Color.White;
+                                BMP_CMOS.SetPixel(jj, ii, col);
+                            }
+                            else
+                            {
+                                Color col = Color.Black;
+                                BMP_CMOS.SetPixel(jj, ii, col);
+                            }
+                        }
+                    }
+                }
+
+                // draw LEFT and TOP pixel lines with BLACK COLOR (for MIM Visualizer)
+                using (Graphics g = Graphics.FromImage(BMP_CMOS))
+                {
+                    Pen pen_black = new Pen(Color.Black);
+                    g.DrawLine(pen_black, 0, 0, Const.IMAGE_CX, 0);
+                    g.DrawLine(pen_black, 0, 0, 0, Const.IMAGE_CY);
+                }
+                String scrname = dttostr2();
+                //if (select_CMOS == 0)
+                //    scrname += "_CMOS1";
+                //else
+                //    scrname += "_CMOS2";
+                if ((msg.id >> 5) == 0x31)
+                {
+                    BMP_CMOS.Save(m_strPathToScreens + scrname + "_1_tech.bmp", ImageFormat.Bmp);
+                    pictbox_81.Image = BMP_CMOS;
+                }
+                else
+                {
+                    BMP_CMOS.Save(m_strPathToScreens + scrname + "_2_tech.bmp", ImageFormat.Bmp);
+                    pictbox_82.Image = BMP_CMOS;
+                }
+
+                lb_info8.Text = "";
+                lb_info8.BackColor = Color.Transparent;
+                tim_getdata8.Enabled = true;
+                Application.DoEvents();
+                Trace.WriteLine("22222 " + uniCAN.VectorSize().ToString());
+
+            }
         }
         private void bt_stop8_Click(object sender, EventArgs e)
         {
             tim_getdata8.Enabled = false;
             bt_start8.Enabled = true;
             bt_stop8.Enabled = false;
+            flag_stop8 = true;
         }
         private void tim_getdata8_Tick(object sender, EventArgs e)
         {
-            if (uniCAN == null)
-            {
-                bt_stop8.PerformClick();
-                return;
-            }
-            tim_getdata8.Enabled = false;
-            if (uniCAN.VectorSize() == 0)
-            {
-                tim_getdata8.Enabled = true;
-                Application.DoEvents();
-                return;
-            }
-
-            MessageBox.Show("11111" + uniCAN.VectorSize().ToString());
-            canmsg_t msg = new canmsg_t();
-            msg.data = new Byte[8];
-            msg_t mm = new msg_t();
-            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || ((msg.id >> 5) != 0x31 && (msg.id >> 5) != 0x32) || msg.len != 0)
-            {
-                tim_getdata8.Enabled = true;
-                Application.DoEvents();
-                return;
-            }
-//            Boolean leftright = false;
-            mm = mm.FromCAN(msg);
-            switch (mm.deviceID)
-            {
-                case Const.OLO_Left:
-                    lb_info8.Text = "ОЛО левый. Прием картинки ";
-                    lb_info8.BackColor = Color.SpringGreen;
-                    break;
-                case Const.OLO_Right:
-                    lb_info8.Text = "ОЛО правый. Прием картинки ";
-                    lb_info8.BackColor = Color.SpringGreen;
-                    break;
-            }
-
-            if ((msg.id >> 5) == 0x31)
-            {
-                lb_info8.Text += "1";
-            }
-            else
-            {
-                lb_info8.Text += "2";
-            }
-            lb_info8.Refresh();
-            Application.DoEvents();
-            pb_loadbmp8.Value = 0;
-            UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
-            UInt32 image_data_count = 0;
-            image_size = 81353;
-            int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-            msg_count = 10169;
-            image_data = new Byte[msg_count * 8];
-            pb_loadbmp8.Maximum = msg_count;
-
-            if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
-            {
-                lb_info8.Text = "Ошибка приема картинки";
-                lb_info8.BackColor = Color.Red;
-                Trace.WriteLine("Err recv image data");
-                return;
-            }
-
-//            Bitmap BMP_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-//            Bitmap BMP_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            Bitmap BMP_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-//            if ((msg.id >> 5) == 0x31)
-//                BMP_CMOS = BMP_CMOS1;
-//            else
-//                BMP_CMOS = BMP_CMOS2;
-
-            for (int ii = 0; ii < Const.IMAGE_CY; ii++)
-            {
-                for (int jj = 0; jj < Const.IMAGE_CX; jj++)
-                {
-                    if (!chb_contrast8.Checked)
-                    {
-                        Color col = Color.FromArgb(image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj], image_data[Const.IMAGE_CX * ii + jj]);
-                        BMP_CMOS.SetPixel(jj, ii, col);
-                    }
-                    else
-                    {
-                        if (image_data[Const.IMAGE_CX * ii + jj] > num_porog8.Value)
-                        {
-                            Color col = Color.White;
-                            BMP_CMOS.SetPixel(jj, ii, col);
-                        }
-                        else
-                        {
-                            Color col = Color.Black;
-                            BMP_CMOS.SetPixel(jj, ii, col);
-                        }
-                    }
-                }
-            }
-
-            // draw LEFT and TOP pixel lines with BLACK COLOR (for MIM Visualizer)
-            using (Graphics g = Graphics.FromImage(BMP_CMOS))
-            {
-                Pen pen_black = new Pen(Color.Black);
-                g.DrawLine(pen_black, 0, 0, Const.IMAGE_CX, 0);
-                g.DrawLine(pen_black, 0, 0, 0, Const.IMAGE_CY);
-            }
-            String scrname = dttostr2();
-            //if (select_CMOS == 0)
-            //    scrname += "_CMOS1";
-            //else
-            //    scrname += "_CMOS2";
-            if ((msg.id >> 5) == 0x31)
-            {
-                BMP_CMOS.Save(m_strPathToScreens + scrname + "_1_tech.bmp", ImageFormat.Bmp);
-                pictbox_81.Image = BMP_CMOS;
-            }
-            else
-            {
-                BMP_CMOS.Save(m_strPathToScreens + scrname + "_2_tech.bmp", ImageFormat.Bmp);
-                pictbox_82.Image = BMP_CMOS;
-            }
-
-            lb_info8.Text = "";
-            lb_info8.BackColor = Color.Transparent;
-            tim_getdata8.Enabled = true;
-            Application.DoEvents();
-            MessageBox.Show("22222" + uniCAN.VectorSize().ToString());
         }
         #endregion
         #region Техно Передача
