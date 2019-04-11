@@ -6032,10 +6032,10 @@
             this.rb_data_8bit8.AutoSize = true;
             this.rb_data_8bit8.Checked = true;
             this.rb_data_8bit8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.rb_data_8bit8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_data_8bit8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rb_data_8bit8.Location = new System.Drawing.Point(253, 299);
             this.rb_data_8bit8.Name = "rb_data_8bit8";
-            this.rb_data_8bit8.Size = new System.Drawing.Size(65, 25);
+            this.rb_data_8bit8.Size = new System.Drawing.Size(77, 18);
             this.rb_data_8bit8.TabIndex = 20;
             this.rb_data_8bit8.TabStop = true;
             this.rb_data_8bit8.Text = "Data 8 bit";
