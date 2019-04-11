@@ -7590,10 +7590,6 @@ namespace OLO_CAN
                         return;
                     }
 
-                    for (int i = 0; i < 81345; i++)
-                    {
-                        image_data[i] = data_array[i];
-                    }
                     UInt32 j = 0;
                     for (int i = 0; i < data_array.Length; i++)
                     {
