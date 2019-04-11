@@ -7479,7 +7479,7 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
-            bt_start8.PerformClick();
+//            bt_start8.PerformClick();
         }
         private void bt_CloseCAN8_Click(object sender, EventArgs e)
         {
@@ -7496,7 +7496,6 @@ namespace OLO_CAN
         }
         private void bt_start8_Click(object sender, EventArgs e)
         {
-            tim_getdata8.Enabled = true;
             bt_start8.Enabled = false;
             bt_stop8.Enabled = true;
             flag_stop8 = true;
@@ -7508,12 +7507,9 @@ namespace OLO_CAN
                     bt_stop8.PerformClick();
                     return;
                 }
-                tim_getdata8.Enabled = false;
                 if (uniCAN.VectorSize() == 0)
                 {
-                    tim_getdata8.Enabled = true;
-                    Application.DoEvents();
-                    return;
+                    continue;
                 }
 
                 Trace.WriteLine("11111 " + uniCAN.VectorSize().ToString());
@@ -7637,7 +7633,7 @@ namespace OLO_CAN
             tim_getdata8.Enabled = false;
             bt_start8.Enabled = true;
             bt_stop8.Enabled = false;
-            flag_stop8 = true;
+            flag_stop8 = false;
         }
         private void tim_getdata8_Tick(object sender, EventArgs e)
         {
