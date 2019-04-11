@@ -463,6 +463,7 @@
             this.bt_stop8 = new System.Windows.Forms.Button();
             this.bt_start8 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictbox_82 = new System.Windows.Forms.PictureBox();
             this.num_porog8 = new System.Windows.Forms.NumericUpDown();
             this.chb_contrast8 = new System.Windows.Forms.CheckBox();
             this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
@@ -527,7 +528,8 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.pictbox_82 = new System.Windows.Forms.PictureBox();
+            this.rb_data_8bit8 = new System.Windows.Forms.RadioButton();
+            this.rb_data_6bit8 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -587,6 +589,7 @@
             this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).BeginInit();
             this.gbox_CAN8.SuspendLayout();
@@ -596,7 +599,6 @@
             this.groupBox4.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -5452,6 +5454,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rb_data_6bit8);
+            this.groupBox2.Controls.Add(this.rb_data_8bit8);
             this.groupBox2.Controls.Add(this.pictbox_82);
             this.groupBox2.Controls.Add(this.num_porog8);
             this.groupBox2.Controls.Add(this.chb_contrast8);
@@ -5464,6 +5468,17 @@
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Картинка";
+            // 
+            // pictbox_82
+            // 
+            this.pictbox_82.BackColor = System.Drawing.Color.Black;
+            this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_82.Location = new System.Drawing.Point(331, 19);
+            this.pictbox_82.Name = "pictbox_82";
+            this.pictbox_82.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_82.TabIndex = 19;
+            this.pictbox_82.TabStop = false;
             // 
             // num_porog8
             // 
@@ -6011,16 +6026,29 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
-            // pictbox_82
+            // rb_data_8bit8
             // 
-            this.pictbox_82.BackColor = System.Drawing.Color.Black;
-            this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_82.Location = new System.Drawing.Point(331, 19);
-            this.pictbox_82.Name = "pictbox_82";
-            this.pictbox_82.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_82.TabIndex = 19;
-            this.pictbox_82.TabStop = false;
+            this.rb_data_8bit8.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_data_8bit8.AutoSize = true;
+            this.rb_data_8bit8.Checked = true;
+            this.rb_data_8bit8.Location = new System.Drawing.Point(253, 299);
+            this.rb_data_8bit8.Name = "rb_data_8bit8";
+            this.rb_data_8bit8.Size = new System.Drawing.Size(63, 23);
+            this.rb_data_8bit8.TabIndex = 20;
+            this.rb_data_8bit8.TabStop = true;
+            this.rb_data_8bit8.Text = "Data 8 bit";
+            this.rb_data_8bit8.UseVisualStyleBackColor = true;
+            // 
+            // rb_data_6bit8
+            // 
+            this.rb_data_6bit8.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_data_6bit8.AutoSize = true;
+            this.rb_data_6bit8.Location = new System.Drawing.Point(322, 299);
+            this.rb_data_6bit8.Name = "rb_data_6bit8";
+            this.rb_data_6bit8.Size = new System.Drawing.Size(63, 23);
+            this.rb_data_6bit8.TabIndex = 21;
+            this.rb_data_6bit8.Text = "Data 6 bit";
+            this.rb_data_6bit8.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -6132,6 +6160,7 @@
             this.tabPage8.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).EndInit();
             this.gbox_CAN8.ResumeLayout(false);
@@ -6144,7 +6173,6 @@
             this.groupBox4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -6649,6 +6677,8 @@
         private System.Windows.Forms.Button bt_CloseCAN9;
         private System.Windows.Forms.Button bt_OpenCAN9;
         public System.Windows.Forms.PictureBox pictbox_82;
+        private System.Windows.Forms.RadioButton rb_data_6bit8;
+        private System.Windows.Forms.RadioButton rb_data_8bit8;
 	}
 }
 
