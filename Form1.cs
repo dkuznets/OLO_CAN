@@ -7551,8 +7551,8 @@ namespace OLO_CAN
             {
                 lb_info8.Text += "2";
             }
-            Application.DoEvents();
             lb_info8.Refresh();
+            Application.DoEvents();
             pb_loadbmp8.Value = 0;
             UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
             UInt32 image_data_count = 0;
@@ -7631,6 +7631,7 @@ namespace OLO_CAN
             lb_info8.BackColor = Color.Transparent;
             tim_getdata8.Enabled = true;
             Application.DoEvents();
+            MessageBox.Show(uniCAN.VectorSize().ToString());
         }
         #endregion
         #region Техно Передача
