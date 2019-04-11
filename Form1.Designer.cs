@@ -467,7 +467,7 @@
             this.chb_contrast8 = new System.Windows.Forms.CheckBox();
             this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictbox_8 = new System.Windows.Forms.PictureBox();
+            this.pictbox_81 = new System.Windows.Forms.PictureBox();
             this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
             this.lb_noerr8 = new System.Windows.Forms.Label();
             this.cb_CAN8 = new System.Windows.Forms.ComboBox();
@@ -527,6 +527,7 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.pictbox_82 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -587,7 +588,7 @@
             this.tabPage8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).BeginInit();
             this.gbox_CAN8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -595,6 +596,7 @@
             this.groupBox4.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).BeginInit();
             this.SuspendLayout();
             // 
             // VideoTimer
@@ -5450,14 +5452,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictbox_82);
             this.groupBox2.Controls.Add(this.num_porog8);
             this.groupBox2.Controls.Add(this.chb_contrast8);
             this.groupBox2.Controls.Add(this.pb_loadbmp8);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.pictbox_8);
+            this.groupBox2.Controls.Add(this.pictbox_81);
             this.groupBox2.Location = new System.Drawing.Point(6, 122);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 330);
+            this.groupBox2.Size = new System.Drawing.Size(657, 330);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Картинка";
@@ -5493,28 +5496,28 @@
             // 
             this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
             this.pb_loadbmp8.Name = "pb_loadbmp8";
-            this.pb_loadbmp8.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp8.Size = new System.Drawing.Size(644, 18);
             this.pb_loadbmp8.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 0);
+            this.label5.Location = new System.Drawing.Point(520, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 15;
             // 
-            // pictbox_8
+            // pictbox_81
             // 
-            this.pictbox_8.BackColor = System.Drawing.Color.Black;
-            this.pictbox_8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_8.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_8.Name = "pictbox_8";
-            this.pictbox_8.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_8.TabIndex = 6;
-            this.pictbox_8.TabStop = false;
+            this.pictbox_81.BackColor = System.Drawing.Color.Black;
+            this.pictbox_81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_81.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_81.Name = "pictbox_81";
+            this.pictbox_81.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_81.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_81.TabIndex = 6;
+            this.pictbox_81.TabStop = false;
             // 
             // gbox_CAN8
             // 
@@ -6008,6 +6011,17 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
+            // pictbox_82
+            // 
+            this.pictbox_82.BackColor = System.Drawing.Color.Black;
+            this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_82.Location = new System.Drawing.Point(331, 19);
+            this.pictbox_82.Name = "pictbox_82";
+            this.pictbox_82.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_82.TabIndex = 19;
+            this.pictbox_82.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6119,7 +6133,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).EndInit();
             this.gbox_CAN8.ResumeLayout(false);
             this.gbox_CAN8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
@@ -6130,6 +6144,7 @@
             this.groupBox4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -6607,7 +6622,7 @@
         private System.Windows.Forms.CheckBox chb_contrast8;
         private System.Windows.Forms.ProgressBar pb_loadbmp8;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.PictureBox pictbox_8;
+        public System.Windows.Forms.PictureBox pictbox_81;
         private System.Windows.Forms.GroupBox gbox_CAN8;
         private System.Windows.Forms.Label lb_noerr8;
         private System.Windows.Forms.ComboBox cb_CAN8;
@@ -6633,6 +6648,7 @@
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Button bt_CloseCAN9;
         private System.Windows.Forms.Button bt_OpenCAN9;
+        public System.Windows.Forms.PictureBox pictbox_82;
 	}
 }
 

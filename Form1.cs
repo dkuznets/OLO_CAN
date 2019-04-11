@@ -7523,7 +7523,7 @@ namespace OLO_CAN
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
-            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || (msg.id >> 5) != 0x31 || msg.len != 0)
+            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || (msg.id >> 5) != 0x31 || (msg.id >> 5) != 0x32 || msg.len != 0)
             {
                 tim_getdata8.Enabled = true;
                 Application.DoEvents();
@@ -7534,13 +7534,22 @@ namespace OLO_CAN
             switch (mm.deviceID)
             {
                 case Const.OLO_Left:
-                    lb_info8.Text = "ОЛО левый. Прием картинки.";
+                    lb_info8.Text = "ОЛО левый. Прием картинки ";
                     lb_info8.BackColor = Color.SpringGreen;
                     break;
                 case Const.OLO_Right:
-                    lb_info8.Text = "ОЛО правый. Прием картинки.";
+                    lb_info8.Text = "ОЛО правый. Прием картинки ";
                     lb_info8.BackColor = Color.SpringGreen;
                     break;
+            }
+
+            if ((msg.id >> 5) == 0x31)
+            {
+                lb_info8.Text += "1";
+            }
+            else
+            {
+                lb_info8.Text += "2";
             }
             Application.DoEvents();
             lb_info8.Refresh();
@@ -7561,7 +7570,14 @@ namespace OLO_CAN
                 return;
             }
 
+//            Bitmap BMP_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+//            Bitmap BMP_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Bitmap BMP_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+//            if ((msg.id >> 5) == 0x31)
+//                BMP_CMOS = BMP_CMOS1;
+//            else
+//                BMP_CMOS = BMP_CMOS2;
 
             for (int ii = 0; ii < Const.IMAGE_CY; ii++)
             {
@@ -7600,8 +7616,16 @@ namespace OLO_CAN
             //    scrname += "_CMOS1";
             //else
             //    scrname += "_CMOS2";
-            BMP_CMOS.Save(m_strPathToScreens + scrname + "_tech.bmp", ImageFormat.Bmp);
-            pictbox_8.Image = BMP_CMOS;
+            if ((msg.id >> 5) == 0x31)
+            {
+                BMP_CMOS.Save(m_strPathToScreens + scrname + "_1_tech.bmp", ImageFormat.Bmp);
+                pictbox_81.Image = BMP_CMOS;
+            }
+            else
+            {
+                BMP_CMOS.Save(m_strPathToScreens + scrname + "_2_tech.bmp", ImageFormat.Bmp);
+                pictbox_82.Image = BMP_CMOS;
+            }
 
             lb_info8.Text = "";
             lb_info8.BackColor = Color.Transparent;
@@ -7666,16 +7690,18 @@ namespace OLO_CAN
                 openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
                 if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                     return;
-//                bm9 = new 
-                pictbox_9.Image = new Bitmap(openbmp.FileName);
+                bm9 = new  Bitmap(openbmp.FileName);
+                pictbox_9.Image = bm9;
                 label60.Text = openbmp.FileName;
             }
         }
 
         private void bt_sendbmp9_Click(object sender, EventArgs e)
         {
-
-            pictbox_9.Image = Properties.Resources.test_tech as Bitmap;
+            if(label60.Text == "")
+                pictbox_9.Image = Properties.Resources.test_tech as Bitmap;
+            else
+                pictbox_9.Image = bm9;
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
