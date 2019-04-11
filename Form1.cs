@@ -7836,6 +7836,18 @@ namespace OLO_CAN
         }
         #endregion
 
+        private void bt_About8_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
+        }
+
+        private void bt_About9_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
+        }
+
     }
 
     public static class RichTextBoxExtensions

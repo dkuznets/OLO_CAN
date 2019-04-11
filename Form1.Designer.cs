@@ -459,6 +459,8 @@
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.bt_About8 = new System.Windows.Forms.Button();
+            this.bt_Exit8 = new System.Windows.Forms.Button();
             this.lb_info8 = new System.Windows.Forms.Label();
             this.bt_stop8 = new System.Windows.Forms.Button();
             this.bt_start8 = new System.Windows.Forms.Button();
@@ -479,6 +481,8 @@
             this.bt_CloseCAN8 = new System.Windows.Forms.Button();
             this.bt_OpenCAN8 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.bt_About9 = new System.Windows.Forms.Button();
+            this.bt_Exit9 = new System.Windows.Forms.Button();
             this.rb_olo_r9 = new System.Windows.Forms.RadioButton();
             this.rb_olo_l9 = new System.Windows.Forms.RadioButton();
             this.bt_sendbmp9 = new System.Windows.Forms.Button();
@@ -530,10 +534,6 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -5413,8 +5413,8 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.button7);
-            this.tabPage8.Controls.Add(this.button8);
+            this.tabPage8.Controls.Add(this.bt_About8);
+            this.tabPage8.Controls.Add(this.bt_Exit8);
             this.tabPage8.Controls.Add(this.lb_info8);
             this.tabPage8.Controls.Add(this.bt_stop8);
             this.tabPage8.Controls.Add(this.bt_start8);
@@ -5427,6 +5427,26 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Техно Прием";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // bt_About8
+            // 
+            this.bt_About8.Location = new System.Drawing.Point(839, 592);
+            this.bt_About8.Name = "bt_About8";
+            this.bt_About8.Size = new System.Drawing.Size(108, 23);
+            this.bt_About8.TabIndex = 46;
+            this.bt_About8.Text = "О программе";
+            this.bt_About8.UseVisualStyleBackColor = true;
+            this.bt_About8.Click += new System.EventHandler(this.bt_About8_Click);
+            // 
+            // bt_Exit8
+            // 
+            this.bt_Exit8.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit8.Name = "bt_Exit8";
+            this.bt_Exit8.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit8.TabIndex = 45;
+            this.bt_Exit8.Text = "Выход";
+            this.bt_Exit8.UseVisualStyleBackColor = true;
+            this.bt_Exit8.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
             // lb_info8
             // 
@@ -5649,8 +5669,8 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.button9);
-            this.tabPage9.Controls.Add(this.button10);
+            this.tabPage9.Controls.Add(this.bt_About9);
+            this.tabPage9.Controls.Add(this.bt_Exit9);
             this.tabPage9.Controls.Add(this.rb_olo_r9);
             this.tabPage9.Controls.Add(this.rb_olo_l9);
             this.tabPage9.Controls.Add(this.bt_sendbmp9);
@@ -5663,6 +5683,26 @@
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Техно Передача";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // bt_About9
+            // 
+            this.bt_About9.Location = new System.Drawing.Point(839, 592);
+            this.bt_About9.Name = "bt_About9";
+            this.bt_About9.Size = new System.Drawing.Size(108, 23);
+            this.bt_About9.TabIndex = 55;
+            this.bt_About9.Text = "О программе";
+            this.bt_About9.UseVisualStyleBackColor = true;
+            this.bt_About9.Click += new System.EventHandler(this.bt_About9_Click);
+            // 
+            // bt_Exit9
+            // 
+            this.bt_Exit9.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit9.Name = "bt_Exit9";
+            this.bt_Exit9.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit9.TabIndex = 54;
+            this.bt_Exit9.Text = "Выход";
+            this.bt_Exit9.UseVisualStyleBackColor = true;
+            this.bt_Exit9.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
             // rb_olo_r9
             // 
@@ -6061,42 +6101,6 @@
             // tim_getdata8
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(839, 592);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(108, 23);
-            this.button7.TabIndex = 46;
-            this.button7.Text = "О программе";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(839, 621);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(108, 23);
-            this.button8.TabIndex = 45;
-            this.button8.Text = "Выход";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(839, 592);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(108, 23);
-            this.button9.TabIndex = 55;
-            this.button9.Text = "О программе";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(839, 621);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(108, 23);
-            this.button10.TabIndex = 54;
-            this.button10.Text = "Выход";
-            this.button10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -6727,10 +6731,10 @@
         public System.Windows.Forms.PictureBox pictbox_82;
         private System.Windows.Forms.RadioButton rb_data_6bit8;
         private System.Windows.Forms.RadioButton rb_data_8bit8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button bt_About8;
+        private System.Windows.Forms.Button bt_Exit8;
+        private System.Windows.Forms.Button bt_About9;
+        private System.Windows.Forms.Button bt_Exit9;
 	}
 }
 
