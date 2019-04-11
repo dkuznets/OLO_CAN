@@ -7550,28 +7550,60 @@ namespace OLO_CAN
                 pb_loadbmp8.Value = 0;
                 UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
                 UInt32 image_data_count = 0;
-                image_size = 81353;
-                int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-                msg_count = 10169;
-                image_data = new Byte[msg_count * 8];
-                pb_loadbmp8.Maximum = msg_count;
-
-                if (uniCAN == null || !uniCAN.RecvPack(ref image_data, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                image_size = 81345;
+                if (rb_data_8bit8.Checked)
                 {
-                    lb_info8.Text = "Ошибка приема картинки";
-                    lb_info8.BackColor = Color.Red;
-                    Trace.WriteLine("Err recv image data");
-                    return;
+                    int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
+//                    msg_count = 10169;
+                    //                msg_count = 13558;
+
+                    Byte[] data_array = new Byte[msg_count * 8];
+                    image_data = new Byte[msg_count * 8];
+                    pb_loadbmp8.Maximum = msg_count;
+
+                    if (uniCAN == null || !uniCAN.RecvPack(ref data_array, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    {
+                        lb_info8.Text = "Ошибка приема картинки";
+                        lb_info8.BackColor = Color.Red;
+                        Trace.WriteLine("Err recv image data");
+                        return;
+                    }
+
+                    for (int i = 0; i < 81345; i++)
+                    {
+                        image_data[i] = data_array[i];
+                    }
                 }
+                else
+                {
+                    int msg_count = (int)(image_size + 6 - 1) / 6;
 
-                //            Bitmap BMP_CMOS1 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                //            Bitmap BMP_CMOS2 = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                    Byte[] data_array = new Byte[msg_count * 8];
+                    image_data = new Byte[msg_count * 8];
+                    pb_loadbmp8.Maximum = msg_count;
+
+                    if (uniCAN == null || !uniCAN.RecvPack(ref data_array, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    {
+                        lb_info8.Text = "Ошибка приема картинки";
+                        lb_info8.BackColor = Color.Red;
+                        Trace.WriteLine("Err recv image data");
+                        return;
+                    }
+
+                    for (int i = 0; i < 81345; i++)
+                    {
+                        image_data[i] = data_array[i];
+                    }
+                    UInt32 j = 0;
+                    for (int i = 0; i < data_array.Length; i++)
+                    {
+                        if (i % 8 > 1)
+                            image_data[j++] = data_array[i];
+                        else
+                            continue;
+                    }
+                }
                 Bitmap BMP_CMOS = new Bitmap(Const.IMAGE_CX, Const.IMAGE_CY, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-                //            if ((msg.id >> 5) == 0x31)
-                //                BMP_CMOS = BMP_CMOS1;
-                //            else
-                //                BMP_CMOS = BMP_CMOS2;
 
                 for (int ii = 0; ii < Const.IMAGE_CY; ii++)
                 {
@@ -7647,7 +7679,6 @@ namespace OLO_CAN
                 rb_data_8bit8.BackColor = Color.Transparent;
             }
         }
-
         private void rb_data_6bit8_CheckedChanged(object sender, EventArgs e)
         {
             if (rb_data_6bit8.Checked)
@@ -7659,7 +7690,7 @@ namespace OLO_CAN
                 rb_data_6bit8.BackColor = Color.Transparent;
             }
         }
-       private void tim_getdata8_Tick(object sender, EventArgs e)
+        private void tim_getdata8_Tick(object sender, EventArgs e)
         {
         }
         #endregion
