@@ -7523,7 +7523,7 @@ namespace OLO_CAN
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
-            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || (msg.id >> 5) != 0x31 || (msg.id >> 5) != 0x32 || msg.len != 0)
+            if (uniCAN == null || !uniCAN.Recv(ref msg, 1000) || ((msg.id >> 5) != 0x31 && (msg.id >> 5) != 0x32) || msg.len != 0)
             {
                 tim_getdata8.Enabled = true;
                 Application.DoEvents();
