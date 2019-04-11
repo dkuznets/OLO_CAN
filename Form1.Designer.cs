@@ -530,6 +530,10 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -5409,6 +5413,8 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.button7);
+            this.tabPage8.Controls.Add(this.button8);
             this.tabPage8.Controls.Add(this.lb_info8);
             this.tabPage8.Controls.Add(this.bt_stop8);
             this.tabPage8.Controls.Add(this.bt_start8);
@@ -5643,6 +5649,8 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.button9);
+            this.tabPage9.Controls.Add(this.button10);
             this.tabPage9.Controls.Add(this.rb_olo_r9);
             this.tabPage9.Controls.Add(this.rb_olo_l9);
             this.tabPage9.Controls.Add(this.bt_sendbmp9);
@@ -5659,7 +5667,7 @@
             // rb_olo_r9
             // 
             this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_olo_r9.Location = new System.Drawing.Point(15, 87);
+            this.rb_olo_r9.Location = new System.Drawing.Point(12, 93);
             this.rb_olo_r9.Name = "rb_olo_r9";
             this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
             this.rb_olo_r9.TabIndex = 53;
@@ -5671,7 +5679,7 @@
             // 
             this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_olo_l9.Checked = true;
-            this.rb_olo_l9.Location = new System.Drawing.Point(101, 87);
+            this.rb_olo_l9.Location = new System.Drawing.Point(98, 93);
             this.rb_olo_l9.Name = "rb_olo_l9";
             this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
             this.rb_olo_l9.TabIndex = 51;
@@ -5683,7 +5691,7 @@
             // bt_sendbmp9
             // 
             this.bt_sendbmp9.Enabled = false;
-            this.bt_sendbmp9.Location = new System.Drawing.Point(187, 87);
+            this.bt_sendbmp9.Location = new System.Drawing.Point(184, 93);
             this.bt_sendbmp9.Name = "bt_sendbmp9";
             this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
             this.bt_sendbmp9.TabIndex = 52;
@@ -5699,7 +5707,7 @@
             this.groupBox3.Controls.Add(this.pb_loadbmp9);
             this.groupBox3.Controls.Add(this.label62);
             this.groupBox3.Controls.Add(this.pictbox_9);
-            this.groupBox3.Location = new System.Drawing.Point(8, 116);
+            this.groupBox3.Location = new System.Drawing.Point(6, 122);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(369, 360);
             this.groupBox3.TabIndex = 50;
@@ -5770,7 +5778,7 @@
             this.groupBox4.Controls.Add(this.label74);
             this.groupBox4.Controls.Add(this.bt_CloseCAN9);
             this.groupBox4.Controls.Add(this.bt_OpenCAN9);
-            this.groupBox4.Location = new System.Drawing.Point(8, 3);
+            this.groupBox4.Location = new System.Drawing.Point(6, 9);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(369, 78);
             this.groupBox4.TabIndex = 49;
@@ -6053,6 +6061,42 @@
             // tim_getdata8
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(839, 592);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(108, 23);
+            this.button7.TabIndex = 46;
+            this.button7.Text = "О программе";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(839, 621);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 23);
+            this.button8.TabIndex = 45;
+            this.button8.Text = "Выход";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(839, 592);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(108, 23);
+            this.button9.TabIndex = 55;
+            this.button9.Text = "О программе";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(839, 621);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(108, 23);
+            this.button10.TabIndex = 54;
+            this.button10.Text = "Выход";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -6683,6 +6727,10 @@
         public System.Windows.Forms.PictureBox pictbox_82;
         private System.Windows.Forms.RadioButton rb_data_6bit8;
         private System.Windows.Forms.RadioButton rb_data_8bit8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
 	}
 }
 
