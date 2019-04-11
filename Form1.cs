@@ -7520,6 +7520,7 @@ namespace OLO_CAN
                 return;
             }
 
+            MessageBox.Show("11111" + uniCAN.VectorSize().ToString());
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
@@ -7631,7 +7632,7 @@ namespace OLO_CAN
             lb_info8.BackColor = Color.Transparent;
             tim_getdata8.Enabled = true;
             Application.DoEvents();
-            MessageBox.Show(uniCAN.VectorSize().ToString());
+            MessageBox.Show("22222" + uniCAN.VectorSize().ToString());
         }
         #endregion
         #region Техно Передача
