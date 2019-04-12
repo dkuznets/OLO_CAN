@@ -487,12 +487,19 @@
             this.rb_olo_l9 = new System.Windows.Forms.RadioButton();
             this.bt_sendbmp9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chb_2pict9 = new System.Windows.Forms.CheckBox();
+            this.chb_1pict9 = new System.Windows.Forms.CheckBox();
+            this.chb_8byte9 = new System.Windows.Forms.CheckBox();
+            this.chb_6byte9 = new System.Windows.Forms.CheckBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.bt_loadbmp92 = new System.Windows.Forms.Button();
+            this.pictbox_92 = new System.Windows.Forms.PictureBox();
             this.lb_info9 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
-            this.bt_loadbmp9 = new System.Windows.Forms.Button();
+            this.bt_loadbmp91 = new System.Windows.Forms.Button();
             this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
             this.label62 = new System.Windows.Forms.Label();
-            this.pictbox_9 = new System.Windows.Forms.PictureBox();
+            this.pictbox_91 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lb_noerr9 = new System.Windows.Forms.Label();
             this.cb_CAN9 = new System.Windows.Forms.ComboBox();
@@ -599,7 +606,8 @@
             this.gbox_CAN8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_92)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_91)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -5744,25 +5752,119 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.chb_2pict9);
+            this.groupBox3.Controls.Add(this.chb_1pict9);
+            this.groupBox3.Controls.Add(this.chb_8byte9);
+            this.groupBox3.Controls.Add(this.chb_6byte9);
+            this.groupBox3.Controls.Add(this.label66);
+            this.groupBox3.Controls.Add(this.bt_loadbmp92);
+            this.groupBox3.Controls.Add(this.pictbox_92);
             this.groupBox3.Controls.Add(this.lb_info9);
             this.groupBox3.Controls.Add(this.label60);
-            this.groupBox3.Controls.Add(this.bt_loadbmp9);
+            this.groupBox3.Controls.Add(this.bt_loadbmp91);
             this.groupBox3.Controls.Add(this.pb_loadbmp9);
             this.groupBox3.Controls.Add(this.label62);
-            this.groupBox3.Controls.Add(this.pictbox_9);
+            this.groupBox3.Controls.Add(this.pictbox_91);
             this.groupBox3.Location = new System.Drawing.Point(6, 122);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(369, 360);
+            this.groupBox3.Size = new System.Drawing.Size(659, 360);
             this.groupBox3.TabIndex = 50;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Картинка";
             // 
+            // chb_2pict9
+            // 
+            this.chb_2pict9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_2pict9.AutoSize = true;
+            this.chb_2pict9.BackColor = System.Drawing.Color.SpringGreen;
+            this.chb_2pict9.Checked = true;
+            this.chb_2pict9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_2pict9.Location = new System.Drawing.Point(252, 331);
+            this.chb_2pict9.Name = "chb_2pict9";
+            this.chb_2pict9.Size = new System.Drawing.Size(73, 23);
+            this.chb_2pict9.TabIndex = 57;
+            this.chb_2pict9.Text = "2 картинки";
+            this.chb_2pict9.UseVisualStyleBackColor = false;
+            this.chb_2pict9.CheckedChanged += new System.EventHandler(this.chb_2pict9_CheckedChanged);
+            // 
+            // chb_1pict9
+            // 
+            this.chb_1pict9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_1pict9.AutoSize = true;
+            this.chb_1pict9.Location = new System.Drawing.Point(173, 331);
+            this.chb_1pict9.Name = "chb_1pict9";
+            this.chb_1pict9.Size = new System.Drawing.Size(73, 23);
+            this.chb_1pict9.TabIndex = 56;
+            this.chb_1pict9.Text = "1 картинка";
+            this.chb_1pict9.UseVisualStyleBackColor = true;
+            this.chb_1pict9.CheckedChanged += new System.EventHandler(this.chb_1pict9_CheckedChanged);
+            // 
+            // chb_8byte9
+            // 
+            this.chb_8byte9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_8byte9.AutoSize = true;
+            this.chb_8byte9.Location = new System.Drawing.Point(62, 331);
+            this.chb_8byte9.Name = "chb_8byte9";
+            this.chb_8byte9.Size = new System.Drawing.Size(50, 23);
+            this.chb_8byte9.TabIndex = 55;
+            this.chb_8byte9.Text = "8 Байт";
+            this.chb_8byte9.UseVisualStyleBackColor = true;
+            this.chb_8byte9.CheckedChanged += new System.EventHandler(this.chb_8byte9_CheckedChanged);
+            // 
+            // chb_6byte9
+            // 
+            this.chb_6byte9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_6byte9.AutoSize = true;
+            this.chb_6byte9.BackColor = System.Drawing.Color.SpringGreen;
+            this.chb_6byte9.Checked = true;
+            this.chb_6byte9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_6byte9.Location = new System.Drawing.Point(6, 331);
+            this.chb_6byte9.Name = "chb_6byte9";
+            this.chb_6byte9.Size = new System.Drawing.Size(50, 23);
+            this.chb_6byte9.TabIndex = 54;
+            this.chb_6byte9.Text = "6 Байт";
+            this.chb_6byte9.UseVisualStyleBackColor = false;
+            this.chb_6byte9.CheckedChanged += new System.EventHandler(this.chb_6byte9_CheckedChanged);
+            // 
+            // label66
+            // 
+            this.label66.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label66.Location = new System.Drawing.Point(412, 301);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(237, 23);
+            this.label66.TabIndex = 53;
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_loadbmp92
+            // 
+            this.bt_loadbmp92.Location = new System.Drawing.Point(331, 301);
+            this.bt_loadbmp92.Name = "bt_loadbmp92";
+            this.bt_loadbmp92.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp92.TabIndex = 52;
+            this.bt_loadbmp92.Text = "Открыть";
+            this.bt_loadbmp92.UseVisualStyleBackColor = true;
+            this.bt_loadbmp92.Click += new System.EventHandler(this.bt_loadbmp92_Click);
+            // 
+            // pictbox_92
+            // 
+            this.pictbox_92.BackColor = System.Drawing.Color.Black;
+            this.pictbox_92.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_92.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_92.Image = global::OLO_CAN.Properties.Resources.test_tech2;
+            this.pictbox_92.InitialImage = global::OLO_CAN.Properties.Resources.test_tech2;
+            this.pictbox_92.Location = new System.Drawing.Point(331, 19);
+            this.pictbox_92.Name = "pictbox_92";
+            this.pictbox_92.Size = new System.Drawing.Size(321, 257);
+            this.pictbox_92.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_92.TabIndex = 51;
+            this.pictbox_92.TabStop = false;
+            // 
             // lb_info9
             // 
             this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info9.Location = new System.Drawing.Point(7, 330);
+            this.lb_info9.Location = new System.Drawing.Point(331, 331);
             this.lb_info9.Name = "lb_info9";
-            this.lb_info9.Size = new System.Drawing.Size(356, 22);
+            this.lb_info9.Size = new System.Drawing.Size(318, 22);
             this.lb_info9.TabIndex = 48;
             this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -5771,47 +5873,47 @@
             this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label60.Location = new System.Drawing.Point(88, 301);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(275, 22);
+            this.label60.Size = new System.Drawing.Size(237, 23);
             this.label60.TabIndex = 50;
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bt_loadbmp9
+            // bt_loadbmp91
             // 
-            this.bt_loadbmp9.Location = new System.Drawing.Point(7, 301);
-            this.bt_loadbmp9.Name = "bt_loadbmp9";
-            this.bt_loadbmp9.Size = new System.Drawing.Size(75, 23);
-            this.bt_loadbmp9.TabIndex = 49;
-            this.bt_loadbmp9.Text = "Открыть";
-            this.bt_loadbmp9.UseVisualStyleBackColor = true;
-            this.bt_loadbmp9.Click += new System.EventHandler(this.bt_loadbmp9_Click);
+            this.bt_loadbmp91.Location = new System.Drawing.Point(7, 301);
+            this.bt_loadbmp91.Name = "bt_loadbmp91";
+            this.bt_loadbmp91.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp91.TabIndex = 49;
+            this.bt_loadbmp91.Text = "Открыть";
+            this.bt_loadbmp91.UseVisualStyleBackColor = true;
+            this.bt_loadbmp91.Click += new System.EventHandler(this.bt_loadbmp9_Click);
             // 
             // pb_loadbmp9
             // 
             this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
             this.pb_loadbmp9.Name = "pb_loadbmp9";
-            this.pb_loadbmp9.Size = new System.Drawing.Size(319, 17);
+            this.pb_loadbmp9.Size = new System.Drawing.Size(644, 18);
             this.pb_loadbmp9.TabIndex = 16;
             // 
             // label62
             // 
             this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(232, 0);
+            this.label62.Location = new System.Drawing.Point(522, 0);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(0, 13);
             this.label62.TabIndex = 15;
             // 
-            // pictbox_9
+            // pictbox_91
             // 
-            this.pictbox_9.BackColor = System.Drawing.Color.Black;
-            this.pictbox_9.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
-            this.pictbox_9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_9.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_9.Name = "pictbox_9";
-            this.pictbox_9.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_9.TabIndex = 6;
-            this.pictbox_9.TabStop = false;
+            this.pictbox_91.BackColor = System.Drawing.Color.Black;
+            this.pictbox_91.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_91.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_91.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_91.Name = "pictbox_91";
+            this.pictbox_91.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_91.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_91.TabIndex = 6;
+            this.pictbox_91.TabStop = false;
             // 
             // groupBox4
             // 
@@ -6223,7 +6325,8 @@
             this.tabPage9.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_92)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_91)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -6720,10 +6823,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lb_info9;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Button bt_loadbmp9;
+        private System.Windows.Forms.Button bt_loadbmp91;
         private System.Windows.Forms.ProgressBar pb_loadbmp9;
         private System.Windows.Forms.Label label62;
-        public System.Windows.Forms.PictureBox pictbox_9;
+        public System.Windows.Forms.PictureBox pictbox_91;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lb_noerr9;
         private System.Windows.Forms.ComboBox cb_CAN9;
@@ -6738,6 +6841,13 @@
         private System.Windows.Forms.Button bt_Exit8;
         private System.Windows.Forms.Button bt_About9;
         private System.Windows.Forms.Button bt_Exit9;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Button bt_loadbmp92;
+        public System.Windows.Forms.PictureBox pictbox_92;
+        private System.Windows.Forms.CheckBox chb_2pict9;
+        private System.Windows.Forms.CheckBox chb_1pict9;
+        private System.Windows.Forms.CheckBox chb_8byte9;
+        private System.Windows.Forms.CheckBox chb_6byte9;
 	}
 }
 

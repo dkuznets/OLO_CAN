@@ -166,7 +166,8 @@ namespace OLO_CAN
         Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
         Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
 
-        Bitmap bm9;
+        Bitmap bm91;
+        Bitmap bm92;
         Boolean flag_stop8 = false;
 
         #endregion
@@ -7479,7 +7480,7 @@ namespace OLO_CAN
             frame.data = new Byte[8];
             _state = State.OpenedState;
             uniCAN.Recv_Enable();
-//            bt_start8.PerformClick();
+            bt_start8.PerformClick();
         }
         private void bt_CloseCAN8_Click(object sender, EventArgs e)
         {
@@ -7689,7 +7690,13 @@ namespace OLO_CAN
         private void tim_getdata8_Tick(object sender, EventArgs e)
         {
         }
+        private void bt_About8_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
+        }
         #endregion
+
         #region Техно Передача
         private void bt_OpenCAN9_Click(object sender, EventArgs e)
         {
@@ -7739,7 +7746,6 @@ namespace OLO_CAN
             uniCAN.Recv_Disable();
             uniCAN = null;
         }
-
         private void bt_loadbmp9_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openbmp = new OpenFileDialog())
@@ -7747,18 +7753,34 @@ namespace OLO_CAN
                 openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
                 if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
                     return;
-                bm9 = new  Bitmap(openbmp.FileName);
-                pictbox_9.Image = bm9;
+                bm91 = new  Bitmap(openbmp.FileName);
+                pictbox_91.Image = bm91;
                 label60.Text = openbmp.FileName;
             }
         }
-
+        private void bt_loadbmp92_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openbmp = new OpenFileDialog())
+            {
+                openbmp.Filter = "BMP файлы (*.bmp)|*.bmp";
+                if (openbmp.ShowDialog() == System.Windows.Forms.DialogResult.Cancel)
+                    return;
+                bm92 = new Bitmap(openbmp.FileName);
+                pictbox_92.Image = bm92;
+                label66.Text = openbmp.FileName;
+            }
+        }
         private void bt_sendbmp9_Click(object sender, EventArgs e)
         {
             if(label60.Text == "")
-                pictbox_9.Image = Properties.Resources.test_tech as Bitmap;
+                pictbox_91.Image = Properties.Resources.test_tech as Bitmap;
             else
-                pictbox_9.Image = bm9;
+                pictbox_91.Image = bm91;
+            if (label66.Text == "")
+                pictbox_92.Image = Properties.Resources.test_tech2 as Bitmap;
+            else
+                pictbox_92.Image = bm92;
+       
             canmsg_t msg = new canmsg_t();
             msg.data = new Byte[8];
             msg_t mm = new msg_t();
@@ -7808,7 +7830,7 @@ namespace OLO_CAN
             {
                 for (int jj = 0; jj < Const.IMAGE_CX; jj++)
                 {
-                    Color col = (pictbox_9.Image as Bitmap).GetPixel(jj, ii);
+                    Color col = (pictbox_91.Image as Bitmap).GetPixel(jj, ii);
                     image_data[Const.IMAGE_CX * ii + jj] = col.R;
                 }
             }
@@ -7834,20 +7856,6 @@ namespace OLO_CAN
             lb_info9.BackColor = Color.Transparent;
             Application.DoEvents();
         }
-        #endregion
-
-        private void bt_About8_Click(object sender, EventArgs e)
-        {
-            AboutBox ab = new AboutBox();
-            ab.ShowDialog();
-        }
-
-        private void bt_About9_Click(object sender, EventArgs e)
-        {
-            AboutBox ab = new AboutBox();
-            ab.ShowDialog();
-        }
-
         private void rb_olo_r9_CheckedChanged(object sender, EventArgs e)
         {
             if (rb_olo_r9.Checked)
@@ -7859,7 +7867,6 @@ namespace OLO_CAN
                 rb_olo_r9.BackColor = Color.Transparent;
             }
         }
-
         private void rb_olo_l9_CheckedChanged(object sender, EventArgs e)
         {
             if (rb_olo_l9.Checked)
@@ -7871,6 +7878,67 @@ namespace OLO_CAN
                 rb_olo_l9.BackColor = Color.Transparent;
             }
         }
+        private void bt_About9_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
+        }
+        private void chb_6byte9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_6byte9.Checked)
+            {
+                chb_6byte9.BackColor = Color.SpringGreen;
+                chb_8byte9.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                chb_6byte9.BackColor = Color.Transparent;
+                chb_8byte9.CheckState = CheckState.Checked;
+            }
+        }
+        private void chb_8byte9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_8byte9.Checked)
+            {
+                chb_8byte9.BackColor = Color.SpringGreen;
+                chb_6byte9.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                chb_8byte9.BackColor = Color.Transparent;
+                chb_6byte9.CheckState = CheckState.Checked;
+            }
+        }
+        private void chb_1pict9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_1pict9.Checked)
+            {
+                chb_1pict9.BackColor = Color.SpringGreen;
+                chb_2pict9.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                chb_1pict9.BackColor = Color.Transparent;
+                chb_2pict9.CheckState = CheckState.Checked;
+            }
+        }
+        private void chb_2pict9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_2pict9.Checked)
+            {
+                chb_2pict9.BackColor = Color.SpringGreen;
+                chb_1pict9.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                chb_2pict9.BackColor = Color.Transparent;
+                chb_1pict9.CheckState = CheckState.Checked;
+            }
+        }
+        #endregion
+
+
+
 
     }
 

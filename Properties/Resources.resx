@@ -121,14 +121,17 @@
   <data name="olo4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\olo4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="olo9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\olo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="olo7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\olo7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="olo5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\olo5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="olo10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\olo10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="a_right_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\a_right_Green.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="test_tech" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\test_tech.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="firmware_solo2_flight_left_wing_double_pass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\firmware_solo2_flight_left_wing_double_pass.bin;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -142,8 +145,8 @@
   <data name="a_right_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\a_right_Blue.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="olo10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\olo10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="a_right_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\a_right_Green.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="firmware_solo2_cmos12_select_long_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\firmware_solo2_cmos12_select_long_time.bin;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -157,8 +160,8 @@
   <data name="olo6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\olo6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="olo9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\olo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="olo5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\olo5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SOLO2_SELECT_31082016_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SOLO2_SELECT_31082016_01.bin;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -169,7 +172,7 @@
   <data name="a_left_Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\a_left_Green.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="test_tech" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\test_tech.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="test_tech2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\test_tech2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
