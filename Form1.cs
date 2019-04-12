@@ -7848,6 +7848,30 @@ namespace OLO_CAN
             ab.ShowDialog();
         }
 
+        private void rb_olo_r9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_olo_r9.Checked)
+            {
+                rb_olo_r9.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                rb_olo_r9.BackColor = Color.Transparent;
+            }
+        }
+
+        private void rb_olo_l9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rb_olo_l9.Checked)
+            {
+                rb_olo_l9.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                rb_olo_l9.BackColor = Color.Transparent;
+            }
+        }
+
     }
 
     public static class RichTextBoxExtensions

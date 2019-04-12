@@ -5707,26 +5707,29 @@
             // rb_olo_r9
             // 
             this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_r9.BackColor = System.Drawing.Color.SpringGreen;
+            this.rb_olo_r9.Checked = true;
             this.rb_olo_r9.Location = new System.Drawing.Point(12, 93);
             this.rb_olo_r9.Name = "rb_olo_r9";
             this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
             this.rb_olo_r9.TabIndex = 53;
+            this.rb_olo_r9.TabStop = true;
             this.rb_olo_r9.Text = "ОЛО правый";
             this.rb_olo_r9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rb_olo_r9.UseVisualStyleBackColor = true;
+            this.rb_olo_r9.UseVisualStyleBackColor = false;
+            this.rb_olo_r9.CheckedChanged += new System.EventHandler(this.rb_olo_r9_CheckedChanged);
             // 
             // rb_olo_l9
             // 
             this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_olo_l9.Checked = true;
             this.rb_olo_l9.Location = new System.Drawing.Point(98, 93);
             this.rb_olo_l9.Name = "rb_olo_l9";
             this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
             this.rb_olo_l9.TabIndex = 51;
-            this.rb_olo_l9.TabStop = true;
             this.rb_olo_l9.Text = "ОЛО левый";
             this.rb_olo_l9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rb_olo_l9.UseVisualStyleBackColor = true;
+            this.rb_olo_l9.CheckedChanged += new System.EventHandler(this.rb_olo_l9_CheckedChanged);
             // 
             // bt_sendbmp9
             // 
