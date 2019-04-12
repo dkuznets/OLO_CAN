@@ -7795,7 +7795,7 @@ namespace OLO_CAN
 
             Byte numpic = (Byte)(chb_1pict9.Checked? 1 : 2);
 
-            for (Byte k = 0; k < numpic; k++)
+            for (Byte k = 1; k < numpic; k++)
             {
                 mm.messageLen = 0;
                 mm.messageID = (Byte)(0x30 + k);
