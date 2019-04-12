@@ -7792,69 +7792,113 @@ namespace OLO_CAN
             {
                 mm.deviceID = Const.OLO_Left;
             }
-            mm.messageLen = 0;
-            mm.messageID = 0x31;
 
-            switch (mm.deviceID)
-            {
-                case Const.OLO_Left:
-                    lb_info9.Text = "ОЛО левый. Передача картинки.";
-                    lb_info9.BackColor = Color.SpringGreen;
-                    break;
-                case Const.OLO_Right:
-                    lb_info9.Text = "ОЛО правый. Передача картинки.";
-                    lb_info9.BackColor = Color.SpringGreen;
-                    break;
-            }
-            lb_info9.Refresh();
-            Application.DoEvents();
-            msg = mm.ToCAN(mm);
+            Byte numpic = (Byte)(chb_1pict9.Checked? 1 : 2);
 
-            if (uniCAN == null || !uniCAN.Send(ref msg, 1000))
+            for (Byte k = 0; k < numpic; k++)
             {
-                state_Error();
-                Application.DoEvents();
-                return;
-            }
-            const Byte CAN_MAX_DATA_SIZE = 8;
-            UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
-            UInt32 image_data_count = 0;
-            image_size = 81353;
-            int msg_count = (int)(image_size + Const.CAN_MAX_DATA_SIZE - 1) / Const.CAN_MAX_DATA_SIZE;
-            Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
-            msg_count = 10169;
-            image_data = new Byte[msg_count * 8];
-            pb_loadbmp9.Maximum = msg_count;
+                mm.messageLen = 0;
+                mm.messageID = (Byte)(0x30 + k);
 
-            for (int ii = 0; ii < Const.IMAGE_CY; ii++)
-            {
-                for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                switch (mm.deviceID)
                 {
-                    Color col = (pictbox_91.Image as Bitmap).GetPixel(jj, ii);
-                    image_data[Const.IMAGE_CX * ii + jj] = col.R;
+                    case Const.OLO_Left:
+                        lb_info9.Text = "ОЛО левый. Передача картинки " + numpic.ToString();
+                        lb_info9.BackColor = Color.SpringGreen;
+                        break;
+                    case Const.OLO_Right:
+                        lb_info9.Text = "ОЛО правый. Передача картинки " + numpic.ToString();
+                        lb_info9.BackColor = Color.SpringGreen;
+                        break;
                 }
-            }
-            UInt32 a = 0;
-            for (int i = 0; i < msg_count; i++)
-            {
-			    msg.id = (UInt16)((0x31 << 5) | mm.deviceID);
-			    msg.len = (i == msg_count - 1 ? last_msg_size : CAN_MAX_DATA_SIZE);
+                lb_info9.Refresh();
+                Application.DoEvents();
+                msg = mm.ToCAN(mm);
 
-			    for(int j = 0; j < msg.len; j++)
-				    msg.data[j] = image_data[a++];
-
-                if (uniCAN == null || !uniCAN.Send(ref msg, 100))
+                if (uniCAN == null || !uniCAN.Send(ref msg, 1000))
                 {
                     state_Error();
+                    Application.DoEvents();
                     return;
                 }
-                pb_loadbmp9.Value = i;
-                pb_loadbmp9.Refresh();
+                UInt32 image_size = Const.IMAGE_CX * Const.IMAGE_CY * sizeof(Byte);
+                UInt32 image_data_count = 0;
+                if (chb_8byte9.Checked)
+                {
+                    const Byte CAN_MAX_DATA_SIZE = 8;
+                    int msg_count = (int)(image_size + CAN_MAX_DATA_SIZE - 1) / CAN_MAX_DATA_SIZE;
+                    Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
+                    image_data = new Byte[msg_count * 8];
+                    pb_loadbmp9.Maximum = msg_count;
+                    Bitmap tmp = numpic == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
+
+                    for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+                    {
+                        for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                        {
+                            Color col = tmp.GetPixel(jj, ii);
+                            image_data[Const.IMAGE_CX * ii + jj] = col.R;
+                        }
+                    }
+                    UInt32 a = 0;
+                    for (int i = 0; i < msg_count; i++)
+                    {
+                        msg.id = (UInt16)(((0x30 + numpic) << 5) | mm.deviceID);
+                        msg.len = (i == msg_count - 1 ? last_msg_size : CAN_MAX_DATA_SIZE);
+
+			            for(int j = 0; j < msg.len; j++)
+				            msg.data[j] = image_data[a++];
+
+                        if (uniCAN == null || !uniCAN.Send(ref msg, 100))
+                        {
+                            state_Error();
+                            return;
+                        }
+                        pb_loadbmp9.Value = i;
+                        pb_loadbmp9.Refresh();
+                        Application.DoEvents();
+                    }
+                }
+                else
+                {
+                    const Byte CAN_MAX_DATA_SIZE = 6;
+                    int msg_count = (int)(image_size + CAN_MAX_DATA_SIZE - 1) / CAN_MAX_DATA_SIZE;
+                    Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
+                    image_data = new Byte[msg_count * 8];
+                    pb_loadbmp9.Maximum = msg_count;
+                    Bitmap tmp = numpic == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
+
+                    for (int ii = 0; ii < Const.IMAGE_CY; ii++)
+                    {
+                        for (int jj = 0; jj < Const.IMAGE_CX; jj++)
+                        {
+                            Color col = tmp.GetPixel(jj, ii);
+                            image_data[Const.IMAGE_CX * ii + jj] = col.R;
+                        }
+                    }
+                    UInt16 a = 0;
+                    for (int i = 0; i < msg_count; i++)
+                    {
+                        msg.id = (UInt16)(((0x30 + numpic) << 5) | mm.deviceID);
+                        msg.len = (i == msg_count - 1 ? last_msg_size : CAN_MAX_DATA_SIZE);
+                        msg.data = BitConverter.GetBytes(a);
+                        for (int j = 2; j < 8; j++)
+                            msg.data[j] = image_data[a++];
+
+                        if (uniCAN == null || !uniCAN.Send(ref msg, 100))
+                        {
+                            state_Error();
+                            return;
+                        }
+                        pb_loadbmp9.Value = i;
+                        pb_loadbmp9.Refresh();
+                        Application.DoEvents();
+                    }
+                }
+                lb_info9.Text = "";
+                lb_info9.BackColor = Color.Transparent;
                 Application.DoEvents();
             }
-            lb_info9.Text = "";
-            lb_info9.BackColor = Color.Transparent;
-            Application.DoEvents();
         }
         private void rb_olo_r9_CheckedChanged(object sender, EventArgs e)
         {

@@ -5501,7 +5501,8 @@
             this.groupBox2.Size = new System.Drawing.Size(657, 330);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Картинка";
+            this.groupBox2.Text = "Картинка 1                                                                       " +
+    "                  Картинка 2";
             // 
             // rb_data_6bit8
             // 
@@ -5770,7 +5771,8 @@
             this.groupBox3.Size = new System.Drawing.Size(659, 360);
             this.groupBox3.TabIndex = 50;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Картинка";
+            this.groupBox3.Text = "Картинка 1                                                                       " +
+    "                  Картинка 2";
             // 
             // chb_2pict9
             // 
@@ -5875,7 +5877,7 @@
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(237, 23);
             this.label60.TabIndex = 50;
-            this.label60.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bt_loadbmp91
             // 
