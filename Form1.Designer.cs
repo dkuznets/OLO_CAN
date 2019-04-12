@@ -5833,7 +5833,7 @@
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(237, 23);
             this.label66.TabIndex = 53;
-            this.label66.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bt_loadbmp92
             // 

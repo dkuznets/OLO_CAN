@@ -7755,7 +7755,7 @@ namespace OLO_CAN
                     return;
                 bm91 = new  Bitmap(openbmp.FileName);
                 pictbox_91.Image = bm91;
-                label60.Text = openbmp.FileName;
+                label60.Text = System.IO.Path.GetFileName(openbmp.FileName);
             }
         }
         private void bt_loadbmp92_Click(object sender, EventArgs e)
@@ -7767,7 +7767,7 @@ namespace OLO_CAN
                     return;
                 bm92 = new Bitmap(openbmp.FileName);
                 pictbox_92.Image = bm92;
-                label66.Text = openbmp.FileName;
+                label66.Text = System.IO.Path.GetFileName(openbmp.FileName);
             }
         }
         private void bt_sendbmp9_Click(object sender, EventArgs e)
