@@ -7849,7 +7849,7 @@ namespace OLO_CAN
 			            for(int j = 0; j < msg.len; j++)
 				            msg.data[j] = image_data[a++];
 
-                        if (uniCAN == null || !uniCAN.Send(ref msg, 100))
+                        if (uniCAN == null || !uniCAN.Send(ref msg, 1000))
                         {
                             state_Error();
                             return;
@@ -7885,7 +7885,7 @@ namespace OLO_CAN
                         for (int j = 2; j < 8; j++)
                             msg.data[j] = image_data[a++];
 
-                        if (uniCAN == null || !uniCAN.Send(ref msg, 100))
+                        if (uniCAN == null || !uniCAN.Send(ref msg, 1000))
                         {
                             state_Error();
                             return;
