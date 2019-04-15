@@ -7830,7 +7830,7 @@ namespace OLO_CAN
                     Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
                     image_data = new Byte[msg_count * 8];
                     pb_loadbmp9.Maximum = msg_count;
-                    Bitmap tmp = k == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
+                    Bitmap tmp = (k == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap);
 
                     for (int ii = 0; ii < Const.IMAGE_CY; ii++)
                     {
@@ -7866,7 +7866,7 @@ namespace OLO_CAN
                     Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
                     image_data = new Byte[msg_count * 8];
                     pb_loadbmp9.Maximum = msg_count;
-                    Bitmap tmp = numpic == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
+                    Bitmap tmp = (k == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap);
 
                     for (int ii = 0; ii < Const.IMAGE_CY; ii++)
                     {
