@@ -7803,11 +7803,11 @@ namespace OLO_CAN
                 switch (mm.deviceID)
                 {
                     case Const.OLO_Left:
-                        lb_info9.Text = "ОЛО левый. Передача картинки " + numpic.ToString();
+                        lb_info9.Text = "ОЛО левый. Передача картинки " + k.ToString();
                         lb_info9.BackColor = Color.SpringGreen;
                         break;
                     case Const.OLO_Right:
-                        lb_info9.Text = "ОЛО правый. Передача картинки " + numpic.ToString();
+                        lb_info9.Text = "ОЛО правый. Передача картинки " + k.ToString();
                         lb_info9.BackColor = Color.SpringGreen;
                         break;
                 }
@@ -7830,7 +7830,7 @@ namespace OLO_CAN
                     Byte last_msg_size = (Byte)(image_size % CAN_MAX_DATA_SIZE > 0 ? image_size % CAN_MAX_DATA_SIZE : CAN_MAX_DATA_SIZE);
                     image_data = new Byte[msg_count * 8];
                     pb_loadbmp9.Maximum = msg_count;
-                    Bitmap tmp = numpic == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
+                    Bitmap tmp = k == 1 ? pictbox_91.Image as Bitmap : pictbox_92.Image as Bitmap;
 
                     for (int ii = 0; ii < Const.IMAGE_CY; ii++)
                     {
