@@ -7583,7 +7583,7 @@ namespace OLO_CAN
                     image_data = new Byte[msg_count * 8];
                     pb_loadbmp8.Maximum = msg_count;
 
-                    if (uniCAN == null || !uniCAN.RecvPack(ref data_array, ref msg_count, 30000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if (uniCAN == null || !uniCAN.RecvPack(ref data_array, ref msg_count, 60000)) //!!!!!!!!!!!!!!!!!!!!!!!!!
                     {
                         lb_info8.Text = "Ошибка приема картинки";
                         lb_info8.BackColor = Color.Red;
