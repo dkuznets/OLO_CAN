@@ -7795,7 +7795,7 @@ namespace OLO_CAN
 
             Byte numpic = (Byte)(chb_1pict9.Checked? 1 : 2);
 
-            for (Byte k = 1; k < numpic; k++)
+            for (Byte k = 1; k <= numpic; k++)
             {
                 mm.messageLen = 0;
                 mm.messageID = (Byte)(0x30 + k);
@@ -7898,10 +7898,10 @@ namespace OLO_CAN
                         Application.DoEvents();
                     }
                 }
-                lb_info9.Text = "";
-                lb_info9.BackColor = Color.Transparent;
-                Application.DoEvents();
             }
+            lb_info9.Text = "";
+            lb_info9.BackColor = Color.Transparent;
+            Application.DoEvents();
         }
         private void rb_olo_r9_CheckedChanged(object sender, EventArgs e)
         {
