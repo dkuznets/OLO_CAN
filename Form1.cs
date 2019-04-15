@@ -7880,7 +7880,7 @@ namespace OLO_CAN
                     for (int i = 0; i < msg_count; i++)
                     {
                         msg.id = (UInt16)(((0x30 + numpic) << 5) | mm.deviceID);
-                        msg.len = (i == msg_count - 1 ? last_msg_size : CAN_MAX_DATA_SIZE);
+                        msg.len = (Byte)(i == msg_count - 1 ? last_msg_size + 2: CAN_MAX_DATA_SIZE + 2);
                         msg.data = BitConverter.GetBytes(a);
                         for (int j = 2; j < 8; j++)
                             msg.data[j] = image_data[a++];
