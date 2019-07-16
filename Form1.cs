@@ -8055,7 +8055,7 @@ namespace OLO_CAN
         private void tim4_run_scene_Tick(object sender, EventArgs e)
         {
             scene_cnt++;
-            scene_time += scene[scene_cnt - 1].time;
+            scene_time = scene[scene_cnt - 1].time;
             if (scene_cnt == scene.Count)
             {
                 bt4_scene_stop.PerformClick();
