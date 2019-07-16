@@ -8007,7 +8007,6 @@ namespace OLO_CAN
             tim4_run_scene.Interval = scene[0].time;
             scene_cnt = 0;
         }
-
         private void bt4_scene_stop_Click(object sender, EventArgs e)
         {
             tim4_run_scene.Enabled = false;
@@ -8015,7 +8014,6 @@ namespace OLO_CAN
             bt4_scene_stop.Enabled = false;
             flag_enable_scene = false;
         }
-
         private void bt4_load_scene_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd4 = new OpenFileDialog();
@@ -8051,11 +8049,53 @@ namespace OLO_CAN
             }
             bt4_scene_start.Enabled = true;
         }
-
         private void tim4_run_scene_Tick(object sender, EventArgs e)
         {
+            scene_time = scene[scene_cnt].time;
+
+            msg_t mm = new msg_t();
+            if (scene[scene_cnt].olo == 0)
+                mm.deviceID = Const.OLO_Right;
+            else
+                mm.deviceID = Const.OLO_Left;
+
+            mm.messageID = msg_t.mID_DATA;
+            mm.messageLen = 8;
+
+            UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+            mm.messageData[4] = 0xFF;
+            mm.messageData[5] = 0x7F;
+            mm.messageData[6] = 0xFF;
+            mm.messageData[7] = 0x7F;
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!Form1.uniCAN.Send(ref mmsg, 200))
+                return;
+
+            dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+
+            mm.messageData[4] = (Byte)scene[scene_cnt].azimut;
+            mm.messageData[5] = (Byte)(scene[scene_cnt].azimut >> 8);
+            mm.messageData[6] = (Byte)scene[scene_cnt].ugolmesta;
+            mm.messageData[7] = (Byte)(scene[scene_cnt].ugolmesta >> 8);
+            mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!Form1.uniCAN.Send(ref mmsg, 200))
+                return;
+
+
             scene_cnt++;
-            scene_time = scene[scene_cnt - 1].time;
             rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
             if (scene_cnt == scene.Count)
             {
@@ -8064,8 +8104,6 @@ namespace OLO_CAN
             }
             tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
         }
-
-
     }
 
     public static class RichTextBoxExtensions
