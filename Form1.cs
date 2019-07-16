@@ -8045,7 +8045,7 @@ namespace OLO_CAN
                         scline.azimut = Convert.ToInt32(aline[2]);
                         scline.ugolmesta = Convert.ToInt32(aline[3]);
                         scene.Add(scline);
-//                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
+                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
                     }
                 }
             }
@@ -8057,7 +8057,7 @@ namespace OLO_CAN
             scene_cnt++;
             scene_time = scene[scene_cnt - 1].time;
             rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
-            if (scene_cnt > scene.Count)
+            if (scene_cnt == scene.Count)
             {
                 bt4_scene_stop.PerformClick();
                 return;
