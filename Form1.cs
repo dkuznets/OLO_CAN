@@ -8033,6 +8033,7 @@ namespace OLO_CAN
                 String rline = "";
                 String[] aline = new String[4];
                 SCENE scline = new SCENE();
+                scene.Clear();
                 while (sr.Peek() >= 0)
                 {
                     if ((rline = sr.ReadLine()) != "")
