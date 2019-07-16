@@ -277,10 +277,10 @@ namespace OLO_CAN
 
         public struct SCENE
         {
-            Int32 time;
-            Byte olo;
-            Int32 azimut;
-            Int32 ugolmesta;
+            public Int32 time;
+            public Byte olo;
+            public Int32 azimut;
+            public Int32 ugolmesta;
         };
         List<SCENE> scene = new List<SCENE>();
         Boolean flag_enable_scene = false;
@@ -8033,8 +8033,12 @@ namespace OLO_CAN
                     if ((rline = sr.ReadLine()) != "")
                     {
                         aline = rline.Split(new char[] { ';' });
-                        
+                        scline.time = Convert.ToInt32(aline[0]);
+                        scline.olo = Convert.ToByte(aline[1]);
+                        scline.azimut = Convert.ToInt32(aline[2]);
+                        scline.ugolmesta = Convert.ToInt32(aline[3]);
                         scene.Add(scline);
+                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString());
                     }
                 }
             }
