@@ -258,6 +258,11 @@
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gb4_scena = new System.Windows.Forms.GroupBox();
+            this.bt4_scene_stop = new System.Windows.Forms.Button();
+            this.bt4_scene_start = new System.Windows.Forms.Button();
+            this.bt4_load_scene = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label84 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
             this.lb3_um_mig_r = new System.Windows.Forms.Label();
@@ -541,6 +546,7 @@
             this.timer3_reset_l = new System.Windows.Forms.Timer(this.components);
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
+            this.tim4_run_scene = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -572,6 +578,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.gbox_CAN2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.gb4_scena.SuspendLayout();
             this.gb3_shoot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_freq_r)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_um_r)).BeginInit();
@@ -3120,6 +3127,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.gb4_scena);
             this.tabPage4.Controls.Add(this.label84);
             this.tabPage4.Controls.Add(this.label83);
             this.tabPage4.Controls.Add(this.lb3_um_mig_r);
@@ -3156,6 +3164,60 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Симуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // gb4_scena
+            // 
+            this.gb4_scena.Controls.Add(this.bt4_scene_stop);
+            this.gb4_scena.Controls.Add(this.bt4_scene_start);
+            this.gb4_scena.Controls.Add(this.bt4_load_scene);
+            this.gb4_scena.Controls.Add(this.textBox1);
+            this.gb4_scena.Location = new System.Drawing.Point(381, 274);
+            this.gb4_scena.Name = "gb4_scena";
+            this.gb4_scena.Size = new System.Drawing.Size(232, 144);
+            this.gb4_scena.TabIndex = 88;
+            this.gb4_scena.TabStop = false;
+            this.gb4_scena.Text = "Сценарий";
+            // 
+            // bt4_scene_stop
+            // 
+            this.bt4_scene_stop.Enabled = false;
+            this.bt4_scene_stop.Location = new System.Drawing.Point(155, 19);
+            this.bt4_scene_stop.Name = "bt4_scene_stop";
+            this.bt4_scene_stop.Size = new System.Drawing.Size(70, 23);
+            this.bt4_scene_stop.TabIndex = 3;
+            this.bt4_scene_stop.Text = "Стоп";
+            this.bt4_scene_stop.UseVisualStyleBackColor = true;
+            this.bt4_scene_stop.Click += new System.EventHandler(this.bt4_scene_stop_Click);
+            // 
+            // bt4_scene_start
+            // 
+            this.bt4_scene_start.BackColor = System.Drawing.Color.Transparent;
+            this.bt4_scene_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bt4_scene_start.Enabled = false;
+            this.bt4_scene_start.Location = new System.Drawing.Point(80, 19);
+            this.bt4_scene_start.Name = "bt4_scene_start";
+            this.bt4_scene_start.Size = new System.Drawing.Size(70, 23);
+            this.bt4_scene_start.TabIndex = 2;
+            this.bt4_scene_start.Text = "Пуск";
+            this.bt4_scene_start.UseVisualStyleBackColor = false;
+            this.bt4_scene_start.Click += new System.EventHandler(this.bt4_scene_start_Click);
+            // 
+            // bt4_load_scene
+            // 
+            this.bt4_load_scene.Location = new System.Drawing.Point(6, 19);
+            this.bt4_load_scene.Name = "bt4_load_scene";
+            this.bt4_load_scene.Size = new System.Drawing.Size(70, 23);
+            this.bt4_load_scene.TabIndex = 1;
+            this.bt4_load_scene.Text = "Загрузка";
+            this.bt4_load_scene.UseVisualStyleBackColor = true;
+            this.bt4_load_scene.Click += new System.EventHandler(this.bt4_load_scene_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 48);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // label84
             // 
@@ -6275,6 +6337,8 @@
             this.gbox_CAN2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.gb4_scena.ResumeLayout(false);
+            this.gb4_scena.PerformLayout();
             this.gb3_shoot.ResumeLayout(false);
             this.gb3_shoot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3_freq_r)).EndInit();
@@ -6850,6 +6914,12 @@
         private System.Windows.Forms.CheckBox chb_1pict9;
         private System.Windows.Forms.CheckBox chb_8byte9;
         private System.Windows.Forms.CheckBox chb_6byte9;
+        private System.Windows.Forms.GroupBox gb4_scena;
+        private System.Windows.Forms.Button bt4_scene_stop;
+        private System.Windows.Forms.Button bt4_scene_start;
+        private System.Windows.Forms.Button bt4_load_scene;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer tim4_run_scene;
 	}
 }
 

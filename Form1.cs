@@ -7984,7 +7984,26 @@ namespace OLO_CAN
         }
         #endregion
 
+        private void bt4_scene_start_Click(object sender, EventArgs e)
+        {
+            tim4_run_scene.Enabled = true;
+            bt4_scene_start.Enabled = false;
+            bt4_scene_stop.Enabled = true;
+        }
 
+        private void bt4_scene_stop_Click(object sender, EventArgs e)
+        {
+            tim4_run_scene.Enabled = false;
+            bt4_scene_start.Enabled = true;
+            bt4_scene_stop.Enabled = false;
+        }
+
+        private void bt4_load_scene_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd4 = new OpenFileDialog();
+            if (ofd4.ShowDialog() != DialogResult.OK)
+                return;
+        }
 
 
     }

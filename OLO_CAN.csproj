@@ -217,6 +217,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\StopHS.png" />
+    <None Include="Resources\PlayHS.png" />
+    <None Include="Resources\Stop.bmp" />
+    <None Include="Resources\Play.bmp" />
+    <None Include="Resources\Start.png" />
     <None Include="test_tech2.bmp" />
     <None Include="test_tech.bmp" />
     <None Include="olo6.png" />
