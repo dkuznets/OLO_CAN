@@ -8001,8 +8001,16 @@ namespace OLO_CAN
         private void bt4_load_scene_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd4 = new OpenFileDialog();
+            ofd4.Title = "Загрузка файла сценария";
+            ofd4.Filter = "Файлы сценария (*.txt; *.scn)|*.txt;*.scn|Все файлы (*.*)|*.*";
             if (ofd4.ShowDialog() != DialogResult.OK)
+            {
+                bt4_scene_start.Enabled = false;
+                bt4_scene_stop.Enabled = false;
                 return;
+            }
+            bt4_scene_start.Enabled = true;
+
         }
 
 
