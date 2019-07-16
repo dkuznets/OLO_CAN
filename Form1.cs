@@ -144,28 +144,6 @@ namespace OLO_CAN
 
         IniFile inicfg;
 
-        int timer_Reset_Shots_Interval = 10000;
-        UInt32 timestamp = 0;
-        UInt32 timestampold = 0;
-
-        Boolean flag_reset_left = false;
-        Boolean flag_reset_right = false;
-        Byte soer_l = 0;
-        Byte soer_r = 0;
-        Thread thr_l_shoot;
-        Thread thr_r_shoot;
-        autoshoots auto_l;
-        autoshoots auto_r;
-        public static Boolean flag_thr_l_shoot;
-        public static Boolean flag_thr_r_shoot;
-        String lolo = "левого ОЛО";
-        String polo = "правого ОЛО";
-
-        Double[,] prsu = new Double[,] { { 0.0, -0.9903, -0.1392 }, { 0.0, 0.1392, -0.9903 }, { 1.0, 0.0, 0.0 } };
-        Double[,] plsu = new Double[,] { { 0.0, -0.9903, 0.1392 }, { 0.0, 0.1392, 0.9903 }, { -1.0, -0.0, 0.0 } };
-        Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
-        Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
-
         Bitmap bm91;
         Bitmap bm92;
         Boolean flag_stop8 = false;
@@ -273,6 +251,39 @@ namespace OLO_CAN
         const UInt32 SIZE_FILE = 0x80;
         const UInt32 START_FW = 0x4000;
        
+        #endregion
+        #region Tab4
+        int timer_Reset_Shots_Interval = 10000;
+        UInt32 timestamp = 0;
+        UInt32 timestampold = 0;
+
+        Boolean flag_reset_left = false;
+        Boolean flag_reset_right = false;
+        Byte soer_l = 0;
+        Byte soer_r = 0;
+        Thread thr_l_shoot;
+        Thread thr_r_shoot;
+        autoshoots auto_l;
+        autoshoots auto_r;
+        public static Boolean flag_thr_l_shoot;
+        public static Boolean flag_thr_r_shoot;
+        String lolo = "левого ОЛО";
+        String polo = "правого ОЛО";
+
+        Double[,] prsu = new Double[,] { { 0.0, -0.9903, -0.1392 }, { 0.0, 0.1392, -0.9903 }, { 1.0, 0.0, 0.0 } };
+        Double[,] plsu = new Double[,] { { 0.0, -0.9903, 0.1392 }, { 0.0, 0.1392, 0.9903 }, { -1.0, -0.0, 0.0 } };
+        Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
+        Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
+
+        public struct SCENE
+        {
+            Int32 time;
+            Byte olo;
+            Int32 azimut;
+            Int32 ugolmesta;
+        };
+        List<SCENE> scene = new List<SCENE>();
+        Boolean flag_enable_scene = false;
         #endregion
 
         #region Преобразование номера версии
@@ -8009,7 +8020,30 @@ namespace OLO_CAN
                 bt4_scene_stop.Enabled = false;
                 return;
             }
+            FileInfo scfi = new FileInfo(ofd4.FileName);
+            tb4_scene_file.Text = scfi.Name;
+            using (StreamReader sr = new StreamReader(ofd4.FileName))
+            {
+                UInt32 ccc = 0;
+                String rline = "";
+                String[] aline = new String[4];
+                SCENE scline = new SCENE();
+                while (sr.Peek() >= 0)
+                {
+                    if ((rline = sr.ReadLine()) != "")
+                    {
+                        aline = rline.Split(new char[] { ';' });
+                        
+                        scene.Add(scline);
+                    }
+                }
+            }
             bt4_scene_start.Enabled = true;
+
+        }
+
+        private void tim4_run_scene_Tick(object sender, EventArgs e)
+        {
 
         }
 

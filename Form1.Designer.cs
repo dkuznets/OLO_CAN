@@ -262,7 +262,7 @@
             this.bt4_scene_stop = new System.Windows.Forms.Button();
             this.bt4_scene_start = new System.Windows.Forms.Button();
             this.bt4_load_scene = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb4_scene_file = new System.Windows.Forms.TextBox();
             this.label84 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
             this.lb3_um_mig_r = new System.Windows.Forms.Label();
@@ -3170,7 +3170,7 @@
             this.gb4_scena.Controls.Add(this.bt4_scene_stop);
             this.gb4_scena.Controls.Add(this.bt4_scene_start);
             this.gb4_scena.Controls.Add(this.bt4_load_scene);
-            this.gb4_scena.Controls.Add(this.textBox1);
+            this.gb4_scena.Controls.Add(this.tb4_scene_file);
             this.gb4_scena.Location = new System.Drawing.Point(381, 274);
             this.gb4_scena.Name = "gb4_scena";
             this.gb4_scena.Size = new System.Drawing.Size(232, 144);
@@ -3212,12 +3212,12 @@
             this.bt4_load_scene.UseVisualStyleBackColor = true;
             this.bt4_load_scene.Click += new System.EventHandler(this.bt4_load_scene_Click);
             // 
-            // textBox1
+            // tb4_scene_file
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 20);
-            this.textBox1.TabIndex = 0;
+            this.tb4_scene_file.Location = new System.Drawing.Point(6, 48);
+            this.tb4_scene_file.Name = "tb4_scene_file";
+            this.tb4_scene_file.Size = new System.Drawing.Size(220, 20);
+            this.tb4_scene_file.TabIndex = 0;
             // 
             // label84
             // 
@@ -6271,6 +6271,10 @@
             // 
             this.tim_getdata8.Tick += new System.EventHandler(this.tim_getdata8_Tick);
             // 
+            // tim4_run_scene
+            // 
+            this.tim4_run_scene.Tick += new System.EventHandler(this.tim4_run_scene_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6918,7 +6922,7 @@
         private System.Windows.Forms.Button bt4_scene_stop;
         private System.Windows.Forms.Button bt4_scene_start;
         private System.Windows.Forms.Button bt4_load_scene;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb4_scene_file;
         private System.Windows.Forms.Timer tim4_run_scene;
 	}
 }
