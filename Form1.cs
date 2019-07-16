@@ -8061,6 +8061,7 @@ namespace OLO_CAN
                 bt4_scene_stop.PerformClick();
                 return;
             }
+            rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
             tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
         }
 
