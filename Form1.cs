@@ -284,6 +284,8 @@ namespace OLO_CAN
         };
         List<SCENE> scene = new List<SCENE>();
         Boolean flag_enable_scene = false;
+        Int32 scene_time = 0;
+        Int32 scene_cnt = 0;
         #endregion
 
         #region Преобразование номера версии
@@ -8000,6 +8002,10 @@ namespace OLO_CAN
             tim4_run_scene.Enabled = true;
             bt4_scene_start.Enabled = false;
             bt4_scene_stop.Enabled = true;
+            scene_time = 0;
+            flag_enable_scene = true;
+            tim4_run_scene.Interval = scene[0].time;
+            scene_cnt = 0;
         }
 
         private void bt4_scene_stop_Click(object sender, EventArgs e)
@@ -8007,6 +8013,7 @@ namespace OLO_CAN
             tim4_run_scene.Enabled = false;
             bt4_scene_start.Enabled = true;
             bt4_scene_stop.Enabled = false;
+            flag_enable_scene = false;
         }
 
         private void bt4_load_scene_Click(object sender, EventArgs e)
@@ -8038,17 +8045,23 @@ namespace OLO_CAN
                         scline.azimut = Convert.ToInt32(aline[2]);
                         scline.ugolmesta = Convert.ToInt32(aline[3]);
                         scene.Add(scline);
-                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
+//                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
                     }
                 }
             }
             bt4_scene_start.Enabled = true;
-
         }
 
         private void tim4_run_scene_Tick(object sender, EventArgs e)
         {
-
+            scene_cnt++;
+            scene_time += scene[scene_cnt - 1].time;
+            if (scene_cnt == scene.Count)
+            {
+                bt4_scene_stop.PerformClick();
+                return;
+            }
+            tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
         }
 
 
