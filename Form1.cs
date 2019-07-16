@@ -8056,12 +8056,12 @@ namespace OLO_CAN
         {
             scene_cnt++;
             scene_time = scene[scene_cnt - 1].time;
+            rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
             if (scene_cnt > scene.Count)
             {
                 bt4_scene_stop.PerformClick();
                 return;
             }
-            rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
             tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
         }
 
