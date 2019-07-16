@@ -8038,7 +8038,7 @@ namespace OLO_CAN
                         scline.azimut = Convert.ToInt32(aline[2]);
                         scline.ugolmesta = Convert.ToInt32(aline[3]);
                         scene.Add(scline);
-                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString());
+                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
                     }
                 }
             }
