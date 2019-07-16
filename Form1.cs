@@ -8056,7 +8056,7 @@ namespace OLO_CAN
         {
             scene_cnt++;
             scene_time = scene[scene_cnt - 1].time;
-            if (scene_cnt == scene.Count)
+            if (scene_cnt > scene.Count)
             {
                 bt4_scene_stop.PerformClick();
                 return;
