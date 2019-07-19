@@ -8103,7 +8103,14 @@ namespace OLO_CAN
                 bt4_scene_stop.PerformClick();
                 return;
             }
-            tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
+            if (scene[scene_cnt].time - scene_time > 0)
+            {
+                tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
+            }
+            else
+            {
+                tim4_run_scene.Interval = scene[scene_cnt].time;
+            }
         }
     }
 
