@@ -6320,6 +6320,121 @@ namespace OLO_CAN
                 text2rtb(rtb3_datagrid, "Выключение выстрелов " + polo, Color.Orange, Color.Black);
             }
         }
+        private void bt4_scene_start_Click(object sender, EventArgs e)
+        {
+            tim4_run_scene.Enabled = true;
+            bt4_scene_start.Enabled = false;
+            bt4_scene_stop.Enabled = true;
+            scene_time = 0;
+            flag_enable_scene = true;
+            tim4_run_scene.Interval = scene[0].time;
+            scene_cnt = 0;
+        }
+        private void bt4_scene_stop_Click(object sender, EventArgs e)
+        {
+            tim4_run_scene.Enabled = false;
+            bt4_scene_start.Enabled = true;
+            bt4_scene_stop.Enabled = false;
+            flag_enable_scene = false;
+        }
+        private void bt4_load_scene_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd4 = new OpenFileDialog();
+            ofd4.Title = "Загрузка файла сценария";
+            ofd4.Filter = "Файлы сценария (*.txt; *.scn)|*.txt;*.scn|Все файлы (*.*)|*.*";
+            if (ofd4.ShowDialog() != DialogResult.OK)
+            {
+                bt4_scene_start.Enabled = false;
+                bt4_scene_stop.Enabled = false;
+                return;
+            }
+            FileInfo scfi = new FileInfo(ofd4.FileName);
+            tb4_scene_file.Text = scfi.Name;
+            using (StreamReader sr = new StreamReader(ofd4.FileName))
+            {
+                UInt32 ccc = 0;
+                String rline = "";
+                String[] aline = new String[4];
+                SCENE scline = new SCENE();
+                scene.Clear();
+                while (sr.Peek() >= 0)
+                {
+                    if ((rline = sr.ReadLine()) != "")
+                    {
+                        aline = rline.Split(new char[] { ';' });
+                        scline.time = Convert.ToInt32(aline[0]);
+                        scline.olo = Convert.ToByte(aline[1]);
+                        scline.azimut = Convert.ToInt32(aline[2]);
+                        scline.ugolmesta = Convert.ToInt32(aline[3]);
+                        scene.Add(scline);
+                        //                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
+                    }
+                }
+            }
+            bt4_scene_start.Enabled = true;
+        }
+        private void tim4_run_scene_Tick(object sender, EventArgs e)
+        {
+            scene_time = scene[scene_cnt].time;
+
+            msg_t mm = new msg_t();
+            if (scene[scene_cnt].olo == 0)
+                mm.deviceID = Const.OLO_Right;
+            else
+                mm.deviceID = Const.OLO_Left;
+
+            mm.messageID = msg_t.mID_DATA;
+            mm.messageLen = 8;
+
+            UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+            mm.messageData[4] = 0xFF;
+            mm.messageData[5] = 0x7F;
+            mm.messageData[6] = 0xFF;
+            mm.messageData[7] = 0x7F;
+
+            canmsg_t mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!Form1.uniCAN.Send(ref mmsg, 200))
+                return;
+
+            dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
+            mm.messageData[0] = (Byte)dl;
+            mm.messageData[1] = (Byte)(dl >> 8);
+            mm.messageData[2] = (Byte)(dl >> 16);
+            mm.messageData[3] = (Byte)(dl >> 24);
+
+            mm.messageData[4] = (Byte)scene[scene_cnt].azimut;
+            mm.messageData[5] = (Byte)(scene[scene_cnt].azimut >> 8);
+            mm.messageData[6] = (Byte)scene[scene_cnt].ugolmesta;
+            mm.messageData[7] = (Byte)(scene[scene_cnt].ugolmesta >> 8);
+            mmsg = new canmsg_t();
+            mmsg.data = new Byte[8];
+            mmsg = mm.ToCAN(mm);
+            if (!Form1.uniCAN.Send(ref mmsg, 200))
+                return;
+
+
+            scene_cnt++;
+            rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
+            if (scene_cnt == scene.Count)
+            {
+                bt4_scene_stop.PerformClick();
+                return;
+            }
+            if (scene[scene_cnt].time - scene_time > 0)
+            {
+                tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
+            }
+            else
+            {
+                tim4_run_scene.Interval = scene[scene_cnt].time;
+            }
+        }
         #region Тракбары
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
@@ -7997,121 +8112,6 @@ namespace OLO_CAN
         }
         #endregion
 
-        private void bt4_scene_start_Click(object sender, EventArgs e)
-        {
-            tim4_run_scene.Enabled = true;
-            bt4_scene_start.Enabled = false;
-            bt4_scene_stop.Enabled = true;
-            scene_time = 0;
-            flag_enable_scene = true;
-            tim4_run_scene.Interval = scene[0].time;
-            scene_cnt = 0;
-        }
-        private void bt4_scene_stop_Click(object sender, EventArgs e)
-        {
-            tim4_run_scene.Enabled = false;
-            bt4_scene_start.Enabled = true;
-            bt4_scene_stop.Enabled = false;
-            flag_enable_scene = false;
-        }
-        private void bt4_load_scene_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd4 = new OpenFileDialog();
-            ofd4.Title = "Загрузка файла сценария";
-            ofd4.Filter = "Файлы сценария (*.txt; *.scn)|*.txt;*.scn|Все файлы (*.*)|*.*";
-            if (ofd4.ShowDialog() != DialogResult.OK)
-            {
-                bt4_scene_start.Enabled = false;
-                bt4_scene_stop.Enabled = false;
-                return;
-            }
-            FileInfo scfi = new FileInfo(ofd4.FileName);
-            tb4_scene_file.Text = scfi.Name;
-            using (StreamReader sr = new StreamReader(ofd4.FileName))
-            {
-                UInt32 ccc = 0;
-                String rline = "";
-                String[] aline = new String[4];
-                SCENE scline = new SCENE();
-                scene.Clear();
-                while (sr.Peek() >= 0)
-                {
-                    if ((rline = sr.ReadLine()) != "")
-                    {
-                        aline = rline.Split(new char[] { ';' });
-                        scline.time = Convert.ToInt32(aline[0]);
-                        scline.olo = Convert.ToByte(aline[1]);
-                        scline.azimut = Convert.ToInt32(aline[2]);
-                        scline.ugolmesta = Convert.ToInt32(aline[3]);
-                        scene.Add(scline);
-//                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
-                    }
-                }
-            }
-            bt4_scene_start.Enabled = true;
-        }
-        private void tim4_run_scene_Tick(object sender, EventArgs e)
-        {
-            scene_time = scene[scene_cnt].time;
-
-            msg_t mm = new msg_t();
-            if (scene[scene_cnt].olo == 0)
-                mm.deviceID = Const.OLO_Right;
-            else
-                mm.deviceID = Const.OLO_Left;
-
-            mm.messageID = msg_t.mID_DATA;
-            mm.messageLen = 8;
-
-            UInt64 dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
-            mm.messageData[0] = (Byte)dl;
-            mm.messageData[1] = (Byte)(dl >> 8);
-            mm.messageData[2] = (Byte)(dl >> 16);
-            mm.messageData[3] = (Byte)(dl >> 24);
-            mm.messageData[4] = 0xFF;
-            mm.messageData[5] = 0x7F;
-            mm.messageData[6] = 0xFF;
-            mm.messageData[7] = 0x7F;
-
-            canmsg_t mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (!Form1.uniCAN.Send(ref mmsg, 200))
-                return;
-
-            dl = (ConvertToUnixTimestamp(DateTime.Now) * 1000 + (UInt32)DateTime.Now.Millisecond) * 100;
-            mm.messageData[0] = (Byte)dl;
-            mm.messageData[1] = (Byte)(dl >> 8);
-            mm.messageData[2] = (Byte)(dl >> 16);
-            mm.messageData[3] = (Byte)(dl >> 24);
-
-            mm.messageData[4] = (Byte)scene[scene_cnt].azimut;
-            mm.messageData[5] = (Byte)(scene[scene_cnt].azimut >> 8);
-            mm.messageData[6] = (Byte)scene[scene_cnt].ugolmesta;
-            mm.messageData[7] = (Byte)(scene[scene_cnt].ugolmesta >> 8);
-            mmsg = new canmsg_t();
-            mmsg.data = new Byte[8];
-            mmsg = mm.ToCAN(mm);
-            if (!Form1.uniCAN.Send(ref mmsg, 200))
-                return;
-
-
-            scene_cnt++;
-            rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
-            if (scene_cnt == scene.Count)
-            {
-                bt4_scene_stop.PerformClick();
-                return;
-            }
-            if (scene[scene_cnt].time - scene_time > 0)
-            {
-                tim4_run_scene.Interval = scene[scene_cnt].time - scene_time;
-            }
-            else
-            {
-                tim4_run_scene.Interval = scene[scene_cnt].time;
-            }
-        }
     }
 
     public static class RichTextBoxExtensions
