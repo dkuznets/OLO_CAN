@@ -269,7 +269,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>d:\work\utils\backup.exe $(ProjectDir)olo_can.ini  /z /g
-copy $(TargetPath) $(TargetDir)1\$(TargetFileName)</PostBuildEvent>
+rem copy $(TargetPath) $(TargetDir)1\$(TargetFileName)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
