@@ -2673,6 +2673,11 @@ namespace OLO_CAN
                 else
                     scrname += "_CMOS2";
                 image_CMOS.Save(m_strPathToScreens + scrname + ".bmp", ImageFormat.Bmp);
+                //using(var stream = FileStream(m_strPathToScreens + scrname + ".dat", FileMode.Create))
+                //{
+                //    stream.
+                //}
+                File.WriteAllBytes(m_strPathToScreens + scrname + ".dat", image_data);
 
                 //Byte[] idata = new Byte[image_data.Length * 3];
                 //uint num = 0;
