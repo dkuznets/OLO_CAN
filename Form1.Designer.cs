@@ -639,7 +639,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1293, 846);
@@ -669,9 +669,9 @@
             this.tabPage1.Controls.Add(this.gbox_CAN);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1285, 813);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Юстировка ОЛО";
@@ -680,7 +680,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1143, 693);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 75;
@@ -695,7 +695,7 @@
             this.chb0_srfon.Checked = true;
             this.chb0_srfon.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb0_srfon.Location = new System.Drawing.Point(892, 688);
-            this.chb0_srfon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb0_srfon.Margin = new System.Windows.Forms.Padding(4);
             this.chb0_srfon.Name = "chb0_srfon";
             this.chb0_srfon.Size = new System.Drawing.Size(118, 21);
             this.chb0_srfon.TabIndex = 74;
@@ -706,7 +706,7 @@
             // 
             this.cb_shotshow.AutoSize = true;
             this.cb_shotshow.Location = new System.Drawing.Point(1080, 666);
-            this.cb_shotshow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_shotshow.Margin = new System.Windows.Forms.Padding(4);
             this.cb_shotshow.Name = "cb_shotshow";
             this.cb_shotshow.Size = new System.Drawing.Size(178, 21);
             this.cb_shotshow.TabIndex = 73;
@@ -717,7 +717,7 @@
             // 
             this.chb0_screen.AutoSize = true;
             this.chb0_screen.Location = new System.Drawing.Point(892, 666);
-            this.chb0_screen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb0_screen.Margin = new System.Windows.Forms.Padding(4);
             this.chb0_screen.Name = "chb0_screen";
             this.chb0_screen.Size = new System.Drawing.Size(109, 21);
             this.chb0_screen.TabIndex = 72;
@@ -727,7 +727,7 @@
             // bt_SAVESN1
             // 
             this.bt_SAVESN1.Location = new System.Drawing.Point(504, 766);
-            this.bt_SAVESN1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SAVESN1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SAVESN1.Name = "bt_SAVESN1";
             this.bt_SAVESN1.Size = new System.Drawing.Size(71, 28);
             this.bt_SAVESN1.TabIndex = 71;
@@ -738,7 +738,7 @@
             // bt_REQSN1
             // 
             this.bt_REQSN1.Location = new System.Drawing.Point(425, 766);
-            this.bt_REQSN1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_REQSN1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_REQSN1.Name = "bt_REQSN1";
             this.bt_REQSN1.Size = new System.Drawing.Size(71, 28);
             this.bt_REQSN1.TabIndex = 70;
@@ -749,7 +749,7 @@
             // tb_SN1
             // 
             this.tb_SN1.Location = new System.Drawing.Point(340, 767);
-            this.tb_SN1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_SN1.Margin = new System.Windows.Forms.Padding(4);
             this.tb_SN1.Name = "tb_SN1";
             this.tb_SN1.Size = new System.Drawing.Size(76, 23);
             this.tb_SN1.TabIndex = 69;
@@ -761,9 +761,9 @@
             this.gbox_Temperature.Controls.Add(this.lb_T2_val);
             this.gbox_Temperature.Controls.Add(this.lb_T1_val);
             this.gbox_Temperature.Location = new System.Drawing.Point(336, 703);
-            this.gbox_Temperature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Temperature.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_Temperature.Name = "gbox_Temperature";
-            this.gbox_Temperature.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Temperature.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_Temperature.Size = new System.Drawing.Size(239, 50);
             this.gbox_Temperature.TabIndex = 32;
             this.gbox_Temperature.TabStop = false;
@@ -834,9 +834,9 @@
             this.gbox_Cross.Controls.Add(this.num_CX);
             this.gbox_Cross.Controls.Add(this.chb_EnableCross);
             this.gbox_Cross.Location = new System.Drawing.Point(583, 703);
-            this.gbox_Cross.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Cross.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_Cross.Name = "gbox_Cross";
-            this.gbox_Cross.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Cross.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_Cross.Size = new System.Drawing.Size(528, 96);
             this.gbox_Cross.TabIndex = 31;
             this.gbox_Cross.TabStop = false;
@@ -856,7 +856,7 @@
             // 
             this.chb_oldlens.AutoSize = true;
             this.chb_oldlens.Location = new System.Drawing.Point(344, 14);
-            this.chb_oldlens.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_oldlens.Margin = new System.Windows.Forms.Padding(4);
             this.chb_oldlens.Name = "chb_oldlens";
             this.chb_oldlens.Size = new System.Drawing.Size(146, 21);
             this.chb_oldlens.TabIndex = 27;
@@ -867,7 +867,7 @@
             // 
             this.rb_RightW.AutoSize = true;
             this.rb_RightW.Location = new System.Drawing.Point(431, 33);
-            this.rb_RightW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_RightW.Margin = new System.Windows.Forms.Padding(4);
             this.rb_RightW.Name = "rb_RightW";
             this.rb_RightW.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.rb_RightW.Size = new System.Drawing.Size(80, 21);
@@ -881,7 +881,7 @@
             this.rb_LeftW.AutoSize = true;
             this.rb_LeftW.Checked = true;
             this.rb_LeftW.Location = new System.Drawing.Point(344, 33);
-            this.rb_LeftW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_LeftW.Margin = new System.Windows.Forms.Padding(4);
             this.rb_LeftW.Name = "rb_LeftW";
             this.rb_LeftW.Size = new System.Drawing.Size(72, 21);
             this.rb_LeftW.TabIndex = 25;
@@ -893,7 +893,7 @@
             // bt_SaveConf
             // 
             this.bt_SaveConf.Location = new System.Drawing.Point(344, 62);
-            this.bt_SaveConf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SaveConf.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SaveConf.Name = "bt_SaveConf";
             this.bt_SaveConf.Size = new System.Drawing.Size(179, 28);
             this.bt_SaveConf.TabIndex = 24;
@@ -904,7 +904,7 @@
             // chb_CCirkle
             // 
             this.chb_CCirkle.Location = new System.Drawing.Point(251, 65);
-            this.chb_CCirkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_CCirkle.Margin = new System.Windows.Forms.Padding(4);
             this.chb_CCirkle.Name = "chb_CCirkle";
             this.chb_CCirkle.Size = new System.Drawing.Size(67, 25);
             this.chb_CCirkle.TabIndex = 23;
@@ -945,7 +945,7 @@
             // num_CCirkle
             // 
             this.num_CCirkle.Location = new System.Drawing.Point(187, 65);
-            this.num_CCirkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_CCirkle.Margin = new System.Windows.Forms.Padding(4);
             this.num_CCirkle.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -964,7 +964,7 @@
             // num_CAngle
             // 
             this.num_CAngle.Location = new System.Drawing.Point(187, 31);
-            this.num_CAngle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_CAngle.Margin = new System.Windows.Forms.Padding(4);
             this.num_CAngle.Maximum = new decimal(new int[] {
             180,
             0,
@@ -1023,7 +1023,7 @@
             // num_CY
             // 
             this.num_CY.Location = new System.Drawing.Point(29, 65);
-            this.num_CY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_CY.Margin = new System.Windows.Forms.Padding(4);
             this.num_CY.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1042,7 +1042,7 @@
             // num_CX
             // 
             this.num_CX.Location = new System.Drawing.Point(29, 28);
-            this.num_CX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_CX.Margin = new System.Windows.Forms.Padding(4);
             this.num_CX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1062,7 +1062,7 @@
             // 
             this.chb_EnableCross.AutoSize = true;
             this.chb_EnableCross.Location = new System.Drawing.Point(61, 1);
-            this.chb_EnableCross.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_EnableCross.Margin = new System.Windows.Forms.Padding(4);
             this.chb_EnableCross.Name = "chb_EnableCross";
             this.chb_EnableCross.Size = new System.Drawing.Size(18, 17);
             this.chb_EnableCross.TabIndex = 11;
@@ -1072,7 +1072,7 @@
             // bt_About
             // 
             this.bt_About.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About.Name = "bt_About";
             this.bt_About.Size = new System.Drawing.Size(144, 28);
             this.bt_About.TabIndex = 34;
@@ -1083,7 +1083,7 @@
             // bt_Exit
             // 
             this.bt_Exit.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit.Name = "bt_Exit";
             this.bt_Exit.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit.TabIndex = 33;
@@ -1098,9 +1098,9 @@
             this.gbox_Process.Controls.Add(this.chb_PShot);
             this.gbox_Process.Controls.Add(this.chb_PRunVideo);
             this.gbox_Process.Location = new System.Drawing.Point(884, 586);
-            this.gbox_Process.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Process.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_Process.Name = "gbox_Process";
-            this.gbox_Process.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Process.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_Process.Size = new System.Drawing.Size(379, 73);
             this.gbox_Process.TabIndex = 30;
             this.gbox_Process.TabStop = false;
@@ -1109,7 +1109,7 @@
             // 
             this.chb_PHidebadpix.AutoSize = true;
             this.chb_PHidebadpix.Location = new System.Drawing.Point(196, 43);
-            this.chb_PHidebadpix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_PHidebadpix.Margin = new System.Windows.Forms.Padding(4);
             this.chb_PHidebadpix.Name = "chb_PHidebadpix";
             this.chb_PHidebadpix.Size = new System.Drawing.Size(170, 21);
             this.chb_PHidebadpix.TabIndex = 3;
@@ -1120,7 +1120,7 @@
             // 
             this.chb_PFIFO.AutoSize = true;
             this.chb_PFIFO.Location = new System.Drawing.Point(196, 16);
-            this.chb_PFIFO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_PFIFO.Margin = new System.Windows.Forms.Padding(4);
             this.chb_PFIFO.Name = "chb_PFIFO";
             this.chb_PFIFO.Size = new System.Drawing.Size(111, 21);
             this.chb_PFIFO.TabIndex = 2;
@@ -1131,7 +1131,7 @@
             // 
             this.chb_PShot.AutoSize = true;
             this.chb_PShot.Location = new System.Drawing.Point(8, 43);
-            this.chb_PShot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_PShot.Margin = new System.Windows.Forms.Padding(4);
             this.chb_PShot.Name = "chb_PShot";
             this.chb_PShot.Size = new System.Drawing.Size(170, 21);
             this.chb_PShot.TabIndex = 1;
@@ -1142,7 +1142,7 @@
             // 
             this.chb_PRunVideo.AutoSize = true;
             this.chb_PRunVideo.Location = new System.Drawing.Point(8, 16);
-            this.chb_PRunVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_PRunVideo.Margin = new System.Windows.Forms.Padding(4);
             this.chb_PRunVideo.Name = "chb_PRunVideo";
             this.chb_PRunVideo.Size = new System.Drawing.Size(146, 21);
             this.chb_PRunVideo.TabIndex = 0;
@@ -1155,7 +1155,7 @@
             // 
             this.rb_CMOS2.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_CMOS2.Location = new System.Drawing.Point(1077, 11);
-            this.rb_CMOS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_CMOS2.Margin = new System.Windows.Forms.Padding(4);
             this.rb_CMOS2.Name = "rb_CMOS2";
             this.rb_CMOS2.Size = new System.Drawing.Size(185, 30);
             this.rb_CMOS2.TabIndex = 29;
@@ -1169,7 +1169,7 @@
             this.rb_CMOS1.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_CMOS1.Checked = true;
             this.rb_CMOS1.Location = new System.Drawing.Point(884, 11);
-            this.rb_CMOS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_CMOS1.Margin = new System.Windows.Forms.Padding(4);
             this.rb_CMOS1.Name = "rb_CMOS1";
             this.rb_CMOS1.Size = new System.Drawing.Size(185, 30);
             this.rb_CMOS1.TabIndex = 28;
@@ -1197,9 +1197,9 @@
             this.gbox_Passports.Controls.Add(this.lb_num_points_in_pass);
             this.gbox_Passports.Controls.Add(this.listb_Passport);
             this.gbox_Passports.Location = new System.Drawing.Point(884, 151);
-            this.gbox_Passports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Passports.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_Passports.Name = "gbox_Passports";
-            this.gbox_Passports.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Passports.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_Passports.Size = new System.Drawing.Size(379, 427);
             this.gbox_Passports.TabIndex = 27;
             this.gbox_Passports.TabStop = false;
@@ -1208,7 +1208,7 @@
             // chb_Calibr
             // 
             this.chb_Calibr.Location = new System.Drawing.Point(232, 356);
-            this.chb_Calibr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_Calibr.Margin = new System.Windows.Forms.Padding(4);
             this.chb_Calibr.Name = "chb_Calibr";
             this.chb_Calibr.Size = new System.Drawing.Size(137, 28);
             this.chb_Calibr.TabIndex = 14;
@@ -1241,7 +1241,7 @@
             // num_BadPixLimit
             // 
             this.num_BadPixLimit.Location = new System.Drawing.Point(232, 320);
-            this.num_BadPixLimit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_BadPixLimit.Margin = new System.Windows.Forms.Padding(4);
             this.num_BadPixLimit.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1260,7 +1260,7 @@
             // bt_sort_badpix
             // 
             this.bt_sort_badpix.Location = new System.Drawing.Point(232, 249);
-            this.bt_sort_badpix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_sort_badpix.Margin = new System.Windows.Forms.Padding(4);
             this.bt_sort_badpix.Name = "bt_sort_badpix";
             this.bt_sort_badpix.Size = new System.Drawing.Size(137, 28);
             this.bt_sort_badpix.TabIndex = 10;
@@ -1271,7 +1271,7 @@
             // bt_clear_badpix
             // 
             this.bt_clear_badpix.Location = new System.Drawing.Point(232, 214);
-            this.bt_clear_badpix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_clear_badpix.Margin = new System.Windows.Forms.Padding(4);
             this.bt_clear_badpix.Name = "bt_clear_badpix";
             this.bt_clear_badpix.Size = new System.Drawing.Size(137, 28);
             this.bt_clear_badpix.TabIndex = 9;
@@ -1284,7 +1284,7 @@
             this.listb_badpix.FormattingEnabled = true;
             this.listb_badpix.ItemHeight = 17;
             this.listb_badpix.Location = new System.Drawing.Point(232, 23);
-            this.listb_badpix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listb_badpix.Margin = new System.Windows.Forms.Padding(4);
             this.listb_badpix.Name = "listb_badpix";
             this.listb_badpix.Size = new System.Drawing.Size(136, 174);
             this.listb_badpix.TabIndex = 7;
@@ -1292,7 +1292,7 @@
             // bt_DnLoadConf
             // 
             this.bt_DnLoadConf.Location = new System.Drawing.Point(8, 391);
-            this.bt_DnLoadConf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_DnLoadConf.Margin = new System.Windows.Forms.Padding(4);
             this.bt_DnLoadConf.Name = "bt_DnLoadConf";
             this.bt_DnLoadConf.Size = new System.Drawing.Size(216, 28);
             this.bt_DnLoadConf.TabIndex = 6;
@@ -1303,7 +1303,7 @@
             // bt_UpLoadConf
             // 
             this.bt_UpLoadConf.Location = new System.Drawing.Point(8, 356);
-            this.bt_UpLoadConf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_UpLoadConf.Margin = new System.Windows.Forms.Padding(4);
             this.bt_UpLoadConf.Name = "bt_UpLoadConf";
             this.bt_UpLoadConf.Size = new System.Drawing.Size(216, 28);
             this.bt_UpLoadConf.TabIndex = 5;
@@ -1314,7 +1314,7 @@
             // bt_DnLoadPass
             // 
             this.bt_DnLoadPass.Location = new System.Drawing.Point(8, 320);
-            this.bt_DnLoadPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_DnLoadPass.Margin = new System.Windows.Forms.Padding(4);
             this.bt_DnLoadPass.Name = "bt_DnLoadPass";
             this.bt_DnLoadPass.Size = new System.Drawing.Size(216, 28);
             this.bt_DnLoadPass.TabIndex = 4;
@@ -1325,7 +1325,7 @@
             // bt_UpLoadPass
             // 
             this.bt_UpLoadPass.Location = new System.Drawing.Point(8, 284);
-            this.bt_UpLoadPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_UpLoadPass.Margin = new System.Windows.Forms.Padding(4);
             this.bt_UpLoadPass.Name = "bt_UpLoadPass";
             this.bt_UpLoadPass.Size = new System.Drawing.Size(216, 28);
             this.bt_UpLoadPass.TabIndex = 3;
@@ -1336,7 +1336,7 @@
             // bt_SavePass
             // 
             this.bt_SavePass.Location = new System.Drawing.Point(8, 249);
-            this.bt_SavePass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SavePass.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SavePass.Name = "bt_SavePass";
             this.bt_SavePass.Size = new System.Drawing.Size(216, 28);
             this.bt_SavePass.TabIndex = 2;
@@ -1358,7 +1358,7 @@
             this.listb_Passport.FormattingEnabled = true;
             this.listb_Passport.ItemHeight = 17;
             this.listb_Passport.Location = new System.Drawing.Point(8, 23);
-            this.listb_Passport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listb_Passport.Margin = new System.Windows.Forms.Padding(4);
             this.listb_Passport.Name = "listb_Passport";
             this.listb_Passport.Size = new System.Drawing.Size(215, 174);
             this.listb_Passport.TabIndex = 0;
@@ -1378,9 +1378,9 @@
             this.gbox_CMOS2.Controls.Add(this.CMOS2SetDAC1);
             this.gbox_CMOS2.Enabled = false;
             this.gbox_CMOS2.Location = new System.Drawing.Point(1077, 34);
-            this.gbox_CMOS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CMOS2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CMOS2.Name = "gbox_CMOS2";
-            this.gbox_CMOS2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CMOS2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CMOS2.Size = new System.Drawing.Size(185, 110);
             this.gbox_CMOS2.TabIndex = 26;
             this.gbox_CMOS2.TabStop = false;
@@ -1391,7 +1391,7 @@
             this.cb_CMOS2Enable.Checked = true;
             this.cb_CMOS2Enable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_CMOS2Enable.Location = new System.Drawing.Point(8, 79);
-            this.cb_CMOS2Enable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CMOS2Enable.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CMOS2Enable.Name = "cb_CMOS2Enable";
             this.cb_CMOS2Enable.Size = new System.Drawing.Size(167, 21);
             this.cb_CMOS2Enable.TabIndex = 7;
@@ -1402,7 +1402,7 @@
             // tb_VINB2
             // 
             this.tb_VINB2.Location = new System.Drawing.Point(8, 48);
-            this.tb_VINB2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_VINB2.Margin = new System.Windows.Forms.Padding(4);
             this.tb_VINB2.Name = "tb_VINB2";
             this.tb_VINB2.Size = new System.Drawing.Size(47, 23);
             this.tb_VINB2.TabIndex = 5;
@@ -1421,7 +1421,7 @@
             // CMOS2SetDAC2
             // 
             this.CMOS2SetDAC2.Location = new System.Drawing.Point(108, 46);
-            this.CMOS2SetDAC2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMOS2SetDAC2.Margin = new System.Windows.Forms.Padding(4);
             this.CMOS2SetDAC2.Name = "CMOS2SetDAC2";
             this.CMOS2SetDAC2.Size = new System.Drawing.Size(68, 28);
             this.CMOS2SetDAC2.TabIndex = 3;
@@ -1432,7 +1432,7 @@
             // tb_VREF2
             // 
             this.tb_VREF2.Location = new System.Drawing.Point(8, 16);
-            this.tb_VREF2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_VREF2.Margin = new System.Windows.Forms.Padding(4);
             this.tb_VREF2.Name = "tb_VREF2";
             this.tb_VREF2.Size = new System.Drawing.Size(47, 23);
             this.tb_VREF2.TabIndex = 2;
@@ -1451,7 +1451,7 @@
             // CMOS2SetDAC1
             // 
             this.CMOS2SetDAC1.Location = new System.Drawing.Point(108, 14);
-            this.CMOS2SetDAC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMOS2SetDAC1.Margin = new System.Windows.Forms.Padding(4);
             this.CMOS2SetDAC1.Name = "CMOS2SetDAC1";
             this.CMOS2SetDAC1.Size = new System.Drawing.Size(68, 28);
             this.CMOS2SetDAC1.TabIndex = 0;
@@ -1470,9 +1470,9 @@
             this.gbox_CMOS1.Controls.Add(this.label1);
             this.gbox_CMOS1.Controls.Add(this.bt_CMOS1SetDAC1);
             this.gbox_CMOS1.Location = new System.Drawing.Point(884, 34);
-            this.gbox_CMOS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CMOS1.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CMOS1.Name = "gbox_CMOS1";
-            this.gbox_CMOS1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CMOS1.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CMOS1.Size = new System.Drawing.Size(185, 110);
             this.gbox_CMOS1.TabIndex = 25;
             this.gbox_CMOS1.TabStop = false;
@@ -1483,7 +1483,7 @@
             this.cb_CMOS1Enable.Checked = true;
             this.cb_CMOS1Enable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_CMOS1Enable.Location = new System.Drawing.Point(8, 79);
-            this.cb_CMOS1Enable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CMOS1Enable.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CMOS1Enable.Name = "cb_CMOS1Enable";
             this.cb_CMOS1Enable.Size = new System.Drawing.Size(167, 21);
             this.cb_CMOS1Enable.TabIndex = 6;
@@ -1494,7 +1494,7 @@
             // tb_VINB1
             // 
             this.tb_VINB1.Location = new System.Drawing.Point(8, 48);
-            this.tb_VINB1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_VINB1.Margin = new System.Windows.Forms.Padding(4);
             this.tb_VINB1.Name = "tb_VINB1";
             this.tb_VINB1.Size = new System.Drawing.Size(47, 23);
             this.tb_VINB1.TabIndex = 5;
@@ -1513,7 +1513,7 @@
             // CMOS1SetDAC2
             // 
             this.CMOS1SetDAC2.Location = new System.Drawing.Point(108, 46);
-            this.CMOS1SetDAC2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CMOS1SetDAC2.Margin = new System.Windows.Forms.Padding(4);
             this.CMOS1SetDAC2.Name = "CMOS1SetDAC2";
             this.CMOS1SetDAC2.Size = new System.Drawing.Size(68, 28);
             this.CMOS1SetDAC2.TabIndex = 3;
@@ -1524,7 +1524,7 @@
             // tb_VREF1
             // 
             this.tb_VREF1.Location = new System.Drawing.Point(8, 16);
-            this.tb_VREF1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_VREF1.Margin = new System.Windows.Forms.Padding(4);
             this.tb_VREF1.Name = "tb_VREF1";
             this.tb_VREF1.Size = new System.Drawing.Size(47, 23);
             this.tb_VREF1.TabIndex = 2;
@@ -1543,7 +1543,7 @@
             // bt_CMOS1SetDAC1
             // 
             this.bt_CMOS1SetDAC1.Location = new System.Drawing.Point(108, 14);
-            this.bt_CMOS1SetDAC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CMOS1SetDAC1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CMOS1SetDAC1.Name = "bt_CMOS1SetDAC1";
             this.bt_CMOS1SetDAC1.Size = new System.Drawing.Size(68, 28);
             this.bt_CMOS1SetDAC1.TabIndex = 0;
@@ -1557,9 +1557,9 @@
             this.gbox_Image.Controls.Add(this.pb_CMOS);
             this.gbox_Image.Controls.Add(this.pictureBox1);
             this.gbox_Image.Location = new System.Drawing.Point(8, 11);
-            this.gbox_Image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Image.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_Image.Name = "gbox_Image";
-            this.gbox_Image.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_Image.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_Image.Size = new System.Drawing.Size(868, 684);
             this.gbox_Image.TabIndex = 16;
             this.gbox_Image.TabStop = false;
@@ -1578,7 +1578,7 @@
             // pb_CMOS
             // 
             this.pb_CMOS.Location = new System.Drawing.Point(8, 655);
-            this.pb_CMOS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_CMOS.Margin = new System.Windows.Forms.Padding(4);
             this.pb_CMOS.Name = "pb_CMOS";
             this.pb_CMOS.Size = new System.Drawing.Size(851, 21);
             this.pb_CMOS.TabIndex = 7;
@@ -1587,7 +1587,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(8, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(638, 510);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -1606,9 +1606,9 @@
             this.gbox_CAN.Controls.Add(this.bt_CloseCAN);
             this.gbox_CAN.Controls.Add(this.bt_OpenCAN);
             this.gbox_CAN.Location = new System.Drawing.Point(8, 703);
-            this.gbox_CAN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN.Name = "gbox_CAN";
-            this.gbox_CAN.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN.Size = new System.Drawing.Size(320, 96);
             this.gbox_CAN.TabIndex = 15;
             this.gbox_CAN.TabStop = false;
@@ -1631,7 +1631,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(8, 25);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(123, 25);
             this.comboBox1.TabIndex = 29;
@@ -1665,7 +1665,7 @@
             // 
             this.bt_CloseCAN.Enabled = false;
             this.bt_CloseCAN.Location = new System.Drawing.Point(228, 23);
-            this.bt_CloseCAN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN.Name = "bt_CloseCAN";
             this.bt_CloseCAN.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN.TabIndex = 2;
@@ -1676,7 +1676,7 @@
             // bt_OpenCAN
             // 
             this.bt_OpenCAN.Location = new System.Drawing.Point(140, 23);
-            this.bt_OpenCAN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN.Name = "bt_OpenCAN";
             this.bt_OpenCAN.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN.TabIndex = 0;
@@ -1694,9 +1694,9 @@
             this.tabPage2.Controls.Add(this.gb_MC1);
             this.tabPage2.Controls.Add(this.gb_CAN1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1285, 813);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Загрузка ПО";
@@ -1705,7 +1705,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(756, 23);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
             this.button6.TabIndex = 39;
@@ -1717,7 +1717,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(647, 23);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 28);
             this.button5.TabIndex = 38;
@@ -1732,9 +1732,9 @@
             this.gb1_Addr.Controls.Add(this.rb1_addr_left);
             this.gb1_Addr.Controls.Add(this.rb1_addr_uni);
             this.gb1_Addr.Location = new System.Drawing.Point(8, 86);
-            this.gb1_Addr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb1_Addr.Margin = new System.Windows.Forms.Padding(4);
             this.gb1_Addr.Name = "gb1_Addr";
-            this.gb1_Addr.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb1_Addr.Padding = new System.Windows.Forms.Padding(4);
             this.gb1_Addr.Size = new System.Drawing.Size(617, 60);
             this.gb1_Addr.TabIndex = 37;
             this.gb1_Addr.TabStop = false;
@@ -1745,7 +1745,7 @@
             this.rb1_addr_right.AutoSize = true;
             this.rb1_addr_right.Enabled = false;
             this.rb1_addr_right.Location = new System.Drawing.Point(356, 23);
-            this.rb1_addr_right.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb1_addr_right.Margin = new System.Windows.Forms.Padding(4);
             this.rb1_addr_right.Name = "rb1_addr_right";
             this.rb1_addr_right.Size = new System.Drawing.Size(188, 21);
             this.rb1_addr_right.TabIndex = 2;
@@ -1757,7 +1757,7 @@
             this.rb1_addr_left.AutoSize = true;
             this.rb1_addr_left.Enabled = false;
             this.rb1_addr_left.Location = new System.Drawing.Point(160, 25);
-            this.rb1_addr_left.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb1_addr_left.Margin = new System.Windows.Forms.Padding(4);
             this.rb1_addr_left.Name = "rb1_addr_left";
             this.rb1_addr_left.Size = new System.Drawing.Size(180, 21);
             this.rb1_addr_left.TabIndex = 1;
@@ -1769,7 +1769,7 @@
             this.rb1_addr_uni.AutoSize = true;
             this.rb1_addr_uni.Checked = true;
             this.rb1_addr_uni.Location = new System.Drawing.Point(12, 25);
-            this.rb1_addr_uni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb1_addr_uni.Margin = new System.Windows.Forms.Padding(4);
             this.rb1_addr_uni.Name = "rb1_addr_uni";
             this.rb1_addr_uni.Size = new System.Drawing.Size(131, 21);
             this.rb1_addr_uni.TabIndex = 0;
@@ -1780,7 +1780,7 @@
             // bt_About1
             // 
             this.bt_About1.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About1.Name = "bt_About1";
             this.bt_About1.Size = new System.Drawing.Size(144, 28);
             this.bt_About1.TabIndex = 36;
@@ -1791,7 +1791,7 @@
             // bt_Exit1
             // 
             this.bt_Exit1.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit1.Name = "bt_Exit1";
             this.bt_Exit1.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit1.TabIndex = 35;
@@ -1821,9 +1821,9 @@
             this.gb_MC1.Controls.Add(this.bt_loadMC1);
             this.gb_MC1.Controls.Add(this.bt_openMC1);
             this.gb_MC1.Location = new System.Drawing.Point(8, 161);
-            this.gb_MC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_MC1.Margin = new System.Windows.Forms.Padding(4);
             this.gb_MC1.Name = "gb_MC1";
-            this.gb_MC1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_MC1.Padding = new System.Windows.Forms.Padding(4);
             this.gb_MC1.Size = new System.Drawing.Size(617, 631);
             this.gb_MC1.TabIndex = 7;
             this.gb_MC1.TabStop = false;
@@ -1833,7 +1833,7 @@
             // 
             this.rb_flight_universal.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_flight_universal.Location = new System.Drawing.Point(12, 335);
-            this.rb_flight_universal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_flight_universal.Margin = new System.Windows.Forms.Padding(4);
             this.rb_flight_universal.Name = "rb_flight_universal";
             this.rb_flight_universal.Size = new System.Drawing.Size(592, 21);
             this.rb_flight_universal.TabIndex = 39;
@@ -1845,7 +1845,7 @@
             // 
             this.rb_new_RUP.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_new_RUP.Location = new System.Drawing.Point(12, 206);
-            this.rb_new_RUP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_new_RUP.Margin = new System.Windows.Forms.Padding(4);
             this.rb_new_RUP.Name = "rb_new_RUP";
             this.rb_new_RUP.Size = new System.Drawing.Size(592, 21);
             this.rb_new_RUP.TabIndex = 38;
@@ -1857,7 +1857,7 @@
             // 
             this.rb_cmos12_select2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_cmos12_select2.Location = new System.Drawing.Point(12, 177);
-            this.rb_cmos12_select2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_cmos12_select2.Margin = new System.Windows.Forms.Padding(4);
             this.rb_cmos12_select2.Name = "rb_cmos12_select2";
             this.rb_cmos12_select2.Size = new System.Drawing.Size(592, 21);
             this.rb_cmos12_select2.TabIndex = 37;
@@ -1869,7 +1869,7 @@
             // 
             this.rb_cmos12_select_long_time2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_cmos12_select_long_time2.Location = new System.Drawing.Point(12, 149);
-            this.rb_cmos12_select_long_time2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_cmos12_select_long_time2.Margin = new System.Windows.Forms.Padding(4);
             this.rb_cmos12_select_long_time2.Name = "rb_cmos12_select_long_time2";
             this.rb_cmos12_select_long_time2.Size = new System.Drawing.Size(592, 21);
             this.rb_cmos12_select_long_time2.TabIndex = 36;
@@ -1881,7 +1881,7 @@
             // 
             this.chb1_need_reset.AutoSize = true;
             this.chb1_need_reset.Location = new System.Drawing.Point(151, 592);
-            this.chb1_need_reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb1_need_reset.Margin = new System.Windows.Forms.Padding(4);
             this.chb1_need_reset.Name = "chb1_need_reset";
             this.chb1_need_reset.Size = new System.Drawing.Size(70, 21);
             this.chb1_need_reset.TabIndex = 35;
@@ -1893,7 +1893,7 @@
             this.rb_file_open.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rb_file_open.Checked = true;
             this.rb_file_open.Location = new System.Drawing.Point(581, 28);
-            this.rb_file_open.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_file_open.Margin = new System.Windows.Forms.Padding(4);
             this.rb_file_open.Name = "rb_file_open";
             this.rb_file_open.Size = new System.Drawing.Size(23, 21);
             this.rb_file_open.TabIndex = 31;
@@ -1927,7 +1927,7 @@
             // 
             this.rb_flight_right_wing_double_pass.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_flight_right_wing_double_pass.Location = new System.Drawing.Point(12, 306);
-            this.rb_flight_right_wing_double_pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_flight_right_wing_double_pass.Margin = new System.Windows.Forms.Padding(4);
             this.rb_flight_right_wing_double_pass.Name = "rb_flight_right_wing_double_pass";
             this.rb_flight_right_wing_double_pass.Size = new System.Drawing.Size(592, 21);
             this.rb_flight_right_wing_double_pass.TabIndex = 28;
@@ -1939,7 +1939,7 @@
             // 
             this.rb_flight_left_wing_double_pass.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_flight_left_wing_double_pass.Location = new System.Drawing.Point(12, 278);
-            this.rb_flight_left_wing_double_pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_flight_left_wing_double_pass.Margin = new System.Windows.Forms.Padding(4);
             this.rb_flight_left_wing_double_pass.Name = "rb_flight_left_wing_double_pass";
             this.rb_flight_left_wing_double_pass.Size = new System.Drawing.Size(592, 21);
             this.rb_flight_left_wing_double_pass.TabIndex = 27;
@@ -1951,7 +1951,7 @@
             // 
             this.rb_cmos12_select.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_cmos12_select.Location = new System.Drawing.Point(12, 121);
-            this.rb_cmos12_select.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_cmos12_select.Margin = new System.Windows.Forms.Padding(4);
             this.rb_cmos12_select.Name = "rb_cmos12_select";
             this.rb_cmos12_select.Size = new System.Drawing.Size(592, 21);
             this.rb_cmos12_select.TabIndex = 26;
@@ -1963,7 +1963,7 @@
             // 
             this.rb_cmos12_select_long_time.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rb_cmos12_select_long_time.Location = new System.Drawing.Point(12, 92);
-            this.rb_cmos12_select_long_time.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_cmos12_select_long_time.Margin = new System.Windows.Forms.Padding(4);
             this.rb_cmos12_select_long_time.Name = "rb_cmos12_select_long_time";
             this.rb_cmos12_select_long_time.Size = new System.Drawing.Size(592, 21);
             this.rb_cmos12_select_long_time.TabIndex = 25;
@@ -1974,7 +1974,7 @@
             // tb_fnameMC1
             // 
             this.tb_fnameMC1.Location = new System.Drawing.Point(151, 27);
-            this.tb_fnameMC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_fnameMC1.Margin = new System.Windows.Forms.Padding(4);
             this.tb_fnameMC1.Name = "tb_fnameMC1";
             this.tb_fnameMC1.Size = new System.Drawing.Size(421, 22);
             this.tb_fnameMC1.TabIndex = 24;
@@ -1982,7 +1982,7 @@
             // pb_loadMC1
             // 
             this.pb_loadMC1.Location = new System.Drawing.Point(151, 548);
-            this.pb_loadMC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_loadMC1.Margin = new System.Windows.Forms.Padding(4);
             this.pb_loadMC1.Name = "pb_loadMC1";
             this.pb_loadMC1.Size = new System.Drawing.Size(449, 26);
             this.pb_loadMC1.Step = 1;
@@ -1994,7 +1994,7 @@
             this.chb_eraseALL1.AutoSize = true;
             this.chb_eraseALL1.Enabled = false;
             this.chb_eraseALL1.Location = new System.Drawing.Point(8, 592);
-            this.chb_eraseALL1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_eraseALL1.Margin = new System.Windows.Forms.Padding(4);
             this.chb_eraseALL1.Name = "chb_eraseALL1";
             this.chb_eraseALL1.Size = new System.Drawing.Size(132, 21);
             this.chb_eraseALL1.TabIndex = 14;
@@ -2004,7 +2004,7 @@
             // bt_runMC1
             // 
             this.bt_runMC1.Location = new System.Drawing.Point(373, 587);
-            this.bt_runMC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_runMC1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_runMC1.Name = "bt_runMC1";
             this.bt_runMC1.Size = new System.Drawing.Size(227, 28);
             this.bt_runMC1.TabIndex = 11;
@@ -2028,7 +2028,7 @@
             // 
             this.bt_loadMC1.Enabled = false;
             this.bt_loadMC1.Location = new System.Drawing.Point(8, 546);
-            this.bt_loadMC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_loadMC1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_loadMC1.Name = "bt_loadMC1";
             this.bt_loadMC1.Size = new System.Drawing.Size(135, 28);
             this.bt_loadMC1.TabIndex = 2;
@@ -2039,7 +2039,7 @@
             // bt_openMC1
             // 
             this.bt_openMC1.Location = new System.Drawing.Point(8, 25);
-            this.bt_openMC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_openMC1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_openMC1.Name = "bt_openMC1";
             this.bt_openMC1.Size = new System.Drawing.Size(135, 28);
             this.bt_openMC1.TabIndex = 0;
@@ -2053,9 +2053,9 @@
             this.gb_CAN1.Controls.Add(this.lb_error_CAN1);
             this.gb_CAN1.Controls.Add(this.cb_CAN1);
             this.gb_CAN1.Location = new System.Drawing.Point(8, 11);
-            this.gb_CAN1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_CAN1.Margin = new System.Windows.Forms.Padding(4);
             this.gb_CAN1.Name = "gb_CAN1";
-            this.gb_CAN1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_CAN1.Padding = new System.Windows.Forms.Padding(4);
             this.gb_CAN1.Size = new System.Drawing.Size(617, 62);
             this.gb_CAN1.TabIndex = 6;
             this.gb_CAN1.TabStop = false;
@@ -2092,7 +2092,7 @@
             // 
             this.cb_CAN1.FormattingEnabled = true;
             this.cb_CAN1.Location = new System.Drawing.Point(8, 23);
-            this.cb_CAN1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN1.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN1.Name = "cb_CAN1";
             this.cb_CAN1.Size = new System.Drawing.Size(183, 24);
             this.cb_CAN1.TabIndex = 3;
@@ -2135,7 +2135,7 @@
             this.tabPage3.Controls.Add(this.bt_Exit2);
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1285, 813);
             this.tabPage3.TabIndex = 2;
@@ -2146,7 +2146,7 @@
             // 
             this.rb2_piv11.AutoSize = true;
             this.rb2_piv11.Location = new System.Drawing.Point(923, 487);
-            this.rb2_piv11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb2_piv11.Margin = new System.Windows.Forms.Padding(4);
             this.rb2_piv11.Name = "rb2_piv11";
             this.rb2_piv11.Size = new System.Drawing.Size(82, 21);
             this.rb2_piv11.TabIndex = 81;
@@ -2158,7 +2158,7 @@
             this.rb2_piv10.AutoSize = true;
             this.rb2_piv10.Checked = true;
             this.rb2_piv10.Location = new System.Drawing.Point(827, 487);
-            this.rb2_piv10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb2_piv10.Margin = new System.Windows.Forms.Padding(4);
             this.rb2_piv10.Name = "rb2_piv10";
             this.rb2_piv10.Size = new System.Drawing.Size(82, 21);
             this.rb2_piv10.TabIndex = 80;
@@ -2173,9 +2173,9 @@
             this.groupBox1.Controls.Add(this.rb2_filter_7fff);
             this.groupBox1.Controls.Add(this.rb2_filter_data);
             this.groupBox1.Location = new System.Drawing.Point(827, 594);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(169, 116);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
@@ -2186,7 +2186,7 @@
             this.rb2_filter_all.AutoSize = true;
             this.rb2_filter_all.Checked = true;
             this.rb2_filter_all.Location = new System.Drawing.Point(9, 23);
-            this.rb2_filter_all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb2_filter_all.Margin = new System.Windows.Forms.Padding(4);
             this.rb2_filter_all.Name = "rb2_filter_all";
             this.rb2_filter_all.Size = new System.Drawing.Size(119, 21);
             this.rb2_filter_all.TabIndex = 76;
@@ -2198,7 +2198,7 @@
             // 
             this.rb2_filter_7fff.AutoSize = true;
             this.rb2_filter_7fff.Location = new System.Drawing.Point(8, 79);
-            this.rb2_filter_7fff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb2_filter_7fff.Margin = new System.Windows.Forms.Padding(4);
             this.rb2_filter_7fff.Name = "rb2_filter_7fff";
             this.rb2_filter_7fff.Size = new System.Drawing.Size(126, 21);
             this.rb2_filter_7fff.TabIndex = 78;
@@ -2209,7 +2209,7 @@
             // 
             this.rb2_filter_data.AutoSize = true;
             this.rb2_filter_data.Location = new System.Drawing.Point(9, 50);
-            this.rb2_filter_data.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb2_filter_data.Margin = new System.Windows.Forms.Padding(4);
             this.rb2_filter_data.Name = "rb2_filter_data";
             this.rb2_filter_data.Size = new System.Drawing.Size(130, 21);
             this.rb2_filter_data.TabIndex = 77;
@@ -2220,7 +2220,7 @@
             // 
             this.rtb2_datagrid.DetectUrls = false;
             this.rtb2_datagrid.Location = new System.Drawing.Point(8, 302);
-            this.rtb2_datagrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtb2_datagrid.Margin = new System.Windows.Forms.Padding(4);
             this.rtb2_datagrid.Name = "rtb2_datagrid";
             this.rtb2_datagrid.Size = new System.Drawing.Size(808, 490);
             this.rtb2_datagrid.TabIndex = 75;
@@ -2232,7 +2232,7 @@
             this.cb_clear_shot.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_clear_shot.AutoSize = true;
             this.cb_clear_shot.Location = new System.Drawing.Point(956, 559);
-            this.cb_clear_shot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_clear_shot.Margin = new System.Windows.Forms.Padding(4);
             this.cb_clear_shot.Name = "cb_clear_shot";
             this.cb_clear_shot.Size = new System.Drawing.Size(141, 27);
             this.cb_clear_shot.TabIndex = 74;
@@ -2266,9 +2266,9 @@
             this.gb_stR2.Controls.Add(this.label54);
             this.gb_stR2.Enabled = false;
             this.gb_stR2.Location = new System.Drawing.Point(1055, 409);
-            this.gb_stR2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_stR2.Margin = new System.Windows.Forms.Padding(4);
             this.gb_stR2.Name = "gb_stR2";
-            this.gb_stR2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_stR2.Padding = new System.Windows.Forms.Padding(4);
             this.gb_stR2.Size = new System.Drawing.Size(217, 71);
             this.gb_stR2.TabIndex = 71;
             this.gb_stR2.TabStop = false;
@@ -2323,9 +2323,9 @@
             this.gb_stL2.Controls.Add(this.label40);
             this.gb_stL2.Enabled = false;
             this.gb_stL2.Location = new System.Drawing.Point(827, 409);
-            this.gb_stL2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_stL2.Margin = new System.Windows.Forms.Padding(4);
             this.gb_stL2.Name = "gb_stL2";
-            this.gb_stL2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_stL2.Padding = new System.Windows.Forms.Padding(4);
             this.gb_stL2.Size = new System.Drawing.Size(217, 71);
             this.gb_stL2.TabIndex = 70;
             this.gb_stL2.TabStop = false;
@@ -2374,7 +2374,7 @@
             // btn_SAVESN
             // 
             this.btn_SAVESN.Location = new System.Drawing.Point(144, 230);
-            this.btn_SAVESN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_SAVESN.Margin = new System.Windows.Forms.Padding(4);
             this.btn_SAVESN.Name = "btn_SAVESN";
             this.btn_SAVESN.Size = new System.Drawing.Size(116, 28);
             this.btn_SAVESN.TabIndex = 69;
@@ -2386,7 +2386,7 @@
             // tb_SN
             // 
             this.tb_SN.Location = new System.Drawing.Point(183, 197);
-            this.tb_SN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_SN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_SN.Name = "tb_SN";
             this.tb_SN.Size = new System.Drawing.Size(76, 22);
             this.tb_SN.TabIndex = 68;
@@ -2409,9 +2409,9 @@
             this.gbox_ecR2.Controls.Add(this.label59);
             this.gbox_ecR2.Enabled = false;
             this.gbox_ecR2.Location = new System.Drawing.Point(1055, 230);
-            this.gbox_ecR2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_ecR2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_ecR2.Name = "gbox_ecR2";
-            this.gbox_ecR2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_ecR2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_ecR2.Size = new System.Drawing.Size(217, 171);
             this.gbox_ecR2.TabIndex = 67;
             this.gbox_ecR2.TabStop = false;
@@ -2554,9 +2554,9 @@
             this.gbox_ecL2.Controls.Add(this.label75);
             this.gbox_ecL2.Enabled = false;
             this.gbox_ecL2.Location = new System.Drawing.Point(827, 230);
-            this.gbox_ecL2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_ecL2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_ecL2.Name = "gbox_ecL2";
-            this.gbox_ecL2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_ecL2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_ecL2.Size = new System.Drawing.Size(217, 171);
             this.gbox_ecL2.TabIndex = 66;
             this.gbox_ecL2.TabStop = false;
@@ -2702,9 +2702,9 @@
             this.gbox_statusR2.Controls.Add(this.lb_statusR_mode2);
             this.gbox_statusR2.Controls.Add(this.label53);
             this.gbox_statusR2.Location = new System.Drawing.Point(1055, 11);
-            this.gbox_statusR2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_statusR2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_statusR2.Name = "gbox_statusR2";
-            this.gbox_statusR2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_statusR2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_statusR2.Size = new System.Drawing.Size(217, 214);
             this.gbox_statusR2.TabIndex = 65;
             this.gbox_statusR2.TabStop = false;
@@ -2890,9 +2890,9 @@
             this.gbox_statusL2.Controls.Add(this.lb_statusL_mode2);
             this.gbox_statusL2.Controls.Add(this.label28);
             this.gbox_statusL2.Location = new System.Drawing.Point(827, 11);
-            this.gbox_statusL2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_statusL2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_statusL2.Name = "gbox_statusL2";
-            this.gbox_statusL2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_statusL2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_statusL2.Size = new System.Drawing.Size(217, 214);
             this.gbox_statusL2.TabIndex = 64;
             this.gbox_statusL2.TabStop = false;
@@ -3067,7 +3067,7 @@
             "Встроенный контроль",
             "Режим программирования"});
             this.cb_module2.Location = new System.Drawing.Point(956, 524);
-            this.cb_module2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_module2.Margin = new System.Windows.Forms.Padding(4);
             this.cb_module2.Name = "cb_module2";
             this.cb_module2.Size = new System.Drawing.Size(209, 24);
             this.cb_module2.TabIndex = 63;
@@ -3076,7 +3076,7 @@
             // bt_mod2
             // 
             this.bt_mod2.Location = new System.Drawing.Point(827, 523);
-            this.bt_mod2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_mod2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_mod2.Name = "bt_mod2";
             this.bt_mod2.Size = new System.Drawing.Size(121, 28);
             this.bt_mod2.TabIndex = 62;
@@ -3088,7 +3088,7 @@
             // REQ_VER
             // 
             this.REQ_VER.Location = new System.Drawing.Point(1177, 522);
-            this.REQ_VER.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.REQ_VER.Margin = new System.Windows.Forms.Padding(4);
             this.REQ_VER.Name = "REQ_VER";
             this.REQ_VER.Size = new System.Drawing.Size(95, 28);
             this.REQ_VER.TabIndex = 61;
@@ -3101,7 +3101,7 @@
             // 
             this.chb3_savelog.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb3_savelog.Location = new System.Drawing.Point(825, 559);
-            this.chb3_savelog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb3_savelog.Margin = new System.Windows.Forms.Padding(4);
             this.chb3_savelog.Name = "chb3_savelog";
             this.chb3_savelog.Size = new System.Drawing.Size(121, 28);
             this.chb3_savelog.TabIndex = 60;
@@ -3112,7 +3112,7 @@
             // btn_REQSN
             // 
             this.btn_REQSN.Location = new System.Drawing.Point(11, 230);
-            this.btn_REQSN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_REQSN.Margin = new System.Windows.Forms.Padding(4);
             this.btn_REQSN.Name = "btn_REQSN";
             this.btn_REQSN.Size = new System.Drawing.Size(116, 28);
             this.btn_REQSN.TabIndex = 56;
@@ -3124,7 +3124,7 @@
             // btn_Reset
             // 
             this.btn_Reset.Location = new System.Drawing.Point(268, 230);
-            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(241, 28);
             this.btn_Reset.TabIndex = 54;
@@ -3144,7 +3144,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(753, 270);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(64, 22);
             this.numericUpDown1.TabIndex = 52;
@@ -3159,7 +3159,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(11, 266);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(249, 28);
             this.button1.TabIndex = 51;
@@ -3174,7 +3174,7 @@
             this.chb_dgview2.Checked = true;
             this.chb_dgview2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_dgview2.Location = new System.Drawing.Point(268, 266);
-            this.chb_dgview2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_dgview2.Margin = new System.Windows.Forms.Padding(4);
             this.chb_dgview2.Name = "chb_dgview2";
             this.chb_dgview2.Size = new System.Drawing.Size(241, 28);
             this.chb_dgview2.TabIndex = 50;
@@ -3191,7 +3191,7 @@
             "ОЛО правый борт",
             "Широковещательный"});
             this.comboBox3.Location = new System.Drawing.Point(268, 124);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(240, 24);
             this.comboBox3.TabIndex = 47;
@@ -3200,7 +3200,7 @@
             // bt_Request2
             // 
             this.bt_Request2.Location = new System.Drawing.Point(268, 158);
-            this.bt_Request2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Request2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Request2.Name = "bt_Request2";
             this.bt_Request2.Size = new System.Drawing.Size(241, 28);
             this.bt_Request2.TabIndex = 46;
@@ -3222,7 +3222,7 @@
             // 
             this.bt_SyncTime.Enabled = false;
             this.bt_SyncTime.Location = new System.Drawing.Point(268, 194);
-            this.bt_SyncTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SyncTime.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SyncTime.Name = "bt_SyncTime";
             this.bt_SyncTime.Size = new System.Drawing.Size(241, 28);
             this.bt_SyncTime.TabIndex = 44;
@@ -3248,7 +3248,7 @@
             "1 с",
             "0.5 с"});
             this.comboBox2.Location = new System.Drawing.Point(16, 160);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(243, 24);
             this.comboBox2.TabIndex = 42;
@@ -3262,9 +3262,9 @@
             this.gbox_CAN2.Controls.Add(this.bt_CloseCAN2);
             this.gbox_CAN2.Controls.Add(this.bt_OpenCAN2);
             this.gbox_CAN2.Location = new System.Drawing.Point(8, 11);
-            this.gbox_CAN2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN2.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN2.Name = "gbox_CAN2";
-            this.gbox_CAN2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN2.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN2.Size = new System.Drawing.Size(492, 96);
             this.gbox_CAN2.TabIndex = 39;
             this.gbox_CAN2.TabStop = false;
@@ -3287,7 +3287,7 @@
             // 
             this.cb_CAN2.FormattingEnabled = true;
             this.cb_CAN2.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN2.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN2.Name = "cb_CAN2";
             this.cb_CAN2.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN2.TabIndex = 29;
@@ -3321,7 +3321,7 @@
             // 
             this.bt_CloseCAN2.Enabled = false;
             this.bt_CloseCAN2.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN2.Name = "bt_CloseCAN2";
             this.bt_CloseCAN2.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN2.TabIndex = 2;
@@ -3332,7 +3332,7 @@
             // bt_OpenCAN2
             // 
             this.bt_OpenCAN2.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN2.Name = "bt_OpenCAN2";
             this.bt_OpenCAN2.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN2.TabIndex = 0;
@@ -3343,7 +3343,7 @@
             // bt_About2
             // 
             this.bt_About2.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About2.Name = "bt_About2";
             this.bt_About2.Size = new System.Drawing.Size(144, 28);
             this.bt_About2.TabIndex = 36;
@@ -3354,7 +3354,7 @@
             // bt_Exit2
             // 
             this.bt_Exit2.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit2.Name = "bt_Exit2";
             this.bt_Exit2.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit2.TabIndex = 35;
@@ -3366,7 +3366,7 @@
             // 
             this.panel1.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
             this.panel1.Location = new System.Drawing.Point(551, 11);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 246);
             this.panel1.TabIndex = 49;
@@ -3406,7 +3406,7 @@
             this.tabPage4.Controls.Add(this.bt_Exit3);
             this.tabPage4.Controls.Add(this.panel3);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1285, 813);
             this.tabPage4.TabIndex = 3;
@@ -3420,9 +3420,9 @@
             this.gb4_scena.Controls.Add(this.bt4_load_scene);
             this.gb4_scena.Controls.Add(this.tb4_scene_file);
             this.gb4_scena.Location = new System.Drawing.Point(508, 337);
-            this.gb4_scena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb4_scena.Margin = new System.Windows.Forms.Padding(4);
             this.gb4_scena.Name = "gb4_scena";
-            this.gb4_scena.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb4_scena.Padding = new System.Windows.Forms.Padding(4);
             this.gb4_scena.Size = new System.Drawing.Size(309, 177);
             this.gb4_scena.TabIndex = 88;
             this.gb4_scena.TabStop = false;
@@ -3432,7 +3432,7 @@
             // 
             this.bt4_scene_stop.Enabled = false;
             this.bt4_scene_stop.Location = new System.Drawing.Point(207, 23);
-            this.bt4_scene_stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt4_scene_stop.Margin = new System.Windows.Forms.Padding(4);
             this.bt4_scene_stop.Name = "bt4_scene_stop";
             this.bt4_scene_stop.Size = new System.Drawing.Size(93, 28);
             this.bt4_scene_stop.TabIndex = 3;
@@ -3446,7 +3446,7 @@
             this.bt4_scene_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.bt4_scene_start.Enabled = false;
             this.bt4_scene_start.Location = new System.Drawing.Point(107, 23);
-            this.bt4_scene_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt4_scene_start.Margin = new System.Windows.Forms.Padding(4);
             this.bt4_scene_start.Name = "bt4_scene_start";
             this.bt4_scene_start.Size = new System.Drawing.Size(93, 28);
             this.bt4_scene_start.TabIndex = 2;
@@ -3457,7 +3457,7 @@
             // bt4_load_scene
             // 
             this.bt4_load_scene.Location = new System.Drawing.Point(8, 23);
-            this.bt4_load_scene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt4_load_scene.Margin = new System.Windows.Forms.Padding(4);
             this.bt4_load_scene.Name = "bt4_load_scene";
             this.bt4_load_scene.Size = new System.Drawing.Size(93, 28);
             this.bt4_load_scene.TabIndex = 1;
@@ -3468,7 +3468,7 @@
             // tb4_scene_file
             // 
             this.tb4_scene_file.Location = new System.Drawing.Point(8, 59);
-            this.tb4_scene_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb4_scene_file.Margin = new System.Windows.Forms.Padding(4);
             this.tb4_scene_file.Name = "tb4_scene_file";
             this.tb4_scene_file.Size = new System.Drawing.Size(292, 22);
             this.tb4_scene_file.TabIndex = 0;
@@ -3684,7 +3684,7 @@
             // rtb3_datagrid
             // 
             this.rtb3_datagrid.Location = new System.Drawing.Point(8, 522);
-            this.rtb3_datagrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtb3_datagrid.Margin = new System.Windows.Forms.Padding(4);
             this.rtb3_datagrid.Name = "rtb3_datagrid";
             this.rtb3_datagrid.Size = new System.Drawing.Size(808, 270);
             this.rtb3_datagrid.TabIndex = 59;
@@ -3695,7 +3695,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(551, 305);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(158, 21);
             this.checkBox2.TabIndex = 58;
@@ -3706,7 +3706,7 @@
             // 
             this.chb4_nopaint.AutoSize = true;
             this.chb4_nopaint.Location = new System.Drawing.Point(551, 277);
-            this.chb4_nopaint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb4_nopaint.Margin = new System.Windows.Forms.Padding(4);
             this.chb4_nopaint.Name = "chb4_nopaint";
             this.chb4_nopaint.Size = new System.Drawing.Size(153, 21);
             this.chb4_nopaint.TabIndex = 57;
@@ -3738,9 +3738,9 @@
             this.gb3_shoot.Controls.Add(this.lb3_shoot_az_txt_l);
             this.gb3_shoot.Enabled = false;
             this.gb3_shoot.Location = new System.Drawing.Point(825, 11);
-            this.gb3_shoot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb3_shoot.Margin = new System.Windows.Forms.Padding(4);
             this.gb3_shoot.Name = "gb3_shoot";
-            this.gb3_shoot.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb3_shoot.Padding = new System.Windows.Forms.Padding(4);
             this.gb3_shoot.Size = new System.Drawing.Size(300, 516);
             this.gb3_shoot.TabIndex = 56;
             this.gb3_shoot.TabStop = false;
@@ -3821,7 +3821,7 @@
             this.trackBar3_freq_r.Enabled = false;
             this.trackBar3_freq_r.LargeChange = 10;
             this.trackBar3_freq_r.Location = new System.Drawing.Point(248, 25);
-            this.trackBar3_freq_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_freq_r.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_freq_r.Maximum = 70;
             this.trackBar3_freq_r.Minimum = 1;
             this.trackBar3_freq_r.Name = "trackBar3_freq_r";
@@ -3837,7 +3837,7 @@
             this.trackBar3_um_r.Enabled = false;
             this.trackBar3_um_r.LargeChange = 1080;
             this.trackBar3_um_r.Location = new System.Drawing.Point(200, 25);
-            this.trackBar3_um_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_um_r.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_um_r.Maximum = 90;
             this.trackBar3_um_r.Minimum = -90;
             this.trackBar3_um_r.Name = "trackBar3_um_r";
@@ -3853,7 +3853,7 @@
             this.chb4_enshr.Enabled = false;
             this.chb4_enshr.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleGreen;
             this.chb4_enshr.Location = new System.Drawing.Point(152, 479);
-            this.chb4_enshr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb4_enshr.Margin = new System.Windows.Forms.Padding(4);
             this.chb4_enshr.Name = "chb4_enshr";
             this.chb4_enshr.Size = new System.Drawing.Size(136, 28);
             this.chb4_enshr.TabIndex = 66;
@@ -3868,7 +3868,7 @@
             this.trackBar3_az_r.Enabled = false;
             this.trackBar3_az_r.LargeChange = 1080;
             this.trackBar3_az_r.Location = new System.Drawing.Point(152, 25);
-            this.trackBar3_az_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_az_r.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_az_r.Maximum = 90;
             this.trackBar3_az_r.Minimum = -90;
             this.trackBar3_az_r.Name = "trackBar3_az_r";
@@ -3883,7 +3883,7 @@
             this.chb4_enshl.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb4_enshl.Enabled = false;
             this.chb4_enshl.Location = new System.Drawing.Point(8, 479);
-            this.chb4_enshl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb4_enshl.Margin = new System.Windows.Forms.Padding(4);
             this.chb4_enshl.Name = "chb4_enshl";
             this.chb4_enshl.Size = new System.Drawing.Size(136, 28);
             this.chb4_enshl.TabIndex = 65;
@@ -3921,7 +3921,7 @@
             this.trackBar3_freq_l.Enabled = false;
             this.trackBar3_freq_l.LargeChange = 10;
             this.trackBar3_freq_l.Location = new System.Drawing.Point(104, 25);
-            this.trackBar3_freq_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_freq_l.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_freq_l.Maximum = 70;
             this.trackBar3_freq_l.Minimum = 1;
             this.trackBar3_freq_l.Name = "trackBar3_freq_l";
@@ -3935,7 +3935,7 @@
             // 
             this.chb3_shoot_ena.AutoSize = true;
             this.chb3_shoot_ena.Location = new System.Drawing.Point(99, 0);
-            this.chb3_shoot_ena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb3_shoot_ena.Margin = new System.Windows.Forms.Padding(4);
             this.chb3_shoot_ena.Name = "chb3_shoot_ena";
             this.chb3_shoot_ena.Size = new System.Drawing.Size(18, 17);
             this.chb3_shoot_ena.TabIndex = 57;
@@ -3972,7 +3972,7 @@
             this.trackBar3_um_l.Enabled = false;
             this.trackBar3_um_l.LargeChange = 1080;
             this.trackBar3_um_l.Location = new System.Drawing.Point(56, 25);
-            this.trackBar3_um_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_um_l.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_um_l.Maximum = 90;
             this.trackBar3_um_l.Minimum = -90;
             this.trackBar3_um_l.Name = "trackBar3_um_l";
@@ -3999,7 +3999,7 @@
             this.trackBar3_az_l.Enabled = false;
             this.trackBar3_az_l.LargeChange = 1080;
             this.trackBar3_az_l.Location = new System.Drawing.Point(8, 25);
-            this.trackBar3_az_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3_az_l.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3_az_l.Maximum = 90;
             this.trackBar3_az_l.Minimum = -90;
             this.trackBar3_az_l.Name = "trackBar3_az_l";
@@ -4028,7 +4028,7 @@
             this.chb_dgview3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_dgview3.Enabled = false;
             this.chb_dgview3.Location = new System.Drawing.Point(260, 486);
-            this.chb_dgview3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_dgview3.Margin = new System.Windows.Forms.Padding(4);
             this.chb_dgview3.Name = "chb_dgview3";
             this.chb_dgview3.Size = new System.Drawing.Size(240, 28);
             this.chb_dgview3.TabIndex = 50;
@@ -4040,7 +4040,7 @@
             // bt3_clearlog
             // 
             this.bt3_clearlog.Location = new System.Drawing.Point(8, 486);
-            this.bt3_clearlog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_clearlog.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_clearlog.Name = "bt3_clearlog";
             this.bt3_clearlog.Size = new System.Drawing.Size(240, 28);
             this.bt3_clearlog.TabIndex = 53;
@@ -4068,9 +4068,9 @@
             this.gb_olo_R.Controls.Add(this.chb_R_Err_int);
             this.gb_olo_R.Enabled = false;
             this.gb_olo_R.Location = new System.Drawing.Point(260, 114);
-            this.gb_olo_R.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_olo_R.Margin = new System.Windows.Forms.Padding(4);
             this.gb_olo_R.Name = "gb_olo_R";
-            this.gb_olo_R.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_olo_R.Padding = new System.Windows.Forms.Padding(4);
             this.gb_olo_R.Size = new System.Drawing.Size(240, 364);
             this.gb_olo_R.TabIndex = 52;
             this.gb_olo_R.TabStop = false;
@@ -4080,7 +4080,7 @@
             // 
             this.bt3_trash_r.Enabled = false;
             this.bt3_trash_r.Location = new System.Drawing.Point(8, 324);
-            this.bt3_trash_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_trash_r.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_trash_r.Name = "bt3_trash_r";
             this.bt3_trash_r.Size = new System.Drawing.Size(224, 28);
             this.bt3_trash_r.TabIndex = 44;
@@ -4092,7 +4092,7 @@
             // 
             this.bt3_baddata_r.Enabled = false;
             this.bt3_baddata_r.Location = new System.Drawing.Point(8, 288);
-            this.bt3_baddata_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_baddata_r.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_baddata_r.Name = "bt3_baddata_r";
             this.bt3_baddata_r.Size = new System.Drawing.Size(224, 28);
             this.bt3_baddata_r.TabIndex = 47;
@@ -4104,7 +4104,7 @@
             // 
             this.bt3_badstatus_r.Enabled = false;
             this.bt3_badstatus_r.Location = new System.Drawing.Point(8, 252);
-            this.bt3_badstatus_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_badstatus_r.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_badstatus_r.Name = "bt3_badstatus_r";
             this.bt3_badstatus_r.Size = new System.Drawing.Size(224, 28);
             this.bt3_badstatus_r.TabIndex = 42;
@@ -4127,7 +4127,7 @@
             // 
             this.tb3_t2_r.Enabled = false;
             this.tb3_t2_r.Location = new System.Drawing.Point(143, 219);
-            this.tb3_t2_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_t2_r.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_t2_r.Name = "tb3_t2_r";
             this.tb3_t2_r.Size = new System.Drawing.Size(25, 22);
             this.tb3_t2_r.TabIndex = 45;
@@ -4149,7 +4149,7 @@
             // 
             this.tb3_t1_r.Enabled = false;
             this.tb3_t1_r.Location = new System.Drawing.Point(81, 219);
-            this.tb3_t1_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_t1_r.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_t1_r.Name = "tb3_t1_r";
             this.tb3_t1_r.Size = new System.Drawing.Size(25, 22);
             this.tb3_t1_r.TabIndex = 43;
@@ -4171,7 +4171,7 @@
             // 
             this.tb3_tarm_r.Enabled = false;
             this.tb3_tarm_r.Location = new System.Drawing.Point(8, 219);
-            this.tb3_tarm_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_tarm_r.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_tarm_r.Name = "tb3_tarm_r";
             this.tb3_tarm_r.Size = new System.Drawing.Size(25, 22);
             this.tb3_tarm_r.TabIndex = 41;
@@ -4182,7 +4182,7 @@
             this.chb_R_Err_file.AutoSize = true;
             this.chb_R_Err_file.Enabled = false;
             this.chb_R_Err_file.Location = new System.Drawing.Point(8, 191);
-            this.chb_R_Err_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_R_Err_file.Margin = new System.Windows.Forms.Padding(4);
             this.chb_R_Err_file.Name = "chb_R_Err_file";
             this.chb_R_Err_file.Size = new System.Drawing.Size(198, 21);
             this.chb_R_Err_file.TabIndex = 38;
@@ -4193,7 +4193,7 @@
             // 
             this.cb_olo_r_ena.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_olo_r_ena.Location = new System.Drawing.Point(8, 25);
-            this.cb_olo_r_ena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_olo_r_ena.Margin = new System.Windows.Forms.Padding(4);
             this.cb_olo_r_ena.Name = "cb_olo_r_ena";
             this.cb_olo_r_ena.Size = new System.Drawing.Size(224, 28);
             this.cb_olo_r_ena.TabIndex = 31;
@@ -4207,7 +4207,7 @@
             this.chb_R_Err_plis.AutoSize = true;
             this.chb_R_Err_plis.Enabled = false;
             this.chb_R_Err_plis.Location = new System.Drawing.Point(8, 162);
-            this.chb_R_Err_plis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_R_Err_plis.Margin = new System.Windows.Forms.Padding(4);
             this.chb_R_Err_plis.Name = "chb_R_Err_plis";
             this.chb_R_Err_plis.Size = new System.Drawing.Size(187, 21);
             this.chb_R_Err_plis.TabIndex = 37;
@@ -4218,7 +4218,7 @@
             // 
             this.shoot_r.Enabled = false;
             this.shoot_r.Location = new System.Drawing.Point(8, 63);
-            this.shoot_r.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shoot_r.Margin = new System.Windows.Forms.Padding(4);
             this.shoot_r.Name = "shoot_r";
             this.shoot_r.Size = new System.Drawing.Size(224, 28);
             this.shoot_r.TabIndex = 30;
@@ -4243,7 +4243,7 @@
             this.chb_R_Err_int.AutoSize = true;
             this.chb_R_Err_int.Enabled = false;
             this.chb_R_Err_int.Location = new System.Drawing.Point(8, 134);
-            this.chb_R_Err_int.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_R_Err_int.Margin = new System.Windows.Forms.Padding(4);
             this.chb_R_Err_int.Name = "chb_R_Err_int";
             this.chb_R_Err_int.Size = new System.Drawing.Size(183, 21);
             this.chb_R_Err_int.TabIndex = 35;
@@ -4269,9 +4269,9 @@
             this.gb_olo_L.Controls.Add(this.shoot_l);
             this.gb_olo_L.Enabled = false;
             this.gb_olo_L.Location = new System.Drawing.Point(8, 114);
-            this.gb_olo_L.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_olo_L.Margin = new System.Windows.Forms.Padding(4);
             this.gb_olo_L.Name = "gb_olo_L";
-            this.gb_olo_L.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_olo_L.Padding = new System.Windows.Forms.Padding(4);
             this.gb_olo_L.Size = new System.Drawing.Size(240, 364);
             this.gb_olo_L.TabIndex = 51;
             this.gb_olo_L.TabStop = false;
@@ -4281,7 +4281,7 @@
             // 
             this.bt3_trash_l.Enabled = false;
             this.bt3_trash_l.Location = new System.Drawing.Point(8, 324);
-            this.bt3_trash_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_trash_l.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_trash_l.Name = "bt3_trash_l";
             this.bt3_trash_l.Size = new System.Drawing.Size(224, 28);
             this.bt3_trash_l.TabIndex = 43;
@@ -4293,7 +4293,7 @@
             // 
             this.bt3_baddata_l.Enabled = false;
             this.bt3_baddata_l.Location = new System.Drawing.Point(8, 288);
-            this.bt3_baddata_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_baddata_l.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_baddata_l.Name = "bt3_baddata_l";
             this.bt3_baddata_l.Size = new System.Drawing.Size(224, 28);
             this.bt3_baddata_l.TabIndex = 42;
@@ -4305,7 +4305,7 @@
             // 
             this.bt3_badstatus_l.Enabled = false;
             this.bt3_badstatus_l.Location = new System.Drawing.Point(8, 252);
-            this.bt3_badstatus_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt3_badstatus_l.Margin = new System.Windows.Forms.Padding(4);
             this.bt3_badstatus_l.Name = "bt3_badstatus_l";
             this.bt3_badstatus_l.Size = new System.Drawing.Size(224, 28);
             this.bt3_badstatus_l.TabIndex = 41;
@@ -4328,7 +4328,7 @@
             // 
             this.tb3_t2_l.Enabled = false;
             this.tb3_t2_l.Location = new System.Drawing.Point(143, 219);
-            this.tb3_t2_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_t2_l.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_t2_l.Name = "tb3_t2_l";
             this.tb3_t2_l.Size = new System.Drawing.Size(25, 22);
             this.tb3_t2_l.TabIndex = 39;
@@ -4350,7 +4350,7 @@
             // 
             this.tb3_t1_l.Enabled = false;
             this.tb3_t1_l.Location = new System.Drawing.Point(81, 219);
-            this.tb3_t1_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_t1_l.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_t1_l.Name = "tb3_t1_l";
             this.tb3_t1_l.Size = new System.Drawing.Size(25, 22);
             this.tb3_t1_l.TabIndex = 37;
@@ -4372,7 +4372,7 @@
             // 
             this.tb3_tarm_l.Enabled = false;
             this.tb3_tarm_l.Location = new System.Drawing.Point(8, 219);
-            this.tb3_tarm_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb3_tarm_l.Margin = new System.Windows.Forms.Padding(4);
             this.tb3_tarm_l.Name = "tb3_tarm_l";
             this.tb3_tarm_l.Size = new System.Drawing.Size(25, 22);
             this.tb3_tarm_l.TabIndex = 35;
@@ -4383,7 +4383,7 @@
             this.chb_L_Err_file.AutoSize = true;
             this.chb_L_Err_file.Enabled = false;
             this.chb_L_Err_file.Location = new System.Drawing.Point(8, 191);
-            this.chb_L_Err_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_L_Err_file.Margin = new System.Windows.Forms.Padding(4);
             this.chb_L_Err_file.Name = "chb_L_Err_file";
             this.chb_L_Err_file.Size = new System.Drawing.Size(198, 21);
             this.chb_L_Err_file.TabIndex = 34;
@@ -4395,7 +4395,7 @@
             this.chb_L_Err_plis.AutoSize = true;
             this.chb_L_Err_plis.Enabled = false;
             this.chb_L_Err_plis.Location = new System.Drawing.Point(8, 162);
-            this.chb_L_Err_plis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_L_Err_plis.Margin = new System.Windows.Forms.Padding(4);
             this.chb_L_Err_plis.Name = "chb_L_Err_plis";
             this.chb_L_Err_plis.Size = new System.Drawing.Size(187, 21);
             this.chb_L_Err_plis.TabIndex = 33;
@@ -4420,7 +4420,7 @@
             this.chb_L_Err_int.Enabled = false;
             this.chb_L_Err_int.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chb_L_Err_int.Location = new System.Drawing.Point(8, 134);
-            this.chb_L_Err_int.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_L_Err_int.Margin = new System.Windows.Forms.Padding(4);
             this.chb_L_Err_int.Name = "chb_L_Err_int";
             this.chb_L_Err_int.Size = new System.Drawing.Size(183, 21);
             this.chb_L_Err_int.TabIndex = 31;
@@ -4431,7 +4431,7 @@
             // 
             this.cb_olo_l_ena.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_olo_l_ena.Location = new System.Drawing.Point(8, 25);
-            this.cb_olo_l_ena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_olo_l_ena.Margin = new System.Windows.Forms.Padding(4);
             this.cb_olo_l_ena.Name = "cb_olo_l_ena";
             this.cb_olo_l_ena.Size = new System.Drawing.Size(224, 28);
             this.cb_olo_l_ena.TabIndex = 30;
@@ -4444,7 +4444,7 @@
             // 
             this.shoot_l.Enabled = false;
             this.shoot_l.Location = new System.Drawing.Point(8, 63);
-            this.shoot_l.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shoot_l.Margin = new System.Windows.Forms.Padding(4);
             this.shoot_l.Name = "shoot_l";
             this.shoot_l.Size = new System.Drawing.Size(224, 28);
             this.shoot_l.TabIndex = 29;
@@ -4461,9 +4461,9 @@
             this.gbox_CAN3.Controls.Add(this.bt_CloseCAN3);
             this.gbox_CAN3.Controls.Add(this.bt_OpenCAN3);
             this.gbox_CAN3.Location = new System.Drawing.Point(8, 11);
-            this.gbox_CAN3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN3.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN3.Name = "gbox_CAN3";
-            this.gbox_CAN3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN3.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN3.Size = new System.Drawing.Size(492, 96);
             this.gbox_CAN3.TabIndex = 45;
             this.gbox_CAN3.TabStop = false;
@@ -4486,7 +4486,7 @@
             // 
             this.cb_CAN3.FormattingEnabled = true;
             this.cb_CAN3.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN3.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN3.Name = "cb_CAN3";
             this.cb_CAN3.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN3.TabIndex = 29;
@@ -4520,7 +4520,7 @@
             // 
             this.bt_CloseCAN3.Enabled = false;
             this.bt_CloseCAN3.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN3.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN3.Name = "bt_CloseCAN3";
             this.bt_CloseCAN3.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN3.TabIndex = 2;
@@ -4531,7 +4531,7 @@
             // bt_OpenCAN3
             // 
             this.bt_OpenCAN3.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN3.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN3.Name = "bt_OpenCAN3";
             this.bt_OpenCAN3.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN3.TabIndex = 0;
@@ -4542,7 +4542,7 @@
             // bt_About3
             // 
             this.bt_About3.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About3.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About3.Name = "bt_About3";
             this.bt_About3.Size = new System.Drawing.Size(144, 28);
             this.bt_About3.TabIndex = 36;
@@ -4553,7 +4553,7 @@
             // bt_Exit3
             // 
             this.bt_Exit3.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit3.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit3.Name = "bt_Exit3";
             this.bt_Exit3.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit3.TabIndex = 35;
@@ -4565,7 +4565,7 @@
             // 
             this.panel3.BackgroundImage = global::OLO_CAN.Properties.Resources.olo10;
             this.panel3.Location = new System.Drawing.Point(551, 11);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 246);
             this.panel3.TabIndex = 49;
@@ -4588,9 +4588,9 @@
             this.tabPage5.Controls.Add(this.bt_About4);
             this.tabPage5.Controls.Add(this.bt_Exit4);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1285, 813);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Тестирование платы БОС";
@@ -4614,7 +4614,7 @@
             this.chb5_timer_enable.Checked = true;
             this.chb5_timer_enable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb5_timer_enable.Location = new System.Drawing.Point(968, 155);
-            this.chb5_timer_enable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb5_timer_enable.Margin = new System.Windows.Forms.Padding(4);
             this.chb5_timer_enable.Name = "chb5_timer_enable";
             this.chb5_timer_enable.Size = new System.Drawing.Size(304, 28);
             this.chb5_timer_enable.TabIndex = 46;
@@ -4641,9 +4641,9 @@
             this.gb_Image24.Controls.Add(this.bt_get_CMOS2);
             this.gb_Image24.Enabled = false;
             this.gb_Image24.Location = new System.Drawing.Point(517, 411);
-            this.gb_Image24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Image24.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Image24.Name = "gb_Image24";
-            this.gb_Image24.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Image24.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Image24.Size = new System.Drawing.Size(443, 382);
             this.gb_Image24.TabIndex = 45;
             this.gb_Image24.TabStop = false;
@@ -4653,7 +4653,7 @@
             // 
             this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox24.Location = new System.Drawing.Point(8, 23);
-            this.pictureBox24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox24.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(425, 313);
             this.pictureBox24.TabIndex = 6;
@@ -4662,7 +4662,7 @@
             // pb_CMOS2
             // 
             this.pb_CMOS2.Location = new System.Drawing.Point(92, 346);
-            this.pb_CMOS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_CMOS2.Margin = new System.Windows.Forms.Padding(4);
             this.pb_CMOS2.Name = "pb_CMOS2";
             this.pb_CMOS2.Size = new System.Drawing.Size(341, 28);
             this.pb_CMOS2.Step = 1;
@@ -4683,7 +4683,7 @@
             // bt_get_CMOS2
             // 
             this.bt_get_CMOS2.Location = new System.Drawing.Point(8, 346);
-            this.bt_get_CMOS2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_get_CMOS2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_get_CMOS2.Name = "bt_get_CMOS2";
             this.bt_get_CMOS2.Size = new System.Drawing.Size(76, 28);
             this.bt_get_CMOS2.TabIndex = 11;
@@ -4712,9 +4712,9 @@
             this.gb_Temperature.Controls.Add(this.lb_T1_val4);
             this.gb_Temperature.Enabled = false;
             this.gb_Temperature.Location = new System.Drawing.Point(968, 11);
-            this.gb_Temperature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Temperature.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Temperature.Name = "gb_Temperature";
-            this.gb_Temperature.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Temperature.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Temperature.Size = new System.Drawing.Size(304, 135);
             this.gb_Temperature.TabIndex = 44;
             this.gb_Temperature.TabStop = false;
@@ -4789,7 +4789,7 @@
             // bt_plis2_load
             // 
             this.bt_plis2_load.Location = new System.Drawing.Point(967, 263);
-            this.bt_plis2_load.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_plis2_load.Margin = new System.Windows.Forms.Padding(4);
             this.bt_plis2_load.Name = "bt_plis2_load";
             this.bt_plis2_load.Size = new System.Drawing.Size(59, 28);
             this.bt_plis2_load.TabIndex = 36;
@@ -4805,9 +4805,9 @@
             this.gb_Image14.Controls.Add(this.lb_CMOS14);
             this.gb_Image14.Enabled = false;
             this.gb_Image14.Location = new System.Drawing.Point(517, 11);
-            this.gb_Image14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Image14.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Image14.Name = "gb_Image14";
-            this.gb_Image14.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Image14.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Image14.Size = new System.Drawing.Size(443, 382);
             this.gb_Image14.TabIndex = 43;
             this.gb_Image14.TabStop = false;
@@ -4817,7 +4817,7 @@
             // 
             this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox14.Location = new System.Drawing.Point(8, 23);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(425, 313);
             this.pictureBox14.TabIndex = 6;
@@ -4826,7 +4826,7 @@
             // pb_CMOS1
             // 
             this.pb_CMOS1.Location = new System.Drawing.Point(92, 346);
-            this.pb_CMOS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_CMOS1.Margin = new System.Windows.Forms.Padding(4);
             this.pb_CMOS1.Name = "pb_CMOS1";
             this.pb_CMOS1.Size = new System.Drawing.Size(341, 28);
             this.pb_CMOS1.Step = 1;
@@ -4836,7 +4836,7 @@
             // bt_get_CMOS1
             // 
             this.bt_get_CMOS1.Location = new System.Drawing.Point(8, 346);
-            this.bt_get_CMOS1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_get_CMOS1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_get_CMOS1.Name = "bt_get_CMOS1";
             this.bt_get_CMOS1.Size = new System.Drawing.Size(76, 28);
             this.bt_get_CMOS1.TabIndex = 10;
@@ -4858,7 +4858,7 @@
             // bt_plis1_load
             // 
             this.bt_plis1_load.Location = new System.Drawing.Point(968, 228);
-            this.bt_plis1_load.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_plis1_load.Margin = new System.Windows.Forms.Padding(4);
             this.bt_plis1_load.Name = "bt_plis1_load";
             this.bt_plis1_load.Size = new System.Drawing.Size(59, 28);
             this.bt_plis1_load.TabIndex = 35;
@@ -4899,9 +4899,9 @@
             this.gb_Tests.Controls.Add(this.bt_test_PLIS);
             this.gb_Tests.Enabled = false;
             this.gb_Tests.Location = new System.Drawing.Point(8, 148);
-            this.gb_Tests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Tests.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Tests.Name = "gb_Tests";
-            this.gb_Tests.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Tests.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Tests.Size = new System.Drawing.Size(501, 645);
             this.gb_Tests.TabIndex = 42;
             this.gb_Tests.TabStop = false;
@@ -4910,7 +4910,7 @@
             // bt5_reset
             // 
             this.bt5_reset.Location = new System.Drawing.Point(193, 375);
-            this.bt5_reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt5_reset.Margin = new System.Windows.Forms.Padding(4);
             this.bt5_reset.Name = "bt5_reset";
             this.bt5_reset.Size = new System.Drawing.Size(72, 28);
             this.bt5_reset.TabIndex = 33;
@@ -4922,7 +4922,7 @@
             // 
             this.chb5_d19.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb5_d19.Location = new System.Drawing.Point(132, 375);
-            this.chb5_d19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb5_d19.Margin = new System.Windows.Forms.Padding(4);
             this.chb5_d19.Name = "chb5_d19";
             this.chb5_d19.Size = new System.Drawing.Size(53, 28);
             this.chb5_d19.TabIndex = 32;
@@ -4935,7 +4935,7 @@
             // 
             this.chb5_d13.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb5_d13.Location = new System.Drawing.Point(71, 375);
-            this.chb5_d13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb5_d13.Margin = new System.Windows.Forms.Padding(4);
             this.chb5_d13.Name = "chb5_d13";
             this.chb5_d13.Size = new System.Drawing.Size(53, 28);
             this.chb5_d13.TabIndex = 31;
@@ -4950,9 +4950,9 @@
             this.gb5_ba.Controls.Add(this.rb5_a_1);
             this.gb5_ba.Controls.Add(this.rb5_a_0);
             this.gb5_ba.Location = new System.Drawing.Point(141, 411);
-            this.gb5_ba.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb5_ba.Margin = new System.Windows.Forms.Padding(4);
             this.gb5_ba.Name = "gb5_ba";
-            this.gb5_ba.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb5_ba.Padding = new System.Windows.Forms.Padding(4);
             this.gb5_ba.Size = new System.Drawing.Size(124, 111);
             this.gb5_ba.TabIndex = 30;
             this.gb5_ba.TabStop = false;
@@ -4962,7 +4962,7 @@
             // 
             this.rb5_a_01.AutoSize = true;
             this.rb5_a_01.Location = new System.Drawing.Point(9, 80);
-            this.rb5_a_01.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_a_01.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_a_01.Name = "rb5_a_01";
             this.rb5_a_01.Size = new System.Drawing.Size(83, 21);
             this.rb5_a_01.TabIndex = 2;
@@ -4973,7 +4973,7 @@
             // 
             this.rb5_a_1.AutoSize = true;
             this.rb5_a_1.Location = new System.Drawing.Point(9, 52);
-            this.rb5_a_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_a_1.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_a_1.Name = "rb5_a_1";
             this.rb5_a_1.Size = new System.Drawing.Size(73, 21);
             this.rb5_a_1.TabIndex = 1;
@@ -4985,7 +4985,7 @@
             this.rb5_a_0.AutoSize = true;
             this.rb5_a_0.Checked = true;
             this.rb5_a_0.Location = new System.Drawing.Point(9, 25);
-            this.rb5_a_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_a_0.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_a_0.Name = "rb5_a_0";
             this.rb5_a_0.Size = new System.Drawing.Size(73, 21);
             this.rb5_a_0.TabIndex = 0;
@@ -4997,7 +4997,7 @@
             // 
             this.chb5_d21.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb5_d21.Location = new System.Drawing.Point(9, 375);
-            this.chb5_d21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb5_d21.Margin = new System.Windows.Forms.Padding(4);
             this.chb5_d21.Name = "chb5_d21";
             this.chb5_d21.Size = new System.Drawing.Size(53, 28);
             this.chb5_d21.TabIndex = 30;
@@ -5012,9 +5012,9 @@
             this.gb5_bd.Controls.Add(this.rb5_d_1);
             this.gb5_bd.Controls.Add(this.rb5_d_0);
             this.gb5_bd.Location = new System.Drawing.Point(9, 411);
-            this.gb5_bd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb5_bd.Margin = new System.Windows.Forms.Padding(4);
             this.gb5_bd.Name = "gb5_bd";
-            this.gb5_bd.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb5_bd.Padding = new System.Windows.Forms.Padding(4);
             this.gb5_bd.Size = new System.Drawing.Size(124, 111);
             this.gb5_bd.TabIndex = 29;
             this.gb5_bd.TabStop = false;
@@ -5024,7 +5024,7 @@
             // 
             this.rb5_d_01.AutoSize = true;
             this.rb5_d_01.Location = new System.Drawing.Point(9, 80);
-            this.rb5_d_01.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_d_01.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_d_01.Name = "rb5_d_01";
             this.rb5_d_01.Size = new System.Drawing.Size(83, 21);
             this.rb5_d_01.TabIndex = 2;
@@ -5035,7 +5035,7 @@
             // 
             this.rb5_d_1.AutoSize = true;
             this.rb5_d_1.Location = new System.Drawing.Point(9, 52);
-            this.rb5_d_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_d_1.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_d_1.Name = "rb5_d_1";
             this.rb5_d_1.Size = new System.Drawing.Size(73, 21);
             this.rb5_d_1.TabIndex = 1;
@@ -5047,7 +5047,7 @@
             this.rb5_d_0.AutoSize = true;
             this.rb5_d_0.Checked = true;
             this.rb5_d_0.Location = new System.Drawing.Point(9, 25);
-            this.rb5_d_0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb5_d_0.Margin = new System.Windows.Forms.Padding(4);
             this.rb5_d_0.Name = "rb5_d_0";
             this.rb5_d_0.Size = new System.Drawing.Size(73, 21);
             this.rb5_d_0.TabIndex = 0;
@@ -5069,7 +5069,7 @@
             // bt_test_D19_2
             // 
             this.bt_test_D19_2.Location = new System.Drawing.Point(8, 303);
-            this.bt_test_D19_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D19_2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D19_2.Name = "bt_test_D19_2";
             this.bt_test_D19_2.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D19_2.TabIndex = 27;
@@ -5091,7 +5091,7 @@
             // bt_test_D13_2
             // 
             this.bt_test_D13_2.Location = new System.Drawing.Point(8, 267);
-            this.bt_test_D13_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D13_2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D13_2.Name = "bt_test_D13_2";
             this.bt_test_D13_2.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D13_2.TabIndex = 25;
@@ -5114,7 +5114,7 @@
             // 
             this.chb_Sin.AutoSize = true;
             this.chb_Sin.Location = new System.Drawing.Point(9, 617);
-            this.chb_Sin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_Sin.Margin = new System.Windows.Forms.Padding(4);
             this.chb_Sin.Name = "chb_Sin";
             this.chb_Sin.Size = new System.Drawing.Size(215, 21);
             this.chb_Sin.TabIndex = 19;
@@ -5125,7 +5125,7 @@
             // 
             this.chb_Peltier2.AutoSize = true;
             this.chb_Peltier2.Location = new System.Drawing.Point(205, 588);
-            this.chb_Peltier2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_Peltier2.Margin = new System.Windows.Forms.Padding(4);
             this.chb_Peltier2.Name = "chb_Peltier2";
             this.chb_Peltier2.Size = new System.Drawing.Size(179, 21);
             this.chb_Peltier2.TabIndex = 18;
@@ -5137,7 +5137,7 @@
             // 
             this.chb_Peltier1.AutoSize = true;
             this.chb_Peltier1.Location = new System.Drawing.Point(9, 588);
-            this.chb_Peltier1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_Peltier1.Margin = new System.Windows.Forms.Padding(4);
             this.chb_Peltier1.Name = "chb_Peltier1";
             this.chb_Peltier1.Size = new System.Drawing.Size(179, 21);
             this.chb_Peltier1.TabIndex = 17;
@@ -5149,7 +5149,7 @@
             // 
             this.chb_cycle_test_D19.AutoSize = true;
             this.chb_cycle_test_D19.Location = new System.Drawing.Point(220, 238);
-            this.chb_cycle_test_D19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_cycle_test_D19.Margin = new System.Windows.Forms.Padding(4);
             this.chb_cycle_test_D19.Name = "chb_cycle_test_D19";
             this.chb_cycle_test_D19.Size = new System.Drawing.Size(18, 17);
             this.chb_cycle_test_D19.TabIndex = 16;
@@ -5159,7 +5159,7 @@
             // 
             this.chb_cycle_test_D13.AutoSize = true;
             this.chb_cycle_test_D13.Location = new System.Drawing.Point(220, 202);
-            this.chb_cycle_test_D13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_cycle_test_D13.Margin = new System.Windows.Forms.Padding(4);
             this.chb_cycle_test_D13.Name = "chb_cycle_test_D13";
             this.chb_cycle_test_D13.Size = new System.Drawing.Size(18, 17);
             this.chb_cycle_test_D13.TabIndex = 15;
@@ -5169,7 +5169,7 @@
             // 
             this.chb_cycle_test_D21.AutoSize = true;
             this.chb_cycle_test_D21.Location = new System.Drawing.Point(220, 66);
-            this.chb_cycle_test_D21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_cycle_test_D21.Margin = new System.Windows.Forms.Padding(4);
             this.chb_cycle_test_D21.Name = "chb_cycle_test_D21";
             this.chb_cycle_test_D21.Size = new System.Drawing.Size(18, 17);
             this.chb_cycle_test_D21.TabIndex = 14;
@@ -5189,7 +5189,7 @@
             // bt_test_FLASH
             // 
             this.bt_test_FLASH.Location = new System.Drawing.Point(8, 338);
-            this.bt_test_FLASH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_FLASH.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_FLASH.Name = "bt_test_FLASH";
             this.bt_test_FLASH.Size = new System.Drawing.Size(200, 28);
             this.bt_test_FLASH.TabIndex = 12;
@@ -5211,7 +5211,7 @@
             // bt_test_D21_2
             // 
             this.bt_test_D21_2.Location = new System.Drawing.Point(8, 160);
-            this.bt_test_D21_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D21_2.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D21_2.Name = "bt_test_D21_2";
             this.bt_test_D21_2.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D21_2.TabIndex = 8;
@@ -5233,7 +5233,7 @@
             // bt_test_D19
             // 
             this.bt_test_D19.Location = new System.Drawing.Point(8, 231);
-            this.bt_test_D19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D19.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D19.Name = "bt_test_D19";
             this.bt_test_D19.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D19.TabIndex = 6;
@@ -5255,7 +5255,7 @@
             // bt_test_D13
             // 
             this.bt_test_D13.Location = new System.Drawing.Point(8, 196);
-            this.bt_test_D13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D13.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D13.Name = "bt_test_D13";
             this.bt_test_D13.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D13.TabIndex = 4;
@@ -5277,7 +5277,7 @@
             // bt_test_D21_1
             // 
             this.bt_test_D21_1.Location = new System.Drawing.Point(9, 60);
-            this.bt_test_D21_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_D21_1.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_D21_1.Name = "bt_test_D21_1";
             this.bt_test_D21_1.Size = new System.Drawing.Size(200, 28);
             this.bt_test_D21_1.TabIndex = 2;
@@ -5299,7 +5299,7 @@
             // bt_test_PLIS
             // 
             this.bt_test_PLIS.Location = new System.Drawing.Point(9, 25);
-            this.bt_test_PLIS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_test_PLIS.Margin = new System.Windows.Forms.Padding(4);
             this.bt_test_PLIS.Name = "bt_test_PLIS";
             this.bt_test_PLIS.Size = new System.Drawing.Size(200, 28);
             this.bt_test_PLIS.TabIndex = 0;
@@ -5310,7 +5310,7 @@
             // bt_plis_init
             // 
             this.bt_plis_init.Location = new System.Drawing.Point(968, 191);
-            this.bt_plis_init.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_plis_init.Margin = new System.Windows.Forms.Padding(4);
             this.bt_plis_init.Name = "bt_plis_init";
             this.bt_plis_init.Size = new System.Drawing.Size(59, 28);
             this.bt_plis_init.TabIndex = 34;
@@ -5328,9 +5328,9 @@
             this.gbox_CAN4.Controls.Add(this.bt_CloseCAN4);
             this.gbox_CAN4.Controls.Add(this.bt_OpenCAN4);
             this.gbox_CAN4.Location = new System.Drawing.Point(8, 11);
-            this.gbox_CAN4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN4.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN4.Name = "gbox_CAN4";
-            this.gbox_CAN4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN4.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN4.Size = new System.Drawing.Size(492, 129);
             this.gbox_CAN4.TabIndex = 41;
             this.gbox_CAN4.TabStop = false;
@@ -5367,7 +5367,7 @@
             // 
             this.cb_CAN4.FormattingEnabled = true;
             this.cb_CAN4.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN4.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN4.Name = "cb_CAN4";
             this.cb_CAN4.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN4.TabIndex = 29;
@@ -5401,7 +5401,7 @@
             // 
             this.bt_CloseCAN4.Enabled = false;
             this.bt_CloseCAN4.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN4.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN4.Name = "bt_CloseCAN4";
             this.bt_CloseCAN4.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN4.TabIndex = 2;
@@ -5412,7 +5412,7 @@
             // bt_OpenCAN4
             // 
             this.bt_OpenCAN4.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN4.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN4.Name = "bt_OpenCAN4";
             this.bt_OpenCAN4.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN4.TabIndex = 0;
@@ -5423,7 +5423,7 @@
             // bt_About4
             // 
             this.bt_About4.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About4.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About4.Name = "bt_About4";
             this.bt_About4.Size = new System.Drawing.Size(144, 28);
             this.bt_About4.TabIndex = 38;
@@ -5434,7 +5434,7 @@
             // bt_Exit4
             // 
             this.bt_Exit4.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit4.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit4.Name = "bt_Exit4";
             this.bt_Exit4.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit4.TabIndex = 37;
@@ -5462,9 +5462,9 @@
             this.tabPage7.Controls.Add(this.bt_Exit5);
             this.tabPage7.Controls.Add(this.gbox_CAN5);
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage7.Size = new System.Drawing.Size(1285, 813);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
@@ -5473,7 +5473,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(16, 364);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.richTextBox1.Size = new System.Drawing.Size(1033, 427);
@@ -5494,7 +5494,7 @@
             // trackBar3
             // 
             this.trackBar3.Location = new System.Drawing.Point(564, 52);
-            this.trackBar3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar3.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar3.Maximum = 1000;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(379, 56);
@@ -5516,7 +5516,7 @@
             // trackBar2
             // 
             this.trackBar2.Location = new System.Drawing.Point(951, 52);
-            this.trackBar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar2.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar2.Maximum = 1023;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(324, 56);
@@ -5527,7 +5527,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(951, 127);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 69;
@@ -5539,7 +5539,7 @@
             // bt_verifi5
             // 
             this.bt_verifi5.Location = new System.Drawing.Point(735, 127);
-            this.bt_verifi5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_verifi5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_verifi5.Name = "bt_verifi5";
             this.bt_verifi5.Size = new System.Drawing.Size(127, 28);
             this.bt_verifi5.TabIndex = 67;
@@ -5550,7 +5550,7 @@
             // bt_status5
             // 
             this.bt_status5.Location = new System.Drawing.Point(600, 127);
-            this.bt_status5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_status5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_status5.Name = "bt_status5";
             this.bt_status5.Size = new System.Drawing.Size(127, 28);
             this.bt_status5.TabIndex = 66;
@@ -5561,7 +5561,7 @@
             // bt_reboot5
             // 
             this.bt_reboot5.Location = new System.Drawing.Point(404, 127);
-            this.bt_reboot5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_reboot5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_reboot5.Name = "bt_reboot5";
             this.bt_reboot5.Size = new System.Drawing.Size(127, 28);
             this.bt_reboot5.TabIndex = 65;
@@ -5573,7 +5573,7 @@
             // 
             this.rb_l5.AutoSize = true;
             this.rb_l5.Location = new System.Drawing.Point(147, 130);
-            this.rb_l5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_l5.Margin = new System.Windows.Forms.Padding(4);
             this.rb_l5.Name = "rb_l5";
             this.rb_l5.Size = new System.Drawing.Size(109, 21);
             this.rb_l5.TabIndex = 64;
@@ -5585,7 +5585,7 @@
             this.rb_r5.AutoSize = true;
             this.rb_r5.Checked = true;
             this.rb_r5.Location = new System.Drawing.Point(16, 130);
-            this.rb_r5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_r5.Margin = new System.Windows.Forms.Padding(4);
             this.rb_r5.Name = "rb_r5";
             this.rb_r5.Size = new System.Drawing.Size(117, 21);
             this.rb_r5.TabIndex = 63;
@@ -5596,7 +5596,7 @@
             // bt_aktiv5
             // 
             this.bt_aktiv5.Location = new System.Drawing.Point(269, 127);
-            this.bt_aktiv5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_aktiv5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_aktiv5.Name = "bt_aktiv5";
             this.bt_aktiv5.Size = new System.Drawing.Size(127, 28);
             this.bt_aktiv5.TabIndex = 62;
@@ -5607,7 +5607,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(16, 341);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1035, 16);
             this.progressBar1.TabIndex = 61;
@@ -5629,7 +5629,7 @@
             this.comment,
             this.id});
             this.dataGridView1.Location = new System.Drawing.Point(16, 166);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -5708,7 +5708,7 @@
             // bt_About5
             // 
             this.bt_About5.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About5.Name = "bt_About5";
             this.bt_About5.Size = new System.Drawing.Size(144, 28);
             this.bt_About5.TabIndex = 42;
@@ -5719,7 +5719,7 @@
             // bt_Exit5
             // 
             this.bt_Exit5.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit5.Name = "bt_Exit5";
             this.bt_Exit5.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit5.TabIndex = 41;
@@ -5736,9 +5736,9 @@
             this.gbox_CAN5.Controls.Add(this.bt_CloseCAN5);
             this.gbox_CAN5.Controls.Add(this.bt_OpenCAN5);
             this.gbox_CAN5.Location = new System.Drawing.Point(8, 11);
-            this.gbox_CAN5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN5.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN5.Name = "gbox_CAN5";
-            this.gbox_CAN5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN5.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN5.Size = new System.Drawing.Size(492, 96);
             this.gbox_CAN5.TabIndex = 40;
             this.gbox_CAN5.TabStop = false;
@@ -5761,7 +5761,7 @@
             // 
             this.cb_CAN5.FormattingEnabled = true;
             this.cb_CAN5.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN5.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN5.Name = "cb_CAN5";
             this.cb_CAN5.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN5.TabIndex = 29;
@@ -5795,7 +5795,7 @@
             // 
             this.bt_CloseCAN5.Enabled = false;
             this.bt_CloseCAN5.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN5.Name = "bt_CloseCAN5";
             this.bt_CloseCAN5.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN5.TabIndex = 2;
@@ -5806,7 +5806,7 @@
             // bt_OpenCAN5
             // 
             this.bt_OpenCAN5.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN5.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN5.Name = "bt_OpenCAN5";
             this.bt_OpenCAN5.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN5.TabIndex = 0;
@@ -5826,9 +5826,9 @@
             this.tabPage6.Controls.Add(this.chb_6_2);
             this.tabPage6.Controls.Add(this.chb_6_1);
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1285, 813);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Настройка";
@@ -5837,7 +5837,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(1172, 9);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 28);
             this.button4.TabIndex = 8;
@@ -5849,7 +5849,7 @@
             // 
             this.chb_6_6.AutoSize = true;
             this.chb_6_6.Location = new System.Drawing.Point(12, 198);
-            this.chb_6_6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_6.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_6.Name = "chb_6_6";
             this.chb_6_6.Size = new System.Drawing.Size(101, 21);
             this.chb_6_6.TabIndex = 7;
@@ -5859,7 +5859,7 @@
             // bt_6_savesetup
             // 
             this.bt_6_savesetup.Location = new System.Drawing.Point(12, 226);
-            this.bt_6_savesetup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_6_savesetup.Margin = new System.Windows.Forms.Padding(4);
             this.bt_6_savesetup.Name = "bt_6_savesetup";
             this.bt_6_savesetup.Size = new System.Drawing.Size(100, 28);
             this.bt_6_savesetup.TabIndex = 6;
@@ -5871,7 +5871,7 @@
             // 
             this.chb_6_7.AutoSize = true;
             this.chb_6_7.Location = new System.Drawing.Point(12, 170);
-            this.chb_6_7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_7.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_7.Name = "chb_6_7";
             this.chb_6_7.Size = new System.Drawing.Size(60, 21);
             this.chb_6_7.TabIndex = 5;
@@ -5882,7 +5882,7 @@
             // 
             this.chb_6_5.AutoSize = true;
             this.chb_6_5.Location = new System.Drawing.Point(12, 140);
-            this.chb_6_5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_5.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_5.Name = "chb_6_5";
             this.chb_6_5.Size = new System.Drawing.Size(94, 21);
             this.chb_6_5.TabIndex = 4;
@@ -5893,7 +5893,7 @@
             // 
             this.chb_6_4.AutoSize = true;
             this.chb_6_4.Location = new System.Drawing.Point(12, 111);
-            this.chb_6_4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_4.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_4.Name = "chb_6_4";
             this.chb_6_4.Size = new System.Drawing.Size(94, 21);
             this.chb_6_4.TabIndex = 3;
@@ -5904,7 +5904,7 @@
             // 
             this.chb_6_3.AutoSize = true;
             this.chb_6_3.Location = new System.Drawing.Point(12, 81);
-            this.chb_6_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_3.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_3.Name = "chb_6_3";
             this.chb_6_3.Size = new System.Drawing.Size(97, 21);
             this.chb_6_3.TabIndex = 2;
@@ -5915,7 +5915,7 @@
             // 
             this.chb_6_2.AutoSize = true;
             this.chb_6_2.Location = new System.Drawing.Point(12, 52);
-            this.chb_6_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_2.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_2.Name = "chb_6_2";
             this.chb_6_2.Size = new System.Drawing.Size(114, 21);
             this.chb_6_2.TabIndex = 1;
@@ -5926,7 +5926,7 @@
             // 
             this.chb_6_1.AutoSize = true;
             this.chb_6_1.Location = new System.Drawing.Point(12, 22);
-            this.chb_6_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6_1.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6_1.Name = "chb_6_1";
             this.chb_6_1.Size = new System.Drawing.Size(104, 21);
             this.chb_6_1.TabIndex = 0;
@@ -5943,9 +5943,9 @@
             this.tabPage8.Controls.Add(this.groupBox2);
             this.tabPage8.Controls.Add(this.gbox_CAN8);
             this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage8.Size = new System.Drawing.Size(1285, 813);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Техно Прием";
@@ -5954,7 +5954,7 @@
             // bt_About8
             // 
             this.bt_About8.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About8.Name = "bt_About8";
             this.bt_About8.Size = new System.Drawing.Size(144, 28);
             this.bt_About8.TabIndex = 46;
@@ -5965,7 +5965,7 @@
             // bt_Exit8
             // 
             this.bt_Exit8.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit8.Name = "bt_Exit8";
             this.bt_Exit8.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit8.TabIndex = 45;
@@ -5987,7 +5987,7 @@
             // 
             this.bt_stop8.Enabled = false;
             this.bt_stop8.Location = new System.Drawing.Point(124, 114);
-            this.bt_stop8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_stop8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_stop8.Name = "bt_stop8";
             this.bt_stop8.Size = new System.Drawing.Size(100, 28);
             this.bt_stop8.TabIndex = 43;
@@ -5998,7 +5998,7 @@
             // bt_start8
             // 
             this.bt_start8.Location = new System.Drawing.Point(16, 114);
-            this.bt_start8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_start8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_start8.Name = "bt_start8";
             this.bt_start8.Size = new System.Drawing.Size(100, 28);
             this.bt_start8.TabIndex = 42;
@@ -6017,9 +6017,9 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.pictbox_81);
             this.groupBox2.Location = new System.Drawing.Point(8, 150);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(876, 406);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
@@ -6030,25 +6030,26 @@
             // 
             this.rb_data_6bit8.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_data_6bit8.AutoSize = true;
+            this.rb_data_6bit8.BackColor = System.Drawing.Color.SpringGreen;
             this.rb_data_6bit8.Checked = true;
             this.rb_data_6bit8.Location = new System.Drawing.Point(441, 368);
-            this.rb_data_6bit8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_data_6bit8.Margin = new System.Windows.Forms.Padding(4);
             this.rb_data_6bit8.Name = "rb_data_6bit8";
             this.rb_data_6bit8.Size = new System.Drawing.Size(92, 27);
             this.rb_data_6bit8.TabIndex = 21;
             this.rb_data_6bit8.TabStop = true;
             this.rb_data_6bit8.Text = "Data 6 Byte";
-            this.rb_data_6bit8.UseVisualStyleBackColor = true;
+            this.rb_data_6bit8.UseVisualStyleBackColor = false;
             this.rb_data_6bit8.CheckedChanged += new System.EventHandler(this.rb_data_6bit8_CheckedChanged);
             // 
             // rb_data_8bit8
             // 
             this.rb_data_8bit8.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_data_8bit8.AutoSize = true;
-            this.rb_data_8bit8.BackColor = System.Drawing.Color.SpringGreen;
+            this.rb_data_8bit8.BackColor = System.Drawing.Color.Transparent;
             this.rb_data_8bit8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.rb_data_8bit8.Location = new System.Drawing.Point(337, 368);
-            this.rb_data_8bit8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_data_8bit8.Margin = new System.Windows.Forms.Padding(4);
             this.rb_data_8bit8.Name = "rb_data_8bit8";
             this.rb_data_8bit8.Size = new System.Drawing.Size(92, 27);
             this.rb_data_8bit8.TabIndex = 20;
@@ -6061,7 +6062,7 @@
             this.pictbox_82.BackColor = System.Drawing.Color.Black;
             this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictbox_82.Location = new System.Drawing.Point(441, 23);
-            this.pictbox_82.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictbox_82.Margin = new System.Windows.Forms.Padding(4);
             this.pictbox_82.Name = "pictbox_82";
             this.pictbox_82.Size = new System.Drawing.Size(319, 255);
             this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -6071,7 +6072,7 @@
             // num_porog8
             // 
             this.num_porog8.Location = new System.Drawing.Point(247, 370);
-            this.num_porog8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.num_porog8.Margin = new System.Windows.Forms.Padding(4);
             this.num_porog8.Maximum = new decimal(new int[] {
             255,
             0,
@@ -6090,7 +6091,7 @@
             // 
             this.chb_contrast8.AutoSize = true;
             this.chb_contrast8.Location = new System.Drawing.Point(9, 370);
-            this.chb_contrast8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_contrast8.Margin = new System.Windows.Forms.Padding(4);
             this.chb_contrast8.Name = "chb_contrast8";
             this.chb_contrast8.Size = new System.Drawing.Size(220, 21);
             this.chb_contrast8.TabIndex = 17;
@@ -6100,7 +6101,7 @@
             // pb_loadbmp8
             // 
             this.pb_loadbmp8.Location = new System.Drawing.Point(8, 341);
-            this.pb_loadbmp8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_loadbmp8.Margin = new System.Windows.Forms.Padding(4);
             this.pb_loadbmp8.Name = "pb_loadbmp8";
             this.pb_loadbmp8.Size = new System.Drawing.Size(859, 22);
             this.pb_loadbmp8.TabIndex = 16;
@@ -6120,7 +6121,7 @@
             this.pictbox_81.BackColor = System.Drawing.Color.Black;
             this.pictbox_81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictbox_81.Location = new System.Drawing.Point(8, 23);
-            this.pictbox_81.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictbox_81.Margin = new System.Windows.Forms.Padding(4);
             this.pictbox_81.Name = "pictbox_81";
             this.pictbox_81.Size = new System.Drawing.Size(319, 255);
             this.pictbox_81.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -6136,9 +6137,9 @@
             this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
             this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
             this.gbox_CAN8.Location = new System.Drawing.Point(8, 11);
-            this.gbox_CAN8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN8.Margin = new System.Windows.Forms.Padding(4);
             this.gbox_CAN8.Name = "gbox_CAN8";
-            this.gbox_CAN8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbox_CAN8.Padding = new System.Windows.Forms.Padding(4);
             this.gbox_CAN8.Size = new System.Drawing.Size(492, 96);
             this.gbox_CAN8.TabIndex = 40;
             this.gbox_CAN8.TabStop = false;
@@ -6161,7 +6162,7 @@
             // 
             this.cb_CAN8.FormattingEnabled = true;
             this.cb_CAN8.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN8.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN8.Name = "cb_CAN8";
             this.cb_CAN8.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN8.TabIndex = 29;
@@ -6195,7 +6196,7 @@
             // 
             this.bt_CloseCAN8.Enabled = false;
             this.bt_CloseCAN8.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN8.Name = "bt_CloseCAN8";
             this.bt_CloseCAN8.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN8.TabIndex = 2;
@@ -6206,7 +6207,7 @@
             // bt_OpenCAN8
             // 
             this.bt_OpenCAN8.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN8.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN8.Name = "bt_OpenCAN8";
             this.bt_OpenCAN8.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN8.TabIndex = 0;
@@ -6224,9 +6225,9 @@
             this.tabPage9.Controls.Add(this.groupBox3);
             this.tabPage9.Controls.Add(this.groupBox4);
             this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage9.Size = new System.Drawing.Size(1285, 813);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Техно Передача";
@@ -6235,7 +6236,7 @@
             // bt_About9
             // 
             this.bt_About9.Location = new System.Drawing.Point(1119, 729);
-            this.bt_About9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_About9.Margin = new System.Windows.Forms.Padding(4);
             this.bt_About9.Name = "bt_About9";
             this.bt_About9.Size = new System.Drawing.Size(144, 28);
             this.bt_About9.TabIndex = 55;
@@ -6246,7 +6247,7 @@
             // bt_Exit9
             // 
             this.bt_Exit9.Location = new System.Drawing.Point(1119, 764);
-            this.bt_Exit9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Exit9.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Exit9.Name = "bt_Exit9";
             this.bt_Exit9.Size = new System.Drawing.Size(144, 28);
             this.bt_Exit9.TabIndex = 54;
@@ -6260,7 +6261,7 @@
             this.rb_olo_r9.BackColor = System.Drawing.Color.SpringGreen;
             this.rb_olo_r9.Checked = true;
             this.rb_olo_r9.Location = new System.Drawing.Point(16, 114);
-            this.rb_olo_r9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_olo_r9.Margin = new System.Windows.Forms.Padding(4);
             this.rb_olo_r9.Name = "rb_olo_r9";
             this.rb_olo_r9.Size = new System.Drawing.Size(107, 28);
             this.rb_olo_r9.TabIndex = 53;
@@ -6274,7 +6275,7 @@
             // 
             this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
             this.rb_olo_l9.Location = new System.Drawing.Point(131, 114);
-            this.rb_olo_l9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rb_olo_l9.Margin = new System.Windows.Forms.Padding(4);
             this.rb_olo_l9.Name = "rb_olo_l9";
             this.rb_olo_l9.Size = new System.Drawing.Size(107, 28);
             this.rb_olo_l9.TabIndex = 51;
@@ -6287,7 +6288,7 @@
             // 
             this.bt_sendbmp9.Enabled = false;
             this.bt_sendbmp9.Location = new System.Drawing.Point(245, 114);
-            this.bt_sendbmp9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_sendbmp9.Margin = new System.Windows.Forms.Padding(4);
             this.bt_sendbmp9.Name = "bt_sendbmp9";
             this.bt_sendbmp9.Size = new System.Drawing.Size(167, 28);
             this.bt_sendbmp9.TabIndex = 52;
@@ -6311,9 +6312,9 @@
             this.groupBox3.Controls.Add(this.label62);
             this.groupBox3.Controls.Add(this.pictbox_91);
             this.groupBox3.Location = new System.Drawing.Point(8, 150);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(879, 443);
             this.groupBox3.TabIndex = 50;
             this.groupBox3.TabStop = false;
@@ -6328,7 +6329,7 @@
             this.chb_2pict9.Checked = true;
             this.chb_2pict9.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_2pict9.Location = new System.Drawing.Point(336, 407);
-            this.chb_2pict9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_2pict9.Margin = new System.Windows.Forms.Padding(4);
             this.chb_2pict9.Name = "chb_2pict9";
             this.chb_2pict9.Size = new System.Drawing.Size(91, 27);
             this.chb_2pict9.TabIndex = 57;
@@ -6341,7 +6342,7 @@
             this.chb_1pict9.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb_1pict9.AutoSize = true;
             this.chb_1pict9.Location = new System.Drawing.Point(231, 407);
-            this.chb_1pict9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_1pict9.Margin = new System.Windows.Forms.Padding(4);
             this.chb_1pict9.Name = "chb_1pict9";
             this.chb_1pict9.Size = new System.Drawing.Size(91, 27);
             this.chb_1pict9.TabIndex = 56;
@@ -6354,7 +6355,7 @@
             this.chb_8byte9.Appearance = System.Windows.Forms.Appearance.Button;
             this.chb_8byte9.AutoSize = true;
             this.chb_8byte9.Location = new System.Drawing.Point(83, 407);
-            this.chb_8byte9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_8byte9.Margin = new System.Windows.Forms.Padding(4);
             this.chb_8byte9.Name = "chb_8byte9";
             this.chb_8byte9.Size = new System.Drawing.Size(62, 27);
             this.chb_8byte9.TabIndex = 55;
@@ -6370,7 +6371,7 @@
             this.chb_6byte9.Checked = true;
             this.chb_6byte9.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chb_6byte9.Location = new System.Drawing.Point(8, 407);
-            this.chb_6byte9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chb_6byte9.Margin = new System.Windows.Forms.Padding(4);
             this.chb_6byte9.Name = "chb_6byte9";
             this.chb_6byte9.Size = new System.Drawing.Size(62, 27);
             this.chb_6byte9.TabIndex = 54;
@@ -6391,7 +6392,7 @@
             // bt_loadbmp92
             // 
             this.bt_loadbmp92.Location = new System.Drawing.Point(441, 370);
-            this.bt_loadbmp92.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_loadbmp92.Margin = new System.Windows.Forms.Padding(4);
             this.bt_loadbmp92.Name = "bt_loadbmp92";
             this.bt_loadbmp92.Size = new System.Drawing.Size(100, 28);
             this.bt_loadbmp92.TabIndex = 52;
@@ -6407,7 +6408,7 @@
             this.pictbox_92.Image = global::OLO_CAN.Properties.Resources.test_tech2;
             this.pictbox_92.InitialImage = global::OLO_CAN.Properties.Resources.test_tech2;
             this.pictbox_92.Location = new System.Drawing.Point(441, 23);
-            this.pictbox_92.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictbox_92.Margin = new System.Windows.Forms.Padding(4);
             this.pictbox_92.Name = "pictbox_92";
             this.pictbox_92.Size = new System.Drawing.Size(321, 257);
             this.pictbox_92.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -6437,7 +6438,7 @@
             // bt_loadbmp91
             // 
             this.bt_loadbmp91.Location = new System.Drawing.Point(9, 370);
-            this.bt_loadbmp91.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_loadbmp91.Margin = new System.Windows.Forms.Padding(4);
             this.bt_loadbmp91.Name = "bt_loadbmp91";
             this.bt_loadbmp91.Size = new System.Drawing.Size(100, 28);
             this.bt_loadbmp91.TabIndex = 49;
@@ -6448,7 +6449,7 @@
             // pb_loadbmp9
             // 
             this.pb_loadbmp9.Location = new System.Drawing.Point(8, 341);
-            this.pb_loadbmp9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_loadbmp9.Margin = new System.Windows.Forms.Padding(4);
             this.pb_loadbmp9.Name = "pb_loadbmp9";
             this.pb_loadbmp9.Size = new System.Drawing.Size(859, 22);
             this.pb_loadbmp9.TabIndex = 16;
@@ -6469,7 +6470,7 @@
             this.pictbox_91.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
             this.pictbox_91.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictbox_91.Location = new System.Drawing.Point(8, 23);
-            this.pictbox_91.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictbox_91.Margin = new System.Windows.Forms.Padding(4);
             this.pictbox_91.Name = "pictbox_91";
             this.pictbox_91.Size = new System.Drawing.Size(319, 255);
             this.pictbox_91.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -6485,9 +6486,9 @@
             this.groupBox4.Controls.Add(this.bt_CloseCAN9);
             this.groupBox4.Controls.Add(this.bt_OpenCAN9);
             this.groupBox4.Location = new System.Drawing.Point(8, 11);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(492, 96);
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
@@ -6510,7 +6511,7 @@
             // 
             this.cb_CAN9.FormattingEnabled = true;
             this.cb_CAN9.Location = new System.Drawing.Point(8, 25);
-            this.cb_CAN9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CAN9.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CAN9.Name = "cb_CAN9";
             this.cb_CAN9.Size = new System.Drawing.Size(299, 24);
             this.cb_CAN9.TabIndex = 29;
@@ -6544,7 +6545,7 @@
             // 
             this.bt_CloseCAN9.Enabled = false;
             this.bt_CloseCAN9.Location = new System.Drawing.Point(400, 22);
-            this.bt_CloseCAN9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CloseCAN9.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CloseCAN9.Name = "bt_CloseCAN9";
             this.bt_CloseCAN9.Size = new System.Drawing.Size(84, 28);
             this.bt_CloseCAN9.TabIndex = 2;
@@ -6555,7 +6556,7 @@
             // bt_OpenCAN9
             // 
             this.bt_OpenCAN9.Location = new System.Drawing.Point(316, 22);
-            this.bt_OpenCAN9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenCAN9.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenCAN9.Name = "bt_OpenCAN9";
             this.bt_OpenCAN9.Size = new System.Drawing.Size(80, 28);
             this.bt_OpenCAN9.TabIndex = 0;
@@ -6790,7 +6791,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

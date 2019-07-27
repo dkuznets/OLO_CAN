@@ -7772,15 +7772,22 @@ namespace OLO_CAN
                 //    scrname += "_CMOS1";
                 //else
                 //    scrname += "_CMOS2";
+                Byte[] imda = new Byte[image_size];
+                for (int i = 0; i < image_size; i++)
+                {
+                    imda[i] = image_data[i];
+                }
                 if ((msg.id >> 5) == 0x31)
                 {
                     BMP_CMOS.Save(m_strPathToScreens + scrname + "_1_tech.bmp", ImageFormat.Bmp);
                     pictbox_81.Image = BMP_CMOS;
+                    File.WriteAllBytes(m_strPathToScreens + scrname + "_1_tech.dat", imda);
                 }
                 else
                 {
                     BMP_CMOS.Save(m_strPathToScreens + scrname + "_2_tech.bmp", ImageFormat.Bmp);
                     pictbox_82.Image = BMP_CMOS;
+                    File.WriteAllBytes(m_strPathToScreens + scrname + "_2_tech.dat", imda);
                 }
 
                 lb_info8.Text = "";
