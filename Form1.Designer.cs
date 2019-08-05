@@ -454,6 +454,9 @@
             this.bt_CloseCAN5 = new System.Windows.Forms.Button();
             this.bt_OpenCAN5 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chb_6_10 = new System.Windows.Forms.CheckBox();
+            this.chb_6_9 = new System.Windows.Forms.CheckBox();
+            this.chb_6_8 = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.chb_6_6 = new System.Windows.Forms.CheckBox();
             this.bt_6_savesetup = new System.Windows.Forms.Button();
@@ -5376,6 +5379,9 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.chb_6_10);
+            this.tabPage6.Controls.Add(this.chb_6_9);
+            this.tabPage6.Controls.Add(this.chb_6_8);
             this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.chb_6_6);
             this.tabPage6.Controls.Add(this.bt_6_savesetup);
@@ -5393,6 +5399,36 @@
             this.tabPage6.Text = "Настройка";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // chb_6_10
+            // 
+            this.chb_6_10.AutoSize = true;
+            this.chb_6_10.Location = new System.Drawing.Point(9, 209);
+            this.chb_6_10.Name = "chb_6_10";
+            this.chb_6_10.Size = new System.Drawing.Size(69, 17);
+            this.chb_6_10.TabIndex = 11;
+            this.chb_6_10.Text = "Отладка";
+            this.chb_6_10.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_9
+            // 
+            this.chb_6_9.AutoSize = true;
+            this.chb_6_9.Location = new System.Drawing.Point(9, 185);
+            this.chb_6_9.Name = "chb_6_9";
+            this.chb_6_9.Size = new System.Drawing.Size(106, 17);
+            this.chb_6_9.TabIndex = 10;
+            this.chb_6_9.Text = "Техно передача";
+            this.chb_6_9.UseVisualStyleBackColor = true;
+            // 
+            // chb_6_8
+            // 
+            this.chb_6_8.AutoSize = true;
+            this.chb_6_8.Location = new System.Drawing.Point(9, 161);
+            this.chb_6_8.Name = "chb_6_8";
+            this.chb_6_8.Size = new System.Drawing.Size(91, 17);
+            this.chb_6_8.TabIndex = 9;
+            this.chb_6_8.Text = "Техно прием";
+            this.chb_6_8.UseVisualStyleBackColor = true;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(879, 7);
@@ -5406,7 +5442,7 @@
             // chb_6_6
             // 
             this.chb_6_6.AutoSize = true;
-            this.chb_6_6.Location = new System.Drawing.Point(9, 161);
+            this.chb_6_6.Location = new System.Drawing.Point(9, 232);
             this.chb_6_6.Name = "chb_6_6";
             this.chb_6_6.Size = new System.Drawing.Size(81, 17);
             this.chb_6_6.TabIndex = 7;
@@ -5415,7 +5451,7 @@
             // 
             // bt_6_savesetup
             // 
-            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 184);
+            this.bt_6_savesetup.Location = new System.Drawing.Point(9, 280);
             this.bt_6_savesetup.Name = "bt_6_savesetup";
             this.bt_6_savesetup.Size = new System.Drawing.Size(75, 23);
             this.bt_6_savesetup.TabIndex = 6;
@@ -6928,6 +6964,9 @@
         private System.Windows.Forms.Button bt4_load_scene;
         private System.Windows.Forms.TextBox tb4_scene_file;
         private System.Windows.Forms.Timer tim4_run_scene;
+        private System.Windows.Forms.CheckBox chb_6_10;
+        private System.Windows.Forms.CheckBox chb_6_9;
+        private System.Windows.Forms.CheckBox chb_6_8;
 	}
 }
 

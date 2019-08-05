@@ -459,6 +459,9 @@ namespace OLO_CAN
                 chb_6_5.Checked = inicfg._GetBool("setup", "key5");
                 chb_6_6.Checked = inicfg._GetBool("setup", "key6");
                 chb_6_7.Checked = inicfg._GetBool("setup", "key7");
+                chb_6_8.Checked = inicfg._GetBool("setup", "key8");
+                chb_6_9.Checked = inicfg._GetBool("setup", "key9");
+                chb_6_10.Checked = inicfg._GetBool("setup", "key10");
            }
             else
             {
@@ -469,6 +472,9 @@ namespace OLO_CAN
                 chb_6_5.Checked = true;
                 chb_6_7.Checked = true;
                 chb_6_6.Checked = true;
+                chb_6_8.Checked = true;
+                chb_6_9.Checked = true;
+                chb_6_10.Checked = true;
             }
             try
             {
@@ -500,6 +506,14 @@ namespace OLO_CAN
                     tabControl1.TabPages["tabPage7"].Parent = null;
                 else
                     tabControl1.TabPages["tabPage7"].Parent = tabControl1;
+                if (!chb_6_8.Checked)
+                    tabControl1.TabPages["tabPage8"].Parent = null;
+                else
+                    tabControl1.TabPages["tabPage8"].Parent = tabControl1;
+                if (!chb_6_9.Checked)
+                    tabControl1.TabPages["tabPage9"].Parent = null;
+                else
+                    tabControl1.TabPages["tabPage9"].Parent = tabControl1;
             }
             catch (Exception)
             {
@@ -7462,6 +7476,9 @@ namespace OLO_CAN
             inicfg._SetBool("setup", "key5", chb_6_5.Checked);
             inicfg._SetBool("setup", "key6", chb_6_6.Checked);
             inicfg._SetBool("setup", "key7", chb_6_7.Checked);
+            inicfg._SetBool("setup", "key8", chb_6_8.Checked);
+            inicfg._SetBool("setup", "key9", chb_6_9.Checked);
+            inicfg._SetBool("setup", "key10", chb_6_10.Checked);
         }
         #endregion
 
