@@ -671,7 +671,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(962, 654);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Юстировка ОЛО";
@@ -1603,7 +1603,7 @@
             this.tabPage2.Controls.Add(this.gb_CAN1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(962, 654);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Загрузка ПО";
@@ -4252,7 +4252,7 @@
             this.tabPage5.Controls.Add(this.bt_Exit4);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(962, 654);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Тестирование платы БОС";
@@ -5048,7 +5048,7 @@
             this.tabPage7.Controls.Add(this.gbox_CAN5);
             this.tabPage7.Location = new System.Drawing.Point(4, 29);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(962, 654);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "МУП";
@@ -5387,7 +5387,7 @@
             this.tabPage6.Controls.Add(this.chb_6_1);
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(962, 654);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Настройка";
@@ -5494,7 +5494,7 @@
             this.tabPage8.Controls.Add(this.gbox_CAN8);
             this.tabPage8.Location = new System.Drawing.Point(4, 29);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(962, 654);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Техно Прием";
@@ -5752,7 +5752,7 @@
             this.tabPage9.Controls.Add(this.groupBox4);
             this.tabPage9.Location = new System.Drawing.Point(4, 29);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage9.Size = new System.Drawing.Size(962, 654);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Техно Передача";
