@@ -96,6 +96,7 @@ namespace OLO_CAN
         public ACANConverter advCAN = null;
         public ECANConverter elcCAN = null;
         public ECAN18Converter elcCAN18 = null;
+        public FCANConverter fakeCAN = null;
 
         public static IUCANConverter uniCAN = null;
 
@@ -373,18 +374,6 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
-            //try
-            //{
-            //    mar2CAN = new M2CANConverter();
-            //    if (mar2CAN.Is_Present)
-            //    {
-            //        comboBox1.Items.Add("USB Marathon2");
-            //        mar2CAN.Close();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //}
             try
             {
                 advCAN = new ACANConverter();
@@ -422,32 +411,6 @@ namespace OLO_CAN
             //{
             //}
 
-
-
-            if (comboBox1.Items.Count == 0)
-            {
-                comboBox1.Items.Add("No CAN");
-                comboBox1.SelectedIndex = 0;
-                lb_error_CAN.Text = "CAN-контроллеры не найдены!";
-                for (int k = 1; k < def_NUM_TABS; k++)
-                {
-                    cb_CAN[k].Items.Clear();
-                    foreach (var item in comboBox1.Items)
-                        cb_CAN[k].Items.Add(item);
-                    cb_CAN[k].SelectedIndex = 0;
-                }
-                state_Error();
-                return;
-            }
-            comboBox1.SelectedIndex = 0;
-            cb_module2.SelectedIndex = 0;
-            for (int k = 1; k < def_NUM_TABS; k++)
-            {
-                cb_CAN[k].Items.Clear();
-                foreach (var item in comboBox1.Items)
-                    cb_CAN[k].Items.Add(item);
-                cb_CAN[k].SelectedIndex = 0;
-            }
 
             inicfg = new IniFile(Application.StartupPath.ToString() + "\\olo_can.cfg");
             if (System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
@@ -518,6 +481,47 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
+            if (chb_6_10.Checked)
+            {
+                try
+                {
+                    fakeCAN = new FCANConverter();
+                    if (fakeCAN.Is_Present)
+                    {
+                        comboBox1.Items.Add("Fake CAN driver");
+                        fakeCAN.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            if (comboBox1.Items.Count == 0)
+            {
+                comboBox1.Items.Add("No CAN");
+                comboBox1.SelectedIndex = 0;
+                lb_error_CAN.Text = "CAN-контроллеры не найдены!";
+                for (int k = 1; k < def_NUM_TABS; k++)
+                {
+                    cb_CAN[k].Items.Clear();
+                    foreach (var item in comboBox1.Items)
+                        cb_CAN[k].Items.Add(item);
+                    cb_CAN[k].SelectedIndex = 0;
+                }
+                state_Error();
+                return;
+            }
+            comboBox1.SelectedIndex = 0;
+            cb_module2.SelectedIndex = 0;
+            for (int k = 1; k < def_NUM_TABS; k++)
+            {
+                cb_CAN[k].Items.Clear();
+                foreach (var item in comboBox1.Items)
+                    cb_CAN[k].Items.Add(item);
+                cb_CAN[k].SelectedIndex = 0;
+            }
+
 
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
