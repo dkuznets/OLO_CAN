@@ -4231,6 +4231,7 @@ namespace OLO_CAN
         }
         private void bt_OpenCAN2_Click(object sender, EventArgs e)
         {
+/*
             if (cb_CAN2.SelectedItem.ToString() == "No CAN" || cb_CAN2.Items.Count < 1)
                 return;
             if (cb_CAN2.SelectedItem.ToString() == "USB Marathon")
@@ -4247,6 +4248,30 @@ namespace OLO_CAN
             {
                 elcCAN = new ECANConverter();
                 uniCAN = elcCAN as ECANConverter;
+            }
+*/
+            switch (cb_CAN2.SelectedItem.ToString())
+            {
+                case "No CAN":
+                    return;
+                case "USB Marathon":
+                    marCAN = new MCANConverter();
+                    uniCAN = marCAN as MCANConverter;
+                    break;
+                case "PCI Advantech":
+                    advCAN = new ACANConverter();
+                    uniCAN = advCAN as ACANConverter;
+                    break;
+                case "PCI Elcus":
+                    elcCAN = new ECANConverter();
+                    uniCAN = elcCAN as ECANConverter;
+                    break;
+                case "Fake CAN driver":
+                    fakeCAN = new FCANConverter();
+                    uniCAN = fakeCAN as FCANConverter;
+                    break;
+                default:
+                    return;
             }
 
             uniCAN.ErrEvent += new MyDelegate(Err_Handler);
@@ -5259,6 +5284,7 @@ namespace OLO_CAN
         #region CAN
         private void bt_OpenCAN3_Click(object sender, EventArgs e)
         {
+/*
             if (cb_CAN3.SelectedItem.ToString() == "No CAN" || cb_CAN3.Items.Count < 1)
                 return;
             if (cb_CAN3.SelectedItem.ToString() == "USB Marathon")
@@ -5275,6 +5301,30 @@ namespace OLO_CAN
             {
                 elcCAN = new ECANConverter();
                 uniCAN = elcCAN as ECANConverter;
+            }
+*/
+            switch (cb_CAN3.SelectedItem.ToString())
+            {
+                case "No CAN":
+                    return;
+                case "USB Marathon":
+                    marCAN = new MCANConverter();
+                    uniCAN = marCAN as MCANConverter;
+                    break;
+                case "PCI Advantech":
+                    advCAN = new ACANConverter();
+                    uniCAN = advCAN as ACANConverter;
+                    break;
+                case "PCI Elcus":
+                    elcCAN = new ECANConverter();
+                    uniCAN = elcCAN as ECANConverter;
+                    break;
+                case "Fake CAN driver":
+                    fakeCAN = new FCANConverter();
+                    uniCAN = fakeCAN as FCANConverter;
+                    break;
+                default:
+                    return;
             }
 
             uniCAN.ErrEvent += new MyDelegate(Err_Handler);
