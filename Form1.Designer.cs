@@ -258,6 +258,14 @@
             this.bt_Exit2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gb4_scena = new System.Windows.Forms.GroupBox();
             this.bt4_scene_stop = new System.Windows.Forms.Button();
             this.bt4_scene_start = new System.Windows.Forms.Button();
@@ -3132,6 +3140,14 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.textBox5);
+            this.tabPage4.Controls.Add(this.textBox6);
+            this.tabPage4.Controls.Add(this.textBox7);
+            this.tabPage4.Controls.Add(this.textBox8);
+            this.tabPage4.Controls.Add(this.textBox4);
+            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Controls.Add(this.textBox2);
+            this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.gb4_scena);
             this.tabPage4.Controls.Add(this.label84);
             this.tabPage4.Controls.Add(this.label83);
@@ -3169,6 +3185,62 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Симуляция ОЛО";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(851, 216);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 96;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(851, 189);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 95;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(851, 162);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 94;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(851, 135);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 93;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(851, 99);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 92;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(851, 72);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 91;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(851, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 90;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(851, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 89;
             // 
             // gb4_scena
             // 
@@ -6967,6 +7039,14 @@
         private System.Windows.Forms.CheckBox chb_6_10;
         private System.Windows.Forms.CheckBox chb_6_9;
         private System.Windows.Forms.CheckBox chb_6_8;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
 	}
 }
 
