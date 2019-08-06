@@ -646,11 +646,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(95, 25);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -4404,7 +4404,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(962, 654);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Тестирование платы БОС";
+            this.tabPage5.Text = "Тестирование БОС";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // lb_plis_init
