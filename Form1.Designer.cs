@@ -3323,9 +3323,9 @@
             this.lb3_um_mig_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_um_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_um_mig_r.Enabled = false;
-            this.lb3_um_mig_r.Location = new System.Drawing.Point(796, 531);
+            this.lb3_um_mig_r.Location = new System.Drawing.Point(780, 531);
             this.lb3_um_mig_r.Name = "lb3_um_mig_r";
-            this.lb3_um_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_um_mig_r.TabIndex = 86;
             this.lb3_um_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3334,9 +3334,9 @@
             this.lb3_az_mig_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_az_mig_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_az_mig_r.Enabled = false;
-            this.lb3_az_mig_r.Location = new System.Drawing.Point(796, 511);
+            this.lb3_az_mig_r.Location = new System.Drawing.Point(780, 511);
             this.lb3_az_mig_r.Name = "lb3_az_mig_r";
-            this.lb3_az_mig_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_az_mig_r.TabIndex = 85;
             this.lb3_az_mig_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3346,9 +3346,9 @@
             this.label77.Enabled = false;
             this.label77.Location = new System.Drawing.Point(731, 531);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(66, 13);
+            this.label77.Size = new System.Drawing.Size(32, 13);
             this.label77.TabIndex = 84;
-            this.label77.Text = "Угол места";
+            this.label77.Text = "Угол";
             // 
             // label78
             // 
@@ -3365,9 +3365,9 @@
             this.lb3_um_mig_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_um_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_um_mig_l.Enabled = false;
-            this.lb3_um_mig_l.Location = new System.Drawing.Point(688, 531);
+            this.lb3_um_mig_l.Location = new System.Drawing.Point(672, 531);
             this.lb3_um_mig_l.Name = "lb3_um_mig_l";
-            this.lb3_um_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_mig_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_um_mig_l.TabIndex = 82;
             this.lb3_um_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3376,9 +3376,9 @@
             this.lb3_az_mig_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_az_mig_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_az_mig_l.Enabled = false;
-            this.lb3_az_mig_l.Location = new System.Drawing.Point(688, 511);
+            this.lb3_az_mig_l.Location = new System.Drawing.Point(672, 511);
             this.lb3_az_mig_l.Name = "lb3_az_mig_l";
-            this.lb3_az_mig_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_mig_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_az_mig_l.TabIndex = 81;
             this.lb3_az_mig_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3388,9 +3388,9 @@
             this.label81.Enabled = false;
             this.label81.Location = new System.Drawing.Point(623, 531);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(66, 13);
+            this.label81.Size = new System.Drawing.Size(32, 13);
             this.label81.TabIndex = 80;
-            this.label81.Text = "Угол места";
+            this.label81.Text = "Угол";
             // 
             // label82
             // 
@@ -3407,9 +3407,9 @@
             this.lb3_um_su_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_um_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_um_su_r.Enabled = false;
-            this.lb3_um_su_r.Location = new System.Drawing.Point(796, 469);
+            this.lb3_um_su_r.Location = new System.Drawing.Point(780, 469);
             this.lb3_um_su_r.Name = "lb3_um_su_r";
-            this.lb3_um_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_um_su_r.TabIndex = 78;
             this.lb3_um_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3418,9 +3418,9 @@
             this.lb3_az_su_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_az_su_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_az_su_r.Enabled = false;
-            this.lb3_az_su_r.Location = new System.Drawing.Point(796, 449);
+            this.lb3_az_su_r.Location = new System.Drawing.Point(780, 449);
             this.lb3_az_su_r.Name = "lb3_az_su_r";
-            this.lb3_az_su_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_az_su_r.TabIndex = 77;
             this.lb3_az_su_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3430,9 +3430,9 @@
             this.label63.Enabled = false;
             this.label63.Location = new System.Drawing.Point(731, 469);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(66, 13);
+            this.label63.Size = new System.Drawing.Size(32, 13);
             this.label63.TabIndex = 76;
-            this.label63.Text = "Угол места";
+            this.label63.Text = "Угол";
             // 
             // label64
             // 
@@ -3449,9 +3449,9 @@
             this.lb3_um_su_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_um_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_um_su_l.Enabled = false;
-            this.lb3_um_su_l.Location = new System.Drawing.Point(688, 469);
+            this.lb3_um_su_l.Location = new System.Drawing.Point(672, 469);
             this.lb3_um_su_l.Name = "lb3_um_su_l";
-            this.lb3_um_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_um_su_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_um_su_l.TabIndex = 74;
             this.lb3_um_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3460,9 +3460,9 @@
             this.lb3_az_su_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_az_su_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_az_su_l.Enabled = false;
-            this.lb3_az_su_l.Location = new System.Drawing.Point(688, 449);
+            this.lb3_az_su_l.Location = new System.Drawing.Point(672, 449);
             this.lb3_az_su_l.Name = "lb3_az_su_l";
-            this.lb3_az_su_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_az_su_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_az_su_l.TabIndex = 73;
             this.lb3_az_su_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3472,9 +3472,9 @@
             this.label70.Enabled = false;
             this.label70.Location = new System.Drawing.Point(623, 469);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(66, 13);
+            this.label70.Size = new System.Drawing.Size(32, 13);
             this.label70.TabIndex = 72;
-            this.label70.Text = "Угол места";
+            this.label70.Text = "Угол";
             // 
             // label72
             // 
@@ -3551,9 +3551,9 @@
             this.lb3_freq_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_freq_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_freq_val_r.Enabled = false;
-            this.lb3_freq_val_r.Location = new System.Drawing.Point(176, 371);
+            this.lb3_freq_val_r.Location = new System.Drawing.Point(161, 371);
             this.lb3_freq_val_r.Name = "lb3_freq_val_r";
-            this.lb3_freq_val_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_freq_val_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_freq_val_r.TabIndex = 72;
             this.lb3_freq_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3572,9 +3572,9 @@
             this.lb3_shoot_um_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_um_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_um_val_r.Enabled = false;
-            this.lb3_shoot_um_val_r.Location = new System.Drawing.Point(176, 351);
+            this.lb3_shoot_um_val_r.Location = new System.Drawing.Point(161, 351);
             this.lb3_shoot_um_val_r.Name = "lb3_shoot_um_val_r";
-            this.lb3_shoot_um_val_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_shoot_um_val_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_shoot_um_val_r.TabIndex = 70;
             this.lb3_shoot_um_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3583,9 +3583,9 @@
             this.lb3_shoot_az_val_r.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_az_val_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_az_val_r.Enabled = false;
-            this.lb3_shoot_az_val_r.Location = new System.Drawing.Point(176, 331);
+            this.lb3_shoot_az_val_r.Location = new System.Drawing.Point(161, 331);
             this.lb3_shoot_az_val_r.Name = "lb3_shoot_az_val_r";
-            this.lb3_shoot_az_val_r.Size = new System.Drawing.Size(39, 15);
+            this.lb3_shoot_az_val_r.Size = new System.Drawing.Size(55, 15);
             this.lb3_shoot_az_val_r.TabIndex = 69;
             this.lb3_shoot_az_val_r.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3595,9 +3595,9 @@
             this.lb3_shoot_um_txt_r.Enabled = false;
             this.lb3_shoot_um_txt_r.Location = new System.Drawing.Point(111, 351);
             this.lb3_shoot_um_txt_r.Name = "lb3_shoot_um_txt_r";
-            this.lb3_shoot_um_txt_r.Size = new System.Drawing.Size(66, 13);
+            this.lb3_shoot_um_txt_r.Size = new System.Drawing.Size(32, 13);
             this.lb3_shoot_um_txt_r.TabIndex = 68;
-            this.lb3_shoot_um_txt_r.Text = "Угол места";
+            this.lb3_shoot_um_txt_r.Text = "Угол";
             // 
             // lb3_shoot_az_txt_r
             // 
@@ -3686,9 +3686,9 @@
             this.lb3_freq_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_freq_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_freq_val_l.Enabled = false;
-            this.lb3_freq_val_l.Location = new System.Drawing.Point(68, 371);
+            this.lb3_freq_val_l.Location = new System.Drawing.Point(53, 371);
             this.lb3_freq_val_l.Name = "lb3_freq_val_l";
-            this.lb3_freq_val_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_freq_val_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_freq_val_l.TabIndex = 64;
             this.lb3_freq_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3732,9 +3732,9 @@
             this.lb3_shoot_um_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_um_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_um_val_l.Enabled = false;
-            this.lb3_shoot_um_val_l.Location = new System.Drawing.Point(68, 351);
+            this.lb3_shoot_um_val_l.Location = new System.Drawing.Point(53, 351);
             this.lb3_shoot_um_val_l.Name = "lb3_shoot_um_val_l";
-            this.lb3_shoot_um_val_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_shoot_um_val_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_shoot_um_val_l.TabIndex = 61;
             this.lb3_shoot_um_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3743,9 +3743,9 @@
             this.lb3_shoot_az_val_l.BackColor = System.Drawing.Color.Transparent;
             this.lb3_shoot_az_val_l.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lb3_shoot_az_val_l.Enabled = false;
-            this.lb3_shoot_az_val_l.Location = new System.Drawing.Point(68, 331);
+            this.lb3_shoot_az_val_l.Location = new System.Drawing.Point(53, 331);
             this.lb3_shoot_az_val_l.Name = "lb3_shoot_az_val_l";
-            this.lb3_shoot_az_val_l.Size = new System.Drawing.Size(39, 15);
+            this.lb3_shoot_az_val_l.Size = new System.Drawing.Size(55, 15);
             this.lb3_shoot_az_val_l.TabIndex = 60;
             this.lb3_shoot_az_val_l.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -3770,9 +3770,9 @@
             this.lb3_shoot_um_txt_l.Enabled = false;
             this.lb3_shoot_um_txt_l.Location = new System.Drawing.Point(3, 351);
             this.lb3_shoot_um_txt_l.Name = "lb3_shoot_um_txt_l";
-            this.lb3_shoot_um_txt_l.Size = new System.Drawing.Size(66, 13);
+            this.lb3_shoot_um_txt_l.Size = new System.Drawing.Size(32, 13);
             this.lb3_shoot_um_txt_l.TabIndex = 59;
-            this.lb3_shoot_um_txt_l.Text = "Угол места";
+            this.lb3_shoot_um_txt_l.Text = "Угол";
             // 
             // trackBar3_az_l
             // 
