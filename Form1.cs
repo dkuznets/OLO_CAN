@@ -8257,6 +8257,22 @@ namespace OLO_CAN
             }
         }
 
+        private void chb4_SU_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_SU.Checked)
+                chb4_MIG.CheckState = CheckState.Unchecked;
+            else
+                chb4_MIG.CheckState = CheckState.Checked;
+        }
+
+        private void chb4_MIG_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_MIG.Checked)
+                chb4_SU.CheckState = CheckState.Unchecked;
+            else
+                chb4_SU.CheckState = CheckState.Checked;
+        }
+
     }
 
     public static class RichTextBoxExtensions

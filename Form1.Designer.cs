@@ -3289,6 +3289,7 @@
             this.chb4_MIG.TabIndex = 7;
             this.chb4_MIG.Text = "МиГ";
             this.chb4_MIG.UseVisualStyleBackColor = true;
+            this.chb4_MIG.CheckedChanged += new System.EventHandler(this.chb4_MIG_CheckedChanged);
             // 
             // chb4_SU
             // 
@@ -3302,6 +3303,7 @@
             this.chb4_SU.TabIndex = 6;
             this.chb4_SU.Text = "Су";
             this.chb4_SU.UseVisualStyleBackColor = true;
+            this.chb4_SU.CheckedChanged += new System.EventHandler(this.chb4_SU_CheckedChanged);
             // 
             // chb4_SSK
             // 
