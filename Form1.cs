@@ -8225,13 +8225,15 @@ namespace OLO_CAN
         {
             if (chb4_PSK.Checked)
             {
-                chb4_SSK.Checked = false;
+                //chb4_SSK.Checked = false;
+                chb4_SSK.CheckState = CheckState.Unchecked;
                 chb4_SU.Enabled = false;
                 chb4_MIG.Enabled = false;
             }
             else
             {
-                chb4_SSK.Checked = true;
+                chb4_SSK.CheckState = CheckState.Checked;
+                //chb4_SSK.Checked = true;
                 chb4_SU.Enabled = true;
                 chb4_MIG.Enabled = true;
             }
@@ -8241,13 +8243,15 @@ namespace OLO_CAN
         {
             if (chb4_SSK.Checked)
             {
-                chb4_PSK.Checked = false;
+                chb4_PSK.CheckState = CheckState.Unchecked;
+                //chb4_PSK.Checked = false;
                 chb4_SU.Enabled = true;
                 chb4_MIG.Enabled = true;
             }
             else
             {
-                chb4_SSK.Checked = true;
+                chb4_PSK.CheckState = CheckState.Checked;
+                //chb4_SSK.Checked = true;
                 chb4_SU.Enabled = false;
                 chb4_MIG.Enabled = false;
             }
