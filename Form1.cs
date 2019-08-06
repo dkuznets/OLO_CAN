@@ -63,7 +63,7 @@ namespace OLO_CAN
         };
         public enum Conv_OLO_num
         {
-            Left = 17, Right = 18
+            Left = 18, Right = 17
         };
 
         #region Переменные
@@ -6491,9 +6491,9 @@ namespace OLO_CAN
 
             ms[0] = (short)(trackBar3_az_l.Value * 60);
             ms[1] = (short)(trackBar3_um_l.Value * 60);
-            Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
+            Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Left, ssk);
             textBox1.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
-            Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Right, ssk);
+            Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Left, ssk);
             textBox2.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
         }
         private void trackBar3_um_l_Scroll(object sender, EventArgs e)
@@ -6509,9 +6509,9 @@ namespace OLO_CAN
 
             ms[0] = (short)(trackBar3_az_l.Value * 60);
             ms[1] = (short)(trackBar3_um_l.Value * 60);
-            Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
+            Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Left, ssk);
             textBox1.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
-            Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Right, ssk);
+            Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Left, ssk);
             textBox2.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
         }
         private void trackBar3_freq_l_Scroll(object sender, EventArgs e)
@@ -6532,9 +6532,9 @@ namespace OLO_CAN
             ms[0] = (short)(trackBar3_az_r.Value * 60);
             ms[1] = (short)(trackBar3_um_r.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
-            textBox3.Text = ssk[0].ToString("F3") + " ; " + ssk[1].ToString("F3");
+            textBox3.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
             Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Right, ssk);
-            textBox4.Text = ssk[0].ToString("F3") + " ; " + ssk[1].ToString("F3");
+            textBox4.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
         }
         private void trackBar3_um_r_Scroll(object sender, EventArgs e)
         {
@@ -6550,9 +6550,9 @@ namespace OLO_CAN
             ms[0] = (short)(trackBar3_az_r.Value * 60);
             ms[1] = (short)(trackBar3_um_r.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
-            textBox3.Text = ssk[0].ToString("F3") + " ; " + ssk[1].ToString("F3");
+            textBox3.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
             Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Right, ssk);
-            textBox4.Text = ssk[0].ToString("F3") + " ; " + ssk[1].ToString("F3");
+            textBox4.Text = rad2deg(ssk[0]).ToString("F3") + " ; " + rad2deg(ssk[1]).ToString("F3");
         }
         private void trackBar3_freq_r_Scroll(object sender, EventArgs e)
         {
