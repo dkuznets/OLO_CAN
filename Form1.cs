@@ -6409,8 +6409,34 @@ namespace OLO_CAN
                         aline = rline.Split(new char[] { ';' });
                         scline.time = Convert.ToInt32(aline[0]);
                         scline.olo = Convert.ToByte(aline[1]);
-                        scline.azimut = Convert.ToInt32(aline[2]);
-                        scline.ugolmesta = Convert.ToInt32(aline[3]);
+                        if (chb4_PSK.Checked)
+                        {
+                            scline.azimut = Convert.ToInt32(aline[2]);
+                            scline.ugolmesta = Convert.ToInt32(aline[3]);
+                        }
+                        else
+                        {
+                            if (chb4_SU.Checked)
+                            {
+                                ssk[0] = (float)deg2rad((float)(Convert.ToInt32(aline[2])) / 60) ;
+                                ssk[1] = (float)deg2rad((float)(Convert.ToInt32(aline[3])) / 60) ;
+                                if (scline.olo == 0)
+                                    Conv_ssk_to_olo((Int32)Conv_Carrier.SU, ssk, (UInt32)Conv_OLO_num.Right, ms);
+                                else
+                                    Conv_ssk_to_olo((Int32)Conv_Carrier.SU, ssk, (UInt32)Conv_OLO_num.Left, ms);
+                            }
+                            else
+                            {
+                                ssk[0] = (float)deg2rad((float)(Convert.ToInt32(aline[2])) / 60);
+                                ssk[1] = (float)deg2rad((float)(Convert.ToInt32(aline[3])) / 60);
+                                if (scline.olo == 0)
+                                    Conv_ssk_to_olo((Int32)Conv_Carrier.MiG, ssk, (UInt32)Conv_OLO_num.Right, ms);
+                                else
+                                    Conv_ssk_to_olo((Int32)Conv_Carrier.MiG, ssk, (UInt32)Conv_OLO_num.Left, ms);
+                            }
+                        }
+                        scline.azimut = ms[0];
+                        scline.ugolmesta = ms[1];
                         scene.Add(scline);
                         //                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
                     }
@@ -6480,6 +6506,57 @@ namespace OLO_CAN
                 tim4_run_scene.Interval = scene[scene_cnt].time;
             }
         }
+        #region Чекбоксы входных данных сценария
+        private void chb4_PSK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_PSK.Checked)
+            {
+                //chb4_SSK.Checked = false;
+                chb4_SSK.CheckState = CheckState.Unchecked;
+                chb4_SU.Enabled = false;
+                chb4_MIG.Enabled = false;
+            }
+            else
+            {
+                chb4_SSK.CheckState = CheckState.Checked;
+                //chb4_SSK.Checked = true;
+                chb4_SU.Enabled = true;
+                chb4_MIG.Enabled = true;
+            }
+        }
+        private void chb4_SSK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_SSK.Checked)
+            {
+                chb4_PSK.CheckState = CheckState.Unchecked;
+                //chb4_PSK.Checked = false;
+                chb4_SU.Enabled = true;
+                chb4_MIG.Enabled = true;
+            }
+            else
+            {
+                chb4_PSK.CheckState = CheckState.Checked;
+                //chb4_SSK.Checked = true;
+                chb4_SU.Enabled = false;
+                chb4_MIG.Enabled = false;
+            }
+        }
+        private void chb4_SU_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_SU.Checked)
+                chb4_MIG.CheckState = CheckState.Unchecked;
+            else
+                chb4_MIG.CheckState = CheckState.Checked;
+        }
+        private void chb4_MIG_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_MIG.Checked)
+                chb4_SU.CheckState = CheckState.Unchecked;
+            else
+                chb4_SU.CheckState = CheckState.Checked;
+        }
+        #endregion
+
         #region Тракбары
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
@@ -8221,59 +8298,8 @@ namespace OLO_CAN
         }
         #endregion
 
-        private void chb4_PSK_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_PSK.Checked)
-            {
-                //chb4_SSK.Checked = false;
-                chb4_SSK.CheckState = CheckState.Unchecked;
-                chb4_SU.Enabled = false;
-                chb4_MIG.Enabled = false;
-            }
-            else
-            {
-                chb4_SSK.CheckState = CheckState.Checked;
-                //chb4_SSK.Checked = true;
-                chb4_SU.Enabled = true;
-                chb4_MIG.Enabled = true;
-            }
-        }
-
-        private void chb4_SSK_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_SSK.Checked)
-            {
-                chb4_PSK.CheckState = CheckState.Unchecked;
-                //chb4_PSK.Checked = false;
-                chb4_SU.Enabled = true;
-                chb4_MIG.Enabled = true;
-            }
-            else
-            {
-                chb4_PSK.CheckState = CheckState.Checked;
-                //chb4_SSK.Checked = true;
-                chb4_SU.Enabled = false;
-                chb4_MIG.Enabled = false;
-            }
-        }
-
-        private void chb4_SU_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_SU.Checked)
-                chb4_MIG.CheckState = CheckState.Unchecked;
-            else
-                chb4_MIG.CheckState = CheckState.Checked;
-        }
-
-        private void chb4_MIG_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chb4_MIG.Checked)
-                chb4_SU.CheckState = CheckState.Unchecked;
-            else
-                chb4_SU.CheckState = CheckState.Checked;
-        }
-
     }
+        
 
     public static class RichTextBoxExtensions
     {
