@@ -6434,9 +6434,9 @@ namespace OLO_CAN
                                 else
                                     Conv_ssk_to_olo((Int32)Conv_Carrier.MiG, ssk, (UInt32)Conv_OLO_num.Left, ms);
                             }
+                            scline.azimut = ms[0];
+                            scline.ugolmesta = ms[1];
                         }
-                        scline.azimut = ms[0];
-                        scline.ugolmesta = ms[1];
                         scene.Add(scline);
                         //                        rtb3_datagrid.AppendText(scline.time.ToString() + " " + scline.olo.ToString() + " " + scline.azimut.ToString() + " " + scline.ugolmesta.ToString() + crlf);
                     }
