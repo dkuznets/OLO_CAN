@@ -267,6 +267,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.gb4_scena = new System.Windows.Forms.GroupBox();
+            this.chb4_MIG = new System.Windows.Forms.CheckBox();
+            this.chb4_SU = new System.Windows.Forms.CheckBox();
+            this.chb4_SSK = new System.Windows.Forms.CheckBox();
+            this.chb4_PSK = new System.Windows.Forms.CheckBox();
             this.bt4_scene_stop = new System.Windows.Forms.Button();
             this.bt4_scene_start = new System.Windows.Forms.Button();
             this.bt4_load_scene = new System.Windows.Forms.Button();
@@ -558,10 +562,6 @@
             this.timer3_reset_r = new System.Windows.Forms.Timer(this.components);
             this.tim_getdata8 = new System.Windows.Forms.Timer(this.components);
             this.tim4_run_scene = new System.Windows.Forms.Timer(this.components);
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbox_Temperature.SuspendLayout();
@@ -3264,10 +3264,10 @@
             // 
             // gb4_scena
             // 
-            this.gb4_scena.Controls.Add(this.radioButton4);
-            this.gb4_scena.Controls.Add(this.radioButton3);
-            this.gb4_scena.Controls.Add(this.radioButton2);
-            this.gb4_scena.Controls.Add(this.radioButton1);
+            this.gb4_scena.Controls.Add(this.chb4_MIG);
+            this.gb4_scena.Controls.Add(this.chb4_SU);
+            this.gb4_scena.Controls.Add(this.chb4_SSK);
+            this.gb4_scena.Controls.Add(this.chb4_PSK);
             this.gb4_scena.Controls.Add(this.bt4_scene_stop);
             this.gb4_scena.Controls.Add(this.bt4_scene_start);
             this.gb4_scena.Controls.Add(this.bt4_load_scene);
@@ -3278,6 +3278,54 @@
             this.gb4_scena.TabIndex = 88;
             this.gb4_scena.TabStop = false;
             this.gb4_scena.Text = "Сценарий";
+            // 
+            // chb4_MIG
+            // 
+            this.chb4_MIG.AutoSize = true;
+            this.chb4_MIG.Enabled = false;
+            this.chb4_MIG.Location = new System.Drawing.Point(61, 97);
+            this.chb4_MIG.Name = "chb4_MIG";
+            this.chb4_MIG.Size = new System.Drawing.Size(47, 17);
+            this.chb4_MIG.TabIndex = 7;
+            this.chb4_MIG.Text = "МиГ";
+            this.chb4_MIG.UseVisualStyleBackColor = true;
+            // 
+            // chb4_SU
+            // 
+            this.chb4_SU.AutoSize = true;
+            this.chb4_SU.Checked = true;
+            this.chb4_SU.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb4_SU.Enabled = false;
+            this.chb4_SU.Location = new System.Drawing.Point(61, 75);
+            this.chb4_SU.Name = "chb4_SU";
+            this.chb4_SU.Size = new System.Drawing.Size(38, 17);
+            this.chb4_SU.TabIndex = 6;
+            this.chb4_SU.Text = "Су";
+            this.chb4_SU.UseVisualStyleBackColor = true;
+            // 
+            // chb4_SSK
+            // 
+            this.chb4_SSK.AutoSize = true;
+            this.chb4_SSK.Location = new System.Drawing.Point(7, 97);
+            this.chb4_SSK.Name = "chb4_SSK";
+            this.chb4_SSK.Size = new System.Drawing.Size(47, 17);
+            this.chb4_SSK.TabIndex = 5;
+            this.chb4_SSK.Text = "ССК";
+            this.chb4_SSK.UseVisualStyleBackColor = true;
+            this.chb4_SSK.CheckedChanged += new System.EventHandler(this.chb4_SSK_CheckedChanged);
+            // 
+            // chb4_PSK
+            // 
+            this.chb4_PSK.AutoSize = true;
+            this.chb4_PSK.Checked = true;
+            this.chb4_PSK.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb4_PSK.Location = new System.Drawing.Point(7, 75);
+            this.chb4_PSK.Name = "chb4_PSK";
+            this.chb4_PSK.Size = new System.Drawing.Size(48, 17);
+            this.chb4_PSK.TabIndex = 4;
+            this.chb4_PSK.Text = "ПСК";
+            this.chb4_PSK.UseVisualStyleBackColor = true;
+            this.chb4_PSK.CheckedChanged += new System.EventHandler(this.chb4_PSK_CheckedChanged);
             // 
             // bt4_scene_stop
             // 
@@ -6412,51 +6460,6 @@
             // 
             this.tim4_run_scene.Tick += new System.EventHandler(this.tim4_run_scene_Tick);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 74);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ПСК";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 97);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.Text = "ССК";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoCheck = false;
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(58, 97);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(37, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Су";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(102, 97);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(46, 17);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.Text = "МиГ";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7116,10 +7119,10 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox chb4_MIG;
+        private System.Windows.Forms.CheckBox chb4_SU;
+        private System.Windows.Forms.CheckBox chb4_SSK;
+        private System.Windows.Forms.CheckBox chb4_PSK;
 	}
 }
 

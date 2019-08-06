@@ -8221,6 +8221,38 @@ namespace OLO_CAN
         }
         #endregion
 
+        private void chb4_PSK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_PSK.Checked)
+            {
+                chb4_SSK.Checked = false;
+                chb4_SU.Enabled = false;
+                chb4_MIG.Enabled = false;
+            }
+            else
+            {
+                chb4_SSK.Checked = true;
+                chb4_SU.Enabled = true;
+                chb4_MIG.Enabled = true;
+            }
+        }
+
+        private void chb4_SSK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb4_SSK.Checked)
+            {
+                chb4_PSK.Checked = false;
+                chb4_SU.Enabled = true;
+                chb4_MIG.Enabled = true;
+            }
+            else
+            {
+                chb4_SSK.Checked = true;
+                chb4_SU.Enabled = false;
+                chb4_MIG.Enabled = false;
+            }
+        }
+
     }
 
     public static class RichTextBoxExtensions
