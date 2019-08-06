@@ -47,9 +47,25 @@ namespace OLO_CAN
         public _u8 iap_error_code; // one of IAP_ERR_xxx if error_code is CMD_ERR_IAP_ERROR
     };
     #endregion
-
+ 
 	public partial class Form1 : Form
 	{
+        #region Импорт функций из ДЛЛ
+
+        [DllImport(@"Conv_sk.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern void Conv_olo_to_ssk(int carrier_type, short[] olo_measures, uint olo_num, float[] ssk);
+        [DllImport(@"Conv_sk.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern void Conv_ssk_to_olo(int carrier_type, float[] ssk, uint olo_num, short[] olo_measures);
+        #endregion
+        public enum Conv_Carrier
+        {
+            SU = 1, MiG = 2
+        };
+        public enum Conv_OLO_num
+        {
+            Left = 17, Right = 18
+        };
+
         #region Переменные
         public String crlf = "\r\n";
         public const Byte qq = 0;
@@ -275,6 +291,9 @@ namespace OLO_CAN
         Double[,] plsu = new Double[,] { { 0.0, -0.9903, 0.1392 }, { 0.0, 0.1392, 0.9903 }, { -1.0, -0.0, 0.0 } };
         Double[,] prmg = new Double[,] { { 0, -0, 1 }, { 0, -1, -0 }, { 1, 0, -0 } };
         Double[,] plmg = new Double[,] { { 0, -0, -1 }, { 0, -1, 0 }, { -1, -0, 0 } };
+
+        short[] ms = new short[2];
+        float[] ssk = new float[2];
 
         public struct SCENE
         {
