@@ -6242,20 +6242,23 @@ namespace OLO_CAN
                 label78.Enabled = true;
                 label77.Enabled = true;
 
-                Double[] tmp = new Double[2];
-                tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
-                lb3_az_su_r.Text = tmp[0].ToString("F2") + '°';
-                lb3_um_su_r.Text = tmp[1].ToString("F2") + '°';
-                tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
-                lb3_az_mig_r.Text = tmp[0].ToString("F2") + '°';
-                lb3_um_mig_r.Text = tmp[1].ToString("F2") + '°';
-                tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
-                lb3_az_su_l.Text = tmp[0].ToString("F2") + '°';
-                lb3_um_su_l.Text = tmp[1].ToString("F2") + '°';
-                tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
-                lb3_az_mig_l.Text = tmp[0].ToString("F2") + '°';
-                lb3_um_mig_l.Text = tmp[1].ToString("F2") + '°';
+                ms[0] = (short)(trackBar3_az_l.Value * 60);
+                ms[1] = (short)(trackBar3_um_l.Value * 60);
+                Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Left, ssk);
+                lb3_az_su_l.Text = rad2deg(ssk[0]).ToString("F3") + '°';
+                lb3_um_su_l.Text = rad2deg(ssk[1]).ToString("F3") + '°';
+                Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Left, ssk);
+                lb3_az_mig_l.Text = rad2deg(ssk[0]).ToString("F3") + '°';
+                lb3_um_mig_l.Text = rad2deg(ssk[1]).ToString("F3") + '°';
 
+                ms[0] = (short)(trackBar3_az_r.Value * 60);
+                ms[1] = (short)(trackBar3_um_r.Value * 60);
+                Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
+                lb3_az_su_r.Text = rad2deg(ssk[0]).ToString("F3") + '°';
+                lb3_um_su_r.Text = rad2deg(ssk[1]).ToString("F3") + '°';
+                Conv_olo_to_ssk((Int32)Conv_Carrier.MiG, ms, (UInt32)Conv_OLO_num.Right, ssk);
+                lb3_az_mig_r.Text = rad2deg(ssk[0]).ToString("F3") + '°';
+                lb3_um_mig_r.Text = rad2deg(ssk[1]).ToString("F3") + '°';
             }
             else
             {
@@ -6481,14 +6484,6 @@ namespace OLO_CAN
         private void trackBar3_az_l_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_az_val_l.Text = (trackBar3_az_l.Value).ToString("0'°'");
-            //Double[] tmp = new Double[2];
-            //tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
-            //lb3_az_su_l.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_su_l.Text = tmp[1].ToString("F2") + '°';
-            //tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
-            //lb3_az_mig_l.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_mig_l.Text = tmp[1].ToString("F2") + '°';
-
             ms[0] = (short)(trackBar3_az_l.Value * 60);
             ms[1] = (short)(trackBar3_um_l.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Left, ssk);
@@ -6501,14 +6496,6 @@ namespace OLO_CAN
         private void trackBar3_um_l_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_um_val_l.Text = (trackBar3_um_l.Value).ToString("0'°'");
-            //Double[] tmp = new Double[2];
-            //tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plsu);
-            //lb3_az_su_l.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_su_l.Text = tmp[1].ToString("F2") + '°';
-            //tmp = turn_to_ssk(trackBar3_az_l.Value, trackBar3_um_l.Value, plmg);
-            //lb3_az_mig_l.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_mig_l.Text = tmp[1].ToString("F2") + '°';
-
             ms[0] = (short)(trackBar3_az_l.Value * 60);
             ms[1] = (short)(trackBar3_um_l.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Left, ssk);
@@ -6525,14 +6512,6 @@ namespace OLO_CAN
         private void trackBar3_az_r_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_az_val_r.Text = (trackBar3_az_r.Value).ToString("0'°'");
-            //Double[] tmp = new Double[2];
-            //tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
-            //lb3_az_su_r.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_su_r.Text = tmp[1].ToString("F2") + '°';
-            //tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
-            //lb3_az_mig_r.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_mig_r.Text = tmp[1].ToString("F2") + '°';
-
             ms[0] = (short)(trackBar3_az_r.Value * 60);
             ms[1] = (short)(trackBar3_um_r.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
@@ -6545,14 +6524,6 @@ namespace OLO_CAN
         private void trackBar3_um_r_Scroll(object sender, EventArgs e)
         {
             lb3_shoot_um_val_r.Text = (trackBar3_um_r.Value).ToString("0'°'");
-            //Double[] tmp = new Double[2];
-            //tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prsu);
-            //lb3_az_su_r.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_su_r.Text = tmp[1].ToString("F2") + '°';
-            //tmp = turn_to_ssk(trackBar3_az_r.Value, trackBar3_um_r.Value, prmg);
-            //lb3_az_mig_r.Text = tmp[0].ToString("F2") + '°';
-            //lb3_um_mig_r.Text = tmp[1].ToString("F2") + '°';
-
             ms[0] = (short)(trackBar3_az_r.Value * 60);
             ms[1] = (short)(trackBar3_um_r.Value * 60);
             Conv_olo_to_ssk((Int32)Conv_Carrier.SU, ms, (UInt32)Conv_OLO_num.Right, ssk);
