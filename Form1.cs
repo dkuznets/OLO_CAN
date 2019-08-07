@@ -111,7 +111,6 @@ namespace OLO_CAN
         public MCANConverter marCAN = null;
         public ACANConverter advCAN = null;
         public ECANConverter elcCAN = null;
-        public ECAN18Converter elcCAN18 = null;
         public FCANConverter fakeCAN = null;
 
         public static IUCANConverter uniCAN = null;
