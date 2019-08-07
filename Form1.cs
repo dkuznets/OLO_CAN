@@ -707,8 +707,8 @@ namespace OLO_CAN
             label16.Enabled = false;
             label17.Enabled = false;
             label18.Enabled = false;
-            comboBox3.Enabled = false;
-            comboBox2.Enabled = false;
+            cb2_select_olo.Enabled = false;
+            cb2_period_ans.Enabled = false;
             bt_About3.Enabled = false;
             bt_SyncTime.Enabled = false;
             bt_Request2.Enabled = false;
@@ -888,8 +888,8 @@ namespace OLO_CAN
             label16.Enabled = true;
             label17.Enabled = true;
             label18.Enabled = true;
-            comboBox3.Enabled = true;
-            comboBox2.Enabled = true;
+            cb2_select_olo.Enabled = true;
+            cb2_period_ans.Enabled = true;
             bt_About3.Enabled = true;
             bt_SyncTime.Enabled = true;
             label17.Enabled = true;
@@ -1053,8 +1053,8 @@ namespace OLO_CAN
             label16.Enabled = false;
             label17.Enabled = false;
             label18.Enabled = false;
-            comboBox3.Enabled = false;
-            comboBox2.Enabled = false;
+            cb2_select_olo.Enabled = false;
+            cb2_period_ans.Enabled = false;
             bt_SyncTime.Enabled = false;
             cb_CAN2.Enabled = true;
             bt_Request2.Enabled = false;
@@ -1197,8 +1197,8 @@ namespace OLO_CAN
                         bt_CloseCAN5.PerformClick();
                         state_NotReady();
                         rtb2_datagrid.ResetText();
-                        comboBox2.SelectedIndex = 0;
-                        comboBox3.SelectedIndex = 0;
+                        cb2_period_ans.SelectedIndex = 0;
+                        cb2_select_olo.SelectedIndex = 0;
                         bt_CloseCAN8.PerformClick();
                         break;
                 case 3:
@@ -4884,7 +4884,7 @@ namespace OLO_CAN
             //    OLO_Select = Const.OLO_Left;
             //else
             //    OLO_Select = Const.OLO_Right;
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
             {
                 case 0:
                     OLO_Select = Const.OLO_Left;
@@ -4907,7 +4907,7 @@ namespace OLO_CAN
             mm.messageID = msg_t.mID_STATREQ;
             Byte[] tmp = new Byte[4];
 
-            switch (comboBox2.SelectedIndex)
+            switch (cb2_period_ans.SelectedIndex)
             {
                 case 0:
                     mm.messageData[4] = 2;
@@ -4926,7 +4926,7 @@ namespace OLO_CAN
                     break;
             }
             String sss = "";
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
             {
                 case 0:
                     mm.deviceID = Const.OLO_Left;
@@ -5006,7 +5006,7 @@ namespace OLO_CAN
         private void btn_REQSN_Click(object sender, EventArgs e) // Запрос серийного номера
         {
             msg_t mm = new msg_t();
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
             {
                 case 0:
                     mm.deviceID = Const.OLO_Left;
@@ -5031,7 +5031,7 @@ namespace OLO_CAN
         private void btn_SAVESN_Click(object sender, EventArgs e) // Сохранение серийного номера
         {
             msg_t mm = new msg_t();
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
             {
                 case 0:
                     mm.deviceID = Const.OLO_Left;
@@ -5080,7 +5080,7 @@ namespace OLO_CAN
         private void REQ_VER_Click(object sender, EventArgs e)
         {
             msg_t mm = new msg_t();
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
         	{
                 case 0:
                     mm.deviceID = Const.OLO_Left;
@@ -5133,7 +5133,7 @@ namespace OLO_CAN
                     break;
                 case 2: // встроенный контроль
                     mm.messageData[0] = 2;
-                    if (comboBox3.SelectedIndex == 0)
+                    if (cb2_select_olo.SelectedIndex == 0)
                     {
                         lb_ecR2_file.Text = "";
                         lb_ecR2_plis1.Text = "";
@@ -5142,7 +5142,7 @@ namespace OLO_CAN
                         lb_ecR2_ram1.Text = "";
                         lb_ecR2_ram2.Text = "";
                     }
-                    if (comboBox3.SelectedIndex == 1)
+                    if (cb2_select_olo.SelectedIndex == 1)
                     {
                         lb_ecL2_file.Text = "";
                         lb_ecL2_plis1.Text = "";
@@ -5151,7 +5151,7 @@ namespace OLO_CAN
                         lb_ecL2_ram1.Text = "";
                         lb_ecL2_ram2.Text = "";
                     }
-                    if (comboBox3.SelectedIndex == 2)
+                    if (cb2_select_olo.SelectedIndex == 2)
                     {
                         lb_ecR2_file.Text = "";
                         lb_ecR2_plis1.Text = "";
@@ -5176,7 +5176,7 @@ namespace OLO_CAN
                     mm.messageLen = 2;
                     break;
             }
-            switch (comboBox3.SelectedIndex)
+            switch (cb2_select_olo.SelectedIndex)
             {
                 case 0:
                     mm.deviceID = Const.OLO_Left;
@@ -5221,9 +5221,9 @@ namespace OLO_CAN
         {
             msg_t mm = new msg_t();
 
-            if (comboBox3.SelectedIndex == 0)
+            if (cb2_select_olo.SelectedIndex == 0)
                 mm.deviceID = Const.OLO_Left;
-            else if (comboBox3.SelectedIndex == 1)
+            else if (cb2_select_olo.SelectedIndex == 1)
                 mm.deviceID = Const.OLO_Right;
             else
                 mm.deviceID = Const.OLO_All;
@@ -5242,9 +5242,9 @@ namespace OLO_CAN
         {
             msg_t mm = new msg_t();
 
-            if (comboBox3.SelectedIndex == 0)
+            if (cb2_select_olo.SelectedIndex == 0)
                 mm.deviceID = Const.OLO_Left;
-            else if (comboBox3.SelectedIndex == 1)
+            else if (cb2_select_olo.SelectedIndex == 1)
                 mm.deviceID = Const.OLO_Right;
             else
                 mm.deviceID = Const.OLO_All;
@@ -6417,8 +6417,8 @@ namespace OLO_CAN
         private void bt4_scene_start_Click(object sender, EventArgs e)
         {
             tim4_run_scene.Enabled = true;
-            bt4_scene_start.Enabled = false;
-            bt4_scene_stop.Enabled = true;
+            bt3_scene_start.Enabled = false;
+            bt3_scene_stop.Enabled = true;
             scene_time = 0;
             flag_enable_scene = true;
             tim4_run_scene.Interval = scene[0].time;
@@ -6427,8 +6427,8 @@ namespace OLO_CAN
         private void bt4_scene_stop_Click(object sender, EventArgs e)
         {
             tim4_run_scene.Enabled = false;
-            bt4_scene_start.Enabled = true;
-            bt4_scene_stop.Enabled = false;
+            bt3_scene_start.Enabled = true;
+            bt3_scene_stop.Enabled = false;
             flag_enable_scene = false;
         }
         private void bt4_load_scene_Click(object sender, EventArgs e)
@@ -6438,8 +6438,8 @@ namespace OLO_CAN
             ofd4.Filter = "Файлы сценария (*.txt; *.scn)|*.txt;*.scn|Все файлы (*.*)|*.*";
             if (ofd4.ShowDialog() != DialogResult.OK)
             {
-                bt4_scene_start.Enabled = false;
-                bt4_scene_stop.Enabled = false;
+                bt3_scene_start.Enabled = false;
+                bt3_scene_stop.Enabled = false;
                 return;
             }
             FileInfo scfi = new FileInfo(ofd4.FileName);
@@ -6491,7 +6491,7 @@ namespace OLO_CAN
                     }
                 }
             }
-            bt4_scene_start.Enabled = true;
+            bt3_scene_start.Enabled = true;
         }
         private void tim4_run_scene_Tick(object sender, EventArgs e)
         {
@@ -6543,7 +6543,7 @@ namespace OLO_CAN
             rtb3_datagrid.AppendText(scene_time.ToString() + crlf);
             if (scene_cnt == scene.Count)
             {
-                bt4_scene_stop.PerformClick();
+                bt3_scene_stop.PerformClick();
                 return;
             }
             if (scene[scene_cnt].time - scene_time > 0)

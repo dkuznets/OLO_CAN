@@ -241,12 +241,12 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.chb_dgview2 = new System.Windows.Forms.CheckBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cb2_select_olo = new System.Windows.Forms.ComboBox();
             this.bt_Request2 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.bt_SyncTime = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cb2_period_ans = new System.Windows.Forms.ComboBox();
             this.gbox_CAN2 = new System.Windows.Forms.GroupBox();
             this.lb_noerr2 = new System.Windows.Forms.Label();
             this.cb_CAN2 = new System.Windows.Forms.ComboBox();
@@ -271,9 +271,9 @@
             this.chb4_SU = new System.Windows.Forms.CheckBox();
             this.chb4_SSK = new System.Windows.Forms.CheckBox();
             this.chb4_PSK = new System.Windows.Forms.CheckBox();
-            this.bt4_scene_stop = new System.Windows.Forms.Button();
-            this.bt4_scene_start = new System.Windows.Forms.Button();
-            this.bt4_load_scene = new System.Windows.Forms.Button();
+            this.bt3_scene_stop = new System.Windows.Forms.Button();
+            this.bt3_scene_start = new System.Windows.Forms.Button();
+            this.bt3_load_scene = new System.Windows.Forms.Button();
             this.tb4_scene_file = new System.Windows.Forms.TextBox();
             this.label84 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
@@ -362,6 +362,87 @@
             this.bt_About3 = new System.Windows.Forms.Button();
             this.bt_Exit3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.label56 = new System.Windows.Forms.Label();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.button3 = new System.Windows.Forms.Button();
+            this.bt_verifi5 = new System.Windows.Forms.Button();
+            this.bt_status5 = new System.Windows.Forms.Button();
+            this.bt_reboot5 = new System.Windows.Forms.Button();
+            this.rb_l5 = new System.Windows.Forms.RadioButton();
+            this.rb_r5 = new System.Windows.Forms.RadioButton();
+            this.bt_aktiv5 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bt_About5 = new System.Windows.Forms.Button();
+            this.bt_Exit5 = new System.Windows.Forms.Button();
+            this.gbox_CAN5 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr5 = new System.Windows.Forms.Label();
+            this.cb_CAN5 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN5 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN5 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN5 = new System.Windows.Forms.Button();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.bt_About8 = new System.Windows.Forms.Button();
+            this.bt_Exit8 = new System.Windows.Forms.Button();
+            this.lb_info8 = new System.Windows.Forms.Label();
+            this.bt_stop8 = new System.Windows.Forms.Button();
+            this.bt_start8 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rb_data_6bit8 = new System.Windows.Forms.RadioButton();
+            this.rb_data_8bit8 = new System.Windows.Forms.RadioButton();
+            this.pictbox_82 = new System.Windows.Forms.PictureBox();
+            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
+            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
+            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictbox_81 = new System.Windows.Forms.PictureBox();
+            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr8 = new System.Windows.Forms.Label();
+            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN8 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.bt_About9 = new System.Windows.Forms.Button();
+            this.bt_Exit9 = new System.Windows.Forms.Button();
+            this.rb_olo_r9 = new System.Windows.Forms.RadioButton();
+            this.rb_olo_l9 = new System.Windows.Forms.RadioButton();
+            this.bt_sendbmp9 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chb_2pict9 = new System.Windows.Forms.CheckBox();
+            this.chb_1pict9 = new System.Windows.Forms.CheckBox();
+            this.chb_8byte9 = new System.Windows.Forms.CheckBox();
+            this.chb_6byte9 = new System.Windows.Forms.CheckBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.bt_loadbmp92 = new System.Windows.Forms.Button();
+            this.pictbox_92 = new System.Windows.Forms.PictureBox();
+            this.lb_info9 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.bt_loadbmp91 = new System.Windows.Forms.Button();
+            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
+            this.label62 = new System.Windows.Forms.Label();
+            this.pictbox_91 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lb_noerr9 = new System.Windows.Forms.Label();
+            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
+            this.lb_error_CAN9 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
+            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lb_plis_init = new System.Windows.Forms.Label();
             this.chb5_timer_enable = new System.Windows.Forms.CheckBox();
@@ -433,38 +514,6 @@
             this.bt_OpenCAN4 = new System.Windows.Forms.Button();
             this.bt_About4 = new System.Windows.Forms.Button();
             this.bt_Exit4 = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.label56 = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.button3 = new System.Windows.Forms.Button();
-            this.bt_verifi5 = new System.Windows.Forms.Button();
-            this.bt_status5 = new System.Windows.Forms.Button();
-            this.bt_reboot5 = new System.Windows.Forms.Button();
-            this.rb_l5 = new System.Windows.Forms.RadioButton();
-            this.rb_r5 = new System.Windows.Forms.RadioButton();
-            this.bt_aktiv5 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.crc32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bt_About5 = new System.Windows.Forms.Button();
-            this.bt_Exit5 = new System.Windows.Forms.Button();
-            this.gbox_CAN5 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr5 = new System.Windows.Forms.Label();
-            this.cb_CAN5 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN5 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN5 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN5 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chb_6_10 = new System.Windows.Forms.CheckBox();
             this.chb_6_9 = new System.Windows.Forms.CheckBox();
@@ -478,55 +527,6 @@
             this.chb_6_3 = new System.Windows.Forms.CheckBox();
             this.chb_6_2 = new System.Windows.Forms.CheckBox();
             this.chb_6_1 = new System.Windows.Forms.CheckBox();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.bt_About8 = new System.Windows.Forms.Button();
-            this.bt_Exit8 = new System.Windows.Forms.Button();
-            this.lb_info8 = new System.Windows.Forms.Label();
-            this.bt_stop8 = new System.Windows.Forms.Button();
-            this.bt_start8 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rb_data_6bit8 = new System.Windows.Forms.RadioButton();
-            this.rb_data_8bit8 = new System.Windows.Forms.RadioButton();
-            this.pictbox_82 = new System.Windows.Forms.PictureBox();
-            this.num_porog8 = new System.Windows.Forms.NumericUpDown();
-            this.chb_contrast8 = new System.Windows.Forms.CheckBox();
-            this.pb_loadbmp8 = new System.Windows.Forms.ProgressBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictbox_81 = new System.Windows.Forms.PictureBox();
-            this.gbox_CAN8 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr8 = new System.Windows.Forms.Label();
-            this.cb_CAN8 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN8 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN8 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN8 = new System.Windows.Forms.Button();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.bt_About9 = new System.Windows.Forms.Button();
-            this.bt_Exit9 = new System.Windows.Forms.Button();
-            this.rb_olo_r9 = new System.Windows.Forms.RadioButton();
-            this.rb_olo_l9 = new System.Windows.Forms.RadioButton();
-            this.bt_sendbmp9 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chb_2pict9 = new System.Windows.Forms.CheckBox();
-            this.chb_1pict9 = new System.Windows.Forms.CheckBox();
-            this.chb_8byte9 = new System.Windows.Forms.CheckBox();
-            this.chb_6byte9 = new System.Windows.Forms.CheckBox();
-            this.label66 = new System.Windows.Forms.Label();
-            this.bt_loadbmp92 = new System.Windows.Forms.Button();
-            this.pictbox_92 = new System.Windows.Forms.PictureBox();
-            this.lb_info9 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.bt_loadbmp91 = new System.Windows.Forms.Button();
-            this.pb_loadbmp9 = new System.Windows.Forms.ProgressBar();
-            this.label62 = new System.Windows.Forms.Label();
-            this.pictbox_91 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lb_noerr9 = new System.Windows.Forms.Label();
-            this.cb_CAN9 = new System.Windows.Forms.ComboBox();
-            this.lb_error_CAN9 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.bt_CloseCAN9 = new System.Windows.Forms.Button();
-            this.bt_OpenCAN9 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -604,22 +604,11 @@
             this.gb_olo_R.SuspendLayout();
             this.gb_olo_L.SuspendLayout();
             this.gbox_CAN3.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.gb_Image24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            this.gb_Temperature.SuspendLayout();
-            this.gb_Image14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.gb_Tests.SuspendLayout();
-            this.gb5_ba.SuspendLayout();
-            this.gb5_bd.SuspendLayout();
-            this.gbox_CAN4.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbox_CAN5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).BeginInit();
@@ -631,6 +620,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_92)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictbox_91)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.gb_Image24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            this.gb_Temperature.SuspendLayout();
+            this.gb_Image14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.gb_Tests.SuspendLayout();
+            this.gb5_ba.SuspendLayout();
+            this.gb5_bd.SuspendLayout();
+            this.gbox_CAN4.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -2011,12 +2011,12 @@
             this.tabPage3.Controls.Add(this.numericUpDown1);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.chb_dgview2);
-            this.tabPage3.Controls.Add(this.comboBox3);
+            this.tabPage3.Controls.Add(this.cb2_select_olo);
             this.tabPage3.Controls.Add(this.bt_Request2);
             this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.bt_SyncTime);
             this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.cb2_period_ans);
             this.tabPage3.Controls.Add(this.gbox_CAN2);
             this.tabPage3.Controls.Add(this.bt_About2);
             this.tabPage3.Controls.Add(this.bt_Exit2);
@@ -2970,18 +2970,18 @@
             this.chb_dgview2.UseVisualStyleBackColor = false;
             this.chb_dgview2.CheckedChanged += new System.EventHandler(this.chb_dgview2_CheckedChanged);
             // 
-            // comboBox3
+            // cb2_select_olo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cb2_select_olo.FormattingEnabled = true;
+            this.cb2_select_olo.Items.AddRange(new object[] {
             "ОЛО левый борт",
             "ОЛО правый борт",
             "Широковещательный"});
-            this.comboBox3.Location = new System.Drawing.Point(201, 101);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 21);
-            this.comboBox3.TabIndex = 47;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.cb2_select_olo.Location = new System.Drawing.Point(201, 101);
+            this.cb2_select_olo.Name = "cb2_select_olo";
+            this.cb2_select_olo.Size = new System.Drawing.Size(181, 21);
+            this.cb2_select_olo.TabIndex = 47;
+            this.cb2_select_olo.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // bt_Request2
             // 
@@ -3021,18 +3021,18 @@
             this.label18.TabIndex = 43;
             this.label18.Text = "Период выдачи статуса ";
             // 
-            // comboBox2
+            // cb2_period_ans
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cb2_period_ans.FormattingEnabled = true;
+            this.cb2_period_ans.Items.AddRange(new object[] {
             "По запросу",
             "2 с",
             "1 с",
             "0.5 с"});
-            this.comboBox2.Location = new System.Drawing.Point(12, 130);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 21);
-            this.comboBox2.TabIndex = 42;
+            this.cb2_period_ans.Location = new System.Drawing.Point(12, 130);
+            this.cb2_period_ans.Name = "cb2_period_ans";
+            this.cb2_period_ans.Size = new System.Drawing.Size(183, 21);
+            this.cb2_period_ans.TabIndex = 42;
             // 
             // gbox_CAN2
             // 
@@ -3268,9 +3268,9 @@
             this.gb4_scena.Controls.Add(this.chb4_SU);
             this.gb4_scena.Controls.Add(this.chb4_SSK);
             this.gb4_scena.Controls.Add(this.chb4_PSK);
-            this.gb4_scena.Controls.Add(this.bt4_scene_stop);
-            this.gb4_scena.Controls.Add(this.bt4_scene_start);
-            this.gb4_scena.Controls.Add(this.bt4_load_scene);
+            this.gb4_scena.Controls.Add(this.bt3_scene_stop);
+            this.gb4_scena.Controls.Add(this.bt3_scene_start);
+            this.gb4_scena.Controls.Add(this.bt3_load_scene);
             this.gb4_scena.Controls.Add(this.tb4_scene_file);
             this.gb4_scena.Location = new System.Drawing.Point(381, 274);
             this.gb4_scena.Name = "gb4_scena";
@@ -3329,39 +3329,39 @@
             this.chb4_PSK.UseVisualStyleBackColor = true;
             this.chb4_PSK.CheckedChanged += new System.EventHandler(this.chb4_PSK_CheckedChanged);
             // 
-            // bt4_scene_stop
+            // bt3_scene_stop
             // 
-            this.bt4_scene_stop.Enabled = false;
-            this.bt4_scene_stop.Location = new System.Drawing.Point(155, 19);
-            this.bt4_scene_stop.Name = "bt4_scene_stop";
-            this.bt4_scene_stop.Size = new System.Drawing.Size(70, 23);
-            this.bt4_scene_stop.TabIndex = 3;
-            this.bt4_scene_stop.Text = "Стоп";
-            this.bt4_scene_stop.UseVisualStyleBackColor = true;
-            this.bt4_scene_stop.Click += new System.EventHandler(this.bt4_scene_stop_Click);
+            this.bt3_scene_stop.Enabled = false;
+            this.bt3_scene_stop.Location = new System.Drawing.Point(155, 19);
+            this.bt3_scene_stop.Name = "bt3_scene_stop";
+            this.bt3_scene_stop.Size = new System.Drawing.Size(70, 23);
+            this.bt3_scene_stop.TabIndex = 3;
+            this.bt3_scene_stop.Text = "Стоп";
+            this.bt3_scene_stop.UseVisualStyleBackColor = true;
+            this.bt3_scene_stop.Click += new System.EventHandler(this.bt4_scene_stop_Click);
             // 
-            // bt4_scene_start
+            // bt3_scene_start
             // 
-            this.bt4_scene_start.BackColor = System.Drawing.Color.Transparent;
-            this.bt4_scene_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.bt4_scene_start.Enabled = false;
-            this.bt4_scene_start.Location = new System.Drawing.Point(80, 19);
-            this.bt4_scene_start.Name = "bt4_scene_start";
-            this.bt4_scene_start.Size = new System.Drawing.Size(70, 23);
-            this.bt4_scene_start.TabIndex = 2;
-            this.bt4_scene_start.Text = "Пуск";
-            this.bt4_scene_start.UseVisualStyleBackColor = false;
-            this.bt4_scene_start.Click += new System.EventHandler(this.bt4_scene_start_Click);
+            this.bt3_scene_start.BackColor = System.Drawing.Color.Transparent;
+            this.bt3_scene_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bt3_scene_start.Enabled = false;
+            this.bt3_scene_start.Location = new System.Drawing.Point(80, 19);
+            this.bt3_scene_start.Name = "bt3_scene_start";
+            this.bt3_scene_start.Size = new System.Drawing.Size(70, 23);
+            this.bt3_scene_start.TabIndex = 2;
+            this.bt3_scene_start.Text = "Пуск";
+            this.bt3_scene_start.UseVisualStyleBackColor = false;
+            this.bt3_scene_start.Click += new System.EventHandler(this.bt4_scene_start_Click);
             // 
-            // bt4_load_scene
+            // bt3_load_scene
             // 
-            this.bt4_load_scene.Location = new System.Drawing.Point(6, 19);
-            this.bt4_load_scene.Name = "bt4_load_scene";
-            this.bt4_load_scene.Size = new System.Drawing.Size(70, 23);
-            this.bt4_load_scene.TabIndex = 1;
-            this.bt4_load_scene.Text = "Загрузка";
-            this.bt4_load_scene.UseVisualStyleBackColor = true;
-            this.bt4_load_scene.Click += new System.EventHandler(this.bt4_load_scene_Click);
+            this.bt3_load_scene.Location = new System.Drawing.Point(6, 19);
+            this.bt3_load_scene.Name = "bt3_load_scene";
+            this.bt3_load_scene.Size = new System.Drawing.Size(70, 23);
+            this.bt3_load_scene.TabIndex = 1;
+            this.bt3_load_scene.Text = "Загрузка";
+            this.bt3_load_scene.UseVisualStyleBackColor = true;
+            this.bt3_load_scene.Click += new System.EventHandler(this.bt4_load_scene_Click);
             // 
             // tb4_scene_file
             // 
@@ -4383,6 +4383,931 @@
             this.panel3.TabIndex = 49;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.richTextBox1);
+            this.tabPage7.Controls.Add(this.label58);
+            this.tabPage7.Controls.Add(this.trackBar3);
+            this.tabPage7.Controls.Add(this.label56);
+            this.tabPage7.Controls.Add(this.trackBar2);
+            this.tabPage7.Controls.Add(this.button3);
+            this.tabPage7.Controls.Add(this.bt_verifi5);
+            this.tabPage7.Controls.Add(this.bt_status5);
+            this.tabPage7.Controls.Add(this.bt_reboot5);
+            this.tabPage7.Controls.Add(this.rb_l5);
+            this.tabPage7.Controls.Add(this.rb_r5);
+            this.tabPage7.Controls.Add(this.bt_aktiv5);
+            this.tabPage7.Controls.Add(this.progressBar1);
+            this.tabPage7.Controls.Add(this.dataGridView1);
+            this.tabPage7.Controls.Add(this.bt_About5);
+            this.tabPage7.Controls.Add(this.bt_Exit5);
+            this.tabPage7.Controls.Add(this.gbox_CAN5);
+            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(962, 654);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "МУП";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 296);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.richTextBox1.Size = new System.Drawing.Size(776, 348);
+            this.richTextBox1.TabIndex = 74;
+            this.richTextBox1.Text = "";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(433, 23);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(41, 13);
+            this.label58.TabIndex = 73;
+            this.label58.Text = "label58";
+            this.label58.Visible = false;
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.Location = new System.Drawing.Point(423, 42);
+            this.trackBar3.Maximum = 1000;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(284, 45);
+            this.trackBar3.TabIndex = 72;
+            this.trackBar3.Visible = false;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(722, 23);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(41, 13);
+            this.label56.TabIndex = 71;
+            this.label56.Text = "label56";
+            this.label56.Visible = false;
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(713, 42);
+            this.trackBar2.Maximum = 1023;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(243, 45);
+            this.trackBar2.TabIndex = 70;
+            this.trackBar2.Visible = false;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(713, 103);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // bt_verifi5
+            // 
+            this.bt_verifi5.Location = new System.Drawing.Point(551, 103);
+            this.bt_verifi5.Name = "bt_verifi5";
+            this.bt_verifi5.Size = new System.Drawing.Size(95, 23);
+            this.bt_verifi5.TabIndex = 67;
+            this.bt_verifi5.Text = "Верификация";
+            this.bt_verifi5.UseVisualStyleBackColor = true;
+            this.bt_verifi5.Click += new System.EventHandler(this.bt_verifi5_Click);
+            // 
+            // bt_status5
+            // 
+            this.bt_status5.Location = new System.Drawing.Point(450, 103);
+            this.bt_status5.Name = "bt_status5";
+            this.bt_status5.Size = new System.Drawing.Size(95, 23);
+            this.bt_status5.TabIndex = 66;
+            this.bt_status5.Text = "Статус";
+            this.bt_status5.UseVisualStyleBackColor = true;
+            this.bt_status5.Click += new System.EventHandler(this.bt_status5_Click);
+            // 
+            // bt_reboot5
+            // 
+            this.bt_reboot5.Location = new System.Drawing.Point(303, 103);
+            this.bt_reboot5.Name = "bt_reboot5";
+            this.bt_reboot5.Size = new System.Drawing.Size(95, 23);
+            this.bt_reboot5.TabIndex = 65;
+            this.bt_reboot5.Text = "Перезагрузить";
+            this.bt_reboot5.UseVisualStyleBackColor = true;
+            this.bt_reboot5.Click += new System.EventHandler(this.bt_reboot5_Click);
+            // 
+            // rb_l5
+            // 
+            this.rb_l5.AutoSize = true;
+            this.rb_l5.Location = new System.Drawing.Point(110, 106);
+            this.rb_l5.Name = "rb_l5";
+            this.rb_l5.Size = new System.Drawing.Size(86, 17);
+            this.rb_l5.TabIndex = 64;
+            this.rb_l5.Text = "ОЛО-Левый";
+            this.rb_l5.UseVisualStyleBackColor = true;
+            // 
+            // rb_r5
+            // 
+            this.rb_r5.AutoSize = true;
+            this.rb_r5.Checked = true;
+            this.rb_r5.Location = new System.Drawing.Point(12, 106);
+            this.rb_r5.Name = "rb_r5";
+            this.rb_r5.Size = new System.Drawing.Size(92, 17);
+            this.rb_r5.TabIndex = 63;
+            this.rb_r5.TabStop = true;
+            this.rb_r5.Text = "ОЛО-Правый";
+            this.rb_r5.UseVisualStyleBackColor = true;
+            // 
+            // bt_aktiv5
+            // 
+            this.bt_aktiv5.Location = new System.Drawing.Point(202, 103);
+            this.bt_aktiv5.Name = "bt_aktiv5";
+            this.bt_aktiv5.Size = new System.Drawing.Size(95, 23);
+            this.bt_aktiv5.TabIndex = 62;
+            this.bt_aktiv5.Text = "Активировать";
+            this.bt_aktiv5.UseVisualStyleBackColor = true;
+            this.bt_aktiv5.Click += new System.EventHandler(this.bt_aktiv5_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 277);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(776, 13);
+            this.progressBar1.TabIndex = 61;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.start,
+            this._size,
+            this.time,
+            this.crc32,
+            this.vers,
+            this.comment,
+            this.id});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 135);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 136);
+            this.dataGridView1.TabIndex = 60;
+            this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Имя файла";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 150;
+            // 
+            // start
+            // 
+            this.start.HeaderText = "Адрес";
+            this.start.Name = "start";
+            this.start.ReadOnly = true;
+            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.start.Width = 50;
+            // 
+            // _size
+            // 
+            this._size.HeaderText = "Размер";
+            this._size.Name = "_size";
+            this._size.ReadOnly = true;
+            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this._size.Width = 60;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.time.Width = 110;
+            // 
+            // crc32
+            // 
+            this.crc32.HeaderText = "CRC32";
+            this.crc32.Name = "crc32";
+            this.crc32.ReadOnly = true;
+            this.crc32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.crc32.Width = 70;
+            // 
+            // vers
+            // 
+            this.vers.HeaderText = "Версия";
+            this.vers.Name = "vers";
+            this.vers.ReadOnly = true;
+            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.vers.Width = 50;
+            // 
+            // comment
+            // 
+            this.comment.HeaderText = "Комментарий";
+            this.comment.Name = "comment";
+            this.comment.ReadOnly = true;
+            this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.comment.Width = 280;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // bt_About5
+            // 
+            this.bt_About5.Location = new System.Drawing.Point(839, 592);
+            this.bt_About5.Name = "bt_About5";
+            this.bt_About5.Size = new System.Drawing.Size(108, 23);
+            this.bt_About5.TabIndex = 42;
+            this.bt_About5.Text = "О программе";
+            this.bt_About5.UseVisualStyleBackColor = true;
+            this.bt_About5.Click += new System.EventHandler(this.bt_About_Click);
+            // 
+            // bt_Exit5
+            // 
+            this.bt_Exit5.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit5.Name = "bt_Exit5";
+            this.bt_Exit5.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit5.TabIndex = 41;
+            this.bt_Exit5.Text = "Выход";
+            this.bt_Exit5.UseVisualStyleBackColor = true;
+            this.bt_Exit5.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
+            // gbox_CAN5
+            // 
+            this.gbox_CAN5.Controls.Add(this.lb_noerr5);
+            this.gbox_CAN5.Controls.Add(this.cb_CAN5);
+            this.gbox_CAN5.Controls.Add(this.lb_error_CAN5);
+            this.gbox_CAN5.Controls.Add(this.label51);
+            this.gbox_CAN5.Controls.Add(this.bt_CloseCAN5);
+            this.gbox_CAN5.Controls.Add(this.bt_OpenCAN5);
+            this.gbox_CAN5.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN5.Name = "gbox_CAN5";
+            this.gbox_CAN5.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN5.TabIndex = 40;
+            this.gbox_CAN5.TabStop = false;
+            this.gbox_CAN5.Text = "CAN";
+            // 
+            // lb_noerr5
+            // 
+            this.lb_noerr5.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr5.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr5.Name = "lb_noerr5";
+            this.lb_noerr5.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr5.TabIndex = 15;
+            this.lb_noerr5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr5.Visible = false;
+            // 
+            // cb_CAN5
+            // 
+            this.cb_CAN5.FormattingEnabled = true;
+            this.cb_CAN5.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN5.Name = "cb_CAN5";
+            this.cb_CAN5.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN5.TabIndex = 29;
+            // 
+            // lb_error_CAN5
+            // 
+            this.lb_error_CAN5.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN5.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN5.Name = "lb_error_CAN5";
+            this.lb_error_CAN5.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN5.TabIndex = 14;
+            this.lb_error_CAN5.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN5.Visible = false;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label51.Location = new System.Drawing.Point(159, 49);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(0, 13);
+            this.label51.TabIndex = 10;
+            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN5
+            // 
+            this.bt_CloseCAN5.Enabled = false;
+            this.bt_CloseCAN5.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN5.Name = "bt_CloseCAN5";
+            this.bt_CloseCAN5.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN5.TabIndex = 2;
+            this.bt_CloseCAN5.Text = "Закрыть";
+            this.bt_CloseCAN5.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN5.Click += new System.EventHandler(this.bt_CloseCAN5_Click);
+            // 
+            // bt_OpenCAN5
+            // 
+            this.bt_OpenCAN5.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN5.Name = "bt_OpenCAN5";
+            this.bt_OpenCAN5.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN5.TabIndex = 0;
+            this.bt_OpenCAN5.Text = "Открыть";
+            this.bt_OpenCAN5.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN5.Click += new System.EventHandler(this.bt_OpenCAN5_Click);
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.bt_About8);
+            this.tabPage8.Controls.Add(this.bt_Exit8);
+            this.tabPage8.Controls.Add(this.lb_info8);
+            this.tabPage8.Controls.Add(this.bt_stop8);
+            this.tabPage8.Controls.Add(this.bt_start8);
+            this.tabPage8.Controls.Add(this.groupBox2);
+            this.tabPage8.Controls.Add(this.gbox_CAN8);
+            this.tabPage8.Location = new System.Drawing.Point(4, 29);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(962, 654);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Техно Прием";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // bt_About8
+            // 
+            this.bt_About8.Location = new System.Drawing.Point(839, 592);
+            this.bt_About8.Name = "bt_About8";
+            this.bt_About8.Size = new System.Drawing.Size(108, 23);
+            this.bt_About8.TabIndex = 46;
+            this.bt_About8.Text = "О программе";
+            this.bt_About8.UseVisualStyleBackColor = true;
+            this.bt_About8.Click += new System.EventHandler(this.bt_About8_Click);
+            // 
+            // bt_Exit8
+            // 
+            this.bt_Exit8.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit8.Name = "bt_Exit8";
+            this.bt_Exit8.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit8.TabIndex = 45;
+            this.bt_Exit8.Text = "Выход";
+            this.bt_Exit8.UseVisualStyleBackColor = true;
+            this.bt_Exit8.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
+            // lb_info8
+            // 
+            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info8.Location = new System.Drawing.Point(175, 94);
+            this.lb_info8.Name = "lb_info8";
+            this.lb_info8.Size = new System.Drawing.Size(194, 22);
+            this.lb_info8.TabIndex = 44;
+            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bt_stop8
+            // 
+            this.bt_stop8.Enabled = false;
+            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
+            this.bt_stop8.Name = "bt_stop8";
+            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
+            this.bt_stop8.TabIndex = 43;
+            this.bt_stop8.Text = "Стоп";
+            this.bt_stop8.UseVisualStyleBackColor = true;
+            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
+            // 
+            // bt_start8
+            // 
+            this.bt_start8.Location = new System.Drawing.Point(12, 93);
+            this.bt_start8.Name = "bt_start8";
+            this.bt_start8.Size = new System.Drawing.Size(75, 23);
+            this.bt_start8.TabIndex = 42;
+            this.bt_start8.Text = "Старт";
+            this.bt_start8.UseVisualStyleBackColor = true;
+            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rb_data_6bit8);
+            this.groupBox2.Controls.Add(this.rb_data_8bit8);
+            this.groupBox2.Controls.Add(this.pictbox_82);
+            this.groupBox2.Controls.Add(this.num_porog8);
+            this.groupBox2.Controls.Add(this.chb_contrast8);
+            this.groupBox2.Controls.Add(this.pb_loadbmp8);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.pictbox_81);
+            this.groupBox2.Location = new System.Drawing.Point(6, 122);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(657, 330);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Картинка 1                                                                       " +
+    "                  Картинка 2";
+            // 
+            // rb_data_6bit8
+            // 
+            this.rb_data_6bit8.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_data_6bit8.AutoSize = true;
+            this.rb_data_6bit8.BackColor = System.Drawing.Color.SpringGreen;
+            this.rb_data_6bit8.Checked = true;
+            this.rb_data_6bit8.Location = new System.Drawing.Point(331, 299);
+            this.rb_data_6bit8.Name = "rb_data_6bit8";
+            this.rb_data_6bit8.Size = new System.Drawing.Size(73, 23);
+            this.rb_data_6bit8.TabIndex = 21;
+            this.rb_data_6bit8.TabStop = true;
+            this.rb_data_6bit8.Text = "Data 6 Byte";
+            this.rb_data_6bit8.UseVisualStyleBackColor = false;
+            this.rb_data_6bit8.CheckedChanged += new System.EventHandler(this.rb_data_6bit8_CheckedChanged);
+            // 
+            // rb_data_8bit8
+            // 
+            this.rb_data_8bit8.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_data_8bit8.AutoSize = true;
+            this.rb_data_8bit8.BackColor = System.Drawing.Color.Transparent;
+            this.rb_data_8bit8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.rb_data_8bit8.Location = new System.Drawing.Point(253, 299);
+            this.rb_data_8bit8.Name = "rb_data_8bit8";
+            this.rb_data_8bit8.Size = new System.Drawing.Size(73, 23);
+            this.rb_data_8bit8.TabIndex = 20;
+            this.rb_data_8bit8.Text = "Data 8 Byte";
+            this.rb_data_8bit8.UseVisualStyleBackColor = false;
+            this.rb_data_8bit8.CheckedChanged += new System.EventHandler(this.rb_data_8bit8_CheckedChanged);
+            // 
+            // pictbox_82
+            // 
+            this.pictbox_82.BackColor = System.Drawing.Color.Black;
+            this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_82.Location = new System.Drawing.Point(331, 19);
+            this.pictbox_82.Name = "pictbox_82";
+            this.pictbox_82.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_82.TabIndex = 19;
+            this.pictbox_82.TabStop = false;
+            // 
+            // num_porog8
+            // 
+            this.num_porog8.Location = new System.Drawing.Point(185, 301);
+            this.num_porog8.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.num_porog8.Name = "num_porog8";
+            this.num_porog8.Size = new System.Drawing.Size(62, 20);
+            this.num_porog8.TabIndex = 18;
+            this.num_porog8.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            // 
+            // chb_contrast8
+            // 
+            this.chb_contrast8.AutoSize = true;
+            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
+            this.chb_contrast8.Name = "chb_contrast8";
+            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
+            this.chb_contrast8.TabIndex = 17;
+            this.chb_contrast8.Text = "Контрастирование картинки";
+            this.chb_contrast8.UseVisualStyleBackColor = true;
+            // 
+            // pb_loadbmp8
+            // 
+            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp8.Name = "pb_loadbmp8";
+            this.pb_loadbmp8.Size = new System.Drawing.Size(644, 18);
+            this.pb_loadbmp8.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(520, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 15;
+            // 
+            // pictbox_81
+            // 
+            this.pictbox_81.BackColor = System.Drawing.Color.Black;
+            this.pictbox_81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_81.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_81.Name = "pictbox_81";
+            this.pictbox_81.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_81.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_81.TabIndex = 6;
+            this.pictbox_81.TabStop = false;
+            // 
+            // gbox_CAN8
+            // 
+            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
+            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
+            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
+            this.gbox_CAN8.Controls.Add(this.label61);
+            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
+            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
+            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
+            this.gbox_CAN8.Name = "gbox_CAN8";
+            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
+            this.gbox_CAN8.TabIndex = 40;
+            this.gbox_CAN8.TabStop = false;
+            this.gbox_CAN8.Text = "CAN";
+            // 
+            // lb_noerr8
+            // 
+            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr8.Name = "lb_noerr8";
+            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr8.TabIndex = 15;
+            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr8.Visible = false;
+            // 
+            // cb_CAN8
+            // 
+            this.cb_CAN8.FormattingEnabled = true;
+            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN8.Name = "cb_CAN8";
+            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN8.TabIndex = 29;
+            // 
+            // lb_error_CAN8
+            // 
+            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN8.Name = "lb_error_CAN8";
+            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN8.TabIndex = 14;
+            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN8.Visible = false;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label61.Location = new System.Drawing.Point(159, 49);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(0, 13);
+            this.label61.TabIndex = 10;
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN8
+            // 
+            this.bt_CloseCAN8.Enabled = false;
+            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
+            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN8.TabIndex = 2;
+            this.bt_CloseCAN8.Text = "Закрыть";
+            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
+            // 
+            // bt_OpenCAN8
+            // 
+            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
+            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN8.TabIndex = 0;
+            this.bt_OpenCAN8.Text = "Открыть";
+            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.bt_About9);
+            this.tabPage9.Controls.Add(this.bt_Exit9);
+            this.tabPage9.Controls.Add(this.rb_olo_r9);
+            this.tabPage9.Controls.Add(this.rb_olo_l9);
+            this.tabPage9.Controls.Add(this.bt_sendbmp9);
+            this.tabPage9.Controls.Add(this.groupBox3);
+            this.tabPage9.Controls.Add(this.groupBox4);
+            this.tabPage9.Location = new System.Drawing.Point(4, 29);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(962, 654);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Техно Передача";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // bt_About9
+            // 
+            this.bt_About9.Location = new System.Drawing.Point(839, 592);
+            this.bt_About9.Name = "bt_About9";
+            this.bt_About9.Size = new System.Drawing.Size(108, 23);
+            this.bt_About9.TabIndex = 55;
+            this.bt_About9.Text = "О программе";
+            this.bt_About9.UseVisualStyleBackColor = true;
+            this.bt_About9.Click += new System.EventHandler(this.bt_About9_Click);
+            // 
+            // bt_Exit9
+            // 
+            this.bt_Exit9.Location = new System.Drawing.Point(839, 621);
+            this.bt_Exit9.Name = "bt_Exit9";
+            this.bt_Exit9.Size = new System.Drawing.Size(108, 23);
+            this.bt_Exit9.TabIndex = 54;
+            this.bt_Exit9.Text = "Выход";
+            this.bt_Exit9.UseVisualStyleBackColor = true;
+            this.bt_Exit9.Click += new System.EventHandler(this.bt_Exit_Click);
+            // 
+            // rb_olo_r9
+            // 
+            this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_r9.BackColor = System.Drawing.Color.SpringGreen;
+            this.rb_olo_r9.Checked = true;
+            this.rb_olo_r9.Location = new System.Drawing.Point(12, 93);
+            this.rb_olo_r9.Name = "rb_olo_r9";
+            this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
+            this.rb_olo_r9.TabIndex = 53;
+            this.rb_olo_r9.TabStop = true;
+            this.rb_olo_r9.Text = "ОЛО правый";
+            this.rb_olo_r9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rb_olo_r9.UseVisualStyleBackColor = false;
+            this.rb_olo_r9.CheckedChanged += new System.EventHandler(this.rb_olo_r9_CheckedChanged);
+            // 
+            // rb_olo_l9
+            // 
+            this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_olo_l9.Location = new System.Drawing.Point(98, 93);
+            this.rb_olo_l9.Name = "rb_olo_l9";
+            this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
+            this.rb_olo_l9.TabIndex = 51;
+            this.rb_olo_l9.Text = "ОЛО левый";
+            this.rb_olo_l9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rb_olo_l9.UseVisualStyleBackColor = true;
+            this.rb_olo_l9.CheckedChanged += new System.EventHandler(this.rb_olo_l9_CheckedChanged);
+            // 
+            // bt_sendbmp9
+            // 
+            this.bt_sendbmp9.Enabled = false;
+            this.bt_sendbmp9.Location = new System.Drawing.Point(184, 93);
+            this.bt_sendbmp9.Name = "bt_sendbmp9";
+            this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
+            this.bt_sendbmp9.TabIndex = 52;
+            this.bt_sendbmp9.Text = "Отправить картинку";
+            this.bt_sendbmp9.UseVisualStyleBackColor = true;
+            this.bt_sendbmp9.Click += new System.EventHandler(this.bt_sendbmp9_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chb_2pict9);
+            this.groupBox3.Controls.Add(this.chb_1pict9);
+            this.groupBox3.Controls.Add(this.chb_8byte9);
+            this.groupBox3.Controls.Add(this.chb_6byte9);
+            this.groupBox3.Controls.Add(this.label66);
+            this.groupBox3.Controls.Add(this.bt_loadbmp92);
+            this.groupBox3.Controls.Add(this.pictbox_92);
+            this.groupBox3.Controls.Add(this.lb_info9);
+            this.groupBox3.Controls.Add(this.label60);
+            this.groupBox3.Controls.Add(this.bt_loadbmp91);
+            this.groupBox3.Controls.Add(this.pb_loadbmp9);
+            this.groupBox3.Controls.Add(this.label62);
+            this.groupBox3.Controls.Add(this.pictbox_91);
+            this.groupBox3.Location = new System.Drawing.Point(6, 122);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(659, 360);
+            this.groupBox3.TabIndex = 50;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Картинка 1                                                                       " +
+    "                  Картинка 2";
+            // 
+            // chb_2pict9
+            // 
+            this.chb_2pict9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_2pict9.AutoSize = true;
+            this.chb_2pict9.BackColor = System.Drawing.Color.SpringGreen;
+            this.chb_2pict9.Checked = true;
+            this.chb_2pict9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_2pict9.Location = new System.Drawing.Point(252, 331);
+            this.chb_2pict9.Name = "chb_2pict9";
+            this.chb_2pict9.Size = new System.Drawing.Size(73, 23);
+            this.chb_2pict9.TabIndex = 57;
+            this.chb_2pict9.Text = "2 картинки";
+            this.chb_2pict9.UseVisualStyleBackColor = false;
+            this.chb_2pict9.CheckedChanged += new System.EventHandler(this.chb_2pict9_CheckedChanged);
+            // 
+            // chb_1pict9
+            // 
+            this.chb_1pict9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_1pict9.AutoSize = true;
+            this.chb_1pict9.Location = new System.Drawing.Point(173, 331);
+            this.chb_1pict9.Name = "chb_1pict9";
+            this.chb_1pict9.Size = new System.Drawing.Size(73, 23);
+            this.chb_1pict9.TabIndex = 56;
+            this.chb_1pict9.Text = "1 картинка";
+            this.chb_1pict9.UseVisualStyleBackColor = true;
+            this.chb_1pict9.CheckedChanged += new System.EventHandler(this.chb_1pict9_CheckedChanged);
+            // 
+            // chb_8byte9
+            // 
+            this.chb_8byte9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_8byte9.AutoSize = true;
+            this.chb_8byte9.Location = new System.Drawing.Point(62, 331);
+            this.chb_8byte9.Name = "chb_8byte9";
+            this.chb_8byte9.Size = new System.Drawing.Size(50, 23);
+            this.chb_8byte9.TabIndex = 55;
+            this.chb_8byte9.Text = "8 Байт";
+            this.chb_8byte9.UseVisualStyleBackColor = true;
+            this.chb_8byte9.CheckedChanged += new System.EventHandler(this.chb_8byte9_CheckedChanged);
+            // 
+            // chb_6byte9
+            // 
+            this.chb_6byte9.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chb_6byte9.AutoSize = true;
+            this.chb_6byte9.BackColor = System.Drawing.Color.SpringGreen;
+            this.chb_6byte9.Checked = true;
+            this.chb_6byte9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chb_6byte9.Location = new System.Drawing.Point(6, 331);
+            this.chb_6byte9.Name = "chb_6byte9";
+            this.chb_6byte9.Size = new System.Drawing.Size(50, 23);
+            this.chb_6byte9.TabIndex = 54;
+            this.chb_6byte9.Text = "6 Байт";
+            this.chb_6byte9.UseVisualStyleBackColor = false;
+            this.chb_6byte9.CheckedChanged += new System.EventHandler(this.chb_6byte9_CheckedChanged);
+            // 
+            // label66
+            // 
+            this.label66.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label66.Location = new System.Drawing.Point(412, 301);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(237, 23);
+            this.label66.TabIndex = 53;
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_loadbmp92
+            // 
+            this.bt_loadbmp92.Location = new System.Drawing.Point(331, 301);
+            this.bt_loadbmp92.Name = "bt_loadbmp92";
+            this.bt_loadbmp92.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp92.TabIndex = 52;
+            this.bt_loadbmp92.Text = "Открыть";
+            this.bt_loadbmp92.UseVisualStyleBackColor = true;
+            this.bt_loadbmp92.Click += new System.EventHandler(this.bt_loadbmp92_Click);
+            // 
+            // pictbox_92
+            // 
+            this.pictbox_92.BackColor = System.Drawing.Color.Black;
+            this.pictbox_92.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_92.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_92.Image = global::OLO_CAN.Properties.Resources.test_tech2;
+            this.pictbox_92.InitialImage = global::OLO_CAN.Properties.Resources.test_tech2;
+            this.pictbox_92.Location = new System.Drawing.Point(331, 19);
+            this.pictbox_92.Name = "pictbox_92";
+            this.pictbox_92.Size = new System.Drawing.Size(321, 257);
+            this.pictbox_92.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_92.TabIndex = 51;
+            this.pictbox_92.TabStop = false;
+            // 
+            // lb_info9
+            // 
+            this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_info9.Location = new System.Drawing.Point(331, 331);
+            this.lb_info9.Name = "lb_info9";
+            this.lb_info9.Size = new System.Drawing.Size(318, 22);
+            this.lb_info9.TabIndex = 48;
+            this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label60
+            // 
+            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label60.Location = new System.Drawing.Point(88, 301);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(237, 23);
+            this.label60.TabIndex = 50;
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_loadbmp91
+            // 
+            this.bt_loadbmp91.Location = new System.Drawing.Point(7, 301);
+            this.bt_loadbmp91.Name = "bt_loadbmp91";
+            this.bt_loadbmp91.Size = new System.Drawing.Size(75, 23);
+            this.bt_loadbmp91.TabIndex = 49;
+            this.bt_loadbmp91.Text = "Открыть";
+            this.bt_loadbmp91.UseVisualStyleBackColor = true;
+            this.bt_loadbmp91.Click += new System.EventHandler(this.bt_loadbmp9_Click);
+            // 
+            // pb_loadbmp9
+            // 
+            this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
+            this.pb_loadbmp9.Name = "pb_loadbmp9";
+            this.pb_loadbmp9.Size = new System.Drawing.Size(644, 18);
+            this.pb_loadbmp9.TabIndex = 16;
+            // 
+            // label62
+            // 
+            this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(522, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(0, 13);
+            this.label62.TabIndex = 15;
+            // 
+            // pictbox_91
+            // 
+            this.pictbox_91.BackColor = System.Drawing.Color.Black;
+            this.pictbox_91.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
+            this.pictbox_91.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictbox_91.Location = new System.Drawing.Point(6, 19);
+            this.pictbox_91.Name = "pictbox_91";
+            this.pictbox_91.Size = new System.Drawing.Size(319, 255);
+            this.pictbox_91.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictbox_91.TabIndex = 6;
+            this.pictbox_91.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lb_noerr9);
+            this.groupBox4.Controls.Add(this.cb_CAN9);
+            this.groupBox4.Controls.Add(this.lb_error_CAN9);
+            this.groupBox4.Controls.Add(this.label74);
+            this.groupBox4.Controls.Add(this.bt_CloseCAN9);
+            this.groupBox4.Controls.Add(this.bt_OpenCAN9);
+            this.groupBox4.Location = new System.Drawing.Point(6, 9);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(369, 78);
+            this.groupBox4.TabIndex = 49;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "CAN";
+            // 
+            // lb_noerr9
+            // 
+            this.lb_noerr9.BackColor = System.Drawing.Color.SpringGreen;
+            this.lb_noerr9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_noerr9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_noerr9.Location = new System.Drawing.Point(6, 49);
+            this.lb_noerr9.Name = "lb_noerr9";
+            this.lb_noerr9.Size = new System.Drawing.Size(357, 21);
+            this.lb_noerr9.TabIndex = 15;
+            this.lb_noerr9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_noerr9.Visible = false;
+            // 
+            // cb_CAN9
+            // 
+            this.cb_CAN9.FormattingEnabled = true;
+            this.cb_CAN9.Location = new System.Drawing.Point(6, 20);
+            this.cb_CAN9.Name = "cb_CAN9";
+            this.cb_CAN9.Size = new System.Drawing.Size(225, 21);
+            this.cb_CAN9.TabIndex = 29;
+            // 
+            // lb_error_CAN9
+            // 
+            this.lb_error_CAN9.BackColor = System.Drawing.Color.Red;
+            this.lb_error_CAN9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_error_CAN9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_error_CAN9.Location = new System.Drawing.Point(6, 49);
+            this.lb_error_CAN9.Name = "lb_error_CAN9";
+            this.lb_error_CAN9.Size = new System.Drawing.Size(357, 21);
+            this.lb_error_CAN9.TabIndex = 14;
+            this.lb_error_CAN9.Text = "Не удалось открыть CAN";
+            this.lb_error_CAN9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_error_CAN9.Visible = false;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label74.Location = new System.Drawing.Point(159, 49);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(0, 13);
+            this.label74.TabIndex = 10;
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bt_CloseCAN9
+            // 
+            this.bt_CloseCAN9.Enabled = false;
+            this.bt_CloseCAN9.Location = new System.Drawing.Point(300, 18);
+            this.bt_CloseCAN9.Name = "bt_CloseCAN9";
+            this.bt_CloseCAN9.Size = new System.Drawing.Size(63, 23);
+            this.bt_CloseCAN9.TabIndex = 2;
+            this.bt_CloseCAN9.Text = "Закрыть";
+            this.bt_CloseCAN9.UseVisualStyleBackColor = true;
+            this.bt_CloseCAN9.Click += new System.EventHandler(this.bt_CloseCAN9_Click);
+            // 
+            // bt_OpenCAN9
+            // 
+            this.bt_OpenCAN9.Location = new System.Drawing.Point(237, 18);
+            this.bt_OpenCAN9.Name = "bt_OpenCAN9";
+            this.bt_OpenCAN9.Size = new System.Drawing.Size(60, 23);
+            this.bt_OpenCAN9.TabIndex = 0;
+            this.bt_OpenCAN9.Text = "Открыть";
+            this.bt_OpenCAN9.UseVisualStyleBackColor = true;
+            this.bt_OpenCAN9.Click += new System.EventHandler(this.bt_OpenCAN9_Click);
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.lb_plis_init);
@@ -5176,353 +6101,6 @@
             this.bt_Exit4.UseVisualStyleBackColor = true;
             this.bt_Exit4.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.richTextBox1);
-            this.tabPage7.Controls.Add(this.label58);
-            this.tabPage7.Controls.Add(this.trackBar3);
-            this.tabPage7.Controls.Add(this.label56);
-            this.tabPage7.Controls.Add(this.trackBar2);
-            this.tabPage7.Controls.Add(this.button3);
-            this.tabPage7.Controls.Add(this.bt_verifi5);
-            this.tabPage7.Controls.Add(this.bt_status5);
-            this.tabPage7.Controls.Add(this.bt_reboot5);
-            this.tabPage7.Controls.Add(this.rb_l5);
-            this.tabPage7.Controls.Add(this.rb_r5);
-            this.tabPage7.Controls.Add(this.bt_aktiv5);
-            this.tabPage7.Controls.Add(this.progressBar1);
-            this.tabPage7.Controls.Add(this.dataGridView1);
-            this.tabPage7.Controls.Add(this.bt_About5);
-            this.tabPage7.Controls.Add(this.bt_Exit5);
-            this.tabPage7.Controls.Add(this.gbox_CAN5);
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(962, 654);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "МУП";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 296);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox1.Size = new System.Drawing.Size(776, 348);
-            this.richTextBox1.TabIndex = 74;
-            this.richTextBox1.Text = "";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(433, 23);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(41, 13);
-            this.label58.TabIndex = 73;
-            this.label58.Text = "label58";
-            this.label58.Visible = false;
-            // 
-            // trackBar3
-            // 
-            this.trackBar3.Location = new System.Drawing.Point(423, 42);
-            this.trackBar3.Maximum = 1000;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(284, 45);
-            this.trackBar3.TabIndex = 72;
-            this.trackBar3.Visible = false;
-            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(722, 23);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(41, 13);
-            this.label56.TabIndex = 71;
-            this.label56.Text = "label56";
-            this.label56.Visible = false;
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(713, 42);
-            this.trackBar2.Maximum = 1023;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(243, 45);
-            this.trackBar2.TabIndex = 70;
-            this.trackBar2.Visible = false;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(713, 103);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // bt_verifi5
-            // 
-            this.bt_verifi5.Location = new System.Drawing.Point(551, 103);
-            this.bt_verifi5.Name = "bt_verifi5";
-            this.bt_verifi5.Size = new System.Drawing.Size(95, 23);
-            this.bt_verifi5.TabIndex = 67;
-            this.bt_verifi5.Text = "Верификация";
-            this.bt_verifi5.UseVisualStyleBackColor = true;
-            this.bt_verifi5.Click += new System.EventHandler(this.bt_verifi5_Click);
-            // 
-            // bt_status5
-            // 
-            this.bt_status5.Location = new System.Drawing.Point(450, 103);
-            this.bt_status5.Name = "bt_status5";
-            this.bt_status5.Size = new System.Drawing.Size(95, 23);
-            this.bt_status5.TabIndex = 66;
-            this.bt_status5.Text = "Статус";
-            this.bt_status5.UseVisualStyleBackColor = true;
-            this.bt_status5.Click += new System.EventHandler(this.bt_status5_Click);
-            // 
-            // bt_reboot5
-            // 
-            this.bt_reboot5.Location = new System.Drawing.Point(303, 103);
-            this.bt_reboot5.Name = "bt_reboot5";
-            this.bt_reboot5.Size = new System.Drawing.Size(95, 23);
-            this.bt_reboot5.TabIndex = 65;
-            this.bt_reboot5.Text = "Перезагрузить";
-            this.bt_reboot5.UseVisualStyleBackColor = true;
-            this.bt_reboot5.Click += new System.EventHandler(this.bt_reboot5_Click);
-            // 
-            // rb_l5
-            // 
-            this.rb_l5.AutoSize = true;
-            this.rb_l5.Location = new System.Drawing.Point(110, 106);
-            this.rb_l5.Name = "rb_l5";
-            this.rb_l5.Size = new System.Drawing.Size(86, 17);
-            this.rb_l5.TabIndex = 64;
-            this.rb_l5.Text = "ОЛО-Левый";
-            this.rb_l5.UseVisualStyleBackColor = true;
-            // 
-            // rb_r5
-            // 
-            this.rb_r5.AutoSize = true;
-            this.rb_r5.Checked = true;
-            this.rb_r5.Location = new System.Drawing.Point(12, 106);
-            this.rb_r5.Name = "rb_r5";
-            this.rb_r5.Size = new System.Drawing.Size(92, 17);
-            this.rb_r5.TabIndex = 63;
-            this.rb_r5.TabStop = true;
-            this.rb_r5.Text = "ОЛО-Правый";
-            this.rb_r5.UseVisualStyleBackColor = true;
-            // 
-            // bt_aktiv5
-            // 
-            this.bt_aktiv5.Location = new System.Drawing.Point(202, 103);
-            this.bt_aktiv5.Name = "bt_aktiv5";
-            this.bt_aktiv5.Size = new System.Drawing.Size(95, 23);
-            this.bt_aktiv5.TabIndex = 62;
-            this.bt_aktiv5.Text = "Активировать";
-            this.bt_aktiv5.UseVisualStyleBackColor = true;
-            this.bt_aktiv5.Click += new System.EventHandler(this.bt_aktiv5_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 277);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(776, 13);
-            this.progressBar1.TabIndex = 61;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.start,
-            this._size,
-            this.time,
-            this.crc32,
-            this.vers,
-            this.comment,
-            this.id});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 135);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 136);
-            this.dataGridView1.TabIndex = 60;
-            this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Имя файла";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 150;
-            // 
-            // start
-            // 
-            this.start.HeaderText = "Адрес";
-            this.start.Name = "start";
-            this.start.ReadOnly = true;
-            this.start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.start.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.start.Width = 50;
-            // 
-            // _size
-            // 
-            this._size.HeaderText = "Размер";
-            this._size.Name = "_size";
-            this._size.ReadOnly = true;
-            this._size.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._size.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this._size.Width = 60;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Время";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.time.Width = 110;
-            // 
-            // crc32
-            // 
-            this.crc32.HeaderText = "CRC32";
-            this.crc32.Name = "crc32";
-            this.crc32.ReadOnly = true;
-            this.crc32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.crc32.Width = 70;
-            // 
-            // vers
-            // 
-            this.vers.HeaderText = "Версия";
-            this.vers.Name = "vers";
-            this.vers.ReadOnly = true;
-            this.vers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.vers.Width = 50;
-            // 
-            // comment
-            // 
-            this.comment.HeaderText = "Комментарий";
-            this.comment.Name = "comment";
-            this.comment.ReadOnly = true;
-            this.comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.comment.Width = 280;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // bt_About5
-            // 
-            this.bt_About5.Location = new System.Drawing.Point(839, 592);
-            this.bt_About5.Name = "bt_About5";
-            this.bt_About5.Size = new System.Drawing.Size(108, 23);
-            this.bt_About5.TabIndex = 42;
-            this.bt_About5.Text = "О программе";
-            this.bt_About5.UseVisualStyleBackColor = true;
-            this.bt_About5.Click += new System.EventHandler(this.bt_About_Click);
-            // 
-            // bt_Exit5
-            // 
-            this.bt_Exit5.Location = new System.Drawing.Point(839, 621);
-            this.bt_Exit5.Name = "bt_Exit5";
-            this.bt_Exit5.Size = new System.Drawing.Size(108, 23);
-            this.bt_Exit5.TabIndex = 41;
-            this.bt_Exit5.Text = "Выход";
-            this.bt_Exit5.UseVisualStyleBackColor = true;
-            this.bt_Exit5.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
-            // gbox_CAN5
-            // 
-            this.gbox_CAN5.Controls.Add(this.lb_noerr5);
-            this.gbox_CAN5.Controls.Add(this.cb_CAN5);
-            this.gbox_CAN5.Controls.Add(this.lb_error_CAN5);
-            this.gbox_CAN5.Controls.Add(this.label51);
-            this.gbox_CAN5.Controls.Add(this.bt_CloseCAN5);
-            this.gbox_CAN5.Controls.Add(this.bt_OpenCAN5);
-            this.gbox_CAN5.Location = new System.Drawing.Point(6, 9);
-            this.gbox_CAN5.Name = "gbox_CAN5";
-            this.gbox_CAN5.Size = new System.Drawing.Size(369, 78);
-            this.gbox_CAN5.TabIndex = 40;
-            this.gbox_CAN5.TabStop = false;
-            this.gbox_CAN5.Text = "CAN";
-            // 
-            // lb_noerr5
-            // 
-            this.lb_noerr5.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr5.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr5.Name = "lb_noerr5";
-            this.lb_noerr5.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr5.TabIndex = 15;
-            this.lb_noerr5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr5.Visible = false;
-            // 
-            // cb_CAN5
-            // 
-            this.cb_CAN5.FormattingEnabled = true;
-            this.cb_CAN5.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN5.Name = "cb_CAN5";
-            this.cb_CAN5.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN5.TabIndex = 29;
-            // 
-            // lb_error_CAN5
-            // 
-            this.lb_error_CAN5.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN5.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN5.Name = "lb_error_CAN5";
-            this.lb_error_CAN5.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN5.TabIndex = 14;
-            this.lb_error_CAN5.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN5.Visible = false;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label51.Location = new System.Drawing.Point(159, 49);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(0, 13);
-            this.label51.TabIndex = 10;
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_CloseCAN5
-            // 
-            this.bt_CloseCAN5.Enabled = false;
-            this.bt_CloseCAN5.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN5.Name = "bt_CloseCAN5";
-            this.bt_CloseCAN5.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN5.TabIndex = 2;
-            this.bt_CloseCAN5.Text = "Закрыть";
-            this.bt_CloseCAN5.UseVisualStyleBackColor = true;
-            this.bt_CloseCAN5.Click += new System.EventHandler(this.bt_CloseCAN5_Click);
-            // 
-            // bt_OpenCAN5
-            // 
-            this.bt_OpenCAN5.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN5.Name = "bt_OpenCAN5";
-            this.bt_OpenCAN5.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN5.TabIndex = 0;
-            this.bt_OpenCAN5.Text = "Открыть";
-            this.bt_OpenCAN5.UseVisualStyleBackColor = true;
-            this.bt_OpenCAN5.Click += new System.EventHandler(this.bt_OpenCAN5_Click);
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.chb_6_10);
@@ -5664,584 +6242,6 @@
             this.chb_6_1.TabIndex = 0;
             this.chb_6_1.Text = "Юстировка";
             this.chb_6_1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.bt_About8);
-            this.tabPage8.Controls.Add(this.bt_Exit8);
-            this.tabPage8.Controls.Add(this.lb_info8);
-            this.tabPage8.Controls.Add(this.bt_stop8);
-            this.tabPage8.Controls.Add(this.bt_start8);
-            this.tabPage8.Controls.Add(this.groupBox2);
-            this.tabPage8.Controls.Add(this.gbox_CAN8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(962, 654);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Техно Прием";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // bt_About8
-            // 
-            this.bt_About8.Location = new System.Drawing.Point(839, 592);
-            this.bt_About8.Name = "bt_About8";
-            this.bt_About8.Size = new System.Drawing.Size(108, 23);
-            this.bt_About8.TabIndex = 46;
-            this.bt_About8.Text = "О программе";
-            this.bt_About8.UseVisualStyleBackColor = true;
-            this.bt_About8.Click += new System.EventHandler(this.bt_About8_Click);
-            // 
-            // bt_Exit8
-            // 
-            this.bt_Exit8.Location = new System.Drawing.Point(839, 621);
-            this.bt_Exit8.Name = "bt_Exit8";
-            this.bt_Exit8.Size = new System.Drawing.Size(108, 23);
-            this.bt_Exit8.TabIndex = 45;
-            this.bt_Exit8.Text = "Выход";
-            this.bt_Exit8.UseVisualStyleBackColor = true;
-            this.bt_Exit8.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
-            // lb_info8
-            // 
-            this.lb_info8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info8.Location = new System.Drawing.Point(175, 94);
-            this.lb_info8.Name = "lb_info8";
-            this.lb_info8.Size = new System.Drawing.Size(194, 22);
-            this.lb_info8.TabIndex = 44;
-            this.lb_info8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bt_stop8
-            // 
-            this.bt_stop8.Enabled = false;
-            this.bt_stop8.Location = new System.Drawing.Point(93, 93);
-            this.bt_stop8.Name = "bt_stop8";
-            this.bt_stop8.Size = new System.Drawing.Size(75, 23);
-            this.bt_stop8.TabIndex = 43;
-            this.bt_stop8.Text = "Стоп";
-            this.bt_stop8.UseVisualStyleBackColor = true;
-            this.bt_stop8.Click += new System.EventHandler(this.bt_stop8_Click);
-            // 
-            // bt_start8
-            // 
-            this.bt_start8.Location = new System.Drawing.Point(12, 93);
-            this.bt_start8.Name = "bt_start8";
-            this.bt_start8.Size = new System.Drawing.Size(75, 23);
-            this.bt_start8.TabIndex = 42;
-            this.bt_start8.Text = "Старт";
-            this.bt_start8.UseVisualStyleBackColor = true;
-            this.bt_start8.Click += new System.EventHandler(this.bt_start8_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rb_data_6bit8);
-            this.groupBox2.Controls.Add(this.rb_data_8bit8);
-            this.groupBox2.Controls.Add(this.pictbox_82);
-            this.groupBox2.Controls.Add(this.num_porog8);
-            this.groupBox2.Controls.Add(this.chb_contrast8);
-            this.groupBox2.Controls.Add(this.pb_loadbmp8);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.pictbox_81);
-            this.groupBox2.Location = new System.Drawing.Point(6, 122);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(657, 330);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Картинка 1                                                                       " +
-    "                  Картинка 2";
-            // 
-            // rb_data_6bit8
-            // 
-            this.rb_data_6bit8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_data_6bit8.AutoSize = true;
-            this.rb_data_6bit8.BackColor = System.Drawing.Color.SpringGreen;
-            this.rb_data_6bit8.Checked = true;
-            this.rb_data_6bit8.Location = new System.Drawing.Point(331, 299);
-            this.rb_data_6bit8.Name = "rb_data_6bit8";
-            this.rb_data_6bit8.Size = new System.Drawing.Size(73, 23);
-            this.rb_data_6bit8.TabIndex = 21;
-            this.rb_data_6bit8.TabStop = true;
-            this.rb_data_6bit8.Text = "Data 6 Byte";
-            this.rb_data_6bit8.UseVisualStyleBackColor = false;
-            this.rb_data_6bit8.CheckedChanged += new System.EventHandler(this.rb_data_6bit8_CheckedChanged);
-            // 
-            // rb_data_8bit8
-            // 
-            this.rb_data_8bit8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_data_8bit8.AutoSize = true;
-            this.rb_data_8bit8.BackColor = System.Drawing.Color.Transparent;
-            this.rb_data_8bit8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.rb_data_8bit8.Location = new System.Drawing.Point(253, 299);
-            this.rb_data_8bit8.Name = "rb_data_8bit8";
-            this.rb_data_8bit8.Size = new System.Drawing.Size(73, 23);
-            this.rb_data_8bit8.TabIndex = 20;
-            this.rb_data_8bit8.Text = "Data 8 Byte";
-            this.rb_data_8bit8.UseVisualStyleBackColor = false;
-            this.rb_data_8bit8.CheckedChanged += new System.EventHandler(this.rb_data_8bit8_CheckedChanged);
-            // 
-            // pictbox_82
-            // 
-            this.pictbox_82.BackColor = System.Drawing.Color.Black;
-            this.pictbox_82.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_82.Location = new System.Drawing.Point(331, 19);
-            this.pictbox_82.Name = "pictbox_82";
-            this.pictbox_82.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_82.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_82.TabIndex = 19;
-            this.pictbox_82.TabStop = false;
-            // 
-            // num_porog8
-            // 
-            this.num_porog8.Location = new System.Drawing.Point(185, 301);
-            this.num_porog8.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.num_porog8.Name = "num_porog8";
-            this.num_porog8.Size = new System.Drawing.Size(62, 20);
-            this.num_porog8.TabIndex = 18;
-            this.num_porog8.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
-            // 
-            // chb_contrast8
-            // 
-            this.chb_contrast8.AutoSize = true;
-            this.chb_contrast8.Location = new System.Drawing.Point(7, 301);
-            this.chb_contrast8.Name = "chb_contrast8";
-            this.chb_contrast8.Size = new System.Drawing.Size(171, 17);
-            this.chb_contrast8.TabIndex = 17;
-            this.chb_contrast8.Text = "Контрастирование картинки";
-            this.chb_contrast8.UseVisualStyleBackColor = true;
-            // 
-            // pb_loadbmp8
-            // 
-            this.pb_loadbmp8.Location = new System.Drawing.Point(6, 277);
-            this.pb_loadbmp8.Name = "pb_loadbmp8";
-            this.pb_loadbmp8.Size = new System.Drawing.Size(644, 18);
-            this.pb_loadbmp8.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(520, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 15;
-            // 
-            // pictbox_81
-            // 
-            this.pictbox_81.BackColor = System.Drawing.Color.Black;
-            this.pictbox_81.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_81.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_81.Name = "pictbox_81";
-            this.pictbox_81.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_81.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_81.TabIndex = 6;
-            this.pictbox_81.TabStop = false;
-            // 
-            // gbox_CAN8
-            // 
-            this.gbox_CAN8.Controls.Add(this.lb_noerr8);
-            this.gbox_CAN8.Controls.Add(this.cb_CAN8);
-            this.gbox_CAN8.Controls.Add(this.lb_error_CAN8);
-            this.gbox_CAN8.Controls.Add(this.label61);
-            this.gbox_CAN8.Controls.Add(this.bt_CloseCAN8);
-            this.gbox_CAN8.Controls.Add(this.bt_OpenCAN8);
-            this.gbox_CAN8.Location = new System.Drawing.Point(6, 9);
-            this.gbox_CAN8.Name = "gbox_CAN8";
-            this.gbox_CAN8.Size = new System.Drawing.Size(369, 78);
-            this.gbox_CAN8.TabIndex = 40;
-            this.gbox_CAN8.TabStop = false;
-            this.gbox_CAN8.Text = "CAN";
-            // 
-            // lb_noerr8
-            // 
-            this.lb_noerr8.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr8.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr8.Name = "lb_noerr8";
-            this.lb_noerr8.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr8.TabIndex = 15;
-            this.lb_noerr8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr8.Visible = false;
-            // 
-            // cb_CAN8
-            // 
-            this.cb_CAN8.FormattingEnabled = true;
-            this.cb_CAN8.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN8.Name = "cb_CAN8";
-            this.cb_CAN8.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN8.TabIndex = 29;
-            // 
-            // lb_error_CAN8
-            // 
-            this.lb_error_CAN8.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN8.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN8.Name = "lb_error_CAN8";
-            this.lb_error_CAN8.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN8.TabIndex = 14;
-            this.lb_error_CAN8.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN8.Visible = false;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label61.Location = new System.Drawing.Point(159, 49);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(0, 13);
-            this.label61.TabIndex = 10;
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_CloseCAN8
-            // 
-            this.bt_CloseCAN8.Enabled = false;
-            this.bt_CloseCAN8.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN8.Name = "bt_CloseCAN8";
-            this.bt_CloseCAN8.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN8.TabIndex = 2;
-            this.bt_CloseCAN8.Text = "Закрыть";
-            this.bt_CloseCAN8.UseVisualStyleBackColor = true;
-            this.bt_CloseCAN8.Click += new System.EventHandler(this.bt_CloseCAN8_Click);
-            // 
-            // bt_OpenCAN8
-            // 
-            this.bt_OpenCAN8.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN8.Name = "bt_OpenCAN8";
-            this.bt_OpenCAN8.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN8.TabIndex = 0;
-            this.bt_OpenCAN8.Text = "Открыть";
-            this.bt_OpenCAN8.UseVisualStyleBackColor = true;
-            this.bt_OpenCAN8.Click += new System.EventHandler(this.bt_OpenCAN8_Click);
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.bt_About9);
-            this.tabPage9.Controls.Add(this.bt_Exit9);
-            this.tabPage9.Controls.Add(this.rb_olo_r9);
-            this.tabPage9.Controls.Add(this.rb_olo_l9);
-            this.tabPage9.Controls.Add(this.bt_sendbmp9);
-            this.tabPage9.Controls.Add(this.groupBox3);
-            this.tabPage9.Controls.Add(this.groupBox4);
-            this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(962, 654);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Техно Передача";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // bt_About9
-            // 
-            this.bt_About9.Location = new System.Drawing.Point(839, 592);
-            this.bt_About9.Name = "bt_About9";
-            this.bt_About9.Size = new System.Drawing.Size(108, 23);
-            this.bt_About9.TabIndex = 55;
-            this.bt_About9.Text = "О программе";
-            this.bt_About9.UseVisualStyleBackColor = true;
-            this.bt_About9.Click += new System.EventHandler(this.bt_About9_Click);
-            // 
-            // bt_Exit9
-            // 
-            this.bt_Exit9.Location = new System.Drawing.Point(839, 621);
-            this.bt_Exit9.Name = "bt_Exit9";
-            this.bt_Exit9.Size = new System.Drawing.Size(108, 23);
-            this.bt_Exit9.TabIndex = 54;
-            this.bt_Exit9.Text = "Выход";
-            this.bt_Exit9.UseVisualStyleBackColor = true;
-            this.bt_Exit9.Click += new System.EventHandler(this.bt_Exit_Click);
-            // 
-            // rb_olo_r9
-            // 
-            this.rb_olo_r9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_olo_r9.BackColor = System.Drawing.Color.SpringGreen;
-            this.rb_olo_r9.Checked = true;
-            this.rb_olo_r9.Location = new System.Drawing.Point(12, 93);
-            this.rb_olo_r9.Name = "rb_olo_r9";
-            this.rb_olo_r9.Size = new System.Drawing.Size(80, 23);
-            this.rb_olo_r9.TabIndex = 53;
-            this.rb_olo_r9.TabStop = true;
-            this.rb_olo_r9.Text = "ОЛО правый";
-            this.rb_olo_r9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rb_olo_r9.UseVisualStyleBackColor = false;
-            this.rb_olo_r9.CheckedChanged += new System.EventHandler(this.rb_olo_r9_CheckedChanged);
-            // 
-            // rb_olo_l9
-            // 
-            this.rb_olo_l9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_olo_l9.Location = new System.Drawing.Point(98, 93);
-            this.rb_olo_l9.Name = "rb_olo_l9";
-            this.rb_olo_l9.Size = new System.Drawing.Size(80, 23);
-            this.rb_olo_l9.TabIndex = 51;
-            this.rb_olo_l9.Text = "ОЛО левый";
-            this.rb_olo_l9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rb_olo_l9.UseVisualStyleBackColor = true;
-            this.rb_olo_l9.CheckedChanged += new System.EventHandler(this.rb_olo_l9_CheckedChanged);
-            // 
-            // bt_sendbmp9
-            // 
-            this.bt_sendbmp9.Enabled = false;
-            this.bt_sendbmp9.Location = new System.Drawing.Point(184, 93);
-            this.bt_sendbmp9.Name = "bt_sendbmp9";
-            this.bt_sendbmp9.Size = new System.Drawing.Size(125, 23);
-            this.bt_sendbmp9.TabIndex = 52;
-            this.bt_sendbmp9.Text = "Отправить картинку";
-            this.bt_sendbmp9.UseVisualStyleBackColor = true;
-            this.bt_sendbmp9.Click += new System.EventHandler(this.bt_sendbmp9_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chb_2pict9);
-            this.groupBox3.Controls.Add(this.chb_1pict9);
-            this.groupBox3.Controls.Add(this.chb_8byte9);
-            this.groupBox3.Controls.Add(this.chb_6byte9);
-            this.groupBox3.Controls.Add(this.label66);
-            this.groupBox3.Controls.Add(this.bt_loadbmp92);
-            this.groupBox3.Controls.Add(this.pictbox_92);
-            this.groupBox3.Controls.Add(this.lb_info9);
-            this.groupBox3.Controls.Add(this.label60);
-            this.groupBox3.Controls.Add(this.bt_loadbmp91);
-            this.groupBox3.Controls.Add(this.pb_loadbmp9);
-            this.groupBox3.Controls.Add(this.label62);
-            this.groupBox3.Controls.Add(this.pictbox_91);
-            this.groupBox3.Location = new System.Drawing.Point(6, 122);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(659, 360);
-            this.groupBox3.TabIndex = 50;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Картинка 1                                                                       " +
-    "                  Картинка 2";
-            // 
-            // chb_2pict9
-            // 
-            this.chb_2pict9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb_2pict9.AutoSize = true;
-            this.chb_2pict9.BackColor = System.Drawing.Color.SpringGreen;
-            this.chb_2pict9.Checked = true;
-            this.chb_2pict9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chb_2pict9.Location = new System.Drawing.Point(252, 331);
-            this.chb_2pict9.Name = "chb_2pict9";
-            this.chb_2pict9.Size = new System.Drawing.Size(73, 23);
-            this.chb_2pict9.TabIndex = 57;
-            this.chb_2pict9.Text = "2 картинки";
-            this.chb_2pict9.UseVisualStyleBackColor = false;
-            this.chb_2pict9.CheckedChanged += new System.EventHandler(this.chb_2pict9_CheckedChanged);
-            // 
-            // chb_1pict9
-            // 
-            this.chb_1pict9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb_1pict9.AutoSize = true;
-            this.chb_1pict9.Location = new System.Drawing.Point(173, 331);
-            this.chb_1pict9.Name = "chb_1pict9";
-            this.chb_1pict9.Size = new System.Drawing.Size(73, 23);
-            this.chb_1pict9.TabIndex = 56;
-            this.chb_1pict9.Text = "1 картинка";
-            this.chb_1pict9.UseVisualStyleBackColor = true;
-            this.chb_1pict9.CheckedChanged += new System.EventHandler(this.chb_1pict9_CheckedChanged);
-            // 
-            // chb_8byte9
-            // 
-            this.chb_8byte9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb_8byte9.AutoSize = true;
-            this.chb_8byte9.Location = new System.Drawing.Point(62, 331);
-            this.chb_8byte9.Name = "chb_8byte9";
-            this.chb_8byte9.Size = new System.Drawing.Size(50, 23);
-            this.chb_8byte9.TabIndex = 55;
-            this.chb_8byte9.Text = "8 Байт";
-            this.chb_8byte9.UseVisualStyleBackColor = true;
-            this.chb_8byte9.CheckedChanged += new System.EventHandler(this.chb_8byte9_CheckedChanged);
-            // 
-            // chb_6byte9
-            // 
-            this.chb_6byte9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chb_6byte9.AutoSize = true;
-            this.chb_6byte9.BackColor = System.Drawing.Color.SpringGreen;
-            this.chb_6byte9.Checked = true;
-            this.chb_6byte9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chb_6byte9.Location = new System.Drawing.Point(6, 331);
-            this.chb_6byte9.Name = "chb_6byte9";
-            this.chb_6byte9.Size = new System.Drawing.Size(50, 23);
-            this.chb_6byte9.TabIndex = 54;
-            this.chb_6byte9.Text = "6 Байт";
-            this.chb_6byte9.UseVisualStyleBackColor = false;
-            this.chb_6byte9.CheckedChanged += new System.EventHandler(this.chb_6byte9_CheckedChanged);
-            // 
-            // label66
-            // 
-            this.label66.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label66.Location = new System.Drawing.Point(412, 301);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(237, 23);
-            this.label66.TabIndex = 53;
-            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_loadbmp92
-            // 
-            this.bt_loadbmp92.Location = new System.Drawing.Point(331, 301);
-            this.bt_loadbmp92.Name = "bt_loadbmp92";
-            this.bt_loadbmp92.Size = new System.Drawing.Size(75, 23);
-            this.bt_loadbmp92.TabIndex = 52;
-            this.bt_loadbmp92.Text = "Открыть";
-            this.bt_loadbmp92.UseVisualStyleBackColor = true;
-            this.bt_loadbmp92.Click += new System.EventHandler(this.bt_loadbmp92_Click);
-            // 
-            // pictbox_92
-            // 
-            this.pictbox_92.BackColor = System.Drawing.Color.Black;
-            this.pictbox_92.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
-            this.pictbox_92.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_92.Image = global::OLO_CAN.Properties.Resources.test_tech2;
-            this.pictbox_92.InitialImage = global::OLO_CAN.Properties.Resources.test_tech2;
-            this.pictbox_92.Location = new System.Drawing.Point(331, 19);
-            this.pictbox_92.Name = "pictbox_92";
-            this.pictbox_92.Size = new System.Drawing.Size(321, 257);
-            this.pictbox_92.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_92.TabIndex = 51;
-            this.pictbox_92.TabStop = false;
-            // 
-            // lb_info9
-            // 
-            this.lb_info9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_info9.Location = new System.Drawing.Point(331, 331);
-            this.lb_info9.Name = "lb_info9";
-            this.lb_info9.Size = new System.Drawing.Size(318, 22);
-            this.lb_info9.TabIndex = 48;
-            this.lb_info9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label60
-            // 
-            this.label60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label60.Location = new System.Drawing.Point(88, 301);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(237, 23);
-            this.label60.TabIndex = 50;
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_loadbmp91
-            // 
-            this.bt_loadbmp91.Location = new System.Drawing.Point(7, 301);
-            this.bt_loadbmp91.Name = "bt_loadbmp91";
-            this.bt_loadbmp91.Size = new System.Drawing.Size(75, 23);
-            this.bt_loadbmp91.TabIndex = 49;
-            this.bt_loadbmp91.Text = "Открыть";
-            this.bt_loadbmp91.UseVisualStyleBackColor = true;
-            this.bt_loadbmp91.Click += new System.EventHandler(this.bt_loadbmp9_Click);
-            // 
-            // pb_loadbmp9
-            // 
-            this.pb_loadbmp9.Location = new System.Drawing.Point(6, 277);
-            this.pb_loadbmp9.Name = "pb_loadbmp9";
-            this.pb_loadbmp9.Size = new System.Drawing.Size(644, 18);
-            this.pb_loadbmp9.TabIndex = 16;
-            // 
-            // label62
-            // 
-            this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(522, 0);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(0, 13);
-            this.label62.TabIndex = 15;
-            // 
-            // pictbox_91
-            // 
-            this.pictbox_91.BackColor = System.Drawing.Color.Black;
-            this.pictbox_91.BackgroundImage = global::OLO_CAN.Properties.Resources.test_tech;
-            this.pictbox_91.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictbox_91.Location = new System.Drawing.Point(6, 19);
-            this.pictbox_91.Name = "pictbox_91";
-            this.pictbox_91.Size = new System.Drawing.Size(319, 255);
-            this.pictbox_91.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictbox_91.TabIndex = 6;
-            this.pictbox_91.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lb_noerr9);
-            this.groupBox4.Controls.Add(this.cb_CAN9);
-            this.groupBox4.Controls.Add(this.lb_error_CAN9);
-            this.groupBox4.Controls.Add(this.label74);
-            this.groupBox4.Controls.Add(this.bt_CloseCAN9);
-            this.groupBox4.Controls.Add(this.bt_OpenCAN9);
-            this.groupBox4.Location = new System.Drawing.Point(6, 9);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(369, 78);
-            this.groupBox4.TabIndex = 49;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "CAN";
-            // 
-            // lb_noerr9
-            // 
-            this.lb_noerr9.BackColor = System.Drawing.Color.SpringGreen;
-            this.lb_noerr9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_noerr9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_noerr9.Location = new System.Drawing.Point(6, 49);
-            this.lb_noerr9.Name = "lb_noerr9";
-            this.lb_noerr9.Size = new System.Drawing.Size(357, 21);
-            this.lb_noerr9.TabIndex = 15;
-            this.lb_noerr9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_noerr9.Visible = false;
-            // 
-            // cb_CAN9
-            // 
-            this.cb_CAN9.FormattingEnabled = true;
-            this.cb_CAN9.Location = new System.Drawing.Point(6, 20);
-            this.cb_CAN9.Name = "cb_CAN9";
-            this.cb_CAN9.Size = new System.Drawing.Size(225, 21);
-            this.cb_CAN9.TabIndex = 29;
-            // 
-            // lb_error_CAN9
-            // 
-            this.lb_error_CAN9.BackColor = System.Drawing.Color.Red;
-            this.lb_error_CAN9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_error_CAN9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_error_CAN9.Location = new System.Drawing.Point(6, 49);
-            this.lb_error_CAN9.Name = "lb_error_CAN9";
-            this.lb_error_CAN9.Size = new System.Drawing.Size(357, 21);
-            this.lb_error_CAN9.TabIndex = 14;
-            this.lb_error_CAN9.Text = "Не удалось открыть CAN";
-            this.lb_error_CAN9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lb_error_CAN9.Visible = false;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label74.Location = new System.Drawing.Point(159, 49);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(0, 13);
-            this.label74.TabIndex = 10;
-            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bt_CloseCAN9
-            // 
-            this.bt_CloseCAN9.Enabled = false;
-            this.bt_CloseCAN9.Location = new System.Drawing.Point(300, 18);
-            this.bt_CloseCAN9.Name = "bt_CloseCAN9";
-            this.bt_CloseCAN9.Size = new System.Drawing.Size(63, 23);
-            this.bt_CloseCAN9.TabIndex = 2;
-            this.bt_CloseCAN9.Text = "Закрыть";
-            this.bt_CloseCAN9.UseVisualStyleBackColor = true;
-            this.bt_CloseCAN9.Click += new System.EventHandler(this.bt_CloseCAN9_Click);
-            // 
-            // bt_OpenCAN9
-            // 
-            this.bt_OpenCAN9.Location = new System.Drawing.Point(237, 18);
-            this.bt_OpenCAN9.Name = "bt_OpenCAN9";
-            this.bt_OpenCAN9.Size = new System.Drawing.Size(60, 23);
-            this.bt_OpenCAN9.TabIndex = 0;
-            this.bt_OpenCAN9.Text = "Открыть";
-            this.bt_OpenCAN9.UseVisualStyleBackColor = true;
-            this.bt_OpenCAN9.Click += new System.EventHandler(this.bt_OpenCAN9_Click);
             // 
             // contextMenuStrip1
             // 
@@ -6543,6 +6543,28 @@
             this.gb_olo_L.PerformLayout();
             this.gbox_CAN3.ResumeLayout(false);
             this.gbox_CAN3.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbox_CAN5.ResumeLayout(false);
+            this.gbox_CAN5.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).EndInit();
+            this.gbox_CAN8.ResumeLayout(false);
+            this.gbox_CAN8.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_92)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictbox_91)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.gb_Image24.ResumeLayout(false);
@@ -6561,30 +6583,8 @@
             this.gb5_bd.PerformLayout();
             this.gbox_CAN4.ResumeLayout(false);
             this.gbox_CAN4.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.gbox_CAN5.ResumeLayout(false);
-            this.gbox_CAN5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_82)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_porog8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_81)).EndInit();
-            this.gbox_CAN8.ResumeLayout(false);
-            this.gbox_CAN8.PerformLayout();
-            this.tabPage9.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_92)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictbox_91)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -6701,12 +6701,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chb_dgview2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cb2_select_olo;
         private System.Windows.Forms.Button bt_Request2;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bt_SyncTime;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb2_period_ans;
         private System.Windows.Forms.GroupBox gbox_CAN2;
         private System.Windows.Forms.Label lb_noerr2;
         private System.Windows.Forms.ComboBox cb_CAN2;
@@ -7105,9 +7105,9 @@
         private System.Windows.Forms.CheckBox chb_8byte9;
         private System.Windows.Forms.CheckBox chb_6byte9;
         private System.Windows.Forms.GroupBox gb4_scena;
-        private System.Windows.Forms.Button bt4_scene_stop;
-        private System.Windows.Forms.Button bt4_scene_start;
-        private System.Windows.Forms.Button bt4_load_scene;
+        private System.Windows.Forms.Button bt3_scene_stop;
+        private System.Windows.Forms.Button bt3_scene_start;
+        private System.Windows.Forms.Button bt3_load_scene;
         private System.Windows.Forms.TextBox tb4_scene_file;
         private System.Windows.Forms.Timer tim4_run_scene;
         private System.Windows.Forms.CheckBox chb_6_10;
