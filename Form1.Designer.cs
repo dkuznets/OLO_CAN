@@ -2975,8 +2975,7 @@
             this.cb2_select_olo.FormattingEnabled = true;
             this.cb2_select_olo.Items.AddRange(new object[] {
             "ОЛО левый борт",
-            "ОЛО правый борт",
-            "Широковещательный"});
+            "ОЛО правый борт"});
             this.cb2_select_olo.Location = new System.Drawing.Point(201, 101);
             this.cb2_select_olo.Name = "cb2_select_olo";
             this.cb2_select_olo.Size = new System.Drawing.Size(181, 21);

@@ -1173,6 +1173,8 @@ namespace OLO_CAN
             catch (Exception)
             {
             }
+            cb2_period_ans.SelectedIndex = 0;
+            cb2_select_olo.SelectedIndex = 0;
             switch (tabControl1.SelectedIndex)
             {
                 case 0:
@@ -1197,8 +1199,6 @@ namespace OLO_CAN
                         bt_CloseCAN5.PerformClick();
                         state_NotReady();
                         rtb2_datagrid.ResetText();
-                        cb2_period_ans.SelectedIndex = 0;
-                        cb2_select_olo.SelectedIndex = 0;
                         bt_CloseCAN8.PerformClick();
                         break;
                 case 3:
@@ -4892,11 +4892,8 @@ namespace OLO_CAN
                 case 1:
                     OLO_Select = Const.OLO_Right;
                     break;
-                case 2:
-                    OLO_Select = Const.OLO_All;
-                    break;
                 default:
-                    OLO_Select = Const.OLO_All;
+                    OLO_Select = Const.OLO_Right;
                     break;
             }
         }
@@ -4935,12 +4932,6 @@ namespace OLO_CAN
                 case 1:
                     mm.deviceID = Const.OLO_Right;
                     sss = "Запрос статуса правого ОЛО";
-                    break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
-                    break;
-                default:
-                    mm.deviceID = Const.OLO_All;
                     break;
             }
             tmp = BitConverter.GetBytes(to);
@@ -5014,9 +5005,6 @@ namespace OLO_CAN
                 case 1:
                     mm.deviceID = Const.OLO_Right;
                     break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
-                    break;
             }
             mm.messageID = msg_t.mID_GET_SN;
             mm.messageLen = 1;
@@ -5087,9 +5075,6 @@ namespace OLO_CAN
                     break;
                 case 1:
                     mm.deviceID = Const.OLO_Right;
-                    break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
                     break;
 	        }
             mm.messageID = msg_t.mID_REQVER;
@@ -5184,12 +5169,6 @@ namespace OLO_CAN
                 case 1:
                     mm.deviceID = Const.OLO_Right;
                     break;
-                case 2:
-                    mm.deviceID = Const.OLO_All;
-                    break;
-                default:
-                    mm.deviceID = Const.OLO_All;
-                    break;
             }
 //            tmp = BitConverter.GetBytes(to);
 //            Array.Copy(tmp, mm.messageData, 4);
@@ -5223,10 +5202,8 @@ namespace OLO_CAN
 
             if (cb2_select_olo.SelectedIndex == 0)
                 mm.deviceID = Const.OLO_Left;
-            else if (cb2_select_olo.SelectedIndex == 1)
-                mm.deviceID = Const.OLO_Right;
             else
-                mm.deviceID = Const.OLO_All;
+                mm.deviceID = Const.OLO_Right;
             mm.messageID = msg_t.mID_RESET;
             mm.messageLen = 1;
             mm.messageData[0] = 0;
@@ -5244,10 +5221,8 @@ namespace OLO_CAN
 
             if (cb2_select_olo.SelectedIndex == 0)
                 mm.deviceID = Const.OLO_Left;
-            else if (cb2_select_olo.SelectedIndex == 1)
-                mm.deviceID = Const.OLO_Right;
             else
-                mm.deviceID = Const.OLO_All;
+                mm.deviceID = Const.OLO_Right;
             mm.messageID = msg_t.mID_PROG;
             mm.messageLen = 2;
             Array.Clear(mm.messageData, 0, 8);
