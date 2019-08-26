@@ -1179,6 +1179,7 @@ namespace OLO_CAN
             {
                 Trace.WriteLine(item.ToString());
                 Trace.WriteLine(tabControl1.SelectedTab.ToString());
+                Trace.WriteLine(tabControl1.SelectedTab.Name.ToString());
             }
             //if (tabControl1.TabPages.)
             //{
