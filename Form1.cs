@@ -157,6 +157,7 @@ namespace OLO_CAN
         int currTab = 0;
         const Byte def_NUM_TABS = 8;
         ComboBox[] cb_CAN = new ComboBox[def_NUM_TABS];
+        Button[] bt_CAN = new Button[def_NUM_TABS - 1];
 
         IniFile inicfg;
 
@@ -368,6 +369,14 @@ namespace OLO_CAN
             cb_CAN[5] = cb_CAN5;
             cb_CAN[6] = cb_CAN8;
             cb_CAN[7] = cb_CAN9;
+
+            bt_CAN[0] = bt_CloseCAN;
+            bt_CAN[1] = bt_CloseCAN2;
+            bt_CAN[2] = bt_CloseCAN3;
+            bt_CAN[3] = bt_CloseCAN5;
+            bt_CAN[4] = bt_CloseCAN8;
+            bt_CAN[5] = bt_CloseCAN9;
+            bt_CAN[6] = bt_CloseCAN4;
 
             state_Error();
             
