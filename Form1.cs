@@ -1177,9 +1177,9 @@ namespace OLO_CAN
             cb2_select_olo.SelectedIndex = 0;
             foreach (var item in tabControl1.TabPages)
             {
-                Trace.WriteLine(item.ToString());
-                Trace.WriteLine(tabControl1.SelectedTab.ToString());
-                Trace.WriteLine(tabControl1.SelectedTab.Name.ToString());
+                //Trace.WriteLine(item.ToString());
+                //Trace.WriteLine(tabControl1.SelectedTab.ToString());
+                //Trace.WriteLine(tabControl1.SelectedTab.Name.ToString());
             }
             //if (tabControl1.TabPages.)
             //{
