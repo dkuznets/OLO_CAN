@@ -1190,6 +1190,10 @@ namespace OLO_CAN
                 //Trace.WriteLine(tabControl1.SelectedTab.ToString());
                 //Trace.WriteLine(tabControl1.SelectedTab.Name.ToString());
             }
+            for (int i = 0; i < def_NUM_TABS - 1; i++)
+            {
+                bt_CAN[i].PerformClick();
+            }
             //if (tabControl1.TabPages.)
             //{
                 
@@ -1269,6 +1273,7 @@ namespace OLO_CAN
                         break;
             }
              */
+            /*
             switch (tabControl1.SelectedTab.Name)
             {
                 case "tabPage1":
@@ -1350,7 +1355,7 @@ namespace OLO_CAN
                 default:
                     break;
             }
-
+            */
             // Disable Tabs
             if (_state == State.VideoState)
             {
