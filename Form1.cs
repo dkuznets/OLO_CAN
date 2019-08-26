@@ -1185,6 +1185,7 @@ namespace OLO_CAN
             //{
                 
             //}
+            /*
             switch (tabControl1.SelectedIndex)
             {
                 case 0:
@@ -1258,6 +1259,89 @@ namespace OLO_CAN
                 default:
                         break;
             }
+             */
+            switch (tabControl1.SelectedTab.Name)
+            {
+                case "tabPage1":
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage2":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage3":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    state_NotReady();
+                    rtb2_datagrid.ResetText();
+                    break;
+                case "tabPage4":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage7":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage8":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage9":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                case "tabPage5":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    break;
+                case "tabPage6":
+                    bt_CloseCAN.PerformClick();
+                    bt_CloseCAN2.PerformClick();
+                    bt_CloseCAN3.PerformClick();
+                    bt_CloseCAN5.PerformClick();
+                    bt_CloseCAN8.PerformClick();
+                    bt_CloseCAN9.PerformClick();
+                    bt_CloseCAN4.PerformClick();
+                    break;
+                default:
+                    break;
+            }
+
             // Disable Tabs
             if (_state == State.VideoState)
             {
