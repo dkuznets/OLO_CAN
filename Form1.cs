@@ -4338,25 +4338,6 @@ namespace OLO_CAN
         }
         private void bt_OpenCAN2_Click(object sender, EventArgs e)
         {
-/*
-            if (cb_CAN2.SelectedItem.ToString() == "No CAN" || cb_CAN2.Items.Count < 1)
-                return;
-            if (cb_CAN2.SelectedItem.ToString() == "USB Marathon")
-            {
-                marCAN = new MCANConverter();
-                uniCAN = marCAN as MCANConverter;
-            }
-            else if (cb_CAN2.SelectedItem.ToString() == "PCI Advantech")
-            {
-                advCAN = new ACANConverter();
-                uniCAN = advCAN as ACANConverter;
-            }
-            else
-            {
-                elcCAN = new ECANConverter();
-                uniCAN = elcCAN as ECANConverter;
-            }
-*/
             switch (cb_CAN2.SelectedItem.ToString())
             {
                 case "No CAN":
@@ -5963,7 +5944,7 @@ namespace OLO_CAN
                                     mmm.messageData[2] = (Byte)((chb_L_Err_plis.Checked ? 0 : 1) + (chb_L_Err_file.Checked ? 0 : 2)); //исправность компонент
                                     try
                                     {
-                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_l.Text);
+                                        mmm.messageData[3] = (Byte)SByte.Parse(tb3_tarm_l.Text);
                                     }
                                     catch (FormatException)
                                     {
@@ -5971,7 +5952,7 @@ namespace OLO_CAN
                                     }
                                     try
                                     {
-                                        mmm.messageData[4] = Byte.Parse(tb3_t1_l.Text);
+                                        mmm.messageData[4] = (Byte)SByte.Parse(tb3_t1_l.Text);
                                     }
                                     catch (FormatException)
                                     {
@@ -5979,7 +5960,7 @@ namespace OLO_CAN
                                     }
                                     try
                                     {
-                                        mmm.messageData[5] = Byte.Parse(tb3_t2_l.Text);
+                                        mmm.messageData[5] = (Byte)SByte.Parse(tb3_t2_l.Text);
                                     }
                                     catch (FormatException)
                                     {
