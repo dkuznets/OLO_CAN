@@ -5988,7 +5988,7 @@ namespace OLO_CAN
                                     mmm.messageData[2] = (Byte)((chb_R_Err_plis.Checked ? 0 : 1) + (chb_R_Err_file.Checked ? 0 : 2)); //исправность компонент
                                     try
                                     {
-                                        mmm.messageData[3] = Byte.Parse(tb3_tarm_r.Text);
+                                        mmm.messageData[3] = (Byte)SByte.Parse(tb3_tarm_r.Text);
                                     }
                                     catch (FormatException)
                                     {
@@ -5996,7 +5996,7 @@ namespace OLO_CAN
                                     }
                                     try
                                     {
-                                        mmm.messageData[4] = Byte.Parse(tb3_t1_r.Text);
+                                        mmm.messageData[4] = (Byte)SByte.Parse(tb3_t1_r.Text);
                                     }
                                     catch (FormatException)
                                     {
@@ -6004,7 +6004,7 @@ namespace OLO_CAN
                                     }
                                     try
                                     {
-                                        mmm.messageData[5] = Byte.Parse(tb3_t2_r.Text);
+                                        mmm.messageData[5] = (Byte)SByte.Parse(tb3_t2_r.Text);
                                     }
                                     catch (FormatException)
                                     {
