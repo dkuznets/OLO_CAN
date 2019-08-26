@@ -1178,6 +1178,7 @@ namespace OLO_CAN
             foreach (var item in tabControl1.TabPages)
             {
                 Trace.WriteLine(item.ToString());
+                Trace.WriteLine(tabControl1.SelectedTab.ToString());
             }
             //if (tabControl1.TabPages.)
             //{
