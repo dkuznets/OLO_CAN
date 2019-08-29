@@ -438,21 +438,31 @@ namespace OLO_CAN
             //{
             //}
 
-
+            
             inicfg = new IniFile(Application.StartupPath.ToString() + "\\olo_can.cfg");
             if (System.IO.File.Exists(Application.StartupPath.ToString() + "\\olo_can.cfg"))
-           {
-                chb_6_1.Checked = inicfg._GetBool("setup", "key1");
-                chb_6_2.Checked = inicfg._GetBool("setup", "key2");
-                chb_6_3.Checked = inicfg._GetBool("setup", "key3");
-                chb_6_4.Checked = inicfg._GetBool("setup", "key4");
-                chb_6_5.Checked = inicfg._GetBool("setup", "key5");
-                chb_6_6.Checked = inicfg._GetBool("setup", "key6");
-                chb_6_7.Checked = inicfg._GetBool("setup", "key7");
-                chb_6_8.Checked = inicfg._GetBool("setup", "key8");
-                chb_6_9.Checked = inicfg._GetBool("setup", "key9");
-                chb_6_10.Checked = inicfg._GetBool("setup", "key10");
-           }
+            {
+                try { chb_6_1.Checked = inicfg._GetBool("setup", "key1"); }
+                catch (Exception) { }
+                try { chb_6_2.Checked = inicfg._GetBool("setup", "key2"); }
+                catch (Exception) { }
+                try { chb_6_3.Checked = inicfg._GetBool("setup", "key3"); }
+                catch (Exception) { }
+                try { chb_6_4.Checked = inicfg._GetBool("setup", "key4"); }
+                catch (Exception) { }
+                try { chb_6_5.Checked = inicfg._GetBool("setup", "key5"); }
+                catch (Exception) { }
+                try { chb_6_6.Checked = inicfg._GetBool("setup", "key6"); }
+                catch (Exception) { }
+                try { chb_6_7.Checked = inicfg._GetBool("setup", "key7"); }
+                catch (Exception) { }
+                try { chb_6_8.Checked = inicfg._GetBool("setup", "key8"); }
+                catch (Exception) { }
+                try { chb_6_9.Checked = inicfg._GetBool("setup", "key9"); }
+                catch (Exception) { }
+                try { chb_6_10.Checked = inicfg._GetBool("setup", "key10"); }
+                catch (Exception) { }
+            }
             else
             {
                 chb_6_1.Checked = true;
